@@ -51,10 +51,12 @@
 - ETA: ~10 more minutes
 
 **3. func_065 FIFO Batching Implementation**
-- Tool created: patch_fifo_batching.py
-- Status: Ready for testing
-- Expected gain: +10-15% (24 → 27-28 FPS)
-- Next: Test ROM generation
+- Tool created: patch_fifo_batching.py ✅
+- Status: **ROM GENERATED!** 🎉
+- Generated: Virtua Racing - FIFO.32x (3.0 MB)
+- Method: Function relocation (0x23F2E → 0x016300)
+- Expected gain: +8-12% (24 → 26-27 FPS)
+- Next: Test ROM in emulator
 
 ### Pending ⏳
 
@@ -122,7 +124,8 @@ wait_68k:
 - [x] Create roadmap
 - [x] Bottleneck analysis
 - [x] Tool development
-- [ ] Test func_065 FIFO batching → **28 FPS** expected
+- [x] Generate func_065 FIFO batching ROM ✅
+- [ ] Test ROM in emulator → **26-27 FPS** expected
 
 ### Next Week (Week 2)
 - [ ] Begin Slave CPU dispatcher
