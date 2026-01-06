@@ -48,11 +48,11 @@ if [ ! -f "$GENS_PATH" ]; then
 fi
 echo -e "${GREEN}✓${NC} Gens emulator found"
 
-if ! command -v gdb &> /dev/null; then
-    echo -e "${RED}❌ GDB not found. Please install: sudo apt-get install gdb-multiarch${NC}"
+if ! command -v gdb-multiarch &> /dev/null; then
+    echo -e "${RED}❌ gdb-multiarch not found. Please install: sudo apt-get install gdb-multiarch${NC}"
     exit 1
 fi
-echo -e "${GREEN}✓${NC} GDB found"
+echo -e "${GREEN}✓${NC} gdb-multiarch found"
 
 if ! command -v wine &> /dev/null; then
     echo -e "${YELLOW}⚠️  Wine not found. Gens may not run on Linux without Wine.${NC}"
@@ -131,7 +131,7 @@ echo -e "${GREEN}Starting GDB profiler...${NC}"
 echo ""
 
 # Run GDB with the generated script
-gdb -x "$GDB_SCRIPT"
+gdb-multiarch -x "$GDB_SCRIPT"
 
 echo ""
 echo -e "${BLUE}======================================================================${NC}"

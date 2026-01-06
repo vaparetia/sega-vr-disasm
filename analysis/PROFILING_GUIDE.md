@@ -170,7 +170,8 @@ Output shows generated script location and instructions.
 ### Step 4: Run GDB with Script
 
 ```bash
-gdb -x gdb_scripts/profile_vdp_polling.gdb
+# Use gdb-multiarch for SH2 architecture support
+gdb-multiarch -x gdb_scripts/profile_vdp_polling.gdb
 ```
 
 GDB will:

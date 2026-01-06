@@ -44,8 +44,8 @@ wine "Gens_KMod_v0.7.3/gens.exe" "Virtua Racing Deluxe (USA).32x"
 # Generate GDB script
 python3 tools/gdb_profiler.py vdp_polling
 
-# Run GDB with the script
-gdb -x gdb_scripts/profile_vdp_polling.gdb
+# Run GDB with the script (use gdb-multiarch for SH2 support)
+gdb-multiarch -x gdb_scripts/profile_vdp_polling.gdb
 ```
 
 **In GDB:**

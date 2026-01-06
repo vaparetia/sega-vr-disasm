@@ -42,4 +42,7 @@ commands
 end
 continue
 # After running for a few seconds, press Ctrl+C and examine:
-# info variables poll_count_
+# print $poll_count_0
+# print $poll_count_1
+# print $poll_count_2
+# print $poll_count_3

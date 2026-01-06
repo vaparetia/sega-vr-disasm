@@ -190,7 +190,10 @@ def profile_vdp_polling():
     # Run for a bit, then print stats
     profiler.add_command("continue")
     profiler.add_command("# After running for a few seconds, press Ctrl+C and examine:")
-    profiler.add_command("# info variables poll_count_")
+    profiler.add_command("# print $poll_count_0")
+    profiler.add_command("# print $poll_count_1")
+    profiler.add_command("# print $poll_count_2")
+    profiler.add_command("# print $poll_count_3")
 
     return profiler.run("gdb_scripts/profile_vdp_polling.gdb")
 
