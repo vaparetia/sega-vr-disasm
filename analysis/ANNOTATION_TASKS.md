@@ -197,6 +197,30 @@ These need more careful analysis.
 
 ---
 
+## Analysis Notes: Priority 2+ Functions
+
+### Priority 2 (Recursive Functions) - Analysis Status
+
+Investigation of Priority 2 recursive functions reveals complex control flow characteristics:
+
+**func_020 (0x23468, 86 bytes)**: Recursive function with multiple BSR calls and data manipulation. Likely implements tree/list traversal with context-based recursion. Requires detailed control-flow analysis of all branch targets.
+
+**func_043 (0x239AA, 30 bytes)**: Simpler recursive structure. Copies 14 blocks of data with setup/GBR configuration. Has unusual BFFF BSR instruction that may indicate special recursion mechanism or branch encoding.
+
+**func_044 (0x239CA, 152 bytes)**: Complex hub with multiple JSR indirect calls, conditional branches, and embedded data tables. Likely implements high-level polygon dispatch or scene graph traversal.
+
+**func_094 (0x24598, 38 bytes)**: Control flow branches to address *before* function entry (BF $022244F6 from 0x022245BC), indicating either:
+- Misaligned disassembly due to complex address encoding
+- Cross-function tail recursion/call patterns
+- Need for more sophisticated control-flow analysis tools
+
+**Recommendation**: Priority 2 functions would benefit from:
+1. Runtime analysis or breakpoint study (GDB not available per CLAUDE.md)
+2. Cross-reference with known 3D engine algorithms (BSP traversal, polygon classification)
+3. Possible use of specialized SH2 analysis tools that handle delay slots and branch encoding more carefully
+
+---
+
 ## Progress Tracking
 
 | Priority | Total | Done | Remaining | % Complete |
