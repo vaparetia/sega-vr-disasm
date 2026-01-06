@@ -532,6 +532,36 @@ class SH2Disassembler:
 
         # === Special Registers ===
 
+        # LDC Rm,VBR (4nm0e) - Load to VBR (Vector Base Register)
+        if (opcode & 0xF0FF) == 0x400E:
+            m = (opcode >> 8) & 0xF
+            return f"LDC     R{m},VBR", 2
+
+        # STC VBR,Rn (0n02) - Store from VBR
+        if (opcode & 0xF0FF) == 0x0002:
+            n = (opcode >> 8) & 0xF
+            return f"STC     VBR,R{n}", 2
+
+        # LDC Rm,GBR (4nm1e) - Load to GBR (Global Base Register)
+        if (opcode & 0xF0FF) == 0x401E:
+            m = (opcode >> 8) & 0xF
+            return f"LDC     R{m},GBR", 2
+
+        # STC GBR,Rn (0n12) - Store from GBR
+        if (opcode & 0xF0FF) == 0x0012:
+            n = (opcode >> 8) & 0xF
+            return f"STC     GBR,R{n}", 2
+
+        # LDC Rm,SR (4nm0f) - Load to SR (Status Register)
+        if (opcode & 0xF0FF) == 0x400F:
+            m = (opcode >> 8) & 0xF
+            return f"LDC     R{m},SR", 2
+
+        # STC SR,Rn (0n03) - Store from SR
+        if (opcode & 0xF0FF) == 0x0003:
+            n = (opcode >> 8) & 0xF
+            return f"STC     SR,R{n}", 2
+
         # LDS Rm,PR (4nm2a) - Load to PR
         if (opcode & 0xF0FF) == 0x402A:
             m = (opcode >> 8) & 0xF
