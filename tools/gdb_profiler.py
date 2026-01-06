@@ -49,7 +49,7 @@ def profile_func_065():
     profiler = GDBProfiler()
 
     # Connect to emulator
-    profiler.add_command("target remote localhost:6868")
+    profiler.add_command("target remote localhost:6870")  # Master SH2 port
     profiler.add_command("set architecture sh2")
 
     # Set breakpoint at func_065
@@ -88,7 +88,7 @@ def profile_hot_functions():
         (0x023ED0, "func_065_inline"),
     ]
 
-    profiler.add_command("target remote localhost:6868")
+    profiler.add_command("target remote localhost:6870")  # Master SH2 port
     profiler.add_command("set architecture sh2")
 
     # Set counter variables
@@ -115,7 +115,7 @@ def trace_r13_init():
     """Trace where R13 is initialized"""
     profiler = GDBProfiler()
 
-    profiler.add_command("target remote localhost:6868")
+    profiler.add_command("target remote localhost:6870")  # Master SH2 port
     profiler.add_command("set architecture sh2")
 
     # Watch R13 writes
@@ -137,7 +137,7 @@ def dump_memory_at_r10():
     """Dump memory at R10 (lookup table)"""
     profiler = GDBProfiler()
 
-    profiler.add_command("target remote localhost:6868")
+    profiler.add_command("target remote localhost:6870")  # Master SH2 port
     profiler.add_command("set architecture sh2")
 
     # Break at func_065
@@ -167,7 +167,7 @@ def profile_vdp_polling():
         (0x024482, "vdp_poll_4"),
     ]
 
-    profiler.add_command("target remote localhost:6868")
+    profiler.add_command("target remote localhost:6870")  # Master SH2 port
     profiler.add_command("set architecture sh2")
 
     # Set counter variables for each polling loop
@@ -198,7 +198,7 @@ def profile_slave_cpu():
     """Profile Slave SH2 CPU - find entry point and analyze idle state"""
     profiler = GDBProfiler()
 
-    profiler.add_command("target remote localhost:6868")
+    profiler.add_command("target remote localhost:6871")  # Slave SH2 port
     profiler.add_command("set architecture sh2")
 
     # Strategy: Watch COMM registers for Master→Slave communication

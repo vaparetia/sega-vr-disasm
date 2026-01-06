@@ -161,7 +161,11 @@ Output shows generated script location and instructions.
 ### Step 3: Enable GDB Stub in Gens
 
 - Menu: **Tools → GDB Stub → Start**
-- Should see: "GDB stub started on port 6868"
+- Enable all GDB stubs. Port assignments:
+  - **Main 68K:** 6868
+  - **Sub 68K:** 6869
+  - **Master SH2:** 6870 (VDP polling, hot functions profilers)
+  - **Slave SH2:** 6871 (Slave CPU profiler)
 
 ### Step 4: Run GDB with Script
 

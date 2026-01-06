@@ -1,4 +1,4 @@
-target remote localhost:6868
+target remote localhost:6870
 set architecture sh2
 set $poll_count_0 = 0
 set $poll_cycles_0 = 0
