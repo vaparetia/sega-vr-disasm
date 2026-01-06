@@ -106,26 +106,31 @@ class M68KDisassembler:
         if opcode == 0x4E71:
             return "NOP", 2
 
-        # MOVE.L #imm, An (2x7C)
-        if (opcode & 0xF1F8) == 0x207C:
-            reg = (opcode >> 9) & 7
-            imm = self.read_long()
-            self.offset += 4
-            return f"MOVE.L  #${imm:08X},A{reg}", 6
-
-        # MOVE.W #imm, An (3x7C)
-        if (opcode & 0xF1F8) == 0x307C:
-            reg = (opcode >> 9) & 7
-            imm = self.read_word()
-            self.offset += 2
-            return f"MOVE.W  #${imm:04X},A{reg}", 4
-
-        # MOVEA.L #imm, An (2x7C variant)
-        if (opcode & 0xF1F8) == 0x2A7C:
+        # MOVEA.L #imm, An (2x7C pattern for all registers)
+        if (opcode & 0xF1FF) == 0x207C:
             reg = (opcode >> 9) & 7
             imm = self.read_long()
             self.offset += 4
             return f"MOVEA.L #${imm:08X},A{reg}", 6
+
+        # MOVEA.W #imm, An (3x7C)
+        if (opcode & 0xF1FF) == 0x307C:
+            reg = (opcode >> 9) & 7
+            imm = self.read_word()
+            self.offset += 2
+            return f"MOVEA.W #${imm:04X},A{reg}", 4
+
+        # MOVEA.L from memory/EA (2xxx)
+        if (opcode & 0xF1C0) == 0x2040:
+            reg = (opcode >> 9) & 7
+            ea, ea_size = self.decode_ea(opcode & 0x3F, ".L")
+            return f"MOVEA.L {ea},A{reg}", 2 + ea_size
+
+        # MOVEA.W from memory/EA (3xxx)
+        if (opcode & 0xF1C0) == 0x3040:
+            reg = (opcode >> 9) & 7
+            ea, ea_size = self.decode_ea(opcode & 0x3F, ".W")
+            return f"MOVEA.W {ea},A{reg}", 2 + ea_size
 
         # LEA xxxx.l, An (41F9)
         if (opcode & 0xF1FF) == 0x41F9:
@@ -230,6 +235,42 @@ class M68KDisassembler:
             ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
             return f"CLR{size_str:4s}{ea}", 2 + ea_size
 
+        # CMPI - Must come before bit operations!
+        if (opcode & 0xFF00) == 0x0C00:
+            size = (opcode >> 6) & 3
+            size_map = {0: ".B", 1: ".W", 2: ".L"}
+            size_str = size_map.get(size, "")
+            if size == 2:
+                imm = self.read_long()
+                self.offset += 4
+                imm_str = f"#${imm:08X}"
+                ea_size = 6
+            else:
+                imm = self.read_word()
+                self.offset += 2
+                imm_str = f"#${imm:04X}" if size == 1 else f"#${imm:02X}"
+                ea_size = 4
+            ea, ea_add = self.decode_ea(opcode & 0x3F, size_str)
+            return f"CMPI{size_str:4s}{imm_str},{ea}", ea_size + ea_add
+
+        # ORI/ANDI/SUBI/ADDI to CCR/SR
+        if (opcode & 0xFFF8) == 0x003C:  # ORI to CCR
+            imm = self.read_word()
+            self.offset += 2
+            return f"ORI     #${imm:02X},CCR", 4
+        if (opcode & 0xFFF8) == 0x023C:  # ANDI to CCR
+            imm = self.read_word()
+            self.offset += 2
+            return f"ANDI    #${imm:02X},CCR", 4
+        if (opcode & 0xFFF8) == 0x007C:  # ORI to SR
+            imm = self.read_word()
+            self.offset += 2
+            return f"ORI     #${imm:04X},SR", 4
+        if (opcode & 0xFFF8) == 0x027C:  # ANDI to SR
+            imm = self.read_word()
+            self.offset += 2
+            return f"ANDI    #${imm:04X},SR", 4
+
         # BTST (0x0800 - bit test with immediate)
         if opcode == 0x0800 or opcode == 0x0840 or opcode == 0x0880:
             bit = self.read_word()
@@ -259,42 +300,6 @@ class M68KDisassembler:
                 self.offset += 2
                 ea, ea_size = self.decode_ea(opcode & 0x3F, ".B")
                 return f"{bit_ops[bit_op]:8s}#{bit & 0xFF},{ea}", 4 + ea_size
-
-        # ORI/ANDI/SUBI/ADDI to CCR/SR
-        if (opcode & 0xFFF8) == 0x003C:  # ORI to CCR
-            imm = self.read_word()
-            self.offset += 2
-            return f"ORI     #${imm:02X},CCR", 4
-        if (opcode & 0xFFF8) == 0x023C:  # ANDI to CCR
-            imm = self.read_word()
-            self.offset += 2
-            return f"ANDI    #${imm:02X},CCR", 4
-        if (opcode & 0xFFF8) == 0x007C:  # ORI to SR
-            imm = self.read_word()
-            self.offset += 2
-            return f"ORI     #${imm:04X},SR", 4
-        if (opcode & 0xFFF8) == 0x027C:  # ANDI to SR
-            imm = self.read_word()
-            self.offset += 2
-            return f"ANDI    #${imm:04X},SR", 4
-
-        # CMPI
-        if (opcode & 0xFF00) == 0x0C00:
-            size = (opcode >> 6) & 3
-            size_map = {0: ".B", 1: ".W", 2: ".L"}
-            size_str = size_map.get(size, "")
-            if size == 2:
-                imm = self.read_long()
-                self.offset += 4
-                imm_str = f"#${imm:08X}"
-                ea_size = 6
-            else:
-                imm = self.read_word()
-                self.offset += 2
-                imm_str = f"#${imm:04X}" if size == 1 else f"#${imm:02X}"
-                ea_size = 4
-            ea, ea_add = self.decode_ea(opcode & 0x3F, size_str)
-            return f"CMPI{size_str:4s}{imm_str},{ea}", ea_size + ea_add
 
         # DBcc (51C8-51CF for DBRA, etc.)
         if (opcode & 0xF0F8) == 0x50C8:
@@ -343,6 +348,11 @@ class M68KDisassembler:
             return f"MOVEM{size_str:3s}{ea},{regs}", 4 + ea_size
 
         # MOVE to/from SR
+        if opcode == 0x46FC:  # MOVE.W #imm,SR
+            imm = self.read_word()
+            self.offset += 2
+            return f"MOVE.W  #${imm:04X},SR", 4
+
         if (opcode & 0xFFC0) == 0x46C0:  # MOVE SR,<ea>
             ea, ea_size = self.decode_ea(opcode & 0x3F, ".W")
             return f"MOVE    SR,{ea}", 2 + ea_size
@@ -367,6 +377,164 @@ class M68KDisassembler:
             ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
             op = "SUBQ" if is_sub else "ADDQ"
             return f"{op}{size_str:4s}#{data},{ea}", 2 + ea_size
+
+        # CMP - Compare (Bxxx)
+        if (opcode & 0xF000) == 0xB000:
+            reg = (opcode >> 9) & 7
+            opmode = (opcode >> 6) & 7
+            # opmode: 0=CMP.B, 1=CMP.W, 2=CMP.L, 3=CMPA.W, 7=CMPA.L
+            if opmode == 3:  # CMPA.W
+                ea, ea_size = self.decode_ea(opcode & 0x3F, ".W")
+                return f"CMPA.W  {ea},A{reg}", 2 + ea_size
+            elif opmode == 7:  # CMPA.L
+                ea, ea_size = self.decode_ea(opcode & 0x3F, ".L")
+                return f"CMPA.L  {ea},A{reg}", 2 + ea_size
+            else:
+                size_map = {0: ".B", 1: ".W", 2: ".L"}
+                size_str = size_map.get(opmode, "")
+                ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+                return f"CMP{size_str:4s}{ea},D{reg}", 2 + ea_size
+
+        # ADD/SUB (Dxxx for ADD, 9xxx for SUB)
+        if (opcode & 0xF000) == 0xD000 or (opcode & 0xF000) == 0x9000:
+            is_add = (opcode & 0xF000) == 0xD000
+            op = "ADD" if is_add else "SUB"
+            reg = (opcode >> 9) & 7
+            opmode = (opcode >> 6) & 7
+            size_map = {0: ".B", 1: ".W", 2: ".L", 3: ".W", 7: ".L"}
+            size_str = size_map.get(opmode, "")
+
+            # opmode bit 8 determines direction: 0=EA+Dn->Dn, 1=Dn+EA->EA
+            if opmode < 3:  # <ea> + Dn -> Dn
+                ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+                return f"{op}{size_str:4s}{ea},D{reg}", 2 + ea_size
+            elif opmode == 3 or opmode == 7:  # ADDA/SUBA
+                ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+                return f"{op}A{size_str:3s}{ea},A{reg}", 2 + ea_size
+            else:  # Dn + <ea> -> <ea>
+                ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+                return f"{op}{size_str:4s}D{reg},{ea}", 2 + ea_size
+
+        # AND/OR (Cxxx for AND, 8xxx for OR)
+        if (opcode & 0xF000) == 0xC000 or (opcode & 0xF000) == 0x8000:
+            is_and = (opcode & 0xF000) == 0xC000
+            op = "AND" if is_and else "OR"
+            reg = (opcode >> 9) & 7
+            opmode = (opcode >> 6) & 7
+            size_map = {0: ".B", 1: ".W", 2: ".L"}
+            size_str = size_map.get(opmode & 3, "")
+
+            if opmode < 4:  # <ea> & Dn -> Dn
+                ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+                return f"{op}{size_str:4s}{ea},D{reg}", 2 + ea_size
+            else:  # Dn & <ea> -> <ea>
+                ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+                return f"{op}{size_str:4s}D{reg},{ea}", 2 + ea_size
+
+        # EOR - Exclusive OR (Bxxx with specific opmode)
+        if (opcode & 0xF100) == 0xB100:
+            reg = (opcode >> 9) & 7
+            size = (opcode >> 6) & 3
+            size_map = {0: ".B", 1: ".W", 2: ".L"}
+            size_str = size_map.get(size, "")
+            ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+            return f"EOR{size_str:4s}D{reg},{ea}", 2 + ea_size
+
+        # ASL/ASR/LSL/LSR shifts (Exxx)
+        if (opcode & 0xF000) == 0xE000:
+            count_reg = (opcode >> 9) & 7
+            direction = (opcode >> 8) & 1  # 0=right, 1=left
+            size = (opcode >> 6) & 3
+            type_op = (opcode >> 3) & 3  # 0=AS, 1=LS, 2=ROX, 3=RO
+            is_reg = (opcode >> 5) & 1
+            data_reg = opcode & 7
+
+            size_map = {0: ".B", 1: ".W", 2: ".L"}
+            size_str = size_map.get(size, "")
+            type_names = ["AS", "LS", "ROX", "RO"]
+            dir_str = "L" if direction else "R"
+            op_name = type_names[type_op] + dir_str
+
+            if is_reg:  # Register count
+                return f"{op_name}{size_str:4s}D{count_reg},D{data_reg}", 2
+            else:  # Immediate count
+                count = count_reg if count_reg != 0 else 8
+                return f"{op_name}{size_str:4s}#{count},D{data_reg}", 2
+
+        # EXT - Sign extend
+        if (opcode & 0xFFF8) == 0x4880:  # EXT.W
+            reg = opcode & 7
+            return f"EXT.W   D{reg}", 2
+        if (opcode & 0xFFF8) == 0x48C0:  # EXT.L
+            reg = opcode & 7
+            return f"EXT.L   D{reg}", 2
+
+        # SWAP - Swap register halves
+        if (opcode & 0xFFF8) == 0x4840:
+            reg = opcode & 7
+            return f"SWAP    D{reg}", 2
+
+        # NEG/NEGX/NOT
+        if (opcode & 0xFF00) == 0x4400:  # NEG
+            size = (opcode >> 6) & 3
+            size_map = {0: ".B", 1: ".W", 2: ".L"}
+            size_str = size_map.get(size, "")
+            ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+            return f"NEG{size_str:4s}{ea}", 2 + ea_size
+
+        if (opcode & 0xFF00) == 0x4000:  # NEGX
+            size = (opcode >> 6) & 3
+            size_map = {0: ".B", 1: ".W", 2: ".L"}
+            size_str = size_map.get(size, "")
+            ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+            return f"NEGX{size_str:3s}{ea}", 2 + ea_size
+
+        if (opcode & 0xFF00) == 0x4600:  # NOT
+            size = (opcode >> 6) & 3
+            size_map = {0: ".B", 1: ".W", 2: ".L"}
+            size_str = size_map.get(size, "")
+            ea, ea_size = self.decode_ea(opcode & 0x3F, size_str)
+            return f"NOT{size_str:4s}{ea}", 2 + ea_size
+
+        # MULS/MULU (Cxxx pattern)
+        if (opcode & 0xF1C0) == 0xC0C0:  # MULU
+            reg = (opcode >> 9) & 7
+            ea, ea_size = self.decode_ea(opcode & 0x3F, ".W")
+            return f"MULU.W  {ea},D{reg}", 2 + ea_size
+
+        if (opcode & 0xF1C0) == 0xC1C0:  # MULS
+            reg = (opcode >> 9) & 7
+            ea, ea_size = self.decode_ea(opcode & 0x3F, ".W")
+            return f"MULS.W  {ea},D{reg}", 2 + ea_size
+
+        # DIVU/DIVS (8xxx pattern)
+        if (opcode & 0xF1C0) == 0x80C0:  # DIVU
+            reg = (opcode >> 9) & 7
+            ea, ea_size = self.decode_ea(opcode & 0x3F, ".W")
+            return f"DIVU.W  {ea},D{reg}", 2 + ea_size
+
+        if (opcode & 0xF1C0) == 0x81C0:  # DIVS
+            reg = (opcode >> 9) & 7
+            ea, ea_size = self.decode_ea(opcode & 0x3F, ".W")
+            return f"DIVS.W  {ea},D{reg}", 2 + ea_size
+
+        # LINK/UNLK
+        if (opcode & 0xFFF8) == 0x4E50:  # LINK
+            reg = opcode & 7
+            disp = self.read_word()
+            self.offset += 2
+            if disp & 0x8000:
+                disp = disp - 0x10000
+            return f"LINK    A{reg},#${disp & 0xFFFF:04X}", 4
+
+        if (opcode & 0xFFF8) == 0x4E58:  # UNLK
+            reg = opcode & 7
+            return f"UNLK    A{reg}", 2
+
+        # PEA - Push Effective Address
+        if (opcode & 0xFFC0) == 0x4840:
+            ea, ea_size = self.decode_ea(opcode & 0x3F, ".L")
+            return f"PEA     {ea}", 2 + ea_size
 
         # Unknown instruction
         return f"DC.W    ${opcode:04X}  ; Unknown", 2
