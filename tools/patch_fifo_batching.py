@@ -199,8 +199,8 @@ def apply_fifo_patch(rom_data):
         print(f"\n⚠️  New function ({len(new_func)} bytes) larger than original ({func_info['size']} bytes)")
         print("   Using relocation strategy...\n")
 
-        # Relocate to unused ROM space at 0x016300
-        new_location = 0x016300
+        # Relocate to ACTUAL unused ROM space at end (not 0x016300 - that's init code!)
+        new_location = 0x2F5D00
 
         print(f"✓ Writing optimized function to ROM 0x{new_location:06X}")
         print(f"  Size: {len(new_func)} bytes")
@@ -216,25 +216,47 @@ def apply_fifo_patch(rom_data):
         print(f"\n✓ Creating trampoline at ROM 0x{call_site:06X}")
 
         # Trampoline code:
-        # MOV.L @(PC+offset),R0  - Load new address
-        # JMP @R0                 - Jump to new function
-        # NOP                     - Delay slot
-        # .long new_address       - Address data
+        # CRITICAL: Must preserve ALL registers!
+        # Use direct PC-relative branch if possible, otherwise need stack
+        #
+        # Since BSR can't reach (±4KB range), we use:
+        # STS.L PR,@-R15  ; Save return address
+        # MOV.L @(PC+x),R3
+        # JSR @R3
+        # NOP
+        # LDS.L @R15+,PR  ; (in delay slot - NO! LDS.L not allowed in delay slot)
+        #
+        # Actually, we can't use JSR because the caller used BSR (expects RTS).
+        # The problem: JMP clobbers no registers except PC, but we need a register
+        # to load the target address.
+        #
+        # New approach: Use self-modifying code or...
+        # Wait, let's check if we can use MOV.L with writeback to avoid clobbering:
+        # Actually, we MUST clobber something temporarily.
+        #
+        # Safest: Save R3 to stack, use it, restore it
+        # MOV.L R3,@-R15  ; Push R3
+        # MOV.L @(PC+x),R3
+        # JMP @R3
+        # MOV.L @R15+,R3  ; Pop R3 (in delay slot!)
 
         # Calculate PC-relative offset for MOV.L
-        # MOV.L @(PC+disp),Rn uses displacement×4 + PC+4
-        trampoline_pc = 0x20000000 + call_site  # SH2 address space
-        target_addr = 0x20000000 + new_location
+        # ROM is mapped at 0x02000000 (cached) in SH2 address space
+        trampoline_pc = 0x02000000 + call_site  # ROM base + offset
+        target_addr = 0x02000000 + new_location  # ROM base + relocated offset
 
-        # MOV.L @(PC+4),R0 = 0xD001 (R0, displacement=1 → offset=4)
-        # JMP @R0 = 0x402B
-        # NOP = 0x0009
-        # .long target = address in big-endian
+        # Trampoline with R3 save/restore:
+        # MOV.L R3,@-R15    = 0x2F36
+        # MOV.L @(PC+8),R3  = 0xD302 (displacement=2 → 8 bytes)
+        # JMP @R3           = 0x432B
+        # MOV.L @R15+,R3    = 0x63F6 (delay slot - restore R3!)
+        # .long target      = address
 
         trampoline = bytearray([
-            0xD0, 0x01,  # MOV.L @(PC+4),R0
-            0x40, 0x2B,  # JMP @R0
-            0x00, 0x09,  # NOP (delay slot)
+            0x2F, 0x36,  # MOV.L R3,@-R15  (push R3)
+            0xD3, 0x02,  # MOV.L @(PC+8),R3
+            0x43, 0x2B,  # JMP @R3
+            0x63, 0xF6,  # MOV.L @R15+,R3  (pop R3 in delay slot!) - FIXED!
         ])
 
         # Append target address (big-endian)
