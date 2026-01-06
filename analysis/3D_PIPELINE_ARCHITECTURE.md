@@ -1,0 +1,353 @@
+# 3D Rendering Pipeline Architecture
+
+**Virtua Racing Deluxe - SH2 3D Engine**
+**ROM Region**: 0x23000-0x25000 (8KB)
+**Analysis Date**: January 6, 2026
+
+---
+
+## Executive Summary
+
+The Virtua Racing Deluxe 3D engine consists of **109 functions** spanning 8KB of highly optimized SH2 assembly code. The engine implements a classic 3D rendering pipeline with vertex transformation, polygon processing, and hardware rasterization.
+
+**Key Metrics:**
+- Total Functions: 109
+- Direct Calls (BSR): 98
+- Indirect Calls (JSR): 20
+- Leaf Functions: 78
+- Memory Accesses Analyzed: 379
+
+---
+
+## High-Level Pipeline Overview
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    3D RENDERING PIPELINE                     │
+└─────────────────────────────────────────────────────────────┘
+
+ 1. INITIALIZATION
+    ├─ Hardware Setup (0x02224084)
+    ├─ VDP Configuration
+    └─ Frame Buffer Initialization
+
+ 2. MODEL DATA LOADING
+    ├─ Decompress/Unpack Data (0x02224000)
+    └─ Load to SDRAM Buffers
+
+ 3. VERTEX TRANSFORMATION
+    ├─ Matrix Operations (MAC.L sequences)
+    ├─ World → Camera Space
+    └─ Camera → Screen Space
+
+ 4. POLYGON PROCESSING (0x02224060)
+    ├─ Polygon Loop (20-byte structures)
+    ├─ Backface Culling
+    ├─ Clipping
+    └─ Sorting
+
+ 5. RASTERIZATION
+    ├─ Scan Conversion
+    ├─ Texture Mapping
+    └─ Frame Buffer Writes
+
+ 6. DISPLAY
+    └─ VDP Frame Swap
+```
+
+---
+
+## Pipeline Stages in Detail
+
+### Stage 1: Hardware Initialization
+
+**Entry Point**: Function at 0x02224084
+**Called By**: Function at 0x02224060
+
+**Purpose**: Configure 32X VDP and frame buffer hardware for rendering.
+
+**Operations**:
+- Write to cache-through hardware registers (0x2000 4xxx range)
+- Set up VDP modes and timing
+- Initialize frame buffer pointers
+- Configure DMA and FIFO settings
+
+**Key Instructions**:
+```assembly
+02224084  DD1E     MOV.L   @($02224100,PC),R13  ; Load hardware base addr
+02224086  D11F     MOV.L   @($02224104,PC),R1   ; Load second addr
+02224088  84E2     MOV.B   R0,@($2,R4)          ; Write to register
+0222408A  4008     SHLL2   R0                   ; Shift for offset calc
+...
+```
+
+**Registers Modified**: R0, R1, R13
+**Memory Regions Accessed**: VDP registers, SDRAM buffers
+
+---
+
+### Stage 2: Model Data Loading
+
+**Entry Point**: Function at 0x02224000
+**Data Format**: Compressed/packed vertex and polygon data
+
+**Purpose**: Unpack compressed model data into SDRAM working buffers.
+
+**Key Loop**:
+```assembly
+02224040  6086     MOV.L   @R8+,R0       ; Read source data
+02224042  1100     MOV.L   R0,@($0,R1)   ; Write to buffer
+02224044  6086     MOV.L   @R8+,R0       ; Read next
+02224046  1101     MOV.L   R0,@($4,R1)   ; Write offset +4
+02224048  4210     DT      R2             ; Decrement counter
+0222404A  8FF9     BF/S    $02224040      ; Loop if not zero
+0222404C  7108     ADD     #$08,R1        ; Advance destination (delay slot)
+```
+
+**Performance**:
+- 8 bytes per iteration
+- Uses auto-increment (@R8+) for efficient reads
+- Nested loop for multiple blocks
+
+---
+
+### Stage 3: Vertex Transformation
+
+**Function**: Multiple MAC.L sequences throughout codebase
+**Primary Examples**: 0x02223120, 0x022231AC
+
+**Purpose**: Transform 3D vertices from model space to screen coordinates using matrix multiplication.
+
+**Matrix Math (MAC.L Operations)**:
+```assembly
+; 3x3 Matrix × Vector multiplication
+0222314  54F     MAC.L   @R4+,@R5+     ; M[0][0] * V[0]
+02223148  054F     MAC.L   @R4+,@R5+     ; M[0][1] * V[1]
+0222314A  054F     MAC.L   @R4+,@R5+     ; M[0][2] * V[2]
+0222314C  75F4     ADD     #$F4,R5       ; Reset R5 pointer (-12)
+0222314E  6846     MOV.L   @R4+,R8       ; Load translation offset
+02223150  000A     STS     MACH,R0       ; Get high 32 bits of result
+02223152  011A     STS     MACL,R1       ; Get low 32 bits
+02223154  210D     XTRCT   R0,R1         ; Extract middle 32 bits (fixed-point)
+02223156  318C     ADD     R8,R1         ; Add translation
+```
+
+**Key Features**:
+- Uses SH2 MAC (Multiply-Accumulate) for efficiency
+- Fixed-point arithmetic (no FPU on SH2)
+- XTRCT extracts middle 32 bits from 64-bit MAC result
+- R4 = matrix pointer, R5 = vector pointer
+
+**Transformation Sequence**:
+1. Model coordinates → World coordinates (object transform matrix)
+2. World coordinates → Camera coordinates (view matrix)
+3. Camera coordinates → Clip coordinates (projection matrix)
+4. Clip coordinates → Screen coordinates (viewport transform)
+
+---
+
+### Stage 4: Polygon Processing
+
+**Entry Point**: Function at 0x02224060
+**Loop Structure**: Processes array of 20-byte polygon descriptors
+
+**Polygon Descriptor Structure** (0x14 = 20 bytes):
+```c
+struct Polygon {
+    // Offset 0x00-0x03: Unknown (flags/type?)
+    // Offset 0x04-0x07: Unknown (vertex indices?)
+    // Offset 0x08-0x0B: Unknown (color/texture?)
+    // Offset 0x0C-0x0F: Unknown
+    // Offset 0x10-0x13: Unknown
+};
+```
+
+**Processing Loop**:
+```assembly
+02224060  4F22     STS.L   PR,@-R15      ; Save return address
+02224062  85E0     MOV.B   R0,@($0,R5)   ; Check polygon flag
+02224064  8800     CMP/EQ  #$00,R0       ; Is it active?
+02224066  8907     BT      $02224078     ; Skip if inactive
+02224068  2FE6     MOV.L   R14,@-R15     ; Push R14 (context)
+0222406A  2F76     MOV.L   R7,@-R15      ; Push R7 (counter)
+0222406C  B00A     BSR     $02224084     ; Call hardware init
+0222406E  0009     NOP                   ; Delay slot
+02224070  B098     BSR     $022241A4     ; Call processing function
+02224072  0009     NOP                   ; Delay slot
+02224074  67F6     MOV.L   @R15+,R7      ; Pop R7
+02224076  6EF6     MOV.L   @R15+,R14     ; Pop R14
+02224078  4710     DT      R7             ; Decrement polygon count
+0222407A  8FF2     BF/S    $02224062      ; Loop if more polygons
+0222407C  7E14     ADD     #$14,R14       ; Advance to next (20 bytes)
+0222407E  4F26     LDS.L   @R15+,PR      ; Restore return address
+02224080  000B     RTS                   ; Return
+```
+
+**Operations Per Polygon**:
+1. Check active flag
+2. Call initialization function
+3. Call transformation/rendering function
+4. Advance to next 20-byte descriptor
+5. Repeat for all polygons
+
+**Performance**: ~50-60 cycles per polygon (overhead only)
+
+---
+
+### Stage 5: Rasterization
+
+**Implementation**: Distributed across multiple leaf functions
+**Hotspot Functions**: func_016 (0x0222335A), func_065 (0x02223F2C)
+
+**Purpose**: Convert transformed polygons into pixels in frame buffer.
+
+**Techniques**:
+- Scan line rasterization
+- Fixed-point interpolation for texture coordinates
+- Z-buffer or painter's algorithm for depth sorting
+
+---
+
+## CPU Work Distribution
+
+### Master SH2 Responsibilities
+- Main pipeline coordination
+- Polygon transformation
+- Hardware register updates
+- Frame synchronization
+
+### Slave SH2 Responsibilities
+- Parallel polygon processing (likely)
+- Texture decompression
+- Additional vertex transforms
+
+**Synchronization Points**:
+- COMM registers (0x20004020-0x2000402E)
+- Shared SDRAM buffers (0x22000000+)
+- Interrupt-based handshakes
+
+---
+
+## Memory Map
+
+### ROM (Cached)
+- 0x06000000 - Code execution space (uncached)
+- 0x20000000 - ROM data access (cached)
+
+### SDRAM (0x22000000 - 0x2203FFFF, 256KB)
+```
+0x22000000 +----------------+
+           | Stack          |  ~8KB
+           +----------------+
+           | Transform      |  ~32KB
+           | Matrices       |
+           +----------------+
+           | Vertex Buffer  |  ~64KB
+           | (Transformed)  |
+           +----------------+
+           | Polygon Buffer |  ~32KB
+           +----------------+
+           | Work Space     |  Remainder
+           +----------------+
+0x2203FFFF
+```
+
+### Frame Buffer (0x24000000, 2x 256KB)
+- Buffer 0: 0x24000000 (128KB visible + 128KB overrun)
+- Buffer 1: 0x24020000 (double buffered)
+
+### Hardware Registers (Cache-Through, 0x20004000+)
+- VDP registers: 0x20004100-0x2000410A
+- System control: 0x20004000-0x2000403E
+- PWM audio: 0x20004030-0x20004038
+
+---
+
+## Function Entry Points
+
+**Primary Entry Points** (called from external/68K):
+- func_000 (0x0222300A) - Possible initialization
+- func_001 (0x0222301C) - Main loop entry?
+- func_018 (0x022233A2) - Rendering coordinator?
+
+**Secondary Entry Points** (internal):
+- 0x02224000 - Data unpacker
+- 0x02224060 - Polygon processor
+- 0x02224084 - Hardware initializer
+
+---
+
+## Critical Call Paths
+
+### Hot Path 1: Polygon Processing Chain
+```
+func_018 (0x022233A2)
+  └─> func_016 (0x0222335A) [called 4×]
+      └─> func_020 (0x02223468)
+          └─> func_023 (0x02223500)
+```
+
+### Hot Path 2: Transformation Chain
+```
+func_005 (0x022230E6)
+  └─> func_006 (0x02223114) [MAC.L sequence]
+      └─> JSR @R14 [indirect to per-polygon handler]
+```
+
+### Hot Path 3: Matrix Operations
+```
+func_012 (0x02223268)
+  └─> func_008 (0x022231A2) [MAC.L heavy]
+      └─> func_009 (0x022231E4) [result processing]
+```
+
+---
+
+## Performance Characteristics
+
+### Cycle Estimates (per frame at 60 FPS = 16.67ms)
+
+**Available Cycles**: 23 MHz × 16.67ms = ~383,000 cycles per frame
+
+**Estimated Distribution**:
+- Hardware Init: ~500 cycles (1×/frame)
+- Data Unpacking: ~10,000 cycles
+- Vertex Transform: ~50,000 cycles (500 vertices × 100 cycles)
+- Polygon Processing: ~80,000 cycles (800 polygons × 100 cycles)
+- Rasterization: ~200,000 cycles (majority of time)
+- Overhead/Sync: ~42,500 cycles
+
+**Bottleneck**: Rasterization (52% of frame time)
+
+---
+
+## Summary
+
+The Virtua Racing Deluxe 3D engine represents professional-grade early-90s 3D programming:
+
+**Strengths**:
+- Efficient MAC.L usage for transforms
+- Proper calling conventions and stack management
+- Clever use of delay slots
+- Fixed-point arithmetic throughout
+
+**Optimization Opportunities**:
+- Loop unrolling in hot paths
+- Better register allocation (reduce spills)
+- Parallel Master/Slave work distribution
+- Frame buffer FIFO utilization
+
+**Next Steps**:
+- Complete rasterization analysis
+- Map Master/Slave work division
+- Identify cache thrashing patterns
+- Profile actual cycle counts on hardware
+
+---
+
+## References
+
+- [3D_DATA_STRUCTURES.md](3D_DATA_STRUCTURES.md) - Structure definitions
+- [3D_FUNCTION_REFERENCE.md](3D_FUNCTION_REFERENCE.md) - Complete function list
+- [3D_CALL_GRAPH.md](3D_CALL_GRAPH.md) - Function relationships
+- [OPTIMIZATION_OPPORTUNITIES.md](OPTIMIZATION_OPPORTUNITIES.md) - Performance improvements
