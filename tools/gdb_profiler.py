@@ -155,6 +155,76 @@ def dump_memory_at_r10():
 
     return profiler.run("gdb_scripts/dump_r10_table.gdb")
 
+def profile_vdp_polling():
+    """Profile VDP polling loops - identify wait times and bottlenecks"""
+    profiler = GDBProfiler()
+
+    # VDP polling locations from bottleneck analysis
+    polling_loops = [
+        (0x0243E2, "vdp_poll_1"),
+        (0x02441E, "vdp_poll_2"),
+        (0x02443A, "vdp_poll_3"),
+        (0x024482, "vdp_poll_4"),
+    ]
+
+    profiler.add_command("target remote localhost:6868")
+    profiler.add_command("set architecture sh2")
+
+    # Set counter variables for each polling loop
+    for i, (addr, name) in enumerate(polling_loops):
+        profiler.add_command(f"set $poll_count_{i} = 0")
+        profiler.add_command(f"set $poll_cycles_{i} = 0")
+
+    # Set breakpoints with counters
+    for i, (addr, name) in enumerate(polling_loops):
+        profiler.add_command(f"break *0x{addr + 0x02000000:08X}")
+        profiler.add_command("commands")
+        profiler.add_command("  silent")
+        profiler.add_command(f"  set $poll_count_{i} = $poll_count_{i} + 1")
+        profiler.add_command(f'  printf "VDP poll loop {name} at 0x{addr:06X} (count: %d)\\n", $poll_count_{i}')
+        # Show VDP status register (cache-through address)
+        profiler.add_command('  printf "  VDP Status: 0x%04X\\n", *(unsigned short*)0x20004100')
+        profiler.add_command("  continue")
+        profiler.add_command("end")
+
+    # Run for a bit, then print stats
+    profiler.add_command("continue")
+    profiler.add_command("# After running for a few seconds, press Ctrl+C and examine:")
+    profiler.add_command("# info variables poll_count_")
+
+    return profiler.run("gdb_scripts/profile_vdp_polling.gdb")
+
+def profile_slave_cpu():
+    """Profile Slave SH2 CPU - find entry point and analyze idle state"""
+    profiler = GDBProfiler()
+
+    profiler.add_command("target remote localhost:6868")
+    profiler.add_command("set architecture sh2")
+
+    # Strategy: Watch COMM registers for Master→Slave communication
+    # COMM0-7 are at 0x20004020-0x2000402E (cache-through)
+
+    # Set up watchpoints on COMM registers (Master writes to these)
+    profiler.add_command("# Watch COMM register writes (Master→Slave communication)")
+    for i in range(8):
+        comm_addr = 0x20004020 + (i * 2)
+        profiler.add_command(f"watch *(unsigned short*)0x{comm_addr:08X}")
+        profiler.add_command("commands")
+        profiler.add_command("  silent")
+        profiler.add_command(f'  printf "COMM{i} changed to 0x%04X at PC=0x%08X\\n", *(unsigned short*)0x{comm_addr:08X}, $pc')
+        profiler.add_command("  backtrace 3")
+        profiler.add_command("  continue")
+        profiler.add_command("end")
+
+    # Also track Slave CPU activity by sampling PC register
+    profiler.add_command("# To sample Slave CPU PC, press Ctrl+C periodically and check:")
+    profiler.add_command("# info registers pc")
+    profiler.add_command("# continue")
+
+    profiler.add_command("continue")
+
+    return profiler.run("gdb_scripts/profile_slave_cpu.gdb")
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python3 gdb_profiler.py <profile>")
@@ -164,6 +234,8 @@ def main():
         print("  hot_functions     - Count calls to top 10 functions")
         print("  r13_trace         - Trace R13 initialization")
         print("  r10_dump          - Dump lookup table at R10")
+        print("  vdp_polling       - Profile VDP polling loops (Track 1)")
+        print("  slave_cpu         - Profile Slave CPU activity (Track 2)")
         sys.exit(1)
 
     profile = sys.argv[1]
@@ -188,6 +260,12 @@ def main():
     elif profile == "r10_dump":
         script = dump_memory_at_r10()
         print("Profile: R10 table memory dump")
+    elif profile == "vdp_polling":
+        script = profile_vdp_polling()
+        print("Profile: VDP polling loop analysis (Optimization Track 1)")
+    elif profile == "slave_cpu":
+        script = profile_slave_cpu()
+        print("Profile: Slave CPU activity analysis (Optimization Track 2)")
     else:
         print(f"❌ Unknown profile: {profile}")
         sys.exit(1)
