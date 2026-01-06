@@ -1308,6 +1308,191 @@ func_038:
 
 
 ; ═══════════════════════════════════════════════════════════════════════════
+; func_078: Polygon Type Dispatcher (6× Indirect Calls)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: 0x02224320 - 0x02224366
+; Size: 68 bytes
+; Type: Hub (dispatcher - 6× JSR @R0 indirect calls)
+; Called by: func_023 (rendering dispatcher for specific polygon types)
+; Calls: 6 function pointers loaded from literal pool
+;
+; Purpose: Dispatches to polygon-type-specific rendering handlers. Sets up
+; rendering parameters (R1, R6, R7, R10, R11) before calling each handler.
+; Likely implements different rendering paths for triangle, quad, sprite types.
+;
+; Input:
+;   R14 = RenderingContext (preserved/setup)
+;   Implicit parameters from context or prior setup
+;
+; Output:
+;   6 handlers called in sequence with specific parameters
+;   R1 = 0x01 (parameter 1)
+;   R6 = 0x10 (parameter 2)
+;   R7 = address (parameter 3)
+;   R10 = address (parameter 4)
+;   R11 = address (parameter 5)
+;
+; Registers Modified: R0, R1, R6, R7, R10, R11, PR
+;
+; Call Sequence: 6 JSR @R0 with NOP delay slots
+; Function pointers at: PC+0x34, PC+0x38, PC+0x3C, PC+0x40, PC+0x44, PC+0x48
+; ═══════════════════════════════════════════════════════════════════════════
+
+func_078:
+02224320  0009     NOP                        ; Alignment
+02224322  0000     DW      $0000              ; Literal pool header
+02224324  0603     STC     SR,R6              ; Save SR to R6 (status save)
+02224326  3000     CMP/EQ  R0,R0              ; Always sets T=1
+02224328  0000     DW      $0000              ; Data
+0222432A  1300     MOV.L   R0,@($0,R3)       ; Conditional store
+0222432C  0600     DW      $0600              ; Data
+0222432E  EE00     MOV     #$00,R14           ; Initialize R14 = 0
+02224330  0000     DW      $0000              ; Data
+02224332  04C0     DW      $04C0              ; Data (mask/flag)
+
+02224334  4F22     STS.L   PR,@-R15           ; [PROLOGUE] Save return address
+
+; ─────────────────────────────────────────────────────────────────────────
+; Load function pointer addresses and setup parameters
+; ─────────────────────────────────────────────────────────────────────────
+02224336  D00C     MOV.L   @($02224368,PC),R0 ; Load handler 1 address
+02224338  400B     JSR     @R0                 ; Call handler 1 (indirect)
+0222433A  0009     NOP                        ; Delay slot
+
+0222433C  D00B     MOV.L   @($0222436C,PC),R0 ; Load handler 2 address
+0222433E  400B     JSR     @R0                 ; Call handler 2 (indirect)
+02224340  E101     MOV     #$01,R1             ; R1 = 0x01 (parameter 1) - delay slot
+
+02224342  E610     MOV     #$10,R6             ; R6 = 0x10 (parameter 2)
+02224344  D70A     MOV.L   @($02224370,PC),R7  ; R7 = address (parameter 3)
+02224346  DA0B     MOV.L   @($02224374,PC),R10 ; R10 = address (parameter 4)
+02224348  DB0B     MOV.L   @($02224378,PC),R11 ; R11 = address (parameter 5)
+
+0222434A  D00C     MOV.L   @($0222437C,PC),R0 ; Load handler 3 address
+0222434C  400B     JSR     @R0                 ; Call handler 3
+0222434E  0009     NOP                        ; Delay slot
+
+02224350  D00B     MOV.L   @($02224380,PC),R0 ; Load handler 4 address
+02224352  400B     JSR     @R0                 ; Call handler 4
+02224354  0009     NOP                        ; Delay slot
+
+02224356  D00B     MOV.L   @($02224384,PC),R0 ; Load handler 5 address
+02224358  400B     JSR     @R0                 ; Call handler 5
+0222435A  0009     NOP                        ; Delay slot
+
+0222435C  D00A     MOV.L   @($02224388,PC),R0 ; Load handler 6 address
+0222435E  400B     JSR     @R0                 ; Call handler 6
+02224360  0009     NOP                        ; Delay slot
+
+02224362  4F26     LDS.L   @R15+,PR           ; [EPILOGUE] Restore return address
+02224364  000B     RTS                        ; Return to caller
+
+; Literal pool (function pointers)
+02224366  0009     NOP
+02224368  0600     DW      $0600              ; Handler 1
+0222436A  3348     SUB     R4,R3              ; (data or part of address)
+
+; Analysis: Classic function dispatch pattern. Sets up parameters once,
+; then calls 6 handlers in sequence. Each handler likely implements a
+; specific polygon rendering algorithm (triangle, quad, sprite, etc).
+; The parameters (R1=0x01, R6=0x10, R7/R10/R11=addresses) are probably
+; rendering attributes, buffer pointers, and mode flags.
+
+
+; ═══════════════════════════════════════════════════════════════════════════
+; func_079: Polygon Type Dispatcher Variant (6× Indirect Calls)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: 0x02224366 - 0x022243BE
+; Size: 84 bytes
+; Type: Hub (dispatcher - 6× JSR @R0 indirect calls)
+; Called by: func_023 or higher-level dispatcher
+; Calls: 6 function pointers loaded from literal pool
+;
+; Purpose: Similar to func_078 but with more setup code and parameter
+; initialization. Dispatch handler for alternative polygon rendering
+; path or specialized rendering mode (textured, shaded, etc).
+;
+; Input:
+;   Implicit setup from caller context
+;
+; Output:
+;   6 handlers invoked with parameters in R0-R11
+;   R1 = 0x01
+;   R7 = word value read from address in R1
+;   R8, R10, R11 = address parameters
+;
+; Registers Modified: R0, R1, R6, R7, R8, R10, R11, R13, R15, PR
+;
+; Loop Structure: Sequential JSR calls with embedded literal pool
+; ═══════════════════════════════════════════════════════════════════════════
+
+func_079:
+02224366  0009     NOP                        ; Alignment
+02224368  0600     DW      $0600              ; Data
+0222436A  3348     SUB     R4,R3              ; (part of literal pool)
+0222436C  0600     DW      $0600              ; Data
+0222436E  441C     DW      $441C              ; Data (address or offset)
+02224370  0000     DW      $0000              ; Data
+02224372  04C0     DW      $04C0              ; Data (mask)
+02224374  0600     DW      $0600              ; Data
+02224376  EDFC     MOV     #$FC,R13           ; R13 = 0xFC (likely stride/counter)
+02224378  0603     STC     SR,R6              ; R6 = SR (save status)
+0222437A  2FF0     MOV.B   R15,@R15           ; Store byte (unusual operation)
+0222437C  C000     DW      $C000              ; Data (address literal)
+0222437E  0022     DW      $0022              ; Data (part of address)
+02224380  0600     DW      $0600              ; Data
+02224382  34EE     ADDC    R14,R4             ; Add with carry (setup)
+02224384  0600     DW      $0600              ; Data
+02224386  4438     DW      $4438              ; Data (address)
+02224388  0600     DW      $0600              ; Data
+0222438A  43E0     DW      $43E0              ; Data
+
+0222438C  4F22     STS.L   PR,@-R15           ; [PROLOGUE] Save return address
+
+; ─────────────────────────────────────────────────────────────────────────
+; Setup phase - more parameter initialization than func_078
+; ─────────────────────────────────────────────────────────────────────────
+0222438E  D00C     MOV.L   @($022243C0,PC),R0 ; Load handler 1 address
+02224390  400B     JSR     @R0                 ; Call handler 1
+02224392  0009     NOP                        ; Delay slot
+
+02224394  D00B     MOV.L   @($022243C4,PC),R0 ; Load handler 2 address
+02224396  400B     JSR     @R0                 ; Call handler 2
+02224398  E101     MOV     #$01,R1             ; R1 = 0x01 - delay slot
+
+0222439A  D10B     MOV.L   @($022243C8,PC),R1 ; Load address into R1
+0222439C  6711     MOV.W   @R1,R7              ; R7 = word at [R1] (dereference)
+0222439E  D80B     MOV.L   @($022243CC,PC),R8  ; R8 = address parameter
+022243A0  D00B     MOV.L   @($022243D0,PC),R0 ; Load handler 3 address
+022243A2  400B     JSR     @R0                 ; Call handler 3
+022243A4  0009     NOP                        ; Delay slot
+
+022243A6  D00B     MOV.L   @($022243D4,PC),R0 ; Load handler 4 address
+022243A8  400B     JSR     @R0                 ; Call handler 4
+022243AA  0009     NOP                        ; Delay slot
+
+022243AC  D00A     MOV.L   @($022243D8,PC),R0 ; Load handler 5 address
+022243AE  400B     JSR     @R0                 ; Call handler 5
+022243B0  0009     NOP                        ; Delay slot
+
+022243B2  D00A     MOV.L   @($022243DC,PC),R0 ; Load handler 6 address
+022243B4  400B     JSR     @R0                 ; Call handler 6
+022243B6  0009     NOP                        ; Delay slot
+
+022243B8  4F26     LDS.L   @R15+,PR           ; [EPILOGUE] Restore return address
+022243BA  000B     RTS                        ; Return to caller
+
+022243BC  0009     NOP
+022243BE  0000     DW      $0000
+
+; Analysis: Extended version of the dispatch pattern. Includes more
+; parameter setup (R7 loaded via dereference, R8 explicit setup) before
+; calling handlers 3-6. The embedded data and STC/ADDC operations suggest
+; this variant handles more complex rendering modes or maintains additional
+; state compared to func_078.
+
+
+; ═══════════════════════════════════════════════════════════════════════════
 ; End of Annotated Disassembly (Hotspot Functions)
 ; ═══════════════════════════════════════════════════════════════════════════
 ;
