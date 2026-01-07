@@ -4437,6 +4437,134 @@ handler_2:
 
 ---
 
+## Batch 3: Dispatch Table Handlers (20 functions)
+
+Functions extracted from dispatch tables $0044F8, $00659C, $006E20, $006E24, $008B34.
+
+### Group 1: Early Initialization Handlers (from $0044F8)
+
+## func_4536 - Early Handler 1 ($00884536)
+**Status**: [Extracted from dispatch table $0044F8]
+**Address**: $00884536-$00884538 | **Size**: 2 bytes
+**Pattern**: RTS (stub/exit)
+**Cross-references**: Dispatch table at $0044F8 [entry 0]
+
+## func_4538 - Early Handler 2 ($00884538)
+**Status**: [Extracted from dispatch table $0044F8]
+**Address**: $00884538-$00884566 | **Size**: ~46 bytes
+**Pattern**: JSR dispatcher entry
+**Cross-references**: Dispatch table at $0044F8 [entry 1]
+
+## func_4566 - Early Handler 3 ($00884566)
+**Status**: [Extracted from dispatch table $0044F8]
+**Address**: $00884566-$0088456C | **Size**: ~6 bytes
+**Pattern**: Control flow dispatch
+**Cross-references**: Dispatch table at $0044F8 [entries 2, 3]
+
+## func_456C - Early Handler 4 ($0088456C)
+**Status**: [Extracted from dispatch table $0044F8]
+**Address**: $0088456C-$00884638 | **Size**: ~108 bytes
+**Pattern**: Complex initialization
+**Cross-references**: Dispatch table at $0044F8 [entry 4]
+
+## func_4638 - Early Handler 5 ($00884638)
+**Status**: [Extracted from dispatch table $0044F8]
+**Address**: $00884638-$0088464A | **Size**: ~18 bytes
+**Pattern**: Register write sequence
+**Cross-references**: Dispatch table at $0044F8 [entry 5]
+
+## func_464A - Early Handler 6 ($0088464A)
+**Status**: [Extracted from dispatch table $0044F8]
+**Address**: $0088464A-$0088465C | **Size**: ~18 bytes
+**Pattern**: Register write sequence
+**Cross-references**: Dispatch table at $0044F8 [entry 6]
+
+## func_465C - Early Handler 7 ($0088465C)
+**Status**: [Extracted from dispatch table $0044F8]
+**Address**: $0088465C-$00884682 | **Size**: ~38 bytes
+**Pattern**: Handler with branching logic
+**Cross-references**: Dispatch table at $0044F8 [entry 7]
+
+## func_4682 - Early Handler 8 ($00884682)
+**Status**: [Extracted from dispatch table $0044F8]
+**Address**: $00884682+ | **Size**: Unknown (end of table)
+**Pattern**: Terminal handler
+**Cross-references**: Dispatch table at $0044F8 [entry 8]
+
+### Group 2: Game State Handlers (from $00659C)
+
+## func_65BC - Game State Handler 1 ($008865BC)
+**Status**: [Extracted from dispatch table $00659C]
+**Address**: $008865BC | **Purpose**: Game state logic
+**Cross-references**: Dispatch table at $00659C [entry 0]
+
+## func_662A - Game State Handler 2 ($0088662A)
+**Status**: [Extracted from dispatch table $00659C]
+**Address**: $0088662A | **Purpose**: Game state logic
+**Cross-references**: Dispatch table at $00659C [entry 2]
+
+## func_6636 - Game State Handler 3 ($00886636)
+**Status**: [Extracted from dispatch table $00659C]
+**Address**: $00886636 | **Purpose**: Game state logic
+**Cross-references**: Dispatch table at $00659C [entry 7]
+
+## func_66B4 - Game State Handler 4 ($008866B4)
+**Status**: [Extracted from dispatch table $00659C]
+**Address**: $008866B4 | **Purpose**: Game state handler with branching
+**Cross-references**: Dispatch table at $00659C [entry 3]
+
+## func_6718 - Game State Handler 5 ($00886718)
+**Status**: [Extracted from dispatch table $00659C]
+**Address**: $00886718 | **Purpose**: Game state handler
+**Cross-references**: Dispatch table at $00659C [entry 5]
+
+## func_671A - Game State Handler 6 ($0088671A)
+**Status**: [Extracted from dispatch table $00659C]
+**Address**: $0088671A | **Purpose**: Game state handler (minimal)
+**Cross-references**: Dispatch table at $00659C [entry 4]
+
+## func_677A - Game State Handler 7 ($0088677A)
+**Status**: [Extracted from dispatch table $00659C]
+**Address**: $0088677A | **Purpose**: Game state handler
+**Cross-references**: Dispatch table at $00659C [entry 6]
+
+## func_6804 - Game State Handler 8 ($00886804)
+**Status**: [Extracted from dispatch table $00659C]
+**Address**: $00886804 | **Purpose**: Game state handler
+**Cross-references**: Dispatch table at $00659C [entry 1]
+
+## func_6292 - Port Configuration Handler ($00886292)
+**Status**: [Extracted from dispatch tables $0059B0-$0059C8]
+**Address**: $00886292 | **Purpose**: Three-port hardware writer (MOVEQ + multi-port config)
+**Cross-references**: Tables $0059B0-$0059C8 [multiple entries], $006E20-$006E24 [entry 6]
+
+### Group 3: Display/Coordination Handlers (from $006E20, $006E24)
+
+## func_6E48 - Display Handler 1 ($00886E48)
+**Status**: [Extracted from dispatch tables $006E20, $006E24]
+**Address**: $00886E48 | **Purpose**: Display/coordination logic
+**Cross-references**: Tables $006E20 [entry 0], $006E24 [entry 8]
+
+## func_6EBE - Display Handler 2 ($00886EBE)
+**Status**: [Extracted from dispatch tables $006E20, $006E24]
+**Address**: $00886EBE | **Purpose**: Display handler with branching
+**Cross-references**: Tables $006E20 [entry 2], $006E24 [entry 1]
+
+## func_6ECA - Display Handler 3 ($00886ECA)
+**Status**: [Extracted from dispatch tables $006E20, $006E24]
+**Address**: $00886ECA | **Purpose**: Display state coordinator
+**Cross-references**: Tables $006E20 [entry 9], $006E24 [entry 8]
+
+### Group 4: Hardware Register Handlers (from $008B34)
+
+## func_8EF2 - Hardware Handler 1 ($00888EF2)
+**Status**: [Extracted from dispatch table $008B34]
+**Address**: $00888EF2-$00888EF4 | **Size**: 2 bytes
+**Pattern**: RTS (hardware register write stub)
+**Cross-references**: Dispatch table at $008B34 [entry 0]
+
+---
+
 ## References
 
 - [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md) - COMM register protocol basics
