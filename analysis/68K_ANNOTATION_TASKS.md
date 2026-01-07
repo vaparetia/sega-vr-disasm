@@ -1,8 +1,9 @@
 # 68K Annotation Tasks - Virtua Racing Deluxe
 
 **Project**: Virtua Racing Deluxe (USA).32x
-**Date**: 2026-01-06
+**Date**: 2026-01-07
 **Total Functions**: 769
+**Documented**: 221 functions (28.7%) - Priorities 1-8 complete
 
 ## Priority Overview
 
@@ -15,7 +16,7 @@
 | 5 | Controller/Input | 6 | ✅ Complete | 3-btn + 6-btn support |
 | 6 | Low Code Utilities | 33 | ✅ Complete | Input, VDP, memory utilities |
 | 7 | V-INT State Handlers | 16 | ✅ Complete | All 16 states documented |
-| 8 | Main Game Logic | ~100 | Pending | State machines |
+| 8 | Main Game Logic | 137 | ✅ Complete | Dispatch table systematic extraction |
 | 9 | Extended/Data | ~500+ | Pending | Track, graphics, etc. |
 
 ---
