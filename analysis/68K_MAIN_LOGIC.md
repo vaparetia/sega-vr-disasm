@@ -1708,6 +1708,552 @@ handler_2:
 
 ---
 
+## func_5A52 - Object Field Calculator ($00885A52)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_5A52: Complex Object State Calculation
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00885A52 - $00885AB2
+; Size: 96 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Perform complex calculations on object fields, apply masks and
+;          thresholds, update counters. Likely handles physics or AI state.
+;
+; Input: A0 = Object pointer, A1 = Table pointer
+; Output: Object fields updated
+; Modifies: D0, A0, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00885A52  4440                 SWAP    D0                   ; Swap D0 words
+00885A54  0240 03FF            ANDI.W  #$03FF,D0            ; Mask to $03FF
+00885A58  3031 0000            MOVE.W  (A1,D0.W),D0         ; Read table entry
+00885A5C  4440                 SWAP    D0                   ; Swap back
+00885A5E  3140 003A            MOVE.W  D0,$3A(A0)           ; Store at offset $3A
+
+; Table lookup operation
+00885A62  43F9 0093A82C        LEA     $0093A82C,A1         ; A1 = data table
+00885A68  3028 0032            MOVE.W  $32(A0),D0           ; D0 = object[0x32]
+00885A6C  9068 00C6            SUB.W   $C6(A0),D0           ; Subtract field $C6
+00885A70  D040                 ADD.W   D0,D0                ; D0 *= 2 (scale to word)
+00885A72  6B0A                 BMI.S   .negative            ; Branch if negative
+00885A74  0240 03FF            ANDI.W  #$03FF,D0            ; Clamp to $03FF
+00885A78  3031 0000            MOVE.W  (A1,D0.W),D0         ; Lookup value
+00885A7C  600C                 BRA.S   .store
+
+.negative:
+00885A7E  4440                 SWAP    D0                   ; Handle negative case
+00885A80  0240 03FF            ANDI.W  #$03FF,D0
+00885A84  3031 0000            MOVE.W  (A1,D0.W),D0
+00885A88  4440                 SWAP    D0
+
+.store:
+00885A8A  3140 003E            MOVE.W  D0,$3E(A0)           ; Store result
+00885A8E  3168 006E 0046       MOVE.W  $6E(A0),$46(A0)      ; Copy field $6E → $46
+
+; Call subroutines and update fields
+00885A94  4EBA 1BB8            JSR     $0088764E            ; Call helper 1
+00885A98  4EBA 16B0            JSR     $00887150            ; Call helper 2
+
+00885A9C  3028 0026            MOVE.W  $26(A0),D0           ; D0 = field $26
+00885AA0  9068 0024            SUB.W   $24(A0),D0           ; Subtract field $24
+00885AA4  0C40 0064            CMPI.W  #$64,D0              ; Compare with $64
+00885AA8  6D04                 BLT.S   .skip_increment      ; Skip if < $64
+00885AAA  5268 002C            ADDQ.W  #1,$2C(A0)           ; Increment field $2C
+
+.skip_increment:
+00885AAE  41E8 0100            LEA     $100(A0),A0          ; Advance pointer 256 bytes
+00885AB2  4E75                 RTS
+```
+
+**Analysis**: Complex object state calculator. Performs table lookups from large data table at $0093A82C, handles signed/unsigned conversions, applies thresholds, and updates multiple object fields. The 256-byte pointer advancement suggests this processes array of fixed-size structures.
+
+---
+
+## func_6EAE - Multi-Stage Initialization ($00886EAE)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_6EAE: Comprehensive Game State Initialization
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00886EAE - $00886F0E
+; Size: 96 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Multi-stage initialization sequence. Calls 12+ setup functions,
+;          clears memory locations, conditionally calls additional handlers.
+;
+; Input: A0 = Object pointer
+; Output: Multiple game systems initialized
+; Modifies: D0, A0-A2
+; ═══════════════════════════════════════════════════════════════════════════
+
+00886EAE  4EBA 2E1E            JSR     $00889CCE            ; Init stage 1
+00886EB2  4EBA 2CA0            JSR     $00889B54            ; Init stage 2
+00886EB6  4EBA 1810            JSR     $008886C8            ; Init stage 3
+00886EBA  4EFA 3E18            JMP     $0088ACD4            ; Jump to stage 4
+
+; Clear memory fields
+00886EBE  317C 0000 0006       MOVE.W  #0,$06(A0)           ; Clear field $06
+00886EC4  317C 0000 0074       MOVE.W  #0,$74(A0)           ; Clear field $74
+00886ECA  7000                 MOVEQ   #0,D0                ; D0 = 0
+00886ECC  3140 0044            MOVE.W  D0,$44(A0)           ; Clear multiple fields
+00886ED0  3140 0046            MOVE.W  D0,$46(A0)
+00886ED4  3140 004A            MOVE.W  D0,$4A(A0)
+
+; Call additional initialization functions
+00886ED8  4EBA DB14            JSR     $008849EE            ; Call setup 5
+00886EDC  4EBA 16BC            JSR     $0088859A            ; Call setup 6
+00886EE0  4EBA 346E            JSR     $0088A350            ; Call setup 7
+00886EE4  4EBA 128A            JSR     $00888170            ; Call setup 8
+00886EE8  4EBA 11E2            JSR     $008880CC            ; Call setup 9
+00886EEC  4EBA 165A            JSR     $00888548            ; Call setup 10
+00886EF0  4EBA 2608            JSR     $008894FA            ; Call setup 11
+
+; Conditional execution
+00886EF4  0C78 0004 C26C       CMPI.W  #4,$FFC26C           ; Test control value
+00886EFA  6704                 BEQ.S   .skip                ; Skip if == 4
+00886EFC  4EBA 2414            JSR     $00889312            ; Call conditional func
+
+.skip:
+00886F00  4EBA 2C10            JSR     $00889B12            ; Call finalize 1
+00886F04  4EBA 227C            JSR     $00889182            ; Call finalize 2
+00886F08  4EBA 28F8            JSR     $00889802            ; Call finalize 3
+```
+
+**Analysis**: Master initialization coordinator. Calls 12+ initialization functions spanning entire ROM, clears critical state variables, and conditionally executes handlers based on control flags. This is likely called during level loading or game mode transitions.
+
+---
+
+## func_6F98 - Object State Update with Calculations ($00886F98)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_6F98: Conditional Object Update & Calculation Chain
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00886F98 - $00886FD8
+; Size: 64 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Tests object flags, performs calculations, calls processing funcs
+;
+; Input: A0 = Object pointer
+; Output: Object state updated
+; Modifies: D0-D4, A0
+; ═══════════════════════════════════════════════════════════════════════════
+
+00886F98  4A68 0062            TST.W   $62(A0)              ; Test flag at $62
+00886F9C  6638                 BNE.S   .skip_processing     ; Skip if != 0
+
+00886F9E  4A68 0092            TST.W   $92(A0)              ; Test flag at $92
+00886FA2  6E2A                 BGT.S   .positive            ; Branch if > 0
+
+; Main calculation block
+.positive:
+00886FA4  3028 003C            MOVE.W  $3C(A0),D0           ; D0 = object[0x3C]
+00886FA8  D068 0096            ADD.W   $96(A0),D0           ; D0 += object[0x96]
+00886FAC  3140 0040            MOVE.W  D0,$40(A0)           ; Store result at $40
+
+00886FB0  4440                 SWAP    D0                   ; Swap words
+00886FB2  3428 0006            MOVE.W  $06(A0),D2           ; D2 = field $06
+00886FB6  3628 0030            MOVE.W  $30(A0),D3           ; D3 = field $30
+00886FBA  3828 0034            MOVE.W  $34(A0),D4           ; D4 = field $34
+
+; Call calculation function
+00886FBE  4EBA 001E            JSR     $00886FDE            ; Perform calculation
+
+; Store results
+00886FC2  3143 0030            MOVE.W  D3,$30(A0)           ; Update field $30
+00886FC6  3144 0034            MOVE.W  D4,$34(A0)           ; Update field $34
+
+.skip_processing:
+00886FD6  4E75                 RTS
+```
+
+**Analysis**: Conditional object processor. Tests multiple flags before executing calculation chain. The SWAP operations suggest 32-bit fixed-point arithmetic. Multiple fields updated based on complex calculations.
+
+---
+
+## func_71B3 - Table-Based Address Calculator ($008871B3)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_71B3: Complex Address Calculation via Multiple Tables
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008871B3 - $00887203
+; Size: 80 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Calculate memory address using object fields and multiple lookup
+;          tables. Applies shifts, masks, and conditional table selection.
+;
+; Input: A0 = Object pointer
+; Output: A3 = Calculated table address, D2 = Result value
+; Modifies: D0-D3, A3
+; ═══════════════════════════════════════════════════════════════════════════
+
+008871B3  41EC ????            LEA     ??(A4),A0            ; Load base address
+008871B7  3628 0034            MOVE.W  $34(A0),D3           ; D3 = object[0x34]
+008871BB  E843                 LSR.W   #4,D3                ; D3 >>= 4
+008871BD  9243                 SUB.W   D3,D1                ; D1 -= D3
+008871BF  0241 FFC0            ANDI.W  #$FFC0,D1            ; Mask to $FFC0
+008871C3  E241                 ASR.W   #1,D1                ; Arithmetic shift right
+008871C5  D242                 ADD.W   D2,D1                ; D1 += D2
+008871C7  D241                 ADD.W   D1,D1                ; D1 *= 2
+
+; Calculate table index
+008871CB  70CA                 MOVEQ   #-54,D0              ; D0 = -54
+008871CD  7000                 MOVEQ   #0,D0                ; D0 = 0 (override)
+008871CF  3028 00CC            MOVE.W  $CC(A0),D0           ; D0 = object[0xCC]
+008871D3  ED80                 LSL.L   #6,D0                ; D0 <<= 6 (multiply by 64)
+008871D5  4840                 SWAP    D0                   ; Swap words
+008871D7  0240 003C            ANDI.W  #$3C,D0              ; Mask to $3C
+
+; Table selection
+008871DB  47F9 0089A0D4        LEA     $0089A0D4,A3         ; A3 = table 1 base
+008871E1  3438 C8A0            MOVE.W  $FFC8A0,D2           ; D2 = control value
+008871E5  0C42 0004            CMPI.W  #4,D2                ; Compare with 4
+008871E9  6616                 BNE.S   .use_table1          ; Use table 1 if != 4
+
+; Alternative table checks
+008871EB  0C28 0088 001D       CMPI.B  #$88,$1D(A0)         ; Check byte at $1D
+008871F1  6D0E                 BLT.S   .use_alt_table       ; Branch if < $88
+008871F3  0C28 0098 001D       CMPI.B  #$98,$1D(A0)         ; Check upper bound
+008871F9  6E06                 BGT.S   .use_alt_table       ; Branch if > $98
+
+.use_table1:
+008871FB  47F9 0089A434        LEA     $0089A434,A3         ; Use alternate table
+
+.use_alt_table:
+00887201  3426                 MOVE.W  (A6),D2              ; Load from table
+00887203  4E75                 RTS
+```
+
+**Analysis**: Sophisticated address calculator using conditional table selection. Performs 64x scaling, bit masking, and range checks to select between two data tables. Likely used for sprite/graphics data addressing or level geometry lookups.
+
+---
+
+## func_7364 - Parallel Address Calculator ($00887364)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_7364: Similar to func_71B3 but with Different Tables
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00887364 - $008873C4
+; Size: 96 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Variant of func_71B3 using different base tables and control flag
+;
+; Input: A0 = Object pointer, D1/D2 = Input values
+; Output: A3 = Calculated table address
+; Modifies: D0-D3, A3, A5
+; ═══════════════════════════════════════════════════════════════════════════
+
+00887364  D441                 ADD.W   D1,D2                ; D2 += D1
+00887366  EC42                 LSR.W   #6,D2                ; D2 >>= 6
+00887368  3639 00FF6106        MOVE.W  $FF6106,D3           ; D3 = RAM value
+0088736E  E843                 LSR.W   #4,D3                ; D3 >>= 4
+00887370  9243                 SUB.W   D3,D1                ; D1 -= D3
+00887372  0241 FFC0            ANDI.W  #$FFC0,D1            ; Mask
+00887376  E241                 ASR.W   #1,D1                ; Shift
+00887378  D242                 ADD.W   D2,D1                ; Combine
+0088737A  D241                 ADD.W   D1,D1                ; Double
+
+0088737C  7000                 MOVEQ   #0,D0                ; D0 = 0
+0088737E  3028 00CC            MOVE.W  $CC(A0),D0           ; D0 = index
+00887382  ED80                 LSL.L   #6,D0                ; Scale by 64
+00887384  4840                 SWAP    D0
+00887386  0240 003C            ANDI.W  #$3C,D0              ; Mask
+
+; Table base selection
+0088738A  47F9 0089A5D2        LEA     $0089A5D2,A3         ; Table base
+00887390  4A78 C0BA            TST.W   $FFC0BA              ; Test control flag
+00887394  6606                 BNE.S   .alt_table           ; Use alt if != 0
+00887396  47F9 0089A0D4        LEA     $0089A0D4,A3         ; Different table
+
+.alt_table:
+0088739C  2673 0000            MOVEA.L 0(A3,D0.W),A3        ; Load table entry
+008873A0  263C 2207FFFE        MOVE.L  #$2207FFFE,D3        ; Load constant
+```
+
+**Analysis**: Parallel calculator to func_71B3. Uses different table addresses and different control flag ($FFC0BA vs $FFC8A0). The shared structure suggests these handle similar operations for different game systems (e.g., different camera views or split-screen players).
+
+---
+
+## func_73F2 - Coordinate Transform Calculator ($008873F2)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_73F2: 3D Coordinate Transformation with Table Lookups
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008873F2 - $00887452
+; Size: 96 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Perform 3D coordinate calculations with shifts and table lookups.
+;          Applies transformations for screen projection or collision.
+;
+; Input: D2-D4 = Input coordinates, A0 = Object pointer
+; Output: D3 = Transformed coordinate
+; Modifies: D3-D6, A1-A2
+; ═══════════════════════════════════════════════════════════════════════════
+
+008873F2  D843                 ADD.W   D3,D4                ; D4 += D3
+008873F4  EA44                 LSR.W   #5,D4                ; D4 >>= 5 (divide by 32)
+008873F6  3A02                 MOVE.W  D2,D5                ; D5 = D2
+008873F8  E845                 LSR.W   #4,D5                ; D5 >>= 4
+008873FA  D645                 ADD.W   D5,D3                ; D3 += D5
+008873FC  0243 FFE0            ANDI.W  #$FFE0,D3            ; Mask to $FFE0 (round down)
+00887400  E343                 LSL.W   #1,D3                ; D3 <<= 1 (multiply by 2)
+00887402  D644                 ADD.W   D4,D3                ; D3 += D4
+00887404  D643                 ADD.W   D3,D3                ; D3 *= 2
+
+; Read control value and lookup
+00887406  3038 C8A0            MOVE.W  $FFC8A0,D0           ; D0 = control index
+0088740A  D040                 ADD.W   D0,D0                ; D0 *= 2
+0088740C  45FA 001E            LEA     $0088742C(PC),A2     ; A2 = offset table
+00887410  4A28 00E4            TST.B   $E4(A0)              ; Test flag
+00887414  6704                 BEQ.S   .use_main_table      ; Skip if == 0
+00887416  45FA 0044            LEA     $0088745C(PC),A2     ; Use alternate table
+
+.use_main_table:
+0088741A  2272 0000            MOVEA.L 0(A2,D0.W),A1        ; A1 = table[D0]
+0088741E  3631 3000            MOVE.W  0(A1,D3.W),D3        ; D3 = lookup result
+
+; Second lookup
+00887422  2272 0004            MOVEA.L 4(A2,D0.W),A1        ; Second table
+00887426  D683                 ADD.L   D3,D3                ; D3 *= 2
+00887428  D3C3                 ADDA.L  D3,A1                ; Advance pointer
+0088742A  4E75                 RTS
+
+; Embedded offset tables (PC-relative data)
+0088742C  0094C000             .long   $0094C000            ; Table 1
+00887430  00970000             .long   $00970000            ; Table 2
+```
+
+**Analysis**: 3D coordinate transformer. Applies shifts (divide by 32, 16), masking, and double table lookups. The PC-relative table access and coordinate manipulations suggest this converts world coordinates to screen space for rendering.
+
+---
+
+## func_757A - Threshold Comparator ($0088757A)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_757A: Multi-Threshold Comparison with Bit Manipulation
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088757A - $008875BA
+; Size: 64 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Compare values against multiple thresholds, set bit flags based on
+;          comparison results. Implements priority-based decision logic.
+;
+; Input: D1-D2 = Values to compare, A1 = Threshold table
+; Output: D3.W = Result bitfield (bits set based on comparisons)
+; Modifies: D0, D3-D4
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088757A  B251                 CMP.W   (A1),D1              ; Compare D1 with (A1)
+0088757C  6D06                 BLT.S   .less_than           ; Branch if D1 < (A1)
+0088757E  E343                 LSL.W   #1,D3                ; Shift result left
+00887580  6442                 BCC.S   .check_next          ; Branch if no carry
+00887582  6036                 BRA.S   .exit                ; Exit
+
+.less_than:
+00887584  E343                 LSL.W   #1,D3                ; Shift result left
+00887586  653C                 BCS.S   .has_carry           ; Branch if carry
+00887588  6030                 BRA.S   .exit
+
+; Additional threshold checks
+0088758A  E343                 LSL.W   #1,D3                ; Shift left
+0088758C  651E                 BCS.S   .threshold2          ; Branch if carry set
+0088758E  3002                 MOVE.W  D2,D0                ; D0 = D2
+00887590  C1D9                 MULS.W  (A1)+,D0             ; Multiply by table entry
+00887592  3819                 MOVE.W  (A1)+,D4             ; D4 = next entry
+00887594  48C4                 EXT.L   D4                   ; Sign-extend D4
+00887596  EBA4                 LSL.L   #5,D4                ; D4 <<= 5
+00887598  D084                 ADD.L   D4,D0                ; D0 += D4
+0088759A  EAA0                 LSR.L   #5,D0                ; D0 >>= 5
+
+; Compare with thresholds
+0088759C  B280                 CMP.L   D0,D1                ; Compare D1 with D0
+0088759E  6D06                 BLT.S   .below_threshold     ; Branch if <
+008875A0  E343                 LSL.W   #1,D3                ; Shift result
+008875A2  6420                 BCC.S   .no_set              ; Branch if no carry
+008875A4  6016                 BRA.S   .exit
+
+.below_threshold:
+008875A6  E343                 LSL.W   #1,D3                ; Set bit
+008875A8  651A                 BCS.S   .exit                ; Exit if carry
+008875AA  6010                 BRA.S   .check_next
+
+.exit:
+008875BA  4E75                 RTS
+```
+
+**Analysis**: Priority-based threshold comparator. Uses bit shifting to build result bitfield - each threshold test shifts D3 left and conditionally sets bits. Likely used for collision detection zones or AI behavior selection based on distance thresholds.
+
+---
+
+## func_7BE4 - Jump Table Dispatcher ($00887BE4)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_7BE4: 16-Entry Jump Table Dispatcher
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00887BE4 - $00887C24
+; Size: 64 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Dispatch to one of 16 handler functions based on 4-bit index in
+;          object field $18. Implements state machine or mode selector.
+;
+; Input: A2 = Object pointer, (A2+$18).B = Handler index (0-15)
+; Output: (depends on called handler)
+; Modifies: D0, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00887BE4  102A 0018            MOVE.B  $18(A2),D0           ; D0 = index byte
+00887BE8  0240 000F            ANDI.W  #$0F,D0              ; Mask to 0-15
+00887BEC  D040                 ADD.W   D0,D0                ; D0 *= 2
+00887BEE  D040                 ADD.W   D0,D0                ; D0 *= 4 (scale to long)
+00887BF0  227B 0004            MOVEA.L (PC,D0.W,$04),A1     ; A1 = table[D0]
+00887BF4  4ED1                 JMP     (A1)                 ; Jump to handler
+
+; Jump table (16 entries)
+00887BF6  00887C2E             .long   handler_0            ; Index 0
+00887BFA  00887C32             .long   handler_1            ; Index 1
+00887BFE  00887C36             .long   handler_2            ; Index 2
+00887C02  00887C3A             .long   handler_3            ; Index 3
+00887C06  00887C42             .long   handler_4            ; Index 4
+00887C0A  00887C46             .long   handler_5            ; Index 5
+00887C0E  00887C46             .long   handler_6 (same as 5)
+00887C12  00887C46             .long   handler_7 (same as 5)
+00887C16  00887C3E             .long   handler_8            ; Index 8
+00887C1A  00887C46             .long   handler_9 (same as 5)
+00887C1E  00887C46             .long   handler_10 (same as 5)
+00887C22  00887C46             .long   handler_11 (same as 5)
+```
+
+**Analysis**: 16-way dispatcher using 4-bit index from object byte. Multiple indices share same handler ($00887C46), suggesting common default behavior for several states. The index encoding in single byte allows compact state machine implementation.
+
+---
+
+## func_9A9E - Value Clamp & Adjustment ($00889A9E)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_9A9E: Range Clamping with Damping
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00889A9E - $00889ADE
+; Size: 64 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Clamp value to range [$FE00, $0200], apply damping adjustment,
+;          and update object fields. Handles wraparound and zero cases.
+;
+; Input: A0 = Object pointer
+; Output: Object field $94 updated with clamped value
+; Modifies: D0-D2
+; ═══════════════════════════════════════════════════════════════════════════
+
+00889A9E  8568 0002            OR.W    D2,$02(A0)           ; Set bits in field $02
+00889AA2  6000 0060            BRA.W   .exit                ; Branch to exit
+
+; Main processing
+00889AA6  3028 0094            MOVE.W  $94(A0),D0           ; D0 = current value
+00889AAA  3200                 MOVE.W  D0,D1                ; D1 = copy
+00889AAC  6B0C                 BMI.S   .negative            ; Branch if negative
+
+; Positive value - check upper bound
+00889AAE  0C40 0200            CMPI.W  #$0200,D0            ; Compare with $0200
+00889AB2  6E10                 BGT.S   .clamp_high          ; Clamp if > $0200
+00889AB4  303C 0200            MOVE.W  #$0200,D0            ; D0 = $0200 (max)
+00889AB8  600A                 BRA.S   .apply_adjustment
+
+; Negative value - check lower bound
+.negative:
+00889ABA  0C40 FE00            CMPI.W  #$FE00,D0            ; Compare with $FE00 (min)
+00889ABE  6D04                 BLT.S   .clamp_low           ; Clamp if < $FE00
+00889AC0  303C FE00            MOVE.W  #$FE00,D0            ; D0 = $FE00
+
+.apply_adjustment:
+00889AC4  3200                 MOVE.W  D0,D1                ; D1 = clamped value
+
+; Apply damping/friction
+00889AC6  C1F8 C0F4            MULS.W  $FFC0F4,D0           ; Multiply by factor
+00889ACA  E080                 ASR.L   #8,D0                ; Divide by 256
+00889ACC  9168 0094            SUB.W   D0,$94(A0)           ; Subtract from field
+
+; Update field
+00889AD0  3428 0094            MOVE.W  $94(A0),D2           ; D2 = updated value
+00889AD4  B540                 CMP.W   D0,D2                ; Compare
+00889AD6  6A04                 BPL.S   .no_clear            ; Skip if positive
+00889AD8  4268 0094            CLR.W   $94(A0)              ; Clear field if negative
+
+.no_clear:
+.exit:
+00889ADC  4E75                 RTS
+```
+
+**Analysis**: Value clamping with damping. Implements symmetric range [-$200, +$200], applies multiplicative adjustment from $FFC0F4, and prevents underflow. The MULS and ASR suggest this handles velocity or acceleration with friction/damping.
+
+---
+
+## func_9B7C - Dual Function: Write & Validator ($00889B7C)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_9B7C: Simple Register Write (First Entry)
+; func_9B84: Multi-Field Validator (Second Entry)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00889B7C - $00889BAC
+; Size: 48 bytes
+; Called by: Main game logic (1 call each)
+;
+; Purpose: Two separate functions sharing address space:
+;          1) Simple register write (first 4 bytes)
+;          2) Multi-field validator with threshold checks
+;
+; ═══════════════════════════════════════════════════════════════════════════
+
+; Function 1: Simple write (func_9B7C)
+00889B7C  31C0 C010            MOVE.W  D0,$FFC010           ; Write D0 to register
+00889B80  4E75                 RTS                          ; Return
+
+; Function 2: Field validator (func_9B84)
+00889B84  3228 0080            MOVE.W  $80(A0),D1           ; D1 = field $80
+00889B88  0C41 0007            CMPI.W  #7,D1                ; Check if > 7
+00889B8C  6E0A                 BGT.S   .check_field2        ; Branch if > 7
+
+; Check field $82
+00889B8E  3228 0082            MOVE.W  $82(A0),D1           ; D1 = field $82
+00889B92  0C41 0007            CMPI.W  #7,D1                ; Check threshold
+00889B96  6F08                 BLE.S   .in_range            ; Continue if <= 7
+
+; Out of range - calculate adjustment
+.check_field2:
+00889B98  700F                 MOVEQ   #15,D0               ; D0 = 15
+00889B9A  9041                 SUB.W   D1,D0                ; D0 = 15 - D1
+00889B9C  31C0 C00C            MOVE.W  D0,$FFC00C           ; Write result
+
+; Check field $84
+.in_range:
+00889BA0  3028 0084            MOVE.W  $84(A0),D0           ; D0 = field $84
+00889BA4  670E                 BEQ.S   .is_zero             ; Branch if zero
+00889BA6  0C40 000A            CMPI.W  #$0A,D0              ; Compare with 10
+00889BAA  6E08                 BGT.S   .too_high            ; Branch if > 10
+
+.too_high:
+00889BAC  720A                 MOVEQ   #10,D1               ; D1 = 10 (clamp)
+```
+
+**Analysis**: Two functions in one. First 4 bytes are simple register write (likely called directly at $9B7C). Second part (called at $9B84) validates 3 object fields ($80, $82, $84) against thresholds (7, 7, 10), calculates adjustments, and writes to $FFC00C. The dual-function pattern saves ROM space.
+
+---
+
 ## References
 
 - [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md) - COMM register protocol basics

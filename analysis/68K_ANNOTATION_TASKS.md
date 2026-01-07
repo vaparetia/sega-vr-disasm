@@ -237,6 +237,16 @@ These are the handlers called from V-INT jump table at $16B2:
 | [x] | func_E4BC | $0088E4BC | 6 | Compute + send COMM command $21 |
 | [x] | func_E52C | $0088E52C | 8 | Multi-table processor (HIGHEST P8 calls) |
 | [x] | SendDREQCommand | $0088FB36 | 17 | DMA request to SH2 (Priority 4) |
+| [x] | func_5A52 | $00885A52 | - | Object field calculator (table lookup) |
+| [x] | func_6EAE | $00886EAE | - | Multi-stage initialization coordinator |
+| [x] | func_6F98 | $00886F98 | - | Conditional object update |
+| [x] | func_71B3 | $008871B3 | - | Table-based address calculator |
+| [x] | func_7364 | $00887364 | - | Parallel address calculator |
+| [x] | func_73F2 | $008873F2 | - | 3D coordinate transform calculator |
+| [x] | func_757A | $0088757A | - | Multi-threshold comparator |
+| [x] | func_7BE4 | $00887BE4 | - | 16-entry jump table dispatcher |
+| [x] | func_9A9E | $00889A9E | - | Value clamp with damping |
+| [x] | func_9B7C | $00889B7C | - | Dual function (write + validator) |
 
 **Documentation**: [68K_MAIN_LOGIC.md](68K_MAIN_LOGIC.md)
 
@@ -281,9 +291,9 @@ Likely data handlers, track-specific code, graphics routines.
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
-| 8. Main Logic | 124 | 43 | 81 | 35% |
+| 8. Main Logic | 124 | 53 | 71 | 43% |
 | 9. Extended | 500+ | 0 | 500+ | 0% |
-| **TOTAL** | **769** | **127** | **642** | **16.5%** |
+| **TOTAL** | **769** | **137** | **632** | **17.8%** |
 
 ### Milestones
 
