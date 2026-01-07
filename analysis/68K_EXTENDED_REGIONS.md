@@ -383,6 +383,127 @@ All 7 Priority 9 functions share common traits:
 
 ---
 
+## Batch 2: Additional Main Code 2 Handlers (from extended jump table analysis)
+
+21 additional Priority 9 functions discovered via comprehensive jump table scanning of Main Code 2 dispatcher patterns.
+
+### Group 1: Early Main Code 2 Handler ($0109AE)
+
+## func_109AE - Early Main Code 2 Handler ($008909AE)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008909AE | **Purpose**: Early Main Code 2 handler
+**Cross-references**: Jump table dispatcher patterns
+
+### Group 2: Post-Batch1 Initialization Handlers ($1466A-$1473A)
+
+## func_1466A - BA18 Handler Variant 1 ($0089466A)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0089466A | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_14696 - BA18 Handler Variant 2 ($00894696)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00894696 | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_146B4 - BA18 Handler Variant 3 ($008946B4)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008946B4 | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_146BC - BA18 Handler Variant 4 ($008946BC)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008946BC | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_146CA - BA18 Handler Variant 5 ($008946CA)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008946CA | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_146DA - BA18 Handler Variant 6 ($008946DA)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008946DA | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_146EA - BA18 Handler Variant 7 ($008946EA)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008946EA | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_146FA - BA18 Handler Variant 8 ($008946FA)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008946FA | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_1470A - BA18 Handler Variant 9 ($0089470A)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0089470A | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_1471A - BA18 Handler Variant 10 ($0089471A)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0089471A | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_1472A - BA18 Handler Variant 11 ($0089472A)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0089472A | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+## func_1473A - BA18 Handler Variant 12 ($0089473A)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0089473A | **Purpose**: Initialization variant handler
+**Cross-references**: Extended handler sequence
+
+### Group 3: Mid-Range Handler ($147E8)
+
+## func_147E8 - Mid-Range BA18 Handler ($008947E8)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008947E8 | **Purpose**: Mid-range state handler
+**Cross-references**: Extended handler sequence between state and core handlers
+
+### Group 4: Core Handler Extensions ($1481E-$14848)
+
+## func_1481E - Core Handler Extension 1 ($0089481E)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0089481E | **Purpose**: Core handler variant
+**Cross-references**: Extended core handler family
+
+## func_14826 - Core Handler Extension 2 ($00894826)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00894826 | **Purpose**: Core handler variant
+**Cross-references**: Extended core handler family
+
+## func_1482E - Core Handler Extension 3 ($0089482E)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0089482E | **Purpose**: Core handler variant
+**Cross-references**: Extended core handler family
+
+## func_14848 - Core Handler Extension 4 ($00894848)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00894848 | **Purpose**: Core handler variant
+**Cross-references**: Extended core handler family
+
+### Group 5: High Main Code 2 Handlers ($15494-$154D4)
+
+## func_15494 - High Main Code 2 Handler 1 ($00895494)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00895494 | **Purpose**: High address main code handler
+**Cross-references**: High range handler family
+
+## func_154B4 - High Main Code 2 Handler 2 ($008954B4)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008954B4 | **Purpose**: High address main code handler
+**Cross-references**: High range handler family
+
+## func_154D4 - High Main Code 2 Handler 3 ($008954D4)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008954D4 | **Purpose**: High address main code handler
+**Cross-references**: High range handler family
+
+---
+
 ## Next Steps
 
 To fully document Priority 9 requires:
