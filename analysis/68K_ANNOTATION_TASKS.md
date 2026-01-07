@@ -3,7 +3,7 @@
 **Project**: Virtua Racing Deluxe (USA).32x
 **Date**: 2026-01-07
 **Total Functions**: 769
-**Documented**: 219 functions (28.5%) - Priorities 1-8 complete
+**Documented**: 245 functions (31.9%) - Priorities 1-8 complete + Priority 9 partial
 
 ## Priority Overview
 
@@ -17,7 +17,7 @@
 | 6 | Low Code Utilities | 33 | ✅ Complete | Input, VDP, memory utilities |
 | 7 | V-INT State Handlers | 16 | ✅ Complete | All 16 states documented |
 | 8 | Main Game Logic | 128 | ✅ Complete | Dispatch table systematic extraction |
-| 9 | Extended/Data | ~500+ | Pending | Track, graphics, etc. |
+| 9 | Extended/Data | ~550+ | 🔄 Partial (6%) | BA18 dispatcher handlers extracted |
 
 ---
 
@@ -338,14 +338,59 @@ These are the handlers called from V-INT jump table at $16B2:
 
 ## Priority 9: Extended Regions
 
-**Note**: Priority 9 is sparse code regions (mostly data/graphics). Systematic scanning found only 7 code functions across ~$C0000 bytes. Remaining functions likely require decompilation tools or jump-table analysis.
+**Note**: Priority 9 is sparse code regions (mostly data/graphics). Jump-table systematic analysis discovered 26 additional handlers from func_BA18 dispatcher tables.
 
-### Main Code 2 ($10000-$1FFFF) - 2 functions
+### Main Code 2 ($10000-$1FFFF) - 28 functions
+
+#### Original Functions
 
 | Status | Function | Address | Size | Purpose |
 |--------|----------|---------|------|---------|
 | [x] | func_11942 | $00891942 | 60 | Minimal register setup |
 | [x] | func_1469C | $0089​1469C | 24 | Data processor with full save |
+
+#### Batch 1: BA18 Dispatcher Handlers (26 functions from jump tables)
+
+**Early Initialization Handlers (8 functions)**
+
+| Status | Function | Address | Purpose |
+|--------|----------|---------|---------|
+| [x] | func_14438 | $00894438 | Initialization/setup |
+| [x] | func_14450 | $00894450 | Initialization/setup |
+| [x] | func_1446C | $0089446C | Initialization/setup |
+| [x] | func_144A8 | $008944A8 | Initialization/setup |
+| [x] | func_144D0 | $008944D0 | Initialization/setup |
+| [x] | func_144F2 | $008944F2 | Initialization/setup |
+| [x] | func_14518 | $00894518 | Initialization/setup |
+| [x] | func_14540 | $00894540 | Initialization/setup |
+
+**State Machine Handlers (13 functions)**
+
+| Status | Function | Address | Purpose |
+|--------|----------|---------|---------|
+| [x] | func_1474A | $0089474A | State machine/handler |
+| [x] | func_14754 | $00894754 | State machine/handler |
+| [x] | func_1475E | $0089475E | State machine/handler |
+| [x] | func_14768 | $00894768 | State machine/handler |
+| [x] | func_14772 | $00894772 | State machine/handler |
+| [x] | func_1477C | $0089477C | State machine/handler |
+| [x] | func_14786 | $00894786 | State machine/handler |
+| [x] | func_14790 | $00894790 | State machine/handler |
+| [x] | func_1479A | $0089479A | State machine/handler |
+| [x] | func_147A4 | $008947A4 | State machine/handler |
+| [x] | func_147AE | $008947AE | State machine/handler |
+| [x] | func_147B8 | $008947B8 | State machine/handler |
+| [x] | func_147C2 | $008947C2 | State machine/handler |
+
+**Core Handlers (5 functions)**
+
+| Status | Function | Address | Purpose |
+|--------|----------|---------|---------|
+| [x] | func_1480E | $0089480E | Core handler |
+| [x] | func_14816 | $00894816 | Core handler |
+| [x] | func_14882 | $00894882 | Primary BA18 handler |
+| [x] | func_14884 | $00894884 | Variant BA18 handler |
+| [x] | func_14886 | $00894886 | Most common BA18 handler |
 
 **Documentation**: [68K_EXTENDED_REGIONS.md](68K_EXTENDED_REGIONS.md)
 
@@ -361,11 +406,11 @@ These are the handlers called from V-INT jump table at $16B2:
 
 **Documentation**: [68K_EXTENDED_REGIONS.md](68K_EXTENDED_REGIONS.md)
 
-### Additional Extended Regions
+### Additional Extended Regions Notes
 
-- 61 functions in Main Code 2 ($10000-$1FFFF) - 59 undocumented
-- 118+ functions in Extended ($30000-$FFFFF) - mostly data/graphics
-- 285+ functions in High ROM ($100000+) - unreferenced code/data
+- Main Code 2 ($10000-$1FFFF): 28 documented; 33 undocumented
+- Extended ($30000-$FFFFF): 5 documented; 113+ undocumented (mostly data/graphics)
+- High ROM ($100000+): mostly undocumented data/unreferenced code
 
 ---
 
@@ -383,8 +428,8 @@ These are the handlers called from V-INT jump table at $16B2:
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
 | 8. Main Logic | 128 | 128 | 0 | 100% |
-| 9. Extended | 550+ | 7 | 543+ | 1.3% |
-| **TOTAL** | **769** | **219** | **550** | **28.5%** |
+| 9. Extended | 550+ | 33 | 517+ | 6.0% |
+| **TOTAL** | **769** | **245** | **524** | **31.9%** |
 
 ### Milestones
 

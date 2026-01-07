@@ -241,6 +241,148 @@ All 7 Priority 9 functions share common traits:
 
 ---
 
+## Batch 1: Main Code 2 Handlers (from func_BA18 dispatcher tables)
+
+26 new Priority 9 functions discovered via jump table analysis of func_BA18 dispatcher tables ($14888, $14C88, $15088).
+
+### Group 1: Early Initialization Handlers ($14438-$14540)
+
+## func_14438 - BA18 Dispatcher Handler 1 ($00894438)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894438 | **Purpose**: Initialization/setup
+**Cross-references**: func_BA18 tables (multiple entries)
+
+## func_14450 - BA18 Dispatcher Handler 2 ($00894450)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894450 | **Purpose**: Initialization/setup
+**Cross-references**: func_BA18 tables
+
+## func_1446C - BA18 Dispatcher Handler 3 ($0089446C)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $0089446C | **Purpose**: Initialization/setup
+**Cross-references**: func_BA18 tables
+
+## func_144A8 - BA18 Dispatcher Handler 4 ($008944A8)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $008944A8 | **Purpose**: Initialization/setup
+**Cross-references**: func_BA18 tables
+
+## func_144D0 - BA18 Dispatcher Handler 5 ($008944D0)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $008944D0 | **Purpose**: Initialization/setup
+**Cross-references**: func_BA18 tables
+
+## func_144F2 - BA18 Dispatcher Handler 6 ($008944F2)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $008944F2 | **Purpose**: Initialization/setup
+**Cross-references**: func_BA18 tables
+
+## func_14518 - BA18 Dispatcher Handler 7 ($00894518)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894518 | **Purpose**: Initialization/setup
+**Cross-references**: func_BA18 tables
+
+## func_14540 - BA18 Dispatcher Handler 8 ($00894540)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894540 | **Purpose**: Initialization/setup
+**Cross-references**: func_BA18 tables
+
+### Group 2: State Handlers ($1474A-$147C2)
+
+## func_1474A - State Handler 1 ($0089474A)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $0089474A | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_14754 - State Handler 2 ($00894754)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894754 | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_1475E - State Handler 3 ($0089475E)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $0089475E | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_14768 - State Handler 4 ($00894768)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894768 | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_14772 - State Handler 5 ($00894772)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894772 | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_1477C - State Handler 6 ($0089477C)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $0089477C | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_14786 - State Handler 7 ($00894786)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894786 | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_14790 - State Handler 8 ($00894790)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894790 | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_1479A - State Handler 9 ($0089479A)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $0089479A | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_147A4 - State Handler 10 ($008947A4)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $008947A4 | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_147AE - State Handler 11 ($008947AE)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $008947AE | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_147B8 - State Handler 12 ($008947B8)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $008947B8 | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+## func_147C2 - State Handler 13 ($008947C2)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $008947C2 | **Purpose**: State machine/handler
+**Cross-references**: func_BA18 tables
+
+### Group 3: Core Handlers ($1480E-$14886)
+
+## func_1480E - Core Handler 1 ($0089480E)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $0089480E | **Purpose**: Core handler
+**Cross-references**: func_BA18 tables
+
+## func_14816 - Core Handler 2 ($00894816)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894816 | **Purpose**: Core handler
+**Cross-references**: func_BA18 tables
+
+## func_14882 - Core Handler 3 ($00894882)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894882 | **Purpose**: Primary BA18 handler
+**Cross-references**: func_BA18 dispatcher (used in all 3 tables)
+
+## func_14884 - Core Handler 4 ($00894884)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894884 | **Purpose**: Variant BA18 handler
+**Cross-references**: func_BA18 tables 1-2
+
+## func_14886 - Core Handler 5 ($00894886)
+**Status**: [Extracted from func_BA18 dispatch tables]
+**Address**: $00894886 | **Purpose**: Primary BA18 handler (most common)
+**Cross-references**: func_BA18 dispatcher (highest call count across all tables)
+
+---
+
 ## Next Steps
 
 To fully document Priority 9 requires:
