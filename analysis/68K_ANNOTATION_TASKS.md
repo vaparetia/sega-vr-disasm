@@ -281,6 +281,8 @@ These are the handlers called from V-INT jump table at $16B2:
 | [x] | func_7768 | $00887768 | - | Complex conditional handler |
 | [x] | func_77B2 | $008877B2 | - | Configuration initializer |
 | [x] | func_9458 | $00889458 | - | Loop-based data updater |
+| [x] | func_77D6 | $008877D6 | - | Configuration path handler |
+| [x] | func_C784 | $0088C784 | - | Orchestrator with full save |
 
 **Documentation**: [68K_MAIN_LOGIC.md](68K_MAIN_LOGIC.md)
 
@@ -325,9 +327,9 @@ Likely data handlers, track-specific code, graphics routines.
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
-| 8. Main Logic | 124 | 87 | 37 | 70% |
+| 8. Main Logic | 124 | 89 | 35 | 72% |
 | 9. Extended | 500+ | 0 | 500+ | 0% |
-| **TOTAL** | **769** | **171** | **598** | **22.2%** |
+| **TOTAL** | **769** | **173** | **596** | **22.5%** |
 
 ### Milestones
 

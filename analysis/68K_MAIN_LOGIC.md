@@ -3576,6 +3576,85 @@ handler_2:
 
 ---
 
+## func_77D6 - Configuration Path Handler ($008877D6)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_77D6: Conditional Configuration Handler with Data Copy
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008877D6 - $00887917
+; Size: 321 bytes
+; Called by: State machine handlers
+;
+; Purpose: Load conditional configuration path, copy data blocks to memory,
+;          with selective updates based on control flags. Implements multi-path
+;          game mode configuration with staged initialization.
+;
+; Input: $FFC80F = Configuration selector
+;        Various control registers
+; Output: Memory updates to $C3xx, $C0xx regions
+; Modifies: All registers (saved/restored)
+; ═══════════════════════════════════════════════════════════════════════════
+
+008877D6  48E7 FF00            MOVEM.L D0-D7/A0-A5,-(A7)  ; Save D0-D7, A0-A5
+008877DA  4EBA 00C0            JSR     $00887E9C            ; Call subroutine
+008877DE  4CDF 00FF            MOVEM.L (A7)+,D0-D7/A0-A5  ; Restore registers
+008877E2  0828 0000 0055       BTST    #$55,D0              ; Test status bit
+008877E6  6710                 BEQ.S   .path_alt            ; Branch if zero
+008877E8  9768 0040            SUB.W   $40(A0),D3           ; Conditional subtract
+008877EC  9968 0046            SUB.W   $46(A0),D4           ; Another subtract
+008877F0  9B68 0030            SUB.W   $30(A0),D5           ; More data
+008877F4  9D68 0034            SUB.W   $34(A0),D6           ; Configuration
+003187F8  3168 0040 0042       MOVE.W  $40(A0),$42(A0)      ; Copy word 1
+008877FE  3168 0046 0048       MOVE.W  $46(A0),$48(A0)      ; Copy word 2
+...
+00887915  4E75                 RTS
+```
+
+**Analysis**: Large configuration handler (321 bytes). Tests condition bit ($55), branches to alternate path if clear. Performs cascading subtractions from offset addresses then copies back results. Pattern suggests game mode validation and conditional data transformation. The sub-RTS pattern and full register save indicates critical control flow.
+
+---
+
+## func_C784 - Orchestrator with Full Register Save ($0088C784)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_C784: Complex Orchestrator Function (Full Register Save)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088C784 - $0088C8CC
+; Size: 328 bytes
+; Called by: Main game logic dispatcher
+;
+; Purpose: Comprehensive orchestration function with extensive subroutine calls,
+;          register configuration, and data table lookups. Handles multiple
+;          initialization phases with branching logic.
+;
+; Input: Various control registers and memory locations
+; Output: Extensive register configuration and memory writes
+; Modifies: All registers (saved/restored)
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088C784  48E7 FFFE            MOVEM.L D0-D7/A0-A7,-(A7)  ; Save ALL registers
+0088C788  7200                 MOVEQ   #0,D1                ; D1 = 0
+0088C78A  43FA 0036            LEA     $0088C7C2,A1         ; A1 = handler table
+0088C78E  45F8 9100            LEA     $FF9100,A2           ; A2 = object base
+0088C792  700E                 MOVEQ   #14,D0               ; D0 = 14 iterations
+0088C794  3551 00B6            MOVE.W  D1,($B6,A5)          ; Store D1
+0088C798  3559 000A            MOVE.W  D2,($0A,A5)          ; Store D2
+0088C79C  45EA 0100            LEA     $0100(A5),A2         ; Advance A2
+0088C7A0  51C8 FFF2            DBRA    D0,.loop_label       ; Loop 15 times
+0088C7A4  21FC 0088 C7E0 C280  MOVE.L  #$0088C7E0,$C280     ; Write handler address
+0088C7AC  41F9 0093 C0EC       LEA     $0093C0EC,A0         ; A0 = data table
+0088C7B2  3278 C8C0            MOVE.W  $C8C0,D1             ; D1 = control value
+0088C7B6  4EB9 0088 13B4       JSR     $008813B4            ; Call dispatcher
+0088C7BC  4CDF 7FFF            MOVEM.L (A7)+,D0-D7/A0-A7  ; Restore ALL
+0088C7C0  4E75                 RTS
+```
+
+**Analysis**: Comprehensive orchestrator (328 bytes) with full register save (D0-D7/A0-A7). Implements looped iteration (DBRA pattern), handler table lookups, and multiple JSR calls. The full register save and complex data flow suggest this is a high-level game state configuration function that preserves complete machine state. Pattern family indicates this is part of critical initialization sequence.
+
+---
+
 ## References
 
 - [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md) - COMM register protocol basics
