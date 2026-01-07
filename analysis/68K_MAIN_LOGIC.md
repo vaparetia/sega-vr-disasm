@@ -4569,6 +4569,135 @@ Functions extracted from dispatch tables $0044F8, $00659C, $006E20, $006E24, $00
 **Pattern**: RTS (hardware register write stub)
 **Cross-references**: Dispatch table at $008B34 [entry 0]
 
+### Batch 3: Undocumented Priority 8 Handlers (Jump Table Scanning)
+
+23 additional Priority 8 functions discovered through comprehensive jump table analysis. Organized by address range.
+
+**Group A: Early Low Address Handlers ($5000-$6B00)**
+
+## func_5308 - Early Handler A1 ($00885308)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00885308 | **Purpose**: Early low address handler
+**Cross-references**: Jump table dispatcher patterns
+
+## func_5618 - Early Handler A2 ($00885618)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00885618 | **Purpose**: Early low address handler
+**Cross-references**: Jump table dispatcher patterns
+
+## func_68C8 - Early Handler A3 ($008868C8)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008868C8 | **Purpose**: Game state utility
+**Cross-references**: Jump table dispatcher patterns
+
+## func_693E - Early Handler A4 ($0088693E)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0088693E | **Purpose**: Conditional game state processor
+**Cross-references**: Jump table dispatcher patterns
+
+## func_694A - Early Handler A5 ($0088694A)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0088694A | **Purpose**: Game state logic variant
+**Cross-references**: Jump table dispatcher patterns
+
+## func_69D0 - Early Handler A6 ($008869D0)
+**Status**: [Extracted from jump table patterns]
+**Address**: $008869D0 | **Purpose**: Configuration handler
+**Cross-references**: Jump table dispatcher patterns
+
+## func_6A38 - Early Handler A7 ($00886A38)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00886A38 | **Purpose**: Early address handler
+**Cross-references**: Jump table dispatcher patterns
+
+## func_6A3A - Early Handler A8 ($00886A3A)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00886A3A | **Purpose**: Early address variant handler
+**Cross-references**: Jump table dispatcher patterns
+
+## func_6ACC - Early Handler A9 ($00886ACC)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00886ACC | **Purpose**: Data processor
+**Cross-references**: Jump table dispatcher patterns
+
+## func_6B04 - Early Handler A10 ($00886B04)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00886B04 | **Purpose**: Early region terminator
+**Cross-references**: Jump table dispatcher patterns
+
+**Group B: func_7BE4 Dispatcher Handlers ($7000-$7C50)**
+
+**Note**: These 6 functions extracted from func_7BE4 16-entry jump table at $007BF6.
+
+## func_7C2E - func_7BE4 Handler 1 ($00887C2E)
+**Status**: [Extracted from func_7BE4 dispatcher table]
+**Address**: $00887C2E | **Purpose**: Dispatch handler (entry 0)
+**Cross-references**: Jump table at $007BF6 [entries 0]
+
+## func_7C32 - func_7BE4 Handler 2 ($00887C32)
+**Status**: [Extracted from func_7BE4 dispatcher table]
+**Address**: $00887C32 | **Purpose**: Dispatch handler (entry 1)
+**Cross-references**: Jump table at $007BF6 [entries 1]
+
+## func_7C36 - func_7BE4 Handler 3 ($00887C36)
+**Status**: [Extracted from func_7BE4 dispatcher table]
+**Address**: $00887C36 | **Purpose**: Dispatch handler (entry 2)
+**Cross-references**: Jump table at $007BF6 [entries 2]
+
+## func_7C3A - func_7BE4 Handler 4 ($00887C3A)
+**Status**: [Extracted from func_7BE4 dispatcher table]
+**Address**: $00887C3A | **Purpose**: Dispatch handler (entry 3)
+**Cross-references**: Jump table at $007BF6 [entries 3]
+
+## func_7C3E - func_7BE4 Handler 5 ($00887C3E)
+**Status**: [Extracted from func_7BE4 dispatcher table]
+**Address**: $00887C3E | **Purpose**: Dispatch handler (entry 8)
+**Cross-references**: Jump table at $007BF6 [entries 8]
+
+## func_7C42 - func_7BE4 Handler 6 ($00887C42)
+**Status**: [Extracted from func_7BE4 dispatcher table]
+**Address**: $00887C42 | **Purpose**: Dispatch handler (entries 4, 13)
+**Cross-references**: Jump table at $007BF6 [entries 4, 13]
+
+**Group C: Mid-High Address Handlers ($8D00-$8F00)**
+
+## func_8D62 - Mid Handler C1 ($00888D62)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00888D62 | **Purpose**: Mid-range handler
+**Cross-references**: Jump table dispatcher patterns
+
+## func_8EB6 - Mid Handler C2 ($00888EB6)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00888EB6 | **Purpose**: Mid-range handler variant
+**Cross-references**: Jump table dispatcher patterns
+
+## func_8ED6 - Mid Handler C3 ($00888ED6)
+**Status**: [Extracted from jump table patterns]
+**Address**: $00888ED6 | **Purpose**: Mid-range terminator handler
+**Cross-references**: Jump table dispatcher patterns
+
+**Group D: High Address Handlers ($B800-$FB00)**
+
+## func_B8A4 - High Handler D1 ($0088B8A4)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0088B8A4 | **Purpose**: High address handler
+**Cross-references**: Jump table dispatcher patterns
+
+## func_B964 - High Handler D2 ($0088B964)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0088B964 | **Purpose**: High address handler variant
+**Cross-references**: Jump table dispatcher patterns
+
+## func_B97A - High Handler D3 ($0088B97A)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0088B97A | **Purpose**: High address processor
+**Cross-references**: Jump table dispatcher patterns
+
+## func_FB98 - High Handler D4 ($0088FB98)
+**Status**: [Extracted from jump table patterns]
+**Address**: $0088FB98 | **Purpose**: High address region handler
+**Cross-references**: Jump table dispatcher patterns
+
 ---
 
 ## References

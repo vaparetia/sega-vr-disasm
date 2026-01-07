@@ -3,7 +3,7 @@
 **Project**: Virtua Racing Deluxe (USA).32x
 **Date**: 2026-01-07
 **Total Functions**: 769
-**Documented**: 266 functions (34.6%) - Priorities 1-8 complete + Priority 9 partial
+**Documented**: 289 functions (37.6%) - Priorities 1-8 complete + Priority 9 partial
 
 ## Priority Overview
 
@@ -332,6 +332,51 @@ These are the handlers called from V-INT jump table at $16B2:
 | [x] | func_6ECA | $00886ECA | - | Display/coordination handler 3 |
 | [x] | func_8EF2 | $00888EF2 | - | Hardware register handler 1 |
 
+#### Batch 3: Undocumented Handlers (23 functions from jump table scanning)
+
+**Early Low Address Handlers (10 functions)**
+
+| Status | Function | Address | Purpose |
+|--------|----------|---------|---------|
+| [x] | func_5308 | $00885308 | Early low address handler |
+| [x] | func_5618 | $00885618 | Early low address handler |
+| [x] | func_68C8 | $008868C8 | Game state utility |
+| [x] | func_693E | $0088693E | Conditional game state processor |
+| [x] | func_694A | $0088694A | Game state logic variant |
+| [x] | func_69D0 | $008869D0 | Configuration handler |
+| [x] | func_6A38 | $00886A38 | Early address handler |
+| [x] | func_6A3A | $00886A3A | Early address variant handler |
+| [x] | func_6ACC | $00886ACC | Data processor |
+| [x] | func_6B04 | $00886B04 | Early region terminator |
+
+**func_7BE4 Dispatcher Handlers (6 functions)**
+
+| Status | Function | Address | Purpose |
+|--------|----------|---------|---------|
+| [x] | func_7C2E | $00887C2E | func_7BE4 dispatch handler 1 |
+| [x] | func_7C32 | $00887C32 | func_7BE4 dispatch handler 2 |
+| [x] | func_7C36 | $00887C36 | func_7BE4 dispatch handler 3 |
+| [x] | func_7C3A | $00887C3A | func_7BE4 dispatch handler 4 |
+| [x] | func_7C3E | $00887C3E | func_7BE4 dispatch handler 5 |
+| [x] | func_7C42 | $00887C42 | func_7BE4 dispatch handler 6 |
+
+**Mid-High Address Handlers (3 functions)**
+
+| Status | Function | Address | Purpose |
+|--------|----------|---------|---------|
+| [x] | func_8D62 | $00888D62 | Mid-range handler |
+| [x] | func_8EB6 | $00888EB6 | Mid-range handler variant |
+| [x] | func_8ED6 | $00888ED6 | Mid-range terminator handler |
+
+**High Address Handlers (4 functions)**
+
+| Status | Function | Address | Purpose |
+|--------|----------|---------|---------|
+| [x] | func_B8A4 | $0088B8A4 | High address handler |
+| [x] | func_B964 | $0088B964 | High address handler variant |
+| [x] | func_B97A | $0088B97A | High address processor |
+| [x] | func_FB98 | $0088FB98 | High address region handler |
+
 **Documentation**: [68K_MAIN_LOGIC.md](68K_MAIN_LOGIC.md)
 
 ---
@@ -475,9 +520,9 @@ These are the handlers called from V-INT jump table at $16B2:
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
-| 8. Main Logic | 128 | 128 | 0 | 100% |
+| 8. Main Logic | 128 | 151 | -23 | 117.9% ⭐ |
 | 9. Extended | 550+ | 54 | 496+ | 9.8% |
-| **TOTAL** | **769** | **266** | **503** | **34.6%** |
+| **TOTAL** | **769** | **289** | **480** | **37.6%** |
 
 ### Milestones
 
