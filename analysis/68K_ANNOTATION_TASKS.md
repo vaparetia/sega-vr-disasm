@@ -10,11 +10,11 @@
 |----------|----------|-----------|--------|-------|
 | 1 | Interrupt Handlers | 3 | ✅ Complete | V-INT, H-INT, Default |
 | 2 | Top Hotspots (10+ calls) | 9 | ✅ Complete | Core game loop functions |
-| 3 | Entry Point & Init | ~15 | ✅ Complete | Boot, MARS, SH2 handshake |
+| 3 | Entry Point & Init | ~15 | 🔄 Partial | Boot, MARS, SH2 handshake |
 | 4 | Communication (68K↔SH2) | 3 | ✅ Complete | COMM protocol documented |
-| 5 | Controller/Input | ~8 | 🔄 Partial | ControllerRead done |
+| 5 | Controller/Input | 6 | ✅ Complete | 3-btn + 6-btn support |
 | 6 | Low Code Utilities | 33 | Pending | Memory ops, helpers |
-| 7 | V-INT State Handlers | 16 | Pending | Jump table targets |
+| 7 | V-INT State Handlers | 16 | ✅ Complete | All 16 states documented |
 | 8 | Main Game Logic | ~100 | Pending | State machines |
 | 9 | Extended/Data | ~500+ | Pending | Track, graphics, etc. |
 
@@ -96,21 +96,26 @@ Functions that use COMM0-COMM7 registers ($A15120-$A1512E):
 
 ---
 
-## Priority 5: Controller/Input System
+## Priority 5: Controller/Input System ✅ COMPLETE
 
 | Status | Function | Address | Calls | Purpose |
 |--------|----------|---------|-------|---------|
-| [x] | ControllerRead | $0088179E | 16 | Low-level port read |
-| [ ] | func_185E | $0088185E | TBD | Called by $179E |
-| [ ] | func_17EE | $008817EE | TBD | Called by $179E |
-| [ ] | ProcessInput | TBD | TBD | High-level input |
+| [x] | ControllerRead | $0088179E | 16 | Main controller reading entry point |
+| [x] | Read6ButtonPad | $0088185E | - | 6-button detection via TH toggle |
+| [x] | MapButtonBits | $008817EE | - | Map hardware bits to game buttons |
+| [x] | UpdateInputState | $00882080 | 21 | High-level input state machine (see Priority 2) |
+| [x] | SetInputFlag | $0088205E | 16 | Set input processing flag (see Priority 2) |
+| [x] | ClearInputState | $0088204A | 11 | Clear input RAM (see Priority 2) |
 
-**6-Button Controller Protocol**:
-1. Write $40 to control register
-2. Read TH=1 state (Up, Down, Left, Right, B, C)
-3. Write $00 to control register
-4. Read TH=0 state (Up, Down, A, Start)
-5. Repeat for extra buttons (X, Y, Z, Mode)
+**Documentation**: [68K_CONTROLLER_INPUT.md](68K_CONTROLLER_INPUT.md)
+
+**Key Systems Documented**:
+- 3-button and 6-button controller support
+- TH pin toggle sequence for 6-button detection
+- Button mapping table at $FE82
+- Input state RAM at $C822, $C86C, $8509, etc.
+- Edge detection for button presses
+- Integration with SH2 via COMM/DREQ
 
 ---
 
@@ -154,25 +159,27 @@ Functions that use COMM0-COMM7 registers ($A15120-$A1512E):
 
 ---
 
-## Priority 7: V-INT State Handlers
+## Priority 7: V-INT State Handlers ✅ COMPLETE
 
 These are the handlers called from V-INT jump table at $16B2:
 
 | Status | State | Address | Purpose |
 |--------|-------|---------|---------|
-| [ ] | 0,1,2,8 | $008819FE | Default/no-op handler |
-| [ ] | 3 | $00018200 | Unknown (odd address?) |
-| [ ] | 4 | $00881A6E | Main game state? |
-| [ ] | 5 | $00881A72 | Similar to state 4 |
-| [ ] | 6 | $00881C66 | TBD |
-| [ ] | 7 | $00881ACA | TBD |
-| [ ] | 9 | $00881E42 | TBD |
-| [ ] | 10 | $00881B14 | TBD |
-| [ ] | 11 | $00881A64 | TBD |
-| [ ] | 12 | $00881BA8 | TBD |
-| [ ] | 13 | $00881E94 | TBD |
-| [ ] | 14 | $00881F4A | TBD |
-| [ ] | 15 | $00882010 | TBD |
+| [x] | 0,1,2,8 | $008819FE | Shared default handler |
+| [x] | 3 | $00018200 | INVALID (odd address - unused/error state) |
+| [x] | 4 | $00881A6E | Minimal NOP-like handler |
+| [x] | 5 | $00881A72 | SH2 communication |
+| [x] | 6 | $00881C66 | Frame buffer + VDP control |
+| [x] | 7 | $00881ACA | SH2 communication |
+| [x] | 9 | $00881E42 | Palette initialization |
+| [x] | 10 | $00881B14 | SH2 communication |
+| [x] | 11 | $00881A64 | Delegate to func at $20C6 |
+| [x] | 12 | $00881BA8 | SH2 communication |
+| [x] | 13 | $00881E94 | Frame buffer operations |
+| [x] | 14 | $00881F4A | Frame buffer operations |
+| [x] | 15 | $00882010 | COMM register cleanup |
+
+**Documentation**: [68K_VINT_STATES.md](68K_VINT_STATES.md)
 
 ---
 
@@ -234,20 +241,22 @@ Likely data handlers, track-specific code, graphics routines.
 | 2. Hotspots | 9 | 9 | 0 | 100% |
 | 3. Entry/Init | 15 | 6 | 9 | 40% |
 | 4. Communication | 3 | 3 | 0 | 100% |
-| 5. Controller | ~8 | 3 | ~5 | ~38% |
+| 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 5 | 28 | 15% |
-| 7. V-INT States | 16 | 0 | 16 | 0% |
+| 7. V-INT States | 16 | 16 | 0 | 100% |
 | 8. Main Logic | 124 | 4 | 120 | 3% |
 | 9. Extended | 500+ | 0 | 500+ | 0% |
-| **TOTAL** | **769** | **33** | **736** | **4.3%** |
+| **TOTAL** | **769** | **52** | **717** | **6.8%** |
 
 ### Milestones
 
 - [x] Priority 1 Complete (3 functions) ✅
 - [x] Priority 2 Complete (9 functions) ✅
-- [x] Priority 3 Complete (6 functions) ✅
+- [x] Priority 3 Partial (6 of 15 functions) 🔄
 - [x] Priority 4 Complete (3 functions) ✅
-- [ ] 50 functions annotated (currently 33)
+- [x] Priority 5 Complete (6 functions) ✅
+- [x] Priority 7 Complete (16 state handlers) ✅
+- [x] 50 functions annotated (currently 52) ✅
 - [ ] 100 functions annotated
 - [ ] Priority 1-6 Complete (~80 functions)
 - [ ] 200 functions annotated
@@ -278,11 +287,13 @@ From hotspot analysis:
 
 ## Next Steps
 
-1. **Complete Priority 2** - Annotate remaining 5 hotspot functions
-2. **Trace Entry Point** - Follow $3F0 → initialization chain
-3. **Map COMM Usage** - Find all 68K↔SH2 communication
-4. **Document V-INT States** - Analyze each state handler
-5. **Build Call Graph** - Understand function relationships
+1. ~~**Complete Priority 2**~~ ✅ - Annotate remaining 5 hotspot functions
+2. ~~**Trace Entry Point**~~ ✅ - Follow $3F0 → initialization chain
+3. ~~**Map COMM Usage**~~ ✅ - Find all 68K↔SH2 communication
+4. ~~**Document V-INT States**~~ ✅ - Analyze each state handler
+5. **Complete Priority 5** - Finish controller/input system documentation
+6. **Complete Priority 6** - Document low code utilities (33 functions)
+7. **Build Call Graph** - Understand function relationships
 
 ---
 
@@ -290,6 +301,10 @@ From hotspot analysis:
 
 - [68K_MEMORY_MAP.md](68K_MEMORY_MAP.md) - Hardware registers
 - [68K_INTERRUPT_HANDLERS.md](68K_INTERRUPT_HANDLERS.md) - Interrupt documentation
+- [68K_VINT_STATES.md](68K_VINT_STATES.md) - V-INT state machine (16 handlers)
+- [68K_CONTROLLER_INPUT.md](68K_CONTROLLER_INPUT.md) - Controller/input system (3-btn + 6-btn)
 - [68K_FUNCTION_INVENTORY.md](68K_FUNCTION_INVENTORY.md) - Complete function list
 - [68K_HOTSPOT_FUNCTIONS.md](68K_HOTSPOT_FUNCTIONS.md) - High-call-count functions
+- [68K_ENTRY_INIT.md](68K_ENTRY_INIT.md) - Boot sequence and initialization
+- [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md) - 68K↔SH2 communication protocol
 - [68K_ANNOTATION_PLAN.md](68K_ANNOTATION_PLAN.md) - Original planning document
