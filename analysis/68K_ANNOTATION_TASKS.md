@@ -200,8 +200,20 @@ These are the handlers called from V-INT jump table at $16B2:
 |--------|----------|---------|-------|---------|
 | [x] | WaitForVBlank | $00884998 | 21 | V-INT sync (Priority 2) |
 | [x] | SetDisplayParams | $008849AA | 21 | Display init (Priority 2) |
+| [x] | func_4004 | $00884004 | 1 | Dual conditional table lookup & write |
+| [x] | func_4280 | $00884280 | 2 | Nibble extractor & field populator |
+| [x] | func_426E | $0088426E | 1 | Conditional VDP write with counter |
+| [x] | func_4836 | $00884836 | 1 | Quad memory fill dispatcher |
+| [x] | func_483A | $0088483A | 1 | Memory fill waterfall entry 1 |
+| [x] | func_483E | $0088483E | 1 | Memory fill waterfall entry 2 |
+| [x] | func_4842 | $00884842 | 2 | Memory fill 60 bytes (A1) |
+| [x] | func_4846 | $00884846 | 1 | Memory fill 60 bytes (A4) |
 | [x] | func_4920 | $00884920 | 6 | Fast 20-byte memory copy (A1→A2) |
-| [ ] | func_4922 | $00884922 | 2 | Large block copy (needs verification) |
+| [x] | func_4922 | $00884922 | 2 | Fast 16-byte copy (variant entry) |
+| [x] | func_48CA | $008848CA | 2 | Triple memory fill dispatcher |
+| [x] | func_48CE | $008848CE | 2 | Memory fill waterfall entry 1 |
+| [x] | func_48D2 | $008848D2 | 2 | Memory fill waterfall entry 2 |
+| [x] | func_4CBC | $00884CBC | 1 | Game state jump table dispatcher |
 | [x] | func_6D00 | $00886D00 | 4 | Table search with conditional index |
 | [x] | func_7280 | $00887280 | 2 | Bitfield calculator (3D spatial) |
 | [x] | func_83AE | $008883AE | 2 | PSG nibble splitter |
@@ -258,9 +270,9 @@ Likely data handlers, track-specific code, graphics routines.
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
-| 8. Main Logic | 124 | 16 | 108 | 13% |
+| 8. Main Logic | 124 | 31 | 93 | 25% |
 | 9. Extended | 500+ | 0 | 500+ | 0% |
-| **TOTAL** | **769** | **100** | **669** | **13.0%** |
+| **TOTAL** | **769** | **115** | **654** | **15.0%** |
 
 ### Milestones
 

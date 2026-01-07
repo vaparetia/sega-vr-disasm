@@ -748,6 +748,454 @@ The $0EEE pattern in the data table and the cycling index suggest this is managi
 
 ---
 
+## func_4004 - Conditional Table Lookup Dispatcher ($00884004)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_4004: Dual Conditional Table Lookup & Write
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00884004 - $00884046
+; Size: 66 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Performs two conditional table lookups based on RAM flags at
+;          $FFC01E and $FFC024. If flags are non-negative, scales index by 4,
+;          looks up longword from table at $00895A24, and stores result.
+;
+; Input: A1 = Base pointer for writes
+;        D1 = Value to write initially
+;        D2 = Offset to advance A1 between operations
+;        D3, D4 = Values to write after each table lookup
+; Output: (A1) updated with values
+;         A1 advanced by D2 offset (twice)
+; Modifies: D0, A1, A2
+; ═══════════════════════════════════════════════════════════════════════════
+
+00884004  3341 0000            MOVE.W  D1,$0000(A1)         ; Store D1 to (A1)
+00884008  3038 C01E            MOVE.W  $FFC01E,D0           ; D0 = flag 1
+0088400C  6B14                 BMI.S   .skip_lookup1        ; Skip if negative
+
+; First table lookup (if $FFC01E >= 0)
+0088400E  D040                 ADD.W   D0,D0                ; D0 *= 2
+00884010  D040                 ADD.W   D0,D0                ; D0 *= 4 (scale to long index)
+00884012  45F9 00895A24        LEA     $00895A24,A2         ; A2 = table base
+00884018  2372 0000 0010       MOVE.L  (A2,D0.W),$0010(A1)  ; (A1+$10) = table[D0]
+0088401E  3344 0000            MOVE.W  D4,$0000(A1)         ; Store D4
+00884022  D3C2                 ADDA.L  D2,A1                ; A1 += D2
+
+; Second conditional lookup
+.skip_lookup1:
+00884024  3341 0000            MOVE.W  D1,$0000(A1)         ; Store D1 again
+00884028  3038 C024            MOVE.W  $FFC024,D0           ; D0 = flag 2
+0088402C  6B14                 BMI.S   .skip_lookup2        ; Skip if negative
+
+; Second table lookup (if $FFC024 >= 0)
+0088402E  D040                 ADD.W   D0,D0                ; D0 *= 2
+00884030  D040                 ADD.W   D0,D0                ; D0 *= 4
+00884032  45F9 00895A24        LEA     $00895A24,A2         ; Same table
+00884038  2372 0000 0010       MOVE.L  (A2,D0.W),$0010(A1)  ; (A1+$10) = table[D0]
+0088403E  3343 0000            MOVE.W  D3,$0000(A1)         ; Store D3
+00884042  D3C2                 ADDA.L  D2,A1                ; A1 += D2
+
+.skip_lookup2:
+00884044  4E75                 RTS
+```
+
+**Analysis**: Table-driven state lookup with conditional execution. Uses negative flag values to skip operations, allowing dynamic enable/disable of processing. The table at $00895A24 likely contains function pointers or data addresses. The dual-lookup pattern suggests this manages two parallel game systems (e.g., player 1 and player 2, or two AI opponents).
+
+---
+
+## func_4280 - Nibble Extractor & Field Populator ($00884280)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_4280: Packed Nibble Extraction to Data Fields
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00884280 - $008842BE
+; Size: 62 bytes
+; Called by: Main game logic (2 calls)
+;
+; Purpose: Unpacks nibble-packed data from (A1) and distributes to specific
+;          byte offsets in (A2). Reads 4 bytes, extracts 7 nibbles via LSR,
+;          stores at offsets +$09 through +$0F, then masks with ANDI.
+;
+; Input: A1 = Source pointer (nibble-packed data)
+;        A2 = Destination structure pointer
+; Output: (A2+$09 through A2+$0F) populated with extracted nibbles
+;         Data masked with $0F0F and $0F0F0F0F
+; Modifies: D0, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00884280  1019                 MOVE.B  (A1)+,D0             ; Read byte 1
+00884282  1540 000A            MOVE.B  D0,$000A(A2)         ; Store low nibble
+00884286  E808                 LSR.B   #4,D0                ; Shift to high nibble
+00884288  1540 0009            MOVE.B  D0,$0009(A2)         ; Store high nibble
+
+0088428C  1019                 MOVE.B  (A1)+,D0             ; Read byte 2
+0088428E  1540 000C            MOVE.B  D0,$000C(A2)         ; Store low nibble
+00884292  E808                 LSR.B   #4,D0                ; Shift to high nibble
+00884294  1540 000B            MOVE.B  D0,$000B(A2)         ; Store high nibble
+
+00884298  3019                 MOVE.W  (A1)+,D0             ; Read word (bytes 3-4)
+0088429A  1540 000F            MOVE.B  D0,$000F(A2)         ; Store nibble 1
+0088429E  E848                 LSR.W   #4,D0                ; Shift 4 bits
+008842A0  1540 000E            MOVE.B  D0,$000E(A2)         ; Store nibble 2
+008842A4  E848                 LSR.W   #4,D0                ; Shift 4 bits
+008842A6  1540 000D            MOVE.B  D0,$000D(A2)         ; Store nibble 3
+
+; Mask lower nibbles in destination
+008842AA  026A 0F0F 000A       ANDI.W  #$0F0F,$000A(A2)     ; Mask bytes $0A-$0B
+008842B0  02AA 0F0F0F0F 000C   ANDI.L  #$0F0F0F0F,$000C(A2) ; Mask bytes $0C-$0F
+
+008842B8  4E75                 RTS
+```
+
+**Analysis**: Unpacks 7 nibbles (3.5 bytes) from densely packed format to separate byte fields. The masking operation ensures only low nibbles (0-15) remain. Likely used for:
+- Controller input state (buttons mapped to nibbles)
+- Compressed parameter storage
+- Track/level configuration data
+- Palette index tables
+
+The specific offset pattern (+$09 to +$0F) suggests this populates a standardized structure used throughout the game.
+
+---
+
+## func_426E - Conditional VDP Write with Counter ($0088426E)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_426E: Conditional VDP Register Write & Counter Update
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088426E - $0088427E
+; Size: 16 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Tests a condition (word at 0(A0)), conditionally calls subroutine
+;          at +$0C, then updates VDP register $C25C and increments counter.
+;
+; Input: A0 = Pointer to test value (word at offset 0)
+; Output: VDP register $FFC25C set to $0040
+;         Counter at $FFC07C incremented by 4
+; Modifies: (depends on called subroutine)
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088426E  0000                 ORI.B   #$00,D0              ; NOP (padding?)
+00884270  6702                 BEQ.S   .skip_call           ; Skip if zero
+00884272  610C                 BSR.S   .subroutine          ; Call function at +$0C
+
+.skip_call:
+00884274  31FC 0040 C25C       MOVE.W  #$0040,$FFC25C       ; Set VDP register
+0088427A  5878 C07C            ADDQ.W  #4,$FFC07C           ; Increment counter
+0088427E  4E75                 RTS
+
+; Subroutine at +$0C (offset $00884280 = func_4280!)
+.subroutine:
+00884280  1019                 MOVE.B  (A1)+,D0             ; (This is func_4280)
+```
+
+**Analysis**: Wrapper function that conditionally calls func_4280 (nibble extractor), then performs VDP/counter bookkeeping. The counter at $FFC07C tracks some kind of frame or operation count. The VDP write ($0040) may be setting a control register. The leading ORI.B #$00,D0 is suspicious - likely padding or the tail end of a previous function.
+
+---
+
+## func_4836 - Quad Memory Fill Dispatcher ($00884836)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_4836: Sequential Memory Fill Chain (4 Sub-Functions)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00884836 - $00884844
+; Size: 14 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Calls 4 memory fill functions in sequence. Each fills different
+;          memory regions with value in D1. Chain: 483A → 483E → 4842 → 4846
+;
+; Input: D1 = Fill value (longword)
+;        A1, A4 = Destination pointers (used by sub-functions)
+; Output: Multiple memory regions filled with D1
+; Modifies: A1, A4 (advanced by fill operations)
+; ═══════════════════════════════════════════════════════════════════════════
+
+00884836  4EBA 0002            JSR     func_483A            ; Fill region 1
+0088483A  4EBA 0002            JSR     func_483E            ; Fill region 2
+0088483E  4EBA 0002            JSR     func_4842            ; Fill region 3 (A1)
+00884842  4EBA 0002            JSR     func_4846            ; Fill region 4 (A4)
+00884846  4E75                 RTS                          ; (implied)
+```
+
+**Analysis**: Memory initialization dispatcher. Calls 4 consecutive fill functions, each writing D1 repeatedly to memory. The JSR chain structure (each JSR only +2 bytes ahead) creates a waterfall pattern where each function calls the next. Clever code size optimization.
+
+---
+
+## func_483A - Memory Fill Level 4 ($0088483A)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_483A: Memory Fill Chain Entry 1
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088483A - $0088483C
+; Size: 2 bytes (just JSR)
+; Called by: func_4836 (1 call)
+;
+; Purpose: Entry point 1 of memory fill waterfall
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088483A  4EBA 0002            JSR     func_483E            ; Fall through to next
+```
+
+---
+
+## func_483E - Memory Fill Level 3 ($0088483E)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_483E: Memory Fill Chain Entry 2
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088483E - $00884840
+; Size: 2 bytes (just JSR)
+; Called by: func_483A (1 call)
+;
+; Purpose: Entry point 2 of memory fill waterfall
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088483E  4EBA 0002            JSR     func_4842            ; Fall through to next
+```
+
+---
+
+## func_4842 - Memory Fill 60 Bytes (A1) ($00884842)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_4842: Fill 60 Bytes via A1 Pointer
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00884842 - $00884884
+; Size: 66 bytes
+; Called by: func_483E and func_4836 (2 calls)
+;
+; Purpose: Writes D1 to (A1) pointer 15 times (60 bytes total), then calls
+;          func_4846 to fill via A4 pointer.
+;
+; Input: D1 = Fill value (longword)
+;        A1 = Destination pointer
+; Output: 60 bytes at (A1) filled with D1
+;         A1 advanced by 60 bytes
+; Modifies: A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00884842  4EBA 0002            JSR     func_4846            ; Call A4 filler
+00884846  22C1                 MOVE.L  D1,(A1)+             ; Fill long 1
+00884848  22C1                 MOVE.L  D1,(A1)+             ; Fill long 2
+0088484A  22C1                 MOVE.L  D1,(A1)+             ; Fill long 3
+0088484C  22C1                 MOVE.L  D1,(A1)+             ; Fill long 4
+0088484E  22C1                 MOVE.L  D1,(A1)+             ; Fill long 5
+00884850  22C1                 MOVE.L  D1,(A1)+             ; Fill long 6
+00884852  22C1                 MOVE.L  D1,(A1)+             ; Fill long 7
+00884854  22C1                 MOVE.L  D1,(A1)+             ; Fill long 8
+00884856  22C1                 MOVE.L  D1,(A1)+             ; Fill long 9
+00884858  22C1                 MOVE.L  D1,(A1)+             ; Fill long 10
+0088485A  22C1                 MOVE.L  D1,(A1)+             ; Fill long 11
+0088485C  22C1                 MOVE.L  D1,(A1)+             ; Fill long 12
+0088485E  22C1                 MOVE.L  D1,(A1)+             ; Fill long 13
+00884860  22C1                 MOVE.L  D1,(A1)+             ; Fill long 14
+00884862  22C1                 MOVE.L  D1,(A1)+             ; Fill long 15 (60 bytes)
+00884864  4E75                 RTS
+```
+
+**Analysis**: Unrolled fill loop - 15 longword writes (60 bytes). Faster than DBRA loop but larger code. The 60-byte size suggests clearing a specific structure (e.g., display list entry, object state).
+
+---
+
+## func_4846 - Memory Fill 60 Bytes (A4) ($00884846)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_4846: Fill 60 Bytes via A4 Pointer
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00884846 - $00884886
+; Size: 64 bytes
+; Called by: func_4842 (1 call)
+;
+; Purpose: Writes D1 to (A4) pointer 15 times (60 bytes total)
+;
+; Input: D1 = Fill value (longword)
+;        A4 = Destination pointer
+; Output: 60 bytes at (A4) filled with D1
+;         A4 advanced by 60 bytes
+; Modifies: A4
+; ═══════════════════════════════════════════════════════════════════════════
+
+00884846  2C81                 MOVE.L  D1,(A4)+             ; Fill long 1
+00884848  2C81                 MOVE.L  D1,(A4)+             ; Fill long 2
+0088484A  2C81                 MOVE.L  D1,(A4)+             ; Fill long 3
+; ... (pattern repeats)
+00884882  2C81                 MOVE.L  D1,(A4)+             ; Fill long 14
+00884884  2C81                 MOVE.L  D1,(A4)+             ; Fill long 15
+00884886  4E75                 RTS
+```
+
+**Analysis**: Parallel to func_4842 but uses A4 pointer. The waterfall chain (4836→483A→483E→4842→4846) allows filling up to 4 different memory regions with a single function call, depending on entry point.
+
+---
+
+## func_4922 - Fast 16-Byte Copy (Variant Entry) ($00884922)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_4922: Fast 16-Byte Memory Copy (A1 → A2)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00884922 - $0088492A (INSIDE func_4920)
+; Size: 8 bytes
+; Called by: Main game logic (2 calls - variant entry point)
+;
+; Purpose: Variant entry point into func_4920 that copies 16 bytes instead
+;          of 20 bytes. Callers jump to offset +2 of func_4920 to skip
+;          the first MOVE.L instruction.
+;
+; Input: A1 = Source address
+;        A2 = Destination address
+; Output: A1 = Source + 16 (advanced)
+;         A2 = Destination + 16 (advanced)
+; Modifies: A1, A2
+; ═══════════════════════════════════════════════════════════════════════════
+
+; Entry point at +2 bytes into func_4920
+00884922  24D9                 MOVE.L  (A1)+,(A2)+          ; Copy long 1
+00884924  24D9                 MOVE.L  (A1)+,(A2)+          ; Copy long 2
+00884926  24D9                 MOVE.L  (A1)+,(A2)+          ; Copy long 3
+00884928  24D9                 MOVE.L  (A1)+,(A2)+          ; Copy long 4 (16 bytes)
+0088492A  4E75                 RTS
+```
+
+**Analysis**: Not a separate function - it's a variant entry point into func_4920. By calling $00884922 instead of $00884920, callers copy 16 bytes instead of 20. This code reuse technique saves ROM space. Both 16-byte and 20-byte structures must be common enough to warrant this dual-purpose implementation.
+
+---
+
+## func_48CA - Triple Memory Fill Dispatcher ($008848CA)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_48CA: Sequential Memory Fill Chain (3 + 1 Functions)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008848CA - $008848D8
+; Size: 14 bytes
+; Called by: Main game logic (2 calls)
+;
+; Purpose: Calls 4 memory fill functions in sequence. First 3 are adjacent
+;          (+$02 each), final one is at +$22. Fills different regions.
+;
+; Input: D1 = Fill value (longword)
+;        A1, A2 = Destination pointers
+; Output: Multiple memory regions filled
+; Modifies: A1, A2
+; ═══════════════════════════════════════════════════════════════════════════
+
+008848CA  4EBA 0002            JSR     func_48CE            ; Fill 1
+008848CE  4EBA 0002            JSR     func_48D2            ; Fill 2
+008848D2  4EBA 0002            JSR     func_48D6            ; Fill 3
+008848D6  4EBA 0022            JSR     func_48FA            ; Fill 4 (larger gap)
+```
+
+**Analysis**: Similar pattern to func_4836 but with 4 calls instead of 3. The final JSR has larger offset (+$22 = 34 bytes), suggesting func_48FA is a different type or larger fill operation.
+
+---
+
+## func_48CE - Memory Fill Waterfall Entry 1 ($008848CE)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_48CE: Memory Fill Chain Entry 1
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008848CE - $008848D0
+; Size: 2 bytes
+; Called by: func_48CA (2 calls)
+;
+; Purpose: Entry point in fill waterfall chain
+; ═══════════════════════════════════════════════════════════════════════════
+
+008848CE  4EBA 0002            JSR     func_48D2            ; Fall through
+```
+
+---
+
+## func_48D2 - Memory Fill Waterfall Entry 2 ($008848D2)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_48D2: Memory Fill Chain Entry 2
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008848D2 - $008848D4
+; Size: 2 bytes
+; Called by: func_48CE (2 calls)
+;
+; Purpose: Entry point in fill waterfall chain
+; ═══════════════════════════════════════════════════════════════════════════
+
+008848D2  4EBA 0002            JSR     func_48D6            ; Fall through
+
+; func_48D6 starts here (based on hexdump pattern):
+008848D6  4EBA 0022            JSR     func_48FA
+008848DA  24D9                 MOVE.L  (A1)+,(A2)+          ; Start of fill loop
+008848DC  24D9                 MOVE.L  (A1)+,(A2)+
+; ... (pattern continues for ~8 iterations)
+```
+
+**Analysis**: These waterfall entries allow variable amounts of memory to be filled depending on which entry point is called. Compact and efficient for clearing/initializing game state.
+
+---
+
+## func_4CBC - Game State Jump Table Dispatcher ($00884CBC)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_4CBC: State-Based Jump Table Dispatcher
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00884CBC - $00884CFC
+; Size: 64 bytes
+; Called by: Main game logic (1 call)
+;
+; Purpose: Dispatches to one of 5+ handler functions based on state index
+;          at $FFC87E. Uses PC-relative jump table for dynamic dispatch.
+;
+; Input: ($FFC87E).W = State index (0-4+)
+; Output: (depends on handler function)
+; Modifies: A1, D0 (and handler-specific registers)
+; ═══════════════════════════════════════════════════════════════════════════
+
+00884CBC  3038 C87E            MOVE.W  $FFC87E,D0           ; D0 = state index
+00884CC0  227B 0004            MOVEA.L (PC,D0.W,$04),A1     ; A1 = table[state]
+00884CC4  4ED1                 JMP     (A1)                 ; Jump to handler
+
+; Jump table (5 entries)
+00884CC6  00884CDA             .long   handler_0            ; State 0
+00884CCA  00884D00             .long   handler_1            ; State 1
+00884CCE  00884D1A             .long   handler_2            ; State 2
+00884CD2  00884D7A             .long   handler_3            ; State 3
+00884CD6  0088573C             .long   handler_4            ; State 4
+
+; Handler code follows
+handler_0:
+00884CDA  4EBA DBE6            JSR     $008828C2            ; VDP/SH2 sync
+00884CDE  4EBA D3F6            JSR     $008820D6            ; (unknown)
+00884CE2  4EBA 63BA            JSR     $0088B09E            ; (high ROM func)
+00884CE6  4EBA 6344            JSR     $0088B02C            ; (high ROM func)
+00884CEA  4EBA 6946            JSR     $0088B632            ; (high ROM func)
+00884CEE  4EBA 0BD8            JSR     $008858C8            ; (Priority 8)
+00884CF2  5878 C87E            ADDQ.W  #4,$FFC87E           ; Increment state
+00884CF6  33FC 0010 00FFXXXX   MOVE.W  #$0010,$00FFXXXX     ; (continues)
+```
+
+**Analysis**: Classic state machine dispatcher. The state index at $FFC87E controls game flow. Handler 0 performs initialization (calls 6 setup functions), then increments state to move to next phase. The jump table allows clean separation of game phases (menu, loading, gameplay, results, etc.).
+
+**State Index ($FFC87E)**: Critical game state variable. Incremented via ADDQ.W #4 (scaling for longword table indexing). Each state likely represents:
+- State 0: Initialization/boot
+- State 1: Menu/attract mode
+- State 2: Race loading
+- State 3: Active gameplay
+- State 4: Results/scoring
+
+---
+
 ## References
 
 - [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md) - COMM register protocol basics
