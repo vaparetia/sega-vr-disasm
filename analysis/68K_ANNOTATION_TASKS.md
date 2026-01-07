@@ -252,7 +252,15 @@ These are the handlers called from V-INT jump table at $16B2:
 | [x] | func_48B8 | $008848B8 | - | Unrolled memory fill 3 (32 bytes) |
 | [x] | func_48FE | $008848FE | - | Unrolled memory fill 4 (60 bytes) |
 | [x] | func_88BE | $008888BE | - | Complex conditional state handler |
+| [x] | func_8B9C | $00888B9C | - | Hardware register initializer 1 |
+| [x] | func_8BC2 | $00888BC2 | - | Hardware register initializer 2 |
+| [x] | func_8BF2 | $00888BF2 | - | Hardware register initializer 3 |
+| [x] | func_8C16 | $00888C16 | - | Hardware register initializer 4 |
+| [x] | func_8C40 | $00888C40 | - | Selector-based hardware router |
+| [x] | func_8CCE | $00888CCE | - | Data loader & validator |
 | [x] | func_8DC0 | $00888DC0 | - | 3D coordinate calculation |
+| [x] | func_8EF4 | $00888EF4 | - | Control register writer |
+| [x] | func_8EFC | $00888EFC | - | Extended control handler |
 | [x] | func_A144 | $0088A144 | - | Table-based data initialization |
 | [x] | func_A80A | $0088A80A | - | Loop-based data copy 1 (structured) |
 | [x] | func_A83E | $0088A83E | - | Loop-based data copy 2 (bulk) |
@@ -336,9 +344,9 @@ These are the handlers called from V-INT jump table at $16B2:
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
-| 8. Main Logic | 124 | 91 | 33 | 73% |
+| 8. Main Logic | 124 | 100 | 24 | 80.6% |
 | 9. Extended | 485+ | 7 | 478+ | 1.4% |
-| **TOTAL** | **797** | **182** | **615** | **22.8%** |
+| **TOTAL** | **797** | **191** | **606** | **24.0%** |
 
 ### Milestones
 
@@ -388,7 +396,7 @@ From hotspot analysis:
 - ✅ **Complete Priority 5** (6/6 functions, 100%)
 - ✅ **Complete Priority 6** (33/33 functions, 100%)
 - ✅ **Complete Priority 7** (16/16 functions, 100%)
-- 🔶 **Priority 8 Partial** (91/124 functions, 73%)
+- 🔶 **Priority 8 Partial** (100/124 functions, 80.6%) - NEW: +9 from jump table analysis
 - 🔶 **Priority 9 Initial** (7/485+ functions, 1.4%)
 
 ### Architecture & Pattern Analysis

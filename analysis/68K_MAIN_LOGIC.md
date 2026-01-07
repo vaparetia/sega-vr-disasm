@@ -3719,6 +3719,283 @@ handler_2:
 
 ---
 
+## func_8B9C - Hardware Register Initializer 1 ($00888B9C)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_8B9C: Hardware Configuration Sequence 1
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00888B9C - $00888BBE
+; Size: 34 bytes
+; Called by: Dispatch table @ $008B34 [index 6]
+;
+; Purpose: Initialize hardware registers in sequence. Writes values to
+;          multiple control registers in the $C0xx range. Part of
+;          multi-stage hardware configuration.
+;
+; Input: None (self-contained)
+; Output: Hardware registers configured
+; Modifies: D0, D1, D2 (not saved)
+; ═══════════════════════════════════════════════════════════════════════════
+
+00888B9C  31FC 0000 C0BA        MOVE.W  #$0000,$FFC0BA       ; Clear control 1
+00888BA2  31FC 0080 C0B0        MOVE.W  #$0080,$FFC0B0       ; Set control 2 = $0080
+00888BA8  3038 C8DC             MOVE.W  $FFC8DC,D0           ; Load selector
+00888BAC  31C0 C054             MOVE.W  D0,$FFC054           ; Write to port 1
+00888BB0  31C0 C892             MOVE.W  D0,$FFC892           ; Write to port 2
+00888BB4  3038 C8DE             MOVE.W  $FFC8DE,D0           ; Load selector 2
+00888BB8  31C0 C056             MOVE.W  D0,$FFC056           ; Write to port 3
+00888BBC  31C0 C894             MOVE.W  D0,$FFC894           ; Write to port 4
+00888BBE  4E75                 RTS
+```
+
+**Analysis**: Hardware configuration handler (34 bytes). Writes to control registers $C0BA, $C0B0, then reads two selectors from RAM ($C8DC, $C8DE) and writes each to two hardware ports ($C054/$C892 and $C056/$C894). This pattern suggests dual-port hardware with redundant writes for safety/synchronization.
+
+---
+
+## func_8BC2 - Hardware Register Initializer 2 ($00888BC2)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_8BC2: Hardware Configuration Sequence 2
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00888BC2 - $00888BE0
+; Size: 30 bytes
+; Called by: Dispatch table @ $008B34 [index 1]
+;
+; Purpose: Hardware configuration variant 2. Similar to func_8B9C but with
+;          different register writes. Likely handles alternate hardware paths.
+;
+; Input: None
+; Output: Hardware registers configured
+; Modifies: D0, D1, D2 (not saved)
+; ═══════════════════════════════════════════════════════════════════════════
+
+00888BC2  31FC 0000 C0BA        MOVE.W  #$0000,$FFC0BA       ; Clear control 1
+00888BC8  43F8 C0C0             LEA     $FFC0C0,A1           ; A1 = register base
+00888BCC  31D9 C0AE             MOVE.W  (A1),D0              ; Load from base
+00888BD0  31D9 C0B0             MOVE.W  (A1),D0              ; Load again
+00888BD4  31D1 C0B2             MOVE.W  D1,$FFC0B2           ; Write D1 to control
+00888BD8  3038 C8DC             MOVE.W  $FFC8DC,D0           ; Load selector
+00888BDC  31C0 C054             MOVE.W  D0,$FFC054           ; Write to port 1
+00888BE0  31C0 C892             MOVE.W  D0,$FFC892           ; Write to port 2
+00888BE4  3038 C8DE             MOVE.W  $FFC8DE,D0           ; Load selector 2
+00888BE8  31C0 C056             MOVE.W  D0,$FFC056           ; Write to port 3
+00888BEC  31C0 C894             MOVE.W  D0,$FFC894           ; Write to port 4
+00888BF0  4E75                 RTS
+```
+
+**Analysis**: Configuration variant (30 bytes). Uses LEA to load base address $C0C0 and double-reads from it (unusual pattern). Clears $C0BA like func_8B9C, writes D1 to $C0B2, then repeats the dual-port write pattern from func_8B9C. The double-read and conditional D1 write suggest synchronization or wait-for-ready patterns.
+
+---
+
+## func_8BF2 - Hardware Register Initializer 3 ($00888BF2)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_8BF2: Hardware Configuration Sequence 3
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00888BF2 - $00888C14
+; Size: 34 bytes
+; Called by: Dispatch table @ $008B34 [index 2]
+;
+; Purpose: Hardware configuration variant 3. Combines register initialization
+;          with indexed addressing for dynamic control values.
+;
+; Input: None
+; Output: Hardware registers configured
+; Modifies: D0, D1 (not saved)
+; ═══════════════════════════════════════════════════════════════════════════
+
+00888BF2  31FC 0000 C0BA        MOVE.W  #$0000,$FFC0BA       ; Clear control 1
+00888BF8  43F8 C0C0             LEA     $FFC0C0,A1           ; A1 = register base
+00888BFC  3019                  MOVE.W  (A1),D0              ; Load from A1
+00888BFE  31C0 C054             MOVE.W  D0,$FFC054           ; Write to port 1
+00888C02  31C0 C892             MOVE.W  D0,$FFC892           ; Write to port 2
+00888C06  31D9 C0B0             MOVE.W  (A1),D0              ; Load again
+00888C0A  3011                  MOVE.W  (A1),D0              ; And again
+00888C0C  31C0 C056             MOVE.W  D0,$FFC056           ; Write to port 3
+00888C10  31C0 C894             MOVE.W  D0,$FFC894           ; Write to port 4
+00888C12  4E75                 RTS
+```
+
+**Analysis**: Configuration variant 3 (34 bytes). Uses direct address-based loads (MOVE.W from A1) instead of immediate values. Multiple reads from $C0C0 suggest waiting for status or reading dynamic values. Still performs dual-port writes to ports 1-4.
+
+---
+
+## func_8C16 - Hardware Register Initializer 4 ($00888C16)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_8C16: Hardware Configuration Sequence 4
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00888C16 - $00888C3E
+; Size: 40 bytes
+; Called by: Dispatch table @ $008B34 [index 4]
+;
+; Purpose: Extended hardware configuration with offset-based addressing.
+;          May handle more complex subsystem initialization.
+;
+; Input: None
+; Output: Hardware registers configured
+; Modifies: D0, D1 (not saved)
+; ═══════════════════════════════════════════════════════════════════════════
+
+00888C16  31FC 0000 C0BA        MOVE.W  #$0000,$FFC0BA       ; Clear control 1
+00888C1C  43F8 C0C0             LEA     $FFC0C0,A1           ; A1 = register base
+00888C20  3019                  MOVE.W  (A1),D0              ; Load from A1
+00888C22  31C0 C054             MOVE.W  D0,$FFC054           ; Write to port 1
+00888C26  31C0 C892             MOVE.W  D0,$FFC892           ; Write to port 2
+00888C2A  31D9 C0AE             MOVE.W  (A1),D0              ; Load via A1 offset
+00888C2E  31F8 C0BC C0B0        MOVE.W  $FFC0BC,$FFC0B0      ; Copy register value
+00888C34  3011                  MOVE.W  (A1),D0              ; Load again
+00888C36  31C0 C056             MOVE.W  D0,$FFC056           ; Write to port 3
+00888C3A  31C0 C894             MOVE.W  D0,$FFC894           ; Write to port 4
+00888C3E  4E75                 RTS
+```
+
+**Analysis**: Configuration variant 4 (40 bytes). Uses offset-based addressing (MOVE.W 0/$0AE from A1). Includes a unique operation: MOVE.W $C0BC,$C0B0 which copies one control register to another. This suggests register shadowing or mirroring for hardware synchronization.
+
+---
+
+## func_8C40 - Selector-Based Hardware Router ($00888C40)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_8C40: Selector-Based Hardware Dispatcher
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00888C40 - $00888C80
+; Size: 64 bytes
+; Called by: Dispatch table @ $008B34 [index 3]
+;
+; Purpose: Dispatch to different hardware handlers based on selector value.
+;          Uses conditional branching (BCC/BCS) to route to alternate paths.
+;
+; Input: $FFC896 = Selector byte
+; Output: Routed to appropriate handler
+; Modifies: D0, D1, D2, A0-A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00888C40  7000                 MOVEQ   #0,D0                ; D0 = 0
+00888C42  31C0 C0BA             MOVE.W  D0,$FFC0BA           ; Clear control 1
+00888C46  1038 C896             MOVE.B  $FFC896,D0           ; Load selector
+00888C4A  303B 0006             MOVE.W  (A3,D0.W),D0         ; Table lookup
+00888C4E  4EFB 0002 0006        JMP     (PC,D0.W)            ; Computed jump
+00888C54  4EFB 0002 005E        JMP     (PC,D0.W)            ; Alt path 1
+00888C5A  004EFB 007A           (Jump table follows)        ; Handler table
+00888C60  31FC 00C0 C0C8        MOVE.W  #$00C0,$FFC0C8       ; Set mode 1
+00888C66  33FC 0100 00FF        MOVE.W  #$0100,$00FF60CC     ; Set mode 2
+00888C6C  60CC                 BRA.S   $00888C3A             ; Branch to next
+00888C6E  31F8 ...             (more handlers)
+```
+
+**Analysis**: Dispatcher (64 bytes). Loads selector from $C896, performs indexed table lookup to compute offset, then uses computed jump (JMP PC,D0.W) to dispatch to one of several handlers. The multiple JMP entries suggest 3-4 different subsystem paths. More sophisticated than simple jump tables - this is a computed dispatch based on state.
+
+---
+
+## func_8CCE - Data Loader & Validator ($00888CCE)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_8CCE: Data Validation & Field Updater
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00888CCE - $00888CFC
+; Size: 48 bytes
+; Called by: Dispatch table @ $008B34 [index 5]
+;
+; Purpose: Load data from selector-based table, validate, and update
+;          multiple hardware control fields.
+;
+; Input: $FFC896 = Data selector
+; Output: Hardware fields updated
+; Modifies: D0, D1, A0-A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00888CCE  1038 C896             MOVE.B  $FFC896,D0           ; D0 = selector
+00888CD2  303B 000C             MOVE.W  (A3,D0.W),D0         ; Table lookup
+00888CD6  4EBB 0008             JSR     (PC,D0.W)            ; Call handler
+00888CDA  4EF9 00888DC0         JSR     $00888DC0            ; Call func_8DC0
+00888CE0  0008 0026             (handler table data)
+00888CE4  0032 0072             (handler offsets)
+00888CE8  31F8 C0BA C8F8        MOVE.W  $FFC0BA,D0           ; Read control 1
+00888CEE  31F8 C0BC C892        MOVE.W  $FFC0BC,D0           ; Read control 2
+00888CF4  31F8 C0BC C892        MOVE.W  $FFC0BC,D0           ; Read again
+```
+
+**Analysis**: Data validator (48 bytes). Uses selector to index into table for dispatch. Calls indexed handler via JSR (PC,D0.W), then unconditionally calls func_8DC0. Finally reads control registers ($C0BA, $C0BC) and writes to control fields. The double-read of $C0BC suggests synchronization wait.
+
+---
+
+## func_8EF4 - Control Register Writer ($00888EF4)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_8EF4: Control Register Configuration
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00888EF4 - $00888F1E
+; Size: 42 bytes
+; Called by: Dispatch table @ $008B34 [index 1] (alternate entry)
+;
+; Purpose: Write immediate control values to hardware registers.
+;          Simpler than dispatcher functions - direct configuration.
+;
+; Input: None
+; Output: Control registers written
+; Modifies: D0, D1, A0-A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00888EF4  31FC 0000 C0BA        MOVE.W  #$0000,$FFC0BA       ; Clear control 1
+00888EFA  4E75                 RTS                          ; (short variant)
+00888EFC  3038 C0BA             MOVE.W  $FFC0BA,D0           ; Read control 1
+00888F00  3238 C0BE             MOVE.W  $FFC0BE,D1           ; Read control 2
+00888F04  3428 0030             MOVE.W  $30(A2),D2           ; Load from object
+00888F08  3628 0034             MOVE.W  $34(A2),D3           ; Load from object
+00888F0C  4EBA 1892             JSR     $00889892            ; Call handler
+00888F12  0440 4000             ORI.W   #$4000,D0            ; Set flag bit
+00888F16  4440                 MOVEM.W D1,D2                 ; Register copy
+00888F18  3600                 MOVE.W  D0,D3                 ; Move result
+00888F1A  4EBA 0034             JSR     $00888F4E            ; Call next handler
+```
+
+**Analysis**: Configuration writer (42 bytes). Simple variant: immediately clears $C0BA via direct write, then RTS. Longer variant loads control registers and two fields from object structure at offsets $30/$34, then dispatches to subroutines at $9892 and $8F4E. The ORI.W with $4000 mask suggests bit-flag manipulation.
+
+---
+
+## func_8EFC - Extended Control Handler ($00888EFC)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_8EFC: Extended Hardware Configuration
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00888EFC - $00888F2A
+; Size: 46 bytes
+; Called by: Dispatch table @ $008B34 [index 2]
+;
+; Purpose: Load and apply extended hardware configuration from multiple
+;          sources. Combines immediate control writes with object-based
+;          configuration loading.
+;
+; Input: A2 = Object pointer
+; Output: Hardware and object fields configured
+; Modifies: D0, D1, D2, A0-A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00888EFC  3038 C0BA             MOVE.W  $FFC0BA,D0           ; Read control 1
+00888F00  3238 C0BE             MOVE.W  $FFC0BE,D1           ; Read control 2
+00888F04  3428 0030             MOVE.W  $30(A2),D2           ; Load config word 1
+00888F08  3628 0034             MOVE.W  $34(A2),D3           ; Load config word 2
+00888F0C  4EBA 1892             JSR     $00889892            ; Apply config 1
+00888F12  0440 4000             ORI.W   #$4000,D0            ; Set flag bit
+00888F16  4440                 MOVEM.W D1,D2                 ; Combine values
+00888F18  3600                 MOVE.W  D0,D3                 ; Update result
+00888F1A  4EBA 0034             JSR     $00888F4E            ; Apply config 2
+00888F20  4E75                 RTS
+```
+
+**Analysis**: Extended configuration (46 bytes). Reads two control registers, loads two configuration words from object offsets $30/$34, calls handler at $9892 to apply config 1. Sets flag bit $4000 in D0, copies D1 to D2, stores to D3, then calls handler at $8F4E to apply config 2. This two-stage configuration pattern suggests sequential hardware setup (e.g., enable then configure).
+
+---
+
 ## References
 
 - [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md) - COMM register protocol basics
