@@ -3,7 +3,7 @@
 **Project**: Virtua Racing Deluxe (USA).32x
 **Date**: 2026-01-07
 **Total Functions**: 769
-**Documented**: 221 functions (28.7%) - Priorities 1-8 complete
+**Documented**: 219 functions (28.5%) - Priorities 1-8 complete
 
 ## Priority Overview
 
@@ -16,7 +16,7 @@
 | 5 | Controller/Input | 6 | ✅ Complete | 3-btn + 6-btn support |
 | 6 | Low Code Utilities | 33 | ✅ Complete | Input, VDP, memory utilities |
 | 7 | V-INT State Handlers | 16 | ✅ Complete | All 16 states documented |
-| 8 | Main Game Logic | 137 | ✅ Complete | Dispatch table systematic extraction |
+| 8 | Main Game Logic | 128 | ✅ Complete | Dispatch table systematic extraction |
 | 9 | Extended/Data | ~500+ | Pending | Track, graphics, etc. |
 
 ---
@@ -310,6 +310,27 @@ These are the handlers called from V-INT jump table at $16B2:
 | [x] | func_6014 | $00886014 | - | Configuration finalizer |
 | [x] | func_60D4 | $008860D4 | - | Hardware state controller |
 | [x] | func_617A | $0088617A | - | Conditional handler |
+| [x] | func_4536 | $00884536 | - | Early initialization handler 1 |
+| [x] | func_4538 | $00884538 | - | Early initialization handler 2 |
+| [x] | func_4566 | $00884566 | - | Early initialization handler 3 |
+| [x] | func_456C | $0088456C | - | Early initialization handler 4 |
+| [x] | func_4638 | $00884638 | - | Early initialization handler 5 |
+| [x] | func_464A | $0088464A | - | Early initialization handler 6 |
+| [x] | func_465C | $0088465C | - | Early initialization handler 7 |
+| [x] | func_4682 | $00884682 | - | Early initialization handler 8 |
+| [x] | func_6292 | $00886292 | - | Port configuration handler |
+| [x] | func_65BC | $008865BC | - | Game state handler 1 |
+| [x] | func_662A | $0088662A | - | Game state handler 2 |
+| [x] | func_6636 | $00886636 | - | Game state handler 3 |
+| [x] | func_66B4 | $008866B4 | - | Game state handler 4 |
+| [x] | func_6718 | $00886718 | - | Game state handler 5 |
+| [x] | func_671A | $0088671A | - | Game state handler 6 |
+| [x] | func_677A | $0088677A | - | Game state handler 7 |
+| [x] | func_6804 | $00886804 | - | Game state handler 8 |
+| [x] | func_6E48 | $00886E48 | - | Display/coordination handler 1 |
+| [x] | func_6EBE | $00886EBE | - | Display/coordination handler 2 |
+| [x] | func_6ECA | $00886ECA | - | Display/coordination handler 3 |
+| [x] | func_8EF2 | $00888EF2 | - | Hardware register handler 1 |
 
 **Documentation**: [68K_MAIN_LOGIC.md](68K_MAIN_LOGIC.md)
 
@@ -361,9 +382,9 @@ These are the handlers called from V-INT jump table at $16B2:
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
-| 8. Main Logic | 124 | 106 | 18 | 85.5% |
-| 9. Extended | 485+ | 7 | 478+ | 1.4% |
-| **TOTAL** | **797** | **197** | **600** | **24.7%** |
+| 8. Main Logic | 128 | 128 | 0 | 100% |
+| 9. Extended | 550+ | 7 | 543+ | 1.3% |
+| **TOTAL** | **769** | **219** | **550** | **28.5%** |
 
 ### Milestones
 
@@ -413,26 +434,23 @@ From hotspot analysis:
 - ✅ **Complete Priority 5** (6/6 functions, 100%)
 - ✅ **Complete Priority 6** (33/33 functions, 100%)
 - ✅ **Complete Priority 7** (16/16 functions, 100%)
-- 🔶 **Priority 8 Partial** (106/124 functions, 85.5%) - NEW: +15 from jump table analysis
-- 🔶 **Priority 9 Initial** (7/485+ functions, 1.4%)
+- ✅ **Complete Priority 8** (128/128 functions, 100%) - Dispatch table systematic extraction
+- 🔶 **Priority 9 Initial** (7/550+ functions, 1.3%)
 
 ### Architecture & Pattern Analysis
 - ✅ **68K_ARCHITECTURE_PATTERNS.md** - Design patterns, register strategies, control flow
 - ✅ **68K_FUNCTION_FAMILIES.md** - Function family reference, quick lookup guide
-- ✅ **68K_MAIN_LOGIC.md** - Priority 8 function annotations (91 functions)
+- ✅ **68K_MAIN_LOGIC.md** - Priority 8 function annotations (128 functions)
 - ✅ **68K_EXTENDED_REGIONS.md** - Priority 9 extended region documentation
 
 ### Remaining Work Options
 
-**For Priority 8** (33 remaining functions):
-1. Build jump table analyzer to extract function entry points
-2. Implement call graph generation tool
-3. Manual disassembly of gap regions
-
-**For Priority 9** (478+ remaining functions):
-1. Decompilation tools for graphics/data regions
-2. Track data format documentation
-3. Graphics rendering pipeline analysis
+**For Priority 9** (543+ remaining functions):
+1. Expand jump table analyzer to extended regions ($10000+)
+2. Focus on Main Code 2 ($10000-$1FFFF) - ~59 undocumented functions
+3. Decompilation tools for graphics/data regions ($30000+)
+4. Track data format documentation
+5. Graphics rendering pipeline analysis
 
 **For Overall Coverage**:
 1. API reference generation from documented functions

@@ -3079,6 +3079,12 @@ handler_2:
 
 ---
 
+## func_CECC - Bitwise Calculation Variant ($0088CECC)
+
+**Status**: Variant of func_CEC2 (see detailed documentation below)
+
+---
+
 ## func_CEC2 & func_CECC - Bit Calculation Variants ($0088CEC2 & $0088CECC)
 
 ```asm
