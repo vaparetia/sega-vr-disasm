@@ -55,10 +55,10 @@ These use function pointers - likely polygon type dispatch tables.
 |--------|----------|--------|------|------|----------------|
 | [x] | func_078 | 0x24320 | 68 bytes | indirect | 6× JSR @R0 |
 | [x] | func_079 | 0x24366 | 84 bytes | indirect | 6× JSR @R0 |
-| [ ] | func_100 | 0x24692 | 1112 bytes | indirect | JSR @R0 + calls func_101 |
-| [ ] | func_101 | 0x24AEC | 136 bytes | indirect | JSR @R0 + calls func_102 |
-| [ ] | func_105 | 0x24C7E | 150 bytes | indirect | JSR @R0 |
-| [ ] | func_106 | 0x24D16 | 366 bytes | calls func_107, func_108 |
+| [x] | func_100 | 0x24692 | 1112 bytes | data | Sine/cosine lookup table |
+| [x] | func_101 | 0x24AEC | 136 bytes | indirect | Register save/restore wrapper |
+| [x] | func_105 | 0x24C7E | 150 bytes | indirect | Data stream decoder |
+| [x] | func_106 | 0x24D16 | 366 bytes | dispatcher | Multi-path renderer |
 
 ---
 
@@ -227,21 +227,21 @@ Investigation of Priority 2 recursive functions reveals complex control flow cha
 |----------|-------|------|-----------|------------|
 | 1. Render primitives | 9 | 9 | 0 | 100% |
 | 2. Recursive | 4 | 0 | 4 | 0% |
-| 3. Indirect dispatch | 6 | 2 | 4 | 33% |
+| 3. Indirect dispatch | 6 | 6 | 0 | 100% |
 | 4. func_065 callers | 5 | 0 | 5 | 0% |
 | 5. Display list handlers | 5 | 0 | 5 | 0% |
 | 6. Small leaf | 11 | 0 | 11 | 0% |
 | 7. Medium leaf | 20 | 0 | 20 | 0% |
 | 8. Larger functions | 15 | 0 | 15 | 0% |
 | 9. Remaining | 29 | 0 | 29 | 0% |
-| **TOTAL** | **104** | **11** | **93** | **11%** |
+| **TOTAL** | **104** | **15** | **89** | **14%** |
 
-**Grand Total (including 5 initial):** 16 annotated out of 109 (15% complete)
+**Grand Total (including 5 initial):** 20 annotated out of 109 (18% complete)
 
 ### Completion Milestones
 
 - [x] Priority 1 (100%): 9 rendering primitives complete
-- [x] Priority 3 (33%): func_078, func_079 dispatchers complete
+- [x] Priority 3 (100%): 6 dispatcher functions complete (all patterns documented)
 - [ ] Priority 2: 4 recursive functions (complex - needs analysis)
-- [ ] Priority 3 remaining: 4 functions (func_100, func_101, func_105, func_106)
-- [ ] Half of all functions: 54.5 functions (at ~6 done per session)
+- [ ] Priority 4-9: 84 remaining functions
+- [ ] Half of all functions: 54.5 functions (need ~35 more at current rate)

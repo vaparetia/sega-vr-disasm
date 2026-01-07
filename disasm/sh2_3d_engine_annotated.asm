@@ -1493,6 +1493,112 @@ func_079:
 
 
 ; ═══════════════════════════════════════════════════════════════════════════
+; func_101: Register Save/Restore Wrapper with Indirect Dispatch
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: 0x02224AEC - 0x02224B74
+; Size: 136 bytes
+; Type: Hub (wrapper + indirect call)
+; Called by: func_100 (larger dispatch function)
+; Calls: func_102 (via BSR), indirect function via JSR @R0
+;
+; Purpose: Full register preservation wrapper for complex indirect dispatch.
+; Saves all 14 general-purpose registers to stack before indirect function call,
+; ensuring caller transparency. Calls func_102 helper after JSR @R0.
+;
+; Register Preservation: STS.L PR / MOV.L R0-R14 save / JSR @R0 / restore all
+; Data flow: R9 = input stream, R10 = address from literal pool
+; ═══════════════════════════════════════════════════════════════════════════
+
+; [Abbreviated: see full source in sh2_3d_engine.asm for complete disassembly]
+
+; Key operations:
+;   0x02224B00: STS.L PR,@-R15 (save return address)
+;   0x02224B02-0x02224B1E: Save R0-R14 (15 registers)
+;   0x02224B3C: JSR @R0 (indirect call)
+;   0x02224B50: BSR func_102 (call helper)
+;   0x02224B54-0x02224B70: Restore R14-R0
+;   0x02224B72: Return (LDS.L @R15+,PR; RTS)
+
+
+; ═══════════════════════════════════════════════════════════════════════════
+; func_105: Data Stream Processor with State Machine Loop
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: 0x02224C7E - 0x02224CF0
+; Size: 150 bytes
+; Type: Hub (loop with JSR @R0 indirect call)
+; Called by: func_023 or func_100 dispatcher
+; Calls: Indirect function via JSR @R0
+;
+; Purpose: Sophisticated data stream decoder/processor. Implements state machine
+; using bit field extraction, variable-length field decoding with nested loops.
+; Likely used for decompressing polygon attributes or decoding command opcodes.
+;
+; Key pattern: Byte extraction (EXTU.B @R9+) → bit manipulation (SHLL, AND, OR)
+; → conditional branching → loop management (DT R6, BF)
+;
+; Algorithm flow:
+;   1. Read byte from stream R9
+;   2. Extract nibbles/fields using AND/OR masks
+;   3. Shift bits with SHLL8/SHLL16/SHLR operations
+;   4. Nested loop with DT/BF for variable-length decoding
+;   5. Write output to [R10+offset]
+;
+; Data format handled: Likely Huffman or variable-length encoded polygon data
+; ═══════════════════════════════════════════════════════════════════════════
+
+
+; ═══════════════════════════════════════════════════════════════════════════
+; func_106: Complex Multi-Path Rendering Dispatcher
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: 0x02224D16 - 0x02224E82
+; Size: 366 bytes
+; Type: Hub (complex dispatcher with 2× BSR calls + JMP @R0)
+; Called by: func_023 or scene graph dispatcher
+; Calls: func_107 (BSR), func_108 (BSR)
+;
+; Purpose: High-level rendering dispatcher implementing multi-mode polygon
+; processing. Performs full register save/restore, extracts rendering mode
+; from input stream, computes dispatch offsets, and branches to one of
+; multiple rendering paths via JMP @R0 indirect jump.
+;
+; Rendering modes: Different paths handle different polygon attributes
+; (quads, triangles, sprites, with color/transparency/texture variants)
+;
+; Key features:
+;   - Full register preservation (15 registers save/restore)
+;   - Byte stream parsing from R9 (mode, attributes, counts)
+;   - Dynamic parameter calculation (shifts, adds, bit manipulations)
+;   - Multiple conditional code paths with loops
+;   - Calls to specialized handlers (func_107, func_108)
+;   - JMP @R0 for final dispatch to runtime-selected handler
+;
+; Loop structures: Multiple strided write loops (MOV.W to [R10], ADD stride)
+; with DT/BF loop controls
+; ═══════════════════════════════════════════════════════════════════════════
+
+
+; ═══════════════════════════════════════════════════════════════════════════
+; func_100: Lookup Table / Sine-Cosine Values (1112 bytes)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: 0x02224692 - 0x02224AEA
+; Size: 1112 bytes
+; Type: Data segment (embedded lookup table)
+; Called by: Referenced by address as RO data
+; Calls: None (not executable)
+;
+; Content: Mathematical lookup tables for 3D transformations
+; - Likely sine/cosine values for rotation matrices
+; - Or transformation coefficients for lighting/perspective
+; - Or palette/color lookup tables
+;
+; Data pattern: 16-bit signed values, predominantly in range 0xFFBx-0xFFC0
+; suggests normalized fixed-point values (-64.0 to -1.0 in 16.16 format)
+;
+; Usage: Loaded via MOV.L literal pool addressing during transformation setup
+; ═══════════════════════════════════════════════════════════════════════════
+
+
+; ═══════════════════════════════════════════════════════════════════════════
 ; End of Annotated Disassembly (Hotspot Functions)
 ; ═══════════════════════════════════════════════════════════════════════════
 ;
