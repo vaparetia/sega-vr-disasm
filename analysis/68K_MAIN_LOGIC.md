@@ -3203,6 +3203,260 @@ handler_2:
 
 ---
 
+## func_D054 - Subroutine Call with Table Write ($0088D054)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_D054: Subroutine Caller & State Table Writer
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088D054 - $0088D08A
+; Size: 54 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Call helper subroutine, load table pointer, perform indexed write
+;          to RAM. Updates game state via table-driven approach.
+;
+; Input: $FFC8A0 = Control value
+; Output: Game state written to $FF68xx region
+; Modifies: D0, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088D054  4EBA FFB6            JSR     $0088D00C            ; Call helper
+0088D058  3038 C8A0            MOVE.W  $FFC8A0,D0           ; D0 = control value
+0088D05C  43F9 00898C0C        LEA     $00898C0C,A1         ; A1 = state table
+0088D062  23F1 0000 00FF6868   MOVE.L  (A1,D0.W),$00FF6868  ; Write state
+
+; Loop copy sequence
+0088D06A  227B 0004            MOVEA.L (PC,D0.W,$04),A1     ; Load offset table
+0088D06E  4ED1                 JMP     (A1)                 ; Jump to handler
+0088D070  0088 D088            .long   $0088D088            ; Jump table entry 1
+0088D074  0088 D088            .long   $0088D088            ; Jump table entry 2
+0088D078  0088 D088            .long   $0088D088            ; Jump table entry 3
+0088D07C  0088 D088            .long   $0088D088            ; Jump table entry 4
+0088D080  0088 D088            .long   $0088D088            ; Shared handler
+0088D084  4E75                 RTS
+```
+
+**Analysis**: Orchestrator function. Calls subroutine, loads state from table at $98C0C using control index, and writes to $FF68xx region. Multiple jump table entries point to same handler, suggesting this can be called with different parameters that route to common code.
+
+---
+
+## func_D08A - Multi-Register Control Initialization ($0088D08A)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_D08A: Hardware Control Register Setup
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088D08A - $0088D0F6
+; Size: 76 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Configure multiple hardware control registers for subsystem setup.
+;          Performs sequential register writes to control state flags.
+;
+; Input: None (uses fixed register addresses)
+; Output: 8+ control registers initialized
+; Modifies: D0, A0
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088D08A  11FC 0000 C806       MOVE.B  #0,$FFC806           ; Clear control 1
+0088D090  11FC 00C4 C807       MOVE.B  #$C4,$FFC807         ; Set control 2
+0088D096  11FC 00C4 C808       MOVE.B  #$C4,$FFC808         ; Set control 3
+0088D09C  11FC 0000 C813       MOVE.B  #0,$FFC813           ; Clear state 1
+0088D0A2  11FC 00C4 C814       MOVE.B  #$C4,$FFC814         ; Set state 2
+0088D0A8  11FC 00C4 C815       MOVE.B  #$C4,$FFC815         ; Set state 3
+0088D0AE  31FC C200 C076       MOVE.W  #$C200,$FFC076       ; Set param 1
+0088D0B4  21FC 6100 0000 C254  MOVE.L  #$6100,$00FFC254     ; Set param 2
+0088D0BC  21FC 6000 0000 C260  MOVE.L  #$6000,$00FFC260     ; Set param 3
+0088D0C4  3038 C8A0            MOVE.W  $FFC8A0,D0           ; D0 = control
+0088D0C8  4EFA FFA0            JMP     $0088D06C            ; Jump to handler
+```
+
+**Analysis**: Hardware initialization sequence. Sets flags ($C806-$C815) and parameters ($C076, $C254, $C260) for subsystem control. The repeated pattern of #0 and #$C4 values suggests alternating enable/disable flags. Jumps to main handler after setup.
+
+---
+
+## func_D0F6 - Looped Register Configuration ($0088D0F6)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_D0F6: Register Setup with Looped Iteration
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088D0F6 - $0088D150
+; Size: 90 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Configure registers, load data table, and apply transformations
+;          via loop. Handles conditional branching based on test values.
+;
+; Input: None (uses fixed addresses)
+; Output: Multiple registers and memory locations configured
+; Modifies: D0, D7, A1, A2
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088D0F6  11FC 0003 C80A       MOVE.B  #3,$FFC80A           ; Set control
+0088D0FC  45F8 C200            LEA     $FFC200,A2           ; A2 = data base
+0088D100  43F8 EEE0            LEA     $FFEE E0,A1          ; A1 = alt base
+0088D104  4EB9 00884920        JSR     $00884920            ; Call copy handler
+0088D10A  21F8 EEFC C254       MOVE.L  $FFEEFC,$FFC254      ; Load + write
+0088D110  31FC 00C0 C054       MOVE.W  #$C0,$FFC054         ; Set param 1
+0088D116  31FC 0540 C056       MOVE.W  #$0540,$FFC056       ; Set param 2
+0088D11C  31FC 0000 C896       MOVE.W  #0,$FFC896           ; Clear state
+
+; Conditional iteration loop
+0088D122  43F8 C200            LEA     $FFC200,A1           ; A1 = base
+0088D126  47F9 00FF68D8        LEA     $00FF68D8,A3         ; A3 = loop table
+0088D12C  7E04                 MOVEQ   #4,D7                ; D7 = 4 (5 iterations)
+
+.loop:
+0088D12E  4EBA E30C            JSR     $00889040            ; Call iteration handler
+0088D132  43E9 0004            LEA     $04(A1),A1           ; Advance 4 bytes
+0088D136  47EB 0010            LEA     $10(A3),A3           ; Advance 16 bytes
+0088D13A  51CF FFF2            DBRA    D7,.loop             ; Loop 5 times
+0088D13E  72FF                 MOVEQ   #-1,D1               ; D1 = -1 (mask)
+0088D140  7E04                 MOVEQ   #4,D7                ; D7 = 4
+0088D142  2038 C254            MOVE.L  $FFC254,D0           ; D0 = state value
+```
+
+**Analysis**: Configuration with looped processing. Sets control byte #3 at $C80A, loads/copies data ($EEE0/$EEFC), sets parameters, then loops 5 times calling iteration handler. The JSR to $9040 is called multiple times with address updates, suggesting per-object or per-structure processing.
+
+---
+
+## func_D19C - Comparison Selector with State Updates ($0088D19C)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_D19C: Conditional Comparator & Bit-Encoded State Machine
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088D19C - $0088D1D4
+; Size: 56 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Test conditions against thresholds, update state registers based
+;          on comparison results. Implements bit-based state machine.
+;
+; Input: (Various RAM locations tested)
+; Output: State flags written to $FFC8xx range
+; Modifies: D0, D1, D2
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088D19C  7400                 MOVEQ   #0,D2                ; D2 = 0
+0088D19E  0C40 0002            CMPI.W  #2,D0                ; Compare D0 with 2
+0088D1A2  6602                 BNE.S   .skip_set1           ; Skip if != 2
+0088D1A4  7401                 MOVEQ   #1,D2                ; D2 = 1
+
+.skip_set1:
+0088D1A6  0C40 0003            CMPI.W  #3,D0                ; Compare D0 with 3
+0088D1AA  6602                 BNE.S   .skip_set2           ; Skip if != 3
+0088D1AC  7401                 MOVEQ   #1,D2                ; D2 = 1
+0088D1AE  11C2 C826            MOVE.B  D2,$FFC826           ; Write flag
+
+; State register update sequence
+0088D1B2  31C0 C89C            MOVE.W  D0,$FFC89C           ; Write state 1
+0088D1B6  D040                 ADD.W   D0,D0                ; D0 *= 2
+0088D1B8  31C0 C89E            MOVE.W  D0,$FFC89E           ; Write state 2
+0088D1BA  D040                 ADD.W   D0,D0                ; D0 *= 2
+0088D1BC  31C0 C8A0            MOVE.W  D0,$FFC8A0           ; Write state 3
+0088D1C0  31C1 C8C8            MOVE.W  D1,$FFC8C8           ; Write state 4
+0088D1C4  D241                 ADD.W   D1,D1                ; D1 *= 2
+0088D1C6  31C1 C8CA            MOVE.W  D1,$FFC8CA           ; Write state 5
+0088D1CA  D241                 ADD.W   D1,D1                ; D1 *= 2
+0088D1CC  31C1 C8CC            MOVE.W  D1,$FFC8CC           ; Write state 6
+0088D1D0  4E75                 RTS
+```
+
+**Analysis**: Comparison-driven state machine. Tests D0 against thresholds (2 and 3), sets D2 accordingly, then performs cascading doubling (left shift) and writes to state registers. The pattern suggests power-of-2 scaling for state indices.
+
+---
+
+## func_D42C - Dispatcher with Data Copy ($0088D42C)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_D42C: Handler Dispatcher with Setup Copy
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088D42C - $0088D47E
+; Size: 82 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Call multiple setup functions, then copy data to configuration
+;          region. Implements multi-stage system initialization.
+;
+; Input: None (uses fixed addresses)
+; Output: Data copied to setup region
+; Modifies: D0, A0, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088D42C  2ABC 4000 0000 72 00 MOVEM.L D0-D1,(A5)          ; Save state
+0088D434  4EF9 00884842        JMP     $00884842            ; Jump to handler 1
+0088D43A  43F8 8000            LEA     $FF8000,A1           ; A1 = data base
+0088D43E  7200                 MOVEQ   #0,D2                ; D2 = 0
+0088D440  4EB9 00884842        JSR     $00884842            ; Call setup 1
+0088D446  4EF9 00884842        JMP     $00884842            ; Jump to setup 2
+0088D44C  4EF9 00884842        JMP     $00884842            ; Jump to setup 3
+
+; Data copy sequence
+0088D452  050A 0F14            .word   $050A, $0F14         ; Data pattern
+0088D456  7000                 MOVEQ   #0,D0                ; D0 = 0
+0088D458  1038 FEA8            MOVE.B  $FFFEA8,D0           ; D0 = index byte
+0088D45C  1238 C80F            MOVE.B  $FFC80F,D1           ; D1 = config byte
+0088D460  6704                 BEQ.S   .use_alt             ; Branch if zero
+0088D462  1038 FEAC            MOVE.B  $FFFEA C,D0          ; Use alternate index
+0088D466  11FB 00EA C81A       MOVE.B  $EA(PC,D0),C81A      ; Copy to config
+
+; Table lookup and write
+0088D46C  41F9 00898BFC        LEA     $00898BFC,A0         ; A0 = config table
+0088D472  E548 D1C0            LSL.L   #2,D0                ; D0 *= 4
+0088D476  23D0 00FF6828        MOVE.L  (A0,D0),($00FF6828)  ; Write to config
+0088D47C  4E75                 RTS
+```
+
+**Analysis**: Multi-stage dispatcher. Saves state, makes jumps to setup functions, then performs indexed table lookup with left-shift scaling (multiply by 4) and writes to configuration region ($FF6828). The conditional alternate index selection suggests mode-dependent initialization.
+
+---
+
+## func_D450 - Conditional Data Processing ($0088D450)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_D450: Conditional Data Load & Processing
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088D450 - $0088D486
+; Size: 54 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Load data, perform conditional test, update configuration registers
+;          based on results. Implements branching data processor.
+;
+; Input: $FFC80F = Configuration selector
+; Output: Configuration registers updated
+; Modifies: D0, D1, A0
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088D450  7000                 MOVEQ   #0,D0                ; D0 = 0
+0088D452  1038 FEA8            MOVE.B  $FFFEA8,D0           ; D0 = index
+0088D456  1238 C80F            MOVE.B  $FFC80F,D1           ; D1 = config
+0088D45A  6704                 BEQ.S   .use_main            ; Branch if zero
+0088D45C  1038 FEAC            MOVE.B  $FFFEA C,D0          ; Use alternate index
+0088D460  11FB 00EA C81A       MOVE.B  $EA(PC,D0),C81A      ; Copy to config
+
+; Main processing path
+.use_main:
+0088D466  41F9 00898BFC        LEA     $00898BFC,A0         ; A0 = config table
+0088D46C  E548 D1C0            LSL.L   #2,D0                ; D0 *= 4
+0088D470  23D0 00FF6828        MOVE.L  (A0,D0),($FF6828)    ; Write config 1
+0088D476  4A01                 TST.B   D1                   ; Test config flag
+0088D478  6706                 BEQ.S   .skip_alt            ; Skip if zero
+0088D47A  23D0 00FF68B8        MOVE.L  (A0,D0),($FF68B8)    ; Write config 2
+
+.skip_alt:
+0088D480  4E75                 RTS
+```
+
+**Analysis**: Data loader with conditional writes. Tests configuration flag $C80F and branches to use either primary ($FEA8) or alternate ($FEAC) index. Performs table lookup with 4x scaling and writes to either $FF6828 (primary) or both $FF6828/$FF68B8 (if flag set). The dual-write path suggests split-mode operation.
+
+---
+
 ## References
 
 - [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md) - COMM register protocol basics

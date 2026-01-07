@@ -271,6 +271,12 @@ These are the handlers called from V-INT jump table at $16B2:
 | [x] | func_CECC | $0088CECC | - | Bit calculation (alt variant) |
 | [x] | func_CF0C | $0088CF0C | - | Multi-JSR orchestration with loop |
 | [x] | func_CFAE | $0088CFAE | - | Complex data copy (mode handling) |
+| [x] | func_D054 | $0088D054 | - | Subroutine call with table write |
+| [x] | func_D08A | $0088D08A | - | Multi-register control initialization |
+| [x] | func_D0F6 | $0088D0F6 | - | Looped register configuration |
+| [x] | func_D19C | $0088D19C | - | Comparison selector with state updates |
+| [x] | func_D42C | $0088D42C | - | Dispatcher with data copy |
+| [x] | func_D450 | $0088D450 | - | Conditional data processing |
 
 **Documentation**: [68K_MAIN_LOGIC.md](68K_MAIN_LOGIC.md)
 
@@ -315,9 +321,9 @@ Likely data handlers, track-specific code, graphics routines.
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
-| 8. Main Logic | 124 | 77 | 47 | 62% |
+| 8. Main Logic | 124 | 83 | 41 | 67% |
 | 9. Extended | 500+ | 0 | 500+ | 0% |
-| **TOTAL** | **769** | **161** | **608** | **20.9%** |
+| **TOTAL** | **769** | **167** | **602** | **21.7%** |
 
 ### Milestones
 
