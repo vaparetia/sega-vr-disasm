@@ -337,6 +337,745 @@ MARSAdapterInit ($838)
 
 ---
 
+## Init Function 1 - func_05A6 ($008805A6)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_05A6: VDP Initialization Helper
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008805A6 - $008805CC
+; Size: 38 bytes
+; Called by: EntryPoint (BSR $5A6 at $880452)
+;
+; Purpose: Initialize VDP registers by copying data from table pointed by A0.
+;          Performs 19 iterations ($12+1) of byte-read and word-write cycle
+;          to VDP control port at $C00004.
+;
+; Input: A0 = Pointer to init data table (set to $4D4 by caller)
+; Output: None
+; Modifies: D0, D1, D7, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+008805A6  48E7 C040            MOVEM.L D0-D1/A1,-(SP)   ; Save registers
+008805AA  43F9 00C0 0004       LEA     $C00004,A1       ; A1 = VDP control port
+008805B0  3011                 MOVE.W  (A1),D0          ; Read VDP status (dummy)
+008805B2  303C 8000            MOVE.W  #$8000,D0        ; VDP register write base
+008805B6  323C 0100            MOVE.W  #$0100,D1        ; Increment value
+008805BA  3E3C 0012            MOVE.W  #$0012,D7        ; Counter = 18 (19 iters)
+
+.loop:
+008805BE  1018                 MOVE.B  (A0)+,D0         ; Read table byte
+008805C0  3280                 MOVE.W  D0,(A1)          ; Write to VDP control
+008805C2  D041                 ADD.W   D1,D0            ; D0 += $100 (next reg)
+008805C4  51CF FFF8            DBRA    D7,.loop         ; Loop 19 times
+
+008805C8  4CDF 0203            MOVEM.L (SP)+,D0-D1/A1   ; Restore registers
+008805CC  4E75                 RTS
+```
+
+**Analysis**: Classic MD VDP register initialization. Reads bytes from table and writes them as VDP register commands ($80xx format). The table at $4D4 contains 19 bytes of VDP register initial values.
+
+---
+
+## Init Function 2 - func_05CE ($008805CE)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_05CE: Genesis VDP RAM Clear
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008805CE - $0088063C
+; Size: 110 bytes
+; Called by: EntryPoint (BSR $5CE at $880456)
+;
+; Purpose: Clear Genesis VDP RAM (VRAM, CRAM, VSRAM) by writing zeros.
+;          Waits for DMA completion between operations.
+;
+; Input: None
+; Output: None (VDP RAM cleared)
+; Modifies: D0, D7, A0, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+008805CE  48E7 81C0            MOVEM.L D7/A0-A1,-(SP)   ; Save registers
+008805D2  41F9 0000 063E       LEA     $063E,A0         ; A0 = init data table
+008805D8  43F9 00C0 0004       LEA     $C00004,A1       ; A1 = VDP control port
+
+; Clear CRAM (Color RAM) - 64 words
+008805DE  3298                 MOVE.W  (A0)+,(A1)       ; Set CRAM write address
+008805E0  3298                 MOVE.W  (A0)+,(A1)       ; (2-word VDP command)
+008805E2  3298                 MOVE.W  (A0)+,(A1)       ; Clear word 1
+008805E4  3298                 MOVE.W  (A0)+,(A1)       ; Clear word 2
+008805E6  3298                 MOVE.W  (A0)+,(A1)       ; Clear word 3
+008805E8  3298                 MOVE.W  (A0)+,(A1)       ; Clear word 4
+008805EA  3298                 MOVE.W  (A0)+,(A1)       ; Clear word 5
+008805EC  2298                 MOVE.L  (A0)+,(A1)       ; Clear 2 words
+008805EE  3341 FFFC            MOVE.W  D0,$FFFC(A1)     ; Write to VDP data port
+008805F2  3011                 MOVE.W  (A1),D0          ; Read VDP status
+
+; Wait for FIFO empty (DMA complete)
+.wait_dma_1:
+008805F4  0800 0001            BTST    #1,D0            ; Test FIFO empty bit
+008805F8  66F8                 BNE     .wait_dma_1      ; Wait until empty
+
+; Clear more VDP RAM
+008805FA  3298                 MOVE.W  (A0)+,(A1)       ; Next command
+008805FC  3298                 MOVE.W  (A0)+,(A1)
+
+; Fill with zeros - Loop 1 (16 iterations)
+008805FE  7000                 MOVEQ   #0,D0            ; D0 = 0 (fill value)
+00880600  22BC C000 0000       MOVE.L  #$C0000000,(A1)  ; VRAM write command
+00880606  7E0F                 MOVEQ   #15,D7           ; Counter = 15 (16 iters)
+
+.loop_1:
+00880608  3340 FFFC            MOVE.W  D0,$FFFC(A1)     ; Write zero to VDP data
+0088060C  3340 FFFC            MOVE.W  D0,$FFFC(A1)
+00880610  3340 FFFC            MOVE.W  D0,$FFFC(A1)
+00880614  3340 FFFC            MOVE.W  D0,$FFFC(A1)
+00880618  51CF FFEE            DBRA    D7,.loop_1       ; 16 * 4 = 64 words
+
+; Fill with zeros - Loop 2 (10 iterations)
+0088061C  22BC 4000 0010       MOVE.L  #$40000010,(A1)  ; VSRAM write command
+00880622  7E09                 MOVEQ   #9,D7            ; Counter = 9 (10 iters)
+
+.loop_2:
+00880624  3340 FFFC            MOVE.W  D0,$FFFC(A1)     ; Write zero to VDP data
+00880628  3340 FFFC            MOVE.W  D0,$FFFC(A1)
+0088062C  3340 FFFC            MOVE.W  D0,$FFFC(A1)
+00880630  3340 FFFC            MOVE.W  D0,$FFFC(A1)
+00880634  51CF FFEE            DBRA    D7,.loop_2       ; 10 * 4 = 40 words
+
+00880638  4CDF 0381            MOVEM.L (SP)+,D7/A0-A1   ; Restore registers
+0088063C  4E75                 RTS
+```
+
+**Analysis**: Clears Genesis VDP memory (CRAM, VRAM, VSRAM) with zeros. Uses VDP write commands and waits for DMA/FIFO completion. Essential for clean video state before 32X takeover.
+
+---
+
+## func_0654 - 32X VDP Initialization ($00880654)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_0654: 32X VDP Mode Setup
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00880654 - $00880692
+; Size: 62 bytes
+; Called by: Boot sequence (2 calls)
+;
+; Purpose: Initialize 32X VDP registers for bitmap mode operation.
+;          Waits for VDP ready, sets mode parameters, and performs
+;          initialization loop with status polling.
+;
+; Input: None
+; Output: None (32X VDP initialized)
+; Modifies: D0, D1, D7, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00880654  48E7 C140            MOVEM.L D0-D1/D7/A1,-(SP) ; Save registers
+00880658  43F9 00A1 5180       LEA     MARS_VDP_MODE,A1 ; A1 = $A15180 (VDP base)
+
+; Wait for VDP ready (FS bit clear)
+.wait_ready:
+0088065E  08A9 0007 FF80       BTST    #7,$FF80(A1)     ; Test FS bit at $A15200
+00880664  66F8                 BNE     .wait_ready      ; Wait while busy
+
+; Initialize VDP registers
+00880666  3E3C 00FF            MOVE.W  #$00FF,D7        ; Counter = 255 (256 iters)
+0088066A  7000                 MOVEQ   #0,D0            ; D0 = 0
+0088066C  7200                 MOVEQ   #0,D1            ; D1 = 0
+
+.loop:
+0088066E  337C 00FF 0004       MOVE.W  #$00FF,$0004(A1) ; Write $FF to FILLEN
+00880674  3341 0006            MOVE.W  D1,$0006(A1)     ; Write 0 to FILLADR
+00880678  3340 0008            MOVE.W  D0,$0008(A1)     ; Write 0 to FILLDATA
+
+; Wait for operation complete
+0088067C  4E71                 NOP                      ; Delay
+.wait_op:
+0088067E  0829 0001 000B       BTST    #1,$000B(A1)     ; Test complete bit
+00880684  66F8                 BNE     .wait_op         ; Wait for clear
+
+00880686  0641 0100            ADDI.W  #$0100,D1        ; D1 += $100
+0088068A  51CF FFE8            DBRA    D7,.loop         ; Loop 256 times
+
+0088068E  4CDF 0283            MOVEM.L (SP)+,D0-D1/D7/A1 ; Restore
+00880692  4E75                 RTS
+```
+
+**Analysis**: Initializes 32X VDP auto-fill registers. Loops 256 times writing fill patterns, likely clearing frame buffer or initializing palette/bitmap mode structures.
+
+---
+
+## func_0694 - Frame Buffer Clear ($00880694)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_0694: Clear 32X Frame Buffer
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00880694 - $008806C2
+; Size: 46 bytes
+; Called by: Boot sequence (1 call)
+;
+; Purpose: Clear one frame buffer by writing 32 iterations of 4 longwords.
+;          Total: 32 * 16 bytes = 512 bytes cleared per call.
+;
+; Input: A0 = Source for fill value (D0)
+; Output: None (frame buffer cleared)
+; Modifies: D7, A0-A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00880694  48E7 8180            MOVEM.L D7/A0-A1,-(SP)   ; Save registers
+00880698  41F9 00A1 5200       LEA     $A15200,A1       ; A1 = Frame buffer base
+
+; Wait for frame buffer ready
+.wait_ready:
+0088069E  08A8 0007 FF00       BTST    #7,$FF00(A1)     ; Test FS bit
+008806A4  66F8                 BNE     .wait_ready      ; Wait while busy
+
+; Clear loop
+008806A6  3E3C 001F            MOVE.W  #$001F,D7        ; Counter = 31 (32 iters)
+
+.loop:
+008806AA  20C0                 MOVE.L  D0,(A0)+         ; Write long 1
+008806AC  20C0                 MOVE.L  D0,(A0)+         ; Write long 2
+008806AE  20C0                 MOVE.L  D0,(A0)+         ; Write long 3
+008806B0  20C0                 MOVE.L  D0,(A0)+         ; Write long 4
+008806B2  51CF FFF6            DBRA    D7,.loop         ; 32 * 16 bytes
+
+008806B6  4CDF 0181            MOVEM.L (SP)+,D7/A0-A1   ; Restore
+008806BA  4E75                 RTS
+```
+
+**Analysis**: Clears 512 bytes of frame buffer memory with value in D0. Called during boot to ensure clean frame buffer state before rendering.
+
+---
+
+## func_0FBE - Work RAM Code Copy ($00880FBE)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_0FBE: Copy Init Code to Work RAM
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00880FBE - $0088101C
+; Size: 94 bytes
+; Called by: Boot sequence (1 call)
+;
+; Purpose: Copy initialization code from ROM to Work RAM ($FF0000) and
+;          perform Z80 bus request/initialization. Two separate copy
+;          operations with different source/dest pairs.
+;
+; Input: None
+; Output: None (code copied to Work RAM)
+; Modifies: D7, A0-A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00880FBE  7E0B                 MOVEQ   #11,D7           ; Counter 1 = 11 (12 words)
+00880FC0  41FA FFD0            LEA     -$30(PC),A0      ; A0 = source (PC-rel)
+00880FC4  43F9 00FF 0000       LEA     WORK_RAM,A1      ; A1 = $FF0000
+00880FCA  4EFA 000E            JMP     $00880FDA(PC)    ; Jump to copy routine
+
+; Second copy setup
+00880FCE  7E09                 MOVEQ   #9,D7            ; Counter 2 = 9 (10 words)
+00880FD0  41FA FFD8            LEA     -$28(PC),A0      ; Different source
+00880FD4  43F9 00FF 0000       LEA     WORK_RAM,A1      ; Same dest
+00880FDA  46FC 2700            MOVE.W  #$2700,SR        ; Disable interrupts
+
+; Copy loop
+.copy_loop:
+00880FDE  32D8                 MOVE.W  (A0)+,(A1)+      ; Copy word
+00880FE0  51CF FFFC            DBRA    D7,.copy_loop    ; Loop
+
+00880FE4  46FC 2300            MOVE.W  #$2300,SR        ; Enable interrupts
+00880FE8  4E75                 RTS
+
+; Additional Z80 control section
+00880FEA  40E7                 MOVE    SR,-(SP)         ; Save SR
+00880FEC  46FC 2700            MOVE.W  #$2700,SR        ; Disable interrupts
+00880FF0  33FC 0100 00A1 1100  MOVE.W  #$0100,Z80_BUSREQ ; Request Z80 bus
+
+; Wait for Z80 bus
+.wait_z80:
+00880FF8  0839 0000 00A1 1100  BTST    #0,Z80_BUSREQ    ; Test bus grant
+00881000  66F6                 BNE     .wait_z80        ; Wait until granted
+
+00881002  4EBA 08D4            JSR     $008818D8(PC)    ; Call Z80 init routine
+00881006  33FC 0000 00A1 1100  MOVE.W  #0,Z80_BUSREQ    ; Release Z80 bus
+0088100E  46DF                 MOVE    (SP)+,SR         ; Restore SR
+
+00881010  41FA 0022            LEA     $22(PC),A0       ; Load data address
+00881014  11FC 0081 C874       MOVE.B  #$81,$FFC874     ; Write to RAM flag
+0088101A  11E8 0001 C874       MOVE.B  1(A0),$FFC874    ; Copy byte
+0088101C  ... (continues)
+```
+
+**Analysis**: Complex initialization function that:
+1. Copies code from ROM to Work RAM in two phases
+2. Requests Z80 bus and performs Z80 initialization
+3. Writes configuration flags to Work RAM
+4. Calls external init routine via JSR
+
+---
+
+## func_1140 - Data Decompressor ($00881140)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_1140: RLE/Bit-Packed Data Decoder
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00881140 - $008811E2
+; Size: 162 bytes
+; Called by: Boot sequence (1 call)
+;
+; Purpose: Decompress or decode bit-packed data. Uses complex bit shifting,
+;          masking, and conditional logic to extract nibbles and bytes from
+;          compressed format. Likely used for decompressing init data tables.
+;
+; Input: A0 = Source compressed data
+;        A1 = Destination buffer
+;        D6 = Size/control parameter
+; Output: Decompressed data written to (A1)
+; Modifies: D0-D3, D6-D7, A3
+; ═══════════════════════════════════════════════════════════════════════════
+
+00881140  3E06                 MOVE.W  D6,D7            ; D7 = size counter
+00881142  5147                 SUBQ.W  #8,D7            ; Adjust counter
+00881144  3205                 MOVE.W  D5,D1            ; Copy control value
+00881146  EE69                 ROR.W   #7,D1            ; Rotate right 7 bits
+00881148  0C01 00FC            CMPI.B  #$FC,D1          ; Check for special value
+0088114C  643E                 BCC     .special_case    ; Branch if >= $FC
+
+; Main decode loop
+0088114E  0241 00FF            ANDI.W  #$00FF,D1        ; Mask to byte
+00881152  D241                 ADD.W   D1,D1            ; D1 *= 2 (word index)
+00881154  1031 1000            MOVE.B  0(A1,D1.W),D0    ; Read table byte
+00881158  4880                 EXT.W   D0               ; Sign extend
+0088115A  9C40                 SUB.W   D0,D6            ; Adjust size
+0088115C  0C46 0009            CMPI.W  #9,D6            ; Check threshold
+00881160  6406                 BCC     .continue        ; Branch if >= 9
+00881162  5046                 ADDQ.W  #8,D6            ; Adjust back
+00881164  E145                 ASL.W   #8,D5            ; Shift control left
+00881166  1A18                 MOVE.B  (A0)+,D5         ; Read next byte
+
+.continue:
+00881168  1231 1001            MOVE.B  1(A1,D1.W),D1    ; Read second byte
+0088116C  3001                 MOVE.W  D1,D0            ; Copy to D0
+0088116E  0241 000F            ANDI.W  #$000F,D1        ; Mask low nibble
+00881172  0240 00F0            ANDI.W  #$00F0,D0        ; Mask high nibble
+00881176  E848                 LSR.W   #4,D0            ; Shift to low nibble
+
+; Bit manipulation and output
+00881178  E98C                 ROL.L   #4,D4            ; Rotate accumulator
+0088117A  8801                 OR.B    D1,D4            ; Merge nibble
+0088117C  5343                 SUBQ.W  #1,D3            ; Decrement pixel count
+0088117E  6606                 BNE     .no_output       ; Skip if not ready
+
+; Output byte
+00881180  4ED3                 JMP     (A3)             ; Jump to output routine
+00881182  7800                 MOVEQ   #0,D4            ; Clear accumulator
+00881184  7608                 MOVEQ   #8,D3            ; Reset pixel count
+
+.no_output:
+00881186  51C8 FFF0            DBRA    D0,.bit_loop     ; Loop for bits
+0088118A  60B4                 BRA     .main_loop       ; Continue main loop
+
+.special_case:
+0088118C  5D46                 SUBQ.W  #6,D6            ; Adjust for special
+0088118E  0C46 0009            CMPI.W  #9,D6            ; Check threshold
+00881192  6406                 BCC     .spec_continue   ; Branch if >= 9
+00881194  5046                 ADDQ.W  #8,D6            ; Adjust back
+00881196  E145                 ASL.W   #8,D5            ; Shift control
+00881198  1A18                 MOVE.B  (A0)+,D5         ; Read byte
+
+.spec_continue:
+0088119A  5F46                 SUBQ.W  #7,D6            ; Adjust again
+0088119C  3205                 MOVE.W  D5,D1            ; Copy control
+0088119E  EC69                 ROR.W   #6,D1            ; Rotate right 6
+008811A0  3001                 MOVE.W  D1,D0            ; Copy
+008811A2  0241 000F            ANDI.W  #$000F,D1        ; Mask nibble
+008811A6  0240 0070            ANDI.W  #$0070,D0        ; Mask bits
+008811AA  0C46 0009            CMPI.W  #9,D6            ; Check threshold
+008811AE  64C6                 BCC     .continue        ; Branch back
+008811B0  5046                 ADDQ.W  #8,D6            ; Adjust
+008811B2  E145                 ASL.W   #8,D5            ; Shift
+008811B4  1A18                 MOVE.B  (A0)+,D5         ; Read
+008811B6  60BE                 BRA     .continue        ; Continue
+
+.done:
+008811E0  28 84                MOVE.L  D4,(A4)          ; Store result
+008811E2  4E75                 RTS
+```
+
+**Analysis**: Sophisticated bit-packed data decoder using nibble extraction, bit rotation, and accumulator-based reassembly. Processes compressed data with variable-length encoding, outputting decoded bytes through jump table at (A3).
+
+---
+
+## func_11E4 - Byte Stream Decoder ($008811E4)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_11E4: Byte Stream Decoder with $FF Terminator
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008811E4 - $00881242
+; Size: 94 bytes
+; Called by: Boot/init sequence (1 call)
+;
+; Purpose: Decode byte stream with special handling for control bytes.
+;          Terminates on $FF byte. Processes $80+ bytes differently using
+;          bit shifts and accumulation. Outputs decoded words to table.
+;
+; Input: A0 = Source byte stream pointer
+;        A3 = Output table pointer
+; Output: Decoded data written to table at (A3)
+; Modifies: D0-D2, D5, D7
+; ═══════════════════════════════════════════════════════════════════════════
+
+008811E4  1018                 MOVE.B  (A0)+,D0         ; Read byte
+008811E6  0C00 00FF            CMPI.B  #$FF,D0          ; Check terminator
+008811EA  6602                 BNE     .not_end         ; Continue if not $FF
+008811EC  4E75                 RTS                      ; Return if $FF
+
+.not_end:
+008811EE  3E00                 MOVE.W  D0,D7            ; Save byte in D7
+008811F0  1018                 MOVE.B  (A0)+,D0         ; Read next byte
+008811F2  0C00 0080            CMPI.B  #$80,D0          ; Check if >= $80
+008811F6  64EE                 BCC     .loop_back       ; Branch back if < $80
+
+; Process control byte >= $80
+008811F8  1200                 MOVE.B  D0,D1            ; Copy to D1
+008811FA  0247 000F            ANDI.W  #$000F,D7        ; Mask low nibble of D7
+008811FE  0241 0070            ANDI.W  #$0070,D1        ; Mask bits 4-6 of D1
+00881202  8E41                 OR.W    D1,D7            ; Combine nibbles
+00881204  0240 000F            ANDI.W  #$000F,D0        ; Mask low nibble of D0
+
+00881208  1200                 MOVE.B  D0,D1            ; Copy to D1
+0088120A  E149                 ASL.W   #8,D1            ; Shift left 8 bits
+0088120C  8E41                 OR.W    D1,D7            ; Combine with D7
+
+0088120E  7208                 MOVEQ   #8,D1            ; Bit counter = 8
+00881210  9240                 SUB.W   D0,D1            ; Calculate shift
+00881212  660A                 BNE     .no_read         ; Skip if no read needed
+
+; Read additional byte and combine
+00881214  1018                 MOVE.B  (A0)+,D0         ; Read byte
+00881216  D040                 ADD.W   D0,D0            ; D0 *= 2 (word offset)
+00881218  3387 0000            MOVE.W  D7,0(A3,D0.W)    ; Write to table
+0088121C  60D2                 BRA     .main_loop       ; Loop back
+
+.no_read:
+0088121E  1018                 MOVE.B  (A0)+,D0         ; Read byte
+00881220  E368                 ROL.W   #1,D0            ; Rotate left 1
+00881222  D040                 ADD.W   D0,D0            ; Double (word offset)
+
+; Multi-byte accumulation
+00881224  7A01                 MOVEQ   #1,D5            ; Counter = 1
+00881226  E36D                 ROL.W   #1,D5            ; Shift left
+00881228  5345                 SUBQ.W  #1,D5            ; Decrement
+0088122A  3387 0000            MOVE.W  D7,0(A3,D0.W)    ; Write to table
+0088122E  5440                 ADDQ.W  #2,D0            ; Next word offset
+00881230  51CD FFF8            DBRA    D5,.write_loop   ; Loop for count
+
+00881234  60BA                 BRA     .main_loop       ; Continue main loop
+
+.complex_decode:
+00881236  48E7 FF7C            MOVEM.L D0-D6/A0-A2,-(SP) ; Save many regs
+0088123A  3640                 MOVE.W  D0,A3            ; Setup pointer
+0088123C  1018                 MOVE.B  (A0)+,D0         ; Read byte
+0088123E  4880                 EXT.W   D0               ; Sign extend
+00881240  3A40                 MOVE.W  D0,A5            ; Store
+00881242  ... (continues)
+```
+
+**Analysis**: Byte stream processor with terminator detection ($FF). Handles control bytes differently based on value ($80+ threshold), using bit shifts and word-table writes. Part of init data unpacking system.
+
+---
+
+## func_12F4 - Bit Extraction with Mask Table ($008812F4)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_12F4: Bit Field Extraction via Lookup Table
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008812F4 - $008813A2
+; Size: 174 bytes (144 bytes code + 30 bytes data table)
+; Called by: Data decompression routines (4 calls)
+;
+; Purpose: Extract variable-length bit fields from bit stream using lookup
+;          table of bitmasks. Processes 5 different bit field sizes based on
+;          control flags, accumulating bits into output register.
+;
+; Input: D1 = Control value
+;        D3 = Bit field config (from A3)
+;        D5 = Bit buffer
+;        D6 = Bits available in buffer
+;        A0 = Input stream pointer
+; Output: D3 = Extracted value
+;         D5 = Updated bit buffer
+;         D6 = Updated bit count
+; Modifies: D0-D7
+; ═══════════════════════════════════════════════════════════════════════════
+
+008812F4  360B                 MOVE.W  A3,D3            ; D3 = config value
+008812F6  1204                 MOVE.B  D4,D1            ; D1 = control byte
+008812F8  D201                 ADD.B   D1,D1            ; D1 *= 2 (shift left)
+008812FA  640A                 BCC     .no_flag_1       ; Skip if no carry
+008812FC  5346                 SUBQ.W  #1,D6            ; Consume 1 bit
+008812FE  0D05                 BTST    #5,D5            ; Test bit 5
+00881300  6704                 BEQ     .no_set_1        ; Skip if clear
+00881302  0043 8000            ORI.W   #$8000,D3        ; Set bit 15 in D3
+
+.no_set_1:
+00881306  D201                 ADD.B   D1,D1            ; Test next flag bit
+00881308  640A                 BCC     .no_flag_2
+0088130A  5346                 SUBQ.W  #1,D6
+0088130C  0D05                 BTST    #5,D5
+0088130E  6704                 BEQ     .no_set_2
+00881310  0643 4000            ORI.W   #$4000,D3        ; Set bit 14
+
+.no_set_2:
+00881314  D201                 ADD.B   D1,D1            ; Test flag 3
+00881316  640A                 BCC     .no_flag_3
+00881318  5346                 SUBQ.W  #1,D6
+0088131A  0D05                 BTST    #5,D5
+0088131C  6704                 BEQ     .no_set_3
+0088131E  0643 2000            ORI.W   #$2000,D3        ; Set bit 13
+
+.no_set_3:
+00881322  D201                 ADD.B   D1,D1            ; Test flag 4
+00881324  640A                 BCC     .no_flag_4
+00881326  5346                 SUBQ.W  #1,D6
+00881328  0D05                 BTST    #5,D5
+0088132A  6704                 BEQ     .no_set_4
+0088132C  0043 1000            ORI.W   #$1000,D3        ; Set bit 12
+
+.no_set_4:
+00881330  D201                 ADD.B   D1,D1            ; Test flag 5
+00881332  640A                 BCC     .no_flag_5
+00881334  5346                 SUBQ.W  #1,D6
+00881336  0D05                 BTST    #5,D5
+00881338  6704                 BEQ     .no_set_5
+0088133A  0043 0800            ORI.W   #$0800,D3        ; Set bit 11
+
+.no_set_5:
+0088133E  3205                 MOVE.W  D5,D1            ; Copy bit buffer
+00881340  3E06                 MOVE.W  D6,D7            ; Copy bit count
+00881342  9E4D                 SUB.W   A5,D7            ; D7 = bits - field_width
+
+00881344  6428                 BCC     .enough_bits     ; Branch if enough
+
+; Need more bits - refill buffer from stream
+00881346  3C07                 MOVE.W  D7,D6            ; Save deficit count
+00881348  0646 0010            ADDI.W  #$0010,D6        ; D6 = 16 + deficit
+0088134C  4447                 NEG.W   D7               ; D7 = abs(deficit)
+0088134E  EF69                 ROL.W   D7,D1            ; Shift left by deficit
+00881350  1A10                 MOVE.B  (A0),D5          ; Peek next byte
+00881352  EF3D                 ROL.W   D7,D5            ; Rotate bits in
+00881354  DE47                 ADD.W   D7,D7            ; D7 *= 2 (word index)
+00881356  CA7B 702A            MULU.W  $702A(PC,D7.W),D5 ; Multiply by mask
+0088135A  D245                 ADD.W   D5,D1            ; Merge bits
+0088135C  300D                 MOVE.W  A5,D0            ; D0 = field width
+0088135E  D040                 ADD.W   D0,D0            ; Word offset
+00881360  C27B 0020            AND.W   $0020(PC,D0.W),D3 ; Apply mask to result
+00881364  D243                 ADD.W   D3,D1            ; Add extracted value
+00881366  1A18                 MOVE.B  (A0)+,D5         ; Consume byte
+00881368  E14D                 ROL.W   #8,D5            ; Shift to high
+0088136A  1A18                 MOVE.B  (A0)+,D5         ; Read low byte
+0088136C  4E75                 RTS
+
+.enough_bits:
+0088136E  6710                 BEQ     .exact_match     ; Special case
+00881370  EE69                 ROR.W   D7,D1            ; Shift right
+00881372  300D                 MOVE.W  A5,D0            ; Field width
+00881374  D040                 ADD.W   D0,D0            ; To word offset
+00881376  C27B 000A            AND.W   $000A(PC,D0.W),D3 ; Mask value
+0088137A  D243                 ADD.W   D3,D1            ; Combine
+0088137C  300D                 MOVE.W  A5,D0
+0088137E  60D8                 BRA     .return
+
+.exact_match:
+00881380  ; Bitmask lookup table (16 entries for 1-16 bit fields)
+00881380  0001 0003 0007 000F  ; 1, 2, 3, 4 bits
+00881388  001F 003F 007F 00FF  ; 5, 6, 7, 8 bits
+00881390  01FF 03FF 07FF 0FFF  ; 9, 10, 11, 12 bits
+00881398  1FFF 3FFF 7FFF FFFF  ; 13, 14, 15, 16 bits
+```
+
+**Analysis**: Sophisticated variable-length bit field extractor. Tests 5 control flags and conditionally sets high-order bits, then extracts n-bit field using bitmask table. Handles buffer refills when insufficient bits remain. Essential for compressed data decoding during initialization.
+
+---
+
+## func_13A4 - Bit Buffer Refill Helper ($008813A4)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_13A4: Bit Stream Buffer Refill
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008813A4 - $008813B3
+; Size: 16 bytes
+; Called by: Bit-stream decoders (multiple calls)
+;
+; Purpose: Refill bit buffer when it drops below 9 bits. Standard utility for
+;          maintaining decode buffer depth. Reads next byte and shifts into
+;          low bits while adjusting counter.
+;
+; Input: D0 = Bits consumed in last operation
+;        D6 = Current bits available
+;        D5 = Bit buffer
+;        A0 = Input stream pointer
+; Output: D6 = Updated bit count (may be +8 if refilled)
+;         D5 = Refilled buffer (if needed)
+;         A0 = Advanced pointer (if byte read)
+; Modifies: D6, D5, A0
+; ═══════════════════════════════════════════════════════════════════════════
+
+008813A4  9C40                 SUB.W   D0,D6            ; D6 -= consumed bits
+008813A6  0C46 0009            CMPI.W  #9,D6            ; Check if < 9 bits remain
+008813AA  6406                 BCC     .enough          ; Skip refill if >= 9
+
+; Refill buffer from stream
+008813AC  5046                 ADDQ.W  #8,D6            ; Add 8 bits to count
+008813AE  E145                 ASL.W   #8,D5            ; Shift buffer left 8 bits
+008813B0  1A18                 MOVE.B  (A0)+,D5         ; Read byte into low 8 bits
+
+.enough:
+008813B2  4E75                 RTS
+```
+
+**Analysis**: Critical helper function called by all bit-stream decoders. Maintains minimum 9-bit lookahead buffer by checking depth after consuming bits and refilling when needed. Simple but essential for continuous decode operations.
+
+---
+
+## func_13B4 - Multi-Byte Bit Decoder ($008813B4)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_13B4: Complex Bit Stream Decoder with Stack Buffer
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008813B4 - $00881482
+; Size: 206 bytes
+; Called by: Data decompression (2 calls)
+;
+; Purpose: Advanced bit-stream decoder with 2-byte lookahead stored on stack.
+;          Processes variable-length codes with multiple decode phases using
+;          bit rotation and carry flag testing. Handles literal copies, RLE
+;          sequences, and terminator detection.
+;
+; Input: A0 = Input stream pointer
+;        A1 = Output buffer pointer
+;        A7 = Stack pointer
+; Output: Decoded data written to (A1)
+;         Updated A0 pointer
+;         D2 = Last decoded value
+; Modifies: D2-D7, A0, A1, A7 (stack +/- 2 bytes)
+; ═══════════════════════════════════════════════════════════════════════════
+
+008813B4  558F                 SUBQ.L  #2,A7            ; Allocate 2 bytes on stack
+
+; Initialize 2-byte lookahead buffer
+008813B6  1F58 0001            MOVE.B  (A0)+,$0001(A7)  ; Read high byte to stack+1
+008813BA  1E98                 MOVE.B  (A0)+,(A7)       ; Read low byte to stack
+008813BC  3A17                 MOVE.W  (A7),D5          ; Load 16-bit word into D5
+008813BE  780F                 MOVEQ   #15,D4           ; Counter = 15 iterations
+
+; Phase 1: Bit-by-bit decode with ROR
+.phase1_loop:
+008813C0  E24D                 ROR.W   #1,D5            ; Rotate right 1 bit
+008813C2  40C6                 MOVE    SR,D6            ; Save CCR (especially C flag)
+008813C4  51CC 000C            DBRA    D4,.phase1_loop  ; Loop 15 times
+
+; Reload lookahead buffer
+008813C8  1F58 0001            MOVE.B  (A0)+,$0001(A7)  ; Refill high byte
+008813CC  1E98                 MOVE.B  (A0)+,(A7)       ; Refill low byte
+008813CE  3A17                 MOVE.W  (A7),D5          ; Reload D5
+008813D0  780F                 MOVEQ   #15,D4           ; Reset counter
+
+; Test carry from phase 1
+008813D2  44C6                 MOVE    D6,CCR           ; Restore saved flags
+008813D4  6404                 BCC     .no_literal      ; Branch if no carry
+
+; Literal copy mode
+008813D6  12D8                 MOVE.B  (A0)+,(A1)+      ; Copy byte directly
+008813D8  60E6                 BRA     .continue        ; Loop back
+
+.no_literal:
+008813DA  7600                 MOVEQ   #0,D3            ; Clear accumulator
+
+; Phase 2: Accumulate bit count
+.phase2_loop:
+008813DC  E24D                 ROR.W   #1,D5            ; Rotate
+008813DE  40C6                 MOVE    SR,D6            ; Save CCR
+008813E0  51CC 000C            DBRA    D4,.phase2_loop  ; 15 iterations
+
+; Refill and test
+008813E4  1F58 0001            MOVE.B  (A0)+,$0001(A7)
+008813E8  1E98                 MOVE.B  (A0)+,(A7)
+008813EA  3A17                 MOVE.W  (A7),D5
+008813EC  780F                 MOVEQ   #15,D4
+008813EE  44C6                 MOVE    D6,CCR
+008813F0  652C                 BCS     .run_length      ; Branch if carry
+
+; Phase 3: Additional bit extraction
+.phase3_loop:
+008813F2  E24D                 ROR.W   #1,D5
+008813F4  51CC 000C            DBRA    D4,.phase3_loop
+
+008813F8  1F58 0001            MOVE.B  (A0)+,$0001(A7)
+008813FC  1E98                 MOVE.B  (A0)+,(A7)
+008813FE  3A17                 MOVE.W  (A7),D5
+00881400  780F                 MOVEQ   #15,D4
+00881402  E353                 ROL.W   #1,D3            ; Accumulate bit into D3
+
+; Phase 4: Final bit
+.phase4_loop:
+00881404  E24D                 ROR.W   #1,D5
+00881406  51CC 000C            DBRA    D4,.phase4_loop
+
+0088140A  1F58 0001            MOVE.B  (A0)+,$0001(A7)
+0088140E  1E98                 MOVE.B  (A0)+,(A7)
+00881410  3A17                 MOVE.W  (A7),D5
+00881412  780F                 MOVEQ   #15,D4
+00881414  E353                 ROL.W   #1,D3            ; Accumulate second bit
+
+; Calculate length/offset
+00881416  5243                 ADDQ.W  #1,D3            ; D3 = count + 1
+00881418  74FF                 MOVEQ   #-1,D2           ; Initialize D2
+0088141A  1418                 MOVE.B  (A0)+,D2         ; Read byte
+0088141C  6016                 BRA     .finish
+
+.run_length:
+; RLE decode - read control byte and data
+0088141E  1018                 MOVE.B  (A0)+,D0         ; Control byte
+00881420  1218                 MOVE.B  (A0)+,D1         ; Data byte
+00881422  74FF                 MOVEQ   #-1,D2           ; Clear high bits
+00881424  1401                 MOVE.B  D1,D2            ; Copy data
+00881426  EB4A                 ROL.W   #5,D2            ; Rotate left 5 bits
+00881428  1400                 MOVE.B  D0,D2            ; Merge control
+0088142A  0241 0007            ANDI.W  #$0007,D1        ; Extract 3-bit count
+0088142E  6710                 BEQ     .special         ; Check for special case
+00881430  1601                 MOVE.B  D1,D3            ; D3 = repeat count
+
+; Copy loop
+.copy_loop:
+00881432  5243                 SUBQ.W  #1,D3            ; Decrement counter
+00881434  ... (copy operations continue)
+
+.special:
+00881440  ... (special case handling)
+
+.finish:
+00881480  548F                 ADDQ.L  #2,A7            ; Deallocate stack (pop 2 bytes)
+00881482  4E75                 RTS
+```
+
+**Analysis**: Most sophisticated decoder in Priority 3. Uses multi-phase bit extraction with stack-based lookahead buffer. Implements:
+1. Literal byte copy mode (carry flag indicates)
+2. Run-length encoding with variable counts
+3. Multi-bit code accumulation across phases
+4. Complex offset/length calculation
+5. Likely LZ77 or similar dictionary-based compression
+
+This is the final stage of the boot decompression pipeline.
+
+---
+
 ## Critical Memory Locations
 
 | Address | Purpose |
@@ -346,13 +1085,21 @@ MARSAdapterInit ($838)
 | $A15120 | COMM0 (Master SH2 'M_OK' signature) |
 | $A15124 | COMM2 (Slave SH2 'S_OK' signature) |
 | $A1512C | COMM6 ('VRES' signature) |
+| $A15180 | MARS_VDP_MODE (32X VDP control) |
+| $A15184 | MARS_VDP_FILLEN (Auto-fill length) |
+| $A15186 | MARS_VDP_FILLADR (Auto-fill address) |
+| $A15188 | MARS_VDP_FILLDATA (Auto-fill data) |
+| $A15200 | Frame Buffer base address |
+| $A11100 | Z80_BUSREQ (Z80 bus request) |
+| $C00004 | MD VDP control port |
 | $FF0000 | Work RAM (initialization code copied here) |
+| $FFC874 | Init status flag |
 
 ---
 
 ## References
 
-- 68K_MEMORY_MAP.md - Register addresses
-- 68K_INTERRUPT_HANDLERS.md - Exception handlers
-- docs/32x-hardware-manual.md - MARS initialization protocol
-- docs/32x-technical-info.md - VRES/RV bit handling
+- [68K_MEMORY_MAP.md](68K_MEMORY_MAP.md) - Register addresses
+- [68K_INTERRUPT_HANDLERS.md](68K_INTERRUPT_HANDLERS.md) - Exception handlers
+- [docs/32x-hardware-manual.md](docs/32x-hardware-manual.md) - MARS initialization protocol
+- [docs/32x-technical-info.md](docs/32x-technical-info.md) - VRES/RV bit handling

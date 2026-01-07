@@ -10,7 +10,7 @@
 |----------|----------|-----------|--------|-------|
 | 1 | Interrupt Handlers | 3 | ✅ Complete | V-INT, H-INT, Default |
 | 2 | Top Hotspots (10+ calls) | 9 | ✅ Complete | Core game loop functions |
-| 3 | Entry Point & Init | ~15 | 🔄 Partial | Boot, MARS, SH2 handshake |
+| 3 | Entry Point & Init | 14 | ✅ Complete | Boot, MARS, SH2, decompression |
 | 4 | Communication (68K↔SH2) | 3 | ✅ Complete | COMM protocol documented |
 | 5 | Controller/Input | 6 | ✅ Complete | 3-btn + 6-btn support |
 | 6 | Low Code Utilities | 33 | ✅ Complete | Input, VDP, memory utilities |
@@ -54,22 +54,22 @@
 
 | Status | Function | Address | Size | Purpose |
 |--------|----------|---------|------|---------|
-| [x] | EntryPoint | $008803F0 | ~207 bytes | Initial PC from vector - MARS detect, Z80 init |
-| [x] | MARSAdapterInit | $00880838 | ~92 bytes | 32X adapter initialization - ADEN/REN check |
+| [x] | EntryPoint | $008803F0 | 207 bytes | Initial PC from vector - MARS detect, Z80 init |
+| [x] | MARSAdapterInit | $00880838 | 92 bytes | 32X adapter initialization - ADEN/REN check |
 | [x] | SH2Handshake | $008808A8 | 64 bytes | Wait for 'VRES', 'M_OK', 'S_OK' signatures |
-| [ ] | func_058A | $0088058A | TBD | Called during boot |
-| [x] | func_05A6 | $008805A6 | TBD | Init function 1 (called from entry) |
-| [ ] | func_05B0 | $008805B0 | TBD | Called during boot |
-| [x] | func_05CE | $008805CE | TBD | Init function 2 (called from entry) |
-| [ ] | func_0654 | $00880654 | TBD | Called 2x during boot |
-| [ ] | func_0694 | $00880694 | TBD | Called during boot |
-| [x] | SecurityCode | $008806E4 | TBD | MARS security protocol |
-| [ ] | func_0FBE | $00880FBE | TBD | Boot sequence |
-| [ ] | func_1140 | $00881140 | TBD | Boot sequence |
-| [ ] | func_11E4 | $008811E4 | TBD | Boot sequence |
-| [ ] | func_12F4 | $008812F4 | TBD | Called 4x |
-| [ ] | func_13A4 | $008813A4 | TBD | Boot sequence |
-| [ ] | func_13B4 | $008813B4 | TBD | Called 2x |
+| [N/A] | func_058A | $0088058A | 16 bytes | DATA: "ROM Version 1.0" ASCII string (not code) |
+| [x] | func_05A6 | $008805A6 | 38 bytes | VDP register init - load 19 bytes from table |
+| [N/A] | func_05B0 | $008805B0 | N/A | Not a function start (middle of func_05A6) |
+| [x] | func_05CE | $008805CE | 110 bytes | Clear Genesis VDP RAM (CRAM/VRAM/VSRAM) |
+| [x] | func_0654 | $00880654 | 62 bytes | 32X VDP mode setup - auto-fill init |
+| [x] | func_0694 | $00880694 | 46 bytes | Clear 32X frame buffer (512 bytes) |
+| [x] | SecurityCode | $008806E4 | ~48 bytes | MARS security protocol |
+| [x] | func_0FBE | $00880FBE | 94 bytes | Copy init code to Work RAM + Z80 bus control |
+| [x] | func_1140 | $00881140 | 162 bytes | RLE/bit-packed data decompressor |
+| [x] | func_11E4 | $008811E4 | 94 bytes | Byte stream decoder with $FF terminator |
+| [x] | func_12F4 | $008812F4 | 174 bytes | Bit field extraction with bitmask table |
+| [x] | func_13A4 | $008813A4 | 16 bytes | Bit buffer refill helper (< 9 bits check) |
+| [x] | func_13B4 | $008813B4 | 206 bytes | Stack-based multi-phase bit decoder (LZ77-like) |
 
 **Documentation**: [68K_ENTRY_INIT.md](68K_ENTRY_INIT.md)
 
@@ -248,27 +248,27 @@ Likely data handlers, track-specific code, graphics routines.
 |----------|-------|----------|-----------|---|
 | 1. Interrupts | 3 | 3 | 0 | 100% |
 | 2. Hotspots | 9 | 9 | 0 | 100% |
-| 3. Entry/Init | 15 | 6 | 9 | 40% |
+| 3. Entry/Init | 14 | 14 | 0 | 100% |
 | 4. Communication | 3 | 3 | 0 | 100% |
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
 | 8. Main Logic | 124 | 4 | 120 | 3% |
 | 9. Extended | 500+ | 0 | 500+ | 0% |
-| **TOTAL** | **769** | **80** | **689** | **10.4%** |
+| **TOTAL** | **769** | **88** | **681** | **11.4%** |
 
 ### Milestones
 
 - [x] Priority 1 Complete (3 functions) ✅
 - [x] Priority 2 Complete (9 functions) ✅
-- [x] Priority 3 Partial (6 of 15 functions) 🔄
+- [x] Priority 3 Complete (14 functions) ✅ **NEW!**
 - [x] Priority 4 Complete (3 functions) ✅
 - [x] Priority 5 Complete (6 functions) ✅
 - [x] Priority 6 Complete (33 functions) ✅
 - [x] Priority 7 Complete (16 state handlers) ✅
 - [x] 50 functions annotated ✅
-- [x] Priority 1-6 Complete (80 functions) ✅
-- [ ] 100 functions annotated
+- [x] **Priority 1-7 ALL COMPLETE** (88 functions) ✅ **MILESTONE!**
+- [ ] 100 functions annotated (88/100 - 88%)
 - [ ] 200 functions annotated
 - [ ] 50% of high-priority functions
 
