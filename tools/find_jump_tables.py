@@ -90,17 +90,24 @@ def convert_file_offset_to_cpu(file_offset):
     """Convert ROM file offset to M68000 CPU address"""
     return file_offset + 0x00880000
 
-def find_potential_tables(rom_data, start=0x4000, end=None):
+def find_potential_tables(rom_data, start=0x4000, end=None, min_entries=8, region_name=""):
     """
-    Scan ROM for potential jump table patterns in Priority 8 region
+    Scan ROM for potential jump table patterns
 
     Looks for:
     - Sequences of valid 4-byte function pointers
     - Valid 68K address range (0x00880000-0x008FFFFF)
-    - At least 8 consecutive valid entries suggests a jump table
+    - At least min_entries consecutive valid entries suggests a jump table
+
+    Args:
+        rom_data: ROM binary data
+        start: File offset to start scanning
+        end: File offset to end scanning (default: start + 0xC000)
+        min_entries: Minimum consecutive entries to qualify as table (default: 8)
+        region_name: Name for this region (for display)
     """
     if end is None:
-        end = min(0x10000, len(rom_data))  # Priority 8 ends at $10000
+        end = min(start + 0xC000, len(rom_data))
 
     tables = {}
 
@@ -113,23 +120,27 @@ def find_potential_tables(rom_data, start=0x4000, end=None):
                 break
             addr = struct.unpack('>I', rom_data[offset:offset+4])[0]
 
-            # Valid 68K code address range
+            # Valid 68K code address range (entire ROM space)
             if 0x00880000 <= addr <= 0x008FFFFF:
                 candidate_addrs.append((i, addr, offset))
             else:
                 break  # Stop at first invalid address
 
-        # If we found 8+ consecutive valid addresses, might be a jump table
-        if len(candidate_addrs) >= 8:
+        # If we found enough consecutive valid addresses, might be a jump table
+        if len(candidate_addrs) >= min_entries:
             # Verify it looks like actual code by sampling
             sample_addr = candidate_addrs[0][1]
             sample_offset = sample_addr - 0x00880000
             if 0 <= sample_offset < len(rom_data):
                 opcode = struct.unpack('>H', rom_data[sample_offset:sample_offset+2])[0]
                 # Check if it looks like code (not obviously random data)
-                is_code = (opcode in [0x4E75, 0x4E56, 0x48E7] or
+                # Extended opcode patterns for better detection
+                is_code = (opcode in [0x4E75, 0x4E56, 0x48E7, 0x4CDF, 0x4E71] or
                           (opcode & 0xFF00) == 0x7000 or  # MOVEQ
-                          (opcode & 0xFFC0) == 0x4E80)    # Other valid opcodes
+                          (opcode & 0xFFC0) == 0x4E80 or  # JSR/JMP patterns
+                          (opcode & 0xF000) == 0x6000 or  # Bcc branches
+                          (opcode & 0xF100) == 0x3000 or  # MOVE.W
+                          (opcode & 0xF100) == 0x2000)    # MOVE.L
 
                 if is_code:
                     unique_addrs = len(set(addr for _, addr, _ in candidate_addrs))
@@ -141,9 +152,19 @@ def find_potential_tables(rom_data, start=0x4000, end=None):
                             'cpu_addr': base_offset + 0x00880000,
                             'entries': candidate_addrs,
                             'unique_handlers': unique_addrs,
+                            'region': region_name,
                         }
 
     return tables
+
+
+# Priority 9 region definitions
+PRIORITY_9_REGIONS = [
+    {'name': 'Main Code 2', 'start': 0x10000, 'end': 0x20000, 'min_entries': 4},
+    {'name': 'Extended Low', 'start': 0x30000, 'end': 0x50000, 'min_entries': 4},
+    {'name': 'Extended Mid', 'start': 0x50000, 'end': 0x80000, 'min_entries': 4},
+    {'name': 'Extended High', 'start': 0x80000, 'end': 0xC0000, 'min_entries': 4},
+]
 
 def analyze_known_tables(rom_data):
     """Extract handlers from known jump tables"""
@@ -238,21 +259,48 @@ def main():
 
     # Scan for additional potential tables in Priority 8 region
     print("\n" + "=" * 70)
-    print("SCANNING FOR ADDITIONAL JUMP TABLES")
+    print("SCANNING FOR JUMP TABLES - PRIORITY 8")
     print("=" * 70)
     print("\nSearching Priority 8 region ($4000-$FFFF) for jump table patterns...")
-    potential_tables = find_potential_tables(rom_data)
-    print(f"Found {len(potential_tables)} additional potential jump tables\n")
+    potential_tables = find_potential_tables(rom_data, start=0x4000, end=0x10000,
+                                             min_entries=8, region_name="Priority 8")
+    print(f"Found {len(potential_tables)} potential jump tables in Priority 8\n")
+
+    # Scan Priority 9 regions
+    print("\n" + "=" * 70)
+    print("SCANNING FOR JUMP TABLES - PRIORITY 9")
+    print("=" * 70)
+
+    p9_tables = {}
+    for region in PRIORITY_9_REGIONS:
+        print(f"\nSearching {region['name']} (${region['start']:05X}-${region['end']:05X})...")
+        region_tables = find_potential_tables(
+            rom_data,
+            start=region['start'],
+            end=region['end'],
+            min_entries=region['min_entries'],
+            region_name=region['name']
+        )
+        print(f"  Found {len(region_tables)} potential tables")
+        p9_tables.update(region_tables)
+
+    print(f"\nTotal Priority 9 tables found: {len(p9_tables)}")
+
+    # Merge all tables
+    potential_tables.update(p9_tables)
 
     # Show top tables by unique handler count
     sorted_tables = sorted(potential_tables.items(),
                           key=lambda x: x[1]['unique_handlers'],
-                          reverse=True)[:15]  # Top 15
+                          reverse=True)[:20]  # Top 20
 
-    print("Top tables by unique handler count:")
+    print("\n" + "=" * 70)
+    print("TOP TABLES BY UNIQUE HANDLER COUNT")
+    print("=" * 70)
     for table_id, table_data in sorted_tables:
+        region = table_data.get('region', 'Unknown')
         print(f"  ${table_data['offset']:06X} (CPU ${table_data['cpu_addr']:08X}): "
-              f"{len(table_data['entries'])} entries, {table_data['unique_handlers']} unique")
+              f"{len(table_data['entries'])} entries, {table_data['unique_handlers']} unique [{region}]")
 
     # Merge results
     for table_id, table_data in potential_tables.items():
