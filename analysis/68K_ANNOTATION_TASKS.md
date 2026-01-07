@@ -247,6 +247,18 @@ These are the handlers called from V-INT jump table at $16B2:
 | [x] | func_7BE4 | $00887BE4 | - | 16-entry jump table dispatcher |
 | [x] | func_9A9E | $00889A9E | - | Value clamp with damping |
 | [x] | func_9B7C | $00889B7C | - | Dual function (write + validator) |
+| [x] | func_4856 | $00884856 | - | Unrolled memory fill 1 (96 bytes) |
+| [x] | func_485E | $0088485E | - | Unrolled memory fill 2 (112 bytes) |
+| [x] | func_48B8 | $008848B8 | - | Unrolled memory fill 3 (32 bytes) |
+| [x] | func_48FE | $008848FE | - | Unrolled memory fill 4 (60 bytes) |
+| [x] | func_88BE | $008888BE | - | Complex conditional state handler |
+| [x] | func_8DC0 | $00888DC0 | - | 3D coordinate calculation |
+| [x] | func_A144 | $0088A144 | - | Table-based data initialization |
+| [x] | func_A80A | $0088A80A | - | Loop-based data copy 1 (structured) |
+| [x] | func_A83E | $0088A83E | - | Loop-based data copy 2 (bulk) |
+| [x] | func_BA18 | $0088BA18 | - | Triple jump table dispatcher |
+| [x] | func_CA20 | $0088CA20 | - | Hardware register configuration (VDP) |
+| [x] | func_CA9A | $0088CA9A | - | Game mode initialization |
 
 **Documentation**: [68K_MAIN_LOGIC.md](68K_MAIN_LOGIC.md)
 
@@ -291,9 +303,9 @@ Likely data handlers, track-specific code, graphics routines.
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
-| 8. Main Logic | 124 | 53 | 71 | 43% |
+| 8. Main Logic | 124 | 65 | 59 | 52% |
 | 9. Extended | 500+ | 0 | 500+ | 0% |
-| **TOTAL** | **769** | **137** | **632** | **17.8%** |
+| **TOTAL** | **769** | **149** | **620** | **19.4%** |
 
 ### Milestones
 

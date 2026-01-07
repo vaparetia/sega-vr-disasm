@@ -2254,6 +2254,521 @@ handler_2:
 
 ---
 
+## func_4856 - Unrolled Memory Fill 1 ($00884856)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_4856: 24-Iteration Unrolled Memory Fill (Variant 1)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00884856 - $00884888
+; Size: 50 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Fast memory fill using unrolled MOVE.L instructions. Writes 24
+;          consecutive longwords (96 bytes total) from source to destination.
+;
+; Input: A0 = Source address, A1 = Destination address
+; Output: 96 bytes copied from (A0)+ to (A1)+
+; Modifies: A0, A1 (both incremented by 96 bytes)
+; ═══════════════════════════════════════════════════════════════════════════
+
+00884856  22C1                 MOVE.L  (A0)+,(A1)+          ; Copy 1
+00884858  22C1                 MOVE.L  (A0)+,(A1)+          ; Copy 2
+0088485A  22C1                 MOVE.L  (A0)+,(A1)+          ; Copy 3
+0088485C  22C1                 MOVE.L  (A0)+,(A1)+          ; Copy 4
+; ... (pattern repeats for 24 iterations total)
+00884886  4E75                 RTS
+```
+
+**Analysis**: Maximally unrolled memory copy loop. Processes 24 longwords (96 bytes) without any loop overhead. Variant of the memory fill family seen in func_4842/4846. Used for fixed-size structure copying where performance is critical.
+
+---
+
+## func_485E - Unrolled Memory Fill 2 ($0088485E)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_485E: 28-Iteration Unrolled Memory Fill (Variant 2)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088485E - $0088489E
+; Size: 64 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Fast memory fill using unrolled MOVE.L instructions. Writes 28
+;          consecutive longwords (112 bytes total).
+;
+; Input: A0 = Source address, A1 = Destination address
+; Output: 112 bytes copied
+; Modifies: A0, A1 (both incremented by 112 bytes)
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088485E  22C1                 MOVE.L  (A0)+,(A1)+          ; Unrolled copy (28x)
+; ... (28 iterations of 22C1)
+0088489E  4E75                 RTS
+```
+
+**Analysis**: Longer variant of func_4856, handling 112 bytes (28 longwords). The graduated sizes (96/112 bytes) suggest these are used for different structure sizes - possibly different object types or display list entries.
+
+---
+
+## func_48B8 - Unrolled Memory Fill 3 ($008848B8)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_48B8: 8-Iteration Unrolled Memory Fill (Variant 3)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008848B8 - $008848CA
+; Size: 18 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Fast memory fill for smaller structures - 8 longwords (32 bytes).
+;
+; Input: A4 = Source, A1 = Destination
+; Output: 32 bytes copied
+; Modifies: A4, A1 (both incremented by 32 bytes)
+; ═══════════════════════════════════════════════════════════════════════════
+
+008848B8  2C81                 MOVE.L  D1,(A4)+             ; 8 iterations
+; ... (pattern repeats)
+008848CA  4E75                 RTS
+```
+
+**Analysis**: Smaller unrolled fill (32 bytes). Uses A4 instead of A0, suggesting this is part of parallel processing pipeline. The D1 source suggests filling with constant value rather than copying.
+
+---
+
+## func_48FE - Unrolled Memory Fill 4 ($008848FE)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_48FE: 15-Iteration Unrolled Memory Fill (Variant 4)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008848FE - $0088491E
+; Size: 32 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Memory fill for 60-byte structures (15 longwords).
+;
+; Input: A2 = Source, A1 = Destination
+; Output: 60 bytes copied
+; Modifies: A2, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+008848FE  24D9                 MOVE.L  (A1)+,(A2)+          ; 15 iterations
+; ... (15 iterations of 24D9)
+0088491E  4E75                 RTS
+```
+
+**Analysis**: Another size variant (60 bytes). Uses A2 destination, indicating multi-register addressing scheme for concurrent operations. The unrolled family (4856/485E/48B8/48FE) provides optimized copy for 32/60/96/112 byte structures.
+
+---
+
+## func_88BE - Complex Conditional State Handler ($008888BE)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_88BE: Multi-Stage Conditional State Processor
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $008888BE - $00888940
+; Size: 130 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Complex conditional logic with bit tests, comparisons, and state
+;          transitions. Manages game state flags and display mode.
+;
+; Input: Multiple RAM locations tested
+; Output: $FFC0C8, $FFC00C, $FFC8E0 updated
+; Modifies: D0, D1, A0
+; ═══════════════════════════════════════════════════════════════════════════
+
+008888BE  1038 C86D            MOVE.B  $FFC86D,D0           ; Read state flag
+008888C2  0200 0060            ANDI.B  #$60,D0              ; Mask bits 5-6
+008888C6  6706                 BEQ.S   .check_next          ; Branch if clear
+008888C8  0878 0000 C313       BTST    #0,$FFC313           ; Test bit 0
+
+; State check 1
+008888CE  41F8 9000            LEA     $FF9000,A0           ; A0 = RAM base
+008888D2  0838 0000 C313       BTST    #0,$FFC313           ; Test control bit
+008888D8  6700 00EA            BEQ.W   .branch_far          ; Long branch if clear
+
+; Bit manipulation
+008888DC  08F8 0003 C313       BSET    #3,$FFC313           ; Set bit 3
+008888E2  31FC 0000 C0C8       MOVE.W  #0,$FFC0C8           ; Clear register
+
+; Secondary state check
+008888E8  0838 0000 C86C       BTST    #0,$FFC86C           ; Test flag
+008888EE  667E                 BNE.S   .handle_set          ; Branch if set
+008888F0  0838 0001 C86C       BTST    #1,$FFC86C           ; Test bit 1
+008888F6  6700 00A0            BEQ.W   .exit_handler        ; Exit if clear
+
+; Display mode setup
+008888FA  31FC 0010 C8E0       MOVE.W  #$10,$FFC8E0         ; Set display param
+00888900  3038 C8D8            MOVE.W  $FFC8D8,D0           ; Read display value
+00888904  0C40 3000            CMPI.W  #$3000,D0            ; Compare with threshold
+00888908  6E1C                 BGT.S   .above_threshold     ; Branch if > $3000
+0088890A  672E                 BEQ.S   .equal_threshold     ; Branch if equal
+
+.above_threshold:
+0088892E  31FC ...             MOVE.W  #...,$FFC...         ; Update state
+```
+
+**Analysis**: Sophisticated state machine with cascading conditionals. Tests multiple flags ($C86D, $C313, $C86C), performs bit manipulations, and updates display parameters based on thresholds. The $3000 comparison suggests display mode switching (possibly resolution or graphics mode).
+
+---
+
+## func_8DC0 - 3D Coordinate Calculation ($00888DC0)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_8DC0: 3D Coordinate Transform with Conditional Adjustment
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00888DC0 - $00888E18
+; Size: 88 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Transform 3D coordinates using object fields and control values.
+;          Applies conditional adjustments based on sign and thresholds.
+;
+; Input: A0 = Object pointer
+; Output: D0 = Transformed coordinate written to $FFC...
+; Modifies: D0, D1, D2, D3, D4, D6
+; ═══════════════════════════════════════════════════════════════════════════
+
+00888DC0  3038 C0BA            MOVE.W  $FFC0BA,D0           ; D0 = control value
+00888DC4  3238 C0BE            MOVE.W  $FFC0BE,D1           ; D1 = parameter
+00888DC8  3428 0030            MOVE.W  $30(A0),D2           ; D2 = object X
+00888DCC  3628 0034            MOVE.W  $34(A0),D3           ; D3 = object Y
+00888DD0  4EBA 19CE            JSR     $0088A7A0            ; Call transform func
+00888DD4  0440 4000            SUBI.W  #$4000,D0            ; Subtract offset
+00888DD8  4440                 SWAP    D0                   ; Swap words
+
+; Sign check and conditional adjustment
+00888DDA  4A78 C102            TST.W   $FFC102              ; Test sign flag
+00888DDE  672E                 BEQ.S   .positive            ; Branch if positive
+00888DE0  7600                 MOVEQ   #0,D6                ; D6 = 0
+00888DE2  4A40                 TST.W   D0                   ; Test D0
+00888DE4  6B18                 BMI.S   .negative_case       ; Branch if negative
+
+.negative_case:
+00888DE6  3638 C102            MOVE.W  $FFC102,D3           ; Load adjustment
+00888DEA  6A18                 BPL.S   .apply_adjustment    ; Branch if positive
+00888DEC  0C40 C000            CMPI.W  #$C000,D0            ; Compare with -$4000
+00888DF0  6406                 BCC.S   .in_range            ; Branch if >= -$4000
+00888DF2  0C40 4000            CMPI.W  #$4000,D0            ; Compare with +$4000
+00888DF6  640C                 BCC.S   .apply_limit         ; Branch if >= +$4000
+
+.apply_adjustment:
+00888DF8  D043                 ADD.W   D3,D0                ; D0 += D3
+00888DFA  E240                 ASR.W   #1,D0                ; D0 >>= 1 (divide by 2)
+00888DFC  6010                 BRA.S   .finalize
+
+; Alternative path
+00888DFE  3638 C102            MOVE.W  $FFC102,D3
+00888E02  6AE8                 BPL.S   .skip_negation
+00888E04  0280 0000FFFF        ANDI.L  #$0000FFFF,D0        ; Mask to word
+00888E0A  D083                 ADD.L   D3,D0                ; Add adjustment
+00888E0C  E280                 ASR.L   #1,D0                ; Divide by 2
+
+.finalize:
+00888E0E  31C0 ...             MOVE.W  D0,$FFC...           ; Store result
+```
+
+**Analysis**: 3D coordinate transformer with sign-dependent processing. Performs offset subtraction, range checks against ±$4000 thresholds, and conditional scaling. The JSR to $A7A0 likely performs matrix multiplication or projection. Used in rendering pipeline.
+
+---
+
+## func_A144 - Table-Based Data Initialization ($0088A144)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_A144: Comprehensive Data Table Initialization
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088A144 - $0088A1A8
+; Size: 100 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Initialize multiple RAM locations from table data. Copies control
+;          parameters, graphics settings, and game state to work RAM.
+;
+; Input: None (uses fixed table at $00898818)
+; Output: 15+ RAM locations initialized
+; Modifies: D0, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088A144  43F9 00898818        LEA     $00898818,A1         ; A1 = data table
+0088A14A  3038 C8CC            MOVE.W  $FFC8CC,D0           ; D0 = index
+0088A14E  2271 0000            MOVEA.L (A1,D0.W),A1         ; A1 = table[index]
+
+; Burst copy of 15 values
+0088A152  21D9 C278            MOVE.L  (A1)+,$FFC278        ; Copy long 1
+0088A156  31D9 C0E6            MOVE.W  (A1)+,$FFC0E6        ; Copy word 1
+0088A15A  31D9 C0E8            MOVE.W  (A1)+,$FFC0E8        ; Copy word 2
+0088A15E  31D9 C0EA            MOVE.W  (A1)+,$FFC0EA        ; Copy word 3
+0088A162  31D9 C0EC            MOVE.W  (A1)+,$FFC0EC        ; Copy word 4
+0088A166  31D9 C0EE            MOVE.W  (A1)+,$FFC0EE        ; Copy word 5
+0088A16A  31D9 C0F0            MOVE.W  (A1)+,$FFC0F0        ; Copy word 6
+0088A16E  31D9 C0F2            MOVE.W  (A1)+,$FFC0F2        ; Copy word 7
+0088A172  31D9 C0F4            MOVE.W  (A1)+,$FFC0F4        ; Copy word 8
+0088A176  31D9 C0F6            MOVE.W  (A1)+,$FFC0F6        ; Copy word 9
+0088A17A  31D9 C8CE            MOVE.W  (A1)+,$FFC8CE        ; Copy word 10
+0088A17E  31D9 C8D0            MOVE.W  (A1)+,$FFC8D0        ; Copy word 11
+0088A182  31D9 C8D2            MOVE.W  (A1)+,$FFC8D2        ; Copy word 12
+0088A186  31D9 C0F8            MOVE.W  (A1)+,$FFC0F8        ; Copy word 13
+0088A18A  31D9 C0FA            MOVE.W  (A1)+,$FFC0FA        ; Copy word 14
+
+; PC-relative offset calculation
+0088A18E  43FA 003A            LEA     $0088A1CA(PC),A2     ; Load offset base
+0088A192  D040                 ADD.W   D0,D0                ; D0 *= 2 (word index)
+```
+
+**Analysis**: Bulk data initializer for game state. Indexed table lookup followed by burst copy of 1 long + 14 words to scattered RAM locations. The $C0E6-$C0FA and $C8CE-$C8D2 ranges suggest graphics/display parameters. Used during mode transitions or level loading.
+
+---
+
+## func_A80A - Loop-Based Data Copy 1 ($0088A80A)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_A80A: Structured Data Copy with Field Processing
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088A80A - $0088A83C
+; Size: 50 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Copy data from ROM table to RAM with field-by-field processing.
+;          Performs 15 iterations with structure-aware copying.
+;
+; Input: None (uses fixed tables)
+; Output: Data copied to $FAD8 RAM area
+; Modifies: D0, D1, A1, A2, A3
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088A80A  7200                 MOVEQ   #0,D1                ; D1 = 0 (counter)
+0088A80C  1238 FDA9            MOVE.B  $FFFDA9,D1           ; D1 = source index
+0088A810  43F8 FAD8            LEA     $FFFAD8,A1           ; A1 = dest base
+0088A814  3038 C8C8            MOVE.W  $FFC8C8,D0           ; D0 = control value
+0088A818  C1FC 0060            MULS.W  #96,D0               ; D0 *= 96 (structure size)
+0088A81C  C3FC 0020            MULS.W  #32,D1               ; D1 *= 32
+0088A820  D041                 ADD.W   D1,D0                ; D0 += D1 (offset)
+0088A822  43F1 0000            LEA     0(A1,D0.W),A1        ; A1 += offset
+0088A826  45F8 9100            LEA     $FF9100,A2           ; A2 = source base
+0088A82A  700E                 MOVEQ   #14,D0               ; D0 = loop count (15 iter)
+
+.loop:
+0088A82C  3551 00B6            MOVE.W  (A1),182(A2)         ; Copy field +$B6
+0088A830  3559 000A            MOVE.W  (A1)+,10(A2)         ; Copy field +$0A, incr A1
+0088A834  45EA 0100            LEA     256(A2),A2           ; Advance A2 by 256 bytes
+0088A838  51C8 FFF2            DBRA    D0,.loop             ; Loop 15 times
+0088A83C  4E75                 RTS
+```
+
+**Analysis**: Structured copy with 96-byte and 32-byte stride calculations. Processes 15 objects with 256-byte spacing ($9100 base), copying two fields ($B6 and $0A offsets) per object. The fixed structure suggests this populates object array from level data.
+
+---
+
+## func_A83E - Loop-Based Data Copy 2 ($0088A83E)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_A83E: Large Data Block Copy (Two Phases)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088A83E - $0088A86A
+; Size: 44 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Copy two large data blocks from ROM to RAM using loop-based copy.
+;          Phase 1: 72 longwords (288 bytes), Phase 2: 108 longwords (432 bytes)
+;
+; Input: None (uses fixed addresses)
+; Output: Data copied to $FAD8 and $FBF8
+; Modifies: A1, A2, D0
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088A83E  43F9 00937E7E        LEA     $00937E7E,A1         ; A1 = ROM source 1
+0088A844  45F8 FAD8            LEA     $FFFAD8,A2           ; A2 = RAM dest 1
+0088A848  303C 0047            MOVE.W  #71,D0               ; D0 = 71 (72 iterations)
+
+.loop1:
+0088A84C  24D9                 MOVE.L  (A1)+,(A2)+          ; Copy longword
+0088A84E  51C8 FFFC            DBRA    D0,.loop1            ; Loop 72 times (288 bytes)
+
+; Phase 2: Second data block
+0088A852  43F9 00937F9E        LEA     $00937F9E,A1         ; A1 = ROM source 2
+0088A858  45F8 FBF8            LEA     $FFFBF8,A2           ; A2 = RAM dest 2
+0088A85C  303C 006B            MOVE.W  #107,D0              ; D0 = 107 (108 iterations)
+
+.loop2:
+0088A860  24D9                 MOVE.L  (A1)+,(A2)+          ; Copy longword
+0088A862  51C8 FFFC            DBRA    D0,.loop2            ; Loop 108 times (432 bytes)
+0088A866  4E75                 RTS
+```
+
+**Analysis**: Two-phase bulk copy. Total: 720 bytes (288+432) from ROM to RAM. The ROM addresses ($937E7E, $937F9E) are in data region, suggesting these are lookup tables or level geometry. Sequential DBRA loops prioritize simplicity over speed.
+
+---
+
+## func_BA18 - Triple Jump Table Dispatcher ($0088BA18)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_BA18: Multi-State Jump Table Dispatcher (3 Indices)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088BA18 - $0088BA60
+; Size: 72 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Dispatch to handler functions based on three separate state indices.
+;          Uses three independent jump tables for different subsystems.
+;
+; Input: $FFC86C, $FFC86D, $FFC86E = State indices (bytes)
+; Output: Calls appropriate handler function
+; Modifies: D0, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088BA18  4E75                 RTS                          ; Early exit option
+
+; First dispatcher
+0088BA1A  7000                 MOVEQ   #0,D0                ; D0 = 0
+0088BA1C  1038 C86C            MOVE.B  $FFC86C,D0           ; D0 = state index 1
+0088BA20  D040                 ADD.W   D0,D0                ; D0 *= 2
+0088BA22  D040                 ADD.W   D0,D0                ; D0 *= 4 (long index)
+0088BA24  43F9 00894888        LEA     $00894888,A1         ; A1 = jump table 1
+0088BA2A  2271 0000            MOVEA.L (A1,D0.W),A1         ; A1 = table[index]
+0088BA2E  4E91                 JSR     (A1)                 ; Call handler 1
+
+; Second dispatcher
+0088BA30  7000                 MOVEQ   #0,D0
+0088BA32  1038 C86D            MOVE.B  $FFC86D,D0           ; D0 = state index 2
+0088BA36  D040                 ADD.W   D0,D0
+0088BA38  D040                 ADD.W   D0,D0
+0088BA3A  43F9 00894C88        LEA     $00894C88,A1         ; A1 = jump table 2
+0088BA40  2271 0000            MOVEA.L (A1,D0.W),A1
+0088BA44  4E91                 JSR     (A1)                 ; Call handler 2
+
+; Third dispatcher
+0088BA46  7000                 MOVEQ   #0,D0
+0088BA48  1038 C86E            MOVE.B  $FFC86E,D0           ; D0 = state index 3
+0088BA4C  D040                 ADD.W   D0,D0
+0088BA4E  D040                 ADD.W   D0,D0
+0088BA50  43F9 00895088        LEA     $00895088,A1         ; A1 = jump table 3
+0088BA56  2271 0000            MOVEA.L (A1,D0.W),A1
+0088BA5A  4E91                 JSR     (A1)                 ; Call handler 3
+0088BA5C  4E75                 RTS
+
+; Alternate entry - initialization
+0088BA5E  31FC 0000 C0CE       MOVE.W  #0,$FFC0CE           ; Clear control 1
+0088BA64  31FC 0020 C07A       MOVE.W  #$20,$FFC07A         ; Set control 2 = $20
+0088BA6A  11FC 0000 C308       MOVE.B  #0,$FFC308           ; Clear flag
+0088BA70  31FC 0000 C082       MOVE.W  #0,$FFC082           ; Clear control 3
+0088BA76  31FC ...             MOVE.W  #...,$FFC...         ; (continues)
+```
+
+**Analysis**: Triple dispatcher - calls 3 handlers sequentially based on independent state bytes. Each uses different jump table ($894888, $894C88, $895088), suggesting parallel subsystems (e.g., player 1/2/3 or graphics/sound/input). The early RTS suggests this can be bypassed conditionally.
+
+---
+
+## func_CA20 - Hardware Register Configuration ($0088CA20)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_CA20: VDP and Peripheral Register Setup
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088CA20 - $0088CA80
+; Size: 96 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Configure VDP registers and peripheral hardware. Writes to multiple
+;          I/O addresses in $FF68xx and $FF69xx ranges (32X VDP control).
+;
+; Input: None
+; Output: VDP and peripheral registers configured
+; Modifies: D0, D1, D2, A1, A2
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088CA20  43F9 00898E80        LEA     $00898E80,A1         ; A1 = config table
+0088CA26  45F9 00FF6800        LEA     $00FF6800,A2         ; A2 = VDP base
+0088CA2C  7007                 MOVEQ   #7,D0                ; D0 = loop count
+0088CA2E  61A2                 BSR.S   $0088C9D2            ; Call subroutine
+
+; Multi-field initialization
+0088CA30  7200                 MOVEQ   #0,D2                ; D2 = 0
+0088CA32  7017                 MOVEQ   #23,D0               ; D0 = 23 (24 iterations)
+
+.loop:
+0088CA34  1481                 MOVE.B  D1,(A2)              ; Write to VDP register
+0088CA36  45EA 0010            LEA     16(A2),A2            ; Advance A2 by 16 bytes
+0088CA3A  51C8 FFF8            DBRA    D0,.loop             ; Loop 24 times
+
+; Final writes
+0088CA3E  33C1 00FF6740        MOVE.W  D1,$00FF6740         ; Write control 1
+0088CA44  33C1 00FF672C        MOVE.W  D1,$00FF672C         ; Write control 2
+0088CA4A  4E75                 RTS                          ; Normal exit
+
+; Alternate paths with different register values
+0088CA4C  13FC 0004 00FF6920   MOVE.B  #4,$00FF6920         ; FB mode register
+0088CA54  13FC 0001 00FF6880   MOVE.B  #1,$00FF6880         ; Priority control
+0088CA5C  13FC 0001 00FF69A0   MOVE.B  #1,$00FF69A0         ; Auto-fill enable
+0088CA64  4E75                 RTS
+
+0088CA66  13FC 0004 00FF6920   MOVE.B  #4,$00FF6920         ; Alternate config
+0088CA6E  13FC 0001 00FF6880   MOVE.B  #1,$00FF6880
+0088CA76  13FC 0001 00FF6800   MOVE.B  #1,$00FF6800         ; Different register
+0088CA7E  4E75                 RTS
+```
+
+**Analysis**: VDP hardware setup with multiple entry points. Main path performs 24-iteration register initialization at 16-byte intervals (suggests VDP register array). Alternate entries configure frame buffer mode (#4), priority (#1), and auto-fill. The $FF68xx/$FF69xx range is 32X VDP control space.
+
+---
+
+## func_CA9A - Game Mode Initialization ($0088CA9A)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_CA9A: Game Mode Setup and Transition Handler
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088CA9A - $0088CAF4
+; Size: 90 bytes
+; Called by: Main game logic (JSR from unknown locations)
+;
+; Purpose: Initialize game mode, setup display parameters, and configure
+;          subsystems based on mode flags. Handles mode transitions.
+;
+; Input: $FFC8C8 = Mode selector
+; Output: Multiple RAM locations and VDP registers configured
+; Modifies: D0, A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088CA9A  6134                 BSR.S   $0088CAD0            ; Call setup routine
+0088CA9C  4EFA 012C            JMP     $0088CBCA            ; Jump to main handler
+0088CAA0  612E                 BSR.S   $0088CAD0            ; Alternate entry
+
+; Display mode check
+0088CAA2  33FC 004E 00FF6744   MOVE.W  #$4E,$00FF6744       ; Set display register
+0088CAAA  3038 C8C8            MOVE.W  $FFC8C8,D0           ; D0 = mode index
+0088CAAE  6700 011A            BEQ.W   .mode_zero           ; Branch if mode 0
+0088CAB2  0C40 0001            CMPI.W  #1,D0                ; Check if mode 1
+0088CAB6  660C                 BNE.S   .other_mode          ; Branch if != 1
+
+; Mode 1 setup
+0088CAB8  33FC 0050 00FF6744   MOVE.W  #$50,$00FF6744       ; Mode 1 display param
+0088CAC0  4EFA 0108            JMP     $0088CBCA            ; Jump to handler
+
+; Other mode setup
+0088CAC4  33FC 0050 00FF6744   MOVE.W  #$50,$00FF6744       ; Alt display param
+0088CACC  4EFA 00FC            JMP     $0088CBCA            ; Jump to handler
+
+; Mode initialization
+0088CAD0  3038 C8CC            MOVE.W  $FFC8CC,D0           ; D0 = submode index
+0088CAD4  43F9 00898C68        LEA     $00898C68,A1         ; A1 = mode table
+0088CADA  23F1 0000 00FF6858   MOVE.L  (A1,D0.W),$00FF6858  ; Set mode pointer
+0088CAE2  43FA 0012            LEA     $0088CAF6(PC),A1     ; Load offset table
+0088CAE6  2271 0000            MOVEA.L (A1,D0.W),A1         ; A1 = handler table
+```
+
+**Analysis**: Mode transition controller. Reads mode selector ($C8C8) and configures VDP display register ($FF6744) with mode-specific values ($4E/$50). Uses indexed table at $898C68 to load mode-specific handler pointers into $FF6858. The BSR/JMP pattern suggests multi-stage initialization.
+
+---
+
 ## References
 
 - [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md) - COMM register protocol basics
