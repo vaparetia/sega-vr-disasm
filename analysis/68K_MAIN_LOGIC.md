@@ -3996,6 +3996,174 @@ handler_2:
 
 ---
 
+## func_5AB6 - Hardware Configuration Dispatcher 1 ($00885AB6)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_5AB6: Hardware Configuration Handler (Dispatcher Pattern)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00885AB6 - $00885B68
+; Size: 178 bytes
+; Called by: Dispatch table @ $008859C (index 0)
+;
+; Purpose: Hardware configuration dispatcher. Calls subroutine, then performs
+;          sequential register writes. Part of multi-stage hardware setup.
+;
+; Input: None (self-contained)
+; Output: Hardware registers written
+; Modifies: D0, A0-A1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00885AB6  4EBA 5CC4            JSR     $0088B77C            ; Call initialization
+00885ABA  7000                 MOVEQ   #0,D0                ; D0 = 0
+00885ABC  3140 0044            MOVE.W  D0,$44(A0)           ; Write to port 1
+00885AC0  3140 0046            MOVE.W  D0,$46(A0)           ; Write to port 2
+00885AC4  3140 004A            MOVE.W  D0,$4A(A0)           ; Write to port 3
+00885AC8  21FC ...             MOVE.L  #...,A0              ; Setup address
+```
+
+**Analysis**: Hardware configuration handler (178 bytes). Calls subroutine at $B77C, then loads D0=0 and writes to three 16-bit ports (offsets $44, $46, $4A). Pattern suggests sequential initialization of three hardware subsystems. Part of large dispatch table $008859C with 17 unique handlers.
+
+---
+
+## func_5B6E - Multi-Call Orchestrator ($00885B6E)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_5B6E: Multi-Handler Orchestrator
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00885B6E - $00885BEC
+; Size: 126 bytes
+; Called by: Dispatch table @ $008859C (index 1)
+;
+; Purpose: Cascade multiple JSR calls to coordinate complex initialization.
+;          Each call may trigger subsystem setup.
+;
+; Input: None
+; Output: Multiple subsystems initialized via JSR chain
+; Modifies: D0, A0-A1, D1-D2
+; ═══════════════════════════════════════════════════════════════════════════
+
+00885B6E  4EBA 5C0C            JSR     $0088B77C            ; Call handler 1
+00885B72  4EBA 47DC            JSR     $00888F50            ; Call handler 2
+00885B76  4EBA 25F8            JSR     $00888170            ; Call handler 3
+00885B7A  4EBA 2550            JSR     $00887FCC            ; Call handler 4
+```
+
+**Analysis**: Orchestrator (126 bytes). Uses cascading JSR calls to dispatch to 4+ handlers sequentially. Each subroutine call likely triggers part of a multi-stage initialization. Pattern suggests modular initialization where each handler sets up one subsystem.
+
+---
+
+## func_5BE0 - Register Configuration ($00885BE0)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_5BE0: Immediate Register Configuration
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00885BE0 - $00885BEC
+; Size: 12 bytes
+; Called by: Dispatch table @ $008859C (index 2)
+;
+; Purpose: Minimal register configuration using immediate values.
+;
+; Input: None
+; Output: Two registers configured
+; Modifies: None (values only written to memory)
+; ═══════════════════════════════════════════════════════════════════════════
+
+00885BE0  317C 0000 0006       MOVE.W  #$0000,$06(A0)       ; Write $0000 to offset $06
+00885BE6  317C 0000 0074       MOVE.W  #$0000,$74(A0)       ; Write $0000 to offset $74
+00885BEC  4EBA 5B8E            JSR     $00888B7C            ; Call next handler
+```
+
+**Analysis**: Minimal handler (12 bytes). Writes zero values to two register offsets ($06 and $74), then JSR to next handler. Pattern suggests part of a register zeroing sequence.
+
+---
+
+## func_5E38 - Multi-Port Hardware Initializer ($00885E38)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_5E38: Multi-Port Hardware Initializer
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00885E38 - $00885EEA
+; Size: 178 bytes
+; Called by: Dispatch table @ $008859C (index 6)
+;
+; Purpose: Initialize multiple hardware ports in sequence.
+;
+; Input: A0 = Register base
+; Output: Hardware ports configured
+; Modifies: D0, D1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00885E38  7000                 MOVEQ   #0,D0                ; D0 = 0
+00885E3A  3140 0044            MOVE.W  D0,$44(A0)           ; Configure port 1
+00885E3E  3140 0046            MOVE.W  D0,$46(A0)           ; Configure port 2
+00885E42  3140 004A            MOVE.W  D0,$4A(A0)           ; Configure port 3
+00885E46  21FC ...             MOVE.L  #...,D1              ; Load config value
+```
+
+**Analysis**: Multi-port initializer (178 bytes). Writes zero to D0, then sequentially writes to three ports (offsets $44, $46, $4A). Loads configuration value into D1. Pattern consistent with func_5AB6, suggesting a family of multi-port initializers.
+
+---
+
+## func_6394 - Port Configuration Variant ($00886394)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_6394: Port Configuration Variant
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $00886394 - $00886440
+; Size: 172 bytes
+; Called by: Dispatch table @ $008859C (indices 7, 17)
+;
+; Purpose: Port configuration with register operations.
+;
+; Input: A0 = Base address
+; Output: Configuration applied
+; Modifies: D0, D1
+; ═══════════════════════════════════════════════════════════════════════════
+
+00886394  7000                 MOVEQ   #0,D0                ; D0 = 0
+00886396  3140 0044            MOVE.W  D0,$44(A0)           ; Write to port 1
+0088639A  3140 0046            MOVE.W  D0,$46(A0)           ; Write to port 2
+0088639E  3140 004A            MOVE.W  D0,$4A(A0)           ; Write to port 3
+000863A2  21FC ...             MOVE.L  #...,D1              ; Load value
+```
+
+**Analysis**: Configuration variant (172 bytes). Identical pattern to func_5E38 - three port writes followed by config value load. Used twice in dispatch table (indices 7, 17), suggesting default handler for multiple state transitions.
+
+---
+
+## func_633A - Configuration Handler Variant ($0088633A)
+
+```asm
+; ═══════════════════════════════════════════════════════════════════════════
+; func_633A: Configuration Handler
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $0088633A - $00886394
+; Size: 90 bytes
+; Called by: Dispatch table @ $008859C (indices 8, 18)
+;
+; Purpose: Hardware configuration with multi-port setup.
+;
+; Input: None
+; Output: Ports configured
+; Modifies: D0-D1
+; ═══════════════════════════════════════════════════════════════════════════
+
+0088633A  7000                 MOVEQ   #0,D0                ; D0 = 0
+0088633C  3140 0044            MOVE.W  D0,$44(A0)           ; Configure port 1
+00886340  3140 0046            MOVE.W  D0,$46(A0)           ; Configure port 2
+00886344  3140 004A            MOVE.W  D0,$4A(A0)           ; Configure port 3
+00886348  4EBA 0066            JSR     $00886B5E            ; Call configuration
+```
+
+**Analysis**: Handler variant (90 bytes). Follows familiar three-port pattern, but shorter with JSR to subroutine. Used twice in dispatch table, indicating common configuration sequence.
+
+---
+
 ## References
 
 - [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md) - COMM register protocol basics

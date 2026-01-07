@@ -90,31 +90,60 @@ def convert_file_offset_to_cpu(file_offset):
     """Convert ROM file offset to M68000 CPU address"""
     return file_offset + 0x00880000
 
-def find_potential_tables(rom_data):
+def find_potential_tables(rom_data, start=0x4000, end=None):
     """
-    Scan ROM for potential jump table patterns
+    Scan ROM for potential jump table patterns in Priority 8 region
 
     Looks for:
-    - LEA addr,A1 (0x43F9 xxxx xxxx)  - Load table address
-    - Followed by indexed load patterns
+    - Sequences of valid 4-byte function pointers
+    - Valid 68K address range (0x00880000-0x008FFFFF)
+    - At least 8 consecutive valid entries suggests a jump table
     """
-    patterns = []
+    if end is None:
+        end = min(0x10000, len(rom_data))  # Priority 8 ends at $10000
 
-    # Pattern: LEA table,A1 (43F9 xxxx xxxx)
-    for offset in range(0, len(rom_data) - 6, 2):
-        opcode = struct.unpack('>H', rom_data[offset:offset+2])[0]
+    tables = {}
 
-        # LEA ea,A1 has various encodings depending on addressing mode
-        # 43F9 xxxx xxxx = LEA (abs.L),A1
-        if opcode == 0x43F9:
-            table_addr = struct.unpack('>I', rom_data[offset+2:offset+6])[0]
-            patterns.append({
-                'lea_offset': offset,
-                'table_addr': table_addr,
-                'type': 'LEA_abs_long',
-            })
+    for base_offset in range(start, end - 32, 4):
+        # Check if this looks like a jump table
+        candidate_addrs = []
+        for i in range(64):  # Check up to 64 entries
+            offset = base_offset + (i * 4)
+            if offset + 4 > len(rom_data):
+                break
+            addr = struct.unpack('>I', rom_data[offset:offset+4])[0]
 
-    return patterns
+            # Valid 68K code address range
+            if 0x00880000 <= addr <= 0x008FFFFF:
+                candidate_addrs.append((i, addr, offset))
+            else:
+                break  # Stop at first invalid address
+
+        # If we found 8+ consecutive valid addresses, might be a jump table
+        if len(candidate_addrs) >= 8:
+            # Verify it looks like actual code by sampling
+            sample_addr = candidate_addrs[0][1]
+            sample_offset = sample_addr - 0x00880000
+            if 0 <= sample_offset < len(rom_data):
+                opcode = struct.unpack('>H', rom_data[sample_offset:sample_offset+2])[0]
+                # Check if it looks like code (not obviously random data)
+                is_code = (opcode in [0x4E75, 0x4E56, 0x48E7] or
+                          (opcode & 0xFF00) == 0x7000 or  # MOVEQ
+                          (opcode & 0xFFC0) == 0x4E80)    # Other valid opcodes
+
+                if is_code:
+                    unique_addrs = len(set(addr for _, addr, _ in candidate_addrs))
+                    # Only record if we have meaningful variety (not all same address)
+                    if unique_addrs >= 2:
+                        table_id = f"table_{base_offset:06X}"
+                        tables[table_id] = {
+                            'offset': base_offset,
+                            'cpu_addr': base_offset + 0x00880000,
+                            'entries': candidate_addrs,
+                            'unique_handlers': unique_addrs,
+                        }
+
+    return tables
 
 def analyze_known_tables(rom_data):
     """Extract handlers from known jump tables"""
@@ -206,6 +235,33 @@ def main():
     # Analyze known tables
     print("Analyzing known jump tables...\n")
     table_results = analyze_known_tables(rom_data)
+
+    # Scan for additional potential tables in Priority 8 region
+    print("\n" + "=" * 70)
+    print("SCANNING FOR ADDITIONAL JUMP TABLES")
+    print("=" * 70)
+    print("\nSearching Priority 8 region ($4000-$FFFF) for jump table patterns...")
+    potential_tables = find_potential_tables(rom_data)
+    print(f"Found {len(potential_tables)} additional potential jump tables\n")
+
+    # Show top tables by unique handler count
+    sorted_tables = sorted(potential_tables.items(),
+                          key=lambda x: x[1]['unique_handlers'],
+                          reverse=True)[:15]  # Top 15
+
+    print("Top tables by unique handler count:")
+    for table_id, table_data in sorted_tables:
+        print(f"  ${table_data['offset']:06X} (CPU ${table_data['cpu_addr']:08X}): "
+              f"{len(table_data['entries'])} entries, {table_data['unique_handlers']} unique")
+
+    # Merge results
+    for table_id, table_data in potential_tables.items():
+        if table_id not in table_results:
+            table_results[table_id] = {
+                'location': table_data['offset'],
+                'entries': [{'cpu_address': addr} for _, addr, _ in table_data['entries']],
+                'handler_addresses': set(addr for _, addr, _ in table_data['entries']),
+            }
 
     # Cross-reference and find new handlers
     print("\n" + "=" * 70)

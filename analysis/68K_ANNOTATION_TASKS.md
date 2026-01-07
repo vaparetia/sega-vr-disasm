@@ -293,6 +293,12 @@ These are the handlers called from V-INT jump table at $16B2:
 | [x] | func_C784 | $0088C784 | - | Orchestrator with full save |
 | [x] | func_778E | $0088778E | - | Substantial configuration manager |
 | [x] | func_A7CC | $0088A7CC | - | Minimal register handler |
+| [x] | func_5AB6 | $00885AB6 | - | Hardware configuration dispatcher 1 |
+| [x] | func_5B6E | $00885B6E | - | Multi-call orchestrator |
+| [x] | func_5BE0 | $00885BE0 | - | Register configuration |
+| [x] | func_5E38 | $00885E38 | - | Multi-port hardware initializer |
+| [x] | func_6394 | $00886394 | - | Port configuration variant |
+| [x] | func_633A | $0088633A | - | Configuration handler variant |
 
 **Documentation**: [68K_MAIN_LOGIC.md](68K_MAIN_LOGIC.md)
 
@@ -344,9 +350,9 @@ These are the handlers called from V-INT jump table at $16B2:
 | 5. Controller | 6 | 6 | 0 | 100% |
 | 6. Low Code | 33 | 33 | 0 | 100% |
 | 7. V-INT States | 16 | 16 | 0 | 100% |
-| 8. Main Logic | 124 | 100 | 24 | 80.6% |
+| 8. Main Logic | 124 | 106 | 18 | 85.5% |
 | 9. Extended | 485+ | 7 | 478+ | 1.4% |
-| **TOTAL** | **797** | **191** | **606** | **24.0%** |
+| **TOTAL** | **797** | **197** | **600** | **24.7%** |
 
 ### Milestones
 
@@ -396,7 +402,7 @@ From hotspot analysis:
 - ✅ **Complete Priority 5** (6/6 functions, 100%)
 - ✅ **Complete Priority 6** (33/33 functions, 100%)
 - ✅ **Complete Priority 7** (16/16 functions, 100%)
-- 🔶 **Priority 8 Partial** (100/124 functions, 80.6%) - NEW: +9 from jump table analysis
+- 🔶 **Priority 8 Partial** (106/124 functions, 85.5%) - NEW: +15 from jump table analysis
 - 🔶 **Priority 9 Initial** (7/485+ functions, 1.4%)
 
 ### Architecture & Pattern Analysis
