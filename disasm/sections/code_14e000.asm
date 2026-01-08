@@ -5,4100 +5,4004 @@
         org     $14E000
 
 Code_14E000:
-        dc.w    $94A2                    ; 009CE000: dc.w $94A2
-        dc.w    $94A2                    ; 009CE002: dc.w $94A2
-        dc.w    $94A2                    ; 009CE004: dc.w $94A2
-        dc.w    $94A2                    ; 009CE006: dc.w $94A2
-        dc.w    $94A2                    ; 009CE008: dc.w $94A2
-        dc.w    $94A2                    ; 009CE00A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE00C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE00E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE010: dc.w $94A2
-        dc.w    $94A2                    ; 009CE012: dc.w $94A2
-        dc.w    $94A2                    ; 009CE014: dc.w $94A2
-        dc.w    $94A2                    ; 009CE016: dc.w $94A2
-        dc.w    $94A2                    ; 009CE018: dc.w $94A2
-        dc.w    $94A2                    ; 009CE01A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE01C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE01E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE020: dc.w $94A2
-        dc.w    $94A2                    ; 009CE022: dc.w $94A2
-        dc.w    $94A2                    ; 009CE024: dc.w $94A2
-        dc.w    $94A2                    ; 009CE026: dc.w $94A2
-        dc.w    $94A2                    ; 009CE028: dc.w $94A2
-        dc.w    $94A2                    ; 009CE02A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE02C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE02E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE030: dc.w $94A2
-        dc.w    $94A2                    ; 009CE032: dc.w $94A2
-        dc.w    $94A2                    ; 009CE034: dc.w $94A2
-        dc.w    $94A2                    ; 009CE036: dc.w $94A2
-        dc.w    $94A2                    ; 009CE038: dc.w $94A2
-        dc.w    $94A2                    ; 009CE03A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE03C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE03E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE040: dc.w $94A2
-        dc.w    $94A2                    ; 009CE042: dc.w $94A2
-        dc.w    $94A2                    ; 009CE044: dc.w $94A2
-        dc.w    $94A2                    ; 009CE046: dc.w $94A2
-        dc.w    $94A2                    ; 009CE048: dc.w $94A2
-        dc.w    $94A2                    ; 009CE04A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE04C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE04E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE050: dc.w $94A2
-        dc.w    $94A2                    ; 009CE052: dc.w $94A2
-        dc.w    $94A2                    ; 009CE054: dc.w $94A2
-        dc.w    $94A2                    ; 009CE056: dc.w $94A2
-        dc.w    $94A2                    ; 009CE058: dc.w $94A2
-        dc.w    $94A2                    ; 009CE05A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE05C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE05E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE060: dc.w $94A2
-        dc.w    $94A2                    ; 009CE062: dc.w $94A2
-        dc.w    $94A2                    ; 009CE064: dc.w $94A2
-        dc.w    $94A2                    ; 009CE066: dc.w $94A2
-        dc.w    $94A2                    ; 009CE068: dc.w $94A2
-        dc.w    $94A2                    ; 009CE06A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE06C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE06E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE070: dc.w $94A2
-        dc.w    $94A2                    ; 009CE072: dc.w $94A2
-        dc.w    $94A2                    ; 009CE074: dc.w $94A2
-        dc.w    $94A2                    ; 009CE076: dc.w $94A2
-        dc.w    $94A2                    ; 009CE078: dc.w $94A2
-        dc.w    $94A2                    ; 009CE07A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE07C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE07E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE080: dc.w $94A2
-        dc.w    $94A2                    ; 009CE082: dc.w $94A2
-        dc.w    $94A2                    ; 009CE084: dc.w $94A2
-        dc.w    $94A2                    ; 009CE086: dc.w $94A2
-        dc.w    $94A2                    ; 009CE088: dc.w $94A2
-        dc.w    $94A2                    ; 009CE08A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE08C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE08E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE090: dc.w $94A2
-        dc.w    $94A2                    ; 009CE092: dc.w $94A2
-        dc.w    $94A2                    ; 009CE094: dc.w $94A2
-        dc.w    $94A2                    ; 009CE096: dc.w $94A2
-        dc.w    $94A2                    ; 009CE098: dc.w $94A2
-        dc.w    $94A2                    ; 009CE09A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE09C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE09E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0B0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0B2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0B4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0C6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0CA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE0FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE100: dc.w $94A2
-        dc.w    $94A2                    ; 009CE102: dc.w $94A2
-        dc.w    $94A2                    ; 009CE104: dc.w $94A2
-        dc.w    $94A2                    ; 009CE106: dc.w $94A2
-        dc.w    $94A2                    ; 009CE108: dc.w $94A2
-        dc.w    $94A2                    ; 009CE10A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE10C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE10E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE110: dc.w $94A2
-        dc.w    $94A2                    ; 009CE112: dc.w $94A2
-        dc.w    $94A2                    ; 009CE114: dc.w $94A2
-        dc.w    $94A2                    ; 009CE116: dc.w $94A2
-        dc.w    $94A2                    ; 009CE118: dc.w $94A2
-        dc.w    $94A2                    ; 009CE11A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE11C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE11E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE120: dc.w $94A2
-        dc.w    $94A2                    ; 009CE122: dc.w $94A2
-        dc.w    $94A2                    ; 009CE124: dc.w $94A2
-        dc.w    $94A2                    ; 009CE126: dc.w $94A2
-        dc.w    $94A2                    ; 009CE128: dc.w $94A2
-        dc.w    $94A2                    ; 009CE12A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE12C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE12E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE130: dc.w $94A2
-        dc.w    $94A2                    ; 009CE132: dc.w $94A2
-        dc.w    $94A2                    ; 009CE134: dc.w $94A2
-        dc.w    $94A2                    ; 009CE136: dc.w $94A2
-        dc.w    $94A2                    ; 009CE138: dc.w $94A2
-        dc.w    $94A2                    ; 009CE13A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE13C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE13E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE140: dc.w $94A2
-        dc.w    $94A2                    ; 009CE142: dc.w $94A2
-        dc.w    $94A2                    ; 009CE144: dc.w $94A2
-        dc.w    $94A2                    ; 009CE146: dc.w $94A2
-        dc.w    $94A2                    ; 009CE148: dc.w $94A2
-        dc.w    $94A2                    ; 009CE14A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE14C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE14E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE150: dc.w $94A2
-        dc.w    $94A2                    ; 009CE152: dc.w $94A2
-        dc.w    $94A2                    ; 009CE154: dc.w $94A2
-        dc.w    $94A2                    ; 009CE156: dc.w $94A2
-        dc.w    $94A2                    ; 009CE158: dc.w $94A2
-        dc.w    $94A2                    ; 009CE15A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE15C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE15E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE160: dc.w $94A2
-        dc.w    $94A2                    ; 009CE162: dc.w $94A2
-        dc.w    $94A2                    ; 009CE164: dc.w $94A2
-        dc.w    $94A2                    ; 009CE166: dc.w $94A2
-        dc.w    $94A2                    ; 009CE168: dc.w $94A2
-        dc.w    $94A2                    ; 009CE16A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE16C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE16E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE170: dc.w $94A2
-        dc.w    $94A2                    ; 009CE172: dc.w $94A2
-        dc.w    $94A2                    ; 009CE174: dc.w $94A2
-        dc.w    $94A2                    ; 009CE176: dc.w $94A2
-        dc.w    $94A2                    ; 009CE178: dc.w $94A2
-        dc.w    $94A2                    ; 009CE17A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE17C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE17E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE180: dc.w $94A2
-        dc.w    $94A2                    ; 009CE182: dc.w $94A2
-        dc.w    $94A2                    ; 009CE184: dc.w $94A2
-        dc.w    $94A2                    ; 009CE186: dc.w $94A2
-        dc.w    $94A2                    ; 009CE188: dc.w $94A2
-        dc.w    $94A2                    ; 009CE18A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE18C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE18E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE190: dc.w $94A2
-        dc.w    $94A2                    ; 009CE192: dc.w $94A2
-        dc.w    $94A2                    ; 009CE194: dc.w $94A2
-        dc.w    $94A2                    ; 009CE196: dc.w $94A2
-        dc.w    $94A2                    ; 009CE198: dc.w $94A2
-        dc.w    $94A2                    ; 009CE19A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE19C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE19E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1B0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1B2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1B4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1C6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1CA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE1FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE200: dc.w $94A2
-        dc.w    $94A2                    ; 009CE202: dc.w $94A2
-        dc.w    $94A2                    ; 009CE204: dc.w $94A2
-        dc.w    $94A2                    ; 009CE206: dc.w $94A2
-        dc.w    $94A2                    ; 009CE208: dc.w $94A2
-        dc.w    $94A2                    ; 009CE20A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE20C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE20E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE210: dc.w $94A2
-        dc.w    $94A2                    ; 009CE212: dc.w $94A2
-        dc.w    $94A2                    ; 009CE214: dc.w $94A2
-        dc.w    $94A2                    ; 009CE216: dc.w $94A2
-        dc.w    $94A2                    ; 009CE218: dc.w $94A2
-        dc.w    $94A2                    ; 009CE21A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE21C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE21E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE220: dc.w $94A2
-        dc.w    $94A2                    ; 009CE222: dc.w $94A2
-        dc.w    $94A2                    ; 009CE224: dc.w $94A2
-        dc.w    $94A2                    ; 009CE226: dc.w $94A2
-        dc.w    $94A2                    ; 009CE228: dc.w $94A2
-        dc.w    $94A2                    ; 009CE22A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE22C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE22E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE230: dc.w $94A2
-        dc.w    $94A2                    ; 009CE232: dc.w $94A2
-        dc.w    $94A2                    ; 009CE234: dc.w $94A2
-        dc.w    $94A2                    ; 009CE236: dc.w $94A2
-        dc.w    $94A2                    ; 009CE238: dc.w $94A2
-        dc.w    $94A2                    ; 009CE23A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE23C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE23E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE240: dc.w $94A2
-        dc.w    $94A2                    ; 009CE242: dc.w $94A2
-        dc.w    $94A2                    ; 009CE244: dc.w $94A2
-        dc.w    $94A2                    ; 009CE246: dc.w $94A2
-        dc.w    $94A2                    ; 009CE248: dc.w $94A2
-        dc.w    $94A2                    ; 009CE24A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE24C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE24E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE250: dc.w $94A2
-        dc.w    $94A2                    ; 009CE252: dc.w $94A2
-        dc.w    $94A2                    ; 009CE254: dc.w $94A2
-        dc.w    $94A2                    ; 009CE256: dc.w $94A2
-        dc.w    $94A2                    ; 009CE258: dc.w $94A2
-        dc.w    $94A2                    ; 009CE25A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE25C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE25E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE260: dc.w $94A2
-        dc.w    $94A2                    ; 009CE262: dc.w $94A2
-        dc.w    $94A2                    ; 009CE264: dc.w $94A2
-        dc.w    $94A2                    ; 009CE266: dc.w $94A2
-        dc.w    $94A2                    ; 009CE268: dc.w $94A2
-        dc.w    $94A2                    ; 009CE26A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE26C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE26E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE270: dc.w $94A2
-        dc.w    $94A2                    ; 009CE272: dc.w $94A2
-        dc.w    $94A2                    ; 009CE274: dc.w $94A2
-        dc.w    $94A2                    ; 009CE276: dc.w $94A2
-        dc.w    $94A2                    ; 009CE278: dc.w $94A2
-        dc.w    $94A2                    ; 009CE27A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE27C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE27E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE280: dc.w $94A2
-        dc.w    $94A2                    ; 009CE282: dc.w $94A2
-        dc.w    $94A2                    ; 009CE284: dc.w $94A2
-        dc.w    $94A2                    ; 009CE286: dc.w $94A2
-        dc.w    $94A2                    ; 009CE288: dc.w $94A2
-        dc.w    $94A2                    ; 009CE28A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE28C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE28E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE290: dc.w $94A2
-        dc.w    $94A2                    ; 009CE292: dc.w $94A2
-        dc.w    $94A2                    ; 009CE294: dc.w $94A2
-        dc.w    $94A2                    ; 009CE296: dc.w $94A2
-        dc.w    $94A2                    ; 009CE298: dc.w $94A2
-        dc.w    $94A2                    ; 009CE29A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE29C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE29E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2B0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2B2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2B4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2C6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2CA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE2FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE300: dc.w $94A2
-        dc.w    $94A2                    ; 009CE302: dc.w $94A2
-        dc.w    $94A2                    ; 009CE304: dc.w $94A2
-        dc.w    $94A2                    ; 009CE306: dc.w $94A2
-        dc.w    $94A2                    ; 009CE308: dc.w $94A2
-        dc.w    $94A2                    ; 009CE30A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE30C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE30E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE310: dc.w $94A2
-        dc.w    $94A2                    ; 009CE312: dc.w $94A2
-        dc.w    $94A2                    ; 009CE314: dc.w $94A2
-        dc.w    $94A2                    ; 009CE316: dc.w $94A2
-        dc.w    $94A2                    ; 009CE318: dc.w $94A2
-        dc.w    $94A2                    ; 009CE31A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE31C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE31E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE320: dc.w $94A2
-        dc.w    $94A2                    ; 009CE322: dc.w $94A2
-        dc.w    $94A2                    ; 009CE324: dc.w $94A2
-        dc.w    $94A2                    ; 009CE326: dc.w $94A2
-        dc.w    $94A2                    ; 009CE328: dc.w $94A2
-        dc.w    $94A2                    ; 009CE32A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE32C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE32E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE330: dc.w $94A2
-        dc.w    $94A2                    ; 009CE332: dc.w $94A2
-        dc.w    $94A2                    ; 009CE334: dc.w $94A2
-        dc.w    $94A2                    ; 009CE336: dc.w $94A2
-        dc.w    $94A2                    ; 009CE338: dc.w $94A2
-        dc.w    $94A2                    ; 009CE33A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE33C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE33E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE340: dc.w $94A2
-        dc.w    $94A2                    ; 009CE342: dc.w $94A2
-        dc.w    $94A2                    ; 009CE344: dc.w $94A2
-        dc.w    $94A2                    ; 009CE346: dc.w $94A2
-        dc.w    $94A2                    ; 009CE348: dc.w $94A2
-        dc.w    $94A2                    ; 009CE34A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE34C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE34E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE350: dc.w $94A2
-        dc.w    $94A2                    ; 009CE352: dc.w $94A2
-        dc.w    $94A2                    ; 009CE354: dc.w $94A2
-        dc.w    $94A2                    ; 009CE356: dc.w $94A2
-        dc.w    $94A2                    ; 009CE358: dc.w $94A2
-        dc.w    $94A2                    ; 009CE35A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE35C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE35E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE360: dc.w $94A2
-        dc.w    $94A2                    ; 009CE362: dc.w $94A2
-        dc.w    $94A2                    ; 009CE364: dc.w $94A2
-        dc.w    $94A2                    ; 009CE366: dc.w $94A2
-        dc.w    $94A2                    ; 009CE368: dc.w $94A2
-        dc.w    $94A2                    ; 009CE36A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE36C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE36E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE370: dc.w $94A2
-        dc.w    $94A2                    ; 009CE372: dc.w $94A2
-        dc.w    $94A2                    ; 009CE374: dc.w $94A2
-        dc.w    $94A2                    ; 009CE376: dc.w $94A2
-        dc.w    $94A2                    ; 009CE378: dc.w $94A2
-        dc.w    $94A2                    ; 009CE37A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE37C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE37E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE380: dc.w $94A2
-        dc.w    $94A2                    ; 009CE382: dc.w $94A2
-        dc.w    $94A2                    ; 009CE384: dc.w $94A2
-        dc.w    $94A2                    ; 009CE386: dc.w $94A2
-        dc.w    $94A2                    ; 009CE388: dc.w $94A2
-        dc.w    $94A2                    ; 009CE38A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE38C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE38E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE390: dc.w $94A2
-        dc.w    $94A2                    ; 009CE392: dc.w $94A2
-        dc.w    $94A2                    ; 009CE394: dc.w $94A2
-        dc.w    $94A2                    ; 009CE396: dc.w $94A2
-        dc.w    $94A2                    ; 009CE398: dc.w $94A2
-        dc.w    $94A2                    ; 009CE39A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE39C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE39E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3B0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3B2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3B4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3C6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3CA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE3FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE400: dc.w $94A2
-        dc.w    $94A2                    ; 009CE402: dc.w $94A2
-        dc.w    $94A2                    ; 009CE404: dc.w $94A2
-        dc.w    $94A2                    ; 009CE406: dc.w $94A2
-        dc.w    $94A2                    ; 009CE408: dc.w $94A2
-        dc.w    $94A2                    ; 009CE40A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE40C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE40E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE410: dc.w $94A2
-        dc.w    $94A2                    ; 009CE412: dc.w $94A2
-        dc.w    $94A2                    ; 009CE414: dc.w $94A2
-        dc.w    $94A2                    ; 009CE416: dc.w $94A2
-        dc.w    $94A2                    ; 009CE418: dc.w $94A2
-        dc.w    $94A2                    ; 009CE41A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE41C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE41E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE420: dc.w $94A2
-        dc.w    $94A2                    ; 009CE422: dc.w $94A2
-        dc.w    $0000                    ; 009CE424: dc.w $0000
-        dc.w    $000F                    ; 009CE426: dc.w $000F
-        dc.w    $002C                    ; 009CE428: dc.w $002C
-        dc.w    $0057                    ; 009CE42A: dc.w $0057
-        dc.w    $0074                    ; 009CE42C: dc.w $0074
-        dc.w    $94A2                    ; 009CE42E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE430: dc.w $94A2
-        dc.w    $94A2                    ; 009CE432: dc.w $94A2
-        dc.w    $94A2                    ; 009CE434: dc.w $94A2
-        dc.w    $94A2                    ; 009CE436: dc.w $94A2
-        dc.w    $94A2                    ; 009CE438: dc.w $94A2
-        dc.w    $94A2                    ; 009CE43A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE43C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE43E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE440: dc.w $94A2
-        dc.w    $94A2                    ; 009CE442: dc.w $94A2
-        dc.w    $94A2                    ; 009CE444: dc.w $94A2
-        dc.w    $94A2                    ; 009CE446: dc.w $94A2
-        dc.w    $94A2                    ; 009CE448: dc.w $94A2
-        dc.w    $94A2                    ; 009CE44A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE44C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE44E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE450: dc.w $94A2
-        dc.w    $94A2                    ; 009CE452: dc.w $94A2
-        dc.w    $94A2                    ; 009CE454: dc.w $94A2
-        dc.w    $94A2                    ; 009CE456: dc.w $94A2
-        dc.w    $94A2                    ; 009CE458: dc.w $94A2
-        dc.w    $94A2                    ; 009CE45A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE45C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE45E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE460: dc.w $94A2
-        dc.w    $94A2                    ; 009CE462: dc.w $94A2
-        dc.w    $94A2                    ; 009CE464: dc.w $94A2
-        dc.w    $94A2                    ; 009CE466: dc.w $94A2
-        dc.w    $94A2                    ; 009CE468: dc.w $94A2
-        dc.w    $94A2                    ; 009CE46A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE46C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE46E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE470: dc.w $94A2
-        dc.w    $94A2                    ; 009CE472: dc.w $94A2
-        dc.w    $94A2                    ; 009CE474: dc.w $94A2
-        dc.w    $94A2                    ; 009CE476: dc.w $94A2
-        dc.w    $94A2                    ; 009CE478: dc.w $94A2
-        dc.w    $94A2                    ; 009CE47A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE47C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE47E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE480: dc.w $94A2
-        dc.w    $94A2                    ; 009CE482: dc.w $94A2
-        dc.w    $94A2                    ; 009CE484: dc.w $94A2
-        dc.w    $94A2                    ; 009CE486: dc.w $94A2
-        dc.w    $94A2                    ; 009CE488: dc.w $94A2
-        dc.w    $94A2                    ; 009CE48A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE48C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE48E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE490: dc.w $94A2
-        dc.w    $94A2                    ; 009CE492: dc.w $94A2
-        dc.w    $94A2                    ; 009CE494: dc.w $94A2
-        dc.w    $94A2                    ; 009CE496: dc.w $94A2
-        dc.w    $94A2                    ; 009CE498: dc.w $94A2
-        dc.w    $94A2                    ; 009CE49A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE49C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE49E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4A0: dc.w $94A2
-        dc.w    $0083                    ; 009CE4A2: dc.w $0083
-        dc.w    $00A0                    ; 009CE4A4: dc.w $00A0
-        dc.w    $00CB                    ; 009CE4A6: dc.w $00CB
-        dc.w    $0104                    ; 009CE4A8: dc.w $0104
-        dc.w    $013D                    ; 009CE4AA: dc.w $013D
-        dc.w    $0176                    ; 009CE4AC: dc.w $0176
-        dc.w    $0193                    ; 009CE4AE: dc.w $0193
-        dc.w    $94A2                    ; 009CE4B0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4B2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4B4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4C6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4CA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE4FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE500: dc.w $94A2
-        dc.w    $94A2                    ; 009CE502: dc.w $94A2
-        dc.w    $94A2                    ; 009CE504: dc.w $94A2
-        dc.w    $94A2                    ; 009CE506: dc.w $94A2
-        dc.w    $94A2                    ; 009CE508: dc.w $94A2
-        dc.w    $94A2                    ; 009CE50A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE50C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE50E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE510: dc.w $94A2
-        dc.w    $94A2                    ; 009CE512: dc.w $94A2
-        dc.w    $94A2                    ; 009CE514: dc.w $94A2
-        dc.w    $94A2                    ; 009CE516: dc.w $94A2
-        dc.w    $94A2                    ; 009CE518: dc.w $94A2
-        dc.w    $94A2                    ; 009CE51A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE51C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE51E: dc.w $94A2
-        dc.w    $01B0                    ; 009CE520: dc.w $01B0
-        dc.w    $01BF                    ; 009CE522: dc.w $01BF
-        dc.w    $01CE                    ; 009CE524: dc.w $01CE
-        dc.w    $0207                    ; 009CE526: dc.w $0207
-        dc.w    $0240                    ; 009CE528: dc.w $0240
-        dc.w    $0279                    ; 009CE52A: dc.w $0279
-        dc.w    $02A4                    ; 009CE52C: dc.w $02A4
-        dc.w    $02DD                    ; 009CE52E: dc.w $02DD
-        dc.w    $0308                    ; 009CE530: dc.w $0308
-        dc.w    $94A2                    ; 009CE532: dc.w $94A2
-        dc.w    $94A2                    ; 009CE534: dc.w $94A2
-        dc.w    $94A2                    ; 009CE536: dc.w $94A2
-        dc.w    $94A2                    ; 009CE538: dc.w $94A2
-        dc.w    $94A2                    ; 009CE53A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE53C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE53E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE540: dc.w $94A2
-        dc.w    $94A2                    ; 009CE542: dc.w $94A2
-        dc.w    $94A2                    ; 009CE544: dc.w $94A2
-        dc.w    $94A2                    ; 009CE546: dc.w $94A2
-        dc.w    $94A2                    ; 009CE548: dc.w $94A2
-        dc.w    $94A2                    ; 009CE54A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE54C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE54E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE550: dc.w $94A2
-        dc.w    $94A2                    ; 009CE552: dc.w $94A2
-        dc.w    $94A2                    ; 009CE554: dc.w $94A2
-        dc.w    $94A2                    ; 009CE556: dc.w $94A2
-        dc.w    $94A2                    ; 009CE558: dc.w $94A2
-        dc.w    $94A2                    ; 009CE55A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE55C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE55E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE560: dc.w $94A2
-        dc.w    $94A2                    ; 009CE562: dc.w $94A2
-        dc.w    $94A2                    ; 009CE564: dc.w $94A2
-        dc.w    $94A2                    ; 009CE566: dc.w $94A2
-        dc.w    $94A2                    ; 009CE568: dc.w $94A2
-        dc.w    $94A2                    ; 009CE56A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE56C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE56E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE570: dc.w $94A2
-        dc.w    $94A2                    ; 009CE572: dc.w $94A2
-        dc.w    $94A2                    ; 009CE574: dc.w $94A2
-        dc.w    $94A2                    ; 009CE576: dc.w $94A2
-        dc.w    $94A2                    ; 009CE578: dc.w $94A2
-        dc.w    $94A2                    ; 009CE57A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE57C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE57E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE580: dc.w $94A2
-        dc.w    $94A2                    ; 009CE582: dc.w $94A2
-        dc.w    $94A2                    ; 009CE584: dc.w $94A2
-        dc.w    $94A2                    ; 009CE586: dc.w $94A2
-        dc.w    $94A2                    ; 009CE588: dc.w $94A2
-        dc.w    $94A2                    ; 009CE58A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE58C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE58E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE590: dc.w $94A2
-        dc.w    $94A2                    ; 009CE592: dc.w $94A2
-        dc.w    $94A2                    ; 009CE594: dc.w $94A2
-        dc.w    $94A2                    ; 009CE596: dc.w $94A2
-        dc.w    $94A2                    ; 009CE598: dc.w $94A2
-        dc.w    $94A2                    ; 009CE59A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE59C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE59E: dc.w $94A2
-        dc.w    $0333                    ; 009CE5A0: dc.w $0333
-        dc.w    $0342                    ; 009CE5A2: dc.w $0342
-        dc.w    $035F                    ; 009CE5A4: dc.w $035F
-        dc.w    $037C                    ; 009CE5A6: dc.w $037C
-        dc.w    $03B5                    ; 009CE5A8: dc.w $03B5
-        dc.w    $03EE                    ; 009CE5AA: dc.w $03EE
-        dc.w    $0427                    ; 009CE5AC: dc.w $0427
-        dc.w    $0460                    ; 009CE5AE: dc.w $0460
-        dc.w    $04B5                    ; 009CE5B0: dc.w $04B5
-        dc.w    $04FC                    ; 009CE5B2: dc.w $04FC
-        dc.w    $0527                    ; 009CE5B4: dc.w $0527
-        dc.w    $0552                    ; 009CE5B6: dc.w $0552
-        dc.w    $94A2                    ; 009CE5B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5C6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5CA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE5FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE600: dc.w $94A2
-        dc.w    $94A2                    ; 009CE602: dc.w $94A2
-        dc.w    $94A2                    ; 009CE604: dc.w $94A2
-        dc.w    $94A2                    ; 009CE606: dc.w $94A2
-        dc.w    $94A2                    ; 009CE608: dc.w $94A2
-        dc.w    $94A2                    ; 009CE60A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE60C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE60E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE610: dc.w $94A2
-        dc.w    $94A2                    ; 009CE612: dc.w $94A2
-        dc.w    $94A2                    ; 009CE614: dc.w $94A2
-        dc.w    $94A2                    ; 009CE616: dc.w $94A2
-        dc.w    $94A2                    ; 009CE618: dc.w $94A2
-        dc.w    $94A2                    ; 009CE61A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE61C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE61E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE620: dc.w $94A2
-        dc.w    $056F                    ; 009CE622: dc.w $056F
-        dc.w    $058C                    ; 009CE624: dc.w $058C
-        dc.w    $05A9                    ; 009CE626: dc.w $05A9
-        dc.w    $05C6                    ; 009CE628: dc.w $05C6
+        sub.l   -(a2),d2                                ; 009CE000: $94A2
+        sub.l   -(a2),d2                                ; 009CE002: $94A2
+        sub.l   -(a2),d2                                ; 009CE004: $94A2
+        sub.l   -(a2),d2                                ; 009CE006: $94A2
+        sub.l   -(a2),d2                                ; 009CE008: $94A2
+        sub.l   -(a2),d2                                ; 009CE00A: $94A2
+        sub.l   -(a2),d2                                ; 009CE00C: $94A2
+        sub.l   -(a2),d2                                ; 009CE00E: $94A2
+        sub.l   -(a2),d2                                ; 009CE010: $94A2
+        sub.l   -(a2),d2                                ; 009CE012: $94A2
+        sub.l   -(a2),d2                                ; 009CE014: $94A2
+        sub.l   -(a2),d2                                ; 009CE016: $94A2
+        sub.l   -(a2),d2                                ; 009CE018: $94A2
+        sub.l   -(a2),d2                                ; 009CE01A: $94A2
+        sub.l   -(a2),d2                                ; 009CE01C: $94A2
+        sub.l   -(a2),d2                                ; 009CE01E: $94A2
+        sub.l   -(a2),d2                                ; 009CE020: $94A2
+        sub.l   -(a2),d2                                ; 009CE022: $94A2
+        sub.l   -(a2),d2                                ; 009CE024: $94A2
+        sub.l   -(a2),d2                                ; 009CE026: $94A2
+        sub.l   -(a2),d2                                ; 009CE028: $94A2
+        sub.l   -(a2),d2                                ; 009CE02A: $94A2
+        sub.l   -(a2),d2                                ; 009CE02C: $94A2
+        sub.l   -(a2),d2                                ; 009CE02E: $94A2
+        sub.l   -(a2),d2                                ; 009CE030: $94A2
+        sub.l   -(a2),d2                                ; 009CE032: $94A2
+        sub.l   -(a2),d2                                ; 009CE034: $94A2
+        sub.l   -(a2),d2                                ; 009CE036: $94A2
+        sub.l   -(a2),d2                                ; 009CE038: $94A2
+        sub.l   -(a2),d2                                ; 009CE03A: $94A2
+        sub.l   -(a2),d2                                ; 009CE03C: $94A2
+        sub.l   -(a2),d2                                ; 009CE03E: $94A2
+        sub.l   -(a2),d2                                ; 009CE040: $94A2
+        sub.l   -(a2),d2                                ; 009CE042: $94A2
+        sub.l   -(a2),d2                                ; 009CE044: $94A2
+        sub.l   -(a2),d2                                ; 009CE046: $94A2
+        sub.l   -(a2),d2                                ; 009CE048: $94A2
+        sub.l   -(a2),d2                                ; 009CE04A: $94A2
+        sub.l   -(a2),d2                                ; 009CE04C: $94A2
+        sub.l   -(a2),d2                                ; 009CE04E: $94A2
+        sub.l   -(a2),d2                                ; 009CE050: $94A2
+        sub.l   -(a2),d2                                ; 009CE052: $94A2
+        sub.l   -(a2),d2                                ; 009CE054: $94A2
+        sub.l   -(a2),d2                                ; 009CE056: $94A2
+        sub.l   -(a2),d2                                ; 009CE058: $94A2
+        sub.l   -(a2),d2                                ; 009CE05A: $94A2
+        sub.l   -(a2),d2                                ; 009CE05C: $94A2
+        sub.l   -(a2),d2                                ; 009CE05E: $94A2
+        sub.l   -(a2),d2                                ; 009CE060: $94A2
+        sub.l   -(a2),d2                                ; 009CE062: $94A2
+        sub.l   -(a2),d2                                ; 009CE064: $94A2
+        sub.l   -(a2),d2                                ; 009CE066: $94A2
+        sub.l   -(a2),d2                                ; 009CE068: $94A2
+        sub.l   -(a2),d2                                ; 009CE06A: $94A2
+        sub.l   -(a2),d2                                ; 009CE06C: $94A2
+        sub.l   -(a2),d2                                ; 009CE06E: $94A2
+        sub.l   -(a2),d2                                ; 009CE070: $94A2
+        sub.l   -(a2),d2                                ; 009CE072: $94A2
+        sub.l   -(a2),d2                                ; 009CE074: $94A2
+        sub.l   -(a2),d2                                ; 009CE076: $94A2
+        sub.l   -(a2),d2                                ; 009CE078: $94A2
+        sub.l   -(a2),d2                                ; 009CE07A: $94A2
+        sub.l   -(a2),d2                                ; 009CE07C: $94A2
+        sub.l   -(a2),d2                                ; 009CE07E: $94A2
+        sub.l   -(a2),d2                                ; 009CE080: $94A2
+        sub.l   -(a2),d2                                ; 009CE082: $94A2
+        sub.l   -(a2),d2                                ; 009CE084: $94A2
+        sub.l   -(a2),d2                                ; 009CE086: $94A2
+        sub.l   -(a2),d2                                ; 009CE088: $94A2
+        sub.l   -(a2),d2                                ; 009CE08A: $94A2
+        sub.l   -(a2),d2                                ; 009CE08C: $94A2
+        sub.l   -(a2),d2                                ; 009CE08E: $94A2
+        sub.l   -(a2),d2                                ; 009CE090: $94A2
+        sub.l   -(a2),d2                                ; 009CE092: $94A2
+        sub.l   -(a2),d2                                ; 009CE094: $94A2
+        sub.l   -(a2),d2                                ; 009CE096: $94A2
+        sub.l   -(a2),d2                                ; 009CE098: $94A2
+        sub.l   -(a2),d2                                ; 009CE09A: $94A2
+        sub.l   -(a2),d2                                ; 009CE09C: $94A2
+        sub.l   -(a2),d2                                ; 009CE09E: $94A2
+        sub.l   -(a2),d2                                ; 009CE0A0: $94A2
+        sub.l   -(a2),d2                                ; 009CE0A2: $94A2
+        sub.l   -(a2),d2                                ; 009CE0A4: $94A2
+        sub.l   -(a2),d2                                ; 009CE0A6: $94A2
+        sub.l   -(a2),d2                                ; 009CE0A8: $94A2
+        sub.l   -(a2),d2                                ; 009CE0AA: $94A2
+        sub.l   -(a2),d2                                ; 009CE0AC: $94A2
+        sub.l   -(a2),d2                                ; 009CE0AE: $94A2
+        sub.l   -(a2),d2                                ; 009CE0B0: $94A2
+        sub.l   -(a2),d2                                ; 009CE0B2: $94A2
+        sub.l   -(a2),d2                                ; 009CE0B4: $94A2
+        sub.l   -(a2),d2                                ; 009CE0B6: $94A2
+        sub.l   -(a2),d2                                ; 009CE0B8: $94A2
+        sub.l   -(a2),d2                                ; 009CE0BA: $94A2
+        sub.l   -(a2),d2                                ; 009CE0BC: $94A2
+        sub.l   -(a2),d2                                ; 009CE0BE: $94A2
+        sub.l   -(a2),d2                                ; 009CE0C0: $94A2
+        sub.l   -(a2),d2                                ; 009CE0C2: $94A2
+        sub.l   -(a2),d2                                ; 009CE0C4: $94A2
+        sub.l   -(a2),d2                                ; 009CE0C6: $94A2
+        sub.l   -(a2),d2                                ; 009CE0C8: $94A2
+        sub.l   -(a2),d2                                ; 009CE0CA: $94A2
+        sub.l   -(a2),d2                                ; 009CE0CC: $94A2
+        sub.l   -(a2),d2                                ; 009CE0CE: $94A2
+        sub.l   -(a2),d2                                ; 009CE0D0: $94A2
+        sub.l   -(a2),d2                                ; 009CE0D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE0D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE0D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE0D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE0DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE0DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE0DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE0E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE0E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE0E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE0E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE0E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE0EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE0EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE0EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE0F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE0F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE0F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE0F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE0F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE0FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE0FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE0FE: $94A2
+        sub.l   -(a2),d2                                ; 009CE100: $94A2
+        sub.l   -(a2),d2                                ; 009CE102: $94A2
+        sub.l   -(a2),d2                                ; 009CE104: $94A2
+        sub.l   -(a2),d2                                ; 009CE106: $94A2
+        sub.l   -(a2),d2                                ; 009CE108: $94A2
+        sub.l   -(a2),d2                                ; 009CE10A: $94A2
+        sub.l   -(a2),d2                                ; 009CE10C: $94A2
+        sub.l   -(a2),d2                                ; 009CE10E: $94A2
+        sub.l   -(a2),d2                                ; 009CE110: $94A2
+        sub.l   -(a2),d2                                ; 009CE112: $94A2
+        sub.l   -(a2),d2                                ; 009CE114: $94A2
+        sub.l   -(a2),d2                                ; 009CE116: $94A2
+        sub.l   -(a2),d2                                ; 009CE118: $94A2
+        sub.l   -(a2),d2                                ; 009CE11A: $94A2
+        sub.l   -(a2),d2                                ; 009CE11C: $94A2
+        sub.l   -(a2),d2                                ; 009CE11E: $94A2
+        sub.l   -(a2),d2                                ; 009CE120: $94A2
+        sub.l   -(a2),d2                                ; 009CE122: $94A2
+        sub.l   -(a2),d2                                ; 009CE124: $94A2
+        sub.l   -(a2),d2                                ; 009CE126: $94A2
+        sub.l   -(a2),d2                                ; 009CE128: $94A2
+        sub.l   -(a2),d2                                ; 009CE12A: $94A2
+        sub.l   -(a2),d2                                ; 009CE12C: $94A2
+        sub.l   -(a2),d2                                ; 009CE12E: $94A2
+        sub.l   -(a2),d2                                ; 009CE130: $94A2
+        sub.l   -(a2),d2                                ; 009CE132: $94A2
+        sub.l   -(a2),d2                                ; 009CE134: $94A2
+        sub.l   -(a2),d2                                ; 009CE136: $94A2
+        sub.l   -(a2),d2                                ; 009CE138: $94A2
+        sub.l   -(a2),d2                                ; 009CE13A: $94A2
+        sub.l   -(a2),d2                                ; 009CE13C: $94A2
+        sub.l   -(a2),d2                                ; 009CE13E: $94A2
+        sub.l   -(a2),d2                                ; 009CE140: $94A2
+        sub.l   -(a2),d2                                ; 009CE142: $94A2
+        sub.l   -(a2),d2                                ; 009CE144: $94A2
+        sub.l   -(a2),d2                                ; 009CE146: $94A2
+        sub.l   -(a2),d2                                ; 009CE148: $94A2
+        sub.l   -(a2),d2                                ; 009CE14A: $94A2
+        sub.l   -(a2),d2                                ; 009CE14C: $94A2
+        sub.l   -(a2),d2                                ; 009CE14E: $94A2
+        sub.l   -(a2),d2                                ; 009CE150: $94A2
+        sub.l   -(a2),d2                                ; 009CE152: $94A2
+        sub.l   -(a2),d2                                ; 009CE154: $94A2
+        sub.l   -(a2),d2                                ; 009CE156: $94A2
+        sub.l   -(a2),d2                                ; 009CE158: $94A2
+        sub.l   -(a2),d2                                ; 009CE15A: $94A2
+        sub.l   -(a2),d2                                ; 009CE15C: $94A2
+        sub.l   -(a2),d2                                ; 009CE15E: $94A2
+        sub.l   -(a2),d2                                ; 009CE160: $94A2
+        sub.l   -(a2),d2                                ; 009CE162: $94A2
+        sub.l   -(a2),d2                                ; 009CE164: $94A2
+        sub.l   -(a2),d2                                ; 009CE166: $94A2
+        sub.l   -(a2),d2                                ; 009CE168: $94A2
+        sub.l   -(a2),d2                                ; 009CE16A: $94A2
+        sub.l   -(a2),d2                                ; 009CE16C: $94A2
+        sub.l   -(a2),d2                                ; 009CE16E: $94A2
+        sub.l   -(a2),d2                                ; 009CE170: $94A2
+        sub.l   -(a2),d2                                ; 009CE172: $94A2
+        sub.l   -(a2),d2                                ; 009CE174: $94A2
+        sub.l   -(a2),d2                                ; 009CE176: $94A2
+        sub.l   -(a2),d2                                ; 009CE178: $94A2
+        sub.l   -(a2),d2                                ; 009CE17A: $94A2
+        sub.l   -(a2),d2                                ; 009CE17C: $94A2
+        sub.l   -(a2),d2                                ; 009CE17E: $94A2
+        sub.l   -(a2),d2                                ; 009CE180: $94A2
+        sub.l   -(a2),d2                                ; 009CE182: $94A2
+        sub.l   -(a2),d2                                ; 009CE184: $94A2
+        sub.l   -(a2),d2                                ; 009CE186: $94A2
+        sub.l   -(a2),d2                                ; 009CE188: $94A2
+        sub.l   -(a2),d2                                ; 009CE18A: $94A2
+        sub.l   -(a2),d2                                ; 009CE18C: $94A2
+        sub.l   -(a2),d2                                ; 009CE18E: $94A2
+        sub.l   -(a2),d2                                ; 009CE190: $94A2
+        sub.l   -(a2),d2                                ; 009CE192: $94A2
+        sub.l   -(a2),d2                                ; 009CE194: $94A2
+        sub.l   -(a2),d2                                ; 009CE196: $94A2
+        sub.l   -(a2),d2                                ; 009CE198: $94A2
+        sub.l   -(a2),d2                                ; 009CE19A: $94A2
+        sub.l   -(a2),d2                                ; 009CE19C: $94A2
+        sub.l   -(a2),d2                                ; 009CE19E: $94A2
+        sub.l   -(a2),d2                                ; 009CE1A0: $94A2
+        sub.l   -(a2),d2                                ; 009CE1A2: $94A2
+        sub.l   -(a2),d2                                ; 009CE1A4: $94A2
+        sub.l   -(a2),d2                                ; 009CE1A6: $94A2
+        sub.l   -(a2),d2                                ; 009CE1A8: $94A2
+        sub.l   -(a2),d2                                ; 009CE1AA: $94A2
+        sub.l   -(a2),d2                                ; 009CE1AC: $94A2
+        sub.l   -(a2),d2                                ; 009CE1AE: $94A2
+        sub.l   -(a2),d2                                ; 009CE1B0: $94A2
+        sub.l   -(a2),d2                                ; 009CE1B2: $94A2
+        sub.l   -(a2),d2                                ; 009CE1B4: $94A2
+        sub.l   -(a2),d2                                ; 009CE1B6: $94A2
+        sub.l   -(a2),d2                                ; 009CE1B8: $94A2
+        sub.l   -(a2),d2                                ; 009CE1BA: $94A2
+        sub.l   -(a2),d2                                ; 009CE1BC: $94A2
+        sub.l   -(a2),d2                                ; 009CE1BE: $94A2
+        sub.l   -(a2),d2                                ; 009CE1C0: $94A2
+        sub.l   -(a2),d2                                ; 009CE1C2: $94A2
+        sub.l   -(a2),d2                                ; 009CE1C4: $94A2
+        sub.l   -(a2),d2                                ; 009CE1C6: $94A2
+        sub.l   -(a2),d2                                ; 009CE1C8: $94A2
+        sub.l   -(a2),d2                                ; 009CE1CA: $94A2
+        sub.l   -(a2),d2                                ; 009CE1CC: $94A2
+        sub.l   -(a2),d2                                ; 009CE1CE: $94A2
+        sub.l   -(a2),d2                                ; 009CE1D0: $94A2
+        sub.l   -(a2),d2                                ; 009CE1D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE1D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE1D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE1D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE1DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE1DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE1DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE1E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE1E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE1E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE1E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE1E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE1EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE1EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE1EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE1F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE1F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE1F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE1F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE1F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE1FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE1FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE1FE: $94A2
+        sub.l   -(a2),d2                                ; 009CE200: $94A2
+        sub.l   -(a2),d2                                ; 009CE202: $94A2
+        sub.l   -(a2),d2                                ; 009CE204: $94A2
+        sub.l   -(a2),d2                                ; 009CE206: $94A2
+        sub.l   -(a2),d2                                ; 009CE208: $94A2
+        sub.l   -(a2),d2                                ; 009CE20A: $94A2
+        sub.l   -(a2),d2                                ; 009CE20C: $94A2
+        sub.l   -(a2),d2                                ; 009CE20E: $94A2
+        sub.l   -(a2),d2                                ; 009CE210: $94A2
+        sub.l   -(a2),d2                                ; 009CE212: $94A2
+        sub.l   -(a2),d2                                ; 009CE214: $94A2
+        sub.l   -(a2),d2                                ; 009CE216: $94A2
+        sub.l   -(a2),d2                                ; 009CE218: $94A2
+        sub.l   -(a2),d2                                ; 009CE21A: $94A2
+        sub.l   -(a2),d2                                ; 009CE21C: $94A2
+        sub.l   -(a2),d2                                ; 009CE21E: $94A2
+        sub.l   -(a2),d2                                ; 009CE220: $94A2
+        sub.l   -(a2),d2                                ; 009CE222: $94A2
+        sub.l   -(a2),d2                                ; 009CE224: $94A2
+        sub.l   -(a2),d2                                ; 009CE226: $94A2
+        sub.l   -(a2),d2                                ; 009CE228: $94A2
+        sub.l   -(a2),d2                                ; 009CE22A: $94A2
+        sub.l   -(a2),d2                                ; 009CE22C: $94A2
+        sub.l   -(a2),d2                                ; 009CE22E: $94A2
+        sub.l   -(a2),d2                                ; 009CE230: $94A2
+        sub.l   -(a2),d2                                ; 009CE232: $94A2
+        sub.l   -(a2),d2                                ; 009CE234: $94A2
+        sub.l   -(a2),d2                                ; 009CE236: $94A2
+        sub.l   -(a2),d2                                ; 009CE238: $94A2
+        sub.l   -(a2),d2                                ; 009CE23A: $94A2
+        sub.l   -(a2),d2                                ; 009CE23C: $94A2
+        sub.l   -(a2),d2                                ; 009CE23E: $94A2
+        sub.l   -(a2),d2                                ; 009CE240: $94A2
+        sub.l   -(a2),d2                                ; 009CE242: $94A2
+        sub.l   -(a2),d2                                ; 009CE244: $94A2
+        sub.l   -(a2),d2                                ; 009CE246: $94A2
+        sub.l   -(a2),d2                                ; 009CE248: $94A2
+        sub.l   -(a2),d2                                ; 009CE24A: $94A2
+        sub.l   -(a2),d2                                ; 009CE24C: $94A2
+        sub.l   -(a2),d2                                ; 009CE24E: $94A2
+        sub.l   -(a2),d2                                ; 009CE250: $94A2
+        sub.l   -(a2),d2                                ; 009CE252: $94A2
+        sub.l   -(a2),d2                                ; 009CE254: $94A2
+        sub.l   -(a2),d2                                ; 009CE256: $94A2
+        sub.l   -(a2),d2                                ; 009CE258: $94A2
+        sub.l   -(a2),d2                                ; 009CE25A: $94A2
+        sub.l   -(a2),d2                                ; 009CE25C: $94A2
+        sub.l   -(a2),d2                                ; 009CE25E: $94A2
+        sub.l   -(a2),d2                                ; 009CE260: $94A2
+        sub.l   -(a2),d2                                ; 009CE262: $94A2
+        sub.l   -(a2),d2                                ; 009CE264: $94A2
+        sub.l   -(a2),d2                                ; 009CE266: $94A2
+        sub.l   -(a2),d2                                ; 009CE268: $94A2
+        sub.l   -(a2),d2                                ; 009CE26A: $94A2
+        sub.l   -(a2),d2                                ; 009CE26C: $94A2
+        sub.l   -(a2),d2                                ; 009CE26E: $94A2
+        sub.l   -(a2),d2                                ; 009CE270: $94A2
+        sub.l   -(a2),d2                                ; 009CE272: $94A2
+        sub.l   -(a2),d2                                ; 009CE274: $94A2
+        sub.l   -(a2),d2                                ; 009CE276: $94A2
+        sub.l   -(a2),d2                                ; 009CE278: $94A2
+        sub.l   -(a2),d2                                ; 009CE27A: $94A2
+        sub.l   -(a2),d2                                ; 009CE27C: $94A2
+        sub.l   -(a2),d2                                ; 009CE27E: $94A2
+        sub.l   -(a2),d2                                ; 009CE280: $94A2
+        sub.l   -(a2),d2                                ; 009CE282: $94A2
+        sub.l   -(a2),d2                                ; 009CE284: $94A2
+        sub.l   -(a2),d2                                ; 009CE286: $94A2
+        sub.l   -(a2),d2                                ; 009CE288: $94A2
+        sub.l   -(a2),d2                                ; 009CE28A: $94A2
+        sub.l   -(a2),d2                                ; 009CE28C: $94A2
+        sub.l   -(a2),d2                                ; 009CE28E: $94A2
+        sub.l   -(a2),d2                                ; 009CE290: $94A2
+        sub.l   -(a2),d2                                ; 009CE292: $94A2
+        sub.l   -(a2),d2                                ; 009CE294: $94A2
+        sub.l   -(a2),d2                                ; 009CE296: $94A2
+        sub.l   -(a2),d2                                ; 009CE298: $94A2
+        sub.l   -(a2),d2                                ; 009CE29A: $94A2
+        sub.l   -(a2),d2                                ; 009CE29C: $94A2
+        sub.l   -(a2),d2                                ; 009CE29E: $94A2
+        sub.l   -(a2),d2                                ; 009CE2A0: $94A2
+        sub.l   -(a2),d2                                ; 009CE2A2: $94A2
+        sub.l   -(a2),d2                                ; 009CE2A4: $94A2
+        sub.l   -(a2),d2                                ; 009CE2A6: $94A2
+        sub.l   -(a2),d2                                ; 009CE2A8: $94A2
+        sub.l   -(a2),d2                                ; 009CE2AA: $94A2
+        sub.l   -(a2),d2                                ; 009CE2AC: $94A2
+        sub.l   -(a2),d2                                ; 009CE2AE: $94A2
+        sub.l   -(a2),d2                                ; 009CE2B0: $94A2
+        sub.l   -(a2),d2                                ; 009CE2B2: $94A2
+        sub.l   -(a2),d2                                ; 009CE2B4: $94A2
+        sub.l   -(a2),d2                                ; 009CE2B6: $94A2
+        sub.l   -(a2),d2                                ; 009CE2B8: $94A2
+        sub.l   -(a2),d2                                ; 009CE2BA: $94A2
+        sub.l   -(a2),d2                                ; 009CE2BC: $94A2
+        sub.l   -(a2),d2                                ; 009CE2BE: $94A2
+        sub.l   -(a2),d2                                ; 009CE2C0: $94A2
+        sub.l   -(a2),d2                                ; 009CE2C2: $94A2
+        sub.l   -(a2),d2                                ; 009CE2C4: $94A2
+        sub.l   -(a2),d2                                ; 009CE2C6: $94A2
+        sub.l   -(a2),d2                                ; 009CE2C8: $94A2
+        sub.l   -(a2),d2                                ; 009CE2CA: $94A2
+        sub.l   -(a2),d2                                ; 009CE2CC: $94A2
+        sub.l   -(a2),d2                                ; 009CE2CE: $94A2
+        sub.l   -(a2),d2                                ; 009CE2D0: $94A2
+        sub.l   -(a2),d2                                ; 009CE2D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE2D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE2D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE2D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE2DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE2DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE2DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE2E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE2E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE2E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE2E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE2E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE2EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE2EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE2EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE2F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE2F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE2F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE2F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE2F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE2FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE2FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE2FE: $94A2
+        sub.l   -(a2),d2                                ; 009CE300: $94A2
+        sub.l   -(a2),d2                                ; 009CE302: $94A2
+        sub.l   -(a2),d2                                ; 009CE304: $94A2
+        sub.l   -(a2),d2                                ; 009CE306: $94A2
+        sub.l   -(a2),d2                                ; 009CE308: $94A2
+        sub.l   -(a2),d2                                ; 009CE30A: $94A2
+        sub.l   -(a2),d2                                ; 009CE30C: $94A2
+        sub.l   -(a2),d2                                ; 009CE30E: $94A2
+        sub.l   -(a2),d2                                ; 009CE310: $94A2
+        sub.l   -(a2),d2                                ; 009CE312: $94A2
+        sub.l   -(a2),d2                                ; 009CE314: $94A2
+        sub.l   -(a2),d2                                ; 009CE316: $94A2
+        sub.l   -(a2),d2                                ; 009CE318: $94A2
+        sub.l   -(a2),d2                                ; 009CE31A: $94A2
+        sub.l   -(a2),d2                                ; 009CE31C: $94A2
+        sub.l   -(a2),d2                                ; 009CE31E: $94A2
+        sub.l   -(a2),d2                                ; 009CE320: $94A2
+        sub.l   -(a2),d2                                ; 009CE322: $94A2
+        sub.l   -(a2),d2                                ; 009CE324: $94A2
+        sub.l   -(a2),d2                                ; 009CE326: $94A2
+        sub.l   -(a2),d2                                ; 009CE328: $94A2
+        sub.l   -(a2),d2                                ; 009CE32A: $94A2
+        sub.l   -(a2),d2                                ; 009CE32C: $94A2
+        sub.l   -(a2),d2                                ; 009CE32E: $94A2
+        sub.l   -(a2),d2                                ; 009CE330: $94A2
+        sub.l   -(a2),d2                                ; 009CE332: $94A2
+        sub.l   -(a2),d2                                ; 009CE334: $94A2
+        sub.l   -(a2),d2                                ; 009CE336: $94A2
+        sub.l   -(a2),d2                                ; 009CE338: $94A2
+        sub.l   -(a2),d2                                ; 009CE33A: $94A2
+        sub.l   -(a2),d2                                ; 009CE33C: $94A2
+        sub.l   -(a2),d2                                ; 009CE33E: $94A2
+        sub.l   -(a2),d2                                ; 009CE340: $94A2
+        sub.l   -(a2),d2                                ; 009CE342: $94A2
+        sub.l   -(a2),d2                                ; 009CE344: $94A2
+        sub.l   -(a2),d2                                ; 009CE346: $94A2
+        sub.l   -(a2),d2                                ; 009CE348: $94A2
+        sub.l   -(a2),d2                                ; 009CE34A: $94A2
+        sub.l   -(a2),d2                                ; 009CE34C: $94A2
+        sub.l   -(a2),d2                                ; 009CE34E: $94A2
+        sub.l   -(a2),d2                                ; 009CE350: $94A2
+        sub.l   -(a2),d2                                ; 009CE352: $94A2
+        sub.l   -(a2),d2                                ; 009CE354: $94A2
+        sub.l   -(a2),d2                                ; 009CE356: $94A2
+        sub.l   -(a2),d2                                ; 009CE358: $94A2
+        sub.l   -(a2),d2                                ; 009CE35A: $94A2
+        sub.l   -(a2),d2                                ; 009CE35C: $94A2
+        sub.l   -(a2),d2                                ; 009CE35E: $94A2
+        sub.l   -(a2),d2                                ; 009CE360: $94A2
+        sub.l   -(a2),d2                                ; 009CE362: $94A2
+        sub.l   -(a2),d2                                ; 009CE364: $94A2
+        sub.l   -(a2),d2                                ; 009CE366: $94A2
+        sub.l   -(a2),d2                                ; 009CE368: $94A2
+        sub.l   -(a2),d2                                ; 009CE36A: $94A2
+        sub.l   -(a2),d2                                ; 009CE36C: $94A2
+        sub.l   -(a2),d2                                ; 009CE36E: $94A2
+        sub.l   -(a2),d2                                ; 009CE370: $94A2
+        sub.l   -(a2),d2                                ; 009CE372: $94A2
+        sub.l   -(a2),d2                                ; 009CE374: $94A2
+        sub.l   -(a2),d2                                ; 009CE376: $94A2
+        sub.l   -(a2),d2                                ; 009CE378: $94A2
+        sub.l   -(a2),d2                                ; 009CE37A: $94A2
+        sub.l   -(a2),d2                                ; 009CE37C: $94A2
+        sub.l   -(a2),d2                                ; 009CE37E: $94A2
+        sub.l   -(a2),d2                                ; 009CE380: $94A2
+        sub.l   -(a2),d2                                ; 009CE382: $94A2
+        sub.l   -(a2),d2                                ; 009CE384: $94A2
+        sub.l   -(a2),d2                                ; 009CE386: $94A2
+        sub.l   -(a2),d2                                ; 009CE388: $94A2
+        sub.l   -(a2),d2                                ; 009CE38A: $94A2
+        sub.l   -(a2),d2                                ; 009CE38C: $94A2
+        sub.l   -(a2),d2                                ; 009CE38E: $94A2
+        sub.l   -(a2),d2                                ; 009CE390: $94A2
+        sub.l   -(a2),d2                                ; 009CE392: $94A2
+        sub.l   -(a2),d2                                ; 009CE394: $94A2
+        sub.l   -(a2),d2                                ; 009CE396: $94A2
+        sub.l   -(a2),d2                                ; 009CE398: $94A2
+        sub.l   -(a2),d2                                ; 009CE39A: $94A2
+        sub.l   -(a2),d2                                ; 009CE39C: $94A2
+        sub.l   -(a2),d2                                ; 009CE39E: $94A2
+        sub.l   -(a2),d2                                ; 009CE3A0: $94A2
+        sub.l   -(a2),d2                                ; 009CE3A2: $94A2
+        sub.l   -(a2),d2                                ; 009CE3A4: $94A2
+        sub.l   -(a2),d2                                ; 009CE3A6: $94A2
+        sub.l   -(a2),d2                                ; 009CE3A8: $94A2
+        sub.l   -(a2),d2                                ; 009CE3AA: $94A2
+        sub.l   -(a2),d2                                ; 009CE3AC: $94A2
+        sub.l   -(a2),d2                                ; 009CE3AE: $94A2
+        sub.l   -(a2),d2                                ; 009CE3B0: $94A2
+        sub.l   -(a2),d2                                ; 009CE3B2: $94A2
+        sub.l   -(a2),d2                                ; 009CE3B4: $94A2
+        sub.l   -(a2),d2                                ; 009CE3B6: $94A2
+        sub.l   -(a2),d2                                ; 009CE3B8: $94A2
+        sub.l   -(a2),d2                                ; 009CE3BA: $94A2
+        sub.l   -(a2),d2                                ; 009CE3BC: $94A2
+        sub.l   -(a2),d2                                ; 009CE3BE: $94A2
+        sub.l   -(a2),d2                                ; 009CE3C0: $94A2
+        sub.l   -(a2),d2                                ; 009CE3C2: $94A2
+        sub.l   -(a2),d2                                ; 009CE3C4: $94A2
+        sub.l   -(a2),d2                                ; 009CE3C6: $94A2
+        sub.l   -(a2),d2                                ; 009CE3C8: $94A2
+        sub.l   -(a2),d2                                ; 009CE3CA: $94A2
+        sub.l   -(a2),d2                                ; 009CE3CC: $94A2
+        sub.l   -(a2),d2                                ; 009CE3CE: $94A2
+        sub.l   -(a2),d2                                ; 009CE3D0: $94A2
+        sub.l   -(a2),d2                                ; 009CE3D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE3D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE3D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE3D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE3DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE3DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE3DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE3E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE3E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE3E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE3E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE3E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE3EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE3EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE3EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE3F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE3F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE3F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE3F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE3F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE3FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE3FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE3FE: $94A2
+        sub.l   -(a2),d2                                ; 009CE400: $94A2
+        sub.l   -(a2),d2                                ; 009CE402: $94A2
+        sub.l   -(a2),d2                                ; 009CE404: $94A2
+        sub.l   -(a2),d2                                ; 009CE406: $94A2
+        sub.l   -(a2),d2                                ; 009CE408: $94A2
+        sub.l   -(a2),d2                                ; 009CE40A: $94A2
+        sub.l   -(a2),d2                                ; 009CE40C: $94A2
+        sub.l   -(a2),d2                                ; 009CE40E: $94A2
+        sub.l   -(a2),d2                                ; 009CE410: $94A2
+        sub.l   -(a2),d2                                ; 009CE412: $94A2
+        sub.l   -(a2),d2                                ; 009CE414: $94A2
+        sub.l   -(a2),d2                                ; 009CE416: $94A2
+        sub.l   -(a2),d2                                ; 009CE418: $94A2
+        sub.l   -(a2),d2                                ; 009CE41A: $94A2
+        sub.l   -(a2),d2                                ; 009CE41C: $94A2
+        sub.l   -(a2),d2                                ; 009CE41E: $94A2
+        sub.l   -(a2),d2                                ; 009CE420: $94A2
+        sub.l   -(a2),d2                                ; 009CE422: $94A2
+        ori.b   #$000F,d0                               ; 009CE424: $0000, $000F
+        ori.b   #$0057,$0074(a4)                        ; 009CE428: $002C, $0057, $0074
+        sub.l   -(a2),d2                                ; 009CE42E: $94A2
+        sub.l   -(a2),d2                                ; 009CE430: $94A2
+        sub.l   -(a2),d2                                ; 009CE432: $94A2
+        sub.l   -(a2),d2                                ; 009CE434: $94A2
+        sub.l   -(a2),d2                                ; 009CE436: $94A2
+        sub.l   -(a2),d2                                ; 009CE438: $94A2
+        sub.l   -(a2),d2                                ; 009CE43A: $94A2
+        sub.l   -(a2),d2                                ; 009CE43C: $94A2
+        sub.l   -(a2),d2                                ; 009CE43E: $94A2
+        sub.l   -(a2),d2                                ; 009CE440: $94A2
+        sub.l   -(a2),d2                                ; 009CE442: $94A2
+        sub.l   -(a2),d2                                ; 009CE444: $94A2
+        sub.l   -(a2),d2                                ; 009CE446: $94A2
+        sub.l   -(a2),d2                                ; 009CE448: $94A2
+        sub.l   -(a2),d2                                ; 009CE44A: $94A2
+        sub.l   -(a2),d2                                ; 009CE44C: $94A2
+        sub.l   -(a2),d2                                ; 009CE44E: $94A2
+        sub.l   -(a2),d2                                ; 009CE450: $94A2
+        sub.l   -(a2),d2                                ; 009CE452: $94A2
+        sub.l   -(a2),d2                                ; 009CE454: $94A2
+        sub.l   -(a2),d2                                ; 009CE456: $94A2
+        sub.l   -(a2),d2                                ; 009CE458: $94A2
+        sub.l   -(a2),d2                                ; 009CE45A: $94A2
+        sub.l   -(a2),d2                                ; 009CE45C: $94A2
+        sub.l   -(a2),d2                                ; 009CE45E: $94A2
+        sub.l   -(a2),d2                                ; 009CE460: $94A2
+        sub.l   -(a2),d2                                ; 009CE462: $94A2
+        sub.l   -(a2),d2                                ; 009CE464: $94A2
+        sub.l   -(a2),d2                                ; 009CE466: $94A2
+        sub.l   -(a2),d2                                ; 009CE468: $94A2
+        sub.l   -(a2),d2                                ; 009CE46A: $94A2
+        sub.l   -(a2),d2                                ; 009CE46C: $94A2
+        sub.l   -(a2),d2                                ; 009CE46E: $94A2
+        sub.l   -(a2),d2                                ; 009CE470: $94A2
+        sub.l   -(a2),d2                                ; 009CE472: $94A2
+        sub.l   -(a2),d2                                ; 009CE474: $94A2
+        sub.l   -(a2),d2                                ; 009CE476: $94A2
+        sub.l   -(a2),d2                                ; 009CE478: $94A2
+        sub.l   -(a2),d2                                ; 009CE47A: $94A2
+        sub.l   -(a2),d2                                ; 009CE47C: $94A2
+        sub.l   -(a2),d2                                ; 009CE47E: $94A2
+        sub.l   -(a2),d2                                ; 009CE480: $94A2
+        sub.l   -(a2),d2                                ; 009CE482: $94A2
+        sub.l   -(a2),d2                                ; 009CE484: $94A2
+        sub.l   -(a2),d2                                ; 009CE486: $94A2
+        sub.l   -(a2),d2                                ; 009CE488: $94A2
+        sub.l   -(a2),d2                                ; 009CE48A: $94A2
+        sub.l   -(a2),d2                                ; 009CE48C: $94A2
+        sub.l   -(a2),d2                                ; 009CE48E: $94A2
+        sub.l   -(a2),d2                                ; 009CE490: $94A2
+        sub.l   -(a2),d2                                ; 009CE492: $94A2
+        sub.l   -(a2),d2                                ; 009CE494: $94A2
+        sub.l   -(a2),d2                                ; 009CE496: $94A2
+        sub.l   -(a2),d2                                ; 009CE498: $94A2
+        sub.l   -(a2),d2                                ; 009CE49A: $94A2
+        sub.l   -(a2),d2                                ; 009CE49C: $94A2
+        sub.l   -(a2),d2                                ; 009CE49E: $94A2
+        sub.l   -(a2),d2                                ; 009CE4A0: $94A2
+        ori.l   #$00A000CB,d3                           ; 009CE4A2: $0083, $00A0, $00CB
+        ori.b   #$003D,d4                               ; 009CE4A8: $0104, $013D
+        ori.w   #$0193,$-5E(a6,a1.w)                    ; 009CE4AC: $0176, $0193, $94A2
+        sub.l   -(a2),d2                                ; 009CE4B2: $94A2
+        sub.l   -(a2),d2                                ; 009CE4B4: $94A2
+        sub.l   -(a2),d2                                ; 009CE4B6: $94A2
+        sub.l   -(a2),d2                                ; 009CE4B8: $94A2
+        sub.l   -(a2),d2                                ; 009CE4BA: $94A2
+        sub.l   -(a2),d2                                ; 009CE4BC: $94A2
+        sub.l   -(a2),d2                                ; 009CE4BE: $94A2
+        sub.l   -(a2),d2                                ; 009CE4C0: $94A2
+        sub.l   -(a2),d2                                ; 009CE4C2: $94A2
+        sub.l   -(a2),d2                                ; 009CE4C4: $94A2
+        sub.l   -(a2),d2                                ; 009CE4C6: $94A2
+        sub.l   -(a2),d2                                ; 009CE4C8: $94A2
+        sub.l   -(a2),d2                                ; 009CE4CA: $94A2
+        sub.l   -(a2),d2                                ; 009CE4CC: $94A2
+        sub.l   -(a2),d2                                ; 009CE4CE: $94A2
+        sub.l   -(a2),d2                                ; 009CE4D0: $94A2
+        sub.l   -(a2),d2                                ; 009CE4D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE4D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE4D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE4D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE4DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE4DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE4DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE4E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE4E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE4E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE4E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE4E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE4EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE4EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE4EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE4F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE4F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE4F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE4F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE4F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE4FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE4FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE4FE: $94A2
+        sub.l   -(a2),d2                                ; 009CE500: $94A2
+        sub.l   -(a2),d2                                ; 009CE502: $94A2
+        sub.l   -(a2),d2                                ; 009CE504: $94A2
+        sub.l   -(a2),d2                                ; 009CE506: $94A2
+        sub.l   -(a2),d2                                ; 009CE508: $94A2
+        sub.l   -(a2),d2                                ; 009CE50A: $94A2
+        sub.l   -(a2),d2                                ; 009CE50C: $94A2
+        sub.l   -(a2),d2                                ; 009CE50E: $94A2
+        sub.l   -(a2),d2                                ; 009CE510: $94A2
+        sub.l   -(a2),d2                                ; 009CE512: $94A2
+        sub.l   -(a2),d2                                ; 009CE514: $94A2
+        sub.l   -(a2),d2                                ; 009CE516: $94A2
+        sub.l   -(a2),d2                                ; 009CE518: $94A2
+        sub.l   -(a2),d2                                ; 009CE51A: $94A2
+        sub.l   -(a2),d2                                ; 009CE51C: $94A2
+        sub.l   -(a2),d2                                ; 009CE51E: $94A2
+        ori.l   #$01BF01CE,$07(a0,d0.w)                 ; 009CE520: $01B0, $01BF, $01CE, $0207
+        andi.w  #$0279,d0                               ; 009CE528: $0240, $0279
+        andi.l  #$02DD0308,-(a4)                        ; 009CE52C: $02A4, $02DD, $0308
+        sub.l   -(a2),d2                                ; 009CE532: $94A2
+        sub.l   -(a2),d2                                ; 009CE534: $94A2
+        sub.l   -(a2),d2                                ; 009CE536: $94A2
+        sub.l   -(a2),d2                                ; 009CE538: $94A2
+        sub.l   -(a2),d2                                ; 009CE53A: $94A2
+        sub.l   -(a2),d2                                ; 009CE53C: $94A2
+        sub.l   -(a2),d2                                ; 009CE53E: $94A2
+        sub.l   -(a2),d2                                ; 009CE540: $94A2
+        sub.l   -(a2),d2                                ; 009CE542: $94A2
+        sub.l   -(a2),d2                                ; 009CE544: $94A2
+        sub.l   -(a2),d2                                ; 009CE546: $94A2
+        sub.l   -(a2),d2                                ; 009CE548: $94A2
+        sub.l   -(a2),d2                                ; 009CE54A: $94A2
+        sub.l   -(a2),d2                                ; 009CE54C: $94A2
+        sub.l   -(a2),d2                                ; 009CE54E: $94A2
+        sub.l   -(a2),d2                                ; 009CE550: $94A2
+        sub.l   -(a2),d2                                ; 009CE552: $94A2
+        sub.l   -(a2),d2                                ; 009CE554: $94A2
+        sub.l   -(a2),d2                                ; 009CE556: $94A2
+        sub.l   -(a2),d2                                ; 009CE558: $94A2
+        sub.l   -(a2),d2                                ; 009CE55A: $94A2
+        sub.l   -(a2),d2                                ; 009CE55C: $94A2
+        sub.l   -(a2),d2                                ; 009CE55E: $94A2
+        sub.l   -(a2),d2                                ; 009CE560: $94A2
+        sub.l   -(a2),d2                                ; 009CE562: $94A2
+        sub.l   -(a2),d2                                ; 009CE564: $94A2
+        sub.l   -(a2),d2                                ; 009CE566: $94A2
+        sub.l   -(a2),d2                                ; 009CE568: $94A2
+        sub.l   -(a2),d2                                ; 009CE56A: $94A2
+        sub.l   -(a2),d2                                ; 009CE56C: $94A2
+        sub.l   -(a2),d2                                ; 009CE56E: $94A2
+        sub.l   -(a2),d2                                ; 009CE570: $94A2
+        sub.l   -(a2),d2                                ; 009CE572: $94A2
+        sub.l   -(a2),d2                                ; 009CE574: $94A2
+        sub.l   -(a2),d2                                ; 009CE576: $94A2
+        sub.l   -(a2),d2                                ; 009CE578: $94A2
+        sub.l   -(a2),d2                                ; 009CE57A: $94A2
+        sub.l   -(a2),d2                                ; 009CE57C: $94A2
+        sub.l   -(a2),d2                                ; 009CE57E: $94A2
+        sub.l   -(a2),d2                                ; 009CE580: $94A2
+        sub.l   -(a2),d2                                ; 009CE582: $94A2
+        sub.l   -(a2),d2                                ; 009CE584: $94A2
+        sub.l   -(a2),d2                                ; 009CE586: $94A2
+        sub.l   -(a2),d2                                ; 009CE588: $94A2
+        sub.l   -(a2),d2                                ; 009CE58A: $94A2
+        sub.l   -(a2),d2                                ; 009CE58C: $94A2
+        sub.l   -(a2),d2                                ; 009CE58E: $94A2
+        sub.l   -(a2),d2                                ; 009CE590: $94A2
+        sub.l   -(a2),d2                                ; 009CE592: $94A2
+        sub.l   -(a2),d2                                ; 009CE594: $94A2
+        sub.l   -(a2),d2                                ; 009CE596: $94A2
+        sub.l   -(a2),d2                                ; 009CE598: $94A2
+        sub.l   -(a2),d2                                ; 009CE59A: $94A2
+        sub.l   -(a2),d2                                ; 009CE59C: $94A2
+        sub.l   -(a2),d2                                ; 009CE59E: $94A2
+        andi.b  #$0042,$5F(a3,d0.w)                     ; 009CE5A0: $0333, $0342, $035F
+        andi.w  #$03B5,#$03EE                           ; 009CE5A6: $037C, $03B5, $03EE
+        subi.b  #$0060,-(a7)                            ; 009CE5AC: $0427, $0460
+        subi.l  #$04FC0527,$52(a5,d0.w)                 ; 009CE5B0: $04B5, $04FC, $0527, $0552
+        sub.l   -(a2),d2                                ; 009CE5B8: $94A2
+        sub.l   -(a2),d2                                ; 009CE5BA: $94A2
+        sub.l   -(a2),d2                                ; 009CE5BC: $94A2
+        sub.l   -(a2),d2                                ; 009CE5BE: $94A2
+        sub.l   -(a2),d2                                ; 009CE5C0: $94A2
+        sub.l   -(a2),d2                                ; 009CE5C2: $94A2
+        sub.l   -(a2),d2                                ; 009CE5C4: $94A2
+        sub.l   -(a2),d2                                ; 009CE5C6: $94A2
+        sub.l   -(a2),d2                                ; 009CE5C8: $94A2
+        sub.l   -(a2),d2                                ; 009CE5CA: $94A2
+        sub.l   -(a2),d2                                ; 009CE5CC: $94A2
+        sub.l   -(a2),d2                                ; 009CE5CE: $94A2
+        sub.l   -(a2),d2                                ; 009CE5D0: $94A2
+        sub.l   -(a2),d2                                ; 009CE5D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE5D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE5D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE5D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE5DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE5DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE5DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE5E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE5E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE5E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE5E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE5E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE5EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE5EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE5EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE5F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE5F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE5F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE5F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE5F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE5FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE5FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE5FE: $94A2
+        sub.l   -(a2),d2                                ; 009CE600: $94A2
+        sub.l   -(a2),d2                                ; 009CE602: $94A2
+        sub.l   -(a2),d2                                ; 009CE604: $94A2
+        sub.l   -(a2),d2                                ; 009CE606: $94A2
+        sub.l   -(a2),d2                                ; 009CE608: $94A2
+        sub.l   -(a2),d2                                ; 009CE60A: $94A2
+        sub.l   -(a2),d2                                ; 009CE60C: $94A2
+        sub.l   -(a2),d2                                ; 009CE60E: $94A2
+        sub.l   -(a2),d2                                ; 009CE610: $94A2
+        sub.l   -(a2),d2                                ; 009CE612: $94A2
+        sub.l   -(a2),d2                                ; 009CE614: $94A2
+        sub.l   -(a2),d2                                ; 009CE616: $94A2
+        sub.l   -(a2),d2                                ; 009CE618: $94A2
+        sub.l   -(a2),d2                                ; 009CE61A: $94A2
+        sub.l   -(a2),d2                                ; 009CE61C: $94A2
+        sub.l   -(a2),d2                                ; 009CE61E: $94A2
+        sub.l   -(a2),d2                                ; 009CE620: $94A2
+        subi.w  #$058C,$05A9(a7)                        ; 009CE622: $056F, $058C, $05A9
+        bset    d2,d6                                   ; 009CE628: $05C6
         dc.w    $05FF                    ; 009CE62A: dc.w $05FF
-        dc.w    $0646                    ; 009CE62C: dc.w $0646
-        dc.w    $069B                    ; 009CE62E: dc.w $069B
+        addi.w  #$069B,d6                               ; 009CE62C: $0646, $069B
         dc.w    $06E2                    ; 009CE630: dc.w $06E2
-        dc.w    $071B                    ; 009CE632: dc.w $071B
-        dc.w    $078C                    ; 009CE634: dc.w $078C
-        dc.w    $0827                    ; 009CE636: dc.w $0827
-        dc.w    $0860                    ; 009CE638: dc.w $0860
-        dc.w    $94A2                    ; 009CE63A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE63C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE63E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE640: dc.w $94A2
-        dc.w    $94A2                    ; 009CE642: dc.w $94A2
-        dc.w    $94A2                    ; 009CE644: dc.w $94A2
-        dc.w    $94A2                    ; 009CE646: dc.w $94A2
-        dc.w    $94A2                    ; 009CE648: dc.w $94A2
-        dc.w    $94A2                    ; 009CE64A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE64C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE64E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE650: dc.w $94A2
-        dc.w    $94A2                    ; 009CE652: dc.w $94A2
-        dc.w    $94A2                    ; 009CE654: dc.w $94A2
-        dc.w    $94A2                    ; 009CE656: dc.w $94A2
-        dc.w    $94A2                    ; 009CE658: dc.w $94A2
-        dc.w    $94A2                    ; 009CE65A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE65C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE65E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE660: dc.w $94A2
-        dc.w    $94A2                    ; 009CE662: dc.w $94A2
-        dc.w    $94A2                    ; 009CE664: dc.w $94A2
-        dc.w    $94A2                    ; 009CE666: dc.w $94A2
-        dc.w    $94A2                    ; 009CE668: dc.w $94A2
-        dc.w    $94A2                    ; 009CE66A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE66C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE66E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE670: dc.w $94A2
-        dc.w    $94A2                    ; 009CE672: dc.w $94A2
-        dc.w    $94A2                    ; 009CE674: dc.w $94A2
-        dc.w    $94A2                    ; 009CE676: dc.w $94A2
-        dc.w    $94A2                    ; 009CE678: dc.w $94A2
-        dc.w    $94A2                    ; 009CE67A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE67C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE67E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE680: dc.w $94A2
-        dc.w    $94A2                    ; 009CE682: dc.w $94A2
-        dc.w    $94A2                    ; 009CE684: dc.w $94A2
-        dc.w    $94A2                    ; 009CE686: dc.w $94A2
-        dc.w    $94A2                    ; 009CE688: dc.w $94A2
-        dc.w    $94A2                    ; 009CE68A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE68C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE68E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE690: dc.w $94A2
-        dc.w    $94A2                    ; 009CE692: dc.w $94A2
-        dc.w    $94A2                    ; 009CE694: dc.w $94A2
-        dc.w    $94A2                    ; 009CE696: dc.w $94A2
-        dc.w    $94A2                    ; 009CE698: dc.w $94A2
-        dc.w    $94A2                    ; 009CE69A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE69C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE69E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6A2: dc.w $94A2
-        dc.w    $086F                    ; 009CE6A4: dc.w $086F
-        dc.w    $088C                    ; 009CE6A6: dc.w $088C
-        dc.w    $08A9                    ; 009CE6A8: dc.w $08A9
-        dc.w    $08C6                    ; 009CE6AA: dc.w $08C6
-        dc.w    $08FF                    ; 009CE6AC: dc.w $08FF
-        dc.w    $0954                    ; 009CE6AE: dc.w $0954
+        addi.b  #$008C,(a3)+                            ; 009CE632: $071B, $078C
+        btst    #$860,-(a7)                             ; 009CE636: $0827, $0860
+        sub.l   -(a2),d2                                ; 009CE63A: $94A2
+        sub.l   -(a2),d2                                ; 009CE63C: $94A2
+        sub.l   -(a2),d2                                ; 009CE63E: $94A2
+        sub.l   -(a2),d2                                ; 009CE640: $94A2
+        sub.l   -(a2),d2                                ; 009CE642: $94A2
+        sub.l   -(a2),d2                                ; 009CE644: $94A2
+        sub.l   -(a2),d2                                ; 009CE646: $94A2
+        sub.l   -(a2),d2                                ; 009CE648: $94A2
+        sub.l   -(a2),d2                                ; 009CE64A: $94A2
+        sub.l   -(a2),d2                                ; 009CE64C: $94A2
+        sub.l   -(a2),d2                                ; 009CE64E: $94A2
+        sub.l   -(a2),d2                                ; 009CE650: $94A2
+        sub.l   -(a2),d2                                ; 009CE652: $94A2
+        sub.l   -(a2),d2                                ; 009CE654: $94A2
+        sub.l   -(a2),d2                                ; 009CE656: $94A2
+        sub.l   -(a2),d2                                ; 009CE658: $94A2
+        sub.l   -(a2),d2                                ; 009CE65A: $94A2
+        sub.l   -(a2),d2                                ; 009CE65C: $94A2
+        sub.l   -(a2),d2                                ; 009CE65E: $94A2
+        sub.l   -(a2),d2                                ; 009CE660: $94A2
+        sub.l   -(a2),d2                                ; 009CE662: $94A2
+        sub.l   -(a2),d2                                ; 009CE664: $94A2
+        sub.l   -(a2),d2                                ; 009CE666: $94A2
+        sub.l   -(a2),d2                                ; 009CE668: $94A2
+        sub.l   -(a2),d2                                ; 009CE66A: $94A2
+        sub.l   -(a2),d2                                ; 009CE66C: $94A2
+        sub.l   -(a2),d2                                ; 009CE66E: $94A2
+        sub.l   -(a2),d2                                ; 009CE670: $94A2
+        sub.l   -(a2),d2                                ; 009CE672: $94A2
+        sub.l   -(a2),d2                                ; 009CE674: $94A2
+        sub.l   -(a2),d2                                ; 009CE676: $94A2
+        sub.l   -(a2),d2                                ; 009CE678: $94A2
+        sub.l   -(a2),d2                                ; 009CE67A: $94A2
+        sub.l   -(a2),d2                                ; 009CE67C: $94A2
+        sub.l   -(a2),d2                                ; 009CE67E: $94A2
+        sub.l   -(a2),d2                                ; 009CE680: $94A2
+        sub.l   -(a2),d2                                ; 009CE682: $94A2
+        sub.l   -(a2),d2                                ; 009CE684: $94A2
+        sub.l   -(a2),d2                                ; 009CE686: $94A2
+        sub.l   -(a2),d2                                ; 009CE688: $94A2
+        sub.l   -(a2),d2                                ; 009CE68A: $94A2
+        sub.l   -(a2),d2                                ; 009CE68C: $94A2
+        sub.l   -(a2),d2                                ; 009CE68E: $94A2
+        sub.l   -(a2),d2                                ; 009CE690: $94A2
+        sub.l   -(a2),d2                                ; 009CE692: $94A2
+        sub.l   -(a2),d2                                ; 009CE694: $94A2
+        sub.l   -(a2),d2                                ; 009CE696: $94A2
+        sub.l   -(a2),d2                                ; 009CE698: $94A2
+        sub.l   -(a2),d2                                ; 009CE69A: $94A2
+        sub.l   -(a2),d2                                ; 009CE69C: $94A2
+        sub.l   -(a2),d2                                ; 009CE69E: $94A2
+        sub.l   -(a2),d2                                ; 009CE6A0: $94A2
+        sub.l   -(a2),d2                                ; 009CE6A2: $94A2
+        bchg    #$88C,$08A9(a7)                         ; 009CE6A4: $086F, $088C, $08A9
+        bset    #$8FF,d6                                ; 009CE6AA: $08C6, $08FF
+        bchg    d4,(a4)                                 ; 009CE6AE: $0954
         dc.w    $097F                    ; 009CE6B0: dc.w $097F
-        dc.w    $0A36                    ; 009CE6B2: dc.w $0A36
-        dc.w    $0B09                    ; 009CE6B4: dc.w $0B09
-        dc.w    $0BDC                    ; 009CE6B6: dc.w $0BDC
+        eori.b  #$0009,$-24(a6,d0.l)                    ; 009CE6B2: $0A36, $0B09, $0BDC
         dc.w    $0CD9                    ; 009CE6B8: dc.w $0CD9
-        dc.w    $94A2                    ; 009CE6BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6C6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6CA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE6FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE700: dc.w $94A2
-        dc.w    $94A2                    ; 009CE702: dc.w $94A2
-        dc.w    $94A2                    ; 009CE704: dc.w $94A2
-        dc.w    $94A2                    ; 009CE706: dc.w $94A2
-        dc.w    $94A2                    ; 009CE708: dc.w $94A2
-        dc.w    $94A2                    ; 009CE70A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE70C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE70E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE710: dc.w $94A2
-        dc.w    $94A2                    ; 009CE712: dc.w $94A2
-        dc.w    $94A2                    ; 009CE714: dc.w $94A2
-        dc.w    $94A2                    ; 009CE716: dc.w $94A2
-        dc.w    $94A2                    ; 009CE718: dc.w $94A2
-        dc.w    $94A2                    ; 009CE71A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE71C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE71E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE720: dc.w $94A2
-        dc.w    $94A2                    ; 009CE722: dc.w $94A2
-        dc.w    $94A2                    ; 009CE724: dc.w $94A2
-        dc.w    $0D04                    ; 009CE726: dc.w $0D04
-        dc.w    $0D13                    ; 009CE728: dc.w $0D13
-        dc.w    $0D22                    ; 009CE72A: dc.w $0D22
-        dc.w    $0D31                    ; 009CE72C: dc.w $0D31
-        dc.w    $0D5C                    ; 009CE72E: dc.w $0D5C
-        dc.w    $0DE9                    ; 009CE730: dc.w $0DE9
+        sub.l   -(a2),d2                                ; 009CE6BA: $94A2
+        sub.l   -(a2),d2                                ; 009CE6BC: $94A2
+        sub.l   -(a2),d2                                ; 009CE6BE: $94A2
+        sub.l   -(a2),d2                                ; 009CE6C0: $94A2
+        sub.l   -(a2),d2                                ; 009CE6C2: $94A2
+        sub.l   -(a2),d2                                ; 009CE6C4: $94A2
+        sub.l   -(a2),d2                                ; 009CE6C6: $94A2
+        sub.l   -(a2),d2                                ; 009CE6C8: $94A2
+        sub.l   -(a2),d2                                ; 009CE6CA: $94A2
+        sub.l   -(a2),d2                                ; 009CE6CC: $94A2
+        sub.l   -(a2),d2                                ; 009CE6CE: $94A2
+        sub.l   -(a2),d2                                ; 009CE6D0: $94A2
+        sub.l   -(a2),d2                                ; 009CE6D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE6D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE6D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE6D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE6DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE6DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE6DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE6E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE6E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE6E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE6E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE6E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE6EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE6EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE6EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE6F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE6F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE6F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE6F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE6F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE6FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE6FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE6FE: $94A2
+        sub.l   -(a2),d2                                ; 009CE700: $94A2
+        sub.l   -(a2),d2                                ; 009CE702: $94A2
+        sub.l   -(a2),d2                                ; 009CE704: $94A2
+        sub.l   -(a2),d2                                ; 009CE706: $94A2
+        sub.l   -(a2),d2                                ; 009CE708: $94A2
+        sub.l   -(a2),d2                                ; 009CE70A: $94A2
+        sub.l   -(a2),d2                                ; 009CE70C: $94A2
+        sub.l   -(a2),d2                                ; 009CE70E: $94A2
+        sub.l   -(a2),d2                                ; 009CE710: $94A2
+        sub.l   -(a2),d2                                ; 009CE712: $94A2
+        sub.l   -(a2),d2                                ; 009CE714: $94A2
+        sub.l   -(a2),d2                                ; 009CE716: $94A2
+        sub.l   -(a2),d2                                ; 009CE718: $94A2
+        sub.l   -(a2),d2                                ; 009CE71A: $94A2
+        sub.l   -(a2),d2                                ; 009CE71C: $94A2
+        sub.l   -(a2),d2                                ; 009CE71E: $94A2
+        sub.l   -(a2),d2                                ; 009CE720: $94A2
+        sub.l   -(a2),d2                                ; 009CE722: $94A2
+        sub.l   -(a2),d2                                ; 009CE724: $94A2
+        cmpi.b  #$0013,d4                               ; 009CE726: $0D04, $0D13
+        cmpi.b  #$0031,-(a2)                            ; 009CE72A: $0D22, $0D31
+        cmpi.w  #$0DE9,(a4)+                            ; 009CE72E: $0D5C, $0DE9
         dc.w    $0E92                    ; 009CE732: dc.w $0E92
-        dc.w    $94A2                    ; 009CE734: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CE734: $94A2
         dc.w    $0EA1                    ; 009CE736: dc.w $0EA1
-        dc.w    $0F74                    ; 009CE738: dc.w $0F74
-        dc.w    $100F                    ; 009CE73A: dc.w $100F
-        dc.w    $94A2                    ; 009CE73C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE73E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE740: dc.w $94A2
-        dc.w    $94A2                    ; 009CE742: dc.w $94A2
-        dc.w    $94A2                    ; 009CE744: dc.w $94A2
-        dc.w    $94A2                    ; 009CE746: dc.w $94A2
-        dc.w    $94A2                    ; 009CE748: dc.w $94A2
-        dc.w    $94A2                    ; 009CE74A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE74C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE74E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE750: dc.w $94A2
-        dc.w    $94A2                    ; 009CE752: dc.w $94A2
-        dc.w    $94A2                    ; 009CE754: dc.w $94A2
-        dc.w    $94A2                    ; 009CE756: dc.w $94A2
-        dc.w    $94A2                    ; 009CE758: dc.w $94A2
-        dc.w    $94A2                    ; 009CE75A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE75C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE75E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE760: dc.w $94A2
-        dc.w    $94A2                    ; 009CE762: dc.w $94A2
-        dc.w    $94A2                    ; 009CE764: dc.w $94A2
-        dc.w    $94A2                    ; 009CE766: dc.w $94A2
-        dc.w    $94A2                    ; 009CE768: dc.w $94A2
-        dc.w    $94A2                    ; 009CE76A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE76C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE76E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE770: dc.w $94A2
-        dc.w    $94A2                    ; 009CE772: dc.w $94A2
-        dc.w    $94A2                    ; 009CE774: dc.w $94A2
-        dc.w    $94A2                    ; 009CE776: dc.w $94A2
-        dc.w    $94A2                    ; 009CE778: dc.w $94A2
-        dc.w    $94A2                    ; 009CE77A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE77C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE77E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE780: dc.w $94A2
-        dc.w    $94A2                    ; 009CE782: dc.w $94A2
-        dc.w    $94A2                    ; 009CE784: dc.w $94A2
-        dc.w    $94A2                    ; 009CE786: dc.w $94A2
-        dc.w    $94A2                    ; 009CE788: dc.w $94A2
-        dc.w    $94A2                    ; 009CE78A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE78C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE78E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE790: dc.w $94A2
-        dc.w    $94A2                    ; 009CE792: dc.w $94A2
-        dc.w    $94A2                    ; 009CE794: dc.w $94A2
-        dc.w    $94A2                    ; 009CE796: dc.w $94A2
-        dc.w    $94A2                    ; 009CE798: dc.w $94A2
-        dc.w    $94A2                    ; 009CE79A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE79C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE79E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7AA: dc.w $94A2
-        dc.w    $103A                    ; 009CE7AC: dc.w $103A
-        dc.w    $1065                    ; 009CE7AE: dc.w $1065
-        dc.w    $1138                    ; 009CE7B0: dc.w $1138
-        dc.w    $94A2                    ; 009CE7B2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7B4: dc.w $94A2
-        dc.w    $119B                    ; 009CE7B6: dc.w $119B
-        dc.w    $1228                    ; 009CE7B8: dc.w $1228
-        dc.w    $12FB                    ; 009CE7BA: dc.w $12FB
-        dc.w    $94A2                    ; 009CE7BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7C0: dc.w $94A2
-        dc.w    $135E                    ; 009CE7C2: dc.w $135E
-        dc.w    $13CF                    ; 009CE7C4: dc.w $13CF
-        dc.w    $144E                    ; 009CE7C6: dc.w $144E
-        dc.w    $14CD                    ; 009CE7C8: dc.w $14CD
-        dc.w    $1568                    ; 009CE7CA: dc.w $1568
-        dc.w    $15E7                    ; 009CE7CC: dc.w $15E7
-        dc.w    $1666                    ; 009CE7CE: dc.w $1666
-        dc.w    $94A2                    ; 009CE7D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE7FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE800: dc.w $94A2
-        dc.w    $94A2                    ; 009CE802: dc.w $94A2
-        dc.w    $94A2                    ; 009CE804: dc.w $94A2
-        dc.w    $94A2                    ; 009CE806: dc.w $94A2
-        dc.w    $94A2                    ; 009CE808: dc.w $94A2
-        dc.w    $94A2                    ; 009CE80A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE80C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE80E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE810: dc.w $94A2
-        dc.w    $94A2                    ; 009CE812: dc.w $94A2
-        dc.w    $94A2                    ; 009CE814: dc.w $94A2
-        dc.w    $94A2                    ; 009CE816: dc.w $94A2
-        dc.w    $94A2                    ; 009CE818: dc.w $94A2
-        dc.w    $94A2                    ; 009CE81A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE81C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE81E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE820: dc.w $94A2
-        dc.w    $94A2                    ; 009CE822: dc.w $94A2
-        dc.w    $94A2                    ; 009CE824: dc.w $94A2
-        dc.w    $94A2                    ; 009CE826: dc.w $94A2
-        dc.w    $94A2                    ; 009CE828: dc.w $94A2
-        dc.w    $94A2                    ; 009CE82A: dc.w $94A2
-        dc.w    $16BB                    ; 009CE82C: dc.w $16BB
-        dc.w    $171E                    ; 009CE82E: dc.w $171E
-        dc.w    $94A2                    ; 009CE830: dc.w $94A2
-        dc.w    $94A2                    ; 009CE832: dc.w $94A2
-        dc.w    $94A2                    ; 009CE834: dc.w $94A2
-        dc.w    $17F1                    ; 009CE836: dc.w $17F1
-        dc.w    $1862                    ; 009CE838: dc.w $1862
-        dc.w    $19DD                    ; 009CE83A: dc.w $19DD
-        dc.w    $94A2                    ; 009CE83C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE83E: dc.w $94A2
-        dc.w    $1A4E                    ; 009CE840: dc.w $1A4E
-        dc.w    $1ADB                    ; 009CE842: dc.w $1ADB
+        bchg    d7,$0F(a4,d1.w)                         ; 009CE738: $0F74, $100F
+        sub.l   -(a2),d2                                ; 009CE73C: $94A2
+        sub.l   -(a2),d2                                ; 009CE73E: $94A2
+        sub.l   -(a2),d2                                ; 009CE740: $94A2
+        sub.l   -(a2),d2                                ; 009CE742: $94A2
+        sub.l   -(a2),d2                                ; 009CE744: $94A2
+        sub.l   -(a2),d2                                ; 009CE746: $94A2
+        sub.l   -(a2),d2                                ; 009CE748: $94A2
+        sub.l   -(a2),d2                                ; 009CE74A: $94A2
+        sub.l   -(a2),d2                                ; 009CE74C: $94A2
+        sub.l   -(a2),d2                                ; 009CE74E: $94A2
+        sub.l   -(a2),d2                                ; 009CE750: $94A2
+        sub.l   -(a2),d2                                ; 009CE752: $94A2
+        sub.l   -(a2),d2                                ; 009CE754: $94A2
+        sub.l   -(a2),d2                                ; 009CE756: $94A2
+        sub.l   -(a2),d2                                ; 009CE758: $94A2
+        sub.l   -(a2),d2                                ; 009CE75A: $94A2
+        sub.l   -(a2),d2                                ; 009CE75C: $94A2
+        sub.l   -(a2),d2                                ; 009CE75E: $94A2
+        sub.l   -(a2),d2                                ; 009CE760: $94A2
+        sub.l   -(a2),d2                                ; 009CE762: $94A2
+        sub.l   -(a2),d2                                ; 009CE764: $94A2
+        sub.l   -(a2),d2                                ; 009CE766: $94A2
+        sub.l   -(a2),d2                                ; 009CE768: $94A2
+        sub.l   -(a2),d2                                ; 009CE76A: $94A2
+        sub.l   -(a2),d2                                ; 009CE76C: $94A2
+        sub.l   -(a2),d2                                ; 009CE76E: $94A2
+        sub.l   -(a2),d2                                ; 009CE770: $94A2
+        sub.l   -(a2),d2                                ; 009CE772: $94A2
+        sub.l   -(a2),d2                                ; 009CE774: $94A2
+        sub.l   -(a2),d2                                ; 009CE776: $94A2
+        sub.l   -(a2),d2                                ; 009CE778: $94A2
+        sub.l   -(a2),d2                                ; 009CE77A: $94A2
+        sub.l   -(a2),d2                                ; 009CE77C: $94A2
+        sub.l   -(a2),d2                                ; 009CE77E: $94A2
+        sub.l   -(a2),d2                                ; 009CE780: $94A2
+        sub.l   -(a2),d2                                ; 009CE782: $94A2
+        sub.l   -(a2),d2                                ; 009CE784: $94A2
+        sub.l   -(a2),d2                                ; 009CE786: $94A2
+        sub.l   -(a2),d2                                ; 009CE788: $94A2
+        sub.l   -(a2),d2                                ; 009CE78A: $94A2
+        sub.l   -(a2),d2                                ; 009CE78C: $94A2
+        sub.l   -(a2),d2                                ; 009CE78E: $94A2
+        sub.l   -(a2),d2                                ; 009CE790: $94A2
+        sub.l   -(a2),d2                                ; 009CE792: $94A2
+        sub.l   -(a2),d2                                ; 009CE794: $94A2
+        sub.l   -(a2),d2                                ; 009CE796: $94A2
+        sub.l   -(a2),d2                                ; 009CE798: $94A2
+        sub.l   -(a2),d2                                ; 009CE79A: $94A2
+        sub.l   -(a2),d2                                ; 009CE79C: $94A2
+        sub.l   -(a2),d2                                ; 009CE79E: $94A2
+        sub.l   -(a2),d2                                ; 009CE7A0: $94A2
+        sub.l   -(a2),d2                                ; 009CE7A2: $94A2
+        sub.l   -(a2),d2                                ; 009CE7A4: $94A2
+        sub.l   -(a2),d2                                ; 009CE7A6: $94A2
+        sub.l   -(a2),d2                                ; 009CE7A8: $94A2
+        sub.l   -(a2),d2                                ; 009CE7AA: $94A2
+        move.b  $1065(pc),d0                            ; 009CE7AC: $103A, $1065
+        move.b  ($94A2).w,-(a0)                         ; 009CE7B0: $1138, $94A2
+        sub.l   -(a2),d2                                ; 009CE7B4: $94A2
+        move.b  (a3)+,$28(a0,d1.w)                      ; 009CE7B6: $119B, $1228
+        move.b  $-5E(pc,a1.w),(a1)+                     ; 009CE7BA: $12FB, $94A2
+        sub.l   -(a2),d2                                ; 009CE7BE: $94A2
+        sub.l   -(a2),d2                                ; 009CE7C0: $94A2
+        move.b  (a6)+,$13CF(a1)                         ; 009CE7C2: $135E, $13CF
+        movea.b a6,a2                                   ; 009CE7C6: $144E
+        move.b  a5,(a2)+                                ; 009CE7C8: $14CD
+        move.b  $15E7(a0),$1666(a2)                     ; 009CE7CA: $1568, $15E7, $1666
+        sub.l   -(a2),d2                                ; 009CE7D0: $94A2
+        sub.l   -(a2),d2                                ; 009CE7D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE7D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE7D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE7D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE7DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE7DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE7DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE7E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE7E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE7E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE7E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE7E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE7EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE7EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE7EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE7F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE7F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE7F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE7F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE7F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE7FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE7FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE7FE: $94A2
+        sub.l   -(a2),d2                                ; 009CE800: $94A2
+        sub.l   -(a2),d2                                ; 009CE802: $94A2
+        sub.l   -(a2),d2                                ; 009CE804: $94A2
+        sub.l   -(a2),d2                                ; 009CE806: $94A2
+        sub.l   -(a2),d2                                ; 009CE808: $94A2
+        sub.l   -(a2),d2                                ; 009CE80A: $94A2
+        sub.l   -(a2),d2                                ; 009CE80C: $94A2
+        sub.l   -(a2),d2                                ; 009CE80E: $94A2
+        sub.l   -(a2),d2                                ; 009CE810: $94A2
+        sub.l   -(a2),d2                                ; 009CE812: $94A2
+        sub.l   -(a2),d2                                ; 009CE814: $94A2
+        sub.l   -(a2),d2                                ; 009CE816: $94A2
+        sub.l   -(a2),d2                                ; 009CE818: $94A2
+        sub.l   -(a2),d2                                ; 009CE81A: $94A2
+        sub.l   -(a2),d2                                ; 009CE81C: $94A2
+        sub.l   -(a2),d2                                ; 009CE81E: $94A2
+        sub.l   -(a2),d2                                ; 009CE820: $94A2
+        sub.l   -(a2),d2                                ; 009CE822: $94A2
+        sub.l   -(a2),d2                                ; 009CE824: $94A2
+        sub.l   -(a2),d2                                ; 009CE826: $94A2
+        sub.l   -(a2),d2                                ; 009CE828: $94A2
+        sub.l   -(a2),d2                                ; 009CE82A: $94A2
+        move.b  $1E(pc,d1.w),(a3)                       ; 009CE82C: $16BB, $171E
+        sub.l   -(a2),d2                                ; 009CE830: $94A2
+        sub.l   -(a2),d2                                ; 009CE832: $94A2
+        sub.l   -(a2),d2                                ; 009CE834: $94A2
+        move.b  $62(a1,d1.l),$-23(pc,d1.l)              ; 009CE836: $17F1, $1862, $19DD
+        sub.l   -(a2),d2                                ; 009CE83C: $94A2
+        sub.l   -(a2),d2                                ; 009CE83E: $94A2
+        movea.b a6,a5                                   ; 009CE840: $1A4E
+        move.b  (a3)+,(a5)+                             ; 009CE842: $1ADB
         dc.w    $1BF4                    ; 009CE844: dc.w $1BF4
-        dc.w    $1C73                    ; 009CE846: dc.w $1C73
-        dc.w    $1CF2                    ; 009CE848: dc.w $1CF2
-        dc.w    $1DA9                    ; 009CE84A: dc.w $1DA9
-        dc.w    $1F08                    ; 009CE84C: dc.w $1F08
-        dc.w    $2013                    ; 009CE84E: dc.w $2013
-        dc.w    $94A2                    ; 009CE850: dc.w $94A2
-        dc.w    $94A2                    ; 009CE852: dc.w $94A2
-        dc.w    $94A2                    ; 009CE854: dc.w $94A2
-        dc.w    $94A2                    ; 009CE856: dc.w $94A2
-        dc.w    $94A2                    ; 009CE858: dc.w $94A2
-        dc.w    $94A2                    ; 009CE85A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE85C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE85E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE860: dc.w $94A2
-        dc.w    $94A2                    ; 009CE862: dc.w $94A2
-        dc.w    $94A2                    ; 009CE864: dc.w $94A2
-        dc.w    $94A2                    ; 009CE866: dc.w $94A2
-        dc.w    $94A2                    ; 009CE868: dc.w $94A2
-        dc.w    $94A2                    ; 009CE86A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE86C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE86E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE870: dc.w $94A2
-        dc.w    $94A2                    ; 009CE872: dc.w $94A2
-        dc.w    $94A2                    ; 009CE874: dc.w $94A2
-        dc.w    $94A2                    ; 009CE876: dc.w $94A2
-        dc.w    $94A2                    ; 009CE878: dc.w $94A2
-        dc.w    $94A2                    ; 009CE87A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE87C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE87E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE880: dc.w $94A2
-        dc.w    $94A2                    ; 009CE882: dc.w $94A2
-        dc.w    $94A2                    ; 009CE884: dc.w $94A2
-        dc.w    $94A2                    ; 009CE886: dc.w $94A2
-        dc.w    $94A2                    ; 009CE888: dc.w $94A2
-        dc.w    $94A2                    ; 009CE88A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE88C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE88E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE890: dc.w $94A2
-        dc.w    $94A2                    ; 009CE892: dc.w $94A2
-        dc.w    $94A2                    ; 009CE894: dc.w $94A2
-        dc.w    $94A2                    ; 009CE896: dc.w $94A2
-        dc.w    $94A2                    ; 009CE898: dc.w $94A2
-        dc.w    $94A2                    ; 009CE89A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE89C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE89E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8AA: dc.w $94A2
-        dc.w    $20AE                    ; 009CE8AC: dc.w $20AE
-        dc.w    $213B                    ; 009CE8AE: dc.w $213B
-        dc.w    $2254                    ; 009CE8B0: dc.w $2254
-        dc.w    $94A2                    ; 009CE8B2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8B4: dc.w $94A2
-        dc.w    $2263                    ; 009CE8B6: dc.w $2263
-        dc.w    $22AA                    ; 009CE8B8: dc.w $22AA
-        dc.w    $23DF                    ; 009CE8BA: dc.w $23DF
-        dc.w    $94A2                    ; 009CE8BC: dc.w $94A2
-        dc.w    $2488                    ; 009CE8BE: dc.w $2488
-        dc.w    $24A5                    ; 009CE8C0: dc.w $24A5
-        dc.w    $25B0                    ; 009CE8C2: dc.w $25B0
-        dc.w    $2667                    ; 009CE8C4: dc.w $2667
-        dc.w    $2692                    ; 009CE8C6: dc.w $2692
+        movea.b $-E(a3,d1.l),a6                         ; 009CE846: $1C73, $1CF2
+        move.b  $1F08(a1),$13(a6,d2.w)                  ; 009CE84A: $1DA9, $1F08, $2013
+        sub.l   -(a2),d2                                ; 009CE850: $94A2
+        sub.l   -(a2),d2                                ; 009CE852: $94A2
+        sub.l   -(a2),d2                                ; 009CE854: $94A2
+        sub.l   -(a2),d2                                ; 009CE856: $94A2
+        sub.l   -(a2),d2                                ; 009CE858: $94A2
+        sub.l   -(a2),d2                                ; 009CE85A: $94A2
+        sub.l   -(a2),d2                                ; 009CE85C: $94A2
+        sub.l   -(a2),d2                                ; 009CE85E: $94A2
+        sub.l   -(a2),d2                                ; 009CE860: $94A2
+        sub.l   -(a2),d2                                ; 009CE862: $94A2
+        sub.l   -(a2),d2                                ; 009CE864: $94A2
+        sub.l   -(a2),d2                                ; 009CE866: $94A2
+        sub.l   -(a2),d2                                ; 009CE868: $94A2
+        sub.l   -(a2),d2                                ; 009CE86A: $94A2
+        sub.l   -(a2),d2                                ; 009CE86C: $94A2
+        sub.l   -(a2),d2                                ; 009CE86E: $94A2
+        sub.l   -(a2),d2                                ; 009CE870: $94A2
+        sub.l   -(a2),d2                                ; 009CE872: $94A2
+        sub.l   -(a2),d2                                ; 009CE874: $94A2
+        sub.l   -(a2),d2                                ; 009CE876: $94A2
+        sub.l   -(a2),d2                                ; 009CE878: $94A2
+        sub.l   -(a2),d2                                ; 009CE87A: $94A2
+        sub.l   -(a2),d2                                ; 009CE87C: $94A2
+        sub.l   -(a2),d2                                ; 009CE87E: $94A2
+        sub.l   -(a2),d2                                ; 009CE880: $94A2
+        sub.l   -(a2),d2                                ; 009CE882: $94A2
+        sub.l   -(a2),d2                                ; 009CE884: $94A2
+        sub.l   -(a2),d2                                ; 009CE886: $94A2
+        sub.l   -(a2),d2                                ; 009CE888: $94A2
+        sub.l   -(a2),d2                                ; 009CE88A: $94A2
+        sub.l   -(a2),d2                                ; 009CE88C: $94A2
+        sub.l   -(a2),d2                                ; 009CE88E: $94A2
+        sub.l   -(a2),d2                                ; 009CE890: $94A2
+        sub.l   -(a2),d2                                ; 009CE892: $94A2
+        sub.l   -(a2),d2                                ; 009CE894: $94A2
+        sub.l   -(a2),d2                                ; 009CE896: $94A2
+        sub.l   -(a2),d2                                ; 009CE898: $94A2
+        sub.l   -(a2),d2                                ; 009CE89A: $94A2
+        sub.l   -(a2),d2                                ; 009CE89C: $94A2
+        sub.l   -(a2),d2                                ; 009CE89E: $94A2
+        sub.l   -(a2),d2                                ; 009CE8A0: $94A2
+        sub.l   -(a2),d2                                ; 009CE8A2: $94A2
+        sub.l   -(a2),d2                                ; 009CE8A4: $94A2
+        sub.l   -(a2),d2                                ; 009CE8A6: $94A2
+        sub.l   -(a2),d2                                ; 009CE8A8: $94A2
+        sub.l   -(a2),d2                                ; 009CE8AA: $94A2
+        move.l  $213B(a6),(a0)                          ; 009CE8AC: $20AE, $213B
+        movea.l (a4),a1                                 ; 009CE8B0: $2254
+        sub.l   -(a2),d2                                ; 009CE8B2: $94A2
+        sub.l   -(a2),d2                                ; 009CE8B4: $94A2
+        movea.l -(a3),a1                                ; 009CE8B6: $2263
+        move.l  $23DF(a2),(a1)                          ; 009CE8B8: $22AA, $23DF
+        sub.l   -(a2),d2                                ; 009CE8BC: $94A2
+        move.l  a0,(a2)                                 ; 009CE8BE: $2488
+        move.l  -(a5),(a2)                              ; 009CE8C0: $24A5
+        move.l  $67(a0,d2.w),$-6E(a2,d2.w)              ; 009CE8C2: $25B0, $2667, $2692
         dc.w    $26BD                    ; 009CE8C8: dc.w $26BD
-        dc.w    $2704                    ; 009CE8CA: dc.w $2704
-        dc.w    $2791                    ; 009CE8CC: dc.w $2791
-        dc.w    $288E                    ; 009CE8CE: dc.w $288E
-        dc.w    $94A2                    ; 009CE8D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE8FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE900: dc.w $94A2
-        dc.w    $94A2                    ; 009CE902: dc.w $94A2
-        dc.w    $94A2                    ; 009CE904: dc.w $94A2
-        dc.w    $94A2                    ; 009CE906: dc.w $94A2
-        dc.w    $94A2                    ; 009CE908: dc.w $94A2
-        dc.w    $94A2                    ; 009CE90A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE90C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE90E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE910: dc.w $94A2
-        dc.w    $94A2                    ; 009CE912: dc.w $94A2
-        dc.w    $94A2                    ; 009CE914: dc.w $94A2
-        dc.w    $94A2                    ; 009CE916: dc.w $94A2
-        dc.w    $94A2                    ; 009CE918: dc.w $94A2
-        dc.w    $94A2                    ; 009CE91A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE91C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE91E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE920: dc.w $94A2
-        dc.w    $94A2                    ; 009CE922: dc.w $94A2
-        dc.w    $94A2                    ; 009CE924: dc.w $94A2
-        dc.w    $94A2                    ; 009CE926: dc.w $94A2
-        dc.w    $94A2                    ; 009CE928: dc.w $94A2
-        dc.w    $94A2                    ; 009CE92A: dc.w $94A2
-        dc.w    $29C3                    ; 009CE92C: dc.w $29C3
-        dc.w    $2A50                    ; 009CE92E: dc.w $2A50
-        dc.w    $2B5B                    ; 009CE930: dc.w $2B5B
-        dc.w    $94A2                    ; 009CE932: dc.w $94A2
-        dc.w    $94A2                    ; 009CE934: dc.w $94A2
+        move.l  d4,-(a3)                                ; 009CE8CA: $2704
+        move.l  (a1),$-72(a3,d2.l)                      ; 009CE8CC: $2791, $288E
+        sub.l   -(a2),d2                                ; 009CE8D0: $94A2
+        sub.l   -(a2),d2                                ; 009CE8D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE8D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE8D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE8D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE8DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE8DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE8DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE8E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE8E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE8E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE8E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE8E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE8EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE8EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE8EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE8F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE8F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE8F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE8F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE8F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE8FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE8FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE8FE: $94A2
+        sub.l   -(a2),d2                                ; 009CE900: $94A2
+        sub.l   -(a2),d2                                ; 009CE902: $94A2
+        sub.l   -(a2),d2                                ; 009CE904: $94A2
+        sub.l   -(a2),d2                                ; 009CE906: $94A2
+        sub.l   -(a2),d2                                ; 009CE908: $94A2
+        sub.l   -(a2),d2                                ; 009CE90A: $94A2
+        sub.l   -(a2),d2                                ; 009CE90C: $94A2
+        sub.l   -(a2),d2                                ; 009CE90E: $94A2
+        sub.l   -(a2),d2                                ; 009CE910: $94A2
+        sub.l   -(a2),d2                                ; 009CE912: $94A2
+        sub.l   -(a2),d2                                ; 009CE914: $94A2
+        sub.l   -(a2),d2                                ; 009CE916: $94A2
+        sub.l   -(a2),d2                                ; 009CE918: $94A2
+        sub.l   -(a2),d2                                ; 009CE91A: $94A2
+        sub.l   -(a2),d2                                ; 009CE91C: $94A2
+        sub.l   -(a2),d2                                ; 009CE91E: $94A2
+        sub.l   -(a2),d2                                ; 009CE920: $94A2
+        sub.l   -(a2),d2                                ; 009CE922: $94A2
+        sub.l   -(a2),d2                                ; 009CE924: $94A2
+        sub.l   -(a2),d2                                ; 009CE926: $94A2
+        sub.l   -(a2),d2                                ; 009CE928: $94A2
+        sub.l   -(a2),d2                                ; 009CE92A: $94A2
+        move.l  d3,#$2A502B5B                           ; 009CE92C: $29C3, $2A50, $2B5B
+        sub.l   -(a2),d2                                ; 009CE932: $94A2
+        sub.l   -(a2),d2                                ; 009CE934: $94A2
         dc.w    $2BF6                    ; 009CE936: dc.w $2BF6
-        dc.w    $2C13                    ; 009CE938: dc.w $2C13
-        dc.w    $2CD8                    ; 009CE93A: dc.w $2CD8
-        dc.w    $2D73                    ; 009CE93C: dc.w $2D73
-        dc.w    $2DC8                    ; 009CE93E: dc.w $2DC8
-        dc.w    $2E63                    ; 009CE940: dc.w $2E63
-        dc.w    $2F6E                    ; 009CE942: dc.w $2F6E
-        dc.w    $94A2                    ; 009CE944: dc.w $94A2
-        dc.w    $94A2                    ; 009CE946: dc.w $94A2
-        dc.w    $94A2                    ; 009CE948: dc.w $94A2
-        dc.w    $94A2                    ; 009CE94A: dc.w $94A2
+        move.l  (a3),d6                                 ; 009CE938: $2C13
+        move.l  (a0)+,(a6)+                             ; 009CE93A: $2CD8
+        move.l  $-38(a3,d2.l),$2E63(a6)                 ; 009CE93C: $2D73, $2DC8, $2E63
+        move.l  $-6B5E(a6),$-6B5E(a7)                   ; 009CE942: $2F6E, $94A2, $94A2
+        sub.l   -(a2),d2                                ; 009CE948: $94A2
+        sub.l   -(a2),d2                                ; 009CE94A: $94A2
         dc.w    $2FED                    ; 009CE94C: dc.w $2FED
-        dc.w    $3034                    ; 009CE94E: dc.w $3034
-        dc.w    $31A1                    ; 009CE950: dc.w $31A1
-        dc.w    $94A2                    ; 009CE952: dc.w $94A2
-        dc.w    $94A2                    ; 009CE954: dc.w $94A2
-        dc.w    $94A2                    ; 009CE956: dc.w $94A2
-        dc.w    $94A2                    ; 009CE958: dc.w $94A2
-        dc.w    $94A2                    ; 009CE95A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE95C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE95E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE960: dc.w $94A2
-        dc.w    $94A2                    ; 009CE962: dc.w $94A2
-        dc.w    $94A2                    ; 009CE964: dc.w $94A2
-        dc.w    $94A2                    ; 009CE966: dc.w $94A2
-        dc.w    $94A2                    ; 009CE968: dc.w $94A2
-        dc.w    $94A2                    ; 009CE96A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE96C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE96E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE970: dc.w $94A2
-        dc.w    $94A2                    ; 009CE972: dc.w $94A2
-        dc.w    $94A2                    ; 009CE974: dc.w $94A2
-        dc.w    $94A2                    ; 009CE976: dc.w $94A2
-        dc.w    $94A2                    ; 009CE978: dc.w $94A2
-        dc.w    $94A2                    ; 009CE97A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE97C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE97E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE980: dc.w $94A2
-        dc.w    $94A2                    ; 009CE982: dc.w $94A2
-        dc.w    $94A2                    ; 009CE984: dc.w $94A2
-        dc.w    $94A2                    ; 009CE986: dc.w $94A2
-        dc.w    $94A2                    ; 009CE988: dc.w $94A2
-        dc.w    $94A2                    ; 009CE98A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE98C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE98E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE990: dc.w $94A2
-        dc.w    $94A2                    ; 009CE992: dc.w $94A2
-        dc.w    $94A2                    ; 009CE994: dc.w $94A2
-        dc.w    $94A2                    ; 009CE996: dc.w $94A2
-        dc.w    $94A2                    ; 009CE998: dc.w $94A2
-        dc.w    $94A2                    ; 009CE99A: dc.w $94A2
-        dc.w    $94A2                    ; 009CE99C: dc.w $94A2
-        dc.w    $94A2                    ; 009CE99E: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9AA: dc.w $94A2
+        move.w  $-5F(a4,d3.w),d0                        ; 009CE94E: $3034, $31A1
+        sub.l   -(a2),d2                                ; 009CE952: $94A2
+        sub.l   -(a2),d2                                ; 009CE954: $94A2
+        sub.l   -(a2),d2                                ; 009CE956: $94A2
+        sub.l   -(a2),d2                                ; 009CE958: $94A2
+        sub.l   -(a2),d2                                ; 009CE95A: $94A2
+        sub.l   -(a2),d2                                ; 009CE95C: $94A2
+        sub.l   -(a2),d2                                ; 009CE95E: $94A2
+        sub.l   -(a2),d2                                ; 009CE960: $94A2
+        sub.l   -(a2),d2                                ; 009CE962: $94A2
+        sub.l   -(a2),d2                                ; 009CE964: $94A2
+        sub.l   -(a2),d2                                ; 009CE966: $94A2
+        sub.l   -(a2),d2                                ; 009CE968: $94A2
+        sub.l   -(a2),d2                                ; 009CE96A: $94A2
+        sub.l   -(a2),d2                                ; 009CE96C: $94A2
+        sub.l   -(a2),d2                                ; 009CE96E: $94A2
+        sub.l   -(a2),d2                                ; 009CE970: $94A2
+        sub.l   -(a2),d2                                ; 009CE972: $94A2
+        sub.l   -(a2),d2                                ; 009CE974: $94A2
+        sub.l   -(a2),d2                                ; 009CE976: $94A2
+        sub.l   -(a2),d2                                ; 009CE978: $94A2
+        sub.l   -(a2),d2                                ; 009CE97A: $94A2
+        sub.l   -(a2),d2                                ; 009CE97C: $94A2
+        sub.l   -(a2),d2                                ; 009CE97E: $94A2
+        sub.l   -(a2),d2                                ; 009CE980: $94A2
+        sub.l   -(a2),d2                                ; 009CE982: $94A2
+        sub.l   -(a2),d2                                ; 009CE984: $94A2
+        sub.l   -(a2),d2                                ; 009CE986: $94A2
+        sub.l   -(a2),d2                                ; 009CE988: $94A2
+        sub.l   -(a2),d2                                ; 009CE98A: $94A2
+        sub.l   -(a2),d2                                ; 009CE98C: $94A2
+        sub.l   -(a2),d2                                ; 009CE98E: $94A2
+        sub.l   -(a2),d2                                ; 009CE990: $94A2
+        sub.l   -(a2),d2                                ; 009CE992: $94A2
+        sub.l   -(a2),d2                                ; 009CE994: $94A2
+        sub.l   -(a2),d2                                ; 009CE996: $94A2
+        sub.l   -(a2),d2                                ; 009CE998: $94A2
+        sub.l   -(a2),d2                                ; 009CE99A: $94A2
+        sub.l   -(a2),d2                                ; 009CE99C: $94A2
+        sub.l   -(a2),d2                                ; 009CE99E: $94A2
+        sub.l   -(a2),d2                                ; 009CE9A0: $94A2
+        sub.l   -(a2),d2                                ; 009CE9A2: $94A2
+        sub.l   -(a2),d2                                ; 009CE9A4: $94A2
+        sub.l   -(a2),d2                                ; 009CE9A6: $94A2
+        sub.l   -(a2),d2                                ; 009CE9A8: $94A2
+        sub.l   -(a2),d2                                ; 009CE9AA: $94A2
         dc.w    $31BE                    ; 009CE9AC: dc.w $31BE
-        dc.w    $3213                    ; 009CE9AE: dc.w $3213
-        dc.w    $3284                    ; 009CE9B0: dc.w $3284
-        dc.w    $3349                    ; 009CE9B2: dc.w $3349
-        dc.w    $94A2                    ; 009CE9B4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9B6: dc.w $94A2
-        dc.w    $3358                    ; 009CE9B8: dc.w $3358
-        dc.w    $33E5                    ; 009CE9BA: dc.w $33E5
-        dc.w    $34B8                    ; 009CE9BC: dc.w $34B8
-        dc.w    $35DF                    ; 009CE9BE: dc.w $35DF
-        dc.w    $36CE                    ; 009CE9C0: dc.w $36CE
-        dc.w    $3785                    ; 009CE9C2: dc.w $3785
-        dc.w    $94A2                    ; 009CE9C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9C6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9CA: dc.w $94A2
-        dc.w    $37B0                    ; 009CE9CC: dc.w $37B0
-        dc.w    $37DB                    ; 009CE9CE: dc.w $37DB
-        dc.w    $38E6                    ; 009CE9D0: dc.w $38E6
-        dc.w    $94A2                    ; 009CE9D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CE9FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA00: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA02: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA04: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA06: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA08: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA10: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA12: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA14: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA16: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA18: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA20: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA22: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA24: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA26: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA28: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA2C: dc.w $94A2
-        dc.w    $393B                    ; 009CEA2E: dc.w $393B
-        dc.w    $39C8                    ; 009CEA30: dc.w $39C8
-        dc.w    $3A8D                    ; 009CEA32: dc.w $3A8D
-        dc.w    $94A2                    ; 009CEA34: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA36: dc.w $94A2
-        dc.w    $3B60                    ; 009CEA38: dc.w $3B60
-        dc.w    $3B7D                    ; 009CEA3A: dc.w $3B7D
+        move.w  (a3),d1                                 ; 009CE9AE: $3213
+        move.w  d4,(a1)                                 ; 009CE9B0: $3284
+        move.w  a1,$-6B5E(a1)                           ; 009CE9B2: $3349, $94A2
+        sub.l   -(a2),d2                                ; 009CE9B6: $94A2
+        move.w  (a0)+,$33E5(a1)                         ; 009CE9B8: $3358, $33E5
+        move.w  ($35DF).w,(a2)                          ; 009CE9BC: $34B8, $35DF
+        move.w  a6,(a3)+                                ; 009CE9C0: $36CE
+        move.w  d5,$-5E(a3,a1.w)                        ; 009CE9C2: $3785, $94A2
+        sub.l   -(a2),d2                                ; 009CE9C6: $94A2
+        sub.l   -(a2),d2                                ; 009CE9C8: $94A2
+        sub.l   -(a2),d2                                ; 009CE9CA: $94A2
+        move.w  $-25(a0,d3.w),$-1A(a3,d3.l)             ; 009CE9CC: $37B0, $37DB, $38E6
+        sub.l   -(a2),d2                                ; 009CE9D2: $94A2
+        sub.l   -(a2),d2                                ; 009CE9D4: $94A2
+        sub.l   -(a2),d2                                ; 009CE9D6: $94A2
+        sub.l   -(a2),d2                                ; 009CE9D8: $94A2
+        sub.l   -(a2),d2                                ; 009CE9DA: $94A2
+        sub.l   -(a2),d2                                ; 009CE9DC: $94A2
+        sub.l   -(a2),d2                                ; 009CE9DE: $94A2
+        sub.l   -(a2),d2                                ; 009CE9E0: $94A2
+        sub.l   -(a2),d2                                ; 009CE9E2: $94A2
+        sub.l   -(a2),d2                                ; 009CE9E4: $94A2
+        sub.l   -(a2),d2                                ; 009CE9E6: $94A2
+        sub.l   -(a2),d2                                ; 009CE9E8: $94A2
+        sub.l   -(a2),d2                                ; 009CE9EA: $94A2
+        sub.l   -(a2),d2                                ; 009CE9EC: $94A2
+        sub.l   -(a2),d2                                ; 009CE9EE: $94A2
+        sub.l   -(a2),d2                                ; 009CE9F0: $94A2
+        sub.l   -(a2),d2                                ; 009CE9F2: $94A2
+        sub.l   -(a2),d2                                ; 009CE9F4: $94A2
+        sub.l   -(a2),d2                                ; 009CE9F6: $94A2
+        sub.l   -(a2),d2                                ; 009CE9F8: $94A2
+        sub.l   -(a2),d2                                ; 009CE9FA: $94A2
+        sub.l   -(a2),d2                                ; 009CE9FC: $94A2
+        sub.l   -(a2),d2                                ; 009CE9FE: $94A2
+        sub.l   -(a2),d2                                ; 009CEA00: $94A2
+        sub.l   -(a2),d2                                ; 009CEA02: $94A2
+        sub.l   -(a2),d2                                ; 009CEA04: $94A2
+        sub.l   -(a2),d2                                ; 009CEA06: $94A2
+        sub.l   -(a2),d2                                ; 009CEA08: $94A2
+        sub.l   -(a2),d2                                ; 009CEA0A: $94A2
+        sub.l   -(a2),d2                                ; 009CEA0C: $94A2
+        sub.l   -(a2),d2                                ; 009CEA0E: $94A2
+        sub.l   -(a2),d2                                ; 009CEA10: $94A2
+        sub.l   -(a2),d2                                ; 009CEA12: $94A2
+        sub.l   -(a2),d2                                ; 009CEA14: $94A2
+        sub.l   -(a2),d2                                ; 009CEA16: $94A2
+        sub.l   -(a2),d2                                ; 009CEA18: $94A2
+        sub.l   -(a2),d2                                ; 009CEA1A: $94A2
+        sub.l   -(a2),d2                                ; 009CEA1C: $94A2
+        sub.l   -(a2),d2                                ; 009CEA1E: $94A2
+        sub.l   -(a2),d2                                ; 009CEA20: $94A2
+        sub.l   -(a2),d2                                ; 009CEA22: $94A2
+        sub.l   -(a2),d2                                ; 009CEA24: $94A2
+        sub.l   -(a2),d2                                ; 009CEA26: $94A2
+        sub.l   -(a2),d2                                ; 009CEA28: $94A2
+        sub.l   -(a2),d2                                ; 009CEA2A: $94A2
+        sub.l   -(a2),d2                                ; 009CEA2C: $94A2
+        move.w  $-38(pc,d3.l),-(a4)                     ; 009CEA2E: $393B, $39C8
+        move.w  a5,(a5)                                 ; 009CEA32: $3A8D
+        sub.l   -(a2),d2                                ; 009CEA34: $94A2
+        sub.l   -(a2),d2                                ; 009CEA36: $94A2
+        move.w  -(a0),$3B7D(a5)                         ; 009CEA38: $3B60, $3B7D
         dc.w    $3BC4                    ; 009CEA3C: dc.w $3BC4
-        dc.w    $3C35                    ; 009CEA3E: dc.w $3C35
-        dc.w    $3C98                    ; 009CEA40: dc.w $3C98
-        dc.w    $94A2                    ; 009CEA42: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA44: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA46: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA48: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA4A: dc.w $94A2
-        dc.w    $3CC3                    ; 009CEA4C: dc.w $3CC3
-        dc.w    $3CE0                    ; 009CEA4E: dc.w $3CE0
-        dc.w    $3DA5                    ; 009CEA50: dc.w $3DA5
-        dc.w    $94A2                    ; 009CEA52: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA54: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA56: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA58: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA60: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA62: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA64: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA66: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA68: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA70: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA72: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA74: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA76: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA78: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA80: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA82: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA84: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA86: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA88: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA90: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA92: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA94: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA96: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA98: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEA9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAB0: dc.w $94A2
+        move.w  $-68(a5,d3.l),d6                        ; 009CEA3E: $3C35, $3C98
+        sub.l   -(a2),d2                                ; 009CEA42: $94A2
+        sub.l   -(a2),d2                                ; 009CEA44: $94A2
+        sub.l   -(a2),d2                                ; 009CEA46: $94A2
+        sub.l   -(a2),d2                                ; 009CEA48: $94A2
+        sub.l   -(a2),d2                                ; 009CEA4A: $94A2
+        move.w  d3,(a6)+                                ; 009CEA4C: $3CC3
+        move.w  -(a0),(a6)+                             ; 009CEA4E: $3CE0
+        move.w  -(a5),$-5E(a6,a1.w)                     ; 009CEA50: $3DA5, $94A2
+        sub.l   -(a2),d2                                ; 009CEA54: $94A2
+        sub.l   -(a2),d2                                ; 009CEA56: $94A2
+        sub.l   -(a2),d2                                ; 009CEA58: $94A2
+        sub.l   -(a2),d2                                ; 009CEA5A: $94A2
+        sub.l   -(a2),d2                                ; 009CEA5C: $94A2
+        sub.l   -(a2),d2                                ; 009CEA5E: $94A2
+        sub.l   -(a2),d2                                ; 009CEA60: $94A2
+        sub.l   -(a2),d2                                ; 009CEA62: $94A2
+        sub.l   -(a2),d2                                ; 009CEA64: $94A2
+        sub.l   -(a2),d2                                ; 009CEA66: $94A2
+        sub.l   -(a2),d2                                ; 009CEA68: $94A2
+        sub.l   -(a2),d2                                ; 009CEA6A: $94A2
+        sub.l   -(a2),d2                                ; 009CEA6C: $94A2
+        sub.l   -(a2),d2                                ; 009CEA6E: $94A2
+        sub.l   -(a2),d2                                ; 009CEA70: $94A2
+        sub.l   -(a2),d2                                ; 009CEA72: $94A2
+        sub.l   -(a2),d2                                ; 009CEA74: $94A2
+        sub.l   -(a2),d2                                ; 009CEA76: $94A2
+        sub.l   -(a2),d2                                ; 009CEA78: $94A2
+        sub.l   -(a2),d2                                ; 009CEA7A: $94A2
+        sub.l   -(a2),d2                                ; 009CEA7C: $94A2
+        sub.l   -(a2),d2                                ; 009CEA7E: $94A2
+        sub.l   -(a2),d2                                ; 009CEA80: $94A2
+        sub.l   -(a2),d2                                ; 009CEA82: $94A2
+        sub.l   -(a2),d2                                ; 009CEA84: $94A2
+        sub.l   -(a2),d2                                ; 009CEA86: $94A2
+        sub.l   -(a2),d2                                ; 009CEA88: $94A2
+        sub.l   -(a2),d2                                ; 009CEA8A: $94A2
+        sub.l   -(a2),d2                                ; 009CEA8C: $94A2
+        sub.l   -(a2),d2                                ; 009CEA8E: $94A2
+        sub.l   -(a2),d2                                ; 009CEA90: $94A2
+        sub.l   -(a2),d2                                ; 009CEA92: $94A2
+        sub.l   -(a2),d2                                ; 009CEA94: $94A2
+        sub.l   -(a2),d2                                ; 009CEA96: $94A2
+        sub.l   -(a2),d2                                ; 009CEA98: $94A2
+        sub.l   -(a2),d2                                ; 009CEA9A: $94A2
+        sub.l   -(a2),d2                                ; 009CEA9C: $94A2
+        sub.l   -(a2),d2                                ; 009CEA9E: $94A2
+        sub.l   -(a2),d2                                ; 009CEAA0: $94A2
+        sub.l   -(a2),d2                                ; 009CEAA2: $94A2
+        sub.l   -(a2),d2                                ; 009CEAA4: $94A2
+        sub.l   -(a2),d2                                ; 009CEAA6: $94A2
+        sub.l   -(a2),d2                                ; 009CEAA8: $94A2
+        sub.l   -(a2),d2                                ; 009CEAAA: $94A2
+        sub.l   -(a2),d2                                ; 009CEAAC: $94A2
+        sub.l   -(a2),d2                                ; 009CEAAE: $94A2
+        sub.l   -(a2),d2                                ; 009CEAB0: $94A2
         dc.w    $3DFA                    ; 009CEAB2: dc.w $3DFA
-        dc.w    $3ECD                    ; 009CEAB4: dc.w $3ECD
-        dc.w    $94A2                    ; 009CEAB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEABA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEABC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEABE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEACA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEACC: dc.w $94A2
-        dc.w    $3F30                    ; 009CEACE: dc.w $3F30
-        dc.w    $4011                    ; 009CEAD0: dc.w $4011
+        move.w  a5,(a7)+                                ; 009CEAB4: $3ECD
+        sub.l   -(a2),d2                                ; 009CEAB6: $94A2
+        sub.l   -(a2),d2                                ; 009CEAB8: $94A2
+        sub.l   -(a2),d2                                ; 009CEABA: $94A2
+        sub.l   -(a2),d2                                ; 009CEABC: $94A2
+        sub.l   -(a2),d2                                ; 009CEABE: $94A2
+        sub.l   -(a2),d2                                ; 009CEAC0: $94A2
+        sub.l   -(a2),d2                                ; 009CEAC2: $94A2
+        sub.l   -(a2),d2                                ; 009CEAC4: $94A2
+        sub.l   -(a2),d2                                ; 009CEAC6: $94A2
+        sub.l   -(a2),d2                                ; 009CEAC8: $94A2
+        sub.l   -(a2),d2                                ; 009CEACA: $94A2
+        sub.l   -(a2),d2                                ; 009CEACC: $94A2
+        move.w  $11(a0,d4.w),-(a7)                      ; 009CEACE: $3F30, $4011
         dc.w    $409E                    ; 009CEAD2: dc.w $409E
-        dc.w    $94A2                    ; 009CEAD4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAD6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEADA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEADC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEADE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEAFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB00: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB02: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB04: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB06: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB08: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB10: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB12: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB14: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB16: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB18: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB20: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB22: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB24: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB26: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB28: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB30: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CEAD4: $94A2
+        sub.l   -(a2),d2                                ; 009CEAD6: $94A2
+        sub.l   -(a2),d2                                ; 009CEAD8: $94A2
+        sub.l   -(a2),d2                                ; 009CEADA: $94A2
+        sub.l   -(a2),d2                                ; 009CEADC: $94A2
+        sub.l   -(a2),d2                                ; 009CEADE: $94A2
+        sub.l   -(a2),d2                                ; 009CEAE0: $94A2
+        sub.l   -(a2),d2                                ; 009CEAE2: $94A2
+        sub.l   -(a2),d2                                ; 009CEAE4: $94A2
+        sub.l   -(a2),d2                                ; 009CEAE6: $94A2
+        sub.l   -(a2),d2                                ; 009CEAE8: $94A2
+        sub.l   -(a2),d2                                ; 009CEAEA: $94A2
+        sub.l   -(a2),d2                                ; 009CEAEC: $94A2
+        sub.l   -(a2),d2                                ; 009CEAEE: $94A2
+        sub.l   -(a2),d2                                ; 009CEAF0: $94A2
+        sub.l   -(a2),d2                                ; 009CEAF2: $94A2
+        sub.l   -(a2),d2                                ; 009CEAF4: $94A2
+        sub.l   -(a2),d2                                ; 009CEAF6: $94A2
+        sub.l   -(a2),d2                                ; 009CEAF8: $94A2
+        sub.l   -(a2),d2                                ; 009CEAFA: $94A2
+        sub.l   -(a2),d2                                ; 009CEAFC: $94A2
+        sub.l   -(a2),d2                                ; 009CEAFE: $94A2
+        sub.l   -(a2),d2                                ; 009CEB00: $94A2
+        sub.l   -(a2),d2                                ; 009CEB02: $94A2
+        sub.l   -(a2),d2                                ; 009CEB04: $94A2
+        sub.l   -(a2),d2                                ; 009CEB06: $94A2
+        sub.l   -(a2),d2                                ; 009CEB08: $94A2
+        sub.l   -(a2),d2                                ; 009CEB0A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB0C: $94A2
+        sub.l   -(a2),d2                                ; 009CEB0E: $94A2
+        sub.l   -(a2),d2                                ; 009CEB10: $94A2
+        sub.l   -(a2),d2                                ; 009CEB12: $94A2
+        sub.l   -(a2),d2                                ; 009CEB14: $94A2
+        sub.l   -(a2),d2                                ; 009CEB16: $94A2
+        sub.l   -(a2),d2                                ; 009CEB18: $94A2
+        sub.l   -(a2),d2                                ; 009CEB1A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB1C: $94A2
+        sub.l   -(a2),d2                                ; 009CEB1E: $94A2
+        sub.l   -(a2),d2                                ; 009CEB20: $94A2
+        sub.l   -(a2),d2                                ; 009CEB22: $94A2
+        sub.l   -(a2),d2                                ; 009CEB24: $94A2
+        sub.l   -(a2),d2                                ; 009CEB26: $94A2
+        sub.l   -(a2),d2                                ; 009CEB28: $94A2
+        sub.l   -(a2),d2                                ; 009CEB2A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB2C: $94A2
+        sub.l   -(a2),d2                                ; 009CEB2E: $94A2
+        sub.l   -(a2),d2                                ; 009CEB30: $94A2
         dc.w    $40AD                    ; 009CEB32: dc.w $40AD
         dc.w    $4102                    ; 009CEB34: dc.w $4102
-        dc.w    $94A2                    ; 009CEB36: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB38: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB40: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB42: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB44: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB46: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB48: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB4A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB4C: dc.w $94A2
-        dc.w    $41D5                    ; 009CEB4E: dc.w $41D5
-        dc.w    $429A                    ; 009CEB50: dc.w $429A
-        dc.w    $43EB                    ; 009CEB52: dc.w $43EB
-        dc.w    $94A2                    ; 009CEB54: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB56: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB58: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB60: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB62: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB64: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB66: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB68: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB70: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB72: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB74: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB76: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB78: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB80: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB82: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB84: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB86: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB88: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB90: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB92: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB94: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB96: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB98: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEB9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBB0: dc.w $94A2
-        dc.w    $444E                    ; 009CEBB2: dc.w $444E
-        dc.w    $446B                    ; 009CEBB4: dc.w $446B
-        dc.w    $94A2                    ; 009CEBB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBCA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBCC: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CEB36: $94A2
+        sub.l   -(a2),d2                                ; 009CEB38: $94A2
+        sub.l   -(a2),d2                                ; 009CEB3A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB3C: $94A2
+        sub.l   -(a2),d2                                ; 009CEB3E: $94A2
+        sub.l   -(a2),d2                                ; 009CEB40: $94A2
+        sub.l   -(a2),d2                                ; 009CEB42: $94A2
+        sub.l   -(a2),d2                                ; 009CEB44: $94A2
+        sub.l   -(a2),d2                                ; 009CEB46: $94A2
+        sub.l   -(a2),d2                                ; 009CEB48: $94A2
+        sub.l   -(a2),d2                                ; 009CEB4A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB4C: $94A2
+        lea     (a5),a0                                 ; 009CEB4E: $41D5
+        clr.l   (a2)+                                   ; 009CEB50: $429A
+        lea     $-6B5E(a3),a1                           ; 009CEB52: $43EB, $94A2
+        sub.l   -(a2),d2                                ; 009CEB56: $94A2
+        sub.l   -(a2),d2                                ; 009CEB58: $94A2
+        sub.l   -(a2),d2                                ; 009CEB5A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB5C: $94A2
+        sub.l   -(a2),d2                                ; 009CEB5E: $94A2
+        sub.l   -(a2),d2                                ; 009CEB60: $94A2
+        sub.l   -(a2),d2                                ; 009CEB62: $94A2
+        sub.l   -(a2),d2                                ; 009CEB64: $94A2
+        sub.l   -(a2),d2                                ; 009CEB66: $94A2
+        sub.l   -(a2),d2                                ; 009CEB68: $94A2
+        sub.l   -(a2),d2                                ; 009CEB6A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB6C: $94A2
+        sub.l   -(a2),d2                                ; 009CEB6E: $94A2
+        sub.l   -(a2),d2                                ; 009CEB70: $94A2
+        sub.l   -(a2),d2                                ; 009CEB72: $94A2
+        sub.l   -(a2),d2                                ; 009CEB74: $94A2
+        sub.l   -(a2),d2                                ; 009CEB76: $94A2
+        sub.l   -(a2),d2                                ; 009CEB78: $94A2
+        sub.l   -(a2),d2                                ; 009CEB7A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB7C: $94A2
+        sub.l   -(a2),d2                                ; 009CEB7E: $94A2
+        sub.l   -(a2),d2                                ; 009CEB80: $94A2
+        sub.l   -(a2),d2                                ; 009CEB82: $94A2
+        sub.l   -(a2),d2                                ; 009CEB84: $94A2
+        sub.l   -(a2),d2                                ; 009CEB86: $94A2
+        sub.l   -(a2),d2                                ; 009CEB88: $94A2
+        sub.l   -(a2),d2                                ; 009CEB8A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB8C: $94A2
+        sub.l   -(a2),d2                                ; 009CEB8E: $94A2
+        sub.l   -(a2),d2                                ; 009CEB90: $94A2
+        sub.l   -(a2),d2                                ; 009CEB92: $94A2
+        sub.l   -(a2),d2                                ; 009CEB94: $94A2
+        sub.l   -(a2),d2                                ; 009CEB96: $94A2
+        sub.l   -(a2),d2                                ; 009CEB98: $94A2
+        sub.l   -(a2),d2                                ; 009CEB9A: $94A2
+        sub.l   -(a2),d2                                ; 009CEB9C: $94A2
+        sub.l   -(a2),d2                                ; 009CEB9E: $94A2
+        sub.l   -(a2),d2                                ; 009CEBA0: $94A2
+        sub.l   -(a2),d2                                ; 009CEBA2: $94A2
+        sub.l   -(a2),d2                                ; 009CEBA4: $94A2
+        sub.l   -(a2),d2                                ; 009CEBA6: $94A2
+        sub.l   -(a2),d2                                ; 009CEBA8: $94A2
+        sub.l   -(a2),d2                                ; 009CEBAA: $94A2
+        sub.l   -(a2),d2                                ; 009CEBAC: $94A2
+        sub.l   -(a2),d2                                ; 009CEBAE: $94A2
+        sub.l   -(a2),d2                                ; 009CEBB0: $94A2
+        neg.w   a6                                      ; 009CEBB2: $444E
+        neg.w   $-6B5E(a3)                              ; 009CEBB4: $446B, $94A2
+        sub.l   -(a2),d2                                ; 009CEBB8: $94A2
+        sub.l   -(a2),d2                                ; 009CEBBA: $94A2
+        sub.l   -(a2),d2                                ; 009CEBBC: $94A2
+        sub.l   -(a2),d2                                ; 009CEBBE: $94A2
+        sub.l   -(a2),d2                                ; 009CEBC0: $94A2
+        sub.l   -(a2),d2                                ; 009CEBC2: $94A2
+        sub.l   -(a2),d2                                ; 009CEBC4: $94A2
+        sub.l   -(a2),d2                                ; 009CEBC6: $94A2
+        sub.l   -(a2),d2                                ; 009CEBC8: $94A2
+        sub.l   -(a2),d2                                ; 009CEBCA: $94A2
+        sub.l   -(a2),d2                                ; 009CEBCC: $94A2
         dc.w    $455A                    ; 009CEBCE: dc.w $455A
         dc.w    $45E7                    ; 009CEBD0: dc.w $45E7
         dc.w    $46C8                    ; 009CEBD2: dc.w $46C8
         dc.w    $4755                    ; 009CEBD4: dc.w $4755
-        dc.w    $94A2                    ; 009CEBD6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEBFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC00: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC02: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC04: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC06: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC08: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC10: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC12: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC14: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC16: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC18: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC20: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC22: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC24: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC26: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC28: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC30: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CEBD6: $94A2
+        sub.l   -(a2),d2                                ; 009CEBD8: $94A2
+        sub.l   -(a2),d2                                ; 009CEBDA: $94A2
+        sub.l   -(a2),d2                                ; 009CEBDC: $94A2
+        sub.l   -(a2),d2                                ; 009CEBDE: $94A2
+        sub.l   -(a2),d2                                ; 009CEBE0: $94A2
+        sub.l   -(a2),d2                                ; 009CEBE2: $94A2
+        sub.l   -(a2),d2                                ; 009CEBE4: $94A2
+        sub.l   -(a2),d2                                ; 009CEBE6: $94A2
+        sub.l   -(a2),d2                                ; 009CEBE8: $94A2
+        sub.l   -(a2),d2                                ; 009CEBEA: $94A2
+        sub.l   -(a2),d2                                ; 009CEBEC: $94A2
+        sub.l   -(a2),d2                                ; 009CEBEE: $94A2
+        sub.l   -(a2),d2                                ; 009CEBF0: $94A2
+        sub.l   -(a2),d2                                ; 009CEBF2: $94A2
+        sub.l   -(a2),d2                                ; 009CEBF4: $94A2
+        sub.l   -(a2),d2                                ; 009CEBF6: $94A2
+        sub.l   -(a2),d2                                ; 009CEBF8: $94A2
+        sub.l   -(a2),d2                                ; 009CEBFA: $94A2
+        sub.l   -(a2),d2                                ; 009CEBFC: $94A2
+        sub.l   -(a2),d2                                ; 009CEBFE: $94A2
+        sub.l   -(a2),d2                                ; 009CEC00: $94A2
+        sub.l   -(a2),d2                                ; 009CEC02: $94A2
+        sub.l   -(a2),d2                                ; 009CEC04: $94A2
+        sub.l   -(a2),d2                                ; 009CEC06: $94A2
+        sub.l   -(a2),d2                                ; 009CEC08: $94A2
+        sub.l   -(a2),d2                                ; 009CEC0A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC0C: $94A2
+        sub.l   -(a2),d2                                ; 009CEC0E: $94A2
+        sub.l   -(a2),d2                                ; 009CEC10: $94A2
+        sub.l   -(a2),d2                                ; 009CEC12: $94A2
+        sub.l   -(a2),d2                                ; 009CEC14: $94A2
+        sub.l   -(a2),d2                                ; 009CEC16: $94A2
+        sub.l   -(a2),d2                                ; 009CEC18: $94A2
+        sub.l   -(a2),d2                                ; 009CEC1A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC1C: $94A2
+        sub.l   -(a2),d2                                ; 009CEC1E: $94A2
+        sub.l   -(a2),d2                                ; 009CEC20: $94A2
+        sub.l   -(a2),d2                                ; 009CEC22: $94A2
+        sub.l   -(a2),d2                                ; 009CEC24: $94A2
+        sub.l   -(a2),d2                                ; 009CEC26: $94A2
+        sub.l   -(a2),d2                                ; 009CEC28: $94A2
+        sub.l   -(a2),d2                                ; 009CEC2A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC2C: $94A2
+        sub.l   -(a2),d2                                ; 009CEC2E: $94A2
+        sub.l   -(a2),d2                                ; 009CEC30: $94A2
         dc.w    $4772                    ; 009CEC32: dc.w $4772
         dc.w    $479D                    ; 009CEC34: dc.w $479D
-        dc.w    $94A2                    ; 009CEC36: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC38: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC40: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC42: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC44: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC46: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC48: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC4A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC4C: dc.w $94A2
-        dc.w    $489A                    ; 009CEC4E: dc.w $489A
-        dc.w    $48E1                    ; 009CEC50: dc.w $48E1
+        sub.l   -(a2),d2                                ; 009CEC36: $94A2
+        sub.l   -(a2),d2                                ; 009CEC38: $94A2
+        sub.l   -(a2),d2                                ; 009CEC3A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC3C: $94A2
+        sub.l   -(a2),d2                                ; 009CEC3E: $94A2
+        sub.l   -(a2),d2                                ; 009CEC40: $94A2
+        sub.l   -(a2),d2                                ; 009CEC42: $94A2
+        sub.l   -(a2),d2                                ; 009CEC44: $94A2
+        sub.l   -(a2),d2                                ; 009CEC46: $94A2
+        sub.l   -(a2),d2                                ; 009CEC48: $94A2
+        sub.l   -(a2),d2                                ; 009CEC4A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC4C: $94A2
+        movem.w d0/d5/d6/d7/a3/a6,(a2)+                 ; 009CEC4E: $489A, $48E1
         dc.w    $49C2                    ; 009CEC52: dc.w $49C2
-        dc.w    $4A41                    ; 009CEC54: dc.w $4A41
-        dc.w    $94A2                    ; 009CEC56: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC58: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC60: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC62: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC64: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC66: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC68: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC70: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC72: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC74: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC76: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC78: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC80: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC82: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC84: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC86: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC88: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC90: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC92: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC94: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC96: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC98: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEC9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CECA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CECA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CECA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CECA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CECA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CECAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CECAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CECAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CECB0: dc.w $94A2
-        dc.w    $4A88                    ; 009CECB2: dc.w $4A88
-        dc.w    $4AB3                    ; 009CECB4: dc.w $4AB3
-        dc.w    $94A2                    ; 009CECB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CECB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CECBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CECBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CECBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CECC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CECC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CECC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CECC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CECC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CECCA: dc.w $94A2
-        dc.w    $94A2                    ; 009CECCC: dc.w $94A2
+        tst.w   d1                                      ; 009CEC54: $4A41
+        sub.l   -(a2),d2                                ; 009CEC56: $94A2
+        sub.l   -(a2),d2                                ; 009CEC58: $94A2
+        sub.l   -(a2),d2                                ; 009CEC5A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC5C: $94A2
+        sub.l   -(a2),d2                                ; 009CEC5E: $94A2
+        sub.l   -(a2),d2                                ; 009CEC60: $94A2
+        sub.l   -(a2),d2                                ; 009CEC62: $94A2
+        sub.l   -(a2),d2                                ; 009CEC64: $94A2
+        sub.l   -(a2),d2                                ; 009CEC66: $94A2
+        sub.l   -(a2),d2                                ; 009CEC68: $94A2
+        sub.l   -(a2),d2                                ; 009CEC6A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC6C: $94A2
+        sub.l   -(a2),d2                                ; 009CEC6E: $94A2
+        sub.l   -(a2),d2                                ; 009CEC70: $94A2
+        sub.l   -(a2),d2                                ; 009CEC72: $94A2
+        sub.l   -(a2),d2                                ; 009CEC74: $94A2
+        sub.l   -(a2),d2                                ; 009CEC76: $94A2
+        sub.l   -(a2),d2                                ; 009CEC78: $94A2
+        sub.l   -(a2),d2                                ; 009CEC7A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC7C: $94A2
+        sub.l   -(a2),d2                                ; 009CEC7E: $94A2
+        sub.l   -(a2),d2                                ; 009CEC80: $94A2
+        sub.l   -(a2),d2                                ; 009CEC82: $94A2
+        sub.l   -(a2),d2                                ; 009CEC84: $94A2
+        sub.l   -(a2),d2                                ; 009CEC86: $94A2
+        sub.l   -(a2),d2                                ; 009CEC88: $94A2
+        sub.l   -(a2),d2                                ; 009CEC8A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC8C: $94A2
+        sub.l   -(a2),d2                                ; 009CEC8E: $94A2
+        sub.l   -(a2),d2                                ; 009CEC90: $94A2
+        sub.l   -(a2),d2                                ; 009CEC92: $94A2
+        sub.l   -(a2),d2                                ; 009CEC94: $94A2
+        sub.l   -(a2),d2                                ; 009CEC96: $94A2
+        sub.l   -(a2),d2                                ; 009CEC98: $94A2
+        sub.l   -(a2),d2                                ; 009CEC9A: $94A2
+        sub.l   -(a2),d2                                ; 009CEC9C: $94A2
+        sub.l   -(a2),d2                                ; 009CEC9E: $94A2
+        sub.l   -(a2),d2                                ; 009CECA0: $94A2
+        sub.l   -(a2),d2                                ; 009CECA2: $94A2
+        sub.l   -(a2),d2                                ; 009CECA4: $94A2
+        sub.l   -(a2),d2                                ; 009CECA6: $94A2
+        sub.l   -(a2),d2                                ; 009CECA8: $94A2
+        sub.l   -(a2),d2                                ; 009CECAA: $94A2
+        sub.l   -(a2),d2                                ; 009CECAC: $94A2
+        sub.l   -(a2),d2                                ; 009CECAE: $94A2
+        sub.l   -(a2),d2                                ; 009CECB0: $94A2
+        tst.l   a0                                      ; 009CECB2: $4A88
+        tst.l   $-5E(a3,a1.w)                           ; 009CECB4: $4AB3, $94A2
+        sub.l   -(a2),d2                                ; 009CECB8: $94A2
+        sub.l   -(a2),d2                                ; 009CECBA: $94A2
+        sub.l   -(a2),d2                                ; 009CECBC: $94A2
+        sub.l   -(a2),d2                                ; 009CECBE: $94A2
+        sub.l   -(a2),d2                                ; 009CECC0: $94A2
+        sub.l   -(a2),d2                                ; 009CECC2: $94A2
+        sub.l   -(a2),d2                                ; 009CECC4: $94A2
+        sub.l   -(a2),d2                                ; 009CECC6: $94A2
+        sub.l   -(a2),d2                                ; 009CECC8: $94A2
+        sub.l   -(a2),d2                                ; 009CECCA: $94A2
+        sub.l   -(a2),d2                                ; 009CECCC: $94A2
         dc.w    $4BB0                    ; 009CECCE: dc.w $4BB0
         dc.w    $4BCD                    ; 009CECD0: dc.w $4BCD
-        dc.w    $4C92                    ; 009CECD2: dc.w $4C92
-        dc.w    $4D1F                    ; 009CECD4: dc.w $4D1F
+        movem.w (a2),d0/d1/d2/d3/d4/a0/a2/a3/a6         ; 009CECD2: $4C92, $4D1F
         dc.w    $4DBA                    ; 009CECD6: dc.w $4DBA
-        dc.w    $94A2                    ; 009CECD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CECDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CECDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CECDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CECE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CECE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CECE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CECE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CECE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CECEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CECEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CECEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CECF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CECF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CECF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CECF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CECF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CECFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CECFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CECFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CED00: dc.w $94A2
-        dc.w    $94A2                    ; 009CED02: dc.w $94A2
-        dc.w    $94A2                    ; 009CED04: dc.w $94A2
-        dc.w    $94A2                    ; 009CED06: dc.w $94A2
-        dc.w    $94A2                    ; 009CED08: dc.w $94A2
-        dc.w    $94A2                    ; 009CED0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CED10: dc.w $94A2
-        dc.w    $94A2                    ; 009CED12: dc.w $94A2
-        dc.w    $94A2                    ; 009CED14: dc.w $94A2
-        dc.w    $94A2                    ; 009CED16: dc.w $94A2
-        dc.w    $94A2                    ; 009CED18: dc.w $94A2
-        dc.w    $94A2                    ; 009CED1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CED20: dc.w $94A2
-        dc.w    $94A2                    ; 009CED22: dc.w $94A2
-        dc.w    $94A2                    ; 009CED24: dc.w $94A2
-        dc.w    $94A2                    ; 009CED26: dc.w $94A2
-        dc.w    $94A2                    ; 009CED28: dc.w $94A2
-        dc.w    $94A2                    ; 009CED2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CED30: dc.w $94A2
-        dc.w    $4DD7                    ; 009CED32: dc.w $4DD7
+        sub.l   -(a2),d2                                ; 009CECD8: $94A2
+        sub.l   -(a2),d2                                ; 009CECDA: $94A2
+        sub.l   -(a2),d2                                ; 009CECDC: $94A2
+        sub.l   -(a2),d2                                ; 009CECDE: $94A2
+        sub.l   -(a2),d2                                ; 009CECE0: $94A2
+        sub.l   -(a2),d2                                ; 009CECE2: $94A2
+        sub.l   -(a2),d2                                ; 009CECE4: $94A2
+        sub.l   -(a2),d2                                ; 009CECE6: $94A2
+        sub.l   -(a2),d2                                ; 009CECE8: $94A2
+        sub.l   -(a2),d2                                ; 009CECEA: $94A2
+        sub.l   -(a2),d2                                ; 009CECEC: $94A2
+        sub.l   -(a2),d2                                ; 009CECEE: $94A2
+        sub.l   -(a2),d2                                ; 009CECF0: $94A2
+        sub.l   -(a2),d2                                ; 009CECF2: $94A2
+        sub.l   -(a2),d2                                ; 009CECF4: $94A2
+        sub.l   -(a2),d2                                ; 009CECF6: $94A2
+        sub.l   -(a2),d2                                ; 009CECF8: $94A2
+        sub.l   -(a2),d2                                ; 009CECFA: $94A2
+        sub.l   -(a2),d2                                ; 009CECFC: $94A2
+        sub.l   -(a2),d2                                ; 009CECFE: $94A2
+        sub.l   -(a2),d2                                ; 009CED00: $94A2
+        sub.l   -(a2),d2                                ; 009CED02: $94A2
+        sub.l   -(a2),d2                                ; 009CED04: $94A2
+        sub.l   -(a2),d2                                ; 009CED06: $94A2
+        sub.l   -(a2),d2                                ; 009CED08: $94A2
+        sub.l   -(a2),d2                                ; 009CED0A: $94A2
+        sub.l   -(a2),d2                                ; 009CED0C: $94A2
+        sub.l   -(a2),d2                                ; 009CED0E: $94A2
+        sub.l   -(a2),d2                                ; 009CED10: $94A2
+        sub.l   -(a2),d2                                ; 009CED12: $94A2
+        sub.l   -(a2),d2                                ; 009CED14: $94A2
+        sub.l   -(a2),d2                                ; 009CED16: $94A2
+        sub.l   -(a2),d2                                ; 009CED18: $94A2
+        sub.l   -(a2),d2                                ; 009CED1A: $94A2
+        sub.l   -(a2),d2                                ; 009CED1C: $94A2
+        sub.l   -(a2),d2                                ; 009CED1E: $94A2
+        sub.l   -(a2),d2                                ; 009CED20: $94A2
+        sub.l   -(a2),d2                                ; 009CED22: $94A2
+        sub.l   -(a2),d2                                ; 009CED24: $94A2
+        sub.l   -(a2),d2                                ; 009CED26: $94A2
+        sub.l   -(a2),d2                                ; 009CED28: $94A2
+        sub.l   -(a2),d2                                ; 009CED2A: $94A2
+        sub.l   -(a2),d2                                ; 009CED2C: $94A2
+        sub.l   -(a2),d2                                ; 009CED2E: $94A2
+        sub.l   -(a2),d2                                ; 009CED30: $94A2
+        lea     (a7),a6                                 ; 009CED32: $4DD7
         dc.w    $4E02                    ; 009CED34: dc.w $4E02
-        dc.w    $94A2                    ; 009CED36: dc.w $94A2
-        dc.w    $94A2                    ; 009CED38: dc.w $94A2
-        dc.w    $94A2                    ; 009CED3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CED40: dc.w $94A2
-        dc.w    $94A2                    ; 009CED42: dc.w $94A2
-        dc.w    $94A2                    ; 009CED44: dc.w $94A2
-        dc.w    $94A2                    ; 009CED46: dc.w $94A2
-        dc.w    $94A2                    ; 009CED48: dc.w $94A2
-        dc.w    $94A2                    ; 009CED4A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED4C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED4E: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CED36: $94A2
+        sub.l   -(a2),d2                                ; 009CED38: $94A2
+        sub.l   -(a2),d2                                ; 009CED3A: $94A2
+        sub.l   -(a2),d2                                ; 009CED3C: $94A2
+        sub.l   -(a2),d2                                ; 009CED3E: $94A2
+        sub.l   -(a2),d2                                ; 009CED40: $94A2
+        sub.l   -(a2),d2                                ; 009CED42: $94A2
+        sub.l   -(a2),d2                                ; 009CED44: $94A2
+        sub.l   -(a2),d2                                ; 009CED46: $94A2
+        sub.l   -(a2),d2                                ; 009CED48: $94A2
+        sub.l   -(a2),d2                                ; 009CED4A: $94A2
+        sub.l   -(a2),d2                                ; 009CED4C: $94A2
+        sub.l   -(a2),d2                                ; 009CED4E: $94A2
         dc.w    $4EFF                    ; 009CED50: dc.w $4EFF
         dc.w    $4F54                    ; 009CED52: dc.w $4F54
-        dc.w    $4FEF                    ; 009CED54: dc.w $4FEF
-        dc.w    $507C                    ; 009CED56: dc.w $507C
-        dc.w    $94A2                    ; 009CED58: dc.w $94A2
-        dc.w    $94A2                    ; 009CED5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CED60: dc.w $94A2
-        dc.w    $94A2                    ; 009CED62: dc.w $94A2
-        dc.w    $94A2                    ; 009CED64: dc.w $94A2
-        dc.w    $94A2                    ; 009CED66: dc.w $94A2
-        dc.w    $94A2                    ; 009CED68: dc.w $94A2
-        dc.w    $94A2                    ; 009CED6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CED70: dc.w $94A2
-        dc.w    $94A2                    ; 009CED72: dc.w $94A2
-        dc.w    $94A2                    ; 009CED74: dc.w $94A2
-        dc.w    $94A2                    ; 009CED76: dc.w $94A2
-        dc.w    $94A2                    ; 009CED78: dc.w $94A2
-        dc.w    $94A2                    ; 009CED7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CED80: dc.w $94A2
-        dc.w    $94A2                    ; 009CED82: dc.w $94A2
-        dc.w    $94A2                    ; 009CED84: dc.w $94A2
-        dc.w    $94A2                    ; 009CED86: dc.w $94A2
-        dc.w    $94A2                    ; 009CED88: dc.w $94A2
-        dc.w    $94A2                    ; 009CED8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CED90: dc.w $94A2
-        dc.w    $94A2                    ; 009CED92: dc.w $94A2
-        dc.w    $94A2                    ; 009CED94: dc.w $94A2
-        dc.w    $94A2                    ; 009CED96: dc.w $94A2
-        dc.w    $94A2                    ; 009CED98: dc.w $94A2
-        dc.w    $94A2                    ; 009CED9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CED9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CED9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDB0: dc.w $94A2
-        dc.w    $50B5                    ; 009CEDB2: dc.w $50B5
-        dc.w    $50EE                    ; 009CEDB4: dc.w $50EE
-        dc.w    $94A2                    ; 009CEDB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDCA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDCC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDCE: dc.w $94A2
+        lea     $507C(a7),a7                            ; 009CED54: $4FEF, $507C
+        sub.l   -(a2),d2                                ; 009CED58: $94A2
+        sub.l   -(a2),d2                                ; 009CED5A: $94A2
+        sub.l   -(a2),d2                                ; 009CED5C: $94A2
+        sub.l   -(a2),d2                                ; 009CED5E: $94A2
+        sub.l   -(a2),d2                                ; 009CED60: $94A2
+        sub.l   -(a2),d2                                ; 009CED62: $94A2
+        sub.l   -(a2),d2                                ; 009CED64: $94A2
+        sub.l   -(a2),d2                                ; 009CED66: $94A2
+        sub.l   -(a2),d2                                ; 009CED68: $94A2
+        sub.l   -(a2),d2                                ; 009CED6A: $94A2
+        sub.l   -(a2),d2                                ; 009CED6C: $94A2
+        sub.l   -(a2),d2                                ; 009CED6E: $94A2
+        sub.l   -(a2),d2                                ; 009CED70: $94A2
+        sub.l   -(a2),d2                                ; 009CED72: $94A2
+        sub.l   -(a2),d2                                ; 009CED74: $94A2
+        sub.l   -(a2),d2                                ; 009CED76: $94A2
+        sub.l   -(a2),d2                                ; 009CED78: $94A2
+        sub.l   -(a2),d2                                ; 009CED7A: $94A2
+        sub.l   -(a2),d2                                ; 009CED7C: $94A2
+        sub.l   -(a2),d2                                ; 009CED7E: $94A2
+        sub.l   -(a2),d2                                ; 009CED80: $94A2
+        sub.l   -(a2),d2                                ; 009CED82: $94A2
+        sub.l   -(a2),d2                                ; 009CED84: $94A2
+        sub.l   -(a2),d2                                ; 009CED86: $94A2
+        sub.l   -(a2),d2                                ; 009CED88: $94A2
+        sub.l   -(a2),d2                                ; 009CED8A: $94A2
+        sub.l   -(a2),d2                                ; 009CED8C: $94A2
+        sub.l   -(a2),d2                                ; 009CED8E: $94A2
+        sub.l   -(a2),d2                                ; 009CED90: $94A2
+        sub.l   -(a2),d2                                ; 009CED92: $94A2
+        sub.l   -(a2),d2                                ; 009CED94: $94A2
+        sub.l   -(a2),d2                                ; 009CED96: $94A2
+        sub.l   -(a2),d2                                ; 009CED98: $94A2
+        sub.l   -(a2),d2                                ; 009CED9A: $94A2
+        sub.l   -(a2),d2                                ; 009CED9C: $94A2
+        sub.l   -(a2),d2                                ; 009CED9E: $94A2
+        sub.l   -(a2),d2                                ; 009CEDA0: $94A2
+        sub.l   -(a2),d2                                ; 009CEDA2: $94A2
+        sub.l   -(a2),d2                                ; 009CEDA4: $94A2
+        sub.l   -(a2),d2                                ; 009CEDA6: $94A2
+        sub.l   -(a2),d2                                ; 009CEDA8: $94A2
+        sub.l   -(a2),d2                                ; 009CEDAA: $94A2
+        sub.l   -(a2),d2                                ; 009CEDAC: $94A2
+        sub.l   -(a2),d2                                ; 009CEDAE: $94A2
+        sub.l   -(a2),d2                                ; 009CEDB0: $94A2
+        addq.l  #8,$-12(a5,d5.w)                        ; 009CEDB2: $50B5, $50EE
+        sub.l   -(a2),d2                                ; 009CEDB6: $94A2
+        sub.l   -(a2),d2                                ; 009CEDB8: $94A2
+        sub.l   -(a2),d2                                ; 009CEDBA: $94A2
+        sub.l   -(a2),d2                                ; 009CEDBC: $94A2
+        sub.l   -(a2),d2                                ; 009CEDBE: $94A2
+        sub.l   -(a2),d2                                ; 009CEDC0: $94A2
+        sub.l   -(a2),d2                                ; 009CEDC2: $94A2
+        sub.l   -(a2),d2                                ; 009CEDC4: $94A2
+        sub.l   -(a2),d2                                ; 009CEDC6: $94A2
+        sub.l   -(a2),d2                                ; 009CEDC8: $94A2
+        sub.l   -(a2),d2                                ; 009CEDCA: $94A2
+        sub.l   -(a2),d2                                ; 009CEDCC: $94A2
+        sub.l   -(a2),d2                                ; 009CEDCE: $94A2
         dc.w    $523F                    ; 009CEDD0: dc.w $523F
-        dc.w    $524E                    ; 009CEDD2: dc.w $524E
-        dc.w    $5313                    ; 009CEDD4: dc.w $5313
-        dc.w    $5392                    ; 009CEDD6: dc.w $5392
-        dc.w    $94A2                    ; 009CEDD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEDFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE00: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE02: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE04: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE06: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE08: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE10: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE12: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE14: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE16: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE18: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE20: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE22: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE24: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE26: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE28: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE30: dc.w $94A2
-        dc.w    $53CB                    ; 009CEE32: dc.w $53CB
-        dc.w    $544A                    ; 009CEE34: dc.w $544A
-        dc.w    $94A2                    ; 009CEE36: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE38: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE40: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE42: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE44: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE46: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE48: dc.w $94A2
-        dc.w    $5547                    ; 009CEE4A: dc.w $5547
-        dc.w    $5556                    ; 009CEE4C: dc.w $5556
-        dc.w    $5581                    ; 009CEE4E: dc.w $5581
-        dc.w    $55AC                    ; 009CEE50: dc.w $55AC
-        dc.w    $5655                    ; 009CEE52: dc.w $5655
-        dc.w    $5736                    ; 009CEE54: dc.w $5736
-        dc.w    $5799                    ; 009CEE56: dc.w $5799
-        dc.w    $94A2                    ; 009CEE58: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE60: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE62: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE64: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE66: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE68: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE70: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE72: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE74: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE76: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE78: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE80: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE82: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE84: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE86: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE88: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE90: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE92: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE94: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE96: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE98: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEE9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEB0: dc.w $94A2
+        addq.w  #1,a6                                   ; 009CEDD2: $524E
+        subq.b  #1,(a3)                                 ; 009CEDD4: $5313
+        subq.l  #1,(a2)                                 ; 009CEDD6: $5392
+        sub.l   -(a2),d2                                ; 009CEDD8: $94A2
+        sub.l   -(a2),d2                                ; 009CEDDA: $94A2
+        sub.l   -(a2),d2                                ; 009CEDDC: $94A2
+        sub.l   -(a2),d2                                ; 009CEDDE: $94A2
+        sub.l   -(a2),d2                                ; 009CEDE0: $94A2
+        sub.l   -(a2),d2                                ; 009CEDE2: $94A2
+        sub.l   -(a2),d2                                ; 009CEDE4: $94A2
+        sub.l   -(a2),d2                                ; 009CEDE6: $94A2
+        sub.l   -(a2),d2                                ; 009CEDE8: $94A2
+        sub.l   -(a2),d2                                ; 009CEDEA: $94A2
+        sub.l   -(a2),d2                                ; 009CEDEC: $94A2
+        sub.l   -(a2),d2                                ; 009CEDEE: $94A2
+        sub.l   -(a2),d2                                ; 009CEDF0: $94A2
+        sub.l   -(a2),d2                                ; 009CEDF2: $94A2
+        sub.l   -(a2),d2                                ; 009CEDF4: $94A2
+        sub.l   -(a2),d2                                ; 009CEDF6: $94A2
+        sub.l   -(a2),d2                                ; 009CEDF8: $94A2
+        sub.l   -(a2),d2                                ; 009CEDFA: $94A2
+        sub.l   -(a2),d2                                ; 009CEDFC: $94A2
+        sub.l   -(a2),d2                                ; 009CEDFE: $94A2
+        sub.l   -(a2),d2                                ; 009CEE00: $94A2
+        sub.l   -(a2),d2                                ; 009CEE02: $94A2
+        sub.l   -(a2),d2                                ; 009CEE04: $94A2
+        sub.l   -(a2),d2                                ; 009CEE06: $94A2
+        sub.l   -(a2),d2                                ; 009CEE08: $94A2
+        sub.l   -(a2),d2                                ; 009CEE0A: $94A2
+        sub.l   -(a2),d2                                ; 009CEE0C: $94A2
+        sub.l   -(a2),d2                                ; 009CEE0E: $94A2
+        sub.l   -(a2),d2                                ; 009CEE10: $94A2
+        sub.l   -(a2),d2                                ; 009CEE12: $94A2
+        sub.l   -(a2),d2                                ; 009CEE14: $94A2
+        sub.l   -(a2),d2                                ; 009CEE16: $94A2
+        sub.l   -(a2),d2                                ; 009CEE18: $94A2
+        sub.l   -(a2),d2                                ; 009CEE1A: $94A2
+        sub.l   -(a2),d2                                ; 009CEE1C: $94A2
+        sub.l   -(a2),d2                                ; 009CEE1E: $94A2
+        sub.l   -(a2),d2                                ; 009CEE20: $94A2
+        sub.l   -(a2),d2                                ; 009CEE22: $94A2
+        sub.l   -(a2),d2                                ; 009CEE24: $94A2
+        sub.l   -(a2),d2                                ; 009CEE26: $94A2
+        sub.l   -(a2),d2                                ; 009CEE28: $94A2
+        sub.l   -(a2),d2                                ; 009CEE2A: $94A2
+        sub.l   -(a2),d2                                ; 009CEE2C: $94A2
+        sub.l   -(a2),d2                                ; 009CEE2E: $94A2
+        sub.l   -(a2),d2                                ; 009CEE30: $94A2
+        dbls    d3,$009D427E                            ; 009CEE32: $53CB, $544A
+        sub.l   -(a2),d2                                ; 009CEE36: $94A2
+        sub.l   -(a2),d2                                ; 009CEE38: $94A2
+        sub.l   -(a2),d2                                ; 009CEE3A: $94A2
+        sub.l   -(a2),d2                                ; 009CEE3C: $94A2
+        sub.l   -(a2),d2                                ; 009CEE3E: $94A2
+        sub.l   -(a2),d2                                ; 009CEE40: $94A2
+        sub.l   -(a2),d2                                ; 009CEE42: $94A2
+        sub.l   -(a2),d2                                ; 009CEE44: $94A2
+        sub.l   -(a2),d2                                ; 009CEE46: $94A2
+        sub.l   -(a2),d2                                ; 009CEE48: $94A2
+        subq.w  #2,d7                                   ; 009CEE4A: $5547
+        subq.w  #2,(a6)                                 ; 009CEE4C: $5556
+        subq.l  #2,d1                                   ; 009CEE4E: $5581
+        subq.l  #2,$5655(a4)                            ; 009CEE50: $55AC, $5655
+        subq.b  #3,$-67(a6,d5.w)                        ; 009CEE54: $5736, $5799
+        sub.l   -(a2),d2                                ; 009CEE58: $94A2
+        sub.l   -(a2),d2                                ; 009CEE5A: $94A2
+        sub.l   -(a2),d2                                ; 009CEE5C: $94A2
+        sub.l   -(a2),d2                                ; 009CEE5E: $94A2
+        sub.l   -(a2),d2                                ; 009CEE60: $94A2
+        sub.l   -(a2),d2                                ; 009CEE62: $94A2
+        sub.l   -(a2),d2                                ; 009CEE64: $94A2
+        sub.l   -(a2),d2                                ; 009CEE66: $94A2
+        sub.l   -(a2),d2                                ; 009CEE68: $94A2
+        sub.l   -(a2),d2                                ; 009CEE6A: $94A2
+        sub.l   -(a2),d2                                ; 009CEE6C: $94A2
+        sub.l   -(a2),d2                                ; 009CEE6E: $94A2
+        sub.l   -(a2),d2                                ; 009CEE70: $94A2
+        sub.l   -(a2),d2                                ; 009CEE72: $94A2
+        sub.l   -(a2),d2                                ; 009CEE74: $94A2
+        sub.l   -(a2),d2                                ; 009CEE76: $94A2
+        sub.l   -(a2),d2                                ; 009CEE78: $94A2
+        sub.l   -(a2),d2                                ; 009CEE7A: $94A2
+        sub.l   -(a2),d2                                ; 009CEE7C: $94A2
+        sub.l   -(a2),d2                                ; 009CEE7E: $94A2
+        sub.l   -(a2),d2                                ; 009CEE80: $94A2
+        sub.l   -(a2),d2                                ; 009CEE82: $94A2
+        sub.l   -(a2),d2                                ; 009CEE84: $94A2
+        sub.l   -(a2),d2                                ; 009CEE86: $94A2
+        sub.l   -(a2),d2                                ; 009CEE88: $94A2
+        sub.l   -(a2),d2                                ; 009CEE8A: $94A2
+        sub.l   -(a2),d2                                ; 009CEE8C: $94A2
+        sub.l   -(a2),d2                                ; 009CEE8E: $94A2
+        sub.l   -(a2),d2                                ; 009CEE90: $94A2
+        sub.l   -(a2),d2                                ; 009CEE92: $94A2
+        sub.l   -(a2),d2                                ; 009CEE94: $94A2
+        sub.l   -(a2),d2                                ; 009CEE96: $94A2
+        sub.l   -(a2),d2                                ; 009CEE98: $94A2
+        sub.l   -(a2),d2                                ; 009CEE9A: $94A2
+        sub.l   -(a2),d2                                ; 009CEE9C: $94A2
+        sub.l   -(a2),d2                                ; 009CEE9E: $94A2
+        sub.l   -(a2),d2                                ; 009CEEA0: $94A2
+        sub.l   -(a2),d2                                ; 009CEEA2: $94A2
+        sub.l   -(a2),d2                                ; 009CEEA4: $94A2
+        sub.l   -(a2),d2                                ; 009CEEA6: $94A2
+        sub.l   -(a2),d2                                ; 009CEEA8: $94A2
+        sub.l   -(a2),d2                                ; 009CEEAA: $94A2
+        sub.l   -(a2),d2                                ; 009CEEAC: $94A2
+        sub.l   -(a2),d2                                ; 009CEEAE: $94A2
+        sub.l   -(a2),d2                                ; 009CEEB0: $94A2
         dc.w    $57E0                    ; 009CEEB2: dc.w $57E0
-        dc.w    $585F                    ; 009CEEB4: dc.w $585F
-        dc.w    $94A2                    ; 009CEEB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEC6: dc.w $94A2
+        addq.w  #4,(a7)+                                ; 009CEEB4: $585F
+        sub.l   -(a2),d2                                ; 009CEEB6: $94A2
+        sub.l   -(a2),d2                                ; 009CEEB8: $94A2
+        sub.l   -(a2),d2                                ; 009CEEBA: $94A2
+        sub.l   -(a2),d2                                ; 009CEEBC: $94A2
+        sub.l   -(a2),d2                                ; 009CEEBE: $94A2
+        sub.l   -(a2),d2                                ; 009CEEC0: $94A2
+        sub.l   -(a2),d2                                ; 009CEEC2: $94A2
+        sub.l   -(a2),d2                                ; 009CEEC4: $94A2
+        sub.l   -(a2),d2                                ; 009CEEC6: $94A2
         dc.w    $58DE                    ; 009CEEC8: dc.w $58DE
         dc.w    $58FB                    ; 009CEECA: dc.w $58FB
-        dc.w    $5934                    ; 009CEECC: dc.w $5934
-        dc.w    $59B3                    ; 009CEECE: dc.w $59B3
-        dc.w    $5A78                    ; 009CEED0: dc.w $5A78
-        dc.w    $5B67                    ; 009CEED2: dc.w $5B67
+        subq.b  #4,$-4D(a4,d5.l)                        ; 009CEECC: $5934, $59B3
+        addq.w  #5,($5B67).w                            ; 009CEED0: $5A78, $5B67
         dc.w    $5BD8                    ; 009CEED4: dc.w $5BD8
-        dc.w    $5C2D                    ; 009CEED6: dc.w $5C2D
-        dc.w    $94A2                    ; 009CEED8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEEFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF00: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF02: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF04: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF06: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF08: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF10: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF12: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF14: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF16: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF18: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF20: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF22: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF24: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF26: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF28: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF30: dc.w $94A2
-        dc.w    $5C4A                    ; 009CEF32: dc.w $5C4A
-        dc.w    $5CC9                    ; 009CEF34: dc.w $5CC9
-        dc.w    $94A2                    ; 009CEF36: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF38: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF40: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF42: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF44: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF46: dc.w $94A2
-        dc.w    $5D48                    ; 009CEF48: dc.w $5D48
-        dc.w    $5D8F                    ; 009CEF4A: dc.w $5D8F
-        dc.w    $5E38                    ; 009CEF4C: dc.w $5E38
-        dc.w    $5F0B                    ; 009CEF4E: dc.w $5F0B
-        dc.w    $5F98                    ; 009CEF50: dc.w $5F98
-        dc.w    $6009                    ; 009CEF52: BRA.S $009CEF5D
-        dc.w    $605E                    ; 009CEF54: BRA.S $009CEFB4
-        dc.w    $94A2                    ; 009CEF56: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF58: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF60: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF62: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF64: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF66: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF68: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF70: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF72: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF74: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF76: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF78: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF80: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF82: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF84: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF86: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF88: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF90: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF92: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF94: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF96: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF98: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CEF9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFB0: dc.w $94A2
-        dc.w    $6097                    ; 009CEFB2: BRA.S $009CEF4B
-        dc.w    $6116                    ; 009CEFB4: BSR.S $009CEFCC
-        dc.w    $94A2                    ; 009CEFB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFC4: dc.w $94A2
-        dc.w    $6195                    ; 009CEFC6: BSR.S $009CEF5D
-        dc.w    $61B2                    ; 009CEFC8: BSR.S $009CEF7C
-        dc.w    $623F                    ; 009CEFCA: BHI.S $009CF00B
-        dc.w    $62F6                    ; 009CEFCC: BHI.S $009CEFC4
-        dc.w    $63C9                    ; 009CEFCE: BLS.S $009CEF99
-        dc.w    $642C                    ; 009CEFD0: BCC.S $009CEFFE
-        dc.w    $6481                    ; 009CEFD2: BCC.S $009CEF55
-        dc.w    $64AC                    ; 009CEFD4: BCC.S $009CEF82
-        dc.w    $94A2                    ; 009CEFD6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CEFFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF000: dc.w $94A2
-        dc.w    $94A2                    ; 009CF002: dc.w $94A2
-        dc.w    $94A2                    ; 009CF004: dc.w $94A2
-        dc.w    $94A2                    ; 009CF006: dc.w $94A2
-        dc.w    $94A2                    ; 009CF008: dc.w $94A2
-        dc.w    $94A2                    ; 009CF00A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF00C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF00E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF010: dc.w $94A2
-        dc.w    $94A2                    ; 009CF012: dc.w $94A2
-        dc.w    $94A2                    ; 009CF014: dc.w $94A2
-        dc.w    $94A2                    ; 009CF016: dc.w $94A2
-        dc.w    $94A2                    ; 009CF018: dc.w $94A2
-        dc.w    $94A2                    ; 009CF01A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF01C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF01E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF020: dc.w $94A2
-        dc.w    $94A2                    ; 009CF022: dc.w $94A2
-        dc.w    $94A2                    ; 009CF024: dc.w $94A2
-        dc.w    $94A2                    ; 009CF026: dc.w $94A2
-        dc.w    $94A2                    ; 009CF028: dc.w $94A2
-        dc.w    $94A2                    ; 009CF02A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF02C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF02E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF030: dc.w $94A2
-        dc.w    $64C9                    ; 009CF032: BCC.S $009CEFFD
-        dc.w    $6548                    ; 009CF034: BCS.S $009CF07E
-        dc.w    $94A2                    ; 009CF036: dc.w $94A2
-        dc.w    $94A2                    ; 009CF038: dc.w $94A2
-        dc.w    $94A2                    ; 009CF03A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF03C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF03E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF040: dc.w $94A2
-        dc.w    $94A2                    ; 009CF042: dc.w $94A2
-        dc.w    $94A2                    ; 009CF044: dc.w $94A2
-        dc.w    $65C7                    ; 009CF046: BCS.S $009CF00F
-        dc.w    $65F2                    ; 009CF048: BCS.S $009CF03C
-        dc.w    $66A9                    ; 009CF04A: BNE.S $009CEFF5
-        dc.w    $6798                    ; 009CF04C: BEQ.S $009CEFE6
-        dc.w    $684F                    ; 009CF04E: BVC.S $009CF09F
-        dc.w    $94A2                    ; 009CF050: dc.w $94A2
-        dc.w    $94A2                    ; 009CF052: dc.w $94A2
-        dc.w    $94A2                    ; 009CF054: dc.w $94A2
-        dc.w    $94A2                    ; 009CF056: dc.w $94A2
-        dc.w    $94A2                    ; 009CF058: dc.w $94A2
-        dc.w    $94A2                    ; 009CF05A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF05C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF05E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF060: dc.w $94A2
-        dc.w    $94A2                    ; 009CF062: dc.w $94A2
-        dc.w    $94A2                    ; 009CF064: dc.w $94A2
-        dc.w    $94A2                    ; 009CF066: dc.w $94A2
-        dc.w    $94A2                    ; 009CF068: dc.w $94A2
-        dc.w    $94A2                    ; 009CF06A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF06C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF06E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF070: dc.w $94A2
-        dc.w    $94A2                    ; 009CF072: dc.w $94A2
-        dc.w    $94A2                    ; 009CF074: dc.w $94A2
-        dc.w    $94A2                    ; 009CF076: dc.w $94A2
-        dc.w    $94A2                    ; 009CF078: dc.w $94A2
-        dc.w    $94A2                    ; 009CF07A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF07C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF07E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF080: dc.w $94A2
-        dc.w    $94A2                    ; 009CF082: dc.w $94A2
-        dc.w    $94A2                    ; 009CF084: dc.w $94A2
-        dc.w    $94A2                    ; 009CF086: dc.w $94A2
-        dc.w    $94A2                    ; 009CF088: dc.w $94A2
-        dc.w    $94A2                    ; 009CF08A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF08C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF08E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF090: dc.w $94A2
-        dc.w    $94A2                    ; 009CF092: dc.w $94A2
-        dc.w    $94A2                    ; 009CF094: dc.w $94A2
-        dc.w    $94A2                    ; 009CF096: dc.w $94A2
-        dc.w    $94A2                    ; 009CF098: dc.w $94A2
-        dc.w    $94A2                    ; 009CF09A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF09C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF09E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0B0: dc.w $94A2
-        dc.w    $687A                    ; 009CF0B2: BVC.S $009CF12E
-        dc.w    $68DD                    ; 009CF0B4: BVC.S $009CF093
-        dc.w    $94A2                    ; 009CF0B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0C4: dc.w $94A2
-        dc.w    $6940                    ; 009CF0C6: BVS.S $009CF108
-        dc.w    $695D                    ; 009CF0C8: BVS.S $009CF127
-        dc.w    $6A30                    ; 009CF0CA: BPL.S $009CF0FC
-        dc.w    $6B3B                    ; 009CF0CC: BMI.S $009CF109
-        dc.w    $94A2                    ; 009CF0CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF0FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF100: dc.w $94A2
-        dc.w    $94A2                    ; 009CF102: dc.w $94A2
-        dc.w    $94A2                    ; 009CF104: dc.w $94A2
-        dc.w    $94A2                    ; 009CF106: dc.w $94A2
-        dc.w    $94A2                    ; 009CF108: dc.w $94A2
-        dc.w    $94A2                    ; 009CF10A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF10C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF10E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF110: dc.w $94A2
-        dc.w    $94A2                    ; 009CF112: dc.w $94A2
-        dc.w    $94A2                    ; 009CF114: dc.w $94A2
-        dc.w    $94A2                    ; 009CF116: dc.w $94A2
-        dc.w    $94A2                    ; 009CF118: dc.w $94A2
-        dc.w    $94A2                    ; 009CF11A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF11C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF11E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF120: dc.w $94A2
-        dc.w    $94A2                    ; 009CF122: dc.w $94A2
-        dc.w    $94A2                    ; 009CF124: dc.w $94A2
-        dc.w    $94A2                    ; 009CF126: dc.w $94A2
-        dc.w    $94A2                    ; 009CF128: dc.w $94A2
-        dc.w    $94A2                    ; 009CF12A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF12C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF12E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF130: dc.w $94A2
-        dc.w    $6B66                    ; 009CF132: BMI.S $009CF19A
-        dc.w    $6BBB                    ; 009CF134: BMI.S $009CF0F1
-        dc.w    $94A2                    ; 009CF136: dc.w $94A2
-        dc.w    $94A2                    ; 009CF138: dc.w $94A2
-        dc.w    $94A2                    ; 009CF13A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF13C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF13E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF140: dc.w $94A2
-        dc.w    $94A2                    ; 009CF142: dc.w $94A2
-        dc.w    $94A2                    ; 009CF144: dc.w $94A2
-        dc.w    $6C10                    ; 009CF146: BGE.S $009CF158
-        dc.w    $6C2D                    ; 009CF148: BGE.S $009CF177
-        dc.w    $6CD6                    ; 009CF14A: BGE.S $009CF122
-        dc.w    $94A2                    ; 009CF14C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF14E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF150: dc.w $94A2
-        dc.w    $94A2                    ; 009CF152: dc.w $94A2
-        dc.w    $94A2                    ; 009CF154: dc.w $94A2
-        dc.w    $94A2                    ; 009CF156: dc.w $94A2
-        dc.w    $94A2                    ; 009CF158: dc.w $94A2
-        dc.w    $94A2                    ; 009CF15A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF15C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF15E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF160: dc.w $94A2
-        dc.w    $94A2                    ; 009CF162: dc.w $94A2
-        dc.w    $94A2                    ; 009CF164: dc.w $94A2
-        dc.w    $94A2                    ; 009CF166: dc.w $94A2
-        dc.w    $94A2                    ; 009CF168: dc.w $94A2
-        dc.w    $94A2                    ; 009CF16A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF16C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF16E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF170: dc.w $94A2
-        dc.w    $94A2                    ; 009CF172: dc.w $94A2
-        dc.w    $94A2                    ; 009CF174: dc.w $94A2
-        dc.w    $94A2                    ; 009CF176: dc.w $94A2
-        dc.w    $94A2                    ; 009CF178: dc.w $94A2
-        dc.w    $94A2                    ; 009CF17A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF17C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF17E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF180: dc.w $94A2
-        dc.w    $94A2                    ; 009CF182: dc.w $94A2
-        dc.w    $94A2                    ; 009CF184: dc.w $94A2
-        dc.w    $94A2                    ; 009CF186: dc.w $94A2
-        dc.w    $94A2                    ; 009CF188: dc.w $94A2
-        dc.w    $94A2                    ; 009CF18A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF18C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF18E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF190: dc.w $94A2
-        dc.w    $94A2                    ; 009CF192: dc.w $94A2
-        dc.w    $94A2                    ; 009CF194: dc.w $94A2
-        dc.w    $94A2                    ; 009CF196: dc.w $94A2
-        dc.w    $94A2                    ; 009CF198: dc.w $94A2
-        dc.w    $94A2                    ; 009CF19A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF19C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF19E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1B0: dc.w $94A2
-        dc.w    $6D7F                    ; 009CF1B2: BLT.S $009CF233
-        dc.w    $6DD4                    ; 009CF1B4: BLT.S $009CF18A
-        dc.w    $94A2                    ; 009CF1B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1C6: dc.w $94A2
-        dc.w    $6E29                    ; 009CF1C8: BGT.S $009CF1F3
-        dc.w    $6EB6                    ; 009CF1CA: BGT.S $009CF182
-        dc.w    $94A2                    ; 009CF1CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF1FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF200: dc.w $94A2
-        dc.w    $94A2                    ; 009CF202: dc.w $94A2
-        dc.w    $94A2                    ; 009CF204: dc.w $94A2
-        dc.w    $94A2                    ; 009CF206: dc.w $94A2
-        dc.w    $94A2                    ; 009CF208: dc.w $94A2
-        dc.w    $94A2                    ; 009CF20A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF20C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF20E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF210: dc.w $94A2
-        dc.w    $94A2                    ; 009CF212: dc.w $94A2
-        dc.w    $94A2                    ; 009CF214: dc.w $94A2
-        dc.w    $94A2                    ; 009CF216: dc.w $94A2
-        dc.w    $94A2                    ; 009CF218: dc.w $94A2
-        dc.w    $94A2                    ; 009CF21A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF21C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF21E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF220: dc.w $94A2
-        dc.w    $94A2                    ; 009CF222: dc.w $94A2
-        dc.w    $94A2                    ; 009CF224: dc.w $94A2
-        dc.w    $94A2                    ; 009CF226: dc.w $94A2
-        dc.w    $94A2                    ; 009CF228: dc.w $94A2
-        dc.w    $94A2                    ; 009CF22A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF22C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF22E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF230: dc.w $94A2
-        dc.w    $6F43                    ; 009CF232: BLE.S $009CF277
-        dc.w    $6F98                    ; 009CF234: BLE.S $009CF1CE
-        dc.w    $94A2                    ; 009CF236: dc.w $94A2
-        dc.w    $94A2                    ; 009CF238: dc.w $94A2
-        dc.w    $94A2                    ; 009CF23A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF23C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF23E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF240: dc.w $94A2
-        dc.w    $94A2                    ; 009CF242: dc.w $94A2
-        dc.w    $94A2                    ; 009CF244: dc.w $94A2
-        dc.w    $94A2                    ; 009CF246: dc.w $94A2
-        dc.w    $6FED                    ; 009CF248: BLE.S $009CF237
-        dc.w    $706C                    ; 009CF24A: MOVEQ #$6C,D0
-        dc.w    $94A2                    ; 009CF24C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF24E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF250: dc.w $94A2
-        dc.w    $94A2                    ; 009CF252: dc.w $94A2
-        dc.w    $94A2                    ; 009CF254: dc.w $94A2
-        dc.w    $94A2                    ; 009CF256: dc.w $94A2
-        dc.w    $94A2                    ; 009CF258: dc.w $94A2
-        dc.w    $94A2                    ; 009CF25A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF25C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF25E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF260: dc.w $94A2
-        dc.w    $94A2                    ; 009CF262: dc.w $94A2
-        dc.w    $94A2                    ; 009CF264: dc.w $94A2
-        dc.w    $94A2                    ; 009CF266: dc.w $94A2
-        dc.w    $94A2                    ; 009CF268: dc.w $94A2
-        dc.w    $94A2                    ; 009CF26A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF26C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF26E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF270: dc.w $94A2
-        dc.w    $94A2                    ; 009CF272: dc.w $94A2
-        dc.w    $94A2                    ; 009CF274: dc.w $94A2
-        dc.w    $94A2                    ; 009CF276: dc.w $94A2
-        dc.w    $94A2                    ; 009CF278: dc.w $94A2
-        dc.w    $94A2                    ; 009CF27A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF27C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF27E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF280: dc.w $94A2
-        dc.w    $94A2                    ; 009CF282: dc.w $94A2
-        dc.w    $94A2                    ; 009CF284: dc.w $94A2
-        dc.w    $94A2                    ; 009CF286: dc.w $94A2
-        dc.w    $94A2                    ; 009CF288: dc.w $94A2
-        dc.w    $94A2                    ; 009CF28A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF28C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF28E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF290: dc.w $94A2
-        dc.w    $94A2                    ; 009CF292: dc.w $94A2
-        dc.w    $94A2                    ; 009CF294: dc.w $94A2
-        dc.w    $94A2                    ; 009CF296: dc.w $94A2
-        dc.w    $94A2                    ; 009CF298: dc.w $94A2
-        dc.w    $94A2                    ; 009CF29A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF29C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF29E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2B0: dc.w $94A2
-        dc.w    $70EB                    ; 009CF2B2: MOVEQ #$EB,D0
+        addq.b  #6,$-6B5E(a5)                           ; 009CEED6: $5C2D, $94A2
+        sub.l   -(a2),d2                                ; 009CEEDA: $94A2
+        sub.l   -(a2),d2                                ; 009CEEDC: $94A2
+        sub.l   -(a2),d2                                ; 009CEEDE: $94A2
+        sub.l   -(a2),d2                                ; 009CEEE0: $94A2
+        sub.l   -(a2),d2                                ; 009CEEE2: $94A2
+        sub.l   -(a2),d2                                ; 009CEEE4: $94A2
+        sub.l   -(a2),d2                                ; 009CEEE6: $94A2
+        sub.l   -(a2),d2                                ; 009CEEE8: $94A2
+        sub.l   -(a2),d2                                ; 009CEEEA: $94A2
+        sub.l   -(a2),d2                                ; 009CEEEC: $94A2
+        sub.l   -(a2),d2                                ; 009CEEEE: $94A2
+        sub.l   -(a2),d2                                ; 009CEEF0: $94A2
+        sub.l   -(a2),d2                                ; 009CEEF2: $94A2
+        sub.l   -(a2),d2                                ; 009CEEF4: $94A2
+        sub.l   -(a2),d2                                ; 009CEEF6: $94A2
+        sub.l   -(a2),d2                                ; 009CEEF8: $94A2
+        sub.l   -(a2),d2                                ; 009CEEFA: $94A2
+        sub.l   -(a2),d2                                ; 009CEEFC: $94A2
+        sub.l   -(a2),d2                                ; 009CEEFE: $94A2
+        sub.l   -(a2),d2                                ; 009CEF00: $94A2
+        sub.l   -(a2),d2                                ; 009CEF02: $94A2
+        sub.l   -(a2),d2                                ; 009CEF04: $94A2
+        sub.l   -(a2),d2                                ; 009CEF06: $94A2
+        sub.l   -(a2),d2                                ; 009CEF08: $94A2
+        sub.l   -(a2),d2                                ; 009CEF0A: $94A2
+        sub.l   -(a2),d2                                ; 009CEF0C: $94A2
+        sub.l   -(a2),d2                                ; 009CEF0E: $94A2
+        sub.l   -(a2),d2                                ; 009CEF10: $94A2
+        sub.l   -(a2),d2                                ; 009CEF12: $94A2
+        sub.l   -(a2),d2                                ; 009CEF14: $94A2
+        sub.l   -(a2),d2                                ; 009CEF16: $94A2
+        sub.l   -(a2),d2                                ; 009CEF18: $94A2
+        sub.l   -(a2),d2                                ; 009CEF1A: $94A2
+        sub.l   -(a2),d2                                ; 009CEF1C: $94A2
+        sub.l   -(a2),d2                                ; 009CEF1E: $94A2
+        sub.l   -(a2),d2                                ; 009CEF20: $94A2
+        sub.l   -(a2),d2                                ; 009CEF22: $94A2
+        sub.l   -(a2),d2                                ; 009CEF24: $94A2
+        sub.l   -(a2),d2                                ; 009CEF26: $94A2
+        sub.l   -(a2),d2                                ; 009CEF28: $94A2
+        sub.l   -(a2),d2                                ; 009CEF2A: $94A2
+        sub.l   -(a2),d2                                ; 009CEF2C: $94A2
+        sub.l   -(a2),d2                                ; 009CEF2E: $94A2
+        sub.l   -(a2),d2                                ; 009CEF30: $94A2
+        addq.w  #6,a2                                   ; 009CEF32: $5C4A
+        dbge    d1,$009C83D8                            ; 009CEF34: $5CC9, $94A2
+        sub.l   -(a2),d2                                ; 009CEF38: $94A2
+        sub.l   -(a2),d2                                ; 009CEF3A: $94A2
+        sub.l   -(a2),d2                                ; 009CEF3C: $94A2
+        sub.l   -(a2),d2                                ; 009CEF3E: $94A2
+        sub.l   -(a2),d2                                ; 009CEF40: $94A2
+        sub.l   -(a2),d2                                ; 009CEF42: $94A2
+        sub.l   -(a2),d2                                ; 009CEF44: $94A2
+        sub.l   -(a2),d2                                ; 009CEF46: $94A2
+        subq.w  #6,a0                                   ; 009CEF48: $5D48
+        subq.l  #6,a7                                   ; 009CEF4A: $5D8F
+        addq.b  #7,($5F0B).w                            ; 009CEF4C: $5E38, $5F0B
+        subq.l  #7,(a0)+                                ; 009CEF50: $5F98
+        bra.s   $009CEF5D                               ; 009CEF52: $6009
+        bra.s   $009CEFB4                               ; 009CEF54: $605E
+        sub.l   -(a2),d2                                ; 009CEF56: $94A2
+        sub.l   -(a2),d2                                ; 009CEF58: $94A2
+        sub.l   -(a2),d2                                ; 009CEF5A: $94A2
+        sub.l   -(a2),d2                                ; 009CEF5C: $94A2
+        sub.l   -(a2),d2                                ; 009CEF5E: $94A2
+        sub.l   -(a2),d2                                ; 009CEF60: $94A2
+        sub.l   -(a2),d2                                ; 009CEF62: $94A2
+        sub.l   -(a2),d2                                ; 009CEF64: $94A2
+        sub.l   -(a2),d2                                ; 009CEF66: $94A2
+        sub.l   -(a2),d2                                ; 009CEF68: $94A2
+        sub.l   -(a2),d2                                ; 009CEF6A: $94A2
+        sub.l   -(a2),d2                                ; 009CEF6C: $94A2
+        sub.l   -(a2),d2                                ; 009CEF6E: $94A2
+        sub.l   -(a2),d2                                ; 009CEF70: $94A2
+        sub.l   -(a2),d2                                ; 009CEF72: $94A2
+        sub.l   -(a2),d2                                ; 009CEF74: $94A2
+        sub.l   -(a2),d2                                ; 009CEF76: $94A2
+        sub.l   -(a2),d2                                ; 009CEF78: $94A2
+        sub.l   -(a2),d2                                ; 009CEF7A: $94A2
+        sub.l   -(a2),d2                                ; 009CEF7C: $94A2
+        sub.l   -(a2),d2                                ; 009CEF7E: $94A2
+        sub.l   -(a2),d2                                ; 009CEF80: $94A2
+        sub.l   -(a2),d2                                ; 009CEF82: $94A2
+        sub.l   -(a2),d2                                ; 009CEF84: $94A2
+        sub.l   -(a2),d2                                ; 009CEF86: $94A2
+        sub.l   -(a2),d2                                ; 009CEF88: $94A2
+        sub.l   -(a2),d2                                ; 009CEF8A: $94A2
+        sub.l   -(a2),d2                                ; 009CEF8C: $94A2
+        sub.l   -(a2),d2                                ; 009CEF8E: $94A2
+        sub.l   -(a2),d2                                ; 009CEF90: $94A2
+        sub.l   -(a2),d2                                ; 009CEF92: $94A2
+        sub.l   -(a2),d2                                ; 009CEF94: $94A2
+        sub.l   -(a2),d2                                ; 009CEF96: $94A2
+        sub.l   -(a2),d2                                ; 009CEF98: $94A2
+        sub.l   -(a2),d2                                ; 009CEF9A: $94A2
+        sub.l   -(a2),d2                                ; 009CEF9C: $94A2
+        sub.l   -(a2),d2                                ; 009CEF9E: $94A2
+        sub.l   -(a2),d2                                ; 009CEFA0: $94A2
+        sub.l   -(a2),d2                                ; 009CEFA2: $94A2
+        sub.l   -(a2),d2                                ; 009CEFA4: $94A2
+        sub.l   -(a2),d2                                ; 009CEFA6: $94A2
+        sub.l   -(a2),d2                                ; 009CEFA8: $94A2
+        sub.l   -(a2),d2                                ; 009CEFAA: $94A2
+        sub.l   -(a2),d2                                ; 009CEFAC: $94A2
+        sub.l   -(a2),d2                                ; 009CEFAE: $94A2
+        sub.l   -(a2),d2                                ; 009CEFB0: $94A2
+        bra.s   $009CEF4B                               ; 009CEFB2: $6097
+        bsr.s   $009CEFCC                               ; 009CEFB4: $6116
+        sub.l   -(a2),d2                                ; 009CEFB6: $94A2
+        sub.l   -(a2),d2                                ; 009CEFB8: $94A2
+        sub.l   -(a2),d2                                ; 009CEFBA: $94A2
+        sub.l   -(a2),d2                                ; 009CEFBC: $94A2
+        sub.l   -(a2),d2                                ; 009CEFBE: $94A2
+        sub.l   -(a2),d2                                ; 009CEFC0: $94A2
+        sub.l   -(a2),d2                                ; 009CEFC2: $94A2
+        sub.l   -(a2),d2                                ; 009CEFC4: $94A2
+        bsr.s   $009CEF5D                               ; 009CEFC6: $6195
+        bsr.s   $009CEF7C                               ; 009CEFC8: $61B2
+        bhi.s   $009CF00B                               ; 009CEFCA: $623F
+        bhi.s   $009CEFC4                               ; 009CEFCC: $62F6
+        bls.s   $009CEF99                               ; 009CEFCE: $63C9
+        bcc.s   $009CEFFE                               ; 009CEFD0: $642C
+        bcc.s   $009CEF55                               ; 009CEFD2: $6481
+        bcc.s   $009CEF82                               ; 009CEFD4: $64AC
+        sub.l   -(a2),d2                                ; 009CEFD6: $94A2
+        sub.l   -(a2),d2                                ; 009CEFD8: $94A2
+        sub.l   -(a2),d2                                ; 009CEFDA: $94A2
+        sub.l   -(a2),d2                                ; 009CEFDC: $94A2
+        sub.l   -(a2),d2                                ; 009CEFDE: $94A2
+        sub.l   -(a2),d2                                ; 009CEFE0: $94A2
+        sub.l   -(a2),d2                                ; 009CEFE2: $94A2
+        sub.l   -(a2),d2                                ; 009CEFE4: $94A2
+        sub.l   -(a2),d2                                ; 009CEFE6: $94A2
+        sub.l   -(a2),d2                                ; 009CEFE8: $94A2
+        sub.l   -(a2),d2                                ; 009CEFEA: $94A2
+        sub.l   -(a2),d2                                ; 009CEFEC: $94A2
+        sub.l   -(a2),d2                                ; 009CEFEE: $94A2
+        sub.l   -(a2),d2                                ; 009CEFF0: $94A2
+        sub.l   -(a2),d2                                ; 009CEFF2: $94A2
+        sub.l   -(a2),d2                                ; 009CEFF4: $94A2
+        sub.l   -(a2),d2                                ; 009CEFF6: $94A2
+        sub.l   -(a2),d2                                ; 009CEFF8: $94A2
+        sub.l   -(a2),d2                                ; 009CEFFA: $94A2
+        sub.l   -(a2),d2                                ; 009CEFFC: $94A2
+        sub.l   -(a2),d2                                ; 009CEFFE: $94A2
+        sub.l   -(a2),d2                                ; 009CF000: $94A2
+        sub.l   -(a2),d2                                ; 009CF002: $94A2
+        sub.l   -(a2),d2                                ; 009CF004: $94A2
+        sub.l   -(a2),d2                                ; 009CF006: $94A2
+        sub.l   -(a2),d2                                ; 009CF008: $94A2
+        sub.l   -(a2),d2                                ; 009CF00A: $94A2
+        sub.l   -(a2),d2                                ; 009CF00C: $94A2
+        sub.l   -(a2),d2                                ; 009CF00E: $94A2
+        sub.l   -(a2),d2                                ; 009CF010: $94A2
+        sub.l   -(a2),d2                                ; 009CF012: $94A2
+        sub.l   -(a2),d2                                ; 009CF014: $94A2
+        sub.l   -(a2),d2                                ; 009CF016: $94A2
+        sub.l   -(a2),d2                                ; 009CF018: $94A2
+        sub.l   -(a2),d2                                ; 009CF01A: $94A2
+        sub.l   -(a2),d2                                ; 009CF01C: $94A2
+        sub.l   -(a2),d2                                ; 009CF01E: $94A2
+        sub.l   -(a2),d2                                ; 009CF020: $94A2
+        sub.l   -(a2),d2                                ; 009CF022: $94A2
+        sub.l   -(a2),d2                                ; 009CF024: $94A2
+        sub.l   -(a2),d2                                ; 009CF026: $94A2
+        sub.l   -(a2),d2                                ; 009CF028: $94A2
+        sub.l   -(a2),d2                                ; 009CF02A: $94A2
+        sub.l   -(a2),d2                                ; 009CF02C: $94A2
+        sub.l   -(a2),d2                                ; 009CF02E: $94A2
+        sub.l   -(a2),d2                                ; 009CF030: $94A2
+        bcc.s   $009CEFFD                               ; 009CF032: $64C9
+        bcs.s   $009CF07E                               ; 009CF034: $6548
+        sub.l   -(a2),d2                                ; 009CF036: $94A2
+        sub.l   -(a2),d2                                ; 009CF038: $94A2
+        sub.l   -(a2),d2                                ; 009CF03A: $94A2
+        sub.l   -(a2),d2                                ; 009CF03C: $94A2
+        sub.l   -(a2),d2                                ; 009CF03E: $94A2
+        sub.l   -(a2),d2                                ; 009CF040: $94A2
+        sub.l   -(a2),d2                                ; 009CF042: $94A2
+        sub.l   -(a2),d2                                ; 009CF044: $94A2
+        bcs.s   $009CF00F                               ; 009CF046: $65C7
+        bcs.s   $009CF03C                               ; 009CF048: $65F2
+        bne.s   $009CEFF5                               ; 009CF04A: $66A9
+        beq.s   $009CEFE6                               ; 009CF04C: $6798
+        bvc.s   $009CF09F                               ; 009CF04E: $684F
+        sub.l   -(a2),d2                                ; 009CF050: $94A2
+        sub.l   -(a2),d2                                ; 009CF052: $94A2
+        sub.l   -(a2),d2                                ; 009CF054: $94A2
+        sub.l   -(a2),d2                                ; 009CF056: $94A2
+        sub.l   -(a2),d2                                ; 009CF058: $94A2
+        sub.l   -(a2),d2                                ; 009CF05A: $94A2
+        sub.l   -(a2),d2                                ; 009CF05C: $94A2
+        sub.l   -(a2),d2                                ; 009CF05E: $94A2
+        sub.l   -(a2),d2                                ; 009CF060: $94A2
+        sub.l   -(a2),d2                                ; 009CF062: $94A2
+        sub.l   -(a2),d2                                ; 009CF064: $94A2
+        sub.l   -(a2),d2                                ; 009CF066: $94A2
+        sub.l   -(a2),d2                                ; 009CF068: $94A2
+        sub.l   -(a2),d2                                ; 009CF06A: $94A2
+        sub.l   -(a2),d2                                ; 009CF06C: $94A2
+        sub.l   -(a2),d2                                ; 009CF06E: $94A2
+        sub.l   -(a2),d2                                ; 009CF070: $94A2
+        sub.l   -(a2),d2                                ; 009CF072: $94A2
+        sub.l   -(a2),d2                                ; 009CF074: $94A2
+        sub.l   -(a2),d2                                ; 009CF076: $94A2
+        sub.l   -(a2),d2                                ; 009CF078: $94A2
+        sub.l   -(a2),d2                                ; 009CF07A: $94A2
+        sub.l   -(a2),d2                                ; 009CF07C: $94A2
+        sub.l   -(a2),d2                                ; 009CF07E: $94A2
+        sub.l   -(a2),d2                                ; 009CF080: $94A2
+        sub.l   -(a2),d2                                ; 009CF082: $94A2
+        sub.l   -(a2),d2                                ; 009CF084: $94A2
+        sub.l   -(a2),d2                                ; 009CF086: $94A2
+        sub.l   -(a2),d2                                ; 009CF088: $94A2
+        sub.l   -(a2),d2                                ; 009CF08A: $94A2
+        sub.l   -(a2),d2                                ; 009CF08C: $94A2
+        sub.l   -(a2),d2                                ; 009CF08E: $94A2
+        sub.l   -(a2),d2                                ; 009CF090: $94A2
+        sub.l   -(a2),d2                                ; 009CF092: $94A2
+        sub.l   -(a2),d2                                ; 009CF094: $94A2
+        sub.l   -(a2),d2                                ; 009CF096: $94A2
+        sub.l   -(a2),d2                                ; 009CF098: $94A2
+        sub.l   -(a2),d2                                ; 009CF09A: $94A2
+        sub.l   -(a2),d2                                ; 009CF09C: $94A2
+        sub.l   -(a2),d2                                ; 009CF09E: $94A2
+        sub.l   -(a2),d2                                ; 009CF0A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF0A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF0A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF0A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF0A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF0AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF0AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF0AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF0B0: $94A2
+        bvc.s   $009CF12E                               ; 009CF0B2: $687A
+        bvc.s   $009CF093                               ; 009CF0B4: $68DD
+        sub.l   -(a2),d2                                ; 009CF0B6: $94A2
+        sub.l   -(a2),d2                                ; 009CF0B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF0BA: $94A2
+        sub.l   -(a2),d2                                ; 009CF0BC: $94A2
+        sub.l   -(a2),d2                                ; 009CF0BE: $94A2
+        sub.l   -(a2),d2                                ; 009CF0C0: $94A2
+        sub.l   -(a2),d2                                ; 009CF0C2: $94A2
+        sub.l   -(a2),d2                                ; 009CF0C4: $94A2
+        bvs.s   $009CF108                               ; 009CF0C6: $6940
+        bvs.s   $009CF127                               ; 009CF0C8: $695D
+        bpl.s   $009CF0FC                               ; 009CF0CA: $6A30
+        bmi.s   $009CF109                               ; 009CF0CC: $6B3B
+        sub.l   -(a2),d2                                ; 009CF0CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF0D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF0D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF0D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF0D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF0D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF0DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF0DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF0DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF0E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF0E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF0E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF0E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF0E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF0EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF0EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF0EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF0F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF0F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF0F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF0F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF0F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF0FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF0FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF0FE: $94A2
+        sub.l   -(a2),d2                                ; 009CF100: $94A2
+        sub.l   -(a2),d2                                ; 009CF102: $94A2
+        sub.l   -(a2),d2                                ; 009CF104: $94A2
+        sub.l   -(a2),d2                                ; 009CF106: $94A2
+        sub.l   -(a2),d2                                ; 009CF108: $94A2
+        sub.l   -(a2),d2                                ; 009CF10A: $94A2
+        sub.l   -(a2),d2                                ; 009CF10C: $94A2
+        sub.l   -(a2),d2                                ; 009CF10E: $94A2
+        sub.l   -(a2),d2                                ; 009CF110: $94A2
+        sub.l   -(a2),d2                                ; 009CF112: $94A2
+        sub.l   -(a2),d2                                ; 009CF114: $94A2
+        sub.l   -(a2),d2                                ; 009CF116: $94A2
+        sub.l   -(a2),d2                                ; 009CF118: $94A2
+        sub.l   -(a2),d2                                ; 009CF11A: $94A2
+        sub.l   -(a2),d2                                ; 009CF11C: $94A2
+        sub.l   -(a2),d2                                ; 009CF11E: $94A2
+        sub.l   -(a2),d2                                ; 009CF120: $94A2
+        sub.l   -(a2),d2                                ; 009CF122: $94A2
+        sub.l   -(a2),d2                                ; 009CF124: $94A2
+        sub.l   -(a2),d2                                ; 009CF126: $94A2
+        sub.l   -(a2),d2                                ; 009CF128: $94A2
+        sub.l   -(a2),d2                                ; 009CF12A: $94A2
+        sub.l   -(a2),d2                                ; 009CF12C: $94A2
+        sub.l   -(a2),d2                                ; 009CF12E: $94A2
+        sub.l   -(a2),d2                                ; 009CF130: $94A2
+        bmi.s   $009CF19A                               ; 009CF132: $6B66
+        bmi.s   $009CF0F1                               ; 009CF134: $6BBB
+        sub.l   -(a2),d2                                ; 009CF136: $94A2
+        sub.l   -(a2),d2                                ; 009CF138: $94A2
+        sub.l   -(a2),d2                                ; 009CF13A: $94A2
+        sub.l   -(a2),d2                                ; 009CF13C: $94A2
+        sub.l   -(a2),d2                                ; 009CF13E: $94A2
+        sub.l   -(a2),d2                                ; 009CF140: $94A2
+        sub.l   -(a2),d2                                ; 009CF142: $94A2
+        sub.l   -(a2),d2                                ; 009CF144: $94A2
+        bge.s   $009CF158                               ; 009CF146: $6C10
+        bge.s   $009CF177                               ; 009CF148: $6C2D
+        bge.s   $009CF122                               ; 009CF14A: $6CD6
+        sub.l   -(a2),d2                                ; 009CF14C: $94A2
+        sub.l   -(a2),d2                                ; 009CF14E: $94A2
+        sub.l   -(a2),d2                                ; 009CF150: $94A2
+        sub.l   -(a2),d2                                ; 009CF152: $94A2
+        sub.l   -(a2),d2                                ; 009CF154: $94A2
+        sub.l   -(a2),d2                                ; 009CF156: $94A2
+        sub.l   -(a2),d2                                ; 009CF158: $94A2
+        sub.l   -(a2),d2                                ; 009CF15A: $94A2
+        sub.l   -(a2),d2                                ; 009CF15C: $94A2
+        sub.l   -(a2),d2                                ; 009CF15E: $94A2
+        sub.l   -(a2),d2                                ; 009CF160: $94A2
+        sub.l   -(a2),d2                                ; 009CF162: $94A2
+        sub.l   -(a2),d2                                ; 009CF164: $94A2
+        sub.l   -(a2),d2                                ; 009CF166: $94A2
+        sub.l   -(a2),d2                                ; 009CF168: $94A2
+        sub.l   -(a2),d2                                ; 009CF16A: $94A2
+        sub.l   -(a2),d2                                ; 009CF16C: $94A2
+        sub.l   -(a2),d2                                ; 009CF16E: $94A2
+        sub.l   -(a2),d2                                ; 009CF170: $94A2
+        sub.l   -(a2),d2                                ; 009CF172: $94A2
+        sub.l   -(a2),d2                                ; 009CF174: $94A2
+        sub.l   -(a2),d2                                ; 009CF176: $94A2
+        sub.l   -(a2),d2                                ; 009CF178: $94A2
+        sub.l   -(a2),d2                                ; 009CF17A: $94A2
+        sub.l   -(a2),d2                                ; 009CF17C: $94A2
+        sub.l   -(a2),d2                                ; 009CF17E: $94A2
+        sub.l   -(a2),d2                                ; 009CF180: $94A2
+        sub.l   -(a2),d2                                ; 009CF182: $94A2
+        sub.l   -(a2),d2                                ; 009CF184: $94A2
+        sub.l   -(a2),d2                                ; 009CF186: $94A2
+        sub.l   -(a2),d2                                ; 009CF188: $94A2
+        sub.l   -(a2),d2                                ; 009CF18A: $94A2
+        sub.l   -(a2),d2                                ; 009CF18C: $94A2
+        sub.l   -(a2),d2                                ; 009CF18E: $94A2
+        sub.l   -(a2),d2                                ; 009CF190: $94A2
+        sub.l   -(a2),d2                                ; 009CF192: $94A2
+        sub.l   -(a2),d2                                ; 009CF194: $94A2
+        sub.l   -(a2),d2                                ; 009CF196: $94A2
+        sub.l   -(a2),d2                                ; 009CF198: $94A2
+        sub.l   -(a2),d2                                ; 009CF19A: $94A2
+        sub.l   -(a2),d2                                ; 009CF19C: $94A2
+        sub.l   -(a2),d2                                ; 009CF19E: $94A2
+        sub.l   -(a2),d2                                ; 009CF1A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF1A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF1A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF1A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF1A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF1AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF1AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF1AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF1B0: $94A2
+        blt.s   $009CF233                               ; 009CF1B2: $6D7F
+        blt.s   $009CF18A                               ; 009CF1B4: $6DD4
+        sub.l   -(a2),d2                                ; 009CF1B6: $94A2
+        sub.l   -(a2),d2                                ; 009CF1B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF1BA: $94A2
+        sub.l   -(a2),d2                                ; 009CF1BC: $94A2
+        sub.l   -(a2),d2                                ; 009CF1BE: $94A2
+        sub.l   -(a2),d2                                ; 009CF1C0: $94A2
+        sub.l   -(a2),d2                                ; 009CF1C2: $94A2
+        sub.l   -(a2),d2                                ; 009CF1C4: $94A2
+        sub.l   -(a2),d2                                ; 009CF1C6: $94A2
+        bgt.s   $009CF1F3                               ; 009CF1C8: $6E29
+        bgt.s   $009CF182                               ; 009CF1CA: $6EB6
+        sub.l   -(a2),d2                                ; 009CF1CC: $94A2
+        sub.l   -(a2),d2                                ; 009CF1CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF1D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF1D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF1D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF1D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF1D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF1DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF1DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF1DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF1E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF1E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF1E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF1E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF1E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF1EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF1EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF1EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF1F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF1F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF1F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF1F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF1F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF1FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF1FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF1FE: $94A2
+        sub.l   -(a2),d2                                ; 009CF200: $94A2
+        sub.l   -(a2),d2                                ; 009CF202: $94A2
+        sub.l   -(a2),d2                                ; 009CF204: $94A2
+        sub.l   -(a2),d2                                ; 009CF206: $94A2
+        sub.l   -(a2),d2                                ; 009CF208: $94A2
+        sub.l   -(a2),d2                                ; 009CF20A: $94A2
+        sub.l   -(a2),d2                                ; 009CF20C: $94A2
+        sub.l   -(a2),d2                                ; 009CF20E: $94A2
+        sub.l   -(a2),d2                                ; 009CF210: $94A2
+        sub.l   -(a2),d2                                ; 009CF212: $94A2
+        sub.l   -(a2),d2                                ; 009CF214: $94A2
+        sub.l   -(a2),d2                                ; 009CF216: $94A2
+        sub.l   -(a2),d2                                ; 009CF218: $94A2
+        sub.l   -(a2),d2                                ; 009CF21A: $94A2
+        sub.l   -(a2),d2                                ; 009CF21C: $94A2
+        sub.l   -(a2),d2                                ; 009CF21E: $94A2
+        sub.l   -(a2),d2                                ; 009CF220: $94A2
+        sub.l   -(a2),d2                                ; 009CF222: $94A2
+        sub.l   -(a2),d2                                ; 009CF224: $94A2
+        sub.l   -(a2),d2                                ; 009CF226: $94A2
+        sub.l   -(a2),d2                                ; 009CF228: $94A2
+        sub.l   -(a2),d2                                ; 009CF22A: $94A2
+        sub.l   -(a2),d2                                ; 009CF22C: $94A2
+        sub.l   -(a2),d2                                ; 009CF22E: $94A2
+        sub.l   -(a2),d2                                ; 009CF230: $94A2
+        ble.s   $009CF277                               ; 009CF232: $6F43
+        ble.s   $009CF1CE                               ; 009CF234: $6F98
+        sub.l   -(a2),d2                                ; 009CF236: $94A2
+        sub.l   -(a2),d2                                ; 009CF238: $94A2
+        sub.l   -(a2),d2                                ; 009CF23A: $94A2
+        sub.l   -(a2),d2                                ; 009CF23C: $94A2
+        sub.l   -(a2),d2                                ; 009CF23E: $94A2
+        sub.l   -(a2),d2                                ; 009CF240: $94A2
+        sub.l   -(a2),d2                                ; 009CF242: $94A2
+        sub.l   -(a2),d2                                ; 009CF244: $94A2
+        sub.l   -(a2),d2                                ; 009CF246: $94A2
+        ble.s   $009CF237                               ; 009CF248: $6FED
+        moveq   #$6C,d0                                 ; 009CF24A: $706C
+        sub.l   -(a2),d2                                ; 009CF24C: $94A2
+        sub.l   -(a2),d2                                ; 009CF24E: $94A2
+        sub.l   -(a2),d2                                ; 009CF250: $94A2
+        sub.l   -(a2),d2                                ; 009CF252: $94A2
+        sub.l   -(a2),d2                                ; 009CF254: $94A2
+        sub.l   -(a2),d2                                ; 009CF256: $94A2
+        sub.l   -(a2),d2                                ; 009CF258: $94A2
+        sub.l   -(a2),d2                                ; 009CF25A: $94A2
+        sub.l   -(a2),d2                                ; 009CF25C: $94A2
+        sub.l   -(a2),d2                                ; 009CF25E: $94A2
+        sub.l   -(a2),d2                                ; 009CF260: $94A2
+        sub.l   -(a2),d2                                ; 009CF262: $94A2
+        sub.l   -(a2),d2                                ; 009CF264: $94A2
+        sub.l   -(a2),d2                                ; 009CF266: $94A2
+        sub.l   -(a2),d2                                ; 009CF268: $94A2
+        sub.l   -(a2),d2                                ; 009CF26A: $94A2
+        sub.l   -(a2),d2                                ; 009CF26C: $94A2
+        sub.l   -(a2),d2                                ; 009CF26E: $94A2
+        sub.l   -(a2),d2                                ; 009CF270: $94A2
+        sub.l   -(a2),d2                                ; 009CF272: $94A2
+        sub.l   -(a2),d2                                ; 009CF274: $94A2
+        sub.l   -(a2),d2                                ; 009CF276: $94A2
+        sub.l   -(a2),d2                                ; 009CF278: $94A2
+        sub.l   -(a2),d2                                ; 009CF27A: $94A2
+        sub.l   -(a2),d2                                ; 009CF27C: $94A2
+        sub.l   -(a2),d2                                ; 009CF27E: $94A2
+        sub.l   -(a2),d2                                ; 009CF280: $94A2
+        sub.l   -(a2),d2                                ; 009CF282: $94A2
+        sub.l   -(a2),d2                                ; 009CF284: $94A2
+        sub.l   -(a2),d2                                ; 009CF286: $94A2
+        sub.l   -(a2),d2                                ; 009CF288: $94A2
+        sub.l   -(a2),d2                                ; 009CF28A: $94A2
+        sub.l   -(a2),d2                                ; 009CF28C: $94A2
+        sub.l   -(a2),d2                                ; 009CF28E: $94A2
+        sub.l   -(a2),d2                                ; 009CF290: $94A2
+        sub.l   -(a2),d2                                ; 009CF292: $94A2
+        sub.l   -(a2),d2                                ; 009CF294: $94A2
+        sub.l   -(a2),d2                                ; 009CF296: $94A2
+        sub.l   -(a2),d2                                ; 009CF298: $94A2
+        sub.l   -(a2),d2                                ; 009CF29A: $94A2
+        sub.l   -(a2),d2                                ; 009CF29C: $94A2
+        sub.l   -(a2),d2                                ; 009CF29E: $94A2
+        sub.l   -(a2),d2                                ; 009CF2A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF2A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF2A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF2A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF2A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF2AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF2AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF2AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF2B0: $94A2
+        moveq   #$EB,d0                                 ; 009CF2B2: $70EB
         dc.w    $7140                    ; 009CF2B4: dc.w $7140
-        dc.w    $94A2                    ; 009CF2B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2C6: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CF2B6: $94A2
+        sub.l   -(a2),d2                                ; 009CF2B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF2BA: $94A2
+        sub.l   -(a2),d2                                ; 009CF2BC: $94A2
+        sub.l   -(a2),d2                                ; 009CF2BE: $94A2
+        sub.l   -(a2),d2                                ; 009CF2C0: $94A2
+        sub.l   -(a2),d2                                ; 009CF2C2: $94A2
+        sub.l   -(a2),d2                                ; 009CF2C4: $94A2
+        sub.l   -(a2),d2                                ; 009CF2C6: $94A2
         dc.w    $7195                    ; 009CF2C8: dc.w $7195
-        dc.w    $7214                    ; 009CF2CA: MOVEQ #$14,D1
-        dc.w    $94A2                    ; 009CF2CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF2FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF300: dc.w $94A2
-        dc.w    $94A2                    ; 009CF302: dc.w $94A2
-        dc.w    $94A2                    ; 009CF304: dc.w $94A2
-        dc.w    $94A2                    ; 009CF306: dc.w $94A2
-        dc.w    $94A2                    ; 009CF308: dc.w $94A2
-        dc.w    $94A2                    ; 009CF30A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF30C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF30E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF310: dc.w $94A2
-        dc.w    $94A2                    ; 009CF312: dc.w $94A2
-        dc.w    $94A2                    ; 009CF314: dc.w $94A2
-        dc.w    $94A2                    ; 009CF316: dc.w $94A2
-        dc.w    $94A2                    ; 009CF318: dc.w $94A2
-        dc.w    $94A2                    ; 009CF31A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF31C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF31E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF320: dc.w $94A2
-        dc.w    $94A2                    ; 009CF322: dc.w $94A2
-        dc.w    $94A2                    ; 009CF324: dc.w $94A2
-        dc.w    $94A2                    ; 009CF326: dc.w $94A2
-        dc.w    $94A2                    ; 009CF328: dc.w $94A2
-        dc.w    $94A2                    ; 009CF32A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF32C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF32E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF330: dc.w $94A2
-        dc.w    $7293                    ; 009CF332: MOVEQ #$93,D1
-        dc.w    $72E8                    ; 009CF334: MOVEQ #$E8,D1
-        dc.w    $94A2                    ; 009CF336: dc.w $94A2
-        dc.w    $94A2                    ; 009CF338: dc.w $94A2
-        dc.w    $94A2                    ; 009CF33A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF33C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF33E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF340: dc.w $94A2
-        dc.w    $94A2                    ; 009CF342: dc.w $94A2
-        dc.w    $94A2                    ; 009CF344: dc.w $94A2
-        dc.w    $94A2                    ; 009CF346: dc.w $94A2
+        moveq   #$14,d1                                 ; 009CF2CA: $7214
+        sub.l   -(a2),d2                                ; 009CF2CC: $94A2
+        sub.l   -(a2),d2                                ; 009CF2CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF2D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF2D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF2D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF2D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF2D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF2DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF2DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF2DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF2E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF2E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF2E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF2E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF2E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF2EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF2EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF2EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF2F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF2F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF2F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF2F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF2F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF2FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF2FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF2FE: $94A2
+        sub.l   -(a2),d2                                ; 009CF300: $94A2
+        sub.l   -(a2),d2                                ; 009CF302: $94A2
+        sub.l   -(a2),d2                                ; 009CF304: $94A2
+        sub.l   -(a2),d2                                ; 009CF306: $94A2
+        sub.l   -(a2),d2                                ; 009CF308: $94A2
+        sub.l   -(a2),d2                                ; 009CF30A: $94A2
+        sub.l   -(a2),d2                                ; 009CF30C: $94A2
+        sub.l   -(a2),d2                                ; 009CF30E: $94A2
+        sub.l   -(a2),d2                                ; 009CF310: $94A2
+        sub.l   -(a2),d2                                ; 009CF312: $94A2
+        sub.l   -(a2),d2                                ; 009CF314: $94A2
+        sub.l   -(a2),d2                                ; 009CF316: $94A2
+        sub.l   -(a2),d2                                ; 009CF318: $94A2
+        sub.l   -(a2),d2                                ; 009CF31A: $94A2
+        sub.l   -(a2),d2                                ; 009CF31C: $94A2
+        sub.l   -(a2),d2                                ; 009CF31E: $94A2
+        sub.l   -(a2),d2                                ; 009CF320: $94A2
+        sub.l   -(a2),d2                                ; 009CF322: $94A2
+        sub.l   -(a2),d2                                ; 009CF324: $94A2
+        sub.l   -(a2),d2                                ; 009CF326: $94A2
+        sub.l   -(a2),d2                                ; 009CF328: $94A2
+        sub.l   -(a2),d2                                ; 009CF32A: $94A2
+        sub.l   -(a2),d2                                ; 009CF32C: $94A2
+        sub.l   -(a2),d2                                ; 009CF32E: $94A2
+        sub.l   -(a2),d2                                ; 009CF330: $94A2
+        moveq   #$93,d1                                 ; 009CF332: $7293
+        moveq   #$E8,d1                                 ; 009CF334: $72E8
+        sub.l   -(a2),d2                                ; 009CF336: $94A2
+        sub.l   -(a2),d2                                ; 009CF338: $94A2
+        sub.l   -(a2),d2                                ; 009CF33A: $94A2
+        sub.l   -(a2),d2                                ; 009CF33C: $94A2
+        sub.l   -(a2),d2                                ; 009CF33E: $94A2
+        sub.l   -(a2),d2                                ; 009CF340: $94A2
+        sub.l   -(a2),d2                                ; 009CF342: $94A2
+        sub.l   -(a2),d2                                ; 009CF344: $94A2
+        sub.l   -(a2),d2                                ; 009CF346: $94A2
         dc.w    $733D                    ; 009CF348: dc.w $733D
         dc.w    $73BC                    ; 009CF34A: dc.w $73BC
-        dc.w    $94A2                    ; 009CF34C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF34E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF350: dc.w $94A2
-        dc.w    $94A2                    ; 009CF352: dc.w $94A2
-        dc.w    $94A2                    ; 009CF354: dc.w $94A2
-        dc.w    $94A2                    ; 009CF356: dc.w $94A2
-        dc.w    $94A2                    ; 009CF358: dc.w $94A2
-        dc.w    $94A2                    ; 009CF35A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF35C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF35E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF360: dc.w $94A2
-        dc.w    $94A2                    ; 009CF362: dc.w $94A2
-        dc.w    $94A2                    ; 009CF364: dc.w $94A2
-        dc.w    $94A2                    ; 009CF366: dc.w $94A2
-        dc.w    $94A2                    ; 009CF368: dc.w $94A2
-        dc.w    $94A2                    ; 009CF36A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF36C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF36E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF370: dc.w $94A2
-        dc.w    $94A2                    ; 009CF372: dc.w $94A2
-        dc.w    $94A2                    ; 009CF374: dc.w $94A2
-        dc.w    $94A2                    ; 009CF376: dc.w $94A2
-        dc.w    $94A2                    ; 009CF378: dc.w $94A2
-        dc.w    $94A2                    ; 009CF37A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF37C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF37E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF380: dc.w $94A2
-        dc.w    $94A2                    ; 009CF382: dc.w $94A2
-        dc.w    $94A2                    ; 009CF384: dc.w $94A2
-        dc.w    $94A2                    ; 009CF386: dc.w $94A2
-        dc.w    $94A2                    ; 009CF388: dc.w $94A2
-        dc.w    $94A2                    ; 009CF38A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF38C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF38E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF390: dc.w $94A2
-        dc.w    $94A2                    ; 009CF392: dc.w $94A2
-        dc.w    $94A2                    ; 009CF394: dc.w $94A2
-        dc.w    $94A2                    ; 009CF396: dc.w $94A2
-        dc.w    $94A2                    ; 009CF398: dc.w $94A2
-        dc.w    $94A2                    ; 009CF39A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF39C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF39E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3B0: dc.w $94A2
-        dc.w    $743B                    ; 009CF3B2: MOVEQ #$3B,D2
-        dc.w    $7490                    ; 009CF3B4: MOVEQ #$90,D2
-        dc.w    $94A2                    ; 009CF3B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3C6: dc.w $94A2
-        dc.w    $74E5                    ; 009CF3C8: MOVEQ #$E5,D2
+        sub.l   -(a2),d2                                ; 009CF34C: $94A2
+        sub.l   -(a2),d2                                ; 009CF34E: $94A2
+        sub.l   -(a2),d2                                ; 009CF350: $94A2
+        sub.l   -(a2),d2                                ; 009CF352: $94A2
+        sub.l   -(a2),d2                                ; 009CF354: $94A2
+        sub.l   -(a2),d2                                ; 009CF356: $94A2
+        sub.l   -(a2),d2                                ; 009CF358: $94A2
+        sub.l   -(a2),d2                                ; 009CF35A: $94A2
+        sub.l   -(a2),d2                                ; 009CF35C: $94A2
+        sub.l   -(a2),d2                                ; 009CF35E: $94A2
+        sub.l   -(a2),d2                                ; 009CF360: $94A2
+        sub.l   -(a2),d2                                ; 009CF362: $94A2
+        sub.l   -(a2),d2                                ; 009CF364: $94A2
+        sub.l   -(a2),d2                                ; 009CF366: $94A2
+        sub.l   -(a2),d2                                ; 009CF368: $94A2
+        sub.l   -(a2),d2                                ; 009CF36A: $94A2
+        sub.l   -(a2),d2                                ; 009CF36C: $94A2
+        sub.l   -(a2),d2                                ; 009CF36E: $94A2
+        sub.l   -(a2),d2                                ; 009CF370: $94A2
+        sub.l   -(a2),d2                                ; 009CF372: $94A2
+        sub.l   -(a2),d2                                ; 009CF374: $94A2
+        sub.l   -(a2),d2                                ; 009CF376: $94A2
+        sub.l   -(a2),d2                                ; 009CF378: $94A2
+        sub.l   -(a2),d2                                ; 009CF37A: $94A2
+        sub.l   -(a2),d2                                ; 009CF37C: $94A2
+        sub.l   -(a2),d2                                ; 009CF37E: $94A2
+        sub.l   -(a2),d2                                ; 009CF380: $94A2
+        sub.l   -(a2),d2                                ; 009CF382: $94A2
+        sub.l   -(a2),d2                                ; 009CF384: $94A2
+        sub.l   -(a2),d2                                ; 009CF386: $94A2
+        sub.l   -(a2),d2                                ; 009CF388: $94A2
+        sub.l   -(a2),d2                                ; 009CF38A: $94A2
+        sub.l   -(a2),d2                                ; 009CF38C: $94A2
+        sub.l   -(a2),d2                                ; 009CF38E: $94A2
+        sub.l   -(a2),d2                                ; 009CF390: $94A2
+        sub.l   -(a2),d2                                ; 009CF392: $94A2
+        sub.l   -(a2),d2                                ; 009CF394: $94A2
+        sub.l   -(a2),d2                                ; 009CF396: $94A2
+        sub.l   -(a2),d2                                ; 009CF398: $94A2
+        sub.l   -(a2),d2                                ; 009CF39A: $94A2
+        sub.l   -(a2),d2                                ; 009CF39C: $94A2
+        sub.l   -(a2),d2                                ; 009CF39E: $94A2
+        sub.l   -(a2),d2                                ; 009CF3A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF3A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF3A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF3A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF3A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF3AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF3AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF3AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF3B0: $94A2
+        moveq   #$3B,d2                                 ; 009CF3B2: $743B
+        moveq   #$90,d2                                 ; 009CF3B4: $7490
+        sub.l   -(a2),d2                                ; 009CF3B6: $94A2
+        sub.l   -(a2),d2                                ; 009CF3B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF3BA: $94A2
+        sub.l   -(a2),d2                                ; 009CF3BC: $94A2
+        sub.l   -(a2),d2                                ; 009CF3BE: $94A2
+        sub.l   -(a2),d2                                ; 009CF3C0: $94A2
+        sub.l   -(a2),d2                                ; 009CF3C2: $94A2
+        sub.l   -(a2),d2                                ; 009CF3C4: $94A2
+        sub.l   -(a2),d2                                ; 009CF3C6: $94A2
+        moveq   #$E5,d2                                 ; 009CF3C8: $74E5
         dc.w    $7564                    ; 009CF3CA: dc.w $7564
-        dc.w    $94A2                    ; 009CF3CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF3FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF400: dc.w $94A2
-        dc.w    $94A2                    ; 009CF402: dc.w $94A2
-        dc.w    $94A2                    ; 009CF404: dc.w $94A2
-        dc.w    $94A2                    ; 009CF406: dc.w $94A2
-        dc.w    $94A2                    ; 009CF408: dc.w $94A2
-        dc.w    $94A2                    ; 009CF40A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF40C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF40E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF410: dc.w $94A2
-        dc.w    $94A2                    ; 009CF412: dc.w $94A2
-        dc.w    $94A2                    ; 009CF414: dc.w $94A2
-        dc.w    $94A2                    ; 009CF416: dc.w $94A2
-        dc.w    $94A2                    ; 009CF418: dc.w $94A2
-        dc.w    $94A2                    ; 009CF41A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF41C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF41E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF420: dc.w $94A2
-        dc.w    $94A2                    ; 009CF422: dc.w $94A2
-        dc.w    $94A2                    ; 009CF424: dc.w $94A2
-        dc.w    $94A2                    ; 009CF426: dc.w $94A2
-        dc.w    $94A2                    ; 009CF428: dc.w $94A2
-        dc.w    $94A2                    ; 009CF42A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF42C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF42E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF430: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CF3CC: $94A2
+        sub.l   -(a2),d2                                ; 009CF3CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF3D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF3D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF3D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF3D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF3D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF3DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF3DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF3DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF3E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF3E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF3E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF3E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF3E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF3EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF3EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF3EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF3F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF3F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF3F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF3F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF3F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF3FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF3FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF3FE: $94A2
+        sub.l   -(a2),d2                                ; 009CF400: $94A2
+        sub.l   -(a2),d2                                ; 009CF402: $94A2
+        sub.l   -(a2),d2                                ; 009CF404: $94A2
+        sub.l   -(a2),d2                                ; 009CF406: $94A2
+        sub.l   -(a2),d2                                ; 009CF408: $94A2
+        sub.l   -(a2),d2                                ; 009CF40A: $94A2
+        sub.l   -(a2),d2                                ; 009CF40C: $94A2
+        sub.l   -(a2),d2                                ; 009CF40E: $94A2
+        sub.l   -(a2),d2                                ; 009CF410: $94A2
+        sub.l   -(a2),d2                                ; 009CF412: $94A2
+        sub.l   -(a2),d2                                ; 009CF414: $94A2
+        sub.l   -(a2),d2                                ; 009CF416: $94A2
+        sub.l   -(a2),d2                                ; 009CF418: $94A2
+        sub.l   -(a2),d2                                ; 009CF41A: $94A2
+        sub.l   -(a2),d2                                ; 009CF41C: $94A2
+        sub.l   -(a2),d2                                ; 009CF41E: $94A2
+        sub.l   -(a2),d2                                ; 009CF420: $94A2
+        sub.l   -(a2),d2                                ; 009CF422: $94A2
+        sub.l   -(a2),d2                                ; 009CF424: $94A2
+        sub.l   -(a2),d2                                ; 009CF426: $94A2
+        sub.l   -(a2),d2                                ; 009CF428: $94A2
+        sub.l   -(a2),d2                                ; 009CF42A: $94A2
+        sub.l   -(a2),d2                                ; 009CF42C: $94A2
+        sub.l   -(a2),d2                                ; 009CF42E: $94A2
+        sub.l   -(a2),d2                                ; 009CF430: $94A2
         dc.w    $75E3                    ; 009CF432: dc.w $75E3
-        dc.w    $7638                    ; 009CF434: MOVEQ #$38,D3
-        dc.w    $94A2                    ; 009CF436: dc.w $94A2
-        dc.w    $94A2                    ; 009CF438: dc.w $94A2
-        dc.w    $94A2                    ; 009CF43A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF43C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF43E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF440: dc.w $94A2
-        dc.w    $94A2                    ; 009CF442: dc.w $94A2
-        dc.w    $94A2                    ; 009CF444: dc.w $94A2
-        dc.w    $94A2                    ; 009CF446: dc.w $94A2
-        dc.w    $768D                    ; 009CF448: MOVEQ #$8D,D3
+        moveq   #$38,d3                                 ; 009CF434: $7638
+        sub.l   -(a2),d2                                ; 009CF436: $94A2
+        sub.l   -(a2),d2                                ; 009CF438: $94A2
+        sub.l   -(a2),d2                                ; 009CF43A: $94A2
+        sub.l   -(a2),d2                                ; 009CF43C: $94A2
+        sub.l   -(a2),d2                                ; 009CF43E: $94A2
+        sub.l   -(a2),d2                                ; 009CF440: $94A2
+        sub.l   -(a2),d2                                ; 009CF442: $94A2
+        sub.l   -(a2),d2                                ; 009CF444: $94A2
+        sub.l   -(a2),d2                                ; 009CF446: $94A2
+        moveq   #$8D,d3                                 ; 009CF448: $768D
         dc.w    $770C                    ; 009CF44A: dc.w $770C
-        dc.w    $94A2                    ; 009CF44C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF44E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF450: dc.w $94A2
-        dc.w    $94A2                    ; 009CF452: dc.w $94A2
-        dc.w    $94A2                    ; 009CF454: dc.w $94A2
-        dc.w    $94A2                    ; 009CF456: dc.w $94A2
-        dc.w    $94A2                    ; 009CF458: dc.w $94A2
-        dc.w    $94A2                    ; 009CF45A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF45C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF45E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF460: dc.w $94A2
-        dc.w    $94A2                    ; 009CF462: dc.w $94A2
-        dc.w    $94A2                    ; 009CF464: dc.w $94A2
-        dc.w    $94A2                    ; 009CF466: dc.w $94A2
-        dc.w    $94A2                    ; 009CF468: dc.w $94A2
-        dc.w    $94A2                    ; 009CF46A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF46C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF46E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF470: dc.w $94A2
-        dc.w    $94A2                    ; 009CF472: dc.w $94A2
-        dc.w    $94A2                    ; 009CF474: dc.w $94A2
-        dc.w    $94A2                    ; 009CF476: dc.w $94A2
-        dc.w    $94A2                    ; 009CF478: dc.w $94A2
-        dc.w    $94A2                    ; 009CF47A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF47C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF47E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF480: dc.w $94A2
-        dc.w    $94A2                    ; 009CF482: dc.w $94A2
-        dc.w    $94A2                    ; 009CF484: dc.w $94A2
-        dc.w    $94A2                    ; 009CF486: dc.w $94A2
-        dc.w    $94A2                    ; 009CF488: dc.w $94A2
-        dc.w    $94A2                    ; 009CF48A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF48C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF48E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF490: dc.w $94A2
-        dc.w    $94A2                    ; 009CF492: dc.w $94A2
-        dc.w    $94A2                    ; 009CF494: dc.w $94A2
-        dc.w    $94A2                    ; 009CF496: dc.w $94A2
-        dc.w    $94A2                    ; 009CF498: dc.w $94A2
-        dc.w    $94A2                    ; 009CF49A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF49C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF49E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4B0: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CF44C: $94A2
+        sub.l   -(a2),d2                                ; 009CF44E: $94A2
+        sub.l   -(a2),d2                                ; 009CF450: $94A2
+        sub.l   -(a2),d2                                ; 009CF452: $94A2
+        sub.l   -(a2),d2                                ; 009CF454: $94A2
+        sub.l   -(a2),d2                                ; 009CF456: $94A2
+        sub.l   -(a2),d2                                ; 009CF458: $94A2
+        sub.l   -(a2),d2                                ; 009CF45A: $94A2
+        sub.l   -(a2),d2                                ; 009CF45C: $94A2
+        sub.l   -(a2),d2                                ; 009CF45E: $94A2
+        sub.l   -(a2),d2                                ; 009CF460: $94A2
+        sub.l   -(a2),d2                                ; 009CF462: $94A2
+        sub.l   -(a2),d2                                ; 009CF464: $94A2
+        sub.l   -(a2),d2                                ; 009CF466: $94A2
+        sub.l   -(a2),d2                                ; 009CF468: $94A2
+        sub.l   -(a2),d2                                ; 009CF46A: $94A2
+        sub.l   -(a2),d2                                ; 009CF46C: $94A2
+        sub.l   -(a2),d2                                ; 009CF46E: $94A2
+        sub.l   -(a2),d2                                ; 009CF470: $94A2
+        sub.l   -(a2),d2                                ; 009CF472: $94A2
+        sub.l   -(a2),d2                                ; 009CF474: $94A2
+        sub.l   -(a2),d2                                ; 009CF476: $94A2
+        sub.l   -(a2),d2                                ; 009CF478: $94A2
+        sub.l   -(a2),d2                                ; 009CF47A: $94A2
+        sub.l   -(a2),d2                                ; 009CF47C: $94A2
+        sub.l   -(a2),d2                                ; 009CF47E: $94A2
+        sub.l   -(a2),d2                                ; 009CF480: $94A2
+        sub.l   -(a2),d2                                ; 009CF482: $94A2
+        sub.l   -(a2),d2                                ; 009CF484: $94A2
+        sub.l   -(a2),d2                                ; 009CF486: $94A2
+        sub.l   -(a2),d2                                ; 009CF488: $94A2
+        sub.l   -(a2),d2                                ; 009CF48A: $94A2
+        sub.l   -(a2),d2                                ; 009CF48C: $94A2
+        sub.l   -(a2),d2                                ; 009CF48E: $94A2
+        sub.l   -(a2),d2                                ; 009CF490: $94A2
+        sub.l   -(a2),d2                                ; 009CF492: $94A2
+        sub.l   -(a2),d2                                ; 009CF494: $94A2
+        sub.l   -(a2),d2                                ; 009CF496: $94A2
+        sub.l   -(a2),d2                                ; 009CF498: $94A2
+        sub.l   -(a2),d2                                ; 009CF49A: $94A2
+        sub.l   -(a2),d2                                ; 009CF49C: $94A2
+        sub.l   -(a2),d2                                ; 009CF49E: $94A2
+        sub.l   -(a2),d2                                ; 009CF4A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF4A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF4A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF4A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF4A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF4AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF4AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF4AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF4B0: $94A2
         dc.w    $778B                    ; 009CF4B2: dc.w $778B
         dc.w    $77E0                    ; 009CF4B4: dc.w $77E0
-        dc.w    $94A2                    ; 009CF4B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4C6: dc.w $94A2
-        dc.w    $7835                    ; 009CF4C8: MOVEQ #$35,D4
-        dc.w    $78B4                    ; 009CF4CA: MOVEQ #$B4,D4
-        dc.w    $94A2                    ; 009CF4CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF4FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF500: dc.w $94A2
-        dc.w    $94A2                    ; 009CF502: dc.w $94A2
-        dc.w    $94A2                    ; 009CF504: dc.w $94A2
-        dc.w    $94A2                    ; 009CF506: dc.w $94A2
-        dc.w    $94A2                    ; 009CF508: dc.w $94A2
-        dc.w    $94A2                    ; 009CF50A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF50C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF50E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF510: dc.w $94A2
-        dc.w    $94A2                    ; 009CF512: dc.w $94A2
-        dc.w    $94A2                    ; 009CF514: dc.w $94A2
-        dc.w    $94A2                    ; 009CF516: dc.w $94A2
-        dc.w    $94A2                    ; 009CF518: dc.w $94A2
-        dc.w    $94A2                    ; 009CF51A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF51C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF51E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF520: dc.w $94A2
-        dc.w    $94A2                    ; 009CF522: dc.w $94A2
-        dc.w    $94A2                    ; 009CF524: dc.w $94A2
-        dc.w    $94A2                    ; 009CF526: dc.w $94A2
-        dc.w    $94A2                    ; 009CF528: dc.w $94A2
-        dc.w    $94A2                    ; 009CF52A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF52C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF52E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF530: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CF4B6: $94A2
+        sub.l   -(a2),d2                                ; 009CF4B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF4BA: $94A2
+        sub.l   -(a2),d2                                ; 009CF4BC: $94A2
+        sub.l   -(a2),d2                                ; 009CF4BE: $94A2
+        sub.l   -(a2),d2                                ; 009CF4C0: $94A2
+        sub.l   -(a2),d2                                ; 009CF4C2: $94A2
+        sub.l   -(a2),d2                                ; 009CF4C4: $94A2
+        sub.l   -(a2),d2                                ; 009CF4C6: $94A2
+        moveq   #$35,d4                                 ; 009CF4C8: $7835
+        moveq   #$B4,d4                                 ; 009CF4CA: $78B4
+        sub.l   -(a2),d2                                ; 009CF4CC: $94A2
+        sub.l   -(a2),d2                                ; 009CF4CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF4D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF4D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF4D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF4D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF4D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF4DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF4DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF4DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF4E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF4E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF4E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF4E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF4E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF4EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF4EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF4EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF4F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF4F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF4F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF4F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF4F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF4FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF4FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF4FE: $94A2
+        sub.l   -(a2),d2                                ; 009CF500: $94A2
+        sub.l   -(a2),d2                                ; 009CF502: $94A2
+        sub.l   -(a2),d2                                ; 009CF504: $94A2
+        sub.l   -(a2),d2                                ; 009CF506: $94A2
+        sub.l   -(a2),d2                                ; 009CF508: $94A2
+        sub.l   -(a2),d2                                ; 009CF50A: $94A2
+        sub.l   -(a2),d2                                ; 009CF50C: $94A2
+        sub.l   -(a2),d2                                ; 009CF50E: $94A2
+        sub.l   -(a2),d2                                ; 009CF510: $94A2
+        sub.l   -(a2),d2                                ; 009CF512: $94A2
+        sub.l   -(a2),d2                                ; 009CF514: $94A2
+        sub.l   -(a2),d2                                ; 009CF516: $94A2
+        sub.l   -(a2),d2                                ; 009CF518: $94A2
+        sub.l   -(a2),d2                                ; 009CF51A: $94A2
+        sub.l   -(a2),d2                                ; 009CF51C: $94A2
+        sub.l   -(a2),d2                                ; 009CF51E: $94A2
+        sub.l   -(a2),d2                                ; 009CF520: $94A2
+        sub.l   -(a2),d2                                ; 009CF522: $94A2
+        sub.l   -(a2),d2                                ; 009CF524: $94A2
+        sub.l   -(a2),d2                                ; 009CF526: $94A2
+        sub.l   -(a2),d2                                ; 009CF528: $94A2
+        sub.l   -(a2),d2                                ; 009CF52A: $94A2
+        sub.l   -(a2),d2                                ; 009CF52C: $94A2
+        sub.l   -(a2),d2                                ; 009CF52E: $94A2
+        sub.l   -(a2),d2                                ; 009CF530: $94A2
         dc.w    $7933                    ; 009CF532: dc.w $7933
         dc.w    $7988                    ; 009CF534: dc.w $7988
-        dc.w    $94A2                    ; 009CF536: dc.w $94A2
-        dc.w    $94A2                    ; 009CF538: dc.w $94A2
-        dc.w    $94A2                    ; 009CF53A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF53C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF53E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF540: dc.w $94A2
-        dc.w    $94A2                    ; 009CF542: dc.w $94A2
-        dc.w    $94A2                    ; 009CF544: dc.w $94A2
-        dc.w    $94A2                    ; 009CF546: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CF536: $94A2
+        sub.l   -(a2),d2                                ; 009CF538: $94A2
+        sub.l   -(a2),d2                                ; 009CF53A: $94A2
+        sub.l   -(a2),d2                                ; 009CF53C: $94A2
+        sub.l   -(a2),d2                                ; 009CF53E: $94A2
+        sub.l   -(a2),d2                                ; 009CF540: $94A2
+        sub.l   -(a2),d2                                ; 009CF542: $94A2
+        sub.l   -(a2),d2                                ; 009CF544: $94A2
+        sub.l   -(a2),d2                                ; 009CF546: $94A2
         dc.w    $79DD                    ; 009CF548: dc.w $79DD
-        dc.w    $7A5C                    ; 009CF54A: MOVEQ #$5C,D5
-        dc.w    $94A2                    ; 009CF54C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF54E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF550: dc.w $94A2
-        dc.w    $94A2                    ; 009CF552: dc.w $94A2
-        dc.w    $94A2                    ; 009CF554: dc.w $94A2
-        dc.w    $94A2                    ; 009CF556: dc.w $94A2
-        dc.w    $94A2                    ; 009CF558: dc.w $94A2
-        dc.w    $94A2                    ; 009CF55A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF55C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF55E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF560: dc.w $94A2
-        dc.w    $94A2                    ; 009CF562: dc.w $94A2
-        dc.w    $94A2                    ; 009CF564: dc.w $94A2
-        dc.w    $94A2                    ; 009CF566: dc.w $94A2
-        dc.w    $94A2                    ; 009CF568: dc.w $94A2
-        dc.w    $94A2                    ; 009CF56A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF56C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF56E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF570: dc.w $94A2
-        dc.w    $94A2                    ; 009CF572: dc.w $94A2
-        dc.w    $94A2                    ; 009CF574: dc.w $94A2
-        dc.w    $94A2                    ; 009CF576: dc.w $94A2
-        dc.w    $94A2                    ; 009CF578: dc.w $94A2
-        dc.w    $94A2                    ; 009CF57A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF57C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF57E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF580: dc.w $94A2
-        dc.w    $94A2                    ; 009CF582: dc.w $94A2
-        dc.w    $94A2                    ; 009CF584: dc.w $94A2
-        dc.w    $94A2                    ; 009CF586: dc.w $94A2
-        dc.w    $94A2                    ; 009CF588: dc.w $94A2
-        dc.w    $94A2                    ; 009CF58A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF58C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF58E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF590: dc.w $94A2
-        dc.w    $94A2                    ; 009CF592: dc.w $94A2
-        dc.w    $94A2                    ; 009CF594: dc.w $94A2
-        dc.w    $94A2                    ; 009CF596: dc.w $94A2
-        dc.w    $94A2                    ; 009CF598: dc.w $94A2
-        dc.w    $94A2                    ; 009CF59A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF59C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF59E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5B0: dc.w $94A2
-        dc.w    $7ADB                    ; 009CF5B2: MOVEQ #$DB,D5
+        moveq   #$5C,d5                                 ; 009CF54A: $7A5C
+        sub.l   -(a2),d2                                ; 009CF54C: $94A2
+        sub.l   -(a2),d2                                ; 009CF54E: $94A2
+        sub.l   -(a2),d2                                ; 009CF550: $94A2
+        sub.l   -(a2),d2                                ; 009CF552: $94A2
+        sub.l   -(a2),d2                                ; 009CF554: $94A2
+        sub.l   -(a2),d2                                ; 009CF556: $94A2
+        sub.l   -(a2),d2                                ; 009CF558: $94A2
+        sub.l   -(a2),d2                                ; 009CF55A: $94A2
+        sub.l   -(a2),d2                                ; 009CF55C: $94A2
+        sub.l   -(a2),d2                                ; 009CF55E: $94A2
+        sub.l   -(a2),d2                                ; 009CF560: $94A2
+        sub.l   -(a2),d2                                ; 009CF562: $94A2
+        sub.l   -(a2),d2                                ; 009CF564: $94A2
+        sub.l   -(a2),d2                                ; 009CF566: $94A2
+        sub.l   -(a2),d2                                ; 009CF568: $94A2
+        sub.l   -(a2),d2                                ; 009CF56A: $94A2
+        sub.l   -(a2),d2                                ; 009CF56C: $94A2
+        sub.l   -(a2),d2                                ; 009CF56E: $94A2
+        sub.l   -(a2),d2                                ; 009CF570: $94A2
+        sub.l   -(a2),d2                                ; 009CF572: $94A2
+        sub.l   -(a2),d2                                ; 009CF574: $94A2
+        sub.l   -(a2),d2                                ; 009CF576: $94A2
+        sub.l   -(a2),d2                                ; 009CF578: $94A2
+        sub.l   -(a2),d2                                ; 009CF57A: $94A2
+        sub.l   -(a2),d2                                ; 009CF57C: $94A2
+        sub.l   -(a2),d2                                ; 009CF57E: $94A2
+        sub.l   -(a2),d2                                ; 009CF580: $94A2
+        sub.l   -(a2),d2                                ; 009CF582: $94A2
+        sub.l   -(a2),d2                                ; 009CF584: $94A2
+        sub.l   -(a2),d2                                ; 009CF586: $94A2
+        sub.l   -(a2),d2                                ; 009CF588: $94A2
+        sub.l   -(a2),d2                                ; 009CF58A: $94A2
+        sub.l   -(a2),d2                                ; 009CF58C: $94A2
+        sub.l   -(a2),d2                                ; 009CF58E: $94A2
+        sub.l   -(a2),d2                                ; 009CF590: $94A2
+        sub.l   -(a2),d2                                ; 009CF592: $94A2
+        sub.l   -(a2),d2                                ; 009CF594: $94A2
+        sub.l   -(a2),d2                                ; 009CF596: $94A2
+        sub.l   -(a2),d2                                ; 009CF598: $94A2
+        sub.l   -(a2),d2                                ; 009CF59A: $94A2
+        sub.l   -(a2),d2                                ; 009CF59C: $94A2
+        sub.l   -(a2),d2                                ; 009CF59E: $94A2
+        sub.l   -(a2),d2                                ; 009CF5A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF5A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF5A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF5A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF5A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF5AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF5AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF5AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF5B0: $94A2
+        moveq   #$DB,d5                                 ; 009CF5B2: $7ADB
         dc.w    $7B30                    ; 009CF5B4: dc.w $7B30
-        dc.w    $94A2                    ; 009CF5B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5C6: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CF5B6: $94A2
+        sub.l   -(a2),d2                                ; 009CF5B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF5BA: $94A2
+        sub.l   -(a2),d2                                ; 009CF5BC: $94A2
+        sub.l   -(a2),d2                                ; 009CF5BE: $94A2
+        sub.l   -(a2),d2                                ; 009CF5C0: $94A2
+        sub.l   -(a2),d2                                ; 009CF5C2: $94A2
+        sub.l   -(a2),d2                                ; 009CF5C4: $94A2
+        sub.l   -(a2),d2                                ; 009CF5C6: $94A2
         dc.w    $7B85                    ; 009CF5C8: dc.w $7B85
-        dc.w    $7C04                    ; 009CF5CA: MOVEQ #$04,D6
-        dc.w    $94A2                    ; 009CF5CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF5FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF600: dc.w $94A2
-        dc.w    $94A2                    ; 009CF602: dc.w $94A2
-        dc.w    $94A2                    ; 009CF604: dc.w $94A2
-        dc.w    $94A2                    ; 009CF606: dc.w $94A2
-        dc.w    $94A2                    ; 009CF608: dc.w $94A2
-        dc.w    $94A2                    ; 009CF60A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF60C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF60E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF610: dc.w $94A2
-        dc.w    $94A2                    ; 009CF612: dc.w $94A2
-        dc.w    $94A2                    ; 009CF614: dc.w $94A2
-        dc.w    $94A2                    ; 009CF616: dc.w $94A2
-        dc.w    $94A2                    ; 009CF618: dc.w $94A2
-        dc.w    $94A2                    ; 009CF61A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF61C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF61E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF620: dc.w $94A2
-        dc.w    $94A2                    ; 009CF622: dc.w $94A2
-        dc.w    $94A2                    ; 009CF624: dc.w $94A2
-        dc.w    $94A2                    ; 009CF626: dc.w $94A2
-        dc.w    $94A2                    ; 009CF628: dc.w $94A2
-        dc.w    $94A2                    ; 009CF62A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF62C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF62E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF630: dc.w $94A2
-        dc.w    $7C83                    ; 009CF632: MOVEQ #$83,D6
-        dc.w    $7CD8                    ; 009CF634: MOVEQ #$D8,D6
-        dc.w    $94A2                    ; 009CF636: dc.w $94A2
-        dc.w    $94A2                    ; 009CF638: dc.w $94A2
-        dc.w    $94A2                    ; 009CF63A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF63C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF63E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF640: dc.w $94A2
-        dc.w    $94A2                    ; 009CF642: dc.w $94A2
-        dc.w    $94A2                    ; 009CF644: dc.w $94A2
-        dc.w    $94A2                    ; 009CF646: dc.w $94A2
+        moveq   #$04,d6                                 ; 009CF5CA: $7C04
+        sub.l   -(a2),d2                                ; 009CF5CC: $94A2
+        sub.l   -(a2),d2                                ; 009CF5CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF5D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF5D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF5D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF5D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF5D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF5DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF5DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF5DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF5E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF5E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF5E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF5E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF5E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF5EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF5EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF5EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF5F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF5F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF5F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF5F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF5F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF5FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF5FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF5FE: $94A2
+        sub.l   -(a2),d2                                ; 009CF600: $94A2
+        sub.l   -(a2),d2                                ; 009CF602: $94A2
+        sub.l   -(a2),d2                                ; 009CF604: $94A2
+        sub.l   -(a2),d2                                ; 009CF606: $94A2
+        sub.l   -(a2),d2                                ; 009CF608: $94A2
+        sub.l   -(a2),d2                                ; 009CF60A: $94A2
+        sub.l   -(a2),d2                                ; 009CF60C: $94A2
+        sub.l   -(a2),d2                                ; 009CF60E: $94A2
+        sub.l   -(a2),d2                                ; 009CF610: $94A2
+        sub.l   -(a2),d2                                ; 009CF612: $94A2
+        sub.l   -(a2),d2                                ; 009CF614: $94A2
+        sub.l   -(a2),d2                                ; 009CF616: $94A2
+        sub.l   -(a2),d2                                ; 009CF618: $94A2
+        sub.l   -(a2),d2                                ; 009CF61A: $94A2
+        sub.l   -(a2),d2                                ; 009CF61C: $94A2
+        sub.l   -(a2),d2                                ; 009CF61E: $94A2
+        sub.l   -(a2),d2                                ; 009CF620: $94A2
+        sub.l   -(a2),d2                                ; 009CF622: $94A2
+        sub.l   -(a2),d2                                ; 009CF624: $94A2
+        sub.l   -(a2),d2                                ; 009CF626: $94A2
+        sub.l   -(a2),d2                                ; 009CF628: $94A2
+        sub.l   -(a2),d2                                ; 009CF62A: $94A2
+        sub.l   -(a2),d2                                ; 009CF62C: $94A2
+        sub.l   -(a2),d2                                ; 009CF62E: $94A2
+        sub.l   -(a2),d2                                ; 009CF630: $94A2
+        moveq   #$83,d6                                 ; 009CF632: $7C83
+        moveq   #$D8,d6                                 ; 009CF634: $7CD8
+        sub.l   -(a2),d2                                ; 009CF636: $94A2
+        sub.l   -(a2),d2                                ; 009CF638: $94A2
+        sub.l   -(a2),d2                                ; 009CF63A: $94A2
+        sub.l   -(a2),d2                                ; 009CF63C: $94A2
+        sub.l   -(a2),d2                                ; 009CF63E: $94A2
+        sub.l   -(a2),d2                                ; 009CF640: $94A2
+        sub.l   -(a2),d2                                ; 009CF642: $94A2
+        sub.l   -(a2),d2                                ; 009CF644: $94A2
+        sub.l   -(a2),d2                                ; 009CF646: $94A2
         dc.w    $7D2D                    ; 009CF648: dc.w $7D2D
         dc.w    $7DAC                    ; 009CF64A: dc.w $7DAC
-        dc.w    $94A2                    ; 009CF64C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF64E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF650: dc.w $94A2
-        dc.w    $94A2                    ; 009CF652: dc.w $94A2
-        dc.w    $94A2                    ; 009CF654: dc.w $94A2
-        dc.w    $94A2                    ; 009CF656: dc.w $94A2
-        dc.w    $94A2                    ; 009CF658: dc.w $94A2
-        dc.w    $94A2                    ; 009CF65A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF65C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF65E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF660: dc.w $94A2
-        dc.w    $94A2                    ; 009CF662: dc.w $94A2
-        dc.w    $94A2                    ; 009CF664: dc.w $94A2
-        dc.w    $94A2                    ; 009CF666: dc.w $94A2
-        dc.w    $94A2                    ; 009CF668: dc.w $94A2
-        dc.w    $94A2                    ; 009CF66A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF66C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF66E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF670: dc.w $94A2
-        dc.w    $94A2                    ; 009CF672: dc.w $94A2
-        dc.w    $94A2                    ; 009CF674: dc.w $94A2
-        dc.w    $94A2                    ; 009CF676: dc.w $94A2
-        dc.w    $94A2                    ; 009CF678: dc.w $94A2
-        dc.w    $94A2                    ; 009CF67A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF67C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF67E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF680: dc.w $94A2
-        dc.w    $94A2                    ; 009CF682: dc.w $94A2
-        dc.w    $94A2                    ; 009CF684: dc.w $94A2
-        dc.w    $94A2                    ; 009CF686: dc.w $94A2
-        dc.w    $94A2                    ; 009CF688: dc.w $94A2
-        dc.w    $94A2                    ; 009CF68A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF68C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF68E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF690: dc.w $94A2
-        dc.w    $94A2                    ; 009CF692: dc.w $94A2
-        dc.w    $94A2                    ; 009CF694: dc.w $94A2
-        dc.w    $94A2                    ; 009CF696: dc.w $94A2
-        dc.w    $94A2                    ; 009CF698: dc.w $94A2
-        dc.w    $94A2                    ; 009CF69A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF69C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF69E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6B0: dc.w $94A2
-        dc.w    $7E2B                    ; 009CF6B2: MOVEQ #$2B,D7
-        dc.w    $7E80                    ; 009CF6B4: MOVEQ #$80,D7
-        dc.w    $94A2                    ; 009CF6B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6C2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6C6: dc.w $94A2
-        dc.w    $7ED5                    ; 009CF6C8: MOVEQ #$D5,D7
+        sub.l   -(a2),d2                                ; 009CF64C: $94A2
+        sub.l   -(a2),d2                                ; 009CF64E: $94A2
+        sub.l   -(a2),d2                                ; 009CF650: $94A2
+        sub.l   -(a2),d2                                ; 009CF652: $94A2
+        sub.l   -(a2),d2                                ; 009CF654: $94A2
+        sub.l   -(a2),d2                                ; 009CF656: $94A2
+        sub.l   -(a2),d2                                ; 009CF658: $94A2
+        sub.l   -(a2),d2                                ; 009CF65A: $94A2
+        sub.l   -(a2),d2                                ; 009CF65C: $94A2
+        sub.l   -(a2),d2                                ; 009CF65E: $94A2
+        sub.l   -(a2),d2                                ; 009CF660: $94A2
+        sub.l   -(a2),d2                                ; 009CF662: $94A2
+        sub.l   -(a2),d2                                ; 009CF664: $94A2
+        sub.l   -(a2),d2                                ; 009CF666: $94A2
+        sub.l   -(a2),d2                                ; 009CF668: $94A2
+        sub.l   -(a2),d2                                ; 009CF66A: $94A2
+        sub.l   -(a2),d2                                ; 009CF66C: $94A2
+        sub.l   -(a2),d2                                ; 009CF66E: $94A2
+        sub.l   -(a2),d2                                ; 009CF670: $94A2
+        sub.l   -(a2),d2                                ; 009CF672: $94A2
+        sub.l   -(a2),d2                                ; 009CF674: $94A2
+        sub.l   -(a2),d2                                ; 009CF676: $94A2
+        sub.l   -(a2),d2                                ; 009CF678: $94A2
+        sub.l   -(a2),d2                                ; 009CF67A: $94A2
+        sub.l   -(a2),d2                                ; 009CF67C: $94A2
+        sub.l   -(a2),d2                                ; 009CF67E: $94A2
+        sub.l   -(a2),d2                                ; 009CF680: $94A2
+        sub.l   -(a2),d2                                ; 009CF682: $94A2
+        sub.l   -(a2),d2                                ; 009CF684: $94A2
+        sub.l   -(a2),d2                                ; 009CF686: $94A2
+        sub.l   -(a2),d2                                ; 009CF688: $94A2
+        sub.l   -(a2),d2                                ; 009CF68A: $94A2
+        sub.l   -(a2),d2                                ; 009CF68C: $94A2
+        sub.l   -(a2),d2                                ; 009CF68E: $94A2
+        sub.l   -(a2),d2                                ; 009CF690: $94A2
+        sub.l   -(a2),d2                                ; 009CF692: $94A2
+        sub.l   -(a2),d2                                ; 009CF694: $94A2
+        sub.l   -(a2),d2                                ; 009CF696: $94A2
+        sub.l   -(a2),d2                                ; 009CF698: $94A2
+        sub.l   -(a2),d2                                ; 009CF69A: $94A2
+        sub.l   -(a2),d2                                ; 009CF69C: $94A2
+        sub.l   -(a2),d2                                ; 009CF69E: $94A2
+        sub.l   -(a2),d2                                ; 009CF6A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF6A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF6A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF6A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF6A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF6AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF6AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF6AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF6B0: $94A2
+        moveq   #$2B,d7                                 ; 009CF6B2: $7E2B
+        moveq   #$80,d7                                 ; 009CF6B4: $7E80
+        sub.l   -(a2),d2                                ; 009CF6B6: $94A2
+        sub.l   -(a2),d2                                ; 009CF6B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF6BA: $94A2
+        sub.l   -(a2),d2                                ; 009CF6BC: $94A2
+        sub.l   -(a2),d2                                ; 009CF6BE: $94A2
+        sub.l   -(a2),d2                                ; 009CF6C0: $94A2
+        sub.l   -(a2),d2                                ; 009CF6C2: $94A2
+        sub.l   -(a2),d2                                ; 009CF6C4: $94A2
+        sub.l   -(a2),d2                                ; 009CF6C6: $94A2
+        moveq   #$D5,d7                                 ; 009CF6C8: $7ED5
         dc.w    $7F7E                    ; 009CF6CA: dc.w $7F7E
-        dc.w    $94A2                    ; 009CF6CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF6FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF700: dc.w $94A2
-        dc.w    $94A2                    ; 009CF702: dc.w $94A2
-        dc.w    $94A2                    ; 009CF704: dc.w $94A2
-        dc.w    $94A2                    ; 009CF706: dc.w $94A2
-        dc.w    $94A2                    ; 009CF708: dc.w $94A2
-        dc.w    $94A2                    ; 009CF70A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF70C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF70E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF710: dc.w $94A2
-        dc.w    $94A2                    ; 009CF712: dc.w $94A2
-        dc.w    $94A2                    ; 009CF714: dc.w $94A2
-        dc.w    $94A2                    ; 009CF716: dc.w $94A2
-        dc.w    $94A2                    ; 009CF718: dc.w $94A2
-        dc.w    $94A2                    ; 009CF71A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF71C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF71E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF720: dc.w $94A2
-        dc.w    $94A2                    ; 009CF722: dc.w $94A2
-        dc.w    $94A2                    ; 009CF724: dc.w $94A2
-        dc.w    $94A2                    ; 009CF726: dc.w $94A2
-        dc.w    $94A2                    ; 009CF728: dc.w $94A2
-        dc.w    $94A2                    ; 009CF72A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF72C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF72E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF730: dc.w $94A2
-        dc.w    $8027                    ; 009CF732: dc.w $8027
-        dc.w    $807C                    ; 009CF734: dc.w $807C
-        dc.w    $94A2                    ; 009CF736: dc.w $94A2
-        dc.w    $94A2                    ; 009CF738: dc.w $94A2
-        dc.w    $94A2                    ; 009CF73A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF73C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF73E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF740: dc.w $94A2
-        dc.w    $94A2                    ; 009CF742: dc.w $94A2
-        dc.w    $94A2                    ; 009CF744: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CF6CC: $94A2
+        sub.l   -(a2),d2                                ; 009CF6CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF6D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF6D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF6D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF6D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF6D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF6DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF6DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF6DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF6E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF6E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF6E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF6E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF6E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF6EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF6EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF6EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF6F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF6F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF6F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF6F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF6F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF6FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF6FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF6FE: $94A2
+        sub.l   -(a2),d2                                ; 009CF700: $94A2
+        sub.l   -(a2),d2                                ; 009CF702: $94A2
+        sub.l   -(a2),d2                                ; 009CF704: $94A2
+        sub.l   -(a2),d2                                ; 009CF706: $94A2
+        sub.l   -(a2),d2                                ; 009CF708: $94A2
+        sub.l   -(a2),d2                                ; 009CF70A: $94A2
+        sub.l   -(a2),d2                                ; 009CF70C: $94A2
+        sub.l   -(a2),d2                                ; 009CF70E: $94A2
+        sub.l   -(a2),d2                                ; 009CF710: $94A2
+        sub.l   -(a2),d2                                ; 009CF712: $94A2
+        sub.l   -(a2),d2                                ; 009CF714: $94A2
+        sub.l   -(a2),d2                                ; 009CF716: $94A2
+        sub.l   -(a2),d2                                ; 009CF718: $94A2
+        sub.l   -(a2),d2                                ; 009CF71A: $94A2
+        sub.l   -(a2),d2                                ; 009CF71C: $94A2
+        sub.l   -(a2),d2                                ; 009CF71E: $94A2
+        sub.l   -(a2),d2                                ; 009CF720: $94A2
+        sub.l   -(a2),d2                                ; 009CF722: $94A2
+        sub.l   -(a2),d2                                ; 009CF724: $94A2
+        sub.l   -(a2),d2                                ; 009CF726: $94A2
+        sub.l   -(a2),d2                                ; 009CF728: $94A2
+        sub.l   -(a2),d2                                ; 009CF72A: $94A2
+        sub.l   -(a2),d2                                ; 009CF72C: $94A2
+        sub.l   -(a2),d2                                ; 009CF72E: $94A2
+        sub.l   -(a2),d2                                ; 009CF730: $94A2
+        or.b    -(a7),d0                                ; 009CF732: $8027
+        or.w    #$94A2,d0                               ; 009CF734: $807C, $94A2
+        sub.l   -(a2),d2                                ; 009CF738: $94A2
+        sub.l   -(a2),d2                                ; 009CF73A: $94A2
+        sub.l   -(a2),d2                                ; 009CF73C: $94A2
+        sub.l   -(a2),d2                                ; 009CF73E: $94A2
+        sub.l   -(a2),d2                                ; 009CF740: $94A2
+        sub.l   -(a2),d2                                ; 009CF742: $94A2
+        sub.l   -(a2),d2                                ; 009CF744: $94A2
         dc.w    $80D1                    ; 009CF746: dc.w $80D1
         dc.w    $80E0                    ; 009CF748: dc.w $80E0
-        dc.w    $8189                    ; 009CF74A: dc.w $8189
-        dc.w    $94A2                    ; 009CF74C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF74E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF750: dc.w $94A2
-        dc.w    $94A2                    ; 009CF752: dc.w $94A2
-        dc.w    $94A2                    ; 009CF754: dc.w $94A2
-        dc.w    $94A2                    ; 009CF756: dc.w $94A2
-        dc.w    $94A2                    ; 009CF758: dc.w $94A2
-        dc.w    $94A2                    ; 009CF75A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF75C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF75E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF760: dc.w $94A2
-        dc.w    $94A2                    ; 009CF762: dc.w $94A2
-        dc.w    $94A2                    ; 009CF764: dc.w $94A2
-        dc.w    $94A2                    ; 009CF766: dc.w $94A2
-        dc.w    $94A2                    ; 009CF768: dc.w $94A2
-        dc.w    $94A2                    ; 009CF76A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF76C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF76E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF770: dc.w $94A2
-        dc.w    $94A2                    ; 009CF772: dc.w $94A2
-        dc.w    $94A2                    ; 009CF774: dc.w $94A2
-        dc.w    $94A2                    ; 009CF776: dc.w $94A2
-        dc.w    $94A2                    ; 009CF778: dc.w $94A2
-        dc.w    $94A2                    ; 009CF77A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF77C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF77E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF780: dc.w $94A2
-        dc.w    $94A2                    ; 009CF782: dc.w $94A2
-        dc.w    $94A2                    ; 009CF784: dc.w $94A2
-        dc.w    $94A2                    ; 009CF786: dc.w $94A2
-        dc.w    $94A2                    ; 009CF788: dc.w $94A2
-        dc.w    $94A2                    ; 009CF78A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF78C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF78E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF790: dc.w $94A2
-        dc.w    $94A2                    ; 009CF792: dc.w $94A2
-        dc.w    $94A2                    ; 009CF794: dc.w $94A2
-        dc.w    $94A2                    ; 009CF796: dc.w $94A2
-        dc.w    $94A2                    ; 009CF798: dc.w $94A2
-        dc.w    $94A2                    ; 009CF79A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF79C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF79E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7B0: dc.w $94A2
-        dc.w    $8208                    ; 009CF7B2: dc.w $8208
-        dc.w    $825D                    ; 009CF7B4: dc.w $825D
-        dc.w    $94A2                    ; 009CF7B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7BE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7C0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7C2: dc.w $94A2
-        dc.w    $82B2                    ; 009CF7C4: dc.w $82B2
-        dc.w    $8315                    ; 009CF7C6: dc.w $8315
+        or.l    d0,a1                                   ; 009CF74A: $8189
+        sub.l   -(a2),d2                                ; 009CF74C: $94A2
+        sub.l   -(a2),d2                                ; 009CF74E: $94A2
+        sub.l   -(a2),d2                                ; 009CF750: $94A2
+        sub.l   -(a2),d2                                ; 009CF752: $94A2
+        sub.l   -(a2),d2                                ; 009CF754: $94A2
+        sub.l   -(a2),d2                                ; 009CF756: $94A2
+        sub.l   -(a2),d2                                ; 009CF758: $94A2
+        sub.l   -(a2),d2                                ; 009CF75A: $94A2
+        sub.l   -(a2),d2                                ; 009CF75C: $94A2
+        sub.l   -(a2),d2                                ; 009CF75E: $94A2
+        sub.l   -(a2),d2                                ; 009CF760: $94A2
+        sub.l   -(a2),d2                                ; 009CF762: $94A2
+        sub.l   -(a2),d2                                ; 009CF764: $94A2
+        sub.l   -(a2),d2                                ; 009CF766: $94A2
+        sub.l   -(a2),d2                                ; 009CF768: $94A2
+        sub.l   -(a2),d2                                ; 009CF76A: $94A2
+        sub.l   -(a2),d2                                ; 009CF76C: $94A2
+        sub.l   -(a2),d2                                ; 009CF76E: $94A2
+        sub.l   -(a2),d2                                ; 009CF770: $94A2
+        sub.l   -(a2),d2                                ; 009CF772: $94A2
+        sub.l   -(a2),d2                                ; 009CF774: $94A2
+        sub.l   -(a2),d2                                ; 009CF776: $94A2
+        sub.l   -(a2),d2                                ; 009CF778: $94A2
+        sub.l   -(a2),d2                                ; 009CF77A: $94A2
+        sub.l   -(a2),d2                                ; 009CF77C: $94A2
+        sub.l   -(a2),d2                                ; 009CF77E: $94A2
+        sub.l   -(a2),d2                                ; 009CF780: $94A2
+        sub.l   -(a2),d2                                ; 009CF782: $94A2
+        sub.l   -(a2),d2                                ; 009CF784: $94A2
+        sub.l   -(a2),d2                                ; 009CF786: $94A2
+        sub.l   -(a2),d2                                ; 009CF788: $94A2
+        sub.l   -(a2),d2                                ; 009CF78A: $94A2
+        sub.l   -(a2),d2                                ; 009CF78C: $94A2
+        sub.l   -(a2),d2                                ; 009CF78E: $94A2
+        sub.l   -(a2),d2                                ; 009CF790: $94A2
+        sub.l   -(a2),d2                                ; 009CF792: $94A2
+        sub.l   -(a2),d2                                ; 009CF794: $94A2
+        sub.l   -(a2),d2                                ; 009CF796: $94A2
+        sub.l   -(a2),d2                                ; 009CF798: $94A2
+        sub.l   -(a2),d2                                ; 009CF79A: $94A2
+        sub.l   -(a2),d2                                ; 009CF79C: $94A2
+        sub.l   -(a2),d2                                ; 009CF79E: $94A2
+        sub.l   -(a2),d2                                ; 009CF7A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF7A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF7A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF7A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF7A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF7AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF7AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF7AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF7B0: $94A2
+        or.b    a0,d1                                   ; 009CF7B2: $8208
+        or.w    (a5)+,d1                                ; 009CF7B4: $825D
+        sub.l   -(a2),d2                                ; 009CF7B6: $94A2
+        sub.l   -(a2),d2                                ; 009CF7B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF7BA: $94A2
+        sub.l   -(a2),d2                                ; 009CF7BC: $94A2
+        sub.l   -(a2),d2                                ; 009CF7BE: $94A2
+        sub.l   -(a2),d2                                ; 009CF7C0: $94A2
+        sub.l   -(a2),d2                                ; 009CF7C2: $94A2
+        or.l    $15(a2,a0.w),d1                         ; 009CF7C4: $82B2, $8315
         dc.w    $83CC                    ; 009CF7C8: dc.w $83CC
-        dc.w    $8483                    ; 009CF7CA: dc.w $8483
-        dc.w    $94A2                    ; 009CF7CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF7FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF800: dc.w $94A2
-        dc.w    $94A2                    ; 009CF802: dc.w $94A2
-        dc.w    $94A2                    ; 009CF804: dc.w $94A2
-        dc.w    $94A2                    ; 009CF806: dc.w $94A2
-        dc.w    $94A2                    ; 009CF808: dc.w $94A2
-        dc.w    $94A2                    ; 009CF80A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF80C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF80E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF810: dc.w $94A2
-        dc.w    $94A2                    ; 009CF812: dc.w $94A2
-        dc.w    $94A2                    ; 009CF814: dc.w $94A2
-        dc.w    $94A2                    ; 009CF816: dc.w $94A2
-        dc.w    $94A2                    ; 009CF818: dc.w $94A2
-        dc.w    $94A2                    ; 009CF81A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF81C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF81E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF820: dc.w $94A2
-        dc.w    $94A2                    ; 009CF822: dc.w $94A2
-        dc.w    $94A2                    ; 009CF824: dc.w $94A2
-        dc.w    $94A2                    ; 009CF826: dc.w $94A2
-        dc.w    $94A2                    ; 009CF828: dc.w $94A2
-        dc.w    $94A2                    ; 009CF82A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF82C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF82E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF830: dc.w $94A2
+        or.l    d3,d2                                   ; 009CF7CA: $8483
+        sub.l   -(a2),d2                                ; 009CF7CC: $94A2
+        sub.l   -(a2),d2                                ; 009CF7CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF7D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF7D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF7D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF7D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF7D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF7DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF7DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF7DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF7E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF7E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF7E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF7E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF7E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF7EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF7EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF7EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF7F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF7F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF7F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF7F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF7F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF7FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF7FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF7FE: $94A2
+        sub.l   -(a2),d2                                ; 009CF800: $94A2
+        sub.l   -(a2),d2                                ; 009CF802: $94A2
+        sub.l   -(a2),d2                                ; 009CF804: $94A2
+        sub.l   -(a2),d2                                ; 009CF806: $94A2
+        sub.l   -(a2),d2                                ; 009CF808: $94A2
+        sub.l   -(a2),d2                                ; 009CF80A: $94A2
+        sub.l   -(a2),d2                                ; 009CF80C: $94A2
+        sub.l   -(a2),d2                                ; 009CF80E: $94A2
+        sub.l   -(a2),d2                                ; 009CF810: $94A2
+        sub.l   -(a2),d2                                ; 009CF812: $94A2
+        sub.l   -(a2),d2                                ; 009CF814: $94A2
+        sub.l   -(a2),d2                                ; 009CF816: $94A2
+        sub.l   -(a2),d2                                ; 009CF818: $94A2
+        sub.l   -(a2),d2                                ; 009CF81A: $94A2
+        sub.l   -(a2),d2                                ; 009CF81C: $94A2
+        sub.l   -(a2),d2                                ; 009CF81E: $94A2
+        sub.l   -(a2),d2                                ; 009CF820: $94A2
+        sub.l   -(a2),d2                                ; 009CF822: $94A2
+        sub.l   -(a2),d2                                ; 009CF824: $94A2
+        sub.l   -(a2),d2                                ; 009CF826: $94A2
+        sub.l   -(a2),d2                                ; 009CF828: $94A2
+        sub.l   -(a2),d2                                ; 009CF82A: $94A2
+        sub.l   -(a2),d2                                ; 009CF82C: $94A2
+        sub.l   -(a2),d2                                ; 009CF82E: $94A2
+        sub.l   -(a2),d2                                ; 009CF830: $94A2
         dc.w    $84D8                    ; 009CF832: dc.w $84D8
-        dc.w    $8573                    ; 009CF834: dc.w $8573
-        dc.w    $94A2                    ; 009CF836: dc.w $94A2
-        dc.w    $94A2                    ; 009CF838: dc.w $94A2
-        dc.w    $94A2                    ; 009CF83A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF83C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF83E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF840: dc.w $94A2
-        dc.w    $860E                    ; 009CF842: dc.w $860E
-        dc.w    $868D                    ; 009CF844: dc.w $868D
-        dc.w    $8752                    ; 009CF846: dc.w $8752
+        or.w    d2,$-5E(a3,a1.w)                        ; 009CF834: $8573, $94A2
+        sub.l   -(a2),d2                                ; 009CF838: $94A2
+        sub.l   -(a2),d2                                ; 009CF83A: $94A2
+        sub.l   -(a2),d2                                ; 009CF83C: $94A2
+        sub.l   -(a2),d2                                ; 009CF83E: $94A2
+        sub.l   -(a2),d2                                ; 009CF840: $94A2
+        or.b    a6,d3                                   ; 009CF842: $860E
+        or.l    a5,d3                                   ; 009CF844: $868D
+        or.w    d3,(a2)                                 ; 009CF846: $8752
         dc.w    $87FB                    ; 009CF848: dc.w $87FB
-        dc.w    $885E                    ; 009CF84A: dc.w $885E
-        dc.w    $94A2                    ; 009CF84C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF84E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF850: dc.w $94A2
-        dc.w    $94A2                    ; 009CF852: dc.w $94A2
-        dc.w    $94A2                    ; 009CF854: dc.w $94A2
-        dc.w    $94A2                    ; 009CF856: dc.w $94A2
-        dc.w    $94A2                    ; 009CF858: dc.w $94A2
-        dc.w    $94A2                    ; 009CF85A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF85C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF85E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF860: dc.w $94A2
-        dc.w    $94A2                    ; 009CF862: dc.w $94A2
-        dc.w    $94A2                    ; 009CF864: dc.w $94A2
-        dc.w    $94A2                    ; 009CF866: dc.w $94A2
-        dc.w    $94A2                    ; 009CF868: dc.w $94A2
-        dc.w    $94A2                    ; 009CF86A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF86C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF86E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF870: dc.w $94A2
-        dc.w    $94A2                    ; 009CF872: dc.w $94A2
-        dc.w    $94A2                    ; 009CF874: dc.w $94A2
-        dc.w    $94A2                    ; 009CF876: dc.w $94A2
-        dc.w    $94A2                    ; 009CF878: dc.w $94A2
-        dc.w    $94A2                    ; 009CF87A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF87C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF87E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF880: dc.w $94A2
-        dc.w    $94A2                    ; 009CF882: dc.w $94A2
-        dc.w    $94A2                    ; 009CF884: dc.w $94A2
-        dc.w    $94A2                    ; 009CF886: dc.w $94A2
-        dc.w    $94A2                    ; 009CF888: dc.w $94A2
-        dc.w    $94A2                    ; 009CF88A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF88C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF88E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF890: dc.w $94A2
-        dc.w    $94A2                    ; 009CF892: dc.w $94A2
-        dc.w    $94A2                    ; 009CF894: dc.w $94A2
-        dc.w    $94A2                    ; 009CF896: dc.w $94A2
-        dc.w    $94A2                    ; 009CF898: dc.w $94A2
-        dc.w    $94A2                    ; 009CF89A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF89C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF89E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8B0: dc.w $94A2
-        dc.w    $886D                    ; 009CF8B2: dc.w $886D
-        dc.w    $88EC                    ; 009CF8B4: dc.w $88EC
-        dc.w    $94A2                    ; 009CF8B6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8BA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8BC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8BE: dc.w $94A2
-        dc.w    $8995                    ; 009CF8C0: dc.w $8995
+        or.w    (a6)+,d4                                ; 009CF84A: $885E
+        sub.l   -(a2),d2                                ; 009CF84C: $94A2
+        sub.l   -(a2),d2                                ; 009CF84E: $94A2
+        sub.l   -(a2),d2                                ; 009CF850: $94A2
+        sub.l   -(a2),d2                                ; 009CF852: $94A2
+        sub.l   -(a2),d2                                ; 009CF854: $94A2
+        sub.l   -(a2),d2                                ; 009CF856: $94A2
+        sub.l   -(a2),d2                                ; 009CF858: $94A2
+        sub.l   -(a2),d2                                ; 009CF85A: $94A2
+        sub.l   -(a2),d2                                ; 009CF85C: $94A2
+        sub.l   -(a2),d2                                ; 009CF85E: $94A2
+        sub.l   -(a2),d2                                ; 009CF860: $94A2
+        sub.l   -(a2),d2                                ; 009CF862: $94A2
+        sub.l   -(a2),d2                                ; 009CF864: $94A2
+        sub.l   -(a2),d2                                ; 009CF866: $94A2
+        sub.l   -(a2),d2                                ; 009CF868: $94A2
+        sub.l   -(a2),d2                                ; 009CF86A: $94A2
+        sub.l   -(a2),d2                                ; 009CF86C: $94A2
+        sub.l   -(a2),d2                                ; 009CF86E: $94A2
+        sub.l   -(a2),d2                                ; 009CF870: $94A2
+        sub.l   -(a2),d2                                ; 009CF872: $94A2
+        sub.l   -(a2),d2                                ; 009CF874: $94A2
+        sub.l   -(a2),d2                                ; 009CF876: $94A2
+        sub.l   -(a2),d2                                ; 009CF878: $94A2
+        sub.l   -(a2),d2                                ; 009CF87A: $94A2
+        sub.l   -(a2),d2                                ; 009CF87C: $94A2
+        sub.l   -(a2),d2                                ; 009CF87E: $94A2
+        sub.l   -(a2),d2                                ; 009CF880: $94A2
+        sub.l   -(a2),d2                                ; 009CF882: $94A2
+        sub.l   -(a2),d2                                ; 009CF884: $94A2
+        sub.l   -(a2),d2                                ; 009CF886: $94A2
+        sub.l   -(a2),d2                                ; 009CF888: $94A2
+        sub.l   -(a2),d2                                ; 009CF88A: $94A2
+        sub.l   -(a2),d2                                ; 009CF88C: $94A2
+        sub.l   -(a2),d2                                ; 009CF88E: $94A2
+        sub.l   -(a2),d2                                ; 009CF890: $94A2
+        sub.l   -(a2),d2                                ; 009CF892: $94A2
+        sub.l   -(a2),d2                                ; 009CF894: $94A2
+        sub.l   -(a2),d2                                ; 009CF896: $94A2
+        sub.l   -(a2),d2                                ; 009CF898: $94A2
+        sub.l   -(a2),d2                                ; 009CF89A: $94A2
+        sub.l   -(a2),d2                                ; 009CF89C: $94A2
+        sub.l   -(a2),d2                                ; 009CF89E: $94A2
+        sub.l   -(a2),d2                                ; 009CF8A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF8A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF8A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF8A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF8A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF8AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF8AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF8AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF8B0: $94A2
+        or.w    $-7714(a5),d4                           ; 009CF8B2: $886D, $88EC
+        sub.l   -(a2),d2                                ; 009CF8B6: $94A2
+        sub.l   -(a2),d2                                ; 009CF8B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF8BA: $94A2
+        sub.l   -(a2),d2                                ; 009CF8BC: $94A2
+        sub.l   -(a2),d2                                ; 009CF8BE: $94A2
+        or.l    d4,(a5)                                 ; 009CF8C0: $8995
         dc.w    $89EA                    ; 009CF8C2: dc.w $89EA
         dc.w    $8ABD                    ; 009CF8C4: dc.w $8ABD
-        dc.w    $8B4A                    ; 009CF8C6: dc.w $8B4A
-        dc.w    $94A2                    ; 009CF8C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8CA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF8FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF900: dc.w $94A2
-        dc.w    $94A2                    ; 009CF902: dc.w $94A2
-        dc.w    $94A2                    ; 009CF904: dc.w $94A2
-        dc.w    $94A2                    ; 009CF906: dc.w $94A2
-        dc.w    $94A2                    ; 009CF908: dc.w $94A2
-        dc.w    $94A2                    ; 009CF90A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF90C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF90E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF910: dc.w $94A2
-        dc.w    $94A2                    ; 009CF912: dc.w $94A2
-        dc.w    $94A2                    ; 009CF914: dc.w $94A2
-        dc.w    $94A2                    ; 009CF916: dc.w $94A2
-        dc.w    $94A2                    ; 009CF918: dc.w $94A2
-        dc.w    $94A2                    ; 009CF91A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF91C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF91E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF920: dc.w $94A2
-        dc.w    $94A2                    ; 009CF922: dc.w $94A2
-        dc.w    $94A2                    ; 009CF924: dc.w $94A2
-        dc.w    $94A2                    ; 009CF926: dc.w $94A2
-        dc.w    $94A2                    ; 009CF928: dc.w $94A2
-        dc.w    $94A2                    ; 009CF92A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF92C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF92E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF930: dc.w $94A2
-        dc.w    $8B67                    ; 009CF932: dc.w $8B67
-        dc.w    $8C10                    ; 009CF934: dc.w $8C10
-        dc.w    $94A2                    ; 009CF936: dc.w $94A2
-        dc.w    $94A2                    ; 009CF938: dc.w $94A2
-        dc.w    $94A2                    ; 009CF93A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF93C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF93E: dc.w $94A2
-        dc.w    $8CB9                    ; 009CF940: dc.w $8CB9
-        dc.w    $8D00                    ; 009CF942: dc.w $8D00
-        dc.w    $8D7F                    ; 009CF944: dc.w $8D7F
-        dc.w    $94A2                    ; 009CF946: dc.w $94A2
-        dc.w    $94A2                    ; 009CF948: dc.w $94A2
-        dc.w    $94A2                    ; 009CF94A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF94C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF94E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF950: dc.w $94A2
-        dc.w    $94A2                    ; 009CF952: dc.w $94A2
-        dc.w    $94A2                    ; 009CF954: dc.w $94A2
-        dc.w    $94A2                    ; 009CF956: dc.w $94A2
-        dc.w    $94A2                    ; 009CF958: dc.w $94A2
-        dc.w    $94A2                    ; 009CF95A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF95C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF95E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF960: dc.w $94A2
-        dc.w    $94A2                    ; 009CF962: dc.w $94A2
-        dc.w    $94A2                    ; 009CF964: dc.w $94A2
-        dc.w    $94A2                    ; 009CF966: dc.w $94A2
-        dc.w    $94A2                    ; 009CF968: dc.w $94A2
-        dc.w    $94A2                    ; 009CF96A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF96C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF96E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF970: dc.w $94A2
-        dc.w    $94A2                    ; 009CF972: dc.w $94A2
-        dc.w    $94A2                    ; 009CF974: dc.w $94A2
-        dc.w    $94A2                    ; 009CF976: dc.w $94A2
-        dc.w    $94A2                    ; 009CF978: dc.w $94A2
-        dc.w    $94A2                    ; 009CF97A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF97C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF97E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF980: dc.w $94A2
-        dc.w    $94A2                    ; 009CF982: dc.w $94A2
-        dc.w    $94A2                    ; 009CF984: dc.w $94A2
-        dc.w    $94A2                    ; 009CF986: dc.w $94A2
-        dc.w    $94A2                    ; 009CF988: dc.w $94A2
-        dc.w    $94A2                    ; 009CF98A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF98C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF98E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF990: dc.w $94A2
-        dc.w    $94A2                    ; 009CF992: dc.w $94A2
-        dc.w    $94A2                    ; 009CF994: dc.w $94A2
-        dc.w    $94A2                    ; 009CF996: dc.w $94A2
-        dc.w    $94A2                    ; 009CF998: dc.w $94A2
-        dc.w    $94A2                    ; 009CF99A: dc.w $94A2
-        dc.w    $94A2                    ; 009CF99C: dc.w $94A2
-        dc.w    $94A2                    ; 009CF99E: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9A0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9A2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9A4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9A6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9A8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9AA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9AC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9AE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9B0: dc.w $94A2
-        dc.w    $8D9C                    ; 009CF9B2: dc.w $8D9C
-        dc.w    $8E29                    ; 009CF9B4: dc.w $8E29
-        dc.w    $8EEE                    ; 009CF9B6: dc.w $8EEE
-        dc.w    $94A2                    ; 009CF9B8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9BA: dc.w $94A2
-        dc.w    $8F51                    ; 009CF9BC: dc.w $8F51
-        dc.w    $8F6E                    ; 009CF9BE: dc.w $8F6E
-        dc.w    $8FA7                    ; 009CF9C0: dc.w $8FA7
+        or.w    d5,a2                                   ; 009CF8C6: $8B4A
+        sub.l   -(a2),d2                                ; 009CF8C8: $94A2
+        sub.l   -(a2),d2                                ; 009CF8CA: $94A2
+        sub.l   -(a2),d2                                ; 009CF8CC: $94A2
+        sub.l   -(a2),d2                                ; 009CF8CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF8D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF8D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF8D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF8D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF8D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF8DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF8DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF8DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF8E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF8E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF8E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF8E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF8E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF8EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF8EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF8EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF8F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF8F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF8F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF8F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF8F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF8FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF8FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF8FE: $94A2
+        sub.l   -(a2),d2                                ; 009CF900: $94A2
+        sub.l   -(a2),d2                                ; 009CF902: $94A2
+        sub.l   -(a2),d2                                ; 009CF904: $94A2
+        sub.l   -(a2),d2                                ; 009CF906: $94A2
+        sub.l   -(a2),d2                                ; 009CF908: $94A2
+        sub.l   -(a2),d2                                ; 009CF90A: $94A2
+        sub.l   -(a2),d2                                ; 009CF90C: $94A2
+        sub.l   -(a2),d2                                ; 009CF90E: $94A2
+        sub.l   -(a2),d2                                ; 009CF910: $94A2
+        sub.l   -(a2),d2                                ; 009CF912: $94A2
+        sub.l   -(a2),d2                                ; 009CF914: $94A2
+        sub.l   -(a2),d2                                ; 009CF916: $94A2
+        sub.l   -(a2),d2                                ; 009CF918: $94A2
+        sub.l   -(a2),d2                                ; 009CF91A: $94A2
+        sub.l   -(a2),d2                                ; 009CF91C: $94A2
+        sub.l   -(a2),d2                                ; 009CF91E: $94A2
+        sub.l   -(a2),d2                                ; 009CF920: $94A2
+        sub.l   -(a2),d2                                ; 009CF922: $94A2
+        sub.l   -(a2),d2                                ; 009CF924: $94A2
+        sub.l   -(a2),d2                                ; 009CF926: $94A2
+        sub.l   -(a2),d2                                ; 009CF928: $94A2
+        sub.l   -(a2),d2                                ; 009CF92A: $94A2
+        sub.l   -(a2),d2                                ; 009CF92C: $94A2
+        sub.l   -(a2),d2                                ; 009CF92E: $94A2
+        sub.l   -(a2),d2                                ; 009CF930: $94A2
+        or.w    d5,-(a7)                                ; 009CF932: $8B67
+        or.b    (a0),d6                                 ; 009CF934: $8C10
+        sub.l   -(a2),d2                                ; 009CF936: $94A2
+        sub.l   -(a2),d2                                ; 009CF938: $94A2
+        sub.l   -(a2),d2                                ; 009CF93A: $94A2
+        sub.l   -(a2),d2                                ; 009CF93C: $94A2
+        sub.l   -(a2),d2                                ; 009CF93E: $94A2
+        or.l    ($8D008D7F).l,d6                        ; 009CF940: $8CB9, $8D00, $8D7F
+        sub.l   -(a2),d2                                ; 009CF946: $94A2
+        sub.l   -(a2),d2                                ; 009CF948: $94A2
+        sub.l   -(a2),d2                                ; 009CF94A: $94A2
+        sub.l   -(a2),d2                                ; 009CF94C: $94A2
+        sub.l   -(a2),d2                                ; 009CF94E: $94A2
+        sub.l   -(a2),d2                                ; 009CF950: $94A2
+        sub.l   -(a2),d2                                ; 009CF952: $94A2
+        sub.l   -(a2),d2                                ; 009CF954: $94A2
+        sub.l   -(a2),d2                                ; 009CF956: $94A2
+        sub.l   -(a2),d2                                ; 009CF958: $94A2
+        sub.l   -(a2),d2                                ; 009CF95A: $94A2
+        sub.l   -(a2),d2                                ; 009CF95C: $94A2
+        sub.l   -(a2),d2                                ; 009CF95E: $94A2
+        sub.l   -(a2),d2                                ; 009CF960: $94A2
+        sub.l   -(a2),d2                                ; 009CF962: $94A2
+        sub.l   -(a2),d2                                ; 009CF964: $94A2
+        sub.l   -(a2),d2                                ; 009CF966: $94A2
+        sub.l   -(a2),d2                                ; 009CF968: $94A2
+        sub.l   -(a2),d2                                ; 009CF96A: $94A2
+        sub.l   -(a2),d2                                ; 009CF96C: $94A2
+        sub.l   -(a2),d2                                ; 009CF96E: $94A2
+        sub.l   -(a2),d2                                ; 009CF970: $94A2
+        sub.l   -(a2),d2                                ; 009CF972: $94A2
+        sub.l   -(a2),d2                                ; 009CF974: $94A2
+        sub.l   -(a2),d2                                ; 009CF976: $94A2
+        sub.l   -(a2),d2                                ; 009CF978: $94A2
+        sub.l   -(a2),d2                                ; 009CF97A: $94A2
+        sub.l   -(a2),d2                                ; 009CF97C: $94A2
+        sub.l   -(a2),d2                                ; 009CF97E: $94A2
+        sub.l   -(a2),d2                                ; 009CF980: $94A2
+        sub.l   -(a2),d2                                ; 009CF982: $94A2
+        sub.l   -(a2),d2                                ; 009CF984: $94A2
+        sub.l   -(a2),d2                                ; 009CF986: $94A2
+        sub.l   -(a2),d2                                ; 009CF988: $94A2
+        sub.l   -(a2),d2                                ; 009CF98A: $94A2
+        sub.l   -(a2),d2                                ; 009CF98C: $94A2
+        sub.l   -(a2),d2                                ; 009CF98E: $94A2
+        sub.l   -(a2),d2                                ; 009CF990: $94A2
+        sub.l   -(a2),d2                                ; 009CF992: $94A2
+        sub.l   -(a2),d2                                ; 009CF994: $94A2
+        sub.l   -(a2),d2                                ; 009CF996: $94A2
+        sub.l   -(a2),d2                                ; 009CF998: $94A2
+        sub.l   -(a2),d2                                ; 009CF99A: $94A2
+        sub.l   -(a2),d2                                ; 009CF99C: $94A2
+        sub.l   -(a2),d2                                ; 009CF99E: $94A2
+        sub.l   -(a2),d2                                ; 009CF9A0: $94A2
+        sub.l   -(a2),d2                                ; 009CF9A2: $94A2
+        sub.l   -(a2),d2                                ; 009CF9A4: $94A2
+        sub.l   -(a2),d2                                ; 009CF9A6: $94A2
+        sub.l   -(a2),d2                                ; 009CF9A8: $94A2
+        sub.l   -(a2),d2                                ; 009CF9AA: $94A2
+        sub.l   -(a2),d2                                ; 009CF9AC: $94A2
+        sub.l   -(a2),d2                                ; 009CF9AE: $94A2
+        sub.l   -(a2),d2                                ; 009CF9B0: $94A2
+        or.l    d6,(a4)+                                ; 009CF9B2: $8D9C
+        or.b    $-7112(a1),d7                           ; 009CF9B4: $8E29, $8EEE
+        sub.l   -(a2),d2                                ; 009CF9B8: $94A2
+        sub.l   -(a2),d2                                ; 009CF9BA: $94A2
+        or.w    d7,(a1)                                 ; 009CF9BC: $8F51
+        or.w    d7,$-7059(a6)                           ; 009CF9BE: $8F6E, $8FA7
         dc.w    $8FE0                    ; 009CF9C2: dc.w $8FE0
-        dc.w    $94A2                    ; 009CF9C4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9C6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9C8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9CA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9CC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9CE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9D0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9D2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9D4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9D6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9D8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9DA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9DC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9DE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9E0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9E2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9E4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9E6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9E8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9EA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9EC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9EE: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9F0: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9F2: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9F4: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9F6: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9F8: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9FA: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9FC: dc.w $94A2
-        dc.w    $94A2                    ; 009CF9FE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA00: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA02: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA04: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA06: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA08: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA10: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA12: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA14: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA16: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA18: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA20: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA22: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA24: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA26: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA28: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA30: dc.w $94A2
+        sub.l   -(a2),d2                                ; 009CF9C4: $94A2
+        sub.l   -(a2),d2                                ; 009CF9C6: $94A2
+        sub.l   -(a2),d2                                ; 009CF9C8: $94A2
+        sub.l   -(a2),d2                                ; 009CF9CA: $94A2
+        sub.l   -(a2),d2                                ; 009CF9CC: $94A2
+        sub.l   -(a2),d2                                ; 009CF9CE: $94A2
+        sub.l   -(a2),d2                                ; 009CF9D0: $94A2
+        sub.l   -(a2),d2                                ; 009CF9D2: $94A2
+        sub.l   -(a2),d2                                ; 009CF9D4: $94A2
+        sub.l   -(a2),d2                                ; 009CF9D6: $94A2
+        sub.l   -(a2),d2                                ; 009CF9D8: $94A2
+        sub.l   -(a2),d2                                ; 009CF9DA: $94A2
+        sub.l   -(a2),d2                                ; 009CF9DC: $94A2
+        sub.l   -(a2),d2                                ; 009CF9DE: $94A2
+        sub.l   -(a2),d2                                ; 009CF9E0: $94A2
+        sub.l   -(a2),d2                                ; 009CF9E2: $94A2
+        sub.l   -(a2),d2                                ; 009CF9E4: $94A2
+        sub.l   -(a2),d2                                ; 009CF9E6: $94A2
+        sub.l   -(a2),d2                                ; 009CF9E8: $94A2
+        sub.l   -(a2),d2                                ; 009CF9EA: $94A2
+        sub.l   -(a2),d2                                ; 009CF9EC: $94A2
+        sub.l   -(a2),d2                                ; 009CF9EE: $94A2
+        sub.l   -(a2),d2                                ; 009CF9F0: $94A2
+        sub.l   -(a2),d2                                ; 009CF9F2: $94A2
+        sub.l   -(a2),d2                                ; 009CF9F4: $94A2
+        sub.l   -(a2),d2                                ; 009CF9F6: $94A2
+        sub.l   -(a2),d2                                ; 009CF9F8: $94A2
+        sub.l   -(a2),d2                                ; 009CF9FA: $94A2
+        sub.l   -(a2),d2                                ; 009CF9FC: $94A2
+        sub.l   -(a2),d2                                ; 009CF9FE: $94A2
+        sub.l   -(a2),d2                                ; 009CFA00: $94A2
+        sub.l   -(a2),d2                                ; 009CFA02: $94A2
+        sub.l   -(a2),d2                                ; 009CFA04: $94A2
+        sub.l   -(a2),d2                                ; 009CFA06: $94A2
+        sub.l   -(a2),d2                                ; 009CFA08: $94A2
+        sub.l   -(a2),d2                                ; 009CFA0A: $94A2
+        sub.l   -(a2),d2                                ; 009CFA0C: $94A2
+        sub.l   -(a2),d2                                ; 009CFA0E: $94A2
+        sub.l   -(a2),d2                                ; 009CFA10: $94A2
+        sub.l   -(a2),d2                                ; 009CFA12: $94A2
+        sub.l   -(a2),d2                                ; 009CFA14: $94A2
+        sub.l   -(a2),d2                                ; 009CFA16: $94A2
+        sub.l   -(a2),d2                                ; 009CFA18: $94A2
+        sub.l   -(a2),d2                                ; 009CFA1A: $94A2
+        sub.l   -(a2),d2                                ; 009CFA1C: $94A2
+        sub.l   -(a2),d2                                ; 009CFA1E: $94A2
+        sub.l   -(a2),d2                                ; 009CFA20: $94A2
+        sub.l   -(a2),d2                                ; 009CFA22: $94A2
+        sub.l   -(a2),d2                                ; 009CFA24: $94A2
+        sub.l   -(a2),d2                                ; 009CFA26: $94A2
+        sub.l   -(a2),d2                                ; 009CFA28: $94A2
+        sub.l   -(a2),d2                                ; 009CFA2A: $94A2
+        sub.l   -(a2),d2                                ; 009CFA2C: $94A2
+        sub.l   -(a2),d2                                ; 009CFA2E: $94A2
+        sub.l   -(a2),d2                                ; 009CFA30: $94A2
         dc.w    $8FEF                    ; 009CFA32: dc.w $8FEF
         dc.w    $8FFE                    ; 009CFA34: dc.w $8FFE
-        dc.w    $90A7                    ; 009CFA36: dc.w $90A7
-        dc.w    $9188                    ; 009CFA38: dc.w $9188
-        dc.w    $9215                    ; 009CFA3A: dc.w $9215
-        dc.w    $9294                    ; 009CFA3C: dc.w $9294
-        dc.w    $92CD                    ; 009CFA3E: dc.w $92CD
-        dc.w    $9306                    ; 009CFA40: dc.w $9306
-        dc.w    $94A2                    ; 009CFA42: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA44: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA46: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA48: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA4A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA4C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA4E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA50: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA52: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA54: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA56: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA58: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA60: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA62: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA64: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA66: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA68: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA70: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA72: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA74: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA76: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA78: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA80: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA82: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA84: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA86: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA88: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA90: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA92: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA94: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA96: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA98: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFA9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAB0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAB2: dc.w $94A2
-        dc.w    $9323                    ; 009CFAB4: dc.w $9323
-        dc.w    $9332                    ; 009CFAB6: dc.w $9332
-        dc.w    $9395                    ; 009CFAB8: dc.w $9395
-        dc.w    $9414                    ; 009CFABA: dc.w $9414
-        dc.w    $9493                    ; 009CFABC: dc.w $9493
-        dc.w    $94A2                    ; 009CFABE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFACA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFACC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFACE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAD0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAD2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAD4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAD6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFADA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFADC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFADE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFAFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB00: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB02: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB04: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB06: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB08: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB10: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB12: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB14: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB16: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB18: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB20: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB22: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB24: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB26: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB28: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB30: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB32: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB34: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB36: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB38: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB40: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB42: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB44: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB46: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB48: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB4A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB4C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB4E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB50: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB52: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB54: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB56: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB58: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB60: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB62: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB64: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB66: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB68: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB70: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB72: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB74: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB76: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB78: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB80: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB82: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB84: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB86: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB88: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB90: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB92: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB94: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB96: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB98: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFB9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBB0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBB2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBB4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBCA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBCC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBCE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBD0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBD2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBD4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBD6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFBFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC00: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC02: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC04: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC06: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC08: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC10: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC12: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC14: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC16: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC18: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC20: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC22: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC24: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC26: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC28: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC30: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC32: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC34: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC36: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC38: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC40: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC42: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC44: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC46: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC48: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC4A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC4C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC4E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC50: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC52: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC54: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC56: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC58: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC60: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC62: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC64: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC66: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC68: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC70: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC72: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC74: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC76: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC78: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC80: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC82: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC84: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC86: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC88: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC90: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC92: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC94: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC96: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC98: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFC9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCB0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCB2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCB4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCCA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCCC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCCE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCD0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCD2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCD4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCD6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFCFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD00: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD02: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD04: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD06: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD08: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD10: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD12: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD14: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD16: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD18: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD20: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD22: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD24: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD26: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD28: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD30: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD32: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD34: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD36: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD38: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD40: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD42: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD44: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD46: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD48: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD4A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD4C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD4E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD50: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD52: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD54: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD56: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD58: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD60: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD62: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD64: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD66: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD68: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD70: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD72: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD74: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD76: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD78: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD80: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD82: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD84: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD86: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD88: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD90: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD92: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD94: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD96: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD98: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFD9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDB0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDB2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDB4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDCA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDCC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDCE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDD0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDD2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDD4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDD6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFDFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE00: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE02: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE04: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE06: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE08: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE10: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE12: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE14: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE16: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE18: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE20: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE22: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE24: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE26: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE28: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE30: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE32: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE34: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE36: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE38: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE40: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE42: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE44: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE46: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE48: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE4A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE4C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE4E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE50: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE52: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE54: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE56: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE58: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE60: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE62: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE64: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE66: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE68: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE70: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE72: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE74: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE76: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE78: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE80: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE82: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE84: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE86: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE88: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE90: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE92: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE94: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE96: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE98: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFE9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEB0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEB2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEB4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFECA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFECC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFECE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFED0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFED2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFED4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFED6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFED8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFEFE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF00: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF02: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF04: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF06: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF08: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF0A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF0C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF0E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF10: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF12: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF14: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF16: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF18: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF1A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF1C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF1E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF20: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF22: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF24: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF26: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF28: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF2A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF2C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF2E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF30: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF32: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF34: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF36: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF38: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF3A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF3C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF3E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF40: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF42: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF44: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF46: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF48: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF4A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF4C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF4E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF50: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF52: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF54: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF56: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF58: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF5A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF5C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF5E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF60: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF62: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF64: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF66: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF68: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF6A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF6C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF6E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF70: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF72: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF74: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF76: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF78: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF7A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF7C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF7E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF80: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF82: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF84: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF86: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF88: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF8A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF8C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF8E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF90: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF92: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF94: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF96: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF98: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF9A: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF9C: dc.w $94A2
-        dc.w    $94A2                    ; 009CFF9E: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFA0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFA2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFA4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFA6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFA8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFAA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFAC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFAE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFB0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFB2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFB4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFB6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFB8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFBA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFBC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFBE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFC0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFC2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFC4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFC6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFC8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFCA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFCC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFCE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFD0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFD2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFD4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFD6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFD8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFDA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFDC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFDE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFE0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFE2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFE4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFE6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFE8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFEA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFEC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFEE: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFF0: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFF2: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFF4: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFF6: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFF8: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFFA: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFFC: dc.w $94A2
-        dc.w    $94A2                    ; 009CFFFE: dc.w $94A2
+        sub.l   -(a7),d0                                ; 009CFA36: $90A7
+        sub.l   d0,a0                                   ; 009CFA38: $9188
+        sub.b   (a5),d1                                 ; 009CFA3A: $9215
+        sub.l   (a4),d1                                 ; 009CFA3C: $9294
+        suba.w  a5,a1                                   ; 009CFA3E: $92CD
+        sub.b   d1,d6                                   ; 009CFA40: $9306
+        sub.l   -(a2),d2                                ; 009CFA42: $94A2
+        sub.l   -(a2),d2                                ; 009CFA44: $94A2
+        sub.l   -(a2),d2                                ; 009CFA46: $94A2
+        sub.l   -(a2),d2                                ; 009CFA48: $94A2
+        sub.l   -(a2),d2                                ; 009CFA4A: $94A2
+        sub.l   -(a2),d2                                ; 009CFA4C: $94A2
+        sub.l   -(a2),d2                                ; 009CFA4E: $94A2
+        sub.l   -(a2),d2                                ; 009CFA50: $94A2
+        sub.l   -(a2),d2                                ; 009CFA52: $94A2
+        sub.l   -(a2),d2                                ; 009CFA54: $94A2
+        sub.l   -(a2),d2                                ; 009CFA56: $94A2
+        sub.l   -(a2),d2                                ; 009CFA58: $94A2
+        sub.l   -(a2),d2                                ; 009CFA5A: $94A2
+        sub.l   -(a2),d2                                ; 009CFA5C: $94A2
+        sub.l   -(a2),d2                                ; 009CFA5E: $94A2
+        sub.l   -(a2),d2                                ; 009CFA60: $94A2
+        sub.l   -(a2),d2                                ; 009CFA62: $94A2
+        sub.l   -(a2),d2                                ; 009CFA64: $94A2
+        sub.l   -(a2),d2                                ; 009CFA66: $94A2
+        sub.l   -(a2),d2                                ; 009CFA68: $94A2
+        sub.l   -(a2),d2                                ; 009CFA6A: $94A2
+        sub.l   -(a2),d2                                ; 009CFA6C: $94A2
+        sub.l   -(a2),d2                                ; 009CFA6E: $94A2
+        sub.l   -(a2),d2                                ; 009CFA70: $94A2
+        sub.l   -(a2),d2                                ; 009CFA72: $94A2
+        sub.l   -(a2),d2                                ; 009CFA74: $94A2
+        sub.l   -(a2),d2                                ; 009CFA76: $94A2
+        sub.l   -(a2),d2                                ; 009CFA78: $94A2
+        sub.l   -(a2),d2                                ; 009CFA7A: $94A2
+        sub.l   -(a2),d2                                ; 009CFA7C: $94A2
+        sub.l   -(a2),d2                                ; 009CFA7E: $94A2
+        sub.l   -(a2),d2                                ; 009CFA80: $94A2
+        sub.l   -(a2),d2                                ; 009CFA82: $94A2
+        sub.l   -(a2),d2                                ; 009CFA84: $94A2
+        sub.l   -(a2),d2                                ; 009CFA86: $94A2
+        sub.l   -(a2),d2                                ; 009CFA88: $94A2
+        sub.l   -(a2),d2                                ; 009CFA8A: $94A2
+        sub.l   -(a2),d2                                ; 009CFA8C: $94A2
+        sub.l   -(a2),d2                                ; 009CFA8E: $94A2
+        sub.l   -(a2),d2                                ; 009CFA90: $94A2
+        sub.l   -(a2),d2                                ; 009CFA92: $94A2
+        sub.l   -(a2),d2                                ; 009CFA94: $94A2
+        sub.l   -(a2),d2                                ; 009CFA96: $94A2
+        sub.l   -(a2),d2                                ; 009CFA98: $94A2
+        sub.l   -(a2),d2                                ; 009CFA9A: $94A2
+        sub.l   -(a2),d2                                ; 009CFA9C: $94A2
+        sub.l   -(a2),d2                                ; 009CFA9E: $94A2
+        sub.l   -(a2),d2                                ; 009CFAA0: $94A2
+        sub.l   -(a2),d2                                ; 009CFAA2: $94A2
+        sub.l   -(a2),d2                                ; 009CFAA4: $94A2
+        sub.l   -(a2),d2                                ; 009CFAA6: $94A2
+        sub.l   -(a2),d2                                ; 009CFAA8: $94A2
+        sub.l   -(a2),d2                                ; 009CFAAA: $94A2
+        sub.l   -(a2),d2                                ; 009CFAAC: $94A2
+        sub.l   -(a2),d2                                ; 009CFAAE: $94A2
+        sub.l   -(a2),d2                                ; 009CFAB0: $94A2
+        sub.l   -(a2),d2                                ; 009CFAB2: $94A2
+        sub.b   d1,-(a3)                                ; 009CFAB4: $9323
+        sub.b   d1,$-6B(a2,a1.w)                        ; 009CFAB6: $9332, $9395
+        sub.b   (a4),d2                                 ; 009CFABA: $9414
+        sub.l   (a3),d2                                 ; 009CFABC: $9493
+        sub.l   -(a2),d2                                ; 009CFABE: $94A2
+        sub.l   -(a2),d2                                ; 009CFAC0: $94A2
+        sub.l   -(a2),d2                                ; 009CFAC2: $94A2
+        sub.l   -(a2),d2                                ; 009CFAC4: $94A2
+        sub.l   -(a2),d2                                ; 009CFAC6: $94A2
+        sub.l   -(a2),d2                                ; 009CFAC8: $94A2
+        sub.l   -(a2),d2                                ; 009CFACA: $94A2
+        sub.l   -(a2),d2                                ; 009CFACC: $94A2
+        sub.l   -(a2),d2                                ; 009CFACE: $94A2
+        sub.l   -(a2),d2                                ; 009CFAD0: $94A2
+        sub.l   -(a2),d2                                ; 009CFAD2: $94A2
+        sub.l   -(a2),d2                                ; 009CFAD4: $94A2
+        sub.l   -(a2),d2                                ; 009CFAD6: $94A2
+        sub.l   -(a2),d2                                ; 009CFAD8: $94A2
+        sub.l   -(a2),d2                                ; 009CFADA: $94A2
+        sub.l   -(a2),d2                                ; 009CFADC: $94A2
+        sub.l   -(a2),d2                                ; 009CFADE: $94A2
+        sub.l   -(a2),d2                                ; 009CFAE0: $94A2
+        sub.l   -(a2),d2                                ; 009CFAE2: $94A2
+        sub.l   -(a2),d2                                ; 009CFAE4: $94A2
+        sub.l   -(a2),d2                                ; 009CFAE6: $94A2
+        sub.l   -(a2),d2                                ; 009CFAE8: $94A2
+        sub.l   -(a2),d2                                ; 009CFAEA: $94A2
+        sub.l   -(a2),d2                                ; 009CFAEC: $94A2
+        sub.l   -(a2),d2                                ; 009CFAEE: $94A2
+        sub.l   -(a2),d2                                ; 009CFAF0: $94A2
+        sub.l   -(a2),d2                                ; 009CFAF2: $94A2
+        sub.l   -(a2),d2                                ; 009CFAF4: $94A2
+        sub.l   -(a2),d2                                ; 009CFAF6: $94A2
+        sub.l   -(a2),d2                                ; 009CFAF8: $94A2
+        sub.l   -(a2),d2                                ; 009CFAFA: $94A2
+        sub.l   -(a2),d2                                ; 009CFAFC: $94A2
+        sub.l   -(a2),d2                                ; 009CFAFE: $94A2
+        sub.l   -(a2),d2                                ; 009CFB00: $94A2
+        sub.l   -(a2),d2                                ; 009CFB02: $94A2
+        sub.l   -(a2),d2                                ; 009CFB04: $94A2
+        sub.l   -(a2),d2                                ; 009CFB06: $94A2
+        sub.l   -(a2),d2                                ; 009CFB08: $94A2
+        sub.l   -(a2),d2                                ; 009CFB0A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB0C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB0E: $94A2
+        sub.l   -(a2),d2                                ; 009CFB10: $94A2
+        sub.l   -(a2),d2                                ; 009CFB12: $94A2
+        sub.l   -(a2),d2                                ; 009CFB14: $94A2
+        sub.l   -(a2),d2                                ; 009CFB16: $94A2
+        sub.l   -(a2),d2                                ; 009CFB18: $94A2
+        sub.l   -(a2),d2                                ; 009CFB1A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB1C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB1E: $94A2
+        sub.l   -(a2),d2                                ; 009CFB20: $94A2
+        sub.l   -(a2),d2                                ; 009CFB22: $94A2
+        sub.l   -(a2),d2                                ; 009CFB24: $94A2
+        sub.l   -(a2),d2                                ; 009CFB26: $94A2
+        sub.l   -(a2),d2                                ; 009CFB28: $94A2
+        sub.l   -(a2),d2                                ; 009CFB2A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB2C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB2E: $94A2
+        sub.l   -(a2),d2                                ; 009CFB30: $94A2
+        sub.l   -(a2),d2                                ; 009CFB32: $94A2
+        sub.l   -(a2),d2                                ; 009CFB34: $94A2
+        sub.l   -(a2),d2                                ; 009CFB36: $94A2
+        sub.l   -(a2),d2                                ; 009CFB38: $94A2
+        sub.l   -(a2),d2                                ; 009CFB3A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB3C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB3E: $94A2
+        sub.l   -(a2),d2                                ; 009CFB40: $94A2
+        sub.l   -(a2),d2                                ; 009CFB42: $94A2
+        sub.l   -(a2),d2                                ; 009CFB44: $94A2
+        sub.l   -(a2),d2                                ; 009CFB46: $94A2
+        sub.l   -(a2),d2                                ; 009CFB48: $94A2
+        sub.l   -(a2),d2                                ; 009CFB4A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB4C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB4E: $94A2
+        sub.l   -(a2),d2                                ; 009CFB50: $94A2
+        sub.l   -(a2),d2                                ; 009CFB52: $94A2
+        sub.l   -(a2),d2                                ; 009CFB54: $94A2
+        sub.l   -(a2),d2                                ; 009CFB56: $94A2
+        sub.l   -(a2),d2                                ; 009CFB58: $94A2
+        sub.l   -(a2),d2                                ; 009CFB5A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB5C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB5E: $94A2
+        sub.l   -(a2),d2                                ; 009CFB60: $94A2
+        sub.l   -(a2),d2                                ; 009CFB62: $94A2
+        sub.l   -(a2),d2                                ; 009CFB64: $94A2
+        sub.l   -(a2),d2                                ; 009CFB66: $94A2
+        sub.l   -(a2),d2                                ; 009CFB68: $94A2
+        sub.l   -(a2),d2                                ; 009CFB6A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB6C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB6E: $94A2
+        sub.l   -(a2),d2                                ; 009CFB70: $94A2
+        sub.l   -(a2),d2                                ; 009CFB72: $94A2
+        sub.l   -(a2),d2                                ; 009CFB74: $94A2
+        sub.l   -(a2),d2                                ; 009CFB76: $94A2
+        sub.l   -(a2),d2                                ; 009CFB78: $94A2
+        sub.l   -(a2),d2                                ; 009CFB7A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB7C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB7E: $94A2
+        sub.l   -(a2),d2                                ; 009CFB80: $94A2
+        sub.l   -(a2),d2                                ; 009CFB82: $94A2
+        sub.l   -(a2),d2                                ; 009CFB84: $94A2
+        sub.l   -(a2),d2                                ; 009CFB86: $94A2
+        sub.l   -(a2),d2                                ; 009CFB88: $94A2
+        sub.l   -(a2),d2                                ; 009CFB8A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB8C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB8E: $94A2
+        sub.l   -(a2),d2                                ; 009CFB90: $94A2
+        sub.l   -(a2),d2                                ; 009CFB92: $94A2
+        sub.l   -(a2),d2                                ; 009CFB94: $94A2
+        sub.l   -(a2),d2                                ; 009CFB96: $94A2
+        sub.l   -(a2),d2                                ; 009CFB98: $94A2
+        sub.l   -(a2),d2                                ; 009CFB9A: $94A2
+        sub.l   -(a2),d2                                ; 009CFB9C: $94A2
+        sub.l   -(a2),d2                                ; 009CFB9E: $94A2
+        sub.l   -(a2),d2                                ; 009CFBA0: $94A2
+        sub.l   -(a2),d2                                ; 009CFBA2: $94A2
+        sub.l   -(a2),d2                                ; 009CFBA4: $94A2
+        sub.l   -(a2),d2                                ; 009CFBA6: $94A2
+        sub.l   -(a2),d2                                ; 009CFBA8: $94A2
+        sub.l   -(a2),d2                                ; 009CFBAA: $94A2
+        sub.l   -(a2),d2                                ; 009CFBAC: $94A2
+        sub.l   -(a2),d2                                ; 009CFBAE: $94A2
+        sub.l   -(a2),d2                                ; 009CFBB0: $94A2
+        sub.l   -(a2),d2                                ; 009CFBB2: $94A2
+        sub.l   -(a2),d2                                ; 009CFBB4: $94A2
+        sub.l   -(a2),d2                                ; 009CFBB6: $94A2
+        sub.l   -(a2),d2                                ; 009CFBB8: $94A2
+        sub.l   -(a2),d2                                ; 009CFBBA: $94A2
+        sub.l   -(a2),d2                                ; 009CFBBC: $94A2
+        sub.l   -(a2),d2                                ; 009CFBBE: $94A2
+        sub.l   -(a2),d2                                ; 009CFBC0: $94A2
+        sub.l   -(a2),d2                                ; 009CFBC2: $94A2
+        sub.l   -(a2),d2                                ; 009CFBC4: $94A2
+        sub.l   -(a2),d2                                ; 009CFBC6: $94A2
+        sub.l   -(a2),d2                                ; 009CFBC8: $94A2
+        sub.l   -(a2),d2                                ; 009CFBCA: $94A2
+        sub.l   -(a2),d2                                ; 009CFBCC: $94A2
+        sub.l   -(a2),d2                                ; 009CFBCE: $94A2
+        sub.l   -(a2),d2                                ; 009CFBD0: $94A2
+        sub.l   -(a2),d2                                ; 009CFBD2: $94A2
+        sub.l   -(a2),d2                                ; 009CFBD4: $94A2
+        sub.l   -(a2),d2                                ; 009CFBD6: $94A2
+        sub.l   -(a2),d2                                ; 009CFBD8: $94A2
+        sub.l   -(a2),d2                                ; 009CFBDA: $94A2
+        sub.l   -(a2),d2                                ; 009CFBDC: $94A2
+        sub.l   -(a2),d2                                ; 009CFBDE: $94A2
+        sub.l   -(a2),d2                                ; 009CFBE0: $94A2
+        sub.l   -(a2),d2                                ; 009CFBE2: $94A2
+        sub.l   -(a2),d2                                ; 009CFBE4: $94A2
+        sub.l   -(a2),d2                                ; 009CFBE6: $94A2
+        sub.l   -(a2),d2                                ; 009CFBE8: $94A2
+        sub.l   -(a2),d2                                ; 009CFBEA: $94A2
+        sub.l   -(a2),d2                                ; 009CFBEC: $94A2
+        sub.l   -(a2),d2                                ; 009CFBEE: $94A2
+        sub.l   -(a2),d2                                ; 009CFBF0: $94A2
+        sub.l   -(a2),d2                                ; 009CFBF2: $94A2
+        sub.l   -(a2),d2                                ; 009CFBF4: $94A2
+        sub.l   -(a2),d2                                ; 009CFBF6: $94A2
+        sub.l   -(a2),d2                                ; 009CFBF8: $94A2
+        sub.l   -(a2),d2                                ; 009CFBFA: $94A2
+        sub.l   -(a2),d2                                ; 009CFBFC: $94A2
+        sub.l   -(a2),d2                                ; 009CFBFE: $94A2
+        sub.l   -(a2),d2                                ; 009CFC00: $94A2
+        sub.l   -(a2),d2                                ; 009CFC02: $94A2
+        sub.l   -(a2),d2                                ; 009CFC04: $94A2
+        sub.l   -(a2),d2                                ; 009CFC06: $94A2
+        sub.l   -(a2),d2                                ; 009CFC08: $94A2
+        sub.l   -(a2),d2                                ; 009CFC0A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC0C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC0E: $94A2
+        sub.l   -(a2),d2                                ; 009CFC10: $94A2
+        sub.l   -(a2),d2                                ; 009CFC12: $94A2
+        sub.l   -(a2),d2                                ; 009CFC14: $94A2
+        sub.l   -(a2),d2                                ; 009CFC16: $94A2
+        sub.l   -(a2),d2                                ; 009CFC18: $94A2
+        sub.l   -(a2),d2                                ; 009CFC1A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC1C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC1E: $94A2
+        sub.l   -(a2),d2                                ; 009CFC20: $94A2
+        sub.l   -(a2),d2                                ; 009CFC22: $94A2
+        sub.l   -(a2),d2                                ; 009CFC24: $94A2
+        sub.l   -(a2),d2                                ; 009CFC26: $94A2
+        sub.l   -(a2),d2                                ; 009CFC28: $94A2
+        sub.l   -(a2),d2                                ; 009CFC2A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC2C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC2E: $94A2
+        sub.l   -(a2),d2                                ; 009CFC30: $94A2
+        sub.l   -(a2),d2                                ; 009CFC32: $94A2
+        sub.l   -(a2),d2                                ; 009CFC34: $94A2
+        sub.l   -(a2),d2                                ; 009CFC36: $94A2
+        sub.l   -(a2),d2                                ; 009CFC38: $94A2
+        sub.l   -(a2),d2                                ; 009CFC3A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC3C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC3E: $94A2
+        sub.l   -(a2),d2                                ; 009CFC40: $94A2
+        sub.l   -(a2),d2                                ; 009CFC42: $94A2
+        sub.l   -(a2),d2                                ; 009CFC44: $94A2
+        sub.l   -(a2),d2                                ; 009CFC46: $94A2
+        sub.l   -(a2),d2                                ; 009CFC48: $94A2
+        sub.l   -(a2),d2                                ; 009CFC4A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC4C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC4E: $94A2
+        sub.l   -(a2),d2                                ; 009CFC50: $94A2
+        sub.l   -(a2),d2                                ; 009CFC52: $94A2
+        sub.l   -(a2),d2                                ; 009CFC54: $94A2
+        sub.l   -(a2),d2                                ; 009CFC56: $94A2
+        sub.l   -(a2),d2                                ; 009CFC58: $94A2
+        sub.l   -(a2),d2                                ; 009CFC5A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC5C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC5E: $94A2
+        sub.l   -(a2),d2                                ; 009CFC60: $94A2
+        sub.l   -(a2),d2                                ; 009CFC62: $94A2
+        sub.l   -(a2),d2                                ; 009CFC64: $94A2
+        sub.l   -(a2),d2                                ; 009CFC66: $94A2
+        sub.l   -(a2),d2                                ; 009CFC68: $94A2
+        sub.l   -(a2),d2                                ; 009CFC6A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC6C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC6E: $94A2
+        sub.l   -(a2),d2                                ; 009CFC70: $94A2
+        sub.l   -(a2),d2                                ; 009CFC72: $94A2
+        sub.l   -(a2),d2                                ; 009CFC74: $94A2
+        sub.l   -(a2),d2                                ; 009CFC76: $94A2
+        sub.l   -(a2),d2                                ; 009CFC78: $94A2
+        sub.l   -(a2),d2                                ; 009CFC7A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC7C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC7E: $94A2
+        sub.l   -(a2),d2                                ; 009CFC80: $94A2
+        sub.l   -(a2),d2                                ; 009CFC82: $94A2
+        sub.l   -(a2),d2                                ; 009CFC84: $94A2
+        sub.l   -(a2),d2                                ; 009CFC86: $94A2
+        sub.l   -(a2),d2                                ; 009CFC88: $94A2
+        sub.l   -(a2),d2                                ; 009CFC8A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC8C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC8E: $94A2
+        sub.l   -(a2),d2                                ; 009CFC90: $94A2
+        sub.l   -(a2),d2                                ; 009CFC92: $94A2
+        sub.l   -(a2),d2                                ; 009CFC94: $94A2
+        sub.l   -(a2),d2                                ; 009CFC96: $94A2
+        sub.l   -(a2),d2                                ; 009CFC98: $94A2
+        sub.l   -(a2),d2                                ; 009CFC9A: $94A2
+        sub.l   -(a2),d2                                ; 009CFC9C: $94A2
+        sub.l   -(a2),d2                                ; 009CFC9E: $94A2
+        sub.l   -(a2),d2                                ; 009CFCA0: $94A2
+        sub.l   -(a2),d2                                ; 009CFCA2: $94A2
+        sub.l   -(a2),d2                                ; 009CFCA4: $94A2
+        sub.l   -(a2),d2                                ; 009CFCA6: $94A2
+        sub.l   -(a2),d2                                ; 009CFCA8: $94A2
+        sub.l   -(a2),d2                                ; 009CFCAA: $94A2
+        sub.l   -(a2),d2                                ; 009CFCAC: $94A2
+        sub.l   -(a2),d2                                ; 009CFCAE: $94A2
+        sub.l   -(a2),d2                                ; 009CFCB0: $94A2
+        sub.l   -(a2),d2                                ; 009CFCB2: $94A2
+        sub.l   -(a2),d2                                ; 009CFCB4: $94A2
+        sub.l   -(a2),d2                                ; 009CFCB6: $94A2
+        sub.l   -(a2),d2                                ; 009CFCB8: $94A2
+        sub.l   -(a2),d2                                ; 009CFCBA: $94A2
+        sub.l   -(a2),d2                                ; 009CFCBC: $94A2
+        sub.l   -(a2),d2                                ; 009CFCBE: $94A2
+        sub.l   -(a2),d2                                ; 009CFCC0: $94A2
+        sub.l   -(a2),d2                                ; 009CFCC2: $94A2
+        sub.l   -(a2),d2                                ; 009CFCC4: $94A2
+        sub.l   -(a2),d2                                ; 009CFCC6: $94A2
+        sub.l   -(a2),d2                                ; 009CFCC8: $94A2
+        sub.l   -(a2),d2                                ; 009CFCCA: $94A2
+        sub.l   -(a2),d2                                ; 009CFCCC: $94A2
+        sub.l   -(a2),d2                                ; 009CFCCE: $94A2
+        sub.l   -(a2),d2                                ; 009CFCD0: $94A2
+        sub.l   -(a2),d2                                ; 009CFCD2: $94A2
+        sub.l   -(a2),d2                                ; 009CFCD4: $94A2
+        sub.l   -(a2),d2                                ; 009CFCD6: $94A2
+        sub.l   -(a2),d2                                ; 009CFCD8: $94A2
+        sub.l   -(a2),d2                                ; 009CFCDA: $94A2
+        sub.l   -(a2),d2                                ; 009CFCDC: $94A2
+        sub.l   -(a2),d2                                ; 009CFCDE: $94A2
+        sub.l   -(a2),d2                                ; 009CFCE0: $94A2
+        sub.l   -(a2),d2                                ; 009CFCE2: $94A2
+        sub.l   -(a2),d2                                ; 009CFCE4: $94A2
+        sub.l   -(a2),d2                                ; 009CFCE6: $94A2
+        sub.l   -(a2),d2                                ; 009CFCE8: $94A2
+        sub.l   -(a2),d2                                ; 009CFCEA: $94A2
+        sub.l   -(a2),d2                                ; 009CFCEC: $94A2
+        sub.l   -(a2),d2                                ; 009CFCEE: $94A2
+        sub.l   -(a2),d2                                ; 009CFCF0: $94A2
+        sub.l   -(a2),d2                                ; 009CFCF2: $94A2
+        sub.l   -(a2),d2                                ; 009CFCF4: $94A2
+        sub.l   -(a2),d2                                ; 009CFCF6: $94A2
+        sub.l   -(a2),d2                                ; 009CFCF8: $94A2
+        sub.l   -(a2),d2                                ; 009CFCFA: $94A2
+        sub.l   -(a2),d2                                ; 009CFCFC: $94A2
+        sub.l   -(a2),d2                                ; 009CFCFE: $94A2
+        sub.l   -(a2),d2                                ; 009CFD00: $94A2
+        sub.l   -(a2),d2                                ; 009CFD02: $94A2
+        sub.l   -(a2),d2                                ; 009CFD04: $94A2
+        sub.l   -(a2),d2                                ; 009CFD06: $94A2
+        sub.l   -(a2),d2                                ; 009CFD08: $94A2
+        sub.l   -(a2),d2                                ; 009CFD0A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD0C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD0E: $94A2
+        sub.l   -(a2),d2                                ; 009CFD10: $94A2
+        sub.l   -(a2),d2                                ; 009CFD12: $94A2
+        sub.l   -(a2),d2                                ; 009CFD14: $94A2
+        sub.l   -(a2),d2                                ; 009CFD16: $94A2
+        sub.l   -(a2),d2                                ; 009CFD18: $94A2
+        sub.l   -(a2),d2                                ; 009CFD1A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD1C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD1E: $94A2
+        sub.l   -(a2),d2                                ; 009CFD20: $94A2
+        sub.l   -(a2),d2                                ; 009CFD22: $94A2
+        sub.l   -(a2),d2                                ; 009CFD24: $94A2
+        sub.l   -(a2),d2                                ; 009CFD26: $94A2
+        sub.l   -(a2),d2                                ; 009CFD28: $94A2
+        sub.l   -(a2),d2                                ; 009CFD2A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD2C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD2E: $94A2
+        sub.l   -(a2),d2                                ; 009CFD30: $94A2
+        sub.l   -(a2),d2                                ; 009CFD32: $94A2
+        sub.l   -(a2),d2                                ; 009CFD34: $94A2
+        sub.l   -(a2),d2                                ; 009CFD36: $94A2
+        sub.l   -(a2),d2                                ; 009CFD38: $94A2
+        sub.l   -(a2),d2                                ; 009CFD3A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD3C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD3E: $94A2
+        sub.l   -(a2),d2                                ; 009CFD40: $94A2
+        sub.l   -(a2),d2                                ; 009CFD42: $94A2
+        sub.l   -(a2),d2                                ; 009CFD44: $94A2
+        sub.l   -(a2),d2                                ; 009CFD46: $94A2
+        sub.l   -(a2),d2                                ; 009CFD48: $94A2
+        sub.l   -(a2),d2                                ; 009CFD4A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD4C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD4E: $94A2
+        sub.l   -(a2),d2                                ; 009CFD50: $94A2
+        sub.l   -(a2),d2                                ; 009CFD52: $94A2
+        sub.l   -(a2),d2                                ; 009CFD54: $94A2
+        sub.l   -(a2),d2                                ; 009CFD56: $94A2
+        sub.l   -(a2),d2                                ; 009CFD58: $94A2
+        sub.l   -(a2),d2                                ; 009CFD5A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD5C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD5E: $94A2
+        sub.l   -(a2),d2                                ; 009CFD60: $94A2
+        sub.l   -(a2),d2                                ; 009CFD62: $94A2
+        sub.l   -(a2),d2                                ; 009CFD64: $94A2
+        sub.l   -(a2),d2                                ; 009CFD66: $94A2
+        sub.l   -(a2),d2                                ; 009CFD68: $94A2
+        sub.l   -(a2),d2                                ; 009CFD6A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD6C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD6E: $94A2
+        sub.l   -(a2),d2                                ; 009CFD70: $94A2
+        sub.l   -(a2),d2                                ; 009CFD72: $94A2
+        sub.l   -(a2),d2                                ; 009CFD74: $94A2
+        sub.l   -(a2),d2                                ; 009CFD76: $94A2
+        sub.l   -(a2),d2                                ; 009CFD78: $94A2
+        sub.l   -(a2),d2                                ; 009CFD7A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD7C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD7E: $94A2
+        sub.l   -(a2),d2                                ; 009CFD80: $94A2
+        sub.l   -(a2),d2                                ; 009CFD82: $94A2
+        sub.l   -(a2),d2                                ; 009CFD84: $94A2
+        sub.l   -(a2),d2                                ; 009CFD86: $94A2
+        sub.l   -(a2),d2                                ; 009CFD88: $94A2
+        sub.l   -(a2),d2                                ; 009CFD8A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD8C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD8E: $94A2
+        sub.l   -(a2),d2                                ; 009CFD90: $94A2
+        sub.l   -(a2),d2                                ; 009CFD92: $94A2
+        sub.l   -(a2),d2                                ; 009CFD94: $94A2
+        sub.l   -(a2),d2                                ; 009CFD96: $94A2
+        sub.l   -(a2),d2                                ; 009CFD98: $94A2
+        sub.l   -(a2),d2                                ; 009CFD9A: $94A2
+        sub.l   -(a2),d2                                ; 009CFD9C: $94A2
+        sub.l   -(a2),d2                                ; 009CFD9E: $94A2
+        sub.l   -(a2),d2                                ; 009CFDA0: $94A2
+        sub.l   -(a2),d2                                ; 009CFDA2: $94A2
+        sub.l   -(a2),d2                                ; 009CFDA4: $94A2
+        sub.l   -(a2),d2                                ; 009CFDA6: $94A2
+        sub.l   -(a2),d2                                ; 009CFDA8: $94A2
+        sub.l   -(a2),d2                                ; 009CFDAA: $94A2
+        sub.l   -(a2),d2                                ; 009CFDAC: $94A2
+        sub.l   -(a2),d2                                ; 009CFDAE: $94A2
+        sub.l   -(a2),d2                                ; 009CFDB0: $94A2
+        sub.l   -(a2),d2                                ; 009CFDB2: $94A2
+        sub.l   -(a2),d2                                ; 009CFDB4: $94A2
+        sub.l   -(a2),d2                                ; 009CFDB6: $94A2
+        sub.l   -(a2),d2                                ; 009CFDB8: $94A2
+        sub.l   -(a2),d2                                ; 009CFDBA: $94A2
+        sub.l   -(a2),d2                                ; 009CFDBC: $94A2
+        sub.l   -(a2),d2                                ; 009CFDBE: $94A2
+        sub.l   -(a2),d2                                ; 009CFDC0: $94A2
+        sub.l   -(a2),d2                                ; 009CFDC2: $94A2
+        sub.l   -(a2),d2                                ; 009CFDC4: $94A2
+        sub.l   -(a2),d2                                ; 009CFDC6: $94A2
+        sub.l   -(a2),d2                                ; 009CFDC8: $94A2
+        sub.l   -(a2),d2                                ; 009CFDCA: $94A2
+        sub.l   -(a2),d2                                ; 009CFDCC: $94A2
+        sub.l   -(a2),d2                                ; 009CFDCE: $94A2
+        sub.l   -(a2),d2                                ; 009CFDD0: $94A2
+        sub.l   -(a2),d2                                ; 009CFDD2: $94A2
+        sub.l   -(a2),d2                                ; 009CFDD4: $94A2
+        sub.l   -(a2),d2                                ; 009CFDD6: $94A2
+        sub.l   -(a2),d2                                ; 009CFDD8: $94A2
+        sub.l   -(a2),d2                                ; 009CFDDA: $94A2
+        sub.l   -(a2),d2                                ; 009CFDDC: $94A2
+        sub.l   -(a2),d2                                ; 009CFDDE: $94A2
+        sub.l   -(a2),d2                                ; 009CFDE0: $94A2
+        sub.l   -(a2),d2                                ; 009CFDE2: $94A2
+        sub.l   -(a2),d2                                ; 009CFDE4: $94A2
+        sub.l   -(a2),d2                                ; 009CFDE6: $94A2
+        sub.l   -(a2),d2                                ; 009CFDE8: $94A2
+        sub.l   -(a2),d2                                ; 009CFDEA: $94A2
+        sub.l   -(a2),d2                                ; 009CFDEC: $94A2
+        sub.l   -(a2),d2                                ; 009CFDEE: $94A2
+        sub.l   -(a2),d2                                ; 009CFDF0: $94A2
+        sub.l   -(a2),d2                                ; 009CFDF2: $94A2
+        sub.l   -(a2),d2                                ; 009CFDF4: $94A2
+        sub.l   -(a2),d2                                ; 009CFDF6: $94A2
+        sub.l   -(a2),d2                                ; 009CFDF8: $94A2
+        sub.l   -(a2),d2                                ; 009CFDFA: $94A2
+        sub.l   -(a2),d2                                ; 009CFDFC: $94A2
+        sub.l   -(a2),d2                                ; 009CFDFE: $94A2
+        sub.l   -(a2),d2                                ; 009CFE00: $94A2
+        sub.l   -(a2),d2                                ; 009CFE02: $94A2
+        sub.l   -(a2),d2                                ; 009CFE04: $94A2
+        sub.l   -(a2),d2                                ; 009CFE06: $94A2
+        sub.l   -(a2),d2                                ; 009CFE08: $94A2
+        sub.l   -(a2),d2                                ; 009CFE0A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE0C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE0E: $94A2
+        sub.l   -(a2),d2                                ; 009CFE10: $94A2
+        sub.l   -(a2),d2                                ; 009CFE12: $94A2
+        sub.l   -(a2),d2                                ; 009CFE14: $94A2
+        sub.l   -(a2),d2                                ; 009CFE16: $94A2
+        sub.l   -(a2),d2                                ; 009CFE18: $94A2
+        sub.l   -(a2),d2                                ; 009CFE1A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE1C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE1E: $94A2
+        sub.l   -(a2),d2                                ; 009CFE20: $94A2
+        sub.l   -(a2),d2                                ; 009CFE22: $94A2
+        sub.l   -(a2),d2                                ; 009CFE24: $94A2
+        sub.l   -(a2),d2                                ; 009CFE26: $94A2
+        sub.l   -(a2),d2                                ; 009CFE28: $94A2
+        sub.l   -(a2),d2                                ; 009CFE2A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE2C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE2E: $94A2
+        sub.l   -(a2),d2                                ; 009CFE30: $94A2
+        sub.l   -(a2),d2                                ; 009CFE32: $94A2
+        sub.l   -(a2),d2                                ; 009CFE34: $94A2
+        sub.l   -(a2),d2                                ; 009CFE36: $94A2
+        sub.l   -(a2),d2                                ; 009CFE38: $94A2
+        sub.l   -(a2),d2                                ; 009CFE3A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE3C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE3E: $94A2
+        sub.l   -(a2),d2                                ; 009CFE40: $94A2
+        sub.l   -(a2),d2                                ; 009CFE42: $94A2
+        sub.l   -(a2),d2                                ; 009CFE44: $94A2
+        sub.l   -(a2),d2                                ; 009CFE46: $94A2
+        sub.l   -(a2),d2                                ; 009CFE48: $94A2
+        sub.l   -(a2),d2                                ; 009CFE4A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE4C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE4E: $94A2
+        sub.l   -(a2),d2                                ; 009CFE50: $94A2
+        sub.l   -(a2),d2                                ; 009CFE52: $94A2
+        sub.l   -(a2),d2                                ; 009CFE54: $94A2
+        sub.l   -(a2),d2                                ; 009CFE56: $94A2
+        sub.l   -(a2),d2                                ; 009CFE58: $94A2
+        sub.l   -(a2),d2                                ; 009CFE5A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE5C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE5E: $94A2
+        sub.l   -(a2),d2                                ; 009CFE60: $94A2
+        sub.l   -(a2),d2                                ; 009CFE62: $94A2
+        sub.l   -(a2),d2                                ; 009CFE64: $94A2
+        sub.l   -(a2),d2                                ; 009CFE66: $94A2
+        sub.l   -(a2),d2                                ; 009CFE68: $94A2
+        sub.l   -(a2),d2                                ; 009CFE6A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE6C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE6E: $94A2
+        sub.l   -(a2),d2                                ; 009CFE70: $94A2
+        sub.l   -(a2),d2                                ; 009CFE72: $94A2
+        sub.l   -(a2),d2                                ; 009CFE74: $94A2
+        sub.l   -(a2),d2                                ; 009CFE76: $94A2
+        sub.l   -(a2),d2                                ; 009CFE78: $94A2
+        sub.l   -(a2),d2                                ; 009CFE7A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE7C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE7E: $94A2
+        sub.l   -(a2),d2                                ; 009CFE80: $94A2
+        sub.l   -(a2),d2                                ; 009CFE82: $94A2
+        sub.l   -(a2),d2                                ; 009CFE84: $94A2
+        sub.l   -(a2),d2                                ; 009CFE86: $94A2
+        sub.l   -(a2),d2                                ; 009CFE88: $94A2
+        sub.l   -(a2),d2                                ; 009CFE8A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE8C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE8E: $94A2
+        sub.l   -(a2),d2                                ; 009CFE90: $94A2
+        sub.l   -(a2),d2                                ; 009CFE92: $94A2
+        sub.l   -(a2),d2                                ; 009CFE94: $94A2
+        sub.l   -(a2),d2                                ; 009CFE96: $94A2
+        sub.l   -(a2),d2                                ; 009CFE98: $94A2
+        sub.l   -(a2),d2                                ; 009CFE9A: $94A2
+        sub.l   -(a2),d2                                ; 009CFE9C: $94A2
+        sub.l   -(a2),d2                                ; 009CFE9E: $94A2
+        sub.l   -(a2),d2                                ; 009CFEA0: $94A2
+        sub.l   -(a2),d2                                ; 009CFEA2: $94A2
+        sub.l   -(a2),d2                                ; 009CFEA4: $94A2
+        sub.l   -(a2),d2                                ; 009CFEA6: $94A2
+        sub.l   -(a2),d2                                ; 009CFEA8: $94A2
+        sub.l   -(a2),d2                                ; 009CFEAA: $94A2
+        sub.l   -(a2),d2                                ; 009CFEAC: $94A2
+        sub.l   -(a2),d2                                ; 009CFEAE: $94A2
+        sub.l   -(a2),d2                                ; 009CFEB0: $94A2
+        sub.l   -(a2),d2                                ; 009CFEB2: $94A2
+        sub.l   -(a2),d2                                ; 009CFEB4: $94A2
+        sub.l   -(a2),d2                                ; 009CFEB6: $94A2
+        sub.l   -(a2),d2                                ; 009CFEB8: $94A2
+        sub.l   -(a2),d2                                ; 009CFEBA: $94A2
+        sub.l   -(a2),d2                                ; 009CFEBC: $94A2
+        sub.l   -(a2),d2                                ; 009CFEBE: $94A2
+        sub.l   -(a2),d2                                ; 009CFEC0: $94A2
+        sub.l   -(a2),d2                                ; 009CFEC2: $94A2
+        sub.l   -(a2),d2                                ; 009CFEC4: $94A2
+        sub.l   -(a2),d2                                ; 009CFEC6: $94A2
+        sub.l   -(a2),d2                                ; 009CFEC8: $94A2
+        sub.l   -(a2),d2                                ; 009CFECA: $94A2
+        sub.l   -(a2),d2                                ; 009CFECC: $94A2
+        sub.l   -(a2),d2                                ; 009CFECE: $94A2
+        sub.l   -(a2),d2                                ; 009CFED0: $94A2
+        sub.l   -(a2),d2                                ; 009CFED2: $94A2
+        sub.l   -(a2),d2                                ; 009CFED4: $94A2
+        sub.l   -(a2),d2                                ; 009CFED6: $94A2
+        sub.l   -(a2),d2                                ; 009CFED8: $94A2
+        sub.l   -(a2),d2                                ; 009CFEDA: $94A2
+        sub.l   -(a2),d2                                ; 009CFEDC: $94A2
+        sub.l   -(a2),d2                                ; 009CFEDE: $94A2
+        sub.l   -(a2),d2                                ; 009CFEE0: $94A2
+        sub.l   -(a2),d2                                ; 009CFEE2: $94A2
+        sub.l   -(a2),d2                                ; 009CFEE4: $94A2
+        sub.l   -(a2),d2                                ; 009CFEE6: $94A2
+        sub.l   -(a2),d2                                ; 009CFEE8: $94A2
+        sub.l   -(a2),d2                                ; 009CFEEA: $94A2
+        sub.l   -(a2),d2                                ; 009CFEEC: $94A2
+        sub.l   -(a2),d2                                ; 009CFEEE: $94A2
+        sub.l   -(a2),d2                                ; 009CFEF0: $94A2
+        sub.l   -(a2),d2                                ; 009CFEF2: $94A2
+        sub.l   -(a2),d2                                ; 009CFEF4: $94A2
+        sub.l   -(a2),d2                                ; 009CFEF6: $94A2
+        sub.l   -(a2),d2                                ; 009CFEF8: $94A2
+        sub.l   -(a2),d2                                ; 009CFEFA: $94A2
+        sub.l   -(a2),d2                                ; 009CFEFC: $94A2
+        sub.l   -(a2),d2                                ; 009CFEFE: $94A2
+        sub.l   -(a2),d2                                ; 009CFF00: $94A2
+        sub.l   -(a2),d2                                ; 009CFF02: $94A2
+        sub.l   -(a2),d2                                ; 009CFF04: $94A2
+        sub.l   -(a2),d2                                ; 009CFF06: $94A2
+        sub.l   -(a2),d2                                ; 009CFF08: $94A2
+        sub.l   -(a2),d2                                ; 009CFF0A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF0C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF0E: $94A2
+        sub.l   -(a2),d2                                ; 009CFF10: $94A2
+        sub.l   -(a2),d2                                ; 009CFF12: $94A2
+        sub.l   -(a2),d2                                ; 009CFF14: $94A2
+        sub.l   -(a2),d2                                ; 009CFF16: $94A2
+        sub.l   -(a2),d2                                ; 009CFF18: $94A2
+        sub.l   -(a2),d2                                ; 009CFF1A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF1C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF1E: $94A2
+        sub.l   -(a2),d2                                ; 009CFF20: $94A2
+        sub.l   -(a2),d2                                ; 009CFF22: $94A2
+        sub.l   -(a2),d2                                ; 009CFF24: $94A2
+        sub.l   -(a2),d2                                ; 009CFF26: $94A2
+        sub.l   -(a2),d2                                ; 009CFF28: $94A2
+        sub.l   -(a2),d2                                ; 009CFF2A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF2C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF2E: $94A2
+        sub.l   -(a2),d2                                ; 009CFF30: $94A2
+        sub.l   -(a2),d2                                ; 009CFF32: $94A2
+        sub.l   -(a2),d2                                ; 009CFF34: $94A2
+        sub.l   -(a2),d2                                ; 009CFF36: $94A2
+        sub.l   -(a2),d2                                ; 009CFF38: $94A2
+        sub.l   -(a2),d2                                ; 009CFF3A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF3C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF3E: $94A2
+        sub.l   -(a2),d2                                ; 009CFF40: $94A2
+        sub.l   -(a2),d2                                ; 009CFF42: $94A2
+        sub.l   -(a2),d2                                ; 009CFF44: $94A2
+        sub.l   -(a2),d2                                ; 009CFF46: $94A2
+        sub.l   -(a2),d2                                ; 009CFF48: $94A2
+        sub.l   -(a2),d2                                ; 009CFF4A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF4C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF4E: $94A2
+        sub.l   -(a2),d2                                ; 009CFF50: $94A2
+        sub.l   -(a2),d2                                ; 009CFF52: $94A2
+        sub.l   -(a2),d2                                ; 009CFF54: $94A2
+        sub.l   -(a2),d2                                ; 009CFF56: $94A2
+        sub.l   -(a2),d2                                ; 009CFF58: $94A2
+        sub.l   -(a2),d2                                ; 009CFF5A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF5C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF5E: $94A2
+        sub.l   -(a2),d2                                ; 009CFF60: $94A2
+        sub.l   -(a2),d2                                ; 009CFF62: $94A2
+        sub.l   -(a2),d2                                ; 009CFF64: $94A2
+        sub.l   -(a2),d2                                ; 009CFF66: $94A2
+        sub.l   -(a2),d2                                ; 009CFF68: $94A2
+        sub.l   -(a2),d2                                ; 009CFF6A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF6C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF6E: $94A2
+        sub.l   -(a2),d2                                ; 009CFF70: $94A2
+        sub.l   -(a2),d2                                ; 009CFF72: $94A2
+        sub.l   -(a2),d2                                ; 009CFF74: $94A2
+        sub.l   -(a2),d2                                ; 009CFF76: $94A2
+        sub.l   -(a2),d2                                ; 009CFF78: $94A2
+        sub.l   -(a2),d2                                ; 009CFF7A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF7C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF7E: $94A2
+        sub.l   -(a2),d2                                ; 009CFF80: $94A2
+        sub.l   -(a2),d2                                ; 009CFF82: $94A2
+        sub.l   -(a2),d2                                ; 009CFF84: $94A2
+        sub.l   -(a2),d2                                ; 009CFF86: $94A2
+        sub.l   -(a2),d2                                ; 009CFF88: $94A2
+        sub.l   -(a2),d2                                ; 009CFF8A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF8C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF8E: $94A2
+        sub.l   -(a2),d2                                ; 009CFF90: $94A2
+        sub.l   -(a2),d2                                ; 009CFF92: $94A2
+        sub.l   -(a2),d2                                ; 009CFF94: $94A2
+        sub.l   -(a2),d2                                ; 009CFF96: $94A2
+        sub.l   -(a2),d2                                ; 009CFF98: $94A2
+        sub.l   -(a2),d2                                ; 009CFF9A: $94A2
+        sub.l   -(a2),d2                                ; 009CFF9C: $94A2
+        sub.l   -(a2),d2                                ; 009CFF9E: $94A2
+        sub.l   -(a2),d2                                ; 009CFFA0: $94A2
+        sub.l   -(a2),d2                                ; 009CFFA2: $94A2
+        sub.l   -(a2),d2                                ; 009CFFA4: $94A2
+        sub.l   -(a2),d2                                ; 009CFFA6: $94A2
+        sub.l   -(a2),d2                                ; 009CFFA8: $94A2
+        sub.l   -(a2),d2                                ; 009CFFAA: $94A2
+        sub.l   -(a2),d2                                ; 009CFFAC: $94A2
+        sub.l   -(a2),d2                                ; 009CFFAE: $94A2
+        sub.l   -(a2),d2                                ; 009CFFB0: $94A2
+        sub.l   -(a2),d2                                ; 009CFFB2: $94A2
+        sub.l   -(a2),d2                                ; 009CFFB4: $94A2
+        sub.l   -(a2),d2                                ; 009CFFB6: $94A2
+        sub.l   -(a2),d2                                ; 009CFFB8: $94A2
+        sub.l   -(a2),d2                                ; 009CFFBA: $94A2
+        sub.l   -(a2),d2                                ; 009CFFBC: $94A2
+        sub.l   -(a2),d2                                ; 009CFFBE: $94A2
+        sub.l   -(a2),d2                                ; 009CFFC0: $94A2
+        sub.l   -(a2),d2                                ; 009CFFC2: $94A2
+        sub.l   -(a2),d2                                ; 009CFFC4: $94A2
+        sub.l   -(a2),d2                                ; 009CFFC6: $94A2
+        sub.l   -(a2),d2                                ; 009CFFC8: $94A2
+        sub.l   -(a2),d2                                ; 009CFFCA: $94A2
+        sub.l   -(a2),d2                                ; 009CFFCC: $94A2
+        sub.l   -(a2),d2                                ; 009CFFCE: $94A2
+        sub.l   -(a2),d2                                ; 009CFFD0: $94A2
+        sub.l   -(a2),d2                                ; 009CFFD2: $94A2
+        sub.l   -(a2),d2                                ; 009CFFD4: $94A2
+        sub.l   -(a2),d2                                ; 009CFFD6: $94A2
+        sub.l   -(a2),d2                                ; 009CFFD8: $94A2
+        sub.l   -(a2),d2                                ; 009CFFDA: $94A2
+        sub.l   -(a2),d2                                ; 009CFFDC: $94A2
+        sub.l   -(a2),d2                                ; 009CFFDE: $94A2
+        sub.l   -(a2),d2                                ; 009CFFE0: $94A2
+        sub.l   -(a2),d2                                ; 009CFFE2: $94A2
+        sub.l   -(a2),d2                                ; 009CFFE4: $94A2
+        sub.l   -(a2),d2                                ; 009CFFE6: $94A2
+        sub.l   -(a2),d2                                ; 009CFFE8: $94A2
+        sub.l   -(a2),d2                                ; 009CFFEA: $94A2
+        sub.l   -(a2),d2                                ; 009CFFEC: $94A2
+        sub.l   -(a2),d2                                ; 009CFFEE: $94A2
+        sub.l   -(a2),d2                                ; 009CFFF0: $94A2
+        sub.l   -(a2),d2                                ; 009CFFF2: $94A2
+        sub.l   -(a2),d2                                ; 009CFFF4: $94A2
+        sub.l   -(a2),d2                                ; 009CFFF6: $94A2
+        sub.l   -(a2),d2                                ; 009CFFF8: $94A2
+        sub.l   -(a2),d2                                ; 009CFFFA: $94A2
+        sub.l   -(a2),d2                                ; 009CFFFC: $94A2
+        sub.l   -(a2),d2                                ; 009CFFFE: $94A2
 

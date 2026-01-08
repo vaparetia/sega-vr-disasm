@@ -5,4100 +5,4005 @@
         org     $154000
 
 Code_154000:
-        dc.w    $6087                    ; 009D4000: BRA.S $009D3F89
-        dc.w    $6087                    ; 009D4002: BRA.S $009D3F8B
-        dc.w    $6087                    ; 009D4004: BRA.S $009D3F8D
-        dc.w    $6087                    ; 009D4006: BRA.S $009D3F8F
-        dc.w    $6087                    ; 009D4008: BRA.S $009D3F91
-        dc.w    $6087                    ; 009D400A: BRA.S $009D3F93
-        dc.w    $6087                    ; 009D400C: BRA.S $009D3F95
-        dc.w    $6087                    ; 009D400E: BRA.S $009D3F97
-        dc.w    $6087                    ; 009D4010: BRA.S $009D3F99
-        dc.w    $6087                    ; 009D4012: BRA.S $009D3F9B
-        dc.w    $6087                    ; 009D4014: BRA.S $009D3F9D
-        dc.w    $6087                    ; 009D4016: BRA.S $009D3F9F
-        dc.w    $6087                    ; 009D4018: BRA.S $009D3FA1
-        dc.w    $6087                    ; 009D401A: BRA.S $009D3FA3
-        dc.w    $6087                    ; 009D401C: BRA.S $009D3FA5
-        dc.w    $6087                    ; 009D401E: BRA.S $009D3FA7
-        dc.w    $6087                    ; 009D4020: BRA.S $009D3FA9
-        dc.w    $6087                    ; 009D4022: BRA.S $009D3FAB
-        dc.w    $6087                    ; 009D4024: BRA.S $009D3FAD
-        dc.w    $6087                    ; 009D4026: BRA.S $009D3FAF
-        dc.w    $6087                    ; 009D4028: BRA.S $009D3FB1
-        dc.w    $6087                    ; 009D402A: BRA.S $009D3FB3
-        dc.w    $6087                    ; 009D402C: BRA.S $009D3FB5
-        dc.w    $6087                    ; 009D402E: BRA.S $009D3FB7
-        dc.w    $6087                    ; 009D4030: BRA.S $009D3FB9
-        dc.w    $6087                    ; 009D4032: BRA.S $009D3FBB
-        dc.w    $6087                    ; 009D4034: BRA.S $009D3FBD
-        dc.w    $6087                    ; 009D4036: BRA.S $009D3FBF
-        dc.w    $6087                    ; 009D4038: BRA.S $009D3FC1
-        dc.w    $6087                    ; 009D403A: BRA.S $009D3FC3
-        dc.w    $6087                    ; 009D403C: BRA.S $009D3FC5
-        dc.w    $6087                    ; 009D403E: BRA.S $009D3FC7
-        dc.w    $6087                    ; 009D4040: BRA.S $009D3FC9
-        dc.w    $6087                    ; 009D4042: BRA.S $009D3FCB
-        dc.w    $6087                    ; 009D4044: BRA.S $009D3FCD
-        dc.w    $6087                    ; 009D4046: BRA.S $009D3FCF
-        dc.w    $6087                    ; 009D4048: BRA.S $009D3FD1
-        dc.w    $6087                    ; 009D404A: BRA.S $009D3FD3
-        dc.w    $6087                    ; 009D404C: BRA.S $009D3FD5
-        dc.w    $6087                    ; 009D404E: BRA.S $009D3FD7
-        dc.w    $6087                    ; 009D4050: BRA.S $009D3FD9
-        dc.w    $6087                    ; 009D4052: BRA.S $009D3FDB
-        dc.w    $6087                    ; 009D4054: BRA.S $009D3FDD
-        dc.w    $6087                    ; 009D4056: BRA.S $009D3FDF
-        dc.w    $6087                    ; 009D4058: BRA.S $009D3FE1
-        dc.w    $6087                    ; 009D405A: BRA.S $009D3FE3
-        dc.w    $6087                    ; 009D405C: BRA.S $009D3FE5
-        dc.w    $6087                    ; 009D405E: BRA.S $009D3FE7
-        dc.w    $6087                    ; 009D4060: BRA.S $009D3FE9
-        dc.w    $6087                    ; 009D4062: BRA.S $009D3FEB
-        dc.w    $6087                    ; 009D4064: BRA.S $009D3FED
-        dc.w    $6087                    ; 009D4066: BRA.S $009D3FEF
-        dc.w    $6087                    ; 009D4068: BRA.S $009D3FF1
-        dc.w    $6087                    ; 009D406A: BRA.S $009D3FF3
-        dc.w    $6087                    ; 009D406C: BRA.S $009D3FF5
-        dc.w    $6087                    ; 009D406E: BRA.S $009D3FF7
-        dc.w    $6087                    ; 009D4070: BRA.S $009D3FF9
-        dc.w    $6087                    ; 009D4072: BRA.S $009D3FFB
-        dc.w    $6087                    ; 009D4074: BRA.S $009D3FFD
-        dc.w    $6087                    ; 009D4076: BRA.S $009D3FFF
-        dc.w    $6087                    ; 009D4078: BRA.S $009D4001
-        dc.w    $6087                    ; 009D407A: BRA.S $009D4003
-        dc.w    $6087                    ; 009D407C: BRA.S $009D4005
-        dc.w    $6087                    ; 009D407E: BRA.S $009D4007
-        dc.w    $6087                    ; 009D4080: BRA.S $009D4009
-        dc.w    $6087                    ; 009D4082: BRA.S $009D400B
-        dc.w    $6087                    ; 009D4084: BRA.S $009D400D
-        dc.w    $6087                    ; 009D4086: BRA.S $009D400F
-        dc.w    $6087                    ; 009D4088: BRA.S $009D4011
-        dc.w    $6087                    ; 009D408A: BRA.S $009D4013
-        dc.w    $6087                    ; 009D408C: BRA.S $009D4015
-        dc.w    $6087                    ; 009D408E: BRA.S $009D4017
-        dc.w    $6087                    ; 009D4090: BRA.S $009D4019
-        dc.w    $6087                    ; 009D4092: BRA.S $009D401B
-        dc.w    $6087                    ; 009D4094: BRA.S $009D401D
-        dc.w    $6087                    ; 009D4096: BRA.S $009D401F
-        dc.w    $6087                    ; 009D4098: BRA.S $009D4021
-        dc.w    $6087                    ; 009D409A: BRA.S $009D4023
-        dc.w    $6087                    ; 009D409C: BRA.S $009D4025
-        dc.w    $6087                    ; 009D409E: BRA.S $009D4027
-        dc.w    $6087                    ; 009D40A0: BRA.S $009D4029
-        dc.w    $6087                    ; 009D40A2: BRA.S $009D402B
-        dc.w    $6087                    ; 009D40A4: BRA.S $009D402D
-        dc.w    $6087                    ; 009D40A6: BRA.S $009D402F
-        dc.w    $6087                    ; 009D40A8: BRA.S $009D4031
-        dc.w    $6087                    ; 009D40AA: BRA.S $009D4033
-        dc.w    $6087                    ; 009D40AC: BRA.S $009D4035
-        dc.w    $6087                    ; 009D40AE: BRA.S $009D4037
-        dc.w    $6087                    ; 009D40B0: BRA.S $009D4039
-        dc.w    $6087                    ; 009D40B2: BRA.S $009D403B
-        dc.w    $6087                    ; 009D40B4: BRA.S $009D403D
-        dc.w    $6087                    ; 009D40B6: BRA.S $009D403F
-        dc.w    $6087                    ; 009D40B8: BRA.S $009D4041
-        dc.w    $6087                    ; 009D40BA: BRA.S $009D4043
-        dc.w    $6087                    ; 009D40BC: BRA.S $009D4045
-        dc.w    $6087                    ; 009D40BE: BRA.S $009D4047
-        dc.w    $6087                    ; 009D40C0: BRA.S $009D4049
-        dc.w    $6087                    ; 009D40C2: BRA.S $009D404B
-        dc.w    $6087                    ; 009D40C4: BRA.S $009D404D
-        dc.w    $6087                    ; 009D40C6: BRA.S $009D404F
-        dc.w    $6087                    ; 009D40C8: BRA.S $009D4051
-        dc.w    $6087                    ; 009D40CA: BRA.S $009D4053
-        dc.w    $6087                    ; 009D40CC: BRA.S $009D4055
-        dc.w    $6087                    ; 009D40CE: BRA.S $009D4057
-        dc.w    $6087                    ; 009D40D0: BRA.S $009D4059
-        dc.w    $6087                    ; 009D40D2: BRA.S $009D405B
-        dc.w    $6087                    ; 009D40D4: BRA.S $009D405D
-        dc.w    $6087                    ; 009D40D6: BRA.S $009D405F
-        dc.w    $6087                    ; 009D40D8: BRA.S $009D4061
-        dc.w    $6087                    ; 009D40DA: BRA.S $009D4063
-        dc.w    $6087                    ; 009D40DC: BRA.S $009D4065
-        dc.w    $6087                    ; 009D40DE: BRA.S $009D4067
-        dc.w    $6087                    ; 009D40E0: BRA.S $009D4069
-        dc.w    $6087                    ; 009D40E2: BRA.S $009D406B
-        dc.w    $6087                    ; 009D40E4: BRA.S $009D406D
-        dc.w    $6087                    ; 009D40E6: BRA.S $009D406F
-        dc.w    $6087                    ; 009D40E8: BRA.S $009D4071
-        dc.w    $6087                    ; 009D40EA: BRA.S $009D4073
-        dc.w    $6087                    ; 009D40EC: BRA.S $009D4075
-        dc.w    $6087                    ; 009D40EE: BRA.S $009D4077
-        dc.w    $6087                    ; 009D40F0: BRA.S $009D4079
-        dc.w    $6087                    ; 009D40F2: BRA.S $009D407B
-        dc.w    $6087                    ; 009D40F4: BRA.S $009D407D
-        dc.w    $6087                    ; 009D40F6: BRA.S $009D407F
-        dc.w    $6087                    ; 009D40F8: BRA.S $009D4081
-        dc.w    $6087                    ; 009D40FA: BRA.S $009D4083
-        dc.w    $6087                    ; 009D40FC: BRA.S $009D4085
-        dc.w    $6087                    ; 009D40FE: BRA.S $009D4087
-        dc.w    $6087                    ; 009D4100: BRA.S $009D4089
-        dc.w    $6087                    ; 009D4102: BRA.S $009D408B
-        dc.w    $6087                    ; 009D4104: BRA.S $009D408D
-        dc.w    $6087                    ; 009D4106: BRA.S $009D408F
-        dc.w    $6087                    ; 009D4108: BRA.S $009D4091
-        dc.w    $6087                    ; 009D410A: BRA.S $009D4093
-        dc.w    $6087                    ; 009D410C: BRA.S $009D4095
-        dc.w    $6087                    ; 009D410E: BRA.S $009D4097
-        dc.w    $6087                    ; 009D4110: BRA.S $009D4099
-        dc.w    $6087                    ; 009D4112: BRA.S $009D409B
-        dc.w    $6087                    ; 009D4114: BRA.S $009D409D
-        dc.w    $6087                    ; 009D4116: BRA.S $009D409F
-        dc.w    $6087                    ; 009D4118: BRA.S $009D40A1
-        dc.w    $6087                    ; 009D411A: BRA.S $009D40A3
-        dc.w    $6087                    ; 009D411C: BRA.S $009D40A5
-        dc.w    $6087                    ; 009D411E: BRA.S $009D40A7
-        dc.w    $6087                    ; 009D4120: BRA.S $009D40A9
-        dc.w    $6087                    ; 009D4122: BRA.S $009D40AB
-        dc.w    $6087                    ; 009D4124: BRA.S $009D40AD
-        dc.w    $6087                    ; 009D4126: BRA.S $009D40AF
-        dc.w    $6087                    ; 009D4128: BRA.S $009D40B1
-        dc.w    $6087                    ; 009D412A: BRA.S $009D40B3
-        dc.w    $6087                    ; 009D412C: BRA.S $009D40B5
-        dc.w    $6087                    ; 009D412E: BRA.S $009D40B7
-        dc.w    $6087                    ; 009D4130: BRA.S $009D40B9
-        dc.w    $6087                    ; 009D4132: BRA.S $009D40BB
-        dc.w    $6087                    ; 009D4134: BRA.S $009D40BD
-        dc.w    $6087                    ; 009D4136: BRA.S $009D40BF
-        dc.w    $6087                    ; 009D4138: BRA.S $009D40C1
-        dc.w    $6087                    ; 009D413A: BRA.S $009D40C3
-        dc.w    $6087                    ; 009D413C: BRA.S $009D40C5
-        dc.w    $6087                    ; 009D413E: BRA.S $009D40C7
-        dc.w    $6087                    ; 009D4140: BRA.S $009D40C9
-        dc.w    $6087                    ; 009D4142: BRA.S $009D40CB
-        dc.w    $6087                    ; 009D4144: BRA.S $009D40CD
-        dc.w    $6087                    ; 009D4146: BRA.S $009D40CF
-        dc.w    $6087                    ; 009D4148: BRA.S $009D40D1
-        dc.w    $6087                    ; 009D414A: BRA.S $009D40D3
-        dc.w    $6087                    ; 009D414C: BRA.S $009D40D5
-        dc.w    $6087                    ; 009D414E: BRA.S $009D40D7
-        dc.w    $6087                    ; 009D4150: BRA.S $009D40D9
-        dc.w    $6087                    ; 009D4152: BRA.S $009D40DB
-        dc.w    $6087                    ; 009D4154: BRA.S $009D40DD
-        dc.w    $6087                    ; 009D4156: BRA.S $009D40DF
-        dc.w    $6087                    ; 009D4158: BRA.S $009D40E1
-        dc.w    $6087                    ; 009D415A: BRA.S $009D40E3
-        dc.w    $6087                    ; 009D415C: BRA.S $009D40E5
-        dc.w    $6087                    ; 009D415E: BRA.S $009D40E7
-        dc.w    $6087                    ; 009D4160: BRA.S $009D40E9
-        dc.w    $6087                    ; 009D4162: BRA.S $009D40EB
-        dc.w    $6087                    ; 009D4164: BRA.S $009D40ED
-        dc.w    $6087                    ; 009D4166: BRA.S $009D40EF
-        dc.w    $6087                    ; 009D4168: BRA.S $009D40F1
-        dc.w    $6087                    ; 009D416A: BRA.S $009D40F3
-        dc.w    $6087                    ; 009D416C: BRA.S $009D40F5
-        dc.w    $6087                    ; 009D416E: BRA.S $009D40F7
-        dc.w    $6087                    ; 009D4170: BRA.S $009D40F9
-        dc.w    $6087                    ; 009D4172: BRA.S $009D40FB
-        dc.w    $6087                    ; 009D4174: BRA.S $009D40FD
-        dc.w    $6087                    ; 009D4176: BRA.S $009D40FF
-        dc.w    $6087                    ; 009D4178: BRA.S $009D4101
-        dc.w    $6087                    ; 009D417A: BRA.S $009D4103
-        dc.w    $6087                    ; 009D417C: BRA.S $009D4105
-        dc.w    $6087                    ; 009D417E: BRA.S $009D4107
-        dc.w    $6087                    ; 009D4180: BRA.S $009D4109
-        dc.w    $6087                    ; 009D4182: BRA.S $009D410B
-        dc.w    $6087                    ; 009D4184: BRA.S $009D410D
-        dc.w    $6087                    ; 009D4186: BRA.S $009D410F
-        dc.w    $6087                    ; 009D4188: BRA.S $009D4111
-        dc.w    $6087                    ; 009D418A: BRA.S $009D4113
-        dc.w    $6087                    ; 009D418C: BRA.S $009D4115
-        dc.w    $6087                    ; 009D418E: BRA.S $009D4117
-        dc.w    $6087                    ; 009D4190: BRA.S $009D4119
-        dc.w    $6087                    ; 009D4192: BRA.S $009D411B
-        dc.w    $6087                    ; 009D4194: BRA.S $009D411D
-        dc.w    $6087                    ; 009D4196: BRA.S $009D411F
-        dc.w    $6087                    ; 009D4198: BRA.S $009D4121
-        dc.w    $6087                    ; 009D419A: BRA.S $009D4123
-        dc.w    $6087                    ; 009D419C: BRA.S $009D4125
-        dc.w    $6087                    ; 009D419E: BRA.S $009D4127
-        dc.w    $6087                    ; 009D41A0: BRA.S $009D4129
-        dc.w    $6087                    ; 009D41A2: BRA.S $009D412B
-        dc.w    $6087                    ; 009D41A4: BRA.S $009D412D
-        dc.w    $6087                    ; 009D41A6: BRA.S $009D412F
-        dc.w    $6087                    ; 009D41A8: BRA.S $009D4131
-        dc.w    $6087                    ; 009D41AA: BRA.S $009D4133
-        dc.w    $6087                    ; 009D41AC: BRA.S $009D4135
-        dc.w    $6087                    ; 009D41AE: BRA.S $009D4137
-        dc.w    $6087                    ; 009D41B0: BRA.S $009D4139
-        dc.w    $6087                    ; 009D41B2: BRA.S $009D413B
-        dc.w    $6087                    ; 009D41B4: BRA.S $009D413D
-        dc.w    $6087                    ; 009D41B6: BRA.S $009D413F
-        dc.w    $6087                    ; 009D41B8: BRA.S $009D4141
-        dc.w    $6087                    ; 009D41BA: BRA.S $009D4143
-        dc.w    $6087                    ; 009D41BC: BRA.S $009D4145
-        dc.w    $6087                    ; 009D41BE: BRA.S $009D4147
-        dc.w    $6087                    ; 009D41C0: BRA.S $009D4149
-        dc.w    $6087                    ; 009D41C2: BRA.S $009D414B
-        dc.w    $6087                    ; 009D41C4: BRA.S $009D414D
-        dc.w    $6087                    ; 009D41C6: BRA.S $009D414F
-        dc.w    $6087                    ; 009D41C8: BRA.S $009D4151
-        dc.w    $6087                    ; 009D41CA: BRA.S $009D4153
-        dc.w    $6087                    ; 009D41CC: BRA.S $009D4155
-        dc.w    $6087                    ; 009D41CE: BRA.S $009D4157
-        dc.w    $6087                    ; 009D41D0: BRA.S $009D4159
-        dc.w    $6087                    ; 009D41D2: BRA.S $009D415B
-        dc.w    $6087                    ; 009D41D4: BRA.S $009D415D
-        dc.w    $6087                    ; 009D41D6: BRA.S $009D415F
-        dc.w    $6087                    ; 009D41D8: BRA.S $009D4161
-        dc.w    $6087                    ; 009D41DA: BRA.S $009D4163
-        dc.w    $6087                    ; 009D41DC: BRA.S $009D4165
-        dc.w    $6087                    ; 009D41DE: BRA.S $009D4167
-        dc.w    $6087                    ; 009D41E0: BRA.S $009D4169
-        dc.w    $6087                    ; 009D41E2: BRA.S $009D416B
-        dc.w    $6087                    ; 009D41E4: BRA.S $009D416D
-        dc.w    $6087                    ; 009D41E6: BRA.S $009D416F
-        dc.w    $6087                    ; 009D41E8: BRA.S $009D4171
-        dc.w    $6087                    ; 009D41EA: BRA.S $009D4173
-        dc.w    $6087                    ; 009D41EC: BRA.S $009D4175
-        dc.w    $6087                    ; 009D41EE: BRA.S $009D4177
-        dc.w    $6087                    ; 009D41F0: BRA.S $009D4179
-        dc.w    $6087                    ; 009D41F2: BRA.S $009D417B
-        dc.w    $6087                    ; 009D41F4: BRA.S $009D417D
-        dc.w    $6087                    ; 009D41F6: BRA.S $009D417F
-        dc.w    $6087                    ; 009D41F8: BRA.S $009D4181
-        dc.w    $6087                    ; 009D41FA: BRA.S $009D4183
-        dc.w    $6087                    ; 009D41FC: BRA.S $009D4185
-        dc.w    $6087                    ; 009D41FE: BRA.S $009D4187
-        dc.w    $6087                    ; 009D4200: BRA.S $009D4189
-        dc.w    $6087                    ; 009D4202: BRA.S $009D418B
-        dc.w    $6087                    ; 009D4204: BRA.S $009D418D
-        dc.w    $6087                    ; 009D4206: BRA.S $009D418F
-        dc.w    $6087                    ; 009D4208: BRA.S $009D4191
-        dc.w    $6087                    ; 009D420A: BRA.S $009D4193
-        dc.w    $6087                    ; 009D420C: BRA.S $009D4195
-        dc.w    $6087                    ; 009D420E: BRA.S $009D4197
-        dc.w    $6087                    ; 009D4210: BRA.S $009D4199
-        dc.w    $6087                    ; 009D4212: BRA.S $009D419B
-        dc.w    $6087                    ; 009D4214: BRA.S $009D419D
-        dc.w    $6087                    ; 009D4216: BRA.S $009D419F
-        dc.w    $6087                    ; 009D4218: BRA.S $009D41A1
-        dc.w    $6087                    ; 009D421A: BRA.S $009D41A3
-        dc.w    $6087                    ; 009D421C: BRA.S $009D41A5
-        dc.w    $6087                    ; 009D421E: BRA.S $009D41A7
-        dc.w    $6087                    ; 009D4220: BRA.S $009D41A9
-        dc.w    $6087                    ; 009D4222: BRA.S $009D41AB
-        dc.w    $6087                    ; 009D4224: BRA.S $009D41AD
-        dc.w    $6087                    ; 009D4226: BRA.S $009D41AF
-        dc.w    $6087                    ; 009D4228: BRA.S $009D41B1
-        dc.w    $6087                    ; 009D422A: BRA.S $009D41B3
-        dc.w    $6087                    ; 009D422C: BRA.S $009D41B5
-        dc.w    $6087                    ; 009D422E: BRA.S $009D41B7
-        dc.w    $6087                    ; 009D4230: BRA.S $009D41B9
-        dc.w    $6087                    ; 009D4232: BRA.S $009D41BB
-        dc.w    $6087                    ; 009D4234: BRA.S $009D41BD
-        dc.w    $6087                    ; 009D4236: BRA.S $009D41BF
-        dc.w    $6087                    ; 009D4238: BRA.S $009D41C1
-        dc.w    $6087                    ; 009D423A: BRA.S $009D41C3
-        dc.w    $6087                    ; 009D423C: BRA.S $009D41C5
-        dc.w    $6087                    ; 009D423E: BRA.S $009D41C7
-        dc.w    $6087                    ; 009D4240: BRA.S $009D41C9
-        dc.w    $6087                    ; 009D4242: BRA.S $009D41CB
-        dc.w    $6087                    ; 009D4244: BRA.S $009D41CD
-        dc.w    $6087                    ; 009D4246: BRA.S $009D41CF
-        dc.w    $6087                    ; 009D4248: BRA.S $009D41D1
-        dc.w    $6087                    ; 009D424A: BRA.S $009D41D3
-        dc.w    $6087                    ; 009D424C: BRA.S $009D41D5
-        dc.w    $6087                    ; 009D424E: BRA.S $009D41D7
-        dc.w    $6087                    ; 009D4250: BRA.S $009D41D9
-        dc.w    $6087                    ; 009D4252: BRA.S $009D41DB
-        dc.w    $6087                    ; 009D4254: BRA.S $009D41DD
-        dc.w    $6087                    ; 009D4256: BRA.S $009D41DF
-        dc.w    $6087                    ; 009D4258: BRA.S $009D41E1
-        dc.w    $6087                    ; 009D425A: BRA.S $009D41E3
-        dc.w    $6087                    ; 009D425C: BRA.S $009D41E5
-        dc.w    $6087                    ; 009D425E: BRA.S $009D41E7
-        dc.w    $6087                    ; 009D4260: BRA.S $009D41E9
-        dc.w    $6087                    ; 009D4262: BRA.S $009D41EB
-        dc.w    $6087                    ; 009D4264: BRA.S $009D41ED
-        dc.w    $6087                    ; 009D4266: BRA.S $009D41EF
-        dc.w    $6087                    ; 009D4268: BRA.S $009D41F1
-        dc.w    $6087                    ; 009D426A: BRA.S $009D41F3
-        dc.w    $6087                    ; 009D426C: BRA.S $009D41F5
-        dc.w    $6087                    ; 009D426E: BRA.S $009D41F7
-        dc.w    $6087                    ; 009D4270: BRA.S $009D41F9
-        dc.w    $6087                    ; 009D4272: BRA.S $009D41FB
-        dc.w    $6087                    ; 009D4274: BRA.S $009D41FD
-        dc.w    $6087                    ; 009D4276: BRA.S $009D41FF
-        dc.w    $6087                    ; 009D4278: BRA.S $009D4201
-        dc.w    $6087                    ; 009D427A: BRA.S $009D4203
-        dc.w    $6087                    ; 009D427C: BRA.S $009D4205
-        dc.w    $6087                    ; 009D427E: BRA.S $009D4207
-        dc.w    $6087                    ; 009D4280: BRA.S $009D4209
-        dc.w    $6087                    ; 009D4282: BRA.S $009D420B
-        dc.w    $6087                    ; 009D4284: BRA.S $009D420D
-        dc.w    $6087                    ; 009D4286: BRA.S $009D420F
-        dc.w    $6087                    ; 009D4288: BRA.S $009D4211
-        dc.w    $6087                    ; 009D428A: BRA.S $009D4213
-        dc.w    $6087                    ; 009D428C: BRA.S $009D4215
-        dc.w    $6087                    ; 009D428E: BRA.S $009D4217
-        dc.w    $6087                    ; 009D4290: BRA.S $009D4219
-        dc.w    $6087                    ; 009D4292: BRA.S $009D421B
-        dc.w    $6087                    ; 009D4294: BRA.S $009D421D
-        dc.w    $6087                    ; 009D4296: BRA.S $009D421F
-        dc.w    $6087                    ; 009D4298: BRA.S $009D4221
-        dc.w    $6087                    ; 009D429A: BRA.S $009D4223
-        dc.w    $6087                    ; 009D429C: BRA.S $009D4225
-        dc.w    $6087                    ; 009D429E: BRA.S $009D4227
-        dc.w    $6087                    ; 009D42A0: BRA.S $009D4229
-        dc.w    $6087                    ; 009D42A2: BRA.S $009D422B
-        dc.w    $6087                    ; 009D42A4: BRA.S $009D422D
-        dc.w    $6087                    ; 009D42A6: BRA.S $009D422F
-        dc.w    $6087                    ; 009D42A8: BRA.S $009D4231
-        dc.w    $6087                    ; 009D42AA: BRA.S $009D4233
-        dc.w    $6087                    ; 009D42AC: BRA.S $009D4235
-        dc.w    $6087                    ; 009D42AE: BRA.S $009D4237
-        dc.w    $6087                    ; 009D42B0: BRA.S $009D4239
-        dc.w    $6087                    ; 009D42B2: BRA.S $009D423B
-        dc.w    $6087                    ; 009D42B4: BRA.S $009D423D
-        dc.w    $6087                    ; 009D42B6: BRA.S $009D423F
-        dc.w    $6087                    ; 009D42B8: BRA.S $009D4241
-        dc.w    $6087                    ; 009D42BA: BRA.S $009D4243
-        dc.w    $6087                    ; 009D42BC: BRA.S $009D4245
-        dc.w    $6087                    ; 009D42BE: BRA.S $009D4247
-        dc.w    $6087                    ; 009D42C0: BRA.S $009D4249
-        dc.w    $6087                    ; 009D42C2: BRA.S $009D424B
-        dc.w    $6087                    ; 009D42C4: BRA.S $009D424D
-        dc.w    $6087                    ; 009D42C6: BRA.S $009D424F
-        dc.w    $6087                    ; 009D42C8: BRA.S $009D4251
-        dc.w    $6087                    ; 009D42CA: BRA.S $009D4253
-        dc.w    $6087                    ; 009D42CC: BRA.S $009D4255
-        dc.w    $6087                    ; 009D42CE: BRA.S $009D4257
-        dc.w    $6087                    ; 009D42D0: BRA.S $009D4259
-        dc.w    $6087                    ; 009D42D2: BRA.S $009D425B
-        dc.w    $6087                    ; 009D42D4: BRA.S $009D425D
-        dc.w    $6087                    ; 009D42D6: BRA.S $009D425F
-        dc.w    $6087                    ; 009D42D8: BRA.S $009D4261
-        dc.w    $6087                    ; 009D42DA: BRA.S $009D4263
-        dc.w    $6087                    ; 009D42DC: BRA.S $009D4265
-        dc.w    $6087                    ; 009D42DE: BRA.S $009D4267
-        dc.w    $6087                    ; 009D42E0: BRA.S $009D4269
-        dc.w    $6087                    ; 009D42E2: BRA.S $009D426B
-        dc.w    $6087                    ; 009D42E4: BRA.S $009D426D
-        dc.w    $6087                    ; 009D42E6: BRA.S $009D426F
-        dc.w    $6087                    ; 009D42E8: BRA.S $009D4271
-        dc.w    $6087                    ; 009D42EA: BRA.S $009D4273
-        dc.w    $6087                    ; 009D42EC: BRA.S $009D4275
-        dc.w    $6087                    ; 009D42EE: BRA.S $009D4277
-        dc.w    $6087                    ; 009D42F0: BRA.S $009D4279
-        dc.w    $6087                    ; 009D42F2: BRA.S $009D427B
-        dc.w    $6087                    ; 009D42F4: BRA.S $009D427D
-        dc.w    $6087                    ; 009D42F6: BRA.S $009D427F
-        dc.w    $6087                    ; 009D42F8: BRA.S $009D4281
-        dc.w    $6087                    ; 009D42FA: BRA.S $009D4283
-        dc.w    $6087                    ; 009D42FC: BRA.S $009D4285
-        dc.w    $6087                    ; 009D42FE: BRA.S $009D4287
-        dc.w    $6087                    ; 009D4300: BRA.S $009D4289
-        dc.w    $6087                    ; 009D4302: BRA.S $009D428B
-        dc.w    $6087                    ; 009D4304: BRA.S $009D428D
-        dc.w    $6087                    ; 009D4306: BRA.S $009D428F
-        dc.w    $6087                    ; 009D4308: BRA.S $009D4291
-        dc.w    $6087                    ; 009D430A: BRA.S $009D4293
-        dc.w    $6087                    ; 009D430C: BRA.S $009D4295
-        dc.w    $6087                    ; 009D430E: BRA.S $009D4297
-        dc.w    $6087                    ; 009D4310: BRA.S $009D4299
-        dc.w    $6087                    ; 009D4312: BRA.S $009D429B
-        dc.w    $6087                    ; 009D4314: BRA.S $009D429D
-        dc.w    $6087                    ; 009D4316: BRA.S $009D429F
-        dc.w    $6087                    ; 009D4318: BRA.S $009D42A1
-        dc.w    $6087                    ; 009D431A: BRA.S $009D42A3
-        dc.w    $6087                    ; 009D431C: BRA.S $009D42A5
-        dc.w    $6087                    ; 009D431E: BRA.S $009D42A7
-        dc.w    $6087                    ; 009D4320: BRA.S $009D42A9
-        dc.w    $6087                    ; 009D4322: BRA.S $009D42AB
-        dc.w    $6087                    ; 009D4324: BRA.S $009D42AD
-        dc.w    $6087                    ; 009D4326: BRA.S $009D42AF
-        dc.w    $6087                    ; 009D4328: BRA.S $009D42B1
-        dc.w    $6087                    ; 009D432A: BRA.S $009D42B3
-        dc.w    $6087                    ; 009D432C: BRA.S $009D42B5
-        dc.w    $6087                    ; 009D432E: BRA.S $009D42B7
-        dc.w    $6087                    ; 009D4330: BRA.S $009D42B9
-        dc.w    $6087                    ; 009D4332: BRA.S $009D42BB
-        dc.w    $6087                    ; 009D4334: BRA.S $009D42BD
-        dc.w    $6087                    ; 009D4336: BRA.S $009D42BF
-        dc.w    $6087                    ; 009D4338: BRA.S $009D42C1
-        dc.w    $6087                    ; 009D433A: BRA.S $009D42C3
-        dc.w    $6087                    ; 009D433C: BRA.S $009D42C5
-        dc.w    $6087                    ; 009D433E: BRA.S $009D42C7
-        dc.w    $6087                    ; 009D4340: BRA.S $009D42C9
-        dc.w    $6087                    ; 009D4342: BRA.S $009D42CB
-        dc.w    $6087                    ; 009D4344: BRA.S $009D42CD
-        dc.w    $6087                    ; 009D4346: BRA.S $009D42CF
-        dc.w    $6087                    ; 009D4348: BRA.S $009D42D1
-        dc.w    $6087                    ; 009D434A: BRA.S $009D42D3
-        dc.w    $6087                    ; 009D434C: BRA.S $009D42D5
-        dc.w    $6087                    ; 009D434E: BRA.S $009D42D7
-        dc.w    $6087                    ; 009D4350: BRA.S $009D42D9
-        dc.w    $6087                    ; 009D4352: BRA.S $009D42DB
-        dc.w    $6087                    ; 009D4354: BRA.S $009D42DD
-        dc.w    $6087                    ; 009D4356: BRA.S $009D42DF
-        dc.w    $6087                    ; 009D4358: BRA.S $009D42E1
-        dc.w    $6087                    ; 009D435A: BRA.S $009D42E3
-        dc.w    $6087                    ; 009D435C: BRA.S $009D42E5
-        dc.w    $6087                    ; 009D435E: BRA.S $009D42E7
-        dc.w    $6087                    ; 009D4360: BRA.S $009D42E9
-        dc.w    $6087                    ; 009D4362: BRA.S $009D42EB
-        dc.w    $6087                    ; 009D4364: BRA.S $009D42ED
-        dc.w    $6087                    ; 009D4366: BRA.S $009D42EF
-        dc.w    $6087                    ; 009D4368: BRA.S $009D42F1
-        dc.w    $6087                    ; 009D436A: BRA.S $009D42F3
-        dc.w    $6087                    ; 009D436C: BRA.S $009D42F5
-        dc.w    $6087                    ; 009D436E: BRA.S $009D42F7
-        dc.w    $6087                    ; 009D4370: BRA.S $009D42F9
-        dc.w    $6087                    ; 009D4372: BRA.S $009D42FB
-        dc.w    $6087                    ; 009D4374: BRA.S $009D42FD
-        dc.w    $6087                    ; 009D4376: BRA.S $009D42FF
-        dc.w    $6087                    ; 009D4378: BRA.S $009D4301
-        dc.w    $6087                    ; 009D437A: BRA.S $009D4303
-        dc.w    $6087                    ; 009D437C: BRA.S $009D4305
-        dc.w    $6087                    ; 009D437E: BRA.S $009D4307
-        dc.w    $6087                    ; 009D4380: BRA.S $009D4309
-        dc.w    $6087                    ; 009D4382: BRA.S $009D430B
-        dc.w    $6087                    ; 009D4384: BRA.S $009D430D
-        dc.w    $6087                    ; 009D4386: BRA.S $009D430F
-        dc.w    $6087                    ; 009D4388: BRA.S $009D4311
-        dc.w    $6087                    ; 009D438A: BRA.S $009D4313
-        dc.w    $6087                    ; 009D438C: BRA.S $009D4315
-        dc.w    $6087                    ; 009D438E: BRA.S $009D4317
-        dc.w    $6087                    ; 009D4390: BRA.S $009D4319
-        dc.w    $6087                    ; 009D4392: BRA.S $009D431B
-        dc.w    $6087                    ; 009D4394: BRA.S $009D431D
-        dc.w    $6087                    ; 009D4396: BRA.S $009D431F
-        dc.w    $6087                    ; 009D4398: BRA.S $009D4321
-        dc.w    $6087                    ; 009D439A: BRA.S $009D4323
-        dc.w    $6087                    ; 009D439C: BRA.S $009D4325
-        dc.w    $6087                    ; 009D439E: BRA.S $009D4327
-        dc.w    $6087                    ; 009D43A0: BRA.S $009D4329
-        dc.w    $6087                    ; 009D43A2: BRA.S $009D432B
-        dc.w    $6087                    ; 009D43A4: BRA.S $009D432D
-        dc.w    $6087                    ; 009D43A6: BRA.S $009D432F
-        dc.w    $6087                    ; 009D43A8: BRA.S $009D4331
-        dc.w    $6087                    ; 009D43AA: BRA.S $009D4333
-        dc.w    $6087                    ; 009D43AC: BRA.S $009D4335
-        dc.w    $6087                    ; 009D43AE: BRA.S $009D4337
-        dc.w    $6087                    ; 009D43B0: BRA.S $009D4339
-        dc.w    $6087                    ; 009D43B2: BRA.S $009D433B
-        dc.w    $6087                    ; 009D43B4: BRA.S $009D433D
-        dc.w    $6087                    ; 009D43B6: BRA.S $009D433F
-        dc.w    $6087                    ; 009D43B8: BRA.S $009D4341
-        dc.w    $6087                    ; 009D43BA: BRA.S $009D4343
-        dc.w    $6087                    ; 009D43BC: BRA.S $009D4345
-        dc.w    $6087                    ; 009D43BE: BRA.S $009D4347
-        dc.w    $6087                    ; 009D43C0: BRA.S $009D4349
-        dc.w    $6087                    ; 009D43C2: BRA.S $009D434B
-        dc.w    $6087                    ; 009D43C4: BRA.S $009D434D
-        dc.w    $6087                    ; 009D43C6: BRA.S $009D434F
-        dc.w    $6087                    ; 009D43C8: BRA.S $009D4351
-        dc.w    $6087                    ; 009D43CA: BRA.S $009D4353
-        dc.w    $6087                    ; 009D43CC: BRA.S $009D4355
-        dc.w    $6087                    ; 009D43CE: BRA.S $009D4357
-        dc.w    $6087                    ; 009D43D0: BRA.S $009D4359
-        dc.w    $6087                    ; 009D43D2: BRA.S $009D435B
-        dc.w    $6087                    ; 009D43D4: BRA.S $009D435D
-        dc.w    $6087                    ; 009D43D6: BRA.S $009D435F
-        dc.w    $6087                    ; 009D43D8: BRA.S $009D4361
-        dc.w    $6087                    ; 009D43DA: BRA.S $009D4363
-        dc.w    $6087                    ; 009D43DC: BRA.S $009D4365
-        dc.w    $6087                    ; 009D43DE: BRA.S $009D4367
-        dc.w    $6087                    ; 009D43E0: BRA.S $009D4369
-        dc.w    $6087                    ; 009D43E2: BRA.S $009D436B
-        dc.w    $6087                    ; 009D43E4: BRA.S $009D436D
-        dc.w    $6087                    ; 009D43E6: BRA.S $009D436F
-        dc.w    $6087                    ; 009D43E8: BRA.S $009D4371
-        dc.w    $6087                    ; 009D43EA: BRA.S $009D4373
-        dc.w    $6087                    ; 009D43EC: BRA.S $009D4375
-        dc.w    $6087                    ; 009D43EE: BRA.S $009D4377
-        dc.w    $6087                    ; 009D43F0: BRA.S $009D4379
-        dc.w    $6087                    ; 009D43F2: BRA.S $009D437B
-        dc.w    $6087                    ; 009D43F4: BRA.S $009D437D
-        dc.w    $6087                    ; 009D43F6: BRA.S $009D437F
-        dc.w    $6087                    ; 009D43F8: BRA.S $009D4381
-        dc.w    $6087                    ; 009D43FA: BRA.S $009D4383
-        dc.w    $6087                    ; 009D43FC: BRA.S $009D4385
-        dc.w    $6087                    ; 009D43FE: BRA.S $009D4387
-        dc.w    $6087                    ; 009D4400: BRA.S $009D4389
-        dc.w    $6087                    ; 009D4402: BRA.S $009D438B
-        dc.w    $6087                    ; 009D4404: BRA.S $009D438D
-        dc.w    $6087                    ; 009D4406: BRA.S $009D438F
-        dc.w    $6087                    ; 009D4408: BRA.S $009D4391
-        dc.w    $6087                    ; 009D440A: BRA.S $009D4393
-        dc.w    $6087                    ; 009D440C: BRA.S $009D4395
-        dc.w    $6087                    ; 009D440E: BRA.S $009D4397
-        dc.w    $6087                    ; 009D4410: BRA.S $009D4399
-        dc.w    $6087                    ; 009D4412: BRA.S $009D439B
-        dc.w    $6087                    ; 009D4414: BRA.S $009D439D
-        dc.w    $6087                    ; 009D4416: BRA.S $009D439F
-        dc.w    $6087                    ; 009D4418: BRA.S $009D43A1
-        dc.w    $6087                    ; 009D441A: BRA.S $009D43A3
-        dc.w    $6087                    ; 009D441C: BRA.S $009D43A5
-        dc.w    $6087                    ; 009D441E: BRA.S $009D43A7
-        dc.w    $6087                    ; 009D4420: BRA.S $009D43A9
-        dc.w    $6087                    ; 009D4422: BRA.S $009D43AB
-        dc.w    $6087                    ; 009D4424: BRA.S $009D43AD
-        dc.w    $6087                    ; 009D4426: BRA.S $009D43AF
-        dc.w    $6087                    ; 009D4428: BRA.S $009D43B1
-        dc.w    $6087                    ; 009D442A: BRA.S $009D43B3
-        dc.w    $6087                    ; 009D442C: BRA.S $009D43B5
-        dc.w    $6087                    ; 009D442E: BRA.S $009D43B7
-        dc.w    $6087                    ; 009D4430: BRA.S $009D43B9
-        dc.w    $6087                    ; 009D4432: BRA.S $009D43BB
-        dc.w    $6087                    ; 009D4434: BRA.S $009D43BD
-        dc.w    $6087                    ; 009D4436: BRA.S $009D43BF
-        dc.w    $6087                    ; 009D4438: BRA.S $009D43C1
-        dc.w    $6087                    ; 009D443A: BRA.S $009D43C3
-        dc.w    $6087                    ; 009D443C: BRA.S $009D43C5
-        dc.w    $6087                    ; 009D443E: BRA.S $009D43C7
-        dc.w    $6087                    ; 009D4440: BRA.S $009D43C9
-        dc.w    $6087                    ; 009D4442: BRA.S $009D43CB
-        dc.w    $6087                    ; 009D4444: BRA.S $009D43CD
-        dc.w    $6087                    ; 009D4446: BRA.S $009D43CF
-        dc.w    $6087                    ; 009D4448: BRA.S $009D43D1
-        dc.w    $6087                    ; 009D444A: BRA.S $009D43D3
-        dc.w    $6087                    ; 009D444C: BRA.S $009D43D5
-        dc.w    $6087                    ; 009D444E: BRA.S $009D43D7
-        dc.w    $6087                    ; 009D4450: BRA.S $009D43D9
-        dc.w    $6087                    ; 009D4452: BRA.S $009D43DB
-        dc.w    $6087                    ; 009D4454: BRA.S $009D43DD
-        dc.w    $6087                    ; 009D4456: BRA.S $009D43DF
-        dc.w    $6087                    ; 009D4458: BRA.S $009D43E1
-        dc.w    $6087                    ; 009D445A: BRA.S $009D43E3
-        dc.w    $6087                    ; 009D445C: BRA.S $009D43E5
-        dc.w    $6087                    ; 009D445E: BRA.S $009D43E7
-        dc.w    $6087                    ; 009D4460: BRA.S $009D43E9
-        dc.w    $6087                    ; 009D4462: BRA.S $009D43EB
-        dc.w    $6087                    ; 009D4464: BRA.S $009D43ED
-        dc.w    $6087                    ; 009D4466: BRA.S $009D43EF
-        dc.w    $6087                    ; 009D4468: BRA.S $009D43F1
-        dc.w    $6087                    ; 009D446A: BRA.S $009D43F3
-        dc.w    $6087                    ; 009D446C: BRA.S $009D43F5
-        dc.w    $6087                    ; 009D446E: BRA.S $009D43F7
-        dc.w    $6087                    ; 009D4470: BRA.S $009D43F9
-        dc.w    $6087                    ; 009D4472: BRA.S $009D43FB
-        dc.w    $6087                    ; 009D4474: BRA.S $009D43FD
-        dc.w    $6087                    ; 009D4476: BRA.S $009D43FF
-        dc.w    $6087                    ; 009D4478: BRA.S $009D4401
-        dc.w    $6087                    ; 009D447A: BRA.S $009D4403
-        dc.w    $6087                    ; 009D447C: BRA.S $009D4405
-        dc.w    $6087                    ; 009D447E: BRA.S $009D4407
-        dc.w    $6087                    ; 009D4480: BRA.S $009D4409
-        dc.w    $6087                    ; 009D4482: BRA.S $009D440B
-        dc.w    $6087                    ; 009D4484: BRA.S $009D440D
-        dc.w    $6087                    ; 009D4486: BRA.S $009D440F
-        dc.w    $6087                    ; 009D4488: BRA.S $009D4411
-        dc.w    $6087                    ; 009D448A: BRA.S $009D4413
-        dc.w    $6087                    ; 009D448C: BRA.S $009D4415
-        dc.w    $6087                    ; 009D448E: BRA.S $009D4417
-        dc.w    $6087                    ; 009D4490: BRA.S $009D4419
-        dc.w    $6087                    ; 009D4492: BRA.S $009D441B
-        dc.w    $6087                    ; 009D4494: BRA.S $009D441D
-        dc.w    $6087                    ; 009D4496: BRA.S $009D441F
-        dc.w    $6087                    ; 009D4498: BRA.S $009D4421
-        dc.w    $6087                    ; 009D449A: BRA.S $009D4423
-        dc.w    $6087                    ; 009D449C: BRA.S $009D4425
-        dc.w    $6087                    ; 009D449E: BRA.S $009D4427
-        dc.w    $6087                    ; 009D44A0: BRA.S $009D4429
-        dc.w    $6087                    ; 009D44A2: BRA.S $009D442B
-        dc.w    $6087                    ; 009D44A4: BRA.S $009D442D
-        dc.w    $6087                    ; 009D44A6: BRA.S $009D442F
-        dc.w    $6087                    ; 009D44A8: BRA.S $009D4431
-        dc.w    $6087                    ; 009D44AA: BRA.S $009D4433
-        dc.w    $6087                    ; 009D44AC: BRA.S $009D4435
-        dc.w    $6087                    ; 009D44AE: BRA.S $009D4437
-        dc.w    $6087                    ; 009D44B0: BRA.S $009D4439
-        dc.w    $6087                    ; 009D44B2: BRA.S $009D443B
-        dc.w    $6087                    ; 009D44B4: BRA.S $009D443D
-        dc.w    $6087                    ; 009D44B6: BRA.S $009D443F
-        dc.w    $6087                    ; 009D44B8: BRA.S $009D4441
-        dc.w    $6087                    ; 009D44BA: BRA.S $009D4443
-        dc.w    $6087                    ; 009D44BC: BRA.S $009D4445
-        dc.w    $6087                    ; 009D44BE: BRA.S $009D4447
-        dc.w    $6087                    ; 009D44C0: BRA.S $009D4449
-        dc.w    $6087                    ; 009D44C2: BRA.S $009D444B
-        dc.w    $6087                    ; 009D44C4: BRA.S $009D444D
-        dc.w    $6087                    ; 009D44C6: BRA.S $009D444F
-        dc.w    $6087                    ; 009D44C8: BRA.S $009D4451
-        dc.w    $6087                    ; 009D44CA: BRA.S $009D4453
-        dc.w    $6087                    ; 009D44CC: BRA.S $009D4455
-        dc.w    $6087                    ; 009D44CE: BRA.S $009D4457
-        dc.w    $6087                    ; 009D44D0: BRA.S $009D4459
-        dc.w    $6087                    ; 009D44D2: BRA.S $009D445B
-        dc.w    $6087                    ; 009D44D4: BRA.S $009D445D
-        dc.w    $6087                    ; 009D44D6: BRA.S $009D445F
-        dc.w    $6087                    ; 009D44D8: BRA.S $009D4461
-        dc.w    $6087                    ; 009D44DA: BRA.S $009D4463
-        dc.w    $6087                    ; 009D44DC: BRA.S $009D4465
-        dc.w    $6087                    ; 009D44DE: BRA.S $009D4467
-        dc.w    $6087                    ; 009D44E0: BRA.S $009D4469
-        dc.w    $6087                    ; 009D44E2: BRA.S $009D446B
-        dc.w    $6087                    ; 009D44E4: BRA.S $009D446D
-        dc.w    $6087                    ; 009D44E6: BRA.S $009D446F
-        dc.w    $6087                    ; 009D44E8: BRA.S $009D4471
-        dc.w    $6087                    ; 009D44EA: BRA.S $009D4473
-        dc.w    $6087                    ; 009D44EC: BRA.S $009D4475
-        dc.w    $6087                    ; 009D44EE: BRA.S $009D4477
-        dc.w    $6087                    ; 009D44F0: BRA.S $009D4479
-        dc.w    $6087                    ; 009D44F2: BRA.S $009D447B
-        dc.w    $6087                    ; 009D44F4: BRA.S $009D447D
-        dc.w    $6087                    ; 009D44F6: BRA.S $009D447F
-        dc.w    $6087                    ; 009D44F8: BRA.S $009D4481
-        dc.w    $6087                    ; 009D44FA: BRA.S $009D4483
-        dc.w    $6087                    ; 009D44FC: BRA.S $009D4485
-        dc.w    $6087                    ; 009D44FE: BRA.S $009D4487
-        dc.w    $6087                    ; 009D4500: BRA.S $009D4489
-        dc.w    $6087                    ; 009D4502: BRA.S $009D448B
-        dc.w    $6087                    ; 009D4504: BRA.S $009D448D
-        dc.w    $6087                    ; 009D4506: BRA.S $009D448F
-        dc.w    $6087                    ; 009D4508: BRA.S $009D4491
-        dc.w    $6087                    ; 009D450A: BRA.S $009D4493
-        dc.w    $6087                    ; 009D450C: BRA.S $009D4495
-        dc.w    $6087                    ; 009D450E: BRA.S $009D4497
-        dc.w    $6087                    ; 009D4510: BRA.S $009D4499
-        dc.w    $6087                    ; 009D4512: BRA.S $009D449B
-        dc.w    $6087                    ; 009D4514: BRA.S $009D449D
-        dc.w    $6087                    ; 009D4516: BRA.S $009D449F
-        dc.w    $6087                    ; 009D4518: BRA.S $009D44A1
-        dc.w    $6087                    ; 009D451A: BRA.S $009D44A3
-        dc.w    $6087                    ; 009D451C: BRA.S $009D44A5
-        dc.w    $6087                    ; 009D451E: BRA.S $009D44A7
-        dc.w    $6087                    ; 009D4520: BRA.S $009D44A9
-        dc.w    $6087                    ; 009D4522: BRA.S $009D44AB
-        dc.w    $6087                    ; 009D4524: BRA.S $009D44AD
-        dc.w    $6087                    ; 009D4526: BRA.S $009D44AF
-        dc.w    $6087                    ; 009D4528: BRA.S $009D44B1
-        dc.w    $6087                    ; 009D452A: BRA.S $009D44B3
-        dc.w    $6087                    ; 009D452C: BRA.S $009D44B5
-        dc.w    $6087                    ; 009D452E: BRA.S $009D44B7
-        dc.w    $6087                    ; 009D4530: BRA.S $009D44B9
-        dc.w    $6087                    ; 009D4532: BRA.S $009D44BB
-        dc.w    $6087                    ; 009D4534: BRA.S $009D44BD
-        dc.w    $6087                    ; 009D4536: BRA.S $009D44BF
-        dc.w    $6087                    ; 009D4538: BRA.S $009D44C1
-        dc.w    $6087                    ; 009D453A: BRA.S $009D44C3
-        dc.w    $6087                    ; 009D453C: BRA.S $009D44C5
-        dc.w    $6087                    ; 009D453E: BRA.S $009D44C7
-        dc.w    $6087                    ; 009D4540: BRA.S $009D44C9
-        dc.w    $6087                    ; 009D4542: BRA.S $009D44CB
-        dc.w    $6087                    ; 009D4544: BRA.S $009D44CD
-        dc.w    $6087                    ; 009D4546: BRA.S $009D44CF
-        dc.w    $6087                    ; 009D4548: BRA.S $009D44D1
-        dc.w    $6087                    ; 009D454A: BRA.S $009D44D3
-        dc.w    $6087                    ; 009D454C: BRA.S $009D44D5
-        dc.w    $6087                    ; 009D454E: BRA.S $009D44D7
-        dc.w    $6087                    ; 009D4550: BRA.S $009D44D9
-        dc.w    $6087                    ; 009D4552: BRA.S $009D44DB
-        dc.w    $6087                    ; 009D4554: BRA.S $009D44DD
-        dc.w    $6087                    ; 009D4556: BRA.S $009D44DF
-        dc.w    $6087                    ; 009D4558: BRA.S $009D44E1
-        dc.w    $6087                    ; 009D455A: BRA.S $009D44E3
-        dc.w    $6087                    ; 009D455C: BRA.S $009D44E5
-        dc.w    $6087                    ; 009D455E: BRA.S $009D44E7
-        dc.w    $6087                    ; 009D4560: BRA.S $009D44E9
-        dc.w    $6087                    ; 009D4562: BRA.S $009D44EB
-        dc.w    $6087                    ; 009D4564: BRA.S $009D44ED
-        dc.w    $6087                    ; 009D4566: BRA.S $009D44EF
-        dc.w    $6087                    ; 009D4568: BRA.S $009D44F1
-        dc.w    $6087                    ; 009D456A: BRA.S $009D44F3
-        dc.w    $6087                    ; 009D456C: BRA.S $009D44F5
-        dc.w    $6087                    ; 009D456E: BRA.S $009D44F7
-        dc.w    $6087                    ; 009D4570: BRA.S $009D44F9
-        dc.w    $6087                    ; 009D4572: BRA.S $009D44FB
-        dc.w    $6087                    ; 009D4574: BRA.S $009D44FD
-        dc.w    $6087                    ; 009D4576: BRA.S $009D44FF
-        dc.w    $6087                    ; 009D4578: BRA.S $009D4501
-        dc.w    $6087                    ; 009D457A: BRA.S $009D4503
-        dc.w    $6087                    ; 009D457C: BRA.S $009D4505
-        dc.w    $6087                    ; 009D457E: BRA.S $009D4507
-        dc.w    $6087                    ; 009D4580: BRA.S $009D4509
-        dc.w    $6087                    ; 009D4582: BRA.S $009D450B
-        dc.w    $6087                    ; 009D4584: BRA.S $009D450D
-        dc.w    $6087                    ; 009D4586: BRA.S $009D450F
-        dc.w    $6087                    ; 009D4588: BRA.S $009D4511
-        dc.w    $6087                    ; 009D458A: BRA.S $009D4513
-        dc.w    $6087                    ; 009D458C: BRA.S $009D4515
-        dc.w    $6087                    ; 009D458E: BRA.S $009D4517
-        dc.w    $6087                    ; 009D4590: BRA.S $009D4519
-        dc.w    $6087                    ; 009D4592: BRA.S $009D451B
-        dc.w    $6087                    ; 009D4594: BRA.S $009D451D
-        dc.w    $6087                    ; 009D4596: BRA.S $009D451F
-        dc.w    $6087                    ; 009D4598: BRA.S $009D4521
-        dc.w    $6087                    ; 009D459A: BRA.S $009D4523
-        dc.w    $6087                    ; 009D459C: BRA.S $009D4525
-        dc.w    $6087                    ; 009D459E: BRA.S $009D4527
-        dc.w    $6087                    ; 009D45A0: BRA.S $009D4529
-        dc.w    $6087                    ; 009D45A2: BRA.S $009D452B
-        dc.w    $6087                    ; 009D45A4: BRA.S $009D452D
-        dc.w    $6087                    ; 009D45A6: BRA.S $009D452F
-        dc.w    $6087                    ; 009D45A8: BRA.S $009D4531
-        dc.w    $6087                    ; 009D45AA: BRA.S $009D4533
-        dc.w    $6087                    ; 009D45AC: BRA.S $009D4535
-        dc.w    $6087                    ; 009D45AE: BRA.S $009D4537
-        dc.w    $6087                    ; 009D45B0: BRA.S $009D4539
-        dc.w    $6087                    ; 009D45B2: BRA.S $009D453B
-        dc.w    $6087                    ; 009D45B4: BRA.S $009D453D
-        dc.w    $6087                    ; 009D45B6: BRA.S $009D453F
-        dc.w    $6087                    ; 009D45B8: BRA.S $009D4541
-        dc.w    $6087                    ; 009D45BA: BRA.S $009D4543
-        dc.w    $6087                    ; 009D45BC: BRA.S $009D4545
-        dc.w    $6087                    ; 009D45BE: BRA.S $009D4547
-        dc.w    $6087                    ; 009D45C0: BRA.S $009D4549
-        dc.w    $6087                    ; 009D45C2: BRA.S $009D454B
-        dc.w    $6087                    ; 009D45C4: BRA.S $009D454D
-        dc.w    $6087                    ; 009D45C6: BRA.S $009D454F
-        dc.w    $6087                    ; 009D45C8: BRA.S $009D4551
-        dc.w    $6087                    ; 009D45CA: BRA.S $009D4553
-        dc.w    $6087                    ; 009D45CC: BRA.S $009D4555
-        dc.w    $6087                    ; 009D45CE: BRA.S $009D4557
-        dc.w    $6087                    ; 009D45D0: BRA.S $009D4559
-        dc.w    $6087                    ; 009D45D2: BRA.S $009D455B
-        dc.w    $6087                    ; 009D45D4: BRA.S $009D455D
-        dc.w    $6087                    ; 009D45D6: BRA.S $009D455F
-        dc.w    $6087                    ; 009D45D8: BRA.S $009D4561
-        dc.w    $6087                    ; 009D45DA: BRA.S $009D4563
-        dc.w    $6087                    ; 009D45DC: BRA.S $009D4565
-        dc.w    $6087                    ; 009D45DE: BRA.S $009D4567
-        dc.w    $6087                    ; 009D45E0: BRA.S $009D4569
-        dc.w    $6087                    ; 009D45E2: BRA.S $009D456B
-        dc.w    $6087                    ; 009D45E4: BRA.S $009D456D
-        dc.w    $6087                    ; 009D45E6: BRA.S $009D456F
-        dc.w    $6087                    ; 009D45E8: BRA.S $009D4571
-        dc.w    $6087                    ; 009D45EA: BRA.S $009D4573
-        dc.w    $6087                    ; 009D45EC: BRA.S $009D4575
-        dc.w    $6087                    ; 009D45EE: BRA.S $009D4577
-        dc.w    $6087                    ; 009D45F0: BRA.S $009D4579
-        dc.w    $6087                    ; 009D45F2: BRA.S $009D457B
-        dc.w    $6087                    ; 009D45F4: BRA.S $009D457D
-        dc.w    $6087                    ; 009D45F6: BRA.S $009D457F
-        dc.w    $6087                    ; 009D45F8: BRA.S $009D4581
-        dc.w    $6087                    ; 009D45FA: BRA.S $009D4583
-        dc.w    $6087                    ; 009D45FC: BRA.S $009D4585
-        dc.w    $6087                    ; 009D45FE: BRA.S $009D4587
-        dc.w    $6087                    ; 009D4600: BRA.S $009D4589
-        dc.w    $6087                    ; 009D4602: BRA.S $009D458B
-        dc.w    $6087                    ; 009D4604: BRA.S $009D458D
-        dc.w    $6087                    ; 009D4606: BRA.S $009D458F
-        dc.w    $6087                    ; 009D4608: BRA.S $009D4591
-        dc.w    $6087                    ; 009D460A: BRA.S $009D4593
-        dc.w    $6087                    ; 009D460C: BRA.S $009D4595
-        dc.w    $6087                    ; 009D460E: BRA.S $009D4597
-        dc.w    $6087                    ; 009D4610: BRA.S $009D4599
-        dc.w    $6087                    ; 009D4612: BRA.S $009D459B
-        dc.w    $6087                    ; 009D4614: BRA.S $009D459D
-        dc.w    $6087                    ; 009D4616: BRA.S $009D459F
-        dc.w    $6087                    ; 009D4618: BRA.S $009D45A1
-        dc.w    $6087                    ; 009D461A: BRA.S $009D45A3
-        dc.w    $6087                    ; 009D461C: BRA.S $009D45A5
-        dc.w    $6087                    ; 009D461E: BRA.S $009D45A7
-        dc.w    $6087                    ; 009D4620: BRA.S $009D45A9
-        dc.w    $6087                    ; 009D4622: BRA.S $009D45AB
-        dc.w    $6087                    ; 009D4624: BRA.S $009D45AD
-        dc.w    $6087                    ; 009D4626: BRA.S $009D45AF
-        dc.w    $6087                    ; 009D4628: BRA.S $009D45B1
-        dc.w    $6087                    ; 009D462A: BRA.S $009D45B3
-        dc.w    $6087                    ; 009D462C: BRA.S $009D45B5
-        dc.w    $6087                    ; 009D462E: BRA.S $009D45B7
-        dc.w    $6087                    ; 009D4630: BRA.S $009D45B9
-        dc.w    $6087                    ; 009D4632: BRA.S $009D45BB
-        dc.w    $6087                    ; 009D4634: BRA.S $009D45BD
-        dc.w    $6087                    ; 009D4636: BRA.S $009D45BF
-        dc.w    $6087                    ; 009D4638: BRA.S $009D45C1
-        dc.w    $6087                    ; 009D463A: BRA.S $009D45C3
-        dc.w    $6087                    ; 009D463C: BRA.S $009D45C5
-        dc.w    $6087                    ; 009D463E: BRA.S $009D45C7
-        dc.w    $6087                    ; 009D4640: BRA.S $009D45C9
-        dc.w    $6087                    ; 009D4642: BRA.S $009D45CB
-        dc.w    $6087                    ; 009D4644: BRA.S $009D45CD
-        dc.w    $6087                    ; 009D4646: BRA.S $009D45CF
-        dc.w    $6087                    ; 009D4648: BRA.S $009D45D1
-        dc.w    $6087                    ; 009D464A: BRA.S $009D45D3
-        dc.w    $6087                    ; 009D464C: BRA.S $009D45D5
-        dc.w    $6087                    ; 009D464E: BRA.S $009D45D7
-        dc.w    $6087                    ; 009D4650: BRA.S $009D45D9
-        dc.w    $6087                    ; 009D4652: BRA.S $009D45DB
-        dc.w    $6087                    ; 009D4654: BRA.S $009D45DD
-        dc.w    $6087                    ; 009D4656: BRA.S $009D45DF
-        dc.w    $6087                    ; 009D4658: BRA.S $009D45E1
-        dc.w    $6087                    ; 009D465A: BRA.S $009D45E3
-        dc.w    $6087                    ; 009D465C: BRA.S $009D45E5
-        dc.w    $6087                    ; 009D465E: BRA.S $009D45E7
-        dc.w    $6087                    ; 009D4660: BRA.S $009D45E9
-        dc.w    $6087                    ; 009D4662: BRA.S $009D45EB
-        dc.w    $6087                    ; 009D4664: BRA.S $009D45ED
-        dc.w    $6087                    ; 009D4666: BRA.S $009D45EF
-        dc.w    $6087                    ; 009D4668: BRA.S $009D45F1
-        dc.w    $6087                    ; 009D466A: BRA.S $009D45F3
-        dc.w    $6087                    ; 009D466C: BRA.S $009D45F5
-        dc.w    $6087                    ; 009D466E: BRA.S $009D45F7
-        dc.w    $6087                    ; 009D4670: BRA.S $009D45F9
-        dc.w    $6087                    ; 009D4672: BRA.S $009D45FB
-        dc.w    $6087                    ; 009D4674: BRA.S $009D45FD
-        dc.w    $6087                    ; 009D4676: BRA.S $009D45FF
-        dc.w    $6087                    ; 009D4678: BRA.S $009D4601
-        dc.w    $6087                    ; 009D467A: BRA.S $009D4603
-        dc.w    $6087                    ; 009D467C: BRA.S $009D4605
-        dc.w    $6087                    ; 009D467E: BRA.S $009D4607
-        dc.w    $6087                    ; 009D4680: BRA.S $009D4609
-        dc.w    $6087                    ; 009D4682: BRA.S $009D460B
-        dc.w    $6087                    ; 009D4684: BRA.S $009D460D
-        dc.w    $6087                    ; 009D4686: BRA.S $009D460F
-        dc.w    $6087                    ; 009D4688: BRA.S $009D4611
-        dc.w    $6087                    ; 009D468A: BRA.S $009D4613
-        dc.w    $6087                    ; 009D468C: BRA.S $009D4615
-        dc.w    $6087                    ; 009D468E: BRA.S $009D4617
-        dc.w    $6087                    ; 009D4690: BRA.S $009D4619
-        dc.w    $6087                    ; 009D4692: BRA.S $009D461B
-        dc.w    $6087                    ; 009D4694: BRA.S $009D461D
-        dc.w    $6087                    ; 009D4696: BRA.S $009D461F
-        dc.w    $6087                    ; 009D4698: BRA.S $009D4621
-        dc.w    $6087                    ; 009D469A: BRA.S $009D4623
-        dc.w    $6087                    ; 009D469C: BRA.S $009D4625
-        dc.w    $6087                    ; 009D469E: BRA.S $009D4627
-        dc.w    $6087                    ; 009D46A0: BRA.S $009D4629
-        dc.w    $6087                    ; 009D46A2: BRA.S $009D462B
-        dc.w    $6087                    ; 009D46A4: BRA.S $009D462D
-        dc.w    $6087                    ; 009D46A6: BRA.S $009D462F
-        dc.w    $6087                    ; 009D46A8: BRA.S $009D4631
-        dc.w    $6087                    ; 009D46AA: BRA.S $009D4633
-        dc.w    $6087                    ; 009D46AC: BRA.S $009D4635
-        dc.w    $6087                    ; 009D46AE: BRA.S $009D4637
-        dc.w    $6087                    ; 009D46B0: BRA.S $009D4639
-        dc.w    $6087                    ; 009D46B2: BRA.S $009D463B
-        dc.w    $6087                    ; 009D46B4: BRA.S $009D463D
-        dc.w    $6087                    ; 009D46B6: BRA.S $009D463F
-        dc.w    $6087                    ; 009D46B8: BRA.S $009D4641
-        dc.w    $6087                    ; 009D46BA: BRA.S $009D4643
-        dc.w    $6087                    ; 009D46BC: BRA.S $009D4645
-        dc.w    $6087                    ; 009D46BE: BRA.S $009D4647
-        dc.w    $6087                    ; 009D46C0: BRA.S $009D4649
-        dc.w    $6087                    ; 009D46C2: BRA.S $009D464B
-        dc.w    $6087                    ; 009D46C4: BRA.S $009D464D
-        dc.w    $6087                    ; 009D46C6: BRA.S $009D464F
-        dc.w    $6087                    ; 009D46C8: BRA.S $009D4651
-        dc.w    $6087                    ; 009D46CA: BRA.S $009D4653
-        dc.w    $6087                    ; 009D46CC: BRA.S $009D4655
-        dc.w    $6087                    ; 009D46CE: BRA.S $009D4657
-        dc.w    $6087                    ; 009D46D0: BRA.S $009D4659
-        dc.w    $6087                    ; 009D46D2: BRA.S $009D465B
-        dc.w    $6087                    ; 009D46D4: BRA.S $009D465D
-        dc.w    $6087                    ; 009D46D6: BRA.S $009D465F
-        dc.w    $6087                    ; 009D46D8: BRA.S $009D4661
-        dc.w    $6087                    ; 009D46DA: BRA.S $009D4663
-        dc.w    $6087                    ; 009D46DC: BRA.S $009D4665
-        dc.w    $6087                    ; 009D46DE: BRA.S $009D4667
-        dc.w    $6087                    ; 009D46E0: BRA.S $009D4669
-        dc.w    $6087                    ; 009D46E2: BRA.S $009D466B
-        dc.w    $6087                    ; 009D46E4: BRA.S $009D466D
-        dc.w    $6087                    ; 009D46E6: BRA.S $009D466F
-        dc.w    $6087                    ; 009D46E8: BRA.S $009D4671
-        dc.w    $6087                    ; 009D46EA: BRA.S $009D4673
-        dc.w    $6087                    ; 009D46EC: BRA.S $009D4675
-        dc.w    $6087                    ; 009D46EE: BRA.S $009D4677
-        dc.w    $6087                    ; 009D46F0: BRA.S $009D4679
-        dc.w    $6087                    ; 009D46F2: BRA.S $009D467B
-        dc.w    $6087                    ; 009D46F4: BRA.S $009D467D
-        dc.w    $6087                    ; 009D46F6: BRA.S $009D467F
-        dc.w    $6087                    ; 009D46F8: BRA.S $009D4681
-        dc.w    $6087                    ; 009D46FA: BRA.S $009D4683
-        dc.w    $6087                    ; 009D46FC: BRA.S $009D4685
-        dc.w    $6087                    ; 009D46FE: BRA.S $009D4687
-        dc.w    $6087                    ; 009D4700: BRA.S $009D4689
-        dc.w    $6087                    ; 009D4702: BRA.S $009D468B
-        dc.w    $6087                    ; 009D4704: BRA.S $009D468D
-        dc.w    $6087                    ; 009D4706: BRA.S $009D468F
-        dc.w    $6087                    ; 009D4708: BRA.S $009D4691
-        dc.w    $6087                    ; 009D470A: BRA.S $009D4693
-        dc.w    $6087                    ; 009D470C: BRA.S $009D4695
-        dc.w    $6087                    ; 009D470E: BRA.S $009D4697
-        dc.w    $6087                    ; 009D4710: BRA.S $009D4699
-        dc.w    $6087                    ; 009D4712: BRA.S $009D469B
-        dc.w    $6087                    ; 009D4714: BRA.S $009D469D
-        dc.w    $6087                    ; 009D4716: BRA.S $009D469F
-        dc.w    $6087                    ; 009D4718: BRA.S $009D46A1
-        dc.w    $6087                    ; 009D471A: BRA.S $009D46A3
-        dc.w    $6087                    ; 009D471C: BRA.S $009D46A5
-        dc.w    $6087                    ; 009D471E: BRA.S $009D46A7
-        dc.w    $6087                    ; 009D4720: BRA.S $009D46A9
-        dc.w    $6087                    ; 009D4722: BRA.S $009D46AB
-        dc.w    $6087                    ; 009D4724: BRA.S $009D46AD
-        dc.w    $6087                    ; 009D4726: BRA.S $009D46AF
-        dc.w    $6087                    ; 009D4728: BRA.S $009D46B1
-        dc.w    $6087                    ; 009D472A: BRA.S $009D46B3
-        dc.w    $6087                    ; 009D472C: BRA.S $009D46B5
-        dc.w    $6087                    ; 009D472E: BRA.S $009D46B7
-        dc.w    $6087                    ; 009D4730: BRA.S $009D46B9
-        dc.w    $6087                    ; 009D4732: BRA.S $009D46BB
-        dc.w    $6087                    ; 009D4734: BRA.S $009D46BD
-        dc.w    $6087                    ; 009D4736: BRA.S $009D46BF
-        dc.w    $6087                    ; 009D4738: BRA.S $009D46C1
-        dc.w    $6087                    ; 009D473A: BRA.S $009D46C3
-        dc.w    $6087                    ; 009D473C: BRA.S $009D46C5
-        dc.w    $6087                    ; 009D473E: BRA.S $009D46C7
-        dc.w    $6087                    ; 009D4740: BRA.S $009D46C9
-        dc.w    $6087                    ; 009D4742: BRA.S $009D46CB
-        dc.w    $6087                    ; 009D4744: BRA.S $009D46CD
-        dc.w    $6087                    ; 009D4746: BRA.S $009D46CF
-        dc.w    $6087                    ; 009D4748: BRA.S $009D46D1
-        dc.w    $6087                    ; 009D474A: BRA.S $009D46D3
-        dc.w    $6087                    ; 009D474C: BRA.S $009D46D5
-        dc.w    $6087                    ; 009D474E: BRA.S $009D46D7
-        dc.w    $6087                    ; 009D4750: BRA.S $009D46D9
-        dc.w    $6087                    ; 009D4752: BRA.S $009D46DB
-        dc.w    $6087                    ; 009D4754: BRA.S $009D46DD
-        dc.w    $6087                    ; 009D4756: BRA.S $009D46DF
-        dc.w    $6087                    ; 009D4758: BRA.S $009D46E1
-        dc.w    $6087                    ; 009D475A: BRA.S $009D46E3
-        dc.w    $6087                    ; 009D475C: BRA.S $009D46E5
-        dc.w    $6087                    ; 009D475E: BRA.S $009D46E7
-        dc.w    $6087                    ; 009D4760: BRA.S $009D46E9
-        dc.w    $6087                    ; 009D4762: BRA.S $009D46EB
-        dc.w    $6087                    ; 009D4764: BRA.S $009D46ED
-        dc.w    $6087                    ; 009D4766: BRA.S $009D46EF
-        dc.w    $6087                    ; 009D4768: BRA.S $009D46F1
-        dc.w    $6087                    ; 009D476A: BRA.S $009D46F3
-        dc.w    $6087                    ; 009D476C: BRA.S $009D46F5
-        dc.w    $6087                    ; 009D476E: BRA.S $009D46F7
-        dc.w    $6087                    ; 009D4770: BRA.S $009D46F9
-        dc.w    $6087                    ; 009D4772: BRA.S $009D46FB
-        dc.w    $6087                    ; 009D4774: BRA.S $009D46FD
-        dc.w    $6087                    ; 009D4776: BRA.S $009D46FF
-        dc.w    $6087                    ; 009D4778: BRA.S $009D4701
-        dc.w    $6087                    ; 009D477A: BRA.S $009D4703
-        dc.w    $6087                    ; 009D477C: BRA.S $009D4705
-        dc.w    $6087                    ; 009D477E: BRA.S $009D4707
-        dc.w    $6087                    ; 009D4780: BRA.S $009D4709
-        dc.w    $6087                    ; 009D4782: BRA.S $009D470B
-        dc.w    $6087                    ; 009D4784: BRA.S $009D470D
-        dc.w    $6087                    ; 009D4786: BRA.S $009D470F
-        dc.w    $6087                    ; 009D4788: BRA.S $009D4711
-        dc.w    $6087                    ; 009D478A: BRA.S $009D4713
-        dc.w    $6087                    ; 009D478C: BRA.S $009D4715
-        dc.w    $6087                    ; 009D478E: BRA.S $009D4717
-        dc.w    $6087                    ; 009D4790: BRA.S $009D4719
-        dc.w    $6087                    ; 009D4792: BRA.S $009D471B
-        dc.w    $6087                    ; 009D4794: BRA.S $009D471D
-        dc.w    $6087                    ; 009D4796: BRA.S $009D471F
-        dc.w    $6087                    ; 009D4798: BRA.S $009D4721
-        dc.w    $6087                    ; 009D479A: BRA.S $009D4723
-        dc.w    $6087                    ; 009D479C: BRA.S $009D4725
-        dc.w    $6087                    ; 009D479E: BRA.S $009D4727
-        dc.w    $6087                    ; 009D47A0: BRA.S $009D4729
-        dc.w    $6087                    ; 009D47A2: BRA.S $009D472B
-        dc.w    $6087                    ; 009D47A4: BRA.S $009D472D
-        dc.w    $6087                    ; 009D47A6: BRA.S $009D472F
-        dc.w    $6087                    ; 009D47A8: BRA.S $009D4731
-        dc.w    $6087                    ; 009D47AA: BRA.S $009D4733
-        dc.w    $6087                    ; 009D47AC: BRA.S $009D4735
-        dc.w    $6087                    ; 009D47AE: BRA.S $009D4737
-        dc.w    $6087                    ; 009D47B0: BRA.S $009D4739
-        dc.w    $6087                    ; 009D47B2: BRA.S $009D473B
-        dc.w    $6087                    ; 009D47B4: BRA.S $009D473D
-        dc.w    $6087                    ; 009D47B6: BRA.S $009D473F
-        dc.w    $6087                    ; 009D47B8: BRA.S $009D4741
-        dc.w    $6087                    ; 009D47BA: BRA.S $009D4743
-        dc.w    $6087                    ; 009D47BC: BRA.S $009D4745
-        dc.w    $6087                    ; 009D47BE: BRA.S $009D4747
-        dc.w    $6087                    ; 009D47C0: BRA.S $009D4749
-        dc.w    $6087                    ; 009D47C2: BRA.S $009D474B
-        dc.w    $6087                    ; 009D47C4: BRA.S $009D474D
-        dc.w    $6087                    ; 009D47C6: BRA.S $009D474F
-        dc.w    $6087                    ; 009D47C8: BRA.S $009D4751
-        dc.w    $6087                    ; 009D47CA: BRA.S $009D4753
-        dc.w    $6087                    ; 009D47CC: BRA.S $009D4755
-        dc.w    $6087                    ; 009D47CE: BRA.S $009D4757
-        dc.w    $6087                    ; 009D47D0: BRA.S $009D4759
-        dc.w    $6087                    ; 009D47D2: BRA.S $009D475B
-        dc.w    $6087                    ; 009D47D4: BRA.S $009D475D
-        dc.w    $6087                    ; 009D47D6: BRA.S $009D475F
-        dc.w    $6087                    ; 009D47D8: BRA.S $009D4761
-        dc.w    $6087                    ; 009D47DA: BRA.S $009D4763
-        dc.w    $6087                    ; 009D47DC: BRA.S $009D4765
-        dc.w    $6087                    ; 009D47DE: BRA.S $009D4767
-        dc.w    $6087                    ; 009D47E0: BRA.S $009D4769
-        dc.w    $6087                    ; 009D47E2: BRA.S $009D476B
-        dc.w    $6087                    ; 009D47E4: BRA.S $009D476D
-        dc.w    $6087                    ; 009D47E6: BRA.S $009D476F
-        dc.w    $6087                    ; 009D47E8: BRA.S $009D4771
-        dc.w    $6087                    ; 009D47EA: BRA.S $009D4773
-        dc.w    $6087                    ; 009D47EC: BRA.S $009D4775
-        dc.w    $6087                    ; 009D47EE: BRA.S $009D4777
-        dc.w    $6087                    ; 009D47F0: BRA.S $009D4779
-        dc.w    $6087                    ; 009D47F2: BRA.S $009D477B
-        dc.w    $6087                    ; 009D47F4: BRA.S $009D477D
-        dc.w    $6087                    ; 009D47F6: BRA.S $009D477F
-        dc.w    $6087                    ; 009D47F8: BRA.S $009D4781
-        dc.w    $6087                    ; 009D47FA: BRA.S $009D4783
-        dc.w    $6087                    ; 009D47FC: BRA.S $009D4785
-        dc.w    $6087                    ; 009D47FE: BRA.S $009D4787
-        dc.w    $6087                    ; 009D4800: BRA.S $009D4789
-        dc.w    $6087                    ; 009D4802: BRA.S $009D478B
-        dc.w    $6087                    ; 009D4804: BRA.S $009D478D
-        dc.w    $6087                    ; 009D4806: BRA.S $009D478F
-        dc.w    $6087                    ; 009D4808: BRA.S $009D4791
-        dc.w    $6087                    ; 009D480A: BRA.S $009D4793
-        dc.w    $6087                    ; 009D480C: BRA.S $009D4795
-        dc.w    $6087                    ; 009D480E: BRA.S $009D4797
-        dc.w    $6087                    ; 009D4810: BRA.S $009D4799
-        dc.w    $6087                    ; 009D4812: BRA.S $009D479B
-        dc.w    $6087                    ; 009D4814: BRA.S $009D479D
-        dc.w    $6087                    ; 009D4816: BRA.S $009D479F
-        dc.w    $6087                    ; 009D4818: BRA.S $009D47A1
-        dc.w    $6087                    ; 009D481A: BRA.S $009D47A3
-        dc.w    $6087                    ; 009D481C: BRA.S $009D47A5
-        dc.w    $6087                    ; 009D481E: BRA.S $009D47A7
-        dc.w    $6087                    ; 009D4820: BRA.S $009D47A9
-        dc.w    $6087                    ; 009D4822: BRA.S $009D47AB
-        dc.w    $6087                    ; 009D4824: BRA.S $009D47AD
-        dc.w    $6087                    ; 009D4826: BRA.S $009D47AF
-        dc.w    $6087                    ; 009D4828: BRA.S $009D47B1
-        dc.w    $6087                    ; 009D482A: BRA.S $009D47B3
-        dc.w    $6087                    ; 009D482C: BRA.S $009D47B5
-        dc.w    $6087                    ; 009D482E: BRA.S $009D47B7
-        dc.w    $6087                    ; 009D4830: BRA.S $009D47B9
-        dc.w    $6087                    ; 009D4832: BRA.S $009D47BB
-        dc.w    $6087                    ; 009D4834: BRA.S $009D47BD
-        dc.w    $6087                    ; 009D4836: BRA.S $009D47BF
-        dc.w    $6087                    ; 009D4838: BRA.S $009D47C1
-        dc.w    $6087                    ; 009D483A: BRA.S $009D47C3
-        dc.w    $6087                    ; 009D483C: BRA.S $009D47C5
-        dc.w    $6087                    ; 009D483E: BRA.S $009D47C7
-        dc.w    $6087                    ; 009D4840: BRA.S $009D47C9
-        dc.w    $6087                    ; 009D4842: BRA.S $009D47CB
-        dc.w    $6087                    ; 009D4844: BRA.S $009D47CD
-        dc.w    $6087                    ; 009D4846: BRA.S $009D47CF
-        dc.w    $6087                    ; 009D4848: BRA.S $009D47D1
-        dc.w    $6087                    ; 009D484A: BRA.S $009D47D3
-        dc.w    $6087                    ; 009D484C: BRA.S $009D47D5
-        dc.w    $6087                    ; 009D484E: BRA.S $009D47D7
-        dc.w    $6087                    ; 009D4850: BRA.S $009D47D9
-        dc.w    $6087                    ; 009D4852: BRA.S $009D47DB
-        dc.w    $6087                    ; 009D4854: BRA.S $009D47DD
-        dc.w    $6087                    ; 009D4856: BRA.S $009D47DF
-        dc.w    $6087                    ; 009D4858: BRA.S $009D47E1
-        dc.w    $6087                    ; 009D485A: BRA.S $009D47E3
-        dc.w    $6087                    ; 009D485C: BRA.S $009D47E5
-        dc.w    $6087                    ; 009D485E: BRA.S $009D47E7
-        dc.w    $6087                    ; 009D4860: BRA.S $009D47E9
-        dc.w    $6087                    ; 009D4862: BRA.S $009D47EB
-        dc.w    $6087                    ; 009D4864: BRA.S $009D47ED
-        dc.w    $6087                    ; 009D4866: BRA.S $009D47EF
-        dc.w    $6087                    ; 009D4868: BRA.S $009D47F1
-        dc.w    $6087                    ; 009D486A: BRA.S $009D47F3
-        dc.w    $6087                    ; 009D486C: BRA.S $009D47F5
-        dc.w    $6087                    ; 009D486E: BRA.S $009D47F7
-        dc.w    $6087                    ; 009D4870: BRA.S $009D47F9
-        dc.w    $6087                    ; 009D4872: BRA.S $009D47FB
-        dc.w    $6087                    ; 009D4874: BRA.S $009D47FD
-        dc.w    $6087                    ; 009D4876: BRA.S $009D47FF
-        dc.w    $6087                    ; 009D4878: BRA.S $009D4801
-        dc.w    $6087                    ; 009D487A: BRA.S $009D4803
-        dc.w    $6087                    ; 009D487C: BRA.S $009D4805
-        dc.w    $6087                    ; 009D487E: BRA.S $009D4807
-        dc.w    $6087                    ; 009D4880: BRA.S $009D4809
-        dc.w    $6087                    ; 009D4882: BRA.S $009D480B
-        dc.w    $6087                    ; 009D4884: BRA.S $009D480D
-        dc.w    $6087                    ; 009D4886: BRA.S $009D480F
-        dc.w    $6087                    ; 009D4888: BRA.S $009D4811
-        dc.w    $6087                    ; 009D488A: BRA.S $009D4813
-        dc.w    $6087                    ; 009D488C: BRA.S $009D4815
-        dc.w    $6087                    ; 009D488E: BRA.S $009D4817
-        dc.w    $6087                    ; 009D4890: BRA.S $009D4819
-        dc.w    $6087                    ; 009D4892: BRA.S $009D481B
-        dc.w    $6087                    ; 009D4894: BRA.S $009D481D
-        dc.w    $6087                    ; 009D4896: BRA.S $009D481F
-        dc.w    $6087                    ; 009D4898: BRA.S $009D4821
-        dc.w    $6087                    ; 009D489A: BRA.S $009D4823
-        dc.w    $6087                    ; 009D489C: BRA.S $009D4825
-        dc.w    $6087                    ; 009D489E: BRA.S $009D4827
-        dc.w    $6087                    ; 009D48A0: BRA.S $009D4829
-        dc.w    $6087                    ; 009D48A2: BRA.S $009D482B
-        dc.w    $6087                    ; 009D48A4: BRA.S $009D482D
-        dc.w    $6087                    ; 009D48A6: BRA.S $009D482F
-        dc.w    $6087                    ; 009D48A8: BRA.S $009D4831
-        dc.w    $6087                    ; 009D48AA: BRA.S $009D4833
-        dc.w    $6087                    ; 009D48AC: BRA.S $009D4835
-        dc.w    $6087                    ; 009D48AE: BRA.S $009D4837
-        dc.w    $6087                    ; 009D48B0: BRA.S $009D4839
-        dc.w    $6087                    ; 009D48B2: BRA.S $009D483B
-        dc.w    $6087                    ; 009D48B4: BRA.S $009D483D
-        dc.w    $6087                    ; 009D48B6: BRA.S $009D483F
-        dc.w    $6087                    ; 009D48B8: BRA.S $009D4841
-        dc.w    $6087                    ; 009D48BA: BRA.S $009D4843
-        dc.w    $6087                    ; 009D48BC: BRA.S $009D4845
-        dc.w    $6087                    ; 009D48BE: BRA.S $009D4847
-        dc.w    $6087                    ; 009D48C0: BRA.S $009D4849
-        dc.w    $6087                    ; 009D48C2: BRA.S $009D484B
-        dc.w    $6087                    ; 009D48C4: BRA.S $009D484D
-        dc.w    $6087                    ; 009D48C6: BRA.S $009D484F
-        dc.w    $6087                    ; 009D48C8: BRA.S $009D4851
-        dc.w    $6087                    ; 009D48CA: BRA.S $009D4853
-        dc.w    $6087                    ; 009D48CC: BRA.S $009D4855
-        dc.w    $6087                    ; 009D48CE: BRA.S $009D4857
-        dc.w    $6087                    ; 009D48D0: BRA.S $009D4859
-        dc.w    $6087                    ; 009D48D2: BRA.S $009D485B
-        dc.w    $6087                    ; 009D48D4: BRA.S $009D485D
-        dc.w    $6087                    ; 009D48D6: BRA.S $009D485F
-        dc.w    $6087                    ; 009D48D8: BRA.S $009D4861
-        dc.w    $6087                    ; 009D48DA: BRA.S $009D4863
-        dc.w    $6087                    ; 009D48DC: BRA.S $009D4865
-        dc.w    $6087                    ; 009D48DE: BRA.S $009D4867
-        dc.w    $6087                    ; 009D48E0: BRA.S $009D4869
-        dc.w    $6087                    ; 009D48E2: BRA.S $009D486B
-        dc.w    $6087                    ; 009D48E4: BRA.S $009D486D
-        dc.w    $6087                    ; 009D48E6: BRA.S $009D486F
-        dc.w    $6087                    ; 009D48E8: BRA.S $009D4871
-        dc.w    $6087                    ; 009D48EA: BRA.S $009D4873
-        dc.w    $6087                    ; 009D48EC: BRA.S $009D4875
-        dc.w    $6087                    ; 009D48EE: BRA.S $009D4877
-        dc.w    $6087                    ; 009D48F0: BRA.S $009D4879
-        dc.w    $6087                    ; 009D48F2: BRA.S $009D487B
-        dc.w    $6087                    ; 009D48F4: BRA.S $009D487D
-        dc.w    $6087                    ; 009D48F6: BRA.S $009D487F
-        dc.w    $6087                    ; 009D48F8: BRA.S $009D4881
-        dc.w    $6087                    ; 009D48FA: BRA.S $009D4883
-        dc.w    $6087                    ; 009D48FC: BRA.S $009D4885
-        dc.w    $6087                    ; 009D48FE: BRA.S $009D4887
-        dc.w    $6087                    ; 009D4900: BRA.S $009D4889
-        dc.w    $6087                    ; 009D4902: BRA.S $009D488B
-        dc.w    $6087                    ; 009D4904: BRA.S $009D488D
-        dc.w    $6087                    ; 009D4906: BRA.S $009D488F
-        dc.w    $6087                    ; 009D4908: BRA.S $009D4891
-        dc.w    $6087                    ; 009D490A: BRA.S $009D4893
-        dc.w    $6087                    ; 009D490C: BRA.S $009D4895
-        dc.w    $6087                    ; 009D490E: BRA.S $009D4897
-        dc.w    $6087                    ; 009D4910: BRA.S $009D4899
-        dc.w    $6087                    ; 009D4912: BRA.S $009D489B
-        dc.w    $6087                    ; 009D4914: BRA.S $009D489D
-        dc.w    $6087                    ; 009D4916: BRA.S $009D489F
-        dc.w    $6087                    ; 009D4918: BRA.S $009D48A1
-        dc.w    $6087                    ; 009D491A: BRA.S $009D48A3
-        dc.w    $6087                    ; 009D491C: BRA.S $009D48A5
-        dc.w    $6087                    ; 009D491E: BRA.S $009D48A7
-        dc.w    $6087                    ; 009D4920: BRA.S $009D48A9
-        dc.w    $6087                    ; 009D4922: BRA.S $009D48AB
-        dc.w    $6087                    ; 009D4924: BRA.S $009D48AD
-        dc.w    $6087                    ; 009D4926: BRA.S $009D48AF
-        dc.w    $6087                    ; 009D4928: BRA.S $009D48B1
-        dc.w    $6087                    ; 009D492A: BRA.S $009D48B3
-        dc.w    $6087                    ; 009D492C: BRA.S $009D48B5
-        dc.w    $6087                    ; 009D492E: BRA.S $009D48B7
-        dc.w    $6087                    ; 009D4930: BRA.S $009D48B9
-        dc.w    $6087                    ; 009D4932: BRA.S $009D48BB
-        dc.w    $6087                    ; 009D4934: BRA.S $009D48BD
-        dc.w    $6087                    ; 009D4936: BRA.S $009D48BF
-        dc.w    $6087                    ; 009D4938: BRA.S $009D48C1
-        dc.w    $6087                    ; 009D493A: BRA.S $009D48C3
-        dc.w    $6087                    ; 009D493C: BRA.S $009D48C5
-        dc.w    $6087                    ; 009D493E: BRA.S $009D48C7
-        dc.w    $6087                    ; 009D4940: BRA.S $009D48C9
-        dc.w    $6087                    ; 009D4942: BRA.S $009D48CB
-        dc.w    $6087                    ; 009D4944: BRA.S $009D48CD
-        dc.w    $6087                    ; 009D4946: BRA.S $009D48CF
-        dc.w    $6087                    ; 009D4948: BRA.S $009D48D1
-        dc.w    $6087                    ; 009D494A: BRA.S $009D48D3
-        dc.w    $0000                    ; 009D494C: dc.w $0000
-        dc.w    $0063                    ; 009D494E: dc.w $0063
+        bra.s   $009D3F89                               ; 009D4000: $6087
+        bra.s   $009D3F8B                               ; 009D4002: $6087
+        bra.s   $009D3F8D                               ; 009D4004: $6087
+        bra.s   $009D3F8F                               ; 009D4006: $6087
+        bra.s   $009D3F91                               ; 009D4008: $6087
+        bra.s   $009D3F93                               ; 009D400A: $6087
+        bra.s   $009D3F95                               ; 009D400C: $6087
+        bra.s   $009D3F97                               ; 009D400E: $6087
+        bra.s   $009D3F99                               ; 009D4010: $6087
+        bra.s   $009D3F9B                               ; 009D4012: $6087
+        bra.s   $009D3F9D                               ; 009D4014: $6087
+        bra.s   $009D3F9F                               ; 009D4016: $6087
+        bra.s   $009D3FA1                               ; 009D4018: $6087
+        bra.s   $009D3FA3                               ; 009D401A: $6087
+        bra.s   $009D3FA5                               ; 009D401C: $6087
+        bra.s   $009D3FA7                               ; 009D401E: $6087
+        bra.s   $009D3FA9                               ; 009D4020: $6087
+        bra.s   $009D3FAB                               ; 009D4022: $6087
+        bra.s   $009D3FAD                               ; 009D4024: $6087
+        bra.s   $009D3FAF                               ; 009D4026: $6087
+        bra.s   $009D3FB1                               ; 009D4028: $6087
+        bra.s   $009D3FB3                               ; 009D402A: $6087
+        bra.s   $009D3FB5                               ; 009D402C: $6087
+        bra.s   $009D3FB7                               ; 009D402E: $6087
+        bra.s   $009D3FB9                               ; 009D4030: $6087
+        bra.s   $009D3FBB                               ; 009D4032: $6087
+        bra.s   $009D3FBD                               ; 009D4034: $6087
+        bra.s   $009D3FBF                               ; 009D4036: $6087
+        bra.s   $009D3FC1                               ; 009D4038: $6087
+        bra.s   $009D3FC3                               ; 009D403A: $6087
+        bra.s   $009D3FC5                               ; 009D403C: $6087
+        bra.s   $009D3FC7                               ; 009D403E: $6087
+        bra.s   $009D3FC9                               ; 009D4040: $6087
+        bra.s   $009D3FCB                               ; 009D4042: $6087
+        bra.s   $009D3FCD                               ; 009D4044: $6087
+        bra.s   $009D3FCF                               ; 009D4046: $6087
+        bra.s   $009D3FD1                               ; 009D4048: $6087
+        bra.s   $009D3FD3                               ; 009D404A: $6087
+        bra.s   $009D3FD5                               ; 009D404C: $6087
+        bra.s   $009D3FD7                               ; 009D404E: $6087
+        bra.s   $009D3FD9                               ; 009D4050: $6087
+        bra.s   $009D3FDB                               ; 009D4052: $6087
+        bra.s   $009D3FDD                               ; 009D4054: $6087
+        bra.s   $009D3FDF                               ; 009D4056: $6087
+        bra.s   $009D3FE1                               ; 009D4058: $6087
+        bra.s   $009D3FE3                               ; 009D405A: $6087
+        bra.s   $009D3FE5                               ; 009D405C: $6087
+        bra.s   $009D3FE7                               ; 009D405E: $6087
+        bra.s   $009D3FE9                               ; 009D4060: $6087
+        bra.s   $009D3FEB                               ; 009D4062: $6087
+        bra.s   $009D3FED                               ; 009D4064: $6087
+        bra.s   $009D3FEF                               ; 009D4066: $6087
+        bra.s   $009D3FF1                               ; 009D4068: $6087
+        bra.s   $009D3FF3                               ; 009D406A: $6087
+        bra.s   $009D3FF5                               ; 009D406C: $6087
+        bra.s   $009D3FF7                               ; 009D406E: $6087
+        bra.s   $009D3FF9                               ; 009D4070: $6087
+        bra.s   $009D3FFB                               ; 009D4072: $6087
+        bra.s   $009D3FFD                               ; 009D4074: $6087
+        bra.s   $009D3FFF                               ; 009D4076: $6087
+        bra.s   $009D4001                               ; 009D4078: $6087
+        bra.s   $009D4003                               ; 009D407A: $6087
+        bra.s   $009D4005                               ; 009D407C: $6087
+        bra.s   $009D4007                               ; 009D407E: $6087
+        bra.s   $009D4009                               ; 009D4080: $6087
+        bra.s   $009D400B                               ; 009D4082: $6087
+        bra.s   $009D400D                               ; 009D4084: $6087
+        bra.s   $009D400F                               ; 009D4086: $6087
+        bra.s   $009D4011                               ; 009D4088: $6087
+        bra.s   $009D4013                               ; 009D408A: $6087
+        bra.s   $009D4015                               ; 009D408C: $6087
+        bra.s   $009D4017                               ; 009D408E: $6087
+        bra.s   $009D4019                               ; 009D4090: $6087
+        bra.s   $009D401B                               ; 009D4092: $6087
+        bra.s   $009D401D                               ; 009D4094: $6087
+        bra.s   $009D401F                               ; 009D4096: $6087
+        bra.s   $009D4021                               ; 009D4098: $6087
+        bra.s   $009D4023                               ; 009D409A: $6087
+        bra.s   $009D4025                               ; 009D409C: $6087
+        bra.s   $009D4027                               ; 009D409E: $6087
+        bra.s   $009D4029                               ; 009D40A0: $6087
+        bra.s   $009D402B                               ; 009D40A2: $6087
+        bra.s   $009D402D                               ; 009D40A4: $6087
+        bra.s   $009D402F                               ; 009D40A6: $6087
+        bra.s   $009D4031                               ; 009D40A8: $6087
+        bra.s   $009D4033                               ; 009D40AA: $6087
+        bra.s   $009D4035                               ; 009D40AC: $6087
+        bra.s   $009D4037                               ; 009D40AE: $6087
+        bra.s   $009D4039                               ; 009D40B0: $6087
+        bra.s   $009D403B                               ; 009D40B2: $6087
+        bra.s   $009D403D                               ; 009D40B4: $6087
+        bra.s   $009D403F                               ; 009D40B6: $6087
+        bra.s   $009D4041                               ; 009D40B8: $6087
+        bra.s   $009D4043                               ; 009D40BA: $6087
+        bra.s   $009D4045                               ; 009D40BC: $6087
+        bra.s   $009D4047                               ; 009D40BE: $6087
+        bra.s   $009D4049                               ; 009D40C0: $6087
+        bra.s   $009D404B                               ; 009D40C2: $6087
+        bra.s   $009D404D                               ; 009D40C4: $6087
+        bra.s   $009D404F                               ; 009D40C6: $6087
+        bra.s   $009D4051                               ; 009D40C8: $6087
+        bra.s   $009D4053                               ; 009D40CA: $6087
+        bra.s   $009D4055                               ; 009D40CC: $6087
+        bra.s   $009D4057                               ; 009D40CE: $6087
+        bra.s   $009D4059                               ; 009D40D0: $6087
+        bra.s   $009D405B                               ; 009D40D2: $6087
+        bra.s   $009D405D                               ; 009D40D4: $6087
+        bra.s   $009D405F                               ; 009D40D6: $6087
+        bra.s   $009D4061                               ; 009D40D8: $6087
+        bra.s   $009D4063                               ; 009D40DA: $6087
+        bra.s   $009D4065                               ; 009D40DC: $6087
+        bra.s   $009D4067                               ; 009D40DE: $6087
+        bra.s   $009D4069                               ; 009D40E0: $6087
+        bra.s   $009D406B                               ; 009D40E2: $6087
+        bra.s   $009D406D                               ; 009D40E4: $6087
+        bra.s   $009D406F                               ; 009D40E6: $6087
+        bra.s   $009D4071                               ; 009D40E8: $6087
+        bra.s   $009D4073                               ; 009D40EA: $6087
+        bra.s   $009D4075                               ; 009D40EC: $6087
+        bra.s   $009D4077                               ; 009D40EE: $6087
+        bra.s   $009D4079                               ; 009D40F0: $6087
+        bra.s   $009D407B                               ; 009D40F2: $6087
+        bra.s   $009D407D                               ; 009D40F4: $6087
+        bra.s   $009D407F                               ; 009D40F6: $6087
+        bra.s   $009D4081                               ; 009D40F8: $6087
+        bra.s   $009D4083                               ; 009D40FA: $6087
+        bra.s   $009D4085                               ; 009D40FC: $6087
+        bra.s   $009D4087                               ; 009D40FE: $6087
+        bra.s   $009D4089                               ; 009D4100: $6087
+        bra.s   $009D408B                               ; 009D4102: $6087
+        bra.s   $009D408D                               ; 009D4104: $6087
+        bra.s   $009D408F                               ; 009D4106: $6087
+        bra.s   $009D4091                               ; 009D4108: $6087
+        bra.s   $009D4093                               ; 009D410A: $6087
+        bra.s   $009D4095                               ; 009D410C: $6087
+        bra.s   $009D4097                               ; 009D410E: $6087
+        bra.s   $009D4099                               ; 009D4110: $6087
+        bra.s   $009D409B                               ; 009D4112: $6087
+        bra.s   $009D409D                               ; 009D4114: $6087
+        bra.s   $009D409F                               ; 009D4116: $6087
+        bra.s   $009D40A1                               ; 009D4118: $6087
+        bra.s   $009D40A3                               ; 009D411A: $6087
+        bra.s   $009D40A5                               ; 009D411C: $6087
+        bra.s   $009D40A7                               ; 009D411E: $6087
+        bra.s   $009D40A9                               ; 009D4120: $6087
+        bra.s   $009D40AB                               ; 009D4122: $6087
+        bra.s   $009D40AD                               ; 009D4124: $6087
+        bra.s   $009D40AF                               ; 009D4126: $6087
+        bra.s   $009D40B1                               ; 009D4128: $6087
+        bra.s   $009D40B3                               ; 009D412A: $6087
+        bra.s   $009D40B5                               ; 009D412C: $6087
+        bra.s   $009D40B7                               ; 009D412E: $6087
+        bra.s   $009D40B9                               ; 009D4130: $6087
+        bra.s   $009D40BB                               ; 009D4132: $6087
+        bra.s   $009D40BD                               ; 009D4134: $6087
+        bra.s   $009D40BF                               ; 009D4136: $6087
+        bra.s   $009D40C1                               ; 009D4138: $6087
+        bra.s   $009D40C3                               ; 009D413A: $6087
+        bra.s   $009D40C5                               ; 009D413C: $6087
+        bra.s   $009D40C7                               ; 009D413E: $6087
+        bra.s   $009D40C9                               ; 009D4140: $6087
+        bra.s   $009D40CB                               ; 009D4142: $6087
+        bra.s   $009D40CD                               ; 009D4144: $6087
+        bra.s   $009D40CF                               ; 009D4146: $6087
+        bra.s   $009D40D1                               ; 009D4148: $6087
+        bra.s   $009D40D3                               ; 009D414A: $6087
+        bra.s   $009D40D5                               ; 009D414C: $6087
+        bra.s   $009D40D7                               ; 009D414E: $6087
+        bra.s   $009D40D9                               ; 009D4150: $6087
+        bra.s   $009D40DB                               ; 009D4152: $6087
+        bra.s   $009D40DD                               ; 009D4154: $6087
+        bra.s   $009D40DF                               ; 009D4156: $6087
+        bra.s   $009D40E1                               ; 009D4158: $6087
+        bra.s   $009D40E3                               ; 009D415A: $6087
+        bra.s   $009D40E5                               ; 009D415C: $6087
+        bra.s   $009D40E7                               ; 009D415E: $6087
+        bra.s   $009D40E9                               ; 009D4160: $6087
+        bra.s   $009D40EB                               ; 009D4162: $6087
+        bra.s   $009D40ED                               ; 009D4164: $6087
+        bra.s   $009D40EF                               ; 009D4166: $6087
+        bra.s   $009D40F1                               ; 009D4168: $6087
+        bra.s   $009D40F3                               ; 009D416A: $6087
+        bra.s   $009D40F5                               ; 009D416C: $6087
+        bra.s   $009D40F7                               ; 009D416E: $6087
+        bra.s   $009D40F9                               ; 009D4170: $6087
+        bra.s   $009D40FB                               ; 009D4172: $6087
+        bra.s   $009D40FD                               ; 009D4174: $6087
+        bra.s   $009D40FF                               ; 009D4176: $6087
+        bra.s   $009D4101                               ; 009D4178: $6087
+        bra.s   $009D4103                               ; 009D417A: $6087
+        bra.s   $009D4105                               ; 009D417C: $6087
+        bra.s   $009D4107                               ; 009D417E: $6087
+        bra.s   $009D4109                               ; 009D4180: $6087
+        bra.s   $009D410B                               ; 009D4182: $6087
+        bra.s   $009D410D                               ; 009D4184: $6087
+        bra.s   $009D410F                               ; 009D4186: $6087
+        bra.s   $009D4111                               ; 009D4188: $6087
+        bra.s   $009D4113                               ; 009D418A: $6087
+        bra.s   $009D4115                               ; 009D418C: $6087
+        bra.s   $009D4117                               ; 009D418E: $6087
+        bra.s   $009D4119                               ; 009D4190: $6087
+        bra.s   $009D411B                               ; 009D4192: $6087
+        bra.s   $009D411D                               ; 009D4194: $6087
+        bra.s   $009D411F                               ; 009D4196: $6087
+        bra.s   $009D4121                               ; 009D4198: $6087
+        bra.s   $009D4123                               ; 009D419A: $6087
+        bra.s   $009D4125                               ; 009D419C: $6087
+        bra.s   $009D4127                               ; 009D419E: $6087
+        bra.s   $009D4129                               ; 009D41A0: $6087
+        bra.s   $009D412B                               ; 009D41A2: $6087
+        bra.s   $009D412D                               ; 009D41A4: $6087
+        bra.s   $009D412F                               ; 009D41A6: $6087
+        bra.s   $009D4131                               ; 009D41A8: $6087
+        bra.s   $009D4133                               ; 009D41AA: $6087
+        bra.s   $009D4135                               ; 009D41AC: $6087
+        bra.s   $009D4137                               ; 009D41AE: $6087
+        bra.s   $009D4139                               ; 009D41B0: $6087
+        bra.s   $009D413B                               ; 009D41B2: $6087
+        bra.s   $009D413D                               ; 009D41B4: $6087
+        bra.s   $009D413F                               ; 009D41B6: $6087
+        bra.s   $009D4141                               ; 009D41B8: $6087
+        bra.s   $009D4143                               ; 009D41BA: $6087
+        bra.s   $009D4145                               ; 009D41BC: $6087
+        bra.s   $009D4147                               ; 009D41BE: $6087
+        bra.s   $009D4149                               ; 009D41C0: $6087
+        bra.s   $009D414B                               ; 009D41C2: $6087
+        bra.s   $009D414D                               ; 009D41C4: $6087
+        bra.s   $009D414F                               ; 009D41C6: $6087
+        bra.s   $009D4151                               ; 009D41C8: $6087
+        bra.s   $009D4153                               ; 009D41CA: $6087
+        bra.s   $009D4155                               ; 009D41CC: $6087
+        bra.s   $009D4157                               ; 009D41CE: $6087
+        bra.s   $009D4159                               ; 009D41D0: $6087
+        bra.s   $009D415B                               ; 009D41D2: $6087
+        bra.s   $009D415D                               ; 009D41D4: $6087
+        bra.s   $009D415F                               ; 009D41D6: $6087
+        bra.s   $009D4161                               ; 009D41D8: $6087
+        bra.s   $009D4163                               ; 009D41DA: $6087
+        bra.s   $009D4165                               ; 009D41DC: $6087
+        bra.s   $009D4167                               ; 009D41DE: $6087
+        bra.s   $009D4169                               ; 009D41E0: $6087
+        bra.s   $009D416B                               ; 009D41E2: $6087
+        bra.s   $009D416D                               ; 009D41E4: $6087
+        bra.s   $009D416F                               ; 009D41E6: $6087
+        bra.s   $009D4171                               ; 009D41E8: $6087
+        bra.s   $009D4173                               ; 009D41EA: $6087
+        bra.s   $009D4175                               ; 009D41EC: $6087
+        bra.s   $009D4177                               ; 009D41EE: $6087
+        bra.s   $009D4179                               ; 009D41F0: $6087
+        bra.s   $009D417B                               ; 009D41F2: $6087
+        bra.s   $009D417D                               ; 009D41F4: $6087
+        bra.s   $009D417F                               ; 009D41F6: $6087
+        bra.s   $009D4181                               ; 009D41F8: $6087
+        bra.s   $009D4183                               ; 009D41FA: $6087
+        bra.s   $009D4185                               ; 009D41FC: $6087
+        bra.s   $009D4187                               ; 009D41FE: $6087
+        bra.s   $009D4189                               ; 009D4200: $6087
+        bra.s   $009D418B                               ; 009D4202: $6087
+        bra.s   $009D418D                               ; 009D4204: $6087
+        bra.s   $009D418F                               ; 009D4206: $6087
+        bra.s   $009D4191                               ; 009D4208: $6087
+        bra.s   $009D4193                               ; 009D420A: $6087
+        bra.s   $009D4195                               ; 009D420C: $6087
+        bra.s   $009D4197                               ; 009D420E: $6087
+        bra.s   $009D4199                               ; 009D4210: $6087
+        bra.s   $009D419B                               ; 009D4212: $6087
+        bra.s   $009D419D                               ; 009D4214: $6087
+        bra.s   $009D419F                               ; 009D4216: $6087
+        bra.s   $009D41A1                               ; 009D4218: $6087
+        bra.s   $009D41A3                               ; 009D421A: $6087
+        bra.s   $009D41A5                               ; 009D421C: $6087
+        bra.s   $009D41A7                               ; 009D421E: $6087
+        bra.s   $009D41A9                               ; 009D4220: $6087
+        bra.s   $009D41AB                               ; 009D4222: $6087
+        bra.s   $009D41AD                               ; 009D4224: $6087
+        bra.s   $009D41AF                               ; 009D4226: $6087
+        bra.s   $009D41B1                               ; 009D4228: $6087
+        bra.s   $009D41B3                               ; 009D422A: $6087
+        bra.s   $009D41B5                               ; 009D422C: $6087
+        bra.s   $009D41B7                               ; 009D422E: $6087
+        bra.s   $009D41B9                               ; 009D4230: $6087
+        bra.s   $009D41BB                               ; 009D4232: $6087
+        bra.s   $009D41BD                               ; 009D4234: $6087
+        bra.s   $009D41BF                               ; 009D4236: $6087
+        bra.s   $009D41C1                               ; 009D4238: $6087
+        bra.s   $009D41C3                               ; 009D423A: $6087
+        bra.s   $009D41C5                               ; 009D423C: $6087
+        bra.s   $009D41C7                               ; 009D423E: $6087
+        bra.s   $009D41C9                               ; 009D4240: $6087
+        bra.s   $009D41CB                               ; 009D4242: $6087
+        bra.s   $009D41CD                               ; 009D4244: $6087
+        bra.s   $009D41CF                               ; 009D4246: $6087
+        bra.s   $009D41D1                               ; 009D4248: $6087
+        bra.s   $009D41D3                               ; 009D424A: $6087
+        bra.s   $009D41D5                               ; 009D424C: $6087
+        bra.s   $009D41D7                               ; 009D424E: $6087
+        bra.s   $009D41D9                               ; 009D4250: $6087
+        bra.s   $009D41DB                               ; 009D4252: $6087
+        bra.s   $009D41DD                               ; 009D4254: $6087
+        bra.s   $009D41DF                               ; 009D4256: $6087
+        bra.s   $009D41E1                               ; 009D4258: $6087
+        bra.s   $009D41E3                               ; 009D425A: $6087
+        bra.s   $009D41E5                               ; 009D425C: $6087
+        bra.s   $009D41E7                               ; 009D425E: $6087
+        bra.s   $009D41E9                               ; 009D4260: $6087
+        bra.s   $009D41EB                               ; 009D4262: $6087
+        bra.s   $009D41ED                               ; 009D4264: $6087
+        bra.s   $009D41EF                               ; 009D4266: $6087
+        bra.s   $009D41F1                               ; 009D4268: $6087
+        bra.s   $009D41F3                               ; 009D426A: $6087
+        bra.s   $009D41F5                               ; 009D426C: $6087
+        bra.s   $009D41F7                               ; 009D426E: $6087
+        bra.s   $009D41F9                               ; 009D4270: $6087
+        bra.s   $009D41FB                               ; 009D4272: $6087
+        bra.s   $009D41FD                               ; 009D4274: $6087
+        bra.s   $009D41FF                               ; 009D4276: $6087
+        bra.s   $009D4201                               ; 009D4278: $6087
+        bra.s   $009D4203                               ; 009D427A: $6087
+        bra.s   $009D4205                               ; 009D427C: $6087
+        bra.s   $009D4207                               ; 009D427E: $6087
+        bra.s   $009D4209                               ; 009D4280: $6087
+        bra.s   $009D420B                               ; 009D4282: $6087
+        bra.s   $009D420D                               ; 009D4284: $6087
+        bra.s   $009D420F                               ; 009D4286: $6087
+        bra.s   $009D4211                               ; 009D4288: $6087
+        bra.s   $009D4213                               ; 009D428A: $6087
+        bra.s   $009D4215                               ; 009D428C: $6087
+        bra.s   $009D4217                               ; 009D428E: $6087
+        bra.s   $009D4219                               ; 009D4290: $6087
+        bra.s   $009D421B                               ; 009D4292: $6087
+        bra.s   $009D421D                               ; 009D4294: $6087
+        bra.s   $009D421F                               ; 009D4296: $6087
+        bra.s   $009D4221                               ; 009D4298: $6087
+        bra.s   $009D4223                               ; 009D429A: $6087
+        bra.s   $009D4225                               ; 009D429C: $6087
+        bra.s   $009D4227                               ; 009D429E: $6087
+        bra.s   $009D4229                               ; 009D42A0: $6087
+        bra.s   $009D422B                               ; 009D42A2: $6087
+        bra.s   $009D422D                               ; 009D42A4: $6087
+        bra.s   $009D422F                               ; 009D42A6: $6087
+        bra.s   $009D4231                               ; 009D42A8: $6087
+        bra.s   $009D4233                               ; 009D42AA: $6087
+        bra.s   $009D4235                               ; 009D42AC: $6087
+        bra.s   $009D4237                               ; 009D42AE: $6087
+        bra.s   $009D4239                               ; 009D42B0: $6087
+        bra.s   $009D423B                               ; 009D42B2: $6087
+        bra.s   $009D423D                               ; 009D42B4: $6087
+        bra.s   $009D423F                               ; 009D42B6: $6087
+        bra.s   $009D4241                               ; 009D42B8: $6087
+        bra.s   $009D4243                               ; 009D42BA: $6087
+        bra.s   $009D4245                               ; 009D42BC: $6087
+        bra.s   $009D4247                               ; 009D42BE: $6087
+        bra.s   $009D4249                               ; 009D42C0: $6087
+        bra.s   $009D424B                               ; 009D42C2: $6087
+        bra.s   $009D424D                               ; 009D42C4: $6087
+        bra.s   $009D424F                               ; 009D42C6: $6087
+        bra.s   $009D4251                               ; 009D42C8: $6087
+        bra.s   $009D4253                               ; 009D42CA: $6087
+        bra.s   $009D4255                               ; 009D42CC: $6087
+        bra.s   $009D4257                               ; 009D42CE: $6087
+        bra.s   $009D4259                               ; 009D42D0: $6087
+        bra.s   $009D425B                               ; 009D42D2: $6087
+        bra.s   $009D425D                               ; 009D42D4: $6087
+        bra.s   $009D425F                               ; 009D42D6: $6087
+        bra.s   $009D4261                               ; 009D42D8: $6087
+        bra.s   $009D4263                               ; 009D42DA: $6087
+        bra.s   $009D4265                               ; 009D42DC: $6087
+        bra.s   $009D4267                               ; 009D42DE: $6087
+        bra.s   $009D4269                               ; 009D42E0: $6087
+        bra.s   $009D426B                               ; 009D42E2: $6087
+        bra.s   $009D426D                               ; 009D42E4: $6087
+        bra.s   $009D426F                               ; 009D42E6: $6087
+        bra.s   $009D4271                               ; 009D42E8: $6087
+        bra.s   $009D4273                               ; 009D42EA: $6087
+        bra.s   $009D4275                               ; 009D42EC: $6087
+        bra.s   $009D4277                               ; 009D42EE: $6087
+        bra.s   $009D4279                               ; 009D42F0: $6087
+        bra.s   $009D427B                               ; 009D42F2: $6087
+        bra.s   $009D427D                               ; 009D42F4: $6087
+        bra.s   $009D427F                               ; 009D42F6: $6087
+        bra.s   $009D4281                               ; 009D42F8: $6087
+        bra.s   $009D4283                               ; 009D42FA: $6087
+        bra.s   $009D4285                               ; 009D42FC: $6087
+        bra.s   $009D4287                               ; 009D42FE: $6087
+        bra.s   $009D4289                               ; 009D4300: $6087
+        bra.s   $009D428B                               ; 009D4302: $6087
+        bra.s   $009D428D                               ; 009D4304: $6087
+        bra.s   $009D428F                               ; 009D4306: $6087
+        bra.s   $009D4291                               ; 009D4308: $6087
+        bra.s   $009D4293                               ; 009D430A: $6087
+        bra.s   $009D4295                               ; 009D430C: $6087
+        bra.s   $009D4297                               ; 009D430E: $6087
+        bra.s   $009D4299                               ; 009D4310: $6087
+        bra.s   $009D429B                               ; 009D4312: $6087
+        bra.s   $009D429D                               ; 009D4314: $6087
+        bra.s   $009D429F                               ; 009D4316: $6087
+        bra.s   $009D42A1                               ; 009D4318: $6087
+        bra.s   $009D42A3                               ; 009D431A: $6087
+        bra.s   $009D42A5                               ; 009D431C: $6087
+        bra.s   $009D42A7                               ; 009D431E: $6087
+        bra.s   $009D42A9                               ; 009D4320: $6087
+        bra.s   $009D42AB                               ; 009D4322: $6087
+        bra.s   $009D42AD                               ; 009D4324: $6087
+        bra.s   $009D42AF                               ; 009D4326: $6087
+        bra.s   $009D42B1                               ; 009D4328: $6087
+        bra.s   $009D42B3                               ; 009D432A: $6087
+        bra.s   $009D42B5                               ; 009D432C: $6087
+        bra.s   $009D42B7                               ; 009D432E: $6087
+        bra.s   $009D42B9                               ; 009D4330: $6087
+        bra.s   $009D42BB                               ; 009D4332: $6087
+        bra.s   $009D42BD                               ; 009D4334: $6087
+        bra.s   $009D42BF                               ; 009D4336: $6087
+        bra.s   $009D42C1                               ; 009D4338: $6087
+        bra.s   $009D42C3                               ; 009D433A: $6087
+        bra.s   $009D42C5                               ; 009D433C: $6087
+        bra.s   $009D42C7                               ; 009D433E: $6087
+        bra.s   $009D42C9                               ; 009D4340: $6087
+        bra.s   $009D42CB                               ; 009D4342: $6087
+        bra.s   $009D42CD                               ; 009D4344: $6087
+        bra.s   $009D42CF                               ; 009D4346: $6087
+        bra.s   $009D42D1                               ; 009D4348: $6087
+        bra.s   $009D42D3                               ; 009D434A: $6087
+        bra.s   $009D42D5                               ; 009D434C: $6087
+        bra.s   $009D42D7                               ; 009D434E: $6087
+        bra.s   $009D42D9                               ; 009D4350: $6087
+        bra.s   $009D42DB                               ; 009D4352: $6087
+        bra.s   $009D42DD                               ; 009D4354: $6087
+        bra.s   $009D42DF                               ; 009D4356: $6087
+        bra.s   $009D42E1                               ; 009D4358: $6087
+        bra.s   $009D42E3                               ; 009D435A: $6087
+        bra.s   $009D42E5                               ; 009D435C: $6087
+        bra.s   $009D42E7                               ; 009D435E: $6087
+        bra.s   $009D42E9                               ; 009D4360: $6087
+        bra.s   $009D42EB                               ; 009D4362: $6087
+        bra.s   $009D42ED                               ; 009D4364: $6087
+        bra.s   $009D42EF                               ; 009D4366: $6087
+        bra.s   $009D42F1                               ; 009D4368: $6087
+        bra.s   $009D42F3                               ; 009D436A: $6087
+        bra.s   $009D42F5                               ; 009D436C: $6087
+        bra.s   $009D42F7                               ; 009D436E: $6087
+        bra.s   $009D42F9                               ; 009D4370: $6087
+        bra.s   $009D42FB                               ; 009D4372: $6087
+        bra.s   $009D42FD                               ; 009D4374: $6087
+        bra.s   $009D42FF                               ; 009D4376: $6087
+        bra.s   $009D4301                               ; 009D4378: $6087
+        bra.s   $009D4303                               ; 009D437A: $6087
+        bra.s   $009D4305                               ; 009D437C: $6087
+        bra.s   $009D4307                               ; 009D437E: $6087
+        bra.s   $009D4309                               ; 009D4380: $6087
+        bra.s   $009D430B                               ; 009D4382: $6087
+        bra.s   $009D430D                               ; 009D4384: $6087
+        bra.s   $009D430F                               ; 009D4386: $6087
+        bra.s   $009D4311                               ; 009D4388: $6087
+        bra.s   $009D4313                               ; 009D438A: $6087
+        bra.s   $009D4315                               ; 009D438C: $6087
+        bra.s   $009D4317                               ; 009D438E: $6087
+        bra.s   $009D4319                               ; 009D4390: $6087
+        bra.s   $009D431B                               ; 009D4392: $6087
+        bra.s   $009D431D                               ; 009D4394: $6087
+        bra.s   $009D431F                               ; 009D4396: $6087
+        bra.s   $009D4321                               ; 009D4398: $6087
+        bra.s   $009D4323                               ; 009D439A: $6087
+        bra.s   $009D4325                               ; 009D439C: $6087
+        bra.s   $009D4327                               ; 009D439E: $6087
+        bra.s   $009D4329                               ; 009D43A0: $6087
+        bra.s   $009D432B                               ; 009D43A2: $6087
+        bra.s   $009D432D                               ; 009D43A4: $6087
+        bra.s   $009D432F                               ; 009D43A6: $6087
+        bra.s   $009D4331                               ; 009D43A8: $6087
+        bra.s   $009D4333                               ; 009D43AA: $6087
+        bra.s   $009D4335                               ; 009D43AC: $6087
+        bra.s   $009D4337                               ; 009D43AE: $6087
+        bra.s   $009D4339                               ; 009D43B0: $6087
+        bra.s   $009D433B                               ; 009D43B2: $6087
+        bra.s   $009D433D                               ; 009D43B4: $6087
+        bra.s   $009D433F                               ; 009D43B6: $6087
+        bra.s   $009D4341                               ; 009D43B8: $6087
+        bra.s   $009D4343                               ; 009D43BA: $6087
+        bra.s   $009D4345                               ; 009D43BC: $6087
+        bra.s   $009D4347                               ; 009D43BE: $6087
+        bra.s   $009D4349                               ; 009D43C0: $6087
+        bra.s   $009D434B                               ; 009D43C2: $6087
+        bra.s   $009D434D                               ; 009D43C4: $6087
+        bra.s   $009D434F                               ; 009D43C6: $6087
+        bra.s   $009D4351                               ; 009D43C8: $6087
+        bra.s   $009D4353                               ; 009D43CA: $6087
+        bra.s   $009D4355                               ; 009D43CC: $6087
+        bra.s   $009D4357                               ; 009D43CE: $6087
+        bra.s   $009D4359                               ; 009D43D0: $6087
+        bra.s   $009D435B                               ; 009D43D2: $6087
+        bra.s   $009D435D                               ; 009D43D4: $6087
+        bra.s   $009D435F                               ; 009D43D6: $6087
+        bra.s   $009D4361                               ; 009D43D8: $6087
+        bra.s   $009D4363                               ; 009D43DA: $6087
+        bra.s   $009D4365                               ; 009D43DC: $6087
+        bra.s   $009D4367                               ; 009D43DE: $6087
+        bra.s   $009D4369                               ; 009D43E0: $6087
+        bra.s   $009D436B                               ; 009D43E2: $6087
+        bra.s   $009D436D                               ; 009D43E4: $6087
+        bra.s   $009D436F                               ; 009D43E6: $6087
+        bra.s   $009D4371                               ; 009D43E8: $6087
+        bra.s   $009D4373                               ; 009D43EA: $6087
+        bra.s   $009D4375                               ; 009D43EC: $6087
+        bra.s   $009D4377                               ; 009D43EE: $6087
+        bra.s   $009D4379                               ; 009D43F0: $6087
+        bra.s   $009D437B                               ; 009D43F2: $6087
+        bra.s   $009D437D                               ; 009D43F4: $6087
+        bra.s   $009D437F                               ; 009D43F6: $6087
+        bra.s   $009D4381                               ; 009D43F8: $6087
+        bra.s   $009D4383                               ; 009D43FA: $6087
+        bra.s   $009D4385                               ; 009D43FC: $6087
+        bra.s   $009D4387                               ; 009D43FE: $6087
+        bra.s   $009D4389                               ; 009D4400: $6087
+        bra.s   $009D438B                               ; 009D4402: $6087
+        bra.s   $009D438D                               ; 009D4404: $6087
+        bra.s   $009D438F                               ; 009D4406: $6087
+        bra.s   $009D4391                               ; 009D4408: $6087
+        bra.s   $009D4393                               ; 009D440A: $6087
+        bra.s   $009D4395                               ; 009D440C: $6087
+        bra.s   $009D4397                               ; 009D440E: $6087
+        bra.s   $009D4399                               ; 009D4410: $6087
+        bra.s   $009D439B                               ; 009D4412: $6087
+        bra.s   $009D439D                               ; 009D4414: $6087
+        bra.s   $009D439F                               ; 009D4416: $6087
+        bra.s   $009D43A1                               ; 009D4418: $6087
+        bra.s   $009D43A3                               ; 009D441A: $6087
+        bra.s   $009D43A5                               ; 009D441C: $6087
+        bra.s   $009D43A7                               ; 009D441E: $6087
+        bra.s   $009D43A9                               ; 009D4420: $6087
+        bra.s   $009D43AB                               ; 009D4422: $6087
+        bra.s   $009D43AD                               ; 009D4424: $6087
+        bra.s   $009D43AF                               ; 009D4426: $6087
+        bra.s   $009D43B1                               ; 009D4428: $6087
+        bra.s   $009D43B3                               ; 009D442A: $6087
+        bra.s   $009D43B5                               ; 009D442C: $6087
+        bra.s   $009D43B7                               ; 009D442E: $6087
+        bra.s   $009D43B9                               ; 009D4430: $6087
+        bra.s   $009D43BB                               ; 009D4432: $6087
+        bra.s   $009D43BD                               ; 009D4434: $6087
+        bra.s   $009D43BF                               ; 009D4436: $6087
+        bra.s   $009D43C1                               ; 009D4438: $6087
+        bra.s   $009D43C3                               ; 009D443A: $6087
+        bra.s   $009D43C5                               ; 009D443C: $6087
+        bra.s   $009D43C7                               ; 009D443E: $6087
+        bra.s   $009D43C9                               ; 009D4440: $6087
+        bra.s   $009D43CB                               ; 009D4442: $6087
+        bra.s   $009D43CD                               ; 009D4444: $6087
+        bra.s   $009D43CF                               ; 009D4446: $6087
+        bra.s   $009D43D1                               ; 009D4448: $6087
+        bra.s   $009D43D3                               ; 009D444A: $6087
+        bra.s   $009D43D5                               ; 009D444C: $6087
+        bra.s   $009D43D7                               ; 009D444E: $6087
+        bra.s   $009D43D9                               ; 009D4450: $6087
+        bra.s   $009D43DB                               ; 009D4452: $6087
+        bra.s   $009D43DD                               ; 009D4454: $6087
+        bra.s   $009D43DF                               ; 009D4456: $6087
+        bra.s   $009D43E1                               ; 009D4458: $6087
+        bra.s   $009D43E3                               ; 009D445A: $6087
+        bra.s   $009D43E5                               ; 009D445C: $6087
+        bra.s   $009D43E7                               ; 009D445E: $6087
+        bra.s   $009D43E9                               ; 009D4460: $6087
+        bra.s   $009D43EB                               ; 009D4462: $6087
+        bra.s   $009D43ED                               ; 009D4464: $6087
+        bra.s   $009D43EF                               ; 009D4466: $6087
+        bra.s   $009D43F1                               ; 009D4468: $6087
+        bra.s   $009D43F3                               ; 009D446A: $6087
+        bra.s   $009D43F5                               ; 009D446C: $6087
+        bra.s   $009D43F7                               ; 009D446E: $6087
+        bra.s   $009D43F9                               ; 009D4470: $6087
+        bra.s   $009D43FB                               ; 009D4472: $6087
+        bra.s   $009D43FD                               ; 009D4474: $6087
+        bra.s   $009D43FF                               ; 009D4476: $6087
+        bra.s   $009D4401                               ; 009D4478: $6087
+        bra.s   $009D4403                               ; 009D447A: $6087
+        bra.s   $009D4405                               ; 009D447C: $6087
+        bra.s   $009D4407                               ; 009D447E: $6087
+        bra.s   $009D4409                               ; 009D4480: $6087
+        bra.s   $009D440B                               ; 009D4482: $6087
+        bra.s   $009D440D                               ; 009D4484: $6087
+        bra.s   $009D440F                               ; 009D4486: $6087
+        bra.s   $009D4411                               ; 009D4488: $6087
+        bra.s   $009D4413                               ; 009D448A: $6087
+        bra.s   $009D4415                               ; 009D448C: $6087
+        bra.s   $009D4417                               ; 009D448E: $6087
+        bra.s   $009D4419                               ; 009D4490: $6087
+        bra.s   $009D441B                               ; 009D4492: $6087
+        bra.s   $009D441D                               ; 009D4494: $6087
+        bra.s   $009D441F                               ; 009D4496: $6087
+        bra.s   $009D4421                               ; 009D4498: $6087
+        bra.s   $009D4423                               ; 009D449A: $6087
+        bra.s   $009D4425                               ; 009D449C: $6087
+        bra.s   $009D4427                               ; 009D449E: $6087
+        bra.s   $009D4429                               ; 009D44A0: $6087
+        bra.s   $009D442B                               ; 009D44A2: $6087
+        bra.s   $009D442D                               ; 009D44A4: $6087
+        bra.s   $009D442F                               ; 009D44A6: $6087
+        bra.s   $009D4431                               ; 009D44A8: $6087
+        bra.s   $009D4433                               ; 009D44AA: $6087
+        bra.s   $009D4435                               ; 009D44AC: $6087
+        bra.s   $009D4437                               ; 009D44AE: $6087
+        bra.s   $009D4439                               ; 009D44B0: $6087
+        bra.s   $009D443B                               ; 009D44B2: $6087
+        bra.s   $009D443D                               ; 009D44B4: $6087
+        bra.s   $009D443F                               ; 009D44B6: $6087
+        bra.s   $009D4441                               ; 009D44B8: $6087
+        bra.s   $009D4443                               ; 009D44BA: $6087
+        bra.s   $009D4445                               ; 009D44BC: $6087
+        bra.s   $009D4447                               ; 009D44BE: $6087
+        bra.s   $009D4449                               ; 009D44C0: $6087
+        bra.s   $009D444B                               ; 009D44C2: $6087
+        bra.s   $009D444D                               ; 009D44C4: $6087
+        bra.s   $009D444F                               ; 009D44C6: $6087
+        bra.s   $009D4451                               ; 009D44C8: $6087
+        bra.s   $009D4453                               ; 009D44CA: $6087
+        bra.s   $009D4455                               ; 009D44CC: $6087
+        bra.s   $009D4457                               ; 009D44CE: $6087
+        bra.s   $009D4459                               ; 009D44D0: $6087
+        bra.s   $009D445B                               ; 009D44D2: $6087
+        bra.s   $009D445D                               ; 009D44D4: $6087
+        bra.s   $009D445F                               ; 009D44D6: $6087
+        bra.s   $009D4461                               ; 009D44D8: $6087
+        bra.s   $009D4463                               ; 009D44DA: $6087
+        bra.s   $009D4465                               ; 009D44DC: $6087
+        bra.s   $009D4467                               ; 009D44DE: $6087
+        bra.s   $009D4469                               ; 009D44E0: $6087
+        bra.s   $009D446B                               ; 009D44E2: $6087
+        bra.s   $009D446D                               ; 009D44E4: $6087
+        bra.s   $009D446F                               ; 009D44E6: $6087
+        bra.s   $009D4471                               ; 009D44E8: $6087
+        bra.s   $009D4473                               ; 009D44EA: $6087
+        bra.s   $009D4475                               ; 009D44EC: $6087
+        bra.s   $009D4477                               ; 009D44EE: $6087
+        bra.s   $009D4479                               ; 009D44F0: $6087
+        bra.s   $009D447B                               ; 009D44F2: $6087
+        bra.s   $009D447D                               ; 009D44F4: $6087
+        bra.s   $009D447F                               ; 009D44F6: $6087
+        bra.s   $009D4481                               ; 009D44F8: $6087
+        bra.s   $009D4483                               ; 009D44FA: $6087
+        bra.s   $009D4485                               ; 009D44FC: $6087
+        bra.s   $009D4487                               ; 009D44FE: $6087
+        bra.s   $009D4489                               ; 009D4500: $6087
+        bra.s   $009D448B                               ; 009D4502: $6087
+        bra.s   $009D448D                               ; 009D4504: $6087
+        bra.s   $009D448F                               ; 009D4506: $6087
+        bra.s   $009D4491                               ; 009D4508: $6087
+        bra.s   $009D4493                               ; 009D450A: $6087
+        bra.s   $009D4495                               ; 009D450C: $6087
+        bra.s   $009D4497                               ; 009D450E: $6087
+        bra.s   $009D4499                               ; 009D4510: $6087
+        bra.s   $009D449B                               ; 009D4512: $6087
+        bra.s   $009D449D                               ; 009D4514: $6087
+        bra.s   $009D449F                               ; 009D4516: $6087
+        bra.s   $009D44A1                               ; 009D4518: $6087
+        bra.s   $009D44A3                               ; 009D451A: $6087
+        bra.s   $009D44A5                               ; 009D451C: $6087
+        bra.s   $009D44A7                               ; 009D451E: $6087
+        bra.s   $009D44A9                               ; 009D4520: $6087
+        bra.s   $009D44AB                               ; 009D4522: $6087
+        bra.s   $009D44AD                               ; 009D4524: $6087
+        bra.s   $009D44AF                               ; 009D4526: $6087
+        bra.s   $009D44B1                               ; 009D4528: $6087
+        bra.s   $009D44B3                               ; 009D452A: $6087
+        bra.s   $009D44B5                               ; 009D452C: $6087
+        bra.s   $009D44B7                               ; 009D452E: $6087
+        bra.s   $009D44B9                               ; 009D4530: $6087
+        bra.s   $009D44BB                               ; 009D4532: $6087
+        bra.s   $009D44BD                               ; 009D4534: $6087
+        bra.s   $009D44BF                               ; 009D4536: $6087
+        bra.s   $009D44C1                               ; 009D4538: $6087
+        bra.s   $009D44C3                               ; 009D453A: $6087
+        bra.s   $009D44C5                               ; 009D453C: $6087
+        bra.s   $009D44C7                               ; 009D453E: $6087
+        bra.s   $009D44C9                               ; 009D4540: $6087
+        bra.s   $009D44CB                               ; 009D4542: $6087
+        bra.s   $009D44CD                               ; 009D4544: $6087
+        bra.s   $009D44CF                               ; 009D4546: $6087
+        bra.s   $009D44D1                               ; 009D4548: $6087
+        bra.s   $009D44D3                               ; 009D454A: $6087
+        bra.s   $009D44D5                               ; 009D454C: $6087
+        bra.s   $009D44D7                               ; 009D454E: $6087
+        bra.s   $009D44D9                               ; 009D4550: $6087
+        bra.s   $009D44DB                               ; 009D4552: $6087
+        bra.s   $009D44DD                               ; 009D4554: $6087
+        bra.s   $009D44DF                               ; 009D4556: $6087
+        bra.s   $009D44E1                               ; 009D4558: $6087
+        bra.s   $009D44E3                               ; 009D455A: $6087
+        bra.s   $009D44E5                               ; 009D455C: $6087
+        bra.s   $009D44E7                               ; 009D455E: $6087
+        bra.s   $009D44E9                               ; 009D4560: $6087
+        bra.s   $009D44EB                               ; 009D4562: $6087
+        bra.s   $009D44ED                               ; 009D4564: $6087
+        bra.s   $009D44EF                               ; 009D4566: $6087
+        bra.s   $009D44F1                               ; 009D4568: $6087
+        bra.s   $009D44F3                               ; 009D456A: $6087
+        bra.s   $009D44F5                               ; 009D456C: $6087
+        bra.s   $009D44F7                               ; 009D456E: $6087
+        bra.s   $009D44F9                               ; 009D4570: $6087
+        bra.s   $009D44FB                               ; 009D4572: $6087
+        bra.s   $009D44FD                               ; 009D4574: $6087
+        bra.s   $009D44FF                               ; 009D4576: $6087
+        bra.s   $009D4501                               ; 009D4578: $6087
+        bra.s   $009D4503                               ; 009D457A: $6087
+        bra.s   $009D4505                               ; 009D457C: $6087
+        bra.s   $009D4507                               ; 009D457E: $6087
+        bra.s   $009D4509                               ; 009D4580: $6087
+        bra.s   $009D450B                               ; 009D4582: $6087
+        bra.s   $009D450D                               ; 009D4584: $6087
+        bra.s   $009D450F                               ; 009D4586: $6087
+        bra.s   $009D4511                               ; 009D4588: $6087
+        bra.s   $009D4513                               ; 009D458A: $6087
+        bra.s   $009D4515                               ; 009D458C: $6087
+        bra.s   $009D4517                               ; 009D458E: $6087
+        bra.s   $009D4519                               ; 009D4590: $6087
+        bra.s   $009D451B                               ; 009D4592: $6087
+        bra.s   $009D451D                               ; 009D4594: $6087
+        bra.s   $009D451F                               ; 009D4596: $6087
+        bra.s   $009D4521                               ; 009D4598: $6087
+        bra.s   $009D4523                               ; 009D459A: $6087
+        bra.s   $009D4525                               ; 009D459C: $6087
+        bra.s   $009D4527                               ; 009D459E: $6087
+        bra.s   $009D4529                               ; 009D45A0: $6087
+        bra.s   $009D452B                               ; 009D45A2: $6087
+        bra.s   $009D452D                               ; 009D45A4: $6087
+        bra.s   $009D452F                               ; 009D45A6: $6087
+        bra.s   $009D4531                               ; 009D45A8: $6087
+        bra.s   $009D4533                               ; 009D45AA: $6087
+        bra.s   $009D4535                               ; 009D45AC: $6087
+        bra.s   $009D4537                               ; 009D45AE: $6087
+        bra.s   $009D4539                               ; 009D45B0: $6087
+        bra.s   $009D453B                               ; 009D45B2: $6087
+        bra.s   $009D453D                               ; 009D45B4: $6087
+        bra.s   $009D453F                               ; 009D45B6: $6087
+        bra.s   $009D4541                               ; 009D45B8: $6087
+        bra.s   $009D4543                               ; 009D45BA: $6087
+        bra.s   $009D4545                               ; 009D45BC: $6087
+        bra.s   $009D4547                               ; 009D45BE: $6087
+        bra.s   $009D4549                               ; 009D45C0: $6087
+        bra.s   $009D454B                               ; 009D45C2: $6087
+        bra.s   $009D454D                               ; 009D45C4: $6087
+        bra.s   $009D454F                               ; 009D45C6: $6087
+        bra.s   $009D4551                               ; 009D45C8: $6087
+        bra.s   $009D4553                               ; 009D45CA: $6087
+        bra.s   $009D4555                               ; 009D45CC: $6087
+        bra.s   $009D4557                               ; 009D45CE: $6087
+        bra.s   $009D4559                               ; 009D45D0: $6087
+        bra.s   $009D455B                               ; 009D45D2: $6087
+        bra.s   $009D455D                               ; 009D45D4: $6087
+        bra.s   $009D455F                               ; 009D45D6: $6087
+        bra.s   $009D4561                               ; 009D45D8: $6087
+        bra.s   $009D4563                               ; 009D45DA: $6087
+        bra.s   $009D4565                               ; 009D45DC: $6087
+        bra.s   $009D4567                               ; 009D45DE: $6087
+        bra.s   $009D4569                               ; 009D45E0: $6087
+        bra.s   $009D456B                               ; 009D45E2: $6087
+        bra.s   $009D456D                               ; 009D45E4: $6087
+        bra.s   $009D456F                               ; 009D45E6: $6087
+        bra.s   $009D4571                               ; 009D45E8: $6087
+        bra.s   $009D4573                               ; 009D45EA: $6087
+        bra.s   $009D4575                               ; 009D45EC: $6087
+        bra.s   $009D4577                               ; 009D45EE: $6087
+        bra.s   $009D4579                               ; 009D45F0: $6087
+        bra.s   $009D457B                               ; 009D45F2: $6087
+        bra.s   $009D457D                               ; 009D45F4: $6087
+        bra.s   $009D457F                               ; 009D45F6: $6087
+        bra.s   $009D4581                               ; 009D45F8: $6087
+        bra.s   $009D4583                               ; 009D45FA: $6087
+        bra.s   $009D4585                               ; 009D45FC: $6087
+        bra.s   $009D4587                               ; 009D45FE: $6087
+        bra.s   $009D4589                               ; 009D4600: $6087
+        bra.s   $009D458B                               ; 009D4602: $6087
+        bra.s   $009D458D                               ; 009D4604: $6087
+        bra.s   $009D458F                               ; 009D4606: $6087
+        bra.s   $009D4591                               ; 009D4608: $6087
+        bra.s   $009D4593                               ; 009D460A: $6087
+        bra.s   $009D4595                               ; 009D460C: $6087
+        bra.s   $009D4597                               ; 009D460E: $6087
+        bra.s   $009D4599                               ; 009D4610: $6087
+        bra.s   $009D459B                               ; 009D4612: $6087
+        bra.s   $009D459D                               ; 009D4614: $6087
+        bra.s   $009D459F                               ; 009D4616: $6087
+        bra.s   $009D45A1                               ; 009D4618: $6087
+        bra.s   $009D45A3                               ; 009D461A: $6087
+        bra.s   $009D45A5                               ; 009D461C: $6087
+        bra.s   $009D45A7                               ; 009D461E: $6087
+        bra.s   $009D45A9                               ; 009D4620: $6087
+        bra.s   $009D45AB                               ; 009D4622: $6087
+        bra.s   $009D45AD                               ; 009D4624: $6087
+        bra.s   $009D45AF                               ; 009D4626: $6087
+        bra.s   $009D45B1                               ; 009D4628: $6087
+        bra.s   $009D45B3                               ; 009D462A: $6087
+        bra.s   $009D45B5                               ; 009D462C: $6087
+        bra.s   $009D45B7                               ; 009D462E: $6087
+        bra.s   $009D45B9                               ; 009D4630: $6087
+        bra.s   $009D45BB                               ; 009D4632: $6087
+        bra.s   $009D45BD                               ; 009D4634: $6087
+        bra.s   $009D45BF                               ; 009D4636: $6087
+        bra.s   $009D45C1                               ; 009D4638: $6087
+        bra.s   $009D45C3                               ; 009D463A: $6087
+        bra.s   $009D45C5                               ; 009D463C: $6087
+        bra.s   $009D45C7                               ; 009D463E: $6087
+        bra.s   $009D45C9                               ; 009D4640: $6087
+        bra.s   $009D45CB                               ; 009D4642: $6087
+        bra.s   $009D45CD                               ; 009D4644: $6087
+        bra.s   $009D45CF                               ; 009D4646: $6087
+        bra.s   $009D45D1                               ; 009D4648: $6087
+        bra.s   $009D45D3                               ; 009D464A: $6087
+        bra.s   $009D45D5                               ; 009D464C: $6087
+        bra.s   $009D45D7                               ; 009D464E: $6087
+        bra.s   $009D45D9                               ; 009D4650: $6087
+        bra.s   $009D45DB                               ; 009D4652: $6087
+        bra.s   $009D45DD                               ; 009D4654: $6087
+        bra.s   $009D45DF                               ; 009D4656: $6087
+        bra.s   $009D45E1                               ; 009D4658: $6087
+        bra.s   $009D45E3                               ; 009D465A: $6087
+        bra.s   $009D45E5                               ; 009D465C: $6087
+        bra.s   $009D45E7                               ; 009D465E: $6087
+        bra.s   $009D45E9                               ; 009D4660: $6087
+        bra.s   $009D45EB                               ; 009D4662: $6087
+        bra.s   $009D45ED                               ; 009D4664: $6087
+        bra.s   $009D45EF                               ; 009D4666: $6087
+        bra.s   $009D45F1                               ; 009D4668: $6087
+        bra.s   $009D45F3                               ; 009D466A: $6087
+        bra.s   $009D45F5                               ; 009D466C: $6087
+        bra.s   $009D45F7                               ; 009D466E: $6087
+        bra.s   $009D45F9                               ; 009D4670: $6087
+        bra.s   $009D45FB                               ; 009D4672: $6087
+        bra.s   $009D45FD                               ; 009D4674: $6087
+        bra.s   $009D45FF                               ; 009D4676: $6087
+        bra.s   $009D4601                               ; 009D4678: $6087
+        bra.s   $009D4603                               ; 009D467A: $6087
+        bra.s   $009D4605                               ; 009D467C: $6087
+        bra.s   $009D4607                               ; 009D467E: $6087
+        bra.s   $009D4609                               ; 009D4680: $6087
+        bra.s   $009D460B                               ; 009D4682: $6087
+        bra.s   $009D460D                               ; 009D4684: $6087
+        bra.s   $009D460F                               ; 009D4686: $6087
+        bra.s   $009D4611                               ; 009D4688: $6087
+        bra.s   $009D4613                               ; 009D468A: $6087
+        bra.s   $009D4615                               ; 009D468C: $6087
+        bra.s   $009D4617                               ; 009D468E: $6087
+        bra.s   $009D4619                               ; 009D4690: $6087
+        bra.s   $009D461B                               ; 009D4692: $6087
+        bra.s   $009D461D                               ; 009D4694: $6087
+        bra.s   $009D461F                               ; 009D4696: $6087
+        bra.s   $009D4621                               ; 009D4698: $6087
+        bra.s   $009D4623                               ; 009D469A: $6087
+        bra.s   $009D4625                               ; 009D469C: $6087
+        bra.s   $009D4627                               ; 009D469E: $6087
+        bra.s   $009D4629                               ; 009D46A0: $6087
+        bra.s   $009D462B                               ; 009D46A2: $6087
+        bra.s   $009D462D                               ; 009D46A4: $6087
+        bra.s   $009D462F                               ; 009D46A6: $6087
+        bra.s   $009D4631                               ; 009D46A8: $6087
+        bra.s   $009D4633                               ; 009D46AA: $6087
+        bra.s   $009D4635                               ; 009D46AC: $6087
+        bra.s   $009D4637                               ; 009D46AE: $6087
+        bra.s   $009D4639                               ; 009D46B0: $6087
+        bra.s   $009D463B                               ; 009D46B2: $6087
+        bra.s   $009D463D                               ; 009D46B4: $6087
+        bra.s   $009D463F                               ; 009D46B6: $6087
+        bra.s   $009D4641                               ; 009D46B8: $6087
+        bra.s   $009D4643                               ; 009D46BA: $6087
+        bra.s   $009D4645                               ; 009D46BC: $6087
+        bra.s   $009D4647                               ; 009D46BE: $6087
+        bra.s   $009D4649                               ; 009D46C0: $6087
+        bra.s   $009D464B                               ; 009D46C2: $6087
+        bra.s   $009D464D                               ; 009D46C4: $6087
+        bra.s   $009D464F                               ; 009D46C6: $6087
+        bra.s   $009D4651                               ; 009D46C8: $6087
+        bra.s   $009D4653                               ; 009D46CA: $6087
+        bra.s   $009D4655                               ; 009D46CC: $6087
+        bra.s   $009D4657                               ; 009D46CE: $6087
+        bra.s   $009D4659                               ; 009D46D0: $6087
+        bra.s   $009D465B                               ; 009D46D2: $6087
+        bra.s   $009D465D                               ; 009D46D4: $6087
+        bra.s   $009D465F                               ; 009D46D6: $6087
+        bra.s   $009D4661                               ; 009D46D8: $6087
+        bra.s   $009D4663                               ; 009D46DA: $6087
+        bra.s   $009D4665                               ; 009D46DC: $6087
+        bra.s   $009D4667                               ; 009D46DE: $6087
+        bra.s   $009D4669                               ; 009D46E0: $6087
+        bra.s   $009D466B                               ; 009D46E2: $6087
+        bra.s   $009D466D                               ; 009D46E4: $6087
+        bra.s   $009D466F                               ; 009D46E6: $6087
+        bra.s   $009D4671                               ; 009D46E8: $6087
+        bra.s   $009D4673                               ; 009D46EA: $6087
+        bra.s   $009D4675                               ; 009D46EC: $6087
+        bra.s   $009D4677                               ; 009D46EE: $6087
+        bra.s   $009D4679                               ; 009D46F0: $6087
+        bra.s   $009D467B                               ; 009D46F2: $6087
+        bra.s   $009D467D                               ; 009D46F4: $6087
+        bra.s   $009D467F                               ; 009D46F6: $6087
+        bra.s   $009D4681                               ; 009D46F8: $6087
+        bra.s   $009D4683                               ; 009D46FA: $6087
+        bra.s   $009D4685                               ; 009D46FC: $6087
+        bra.s   $009D4687                               ; 009D46FE: $6087
+        bra.s   $009D4689                               ; 009D4700: $6087
+        bra.s   $009D468B                               ; 009D4702: $6087
+        bra.s   $009D468D                               ; 009D4704: $6087
+        bra.s   $009D468F                               ; 009D4706: $6087
+        bra.s   $009D4691                               ; 009D4708: $6087
+        bra.s   $009D4693                               ; 009D470A: $6087
+        bra.s   $009D4695                               ; 009D470C: $6087
+        bra.s   $009D4697                               ; 009D470E: $6087
+        bra.s   $009D4699                               ; 009D4710: $6087
+        bra.s   $009D469B                               ; 009D4712: $6087
+        bra.s   $009D469D                               ; 009D4714: $6087
+        bra.s   $009D469F                               ; 009D4716: $6087
+        bra.s   $009D46A1                               ; 009D4718: $6087
+        bra.s   $009D46A3                               ; 009D471A: $6087
+        bra.s   $009D46A5                               ; 009D471C: $6087
+        bra.s   $009D46A7                               ; 009D471E: $6087
+        bra.s   $009D46A9                               ; 009D4720: $6087
+        bra.s   $009D46AB                               ; 009D4722: $6087
+        bra.s   $009D46AD                               ; 009D4724: $6087
+        bra.s   $009D46AF                               ; 009D4726: $6087
+        bra.s   $009D46B1                               ; 009D4728: $6087
+        bra.s   $009D46B3                               ; 009D472A: $6087
+        bra.s   $009D46B5                               ; 009D472C: $6087
+        bra.s   $009D46B7                               ; 009D472E: $6087
+        bra.s   $009D46B9                               ; 009D4730: $6087
+        bra.s   $009D46BB                               ; 009D4732: $6087
+        bra.s   $009D46BD                               ; 009D4734: $6087
+        bra.s   $009D46BF                               ; 009D4736: $6087
+        bra.s   $009D46C1                               ; 009D4738: $6087
+        bra.s   $009D46C3                               ; 009D473A: $6087
+        bra.s   $009D46C5                               ; 009D473C: $6087
+        bra.s   $009D46C7                               ; 009D473E: $6087
+        bra.s   $009D46C9                               ; 009D4740: $6087
+        bra.s   $009D46CB                               ; 009D4742: $6087
+        bra.s   $009D46CD                               ; 009D4744: $6087
+        bra.s   $009D46CF                               ; 009D4746: $6087
+        bra.s   $009D46D1                               ; 009D4748: $6087
+        bra.s   $009D46D3                               ; 009D474A: $6087
+        bra.s   $009D46D5                               ; 009D474C: $6087
+        bra.s   $009D46D7                               ; 009D474E: $6087
+        bra.s   $009D46D9                               ; 009D4750: $6087
+        bra.s   $009D46DB                               ; 009D4752: $6087
+        bra.s   $009D46DD                               ; 009D4754: $6087
+        bra.s   $009D46DF                               ; 009D4756: $6087
+        bra.s   $009D46E1                               ; 009D4758: $6087
+        bra.s   $009D46E3                               ; 009D475A: $6087
+        bra.s   $009D46E5                               ; 009D475C: $6087
+        bra.s   $009D46E7                               ; 009D475E: $6087
+        bra.s   $009D46E9                               ; 009D4760: $6087
+        bra.s   $009D46EB                               ; 009D4762: $6087
+        bra.s   $009D46ED                               ; 009D4764: $6087
+        bra.s   $009D46EF                               ; 009D4766: $6087
+        bra.s   $009D46F1                               ; 009D4768: $6087
+        bra.s   $009D46F3                               ; 009D476A: $6087
+        bra.s   $009D46F5                               ; 009D476C: $6087
+        bra.s   $009D46F7                               ; 009D476E: $6087
+        bra.s   $009D46F9                               ; 009D4770: $6087
+        bra.s   $009D46FB                               ; 009D4772: $6087
+        bra.s   $009D46FD                               ; 009D4774: $6087
+        bra.s   $009D46FF                               ; 009D4776: $6087
+        bra.s   $009D4701                               ; 009D4778: $6087
+        bra.s   $009D4703                               ; 009D477A: $6087
+        bra.s   $009D4705                               ; 009D477C: $6087
+        bra.s   $009D4707                               ; 009D477E: $6087
+        bra.s   $009D4709                               ; 009D4780: $6087
+        bra.s   $009D470B                               ; 009D4782: $6087
+        bra.s   $009D470D                               ; 009D4784: $6087
+        bra.s   $009D470F                               ; 009D4786: $6087
+        bra.s   $009D4711                               ; 009D4788: $6087
+        bra.s   $009D4713                               ; 009D478A: $6087
+        bra.s   $009D4715                               ; 009D478C: $6087
+        bra.s   $009D4717                               ; 009D478E: $6087
+        bra.s   $009D4719                               ; 009D4790: $6087
+        bra.s   $009D471B                               ; 009D4792: $6087
+        bra.s   $009D471D                               ; 009D4794: $6087
+        bra.s   $009D471F                               ; 009D4796: $6087
+        bra.s   $009D4721                               ; 009D4798: $6087
+        bra.s   $009D4723                               ; 009D479A: $6087
+        bra.s   $009D4725                               ; 009D479C: $6087
+        bra.s   $009D4727                               ; 009D479E: $6087
+        bra.s   $009D4729                               ; 009D47A0: $6087
+        bra.s   $009D472B                               ; 009D47A2: $6087
+        bra.s   $009D472D                               ; 009D47A4: $6087
+        bra.s   $009D472F                               ; 009D47A6: $6087
+        bra.s   $009D4731                               ; 009D47A8: $6087
+        bra.s   $009D4733                               ; 009D47AA: $6087
+        bra.s   $009D4735                               ; 009D47AC: $6087
+        bra.s   $009D4737                               ; 009D47AE: $6087
+        bra.s   $009D4739                               ; 009D47B0: $6087
+        bra.s   $009D473B                               ; 009D47B2: $6087
+        bra.s   $009D473D                               ; 009D47B4: $6087
+        bra.s   $009D473F                               ; 009D47B6: $6087
+        bra.s   $009D4741                               ; 009D47B8: $6087
+        bra.s   $009D4743                               ; 009D47BA: $6087
+        bra.s   $009D4745                               ; 009D47BC: $6087
+        bra.s   $009D4747                               ; 009D47BE: $6087
+        bra.s   $009D4749                               ; 009D47C0: $6087
+        bra.s   $009D474B                               ; 009D47C2: $6087
+        bra.s   $009D474D                               ; 009D47C4: $6087
+        bra.s   $009D474F                               ; 009D47C6: $6087
+        bra.s   $009D4751                               ; 009D47C8: $6087
+        bra.s   $009D4753                               ; 009D47CA: $6087
+        bra.s   $009D4755                               ; 009D47CC: $6087
+        bra.s   $009D4757                               ; 009D47CE: $6087
+        bra.s   $009D4759                               ; 009D47D0: $6087
+        bra.s   $009D475B                               ; 009D47D2: $6087
+        bra.s   $009D475D                               ; 009D47D4: $6087
+        bra.s   $009D475F                               ; 009D47D6: $6087
+        bra.s   $009D4761                               ; 009D47D8: $6087
+        bra.s   $009D4763                               ; 009D47DA: $6087
+        bra.s   $009D4765                               ; 009D47DC: $6087
+        bra.s   $009D4767                               ; 009D47DE: $6087
+        bra.s   $009D4769                               ; 009D47E0: $6087
+        bra.s   $009D476B                               ; 009D47E2: $6087
+        bra.s   $009D476D                               ; 009D47E4: $6087
+        bra.s   $009D476F                               ; 009D47E6: $6087
+        bra.s   $009D4771                               ; 009D47E8: $6087
+        bra.s   $009D4773                               ; 009D47EA: $6087
+        bra.s   $009D4775                               ; 009D47EC: $6087
+        bra.s   $009D4777                               ; 009D47EE: $6087
+        bra.s   $009D4779                               ; 009D47F0: $6087
+        bra.s   $009D477B                               ; 009D47F2: $6087
+        bra.s   $009D477D                               ; 009D47F4: $6087
+        bra.s   $009D477F                               ; 009D47F6: $6087
+        bra.s   $009D4781                               ; 009D47F8: $6087
+        bra.s   $009D4783                               ; 009D47FA: $6087
+        bra.s   $009D4785                               ; 009D47FC: $6087
+        bra.s   $009D4787                               ; 009D47FE: $6087
+        bra.s   $009D4789                               ; 009D4800: $6087
+        bra.s   $009D478B                               ; 009D4802: $6087
+        bra.s   $009D478D                               ; 009D4804: $6087
+        bra.s   $009D478F                               ; 009D4806: $6087
+        bra.s   $009D4791                               ; 009D4808: $6087
+        bra.s   $009D4793                               ; 009D480A: $6087
+        bra.s   $009D4795                               ; 009D480C: $6087
+        bra.s   $009D4797                               ; 009D480E: $6087
+        bra.s   $009D4799                               ; 009D4810: $6087
+        bra.s   $009D479B                               ; 009D4812: $6087
+        bra.s   $009D479D                               ; 009D4814: $6087
+        bra.s   $009D479F                               ; 009D4816: $6087
+        bra.s   $009D47A1                               ; 009D4818: $6087
+        bra.s   $009D47A3                               ; 009D481A: $6087
+        bra.s   $009D47A5                               ; 009D481C: $6087
+        bra.s   $009D47A7                               ; 009D481E: $6087
+        bra.s   $009D47A9                               ; 009D4820: $6087
+        bra.s   $009D47AB                               ; 009D4822: $6087
+        bra.s   $009D47AD                               ; 009D4824: $6087
+        bra.s   $009D47AF                               ; 009D4826: $6087
+        bra.s   $009D47B1                               ; 009D4828: $6087
+        bra.s   $009D47B3                               ; 009D482A: $6087
+        bra.s   $009D47B5                               ; 009D482C: $6087
+        bra.s   $009D47B7                               ; 009D482E: $6087
+        bra.s   $009D47B9                               ; 009D4830: $6087
+        bra.s   $009D47BB                               ; 009D4832: $6087
+        bra.s   $009D47BD                               ; 009D4834: $6087
+        bra.s   $009D47BF                               ; 009D4836: $6087
+        bra.s   $009D47C1                               ; 009D4838: $6087
+        bra.s   $009D47C3                               ; 009D483A: $6087
+        bra.s   $009D47C5                               ; 009D483C: $6087
+        bra.s   $009D47C7                               ; 009D483E: $6087
+        bra.s   $009D47C9                               ; 009D4840: $6087
+        bra.s   $009D47CB                               ; 009D4842: $6087
+        bra.s   $009D47CD                               ; 009D4844: $6087
+        bra.s   $009D47CF                               ; 009D4846: $6087
+        bra.s   $009D47D1                               ; 009D4848: $6087
+        bra.s   $009D47D3                               ; 009D484A: $6087
+        bra.s   $009D47D5                               ; 009D484C: $6087
+        bra.s   $009D47D7                               ; 009D484E: $6087
+        bra.s   $009D47D9                               ; 009D4850: $6087
+        bra.s   $009D47DB                               ; 009D4852: $6087
+        bra.s   $009D47DD                               ; 009D4854: $6087
+        bra.s   $009D47DF                               ; 009D4856: $6087
+        bra.s   $009D47E1                               ; 009D4858: $6087
+        bra.s   $009D47E3                               ; 009D485A: $6087
+        bra.s   $009D47E5                               ; 009D485C: $6087
+        bra.s   $009D47E7                               ; 009D485E: $6087
+        bra.s   $009D47E9                               ; 009D4860: $6087
+        bra.s   $009D47EB                               ; 009D4862: $6087
+        bra.s   $009D47ED                               ; 009D4864: $6087
+        bra.s   $009D47EF                               ; 009D4866: $6087
+        bra.s   $009D47F1                               ; 009D4868: $6087
+        bra.s   $009D47F3                               ; 009D486A: $6087
+        bra.s   $009D47F5                               ; 009D486C: $6087
+        bra.s   $009D47F7                               ; 009D486E: $6087
+        bra.s   $009D47F9                               ; 009D4870: $6087
+        bra.s   $009D47FB                               ; 009D4872: $6087
+        bra.s   $009D47FD                               ; 009D4874: $6087
+        bra.s   $009D47FF                               ; 009D4876: $6087
+        bra.s   $009D4801                               ; 009D4878: $6087
+        bra.s   $009D4803                               ; 009D487A: $6087
+        bra.s   $009D4805                               ; 009D487C: $6087
+        bra.s   $009D4807                               ; 009D487E: $6087
+        bra.s   $009D4809                               ; 009D4880: $6087
+        bra.s   $009D480B                               ; 009D4882: $6087
+        bra.s   $009D480D                               ; 009D4884: $6087
+        bra.s   $009D480F                               ; 009D4886: $6087
+        bra.s   $009D4811                               ; 009D4888: $6087
+        bra.s   $009D4813                               ; 009D488A: $6087
+        bra.s   $009D4815                               ; 009D488C: $6087
+        bra.s   $009D4817                               ; 009D488E: $6087
+        bra.s   $009D4819                               ; 009D4890: $6087
+        bra.s   $009D481B                               ; 009D4892: $6087
+        bra.s   $009D481D                               ; 009D4894: $6087
+        bra.s   $009D481F                               ; 009D4896: $6087
+        bra.s   $009D4821                               ; 009D4898: $6087
+        bra.s   $009D4823                               ; 009D489A: $6087
+        bra.s   $009D4825                               ; 009D489C: $6087
+        bra.s   $009D4827                               ; 009D489E: $6087
+        bra.s   $009D4829                               ; 009D48A0: $6087
+        bra.s   $009D482B                               ; 009D48A2: $6087
+        bra.s   $009D482D                               ; 009D48A4: $6087
+        bra.s   $009D482F                               ; 009D48A6: $6087
+        bra.s   $009D4831                               ; 009D48A8: $6087
+        bra.s   $009D4833                               ; 009D48AA: $6087
+        bra.s   $009D4835                               ; 009D48AC: $6087
+        bra.s   $009D4837                               ; 009D48AE: $6087
+        bra.s   $009D4839                               ; 009D48B0: $6087
+        bra.s   $009D483B                               ; 009D48B2: $6087
+        bra.s   $009D483D                               ; 009D48B4: $6087
+        bra.s   $009D483F                               ; 009D48B6: $6087
+        bra.s   $009D4841                               ; 009D48B8: $6087
+        bra.s   $009D4843                               ; 009D48BA: $6087
+        bra.s   $009D4845                               ; 009D48BC: $6087
+        bra.s   $009D4847                               ; 009D48BE: $6087
+        bra.s   $009D4849                               ; 009D48C0: $6087
+        bra.s   $009D484B                               ; 009D48C2: $6087
+        bra.s   $009D484D                               ; 009D48C4: $6087
+        bra.s   $009D484F                               ; 009D48C6: $6087
+        bra.s   $009D4851                               ; 009D48C8: $6087
+        bra.s   $009D4853                               ; 009D48CA: $6087
+        bra.s   $009D4855                               ; 009D48CC: $6087
+        bra.s   $009D4857                               ; 009D48CE: $6087
+        bra.s   $009D4859                               ; 009D48D0: $6087
+        bra.s   $009D485B                               ; 009D48D2: $6087
+        bra.s   $009D485D                               ; 009D48D4: $6087
+        bra.s   $009D485F                               ; 009D48D6: $6087
+        bra.s   $009D4861                               ; 009D48D8: $6087
+        bra.s   $009D4863                               ; 009D48DA: $6087
+        bra.s   $009D4865                               ; 009D48DC: $6087
+        bra.s   $009D4867                               ; 009D48DE: $6087
+        bra.s   $009D4869                               ; 009D48E0: $6087
+        bra.s   $009D486B                               ; 009D48E2: $6087
+        bra.s   $009D486D                               ; 009D48E4: $6087
+        bra.s   $009D486F                               ; 009D48E6: $6087
+        bra.s   $009D4871                               ; 009D48E8: $6087
+        bra.s   $009D4873                               ; 009D48EA: $6087
+        bra.s   $009D4875                               ; 009D48EC: $6087
+        bra.s   $009D4877                               ; 009D48EE: $6087
+        bra.s   $009D4879                               ; 009D48F0: $6087
+        bra.s   $009D487B                               ; 009D48F2: $6087
+        bra.s   $009D487D                               ; 009D48F4: $6087
+        bra.s   $009D487F                               ; 009D48F6: $6087
+        bra.s   $009D4881                               ; 009D48F8: $6087
+        bra.s   $009D4883                               ; 009D48FA: $6087
+        bra.s   $009D4885                               ; 009D48FC: $6087
+        bra.s   $009D4887                               ; 009D48FE: $6087
+        bra.s   $009D4889                               ; 009D4900: $6087
+        bra.s   $009D488B                               ; 009D4902: $6087
+        bra.s   $009D488D                               ; 009D4904: $6087
+        bra.s   $009D488F                               ; 009D4906: $6087
+        bra.s   $009D4891                               ; 009D4908: $6087
+        bra.s   $009D4893                               ; 009D490A: $6087
+        bra.s   $009D4895                               ; 009D490C: $6087
+        bra.s   $009D4897                               ; 009D490E: $6087
+        bra.s   $009D4899                               ; 009D4910: $6087
+        bra.s   $009D489B                               ; 009D4912: $6087
+        bra.s   $009D489D                               ; 009D4914: $6087
+        bra.s   $009D489F                               ; 009D4916: $6087
+        bra.s   $009D48A1                               ; 009D4918: $6087
+        bra.s   $009D48A3                               ; 009D491A: $6087
+        bra.s   $009D48A5                               ; 009D491C: $6087
+        bra.s   $009D48A7                               ; 009D491E: $6087
+        bra.s   $009D48A9                               ; 009D4920: $6087
+        bra.s   $009D48AB                               ; 009D4922: $6087
+        bra.s   $009D48AD                               ; 009D4924: $6087
+        bra.s   $009D48AF                               ; 009D4926: $6087
+        bra.s   $009D48B1                               ; 009D4928: $6087
+        bra.s   $009D48B3                               ; 009D492A: $6087
+        bra.s   $009D48B5                               ; 009D492C: $6087
+        bra.s   $009D48B7                               ; 009D492E: $6087
+        bra.s   $009D48B9                               ; 009D4930: $6087
+        bra.s   $009D48BB                               ; 009D4932: $6087
+        bra.s   $009D48BD                               ; 009D4934: $6087
+        bra.s   $009D48BF                               ; 009D4936: $6087
+        bra.s   $009D48C1                               ; 009D4938: $6087
+        bra.s   $009D48C3                               ; 009D493A: $6087
+        bra.s   $009D48C5                               ; 009D493C: $6087
+        bra.s   $009D48C7                               ; 009D493E: $6087
+        bra.s   $009D48C9                               ; 009D4940: $6087
+        bra.s   $009D48CB                               ; 009D4942: $6087
+        bra.s   $009D48CD                               ; 009D4944: $6087
+        bra.s   $009D48CF                               ; 009D4946: $6087
+        bra.s   $009D48D1                               ; 009D4948: $6087
+        bra.s   $009D48D3                               ; 009D494A: $6087
+        ori.b   #$0063,d0                               ; 009D494C: $0000, $0063
         dc.w    $00C6                    ; 009D4950: dc.w $00C6
-        dc.w    $6087                    ; 009D4952: BRA.S $009D48DB
-        dc.w    $6087                    ; 009D4954: BRA.S $009D48DD
-        dc.w    $6087                    ; 009D4956: BRA.S $009D48DF
-        dc.w    $6087                    ; 009D4958: BRA.S $009D48E1
-        dc.w    $6087                    ; 009D495A: BRA.S $009D48E3
-        dc.w    $6087                    ; 009D495C: BRA.S $009D48E5
-        dc.w    $6087                    ; 009D495E: BRA.S $009D48E7
-        dc.w    $6087                    ; 009D4960: BRA.S $009D48E9
-        dc.w    $6087                    ; 009D4962: BRA.S $009D48EB
-        dc.w    $6087                    ; 009D4964: BRA.S $009D48ED
-        dc.w    $6087                    ; 009D4966: BRA.S $009D48EF
-        dc.w    $6087                    ; 009D4968: BRA.S $009D48F1
-        dc.w    $6087                    ; 009D496A: BRA.S $009D48F3
-        dc.w    $6087                    ; 009D496C: BRA.S $009D48F5
-        dc.w    $6087                    ; 009D496E: BRA.S $009D48F7
-        dc.w    $6087                    ; 009D4970: BRA.S $009D48F9
-        dc.w    $6087                    ; 009D4972: BRA.S $009D48FB
-        dc.w    $6087                    ; 009D4974: BRA.S $009D48FD
-        dc.w    $6087                    ; 009D4976: BRA.S $009D48FF
-        dc.w    $6087                    ; 009D4978: BRA.S $009D4901
-        dc.w    $6087                    ; 009D497A: BRA.S $009D4903
-        dc.w    $6087                    ; 009D497C: BRA.S $009D4905
-        dc.w    $6087                    ; 009D497E: BRA.S $009D4907
-        dc.w    $6087                    ; 009D4980: BRA.S $009D4909
-        dc.w    $6087                    ; 009D4982: BRA.S $009D490B
-        dc.w    $6087                    ; 009D4984: BRA.S $009D490D
-        dc.w    $6087                    ; 009D4986: BRA.S $009D490F
-        dc.w    $6087                    ; 009D4988: BRA.S $009D4911
-        dc.w    $6087                    ; 009D498A: BRA.S $009D4913
-        dc.w    $6087                    ; 009D498C: BRA.S $009D4915
-        dc.w    $6087                    ; 009D498E: BRA.S $009D4917
-        dc.w    $6087                    ; 009D4990: BRA.S $009D4919
-        dc.w    $6087                    ; 009D4992: BRA.S $009D491B
-        dc.w    $6087                    ; 009D4994: BRA.S $009D491D
-        dc.w    $6087                    ; 009D4996: BRA.S $009D491F
-        dc.w    $6087                    ; 009D4998: BRA.S $009D4921
-        dc.w    $6087                    ; 009D499A: BRA.S $009D4923
-        dc.w    $6087                    ; 009D499C: BRA.S $009D4925
-        dc.w    $6087                    ; 009D499E: BRA.S $009D4927
-        dc.w    $6087                    ; 009D49A0: BRA.S $009D4929
-        dc.w    $6087                    ; 009D49A2: BRA.S $009D492B
-        dc.w    $6087                    ; 009D49A4: BRA.S $009D492D
-        dc.w    $6087                    ; 009D49A6: BRA.S $009D492F
-        dc.w    $6087                    ; 009D49A8: BRA.S $009D4931
-        dc.w    $6087                    ; 009D49AA: BRA.S $009D4933
-        dc.w    $6087                    ; 009D49AC: BRA.S $009D4935
-        dc.w    $6087                    ; 009D49AE: BRA.S $009D4937
-        dc.w    $6087                    ; 009D49B0: BRA.S $009D4939
-        dc.w    $6087                    ; 009D49B2: BRA.S $009D493B
-        dc.w    $6087                    ; 009D49B4: BRA.S $009D493D
-        dc.w    $6087                    ; 009D49B6: BRA.S $009D493F
-        dc.w    $6087                    ; 009D49B8: BRA.S $009D4941
-        dc.w    $6087                    ; 009D49BA: BRA.S $009D4943
-        dc.w    $6087                    ; 009D49BC: BRA.S $009D4945
-        dc.w    $6087                    ; 009D49BE: BRA.S $009D4947
+        bra.s   $009D48DB                               ; 009D4952: $6087
+        bra.s   $009D48DD                               ; 009D4954: $6087
+        bra.s   $009D48DF                               ; 009D4956: $6087
+        bra.s   $009D48E1                               ; 009D4958: $6087
+        bra.s   $009D48E3                               ; 009D495A: $6087
+        bra.s   $009D48E5                               ; 009D495C: $6087
+        bra.s   $009D48E7                               ; 009D495E: $6087
+        bra.s   $009D48E9                               ; 009D4960: $6087
+        bra.s   $009D48EB                               ; 009D4962: $6087
+        bra.s   $009D48ED                               ; 009D4964: $6087
+        bra.s   $009D48EF                               ; 009D4966: $6087
+        bra.s   $009D48F1                               ; 009D4968: $6087
+        bra.s   $009D48F3                               ; 009D496A: $6087
+        bra.s   $009D48F5                               ; 009D496C: $6087
+        bra.s   $009D48F7                               ; 009D496E: $6087
+        bra.s   $009D48F9                               ; 009D4970: $6087
+        bra.s   $009D48FB                               ; 009D4972: $6087
+        bra.s   $009D48FD                               ; 009D4974: $6087
+        bra.s   $009D48FF                               ; 009D4976: $6087
+        bra.s   $009D4901                               ; 009D4978: $6087
+        bra.s   $009D4903                               ; 009D497A: $6087
+        bra.s   $009D4905                               ; 009D497C: $6087
+        bra.s   $009D4907                               ; 009D497E: $6087
+        bra.s   $009D4909                               ; 009D4980: $6087
+        bra.s   $009D490B                               ; 009D4982: $6087
+        bra.s   $009D490D                               ; 009D4984: $6087
+        bra.s   $009D490F                               ; 009D4986: $6087
+        bra.s   $009D4911                               ; 009D4988: $6087
+        bra.s   $009D4913                               ; 009D498A: $6087
+        bra.s   $009D4915                               ; 009D498C: $6087
+        bra.s   $009D4917                               ; 009D498E: $6087
+        bra.s   $009D4919                               ; 009D4990: $6087
+        bra.s   $009D491B                               ; 009D4992: $6087
+        bra.s   $009D491D                               ; 009D4994: $6087
+        bra.s   $009D491F                               ; 009D4996: $6087
+        bra.s   $009D4921                               ; 009D4998: $6087
+        bra.s   $009D4923                               ; 009D499A: $6087
+        bra.s   $009D4925                               ; 009D499C: $6087
+        bra.s   $009D4927                               ; 009D499E: $6087
+        bra.s   $009D4929                               ; 009D49A0: $6087
+        bra.s   $009D492B                               ; 009D49A2: $6087
+        bra.s   $009D492D                               ; 009D49A4: $6087
+        bra.s   $009D492F                               ; 009D49A6: $6087
+        bra.s   $009D4931                               ; 009D49A8: $6087
+        bra.s   $009D4933                               ; 009D49AA: $6087
+        bra.s   $009D4935                               ; 009D49AC: $6087
+        bra.s   $009D4937                               ; 009D49AE: $6087
+        bra.s   $009D4939                               ; 009D49B0: $6087
+        bra.s   $009D493B                               ; 009D49B2: $6087
+        bra.s   $009D493D                               ; 009D49B4: $6087
+        bra.s   $009D493F                               ; 009D49B6: $6087
+        bra.s   $009D4941                               ; 009D49B8: $6087
+        bra.s   $009D4943                               ; 009D49BA: $6087
+        bra.s   $009D4945                               ; 009D49BC: $6087
+        bra.s   $009D4947                               ; 009D49BE: $6087
         dc.w    $00D5                    ; 009D49C0: dc.w $00D5
-        dc.w    $0100                    ; 009D49C2: dc.w $0100
-        dc.w    $017F                    ; 009D49C4: dc.w $017F
+        ori.b   #$007F,d0                               ; 009D49C2: $0100, $017F
         dc.w    $01FE                    ; 009D49C6: dc.w $01FE
         dc.w    $027D                    ; 009D49C8: dc.w $027D
         dc.w    $02FC                    ; 009D49CA: dc.w $02FC
-        dc.w    $03C1                    ; 009D49CC: dc.w $03C1
-        dc.w    $04A2                    ; 009D49CE: dc.w $04A2
-        dc.w    $053D                    ; 009D49D0: dc.w $053D
-        dc.w    $05D8                    ; 009D49D2: dc.w $05D8
-        dc.w    $6087                    ; 009D49D4: BRA.S $009D495D
-        dc.w    $6087                    ; 009D49D6: BRA.S $009D495F
-        dc.w    $6087                    ; 009D49D8: BRA.S $009D4961
-        dc.w    $6087                    ; 009D49DA: BRA.S $009D4963
-        dc.w    $6087                    ; 009D49DC: BRA.S $009D4965
-        dc.w    $6087                    ; 009D49DE: BRA.S $009D4967
-        dc.w    $6087                    ; 009D49E0: BRA.S $009D4969
-        dc.w    $6087                    ; 009D49E2: BRA.S $009D496B
-        dc.w    $6087                    ; 009D49E4: BRA.S $009D496D
-        dc.w    $6087                    ; 009D49E6: BRA.S $009D496F
-        dc.w    $6087                    ; 009D49E8: BRA.S $009D4971
-        dc.w    $6087                    ; 009D49EA: BRA.S $009D4973
-        dc.w    $6087                    ; 009D49EC: BRA.S $009D4975
-        dc.w    $6087                    ; 009D49EE: BRA.S $009D4977
-        dc.w    $6087                    ; 009D49F0: BRA.S $009D4979
-        dc.w    $6087                    ; 009D49F2: BRA.S $009D497B
-        dc.w    $6087                    ; 009D49F4: BRA.S $009D497D
-        dc.w    $6087                    ; 009D49F6: BRA.S $009D497F
-        dc.w    $6087                    ; 009D49F8: BRA.S $009D4981
-        dc.w    $6087                    ; 009D49FA: BRA.S $009D4983
-        dc.w    $6087                    ; 009D49FC: BRA.S $009D4985
-        dc.w    $6087                    ; 009D49FE: BRA.S $009D4987
-        dc.w    $6087                    ; 009D4A00: BRA.S $009D4989
-        dc.w    $6087                    ; 009D4A02: BRA.S $009D498B
-        dc.w    $6087                    ; 009D4A04: BRA.S $009D498D
-        dc.w    $6087                    ; 009D4A06: BRA.S $009D498F
-        dc.w    $6087                    ; 009D4A08: BRA.S $009D4991
-        dc.w    $6087                    ; 009D4A0A: BRA.S $009D4993
-        dc.w    $6087                    ; 009D4A0C: BRA.S $009D4995
-        dc.w    $6087                    ; 009D4A0E: BRA.S $009D4997
-        dc.w    $6087                    ; 009D4A10: BRA.S $009D4999
-        dc.w    $6087                    ; 009D4A12: BRA.S $009D499B
-        dc.w    $6087                    ; 009D4A14: BRA.S $009D499D
-        dc.w    $6087                    ; 009D4A16: BRA.S $009D499F
-        dc.w    $6087                    ; 009D4A18: BRA.S $009D49A1
-        dc.w    $6087                    ; 009D4A1A: BRA.S $009D49A3
-        dc.w    $6087                    ; 009D4A1C: BRA.S $009D49A5
-        dc.w    $6087                    ; 009D4A1E: BRA.S $009D49A7
-        dc.w    $6087                    ; 009D4A20: BRA.S $009D49A9
-        dc.w    $6087                    ; 009D4A22: BRA.S $009D49AB
-        dc.w    $6087                    ; 009D4A24: BRA.S $009D49AD
-        dc.w    $6087                    ; 009D4A26: BRA.S $009D49AF
-        dc.w    $6087                    ; 009D4A28: BRA.S $009D49B1
-        dc.w    $6087                    ; 009D4A2A: BRA.S $009D49B3
-        dc.w    $6087                    ; 009D4A2C: BRA.S $009D49B5
-        dc.w    $6087                    ; 009D4A2E: BRA.S $009D49B7
-        dc.w    $6087                    ; 009D4A30: BRA.S $009D49B9
-        dc.w    $6087                    ; 009D4A32: BRA.S $009D49BB
-        dc.w    $6087                    ; 009D4A34: BRA.S $009D49BD
-        dc.w    $6087                    ; 009D4A36: BRA.S $009D49BF
-        dc.w    $6087                    ; 009D4A38: BRA.S $009D49C1
-        dc.w    $6087                    ; 009D4A3A: BRA.S $009D49C3
-        dc.w    $6087                    ; 009D4A3C: BRA.S $009D49C5
-        dc.w    $063B                    ; 009D4A3E: dc.w $063B
-        dc.w    $069E                    ; 009D4A40: dc.w $069E
-        dc.w    $077F                    ; 009D4A42: dc.w $077F
-        dc.w    $081A                    ; 009D4A44: dc.w $081A
-        dc.w    $08C3                    ; 009D4A46: dc.w $08C3
-        dc.w    $0942                    ; 009D4A48: dc.w $0942
-        dc.w    $09C1                    ; 009D4A4A: dc.w $09C1
-        dc.w    $0A24                    ; 009D4A4C: dc.w $0A24
-        dc.w    $6087                    ; 009D4A4E: BRA.S $009D49D7
-        dc.w    $0A33                    ; 009D4A50: dc.w $0A33
-        dc.w    $0A88                    ; 009D4A52: dc.w $0A88
-        dc.w    $0B07                    ; 009D4A54: dc.w $0B07
-        dc.w    $6087                    ; 009D4A56: BRA.S $009D49DF
-        dc.w    $6087                    ; 009D4A58: BRA.S $009D49E1
-        dc.w    $6087                    ; 009D4A5A: BRA.S $009D49E3
-        dc.w    $6087                    ; 009D4A5C: BRA.S $009D49E5
-        dc.w    $6087                    ; 009D4A5E: BRA.S $009D49E7
-        dc.w    $6087                    ; 009D4A60: BRA.S $009D49E9
-        dc.w    $6087                    ; 009D4A62: BRA.S $009D49EB
-        dc.w    $6087                    ; 009D4A64: BRA.S $009D49ED
-        dc.w    $6087                    ; 009D4A66: BRA.S $009D49EF
-        dc.w    $6087                    ; 009D4A68: BRA.S $009D49F1
-        dc.w    $6087                    ; 009D4A6A: BRA.S $009D49F3
-        dc.w    $6087                    ; 009D4A6C: BRA.S $009D49F5
-        dc.w    $6087                    ; 009D4A6E: BRA.S $009D49F7
-        dc.w    $6087                    ; 009D4A70: BRA.S $009D49F9
-        dc.w    $6087                    ; 009D4A72: BRA.S $009D49FB
-        dc.w    $6087                    ; 009D4A74: BRA.S $009D49FD
-        dc.w    $6087                    ; 009D4A76: BRA.S $009D49FF
-        dc.w    $6087                    ; 009D4A78: BRA.S $009D4A01
-        dc.w    $6087                    ; 009D4A7A: BRA.S $009D4A03
-        dc.w    $6087                    ; 009D4A7C: BRA.S $009D4A05
-        dc.w    $6087                    ; 009D4A7E: BRA.S $009D4A07
-        dc.w    $6087                    ; 009D4A80: BRA.S $009D4A09
-        dc.w    $6087                    ; 009D4A82: BRA.S $009D4A0B
-        dc.w    $6087                    ; 009D4A84: BRA.S $009D4A0D
-        dc.w    $6087                    ; 009D4A86: BRA.S $009D4A0F
-        dc.w    $6087                    ; 009D4A88: BRA.S $009D4A11
-        dc.w    $6087                    ; 009D4A8A: BRA.S $009D4A13
-        dc.w    $6087                    ; 009D4A8C: BRA.S $009D4A15
-        dc.w    $6087                    ; 009D4A8E: BRA.S $009D4A17
-        dc.w    $6087                    ; 009D4A90: BRA.S $009D4A19
-        dc.w    $6087                    ; 009D4A92: BRA.S $009D4A1B
-        dc.w    $6087                    ; 009D4A94: BRA.S $009D4A1D
-        dc.w    $6087                    ; 009D4A96: BRA.S $009D4A1F
-        dc.w    $6087                    ; 009D4A98: BRA.S $009D4A21
-        dc.w    $6087                    ; 009D4A9A: BRA.S $009D4A23
-        dc.w    $6087                    ; 009D4A9C: BRA.S $009D4A25
-        dc.w    $6087                    ; 009D4A9E: BRA.S $009D4A27
-        dc.w    $6087                    ; 009D4AA0: BRA.S $009D4A29
-        dc.w    $6087                    ; 009D4AA2: BRA.S $009D4A2B
-        dc.w    $6087                    ; 009D4AA4: BRA.S $009D4A2D
-        dc.w    $6087                    ; 009D4AA6: BRA.S $009D4A2F
-        dc.w    $6087                    ; 009D4AA8: BRA.S $009D4A31
-        dc.w    $6087                    ; 009D4AAA: BRA.S $009D4A33
-        dc.w    $6087                    ; 009D4AAC: BRA.S $009D4A35
-        dc.w    $6087                    ; 009D4AAE: BRA.S $009D4A37
-        dc.w    $6087                    ; 009D4AB0: BRA.S $009D4A39
-        dc.w    $6087                    ; 009D4AB2: BRA.S $009D4A3B
-        dc.w    $6087                    ; 009D4AB4: BRA.S $009D4A3D
-        dc.w    $6087                    ; 009D4AB6: BRA.S $009D4A3F
-        dc.w    $6087                    ; 009D4AB8: BRA.S $009D4A41
-        dc.w    $6087                    ; 009D4ABA: BRA.S $009D4A43
-        dc.w    $0B16                    ; 009D4ABC: dc.w $0B16
-        dc.w    $0BBF                    ; 009D4ABE: dc.w $0BBF
-        dc.w    $0CBC                    ; 009D4AC0: dc.w $0CBC
-        dc.w    $6087                    ; 009D4AC2: BRA.S $009D4A4B
-        dc.w    $6087                    ; 009D4AC4: BRA.S $009D4A4D
-        dc.w    $6087                    ; 009D4AC6: BRA.S $009D4A4F
-        dc.w    $6087                    ; 009D4AC8: BRA.S $009D4A51
-        dc.w    $6087                    ; 009D4ACA: BRA.S $009D4A53
-        dc.w    $6087                    ; 009D4ACC: BRA.S $009D4A55
-        dc.w    $6087                    ; 009D4ACE: BRA.S $009D4A57
-        dc.w    $6087                    ; 009D4AD0: BRA.S $009D4A59
-        dc.w    $0D3B                    ; 009D4AD2: dc.w $0D3B
-        dc.w    $0DBA                    ; 009D4AD4: dc.w $0DBA
-        dc.w    $6087                    ; 009D4AD6: BRA.S $009D4A5F
-        dc.w    $6087                    ; 009D4AD8: BRA.S $009D4A61
-        dc.w    $6087                    ; 009D4ADA: BRA.S $009D4A63
-        dc.w    $6087                    ; 009D4ADC: BRA.S $009D4A65
-        dc.w    $6087                    ; 009D4ADE: BRA.S $009D4A67
-        dc.w    $6087                    ; 009D4AE0: BRA.S $009D4A69
-        dc.w    $6087                    ; 009D4AE2: BRA.S $009D4A6B
-        dc.w    $6087                    ; 009D4AE4: BRA.S $009D4A6D
-        dc.w    $6087                    ; 009D4AE6: BRA.S $009D4A6F
-        dc.w    $6087                    ; 009D4AE8: BRA.S $009D4A71
-        dc.w    $6087                    ; 009D4AEA: BRA.S $009D4A73
-        dc.w    $6087                    ; 009D4AEC: BRA.S $009D4A75
-        dc.w    $6087                    ; 009D4AEE: BRA.S $009D4A77
-        dc.w    $6087                    ; 009D4AF0: BRA.S $009D4A79
-        dc.w    $6087                    ; 009D4AF2: BRA.S $009D4A7B
-        dc.w    $6087                    ; 009D4AF4: BRA.S $009D4A7D
-        dc.w    $6087                    ; 009D4AF6: BRA.S $009D4A7F
-        dc.w    $6087                    ; 009D4AF8: BRA.S $009D4A81
-        dc.w    $6087                    ; 009D4AFA: BRA.S $009D4A83
-        dc.w    $6087                    ; 009D4AFC: BRA.S $009D4A85
-        dc.w    $6087                    ; 009D4AFE: BRA.S $009D4A87
-        dc.w    $6087                    ; 009D4B00: BRA.S $009D4A89
-        dc.w    $6087                    ; 009D4B02: BRA.S $009D4A8B
-        dc.w    $6087                    ; 009D4B04: BRA.S $009D4A8D
-        dc.w    $6087                    ; 009D4B06: BRA.S $009D4A8F
-        dc.w    $6087                    ; 009D4B08: BRA.S $009D4A91
-        dc.w    $6087                    ; 009D4B0A: BRA.S $009D4A93
-        dc.w    $6087                    ; 009D4B0C: BRA.S $009D4A95
-        dc.w    $6087                    ; 009D4B0E: BRA.S $009D4A97
-        dc.w    $6087                    ; 009D4B10: BRA.S $009D4A99
-        dc.w    $6087                    ; 009D4B12: BRA.S $009D4A9B
-        dc.w    $6087                    ; 009D4B14: BRA.S $009D4A9D
-        dc.w    $6087                    ; 009D4B16: BRA.S $009D4A9F
-        dc.w    $6087                    ; 009D4B18: BRA.S $009D4AA1
-        dc.w    $6087                    ; 009D4B1A: BRA.S $009D4AA3
-        dc.w    $6087                    ; 009D4B1C: BRA.S $009D4AA5
-        dc.w    $6087                    ; 009D4B1E: BRA.S $009D4AA7
-        dc.w    $6087                    ; 009D4B20: BRA.S $009D4AA9
-        dc.w    $6087                    ; 009D4B22: BRA.S $009D4AAB
-        dc.w    $6087                    ; 009D4B24: BRA.S $009D4AAD
-        dc.w    $6087                    ; 009D4B26: BRA.S $009D4AAF
-        dc.w    $6087                    ; 009D4B28: BRA.S $009D4AB1
-        dc.w    $6087                    ; 009D4B2A: BRA.S $009D4AB3
-        dc.w    $6087                    ; 009D4B2C: BRA.S $009D4AB5
-        dc.w    $6087                    ; 009D4B2E: BRA.S $009D4AB7
-        dc.w    $6087                    ; 009D4B30: BRA.S $009D4AB9
-        dc.w    $6087                    ; 009D4B32: BRA.S $009D4ABB
-        dc.w    $6087                    ; 009D4B34: BRA.S $009D4ABD
-        dc.w    $6087                    ; 009D4B36: BRA.S $009D4ABF
-        dc.w    $6087                    ; 009D4B38: BRA.S $009D4AC1
-        dc.w    $6087                    ; 009D4B3A: BRA.S $009D4AC3
-        dc.w    $0DE5                    ; 009D4B3C: dc.w $0DE5
+        bset    d1,d1                                   ; 009D49CC: $03C1
+        subi.l  #$053D05D8,-(a2)                        ; 009D49CE: $04A2, $053D, $05D8
+        bra.s   $009D495D                               ; 009D49D4: $6087
+        bra.s   $009D495F                               ; 009D49D6: $6087
+        bra.s   $009D4961                               ; 009D49D8: $6087
+        bra.s   $009D4963                               ; 009D49DA: $6087
+        bra.s   $009D4965                               ; 009D49DC: $6087
+        bra.s   $009D4967                               ; 009D49DE: $6087
+        bra.s   $009D4969                               ; 009D49E0: $6087
+        bra.s   $009D496B                               ; 009D49E2: $6087
+        bra.s   $009D496D                               ; 009D49E4: $6087
+        bra.s   $009D496F                               ; 009D49E6: $6087
+        bra.s   $009D4971                               ; 009D49E8: $6087
+        bra.s   $009D4973                               ; 009D49EA: $6087
+        bra.s   $009D4975                               ; 009D49EC: $6087
+        bra.s   $009D4977                               ; 009D49EE: $6087
+        bra.s   $009D4979                               ; 009D49F0: $6087
+        bra.s   $009D497B                               ; 009D49F2: $6087
+        bra.s   $009D497D                               ; 009D49F4: $6087
+        bra.s   $009D497F                               ; 009D49F6: $6087
+        bra.s   $009D4981                               ; 009D49F8: $6087
+        bra.s   $009D4983                               ; 009D49FA: $6087
+        bra.s   $009D4985                               ; 009D49FC: $6087
+        bra.s   $009D4987                               ; 009D49FE: $6087
+        bra.s   $009D4989                               ; 009D4A00: $6087
+        bra.s   $009D498B                               ; 009D4A02: $6087
+        bra.s   $009D498D                               ; 009D4A04: $6087
+        bra.s   $009D498F                               ; 009D4A06: $6087
+        bra.s   $009D4991                               ; 009D4A08: $6087
+        bra.s   $009D4993                               ; 009D4A0A: $6087
+        bra.s   $009D4995                               ; 009D4A0C: $6087
+        bra.s   $009D4997                               ; 009D4A0E: $6087
+        bra.s   $009D4999                               ; 009D4A10: $6087
+        bra.s   $009D499B                               ; 009D4A12: $6087
+        bra.s   $009D499D                               ; 009D4A14: $6087
+        bra.s   $009D499F                               ; 009D4A16: $6087
+        bra.s   $009D49A1                               ; 009D4A18: $6087
+        bra.s   $009D49A3                               ; 009D4A1A: $6087
+        bra.s   $009D49A5                               ; 009D4A1C: $6087
+        bra.s   $009D49A7                               ; 009D4A1E: $6087
+        bra.s   $009D49A9                               ; 009D4A20: $6087
+        bra.s   $009D49AB                               ; 009D4A22: $6087
+        bra.s   $009D49AD                               ; 009D4A24: $6087
+        bra.s   $009D49AF                               ; 009D4A26: $6087
+        bra.s   $009D49B1                               ; 009D4A28: $6087
+        bra.s   $009D49B3                               ; 009D4A2A: $6087
+        bra.s   $009D49B5                               ; 009D4A2C: $6087
+        bra.s   $009D49B7                               ; 009D4A2E: $6087
+        bra.s   $009D49B9                               ; 009D4A30: $6087
+        bra.s   $009D49BB                               ; 009D4A32: $6087
+        bra.s   $009D49BD                               ; 009D4A34: $6087
+        bra.s   $009D49BF                               ; 009D4A36: $6087
+        bra.s   $009D49C1                               ; 009D4A38: $6087
+        bra.s   $009D49C3                               ; 009D4A3A: $6087
+        bra.s   $009D49C5                               ; 009D4A3C: $6087
+        addi.b  #$009E,$7F(pc,d0.w)                     ; 009D4A3E: $063B, $069E, $077F
+        btst    #$8C3,(a2)+                             ; 009D4A44: $081A, $08C3
+        bchg    d4,d2                                   ; 009D4A48: $0942
+        bset    d4,d1                                   ; 009D4A4A: $09C1
+        eori.b  #$0087,-(a4)                            ; 009D4A4C: $0A24, $6087
+        eori.b  #$0088,$07(a3,d0.l)                     ; 009D4A50: $0A33, $0A88, $0B07
+        bra.s   $009D49DF                               ; 009D4A56: $6087
+        bra.s   $009D49E1                               ; 009D4A58: $6087
+        bra.s   $009D49E3                               ; 009D4A5A: $6087
+        bra.s   $009D49E5                               ; 009D4A5C: $6087
+        bra.s   $009D49E7                               ; 009D4A5E: $6087
+        bra.s   $009D49E9                               ; 009D4A60: $6087
+        bra.s   $009D49EB                               ; 009D4A62: $6087
+        bra.s   $009D49ED                               ; 009D4A64: $6087
+        bra.s   $009D49EF                               ; 009D4A66: $6087
+        bra.s   $009D49F1                               ; 009D4A68: $6087
+        bra.s   $009D49F3                               ; 009D4A6A: $6087
+        bra.s   $009D49F5                               ; 009D4A6C: $6087
+        bra.s   $009D49F7                               ; 009D4A6E: $6087
+        bra.s   $009D49F9                               ; 009D4A70: $6087
+        bra.s   $009D49FB                               ; 009D4A72: $6087
+        bra.s   $009D49FD                               ; 009D4A74: $6087
+        bra.s   $009D49FF                               ; 009D4A76: $6087
+        bra.s   $009D4A01                               ; 009D4A78: $6087
+        bra.s   $009D4A03                               ; 009D4A7A: $6087
+        bra.s   $009D4A05                               ; 009D4A7C: $6087
+        bra.s   $009D4A07                               ; 009D4A7E: $6087
+        bra.s   $009D4A09                               ; 009D4A80: $6087
+        bra.s   $009D4A0B                               ; 009D4A82: $6087
+        bra.s   $009D4A0D                               ; 009D4A84: $6087
+        bra.s   $009D4A0F                               ; 009D4A86: $6087
+        bra.s   $009D4A11                               ; 009D4A88: $6087
+        bra.s   $009D4A13                               ; 009D4A8A: $6087
+        bra.s   $009D4A15                               ; 009D4A8C: $6087
+        bra.s   $009D4A17                               ; 009D4A8E: $6087
+        bra.s   $009D4A19                               ; 009D4A90: $6087
+        bra.s   $009D4A1B                               ; 009D4A92: $6087
+        bra.s   $009D4A1D                               ; 009D4A94: $6087
+        bra.s   $009D4A1F                               ; 009D4A96: $6087
+        bra.s   $009D4A21                               ; 009D4A98: $6087
+        bra.s   $009D4A23                               ; 009D4A9A: $6087
+        bra.s   $009D4A25                               ; 009D4A9C: $6087
+        bra.s   $009D4A27                               ; 009D4A9E: $6087
+        bra.s   $009D4A29                               ; 009D4AA0: $6087
+        bra.s   $009D4A2B                               ; 009D4AA2: $6087
+        bra.s   $009D4A2D                               ; 009D4AA4: $6087
+        bra.s   $009D4A2F                               ; 009D4AA6: $6087
+        bra.s   $009D4A31                               ; 009D4AA8: $6087
+        bra.s   $009D4A33                               ; 009D4AAA: $6087
+        bra.s   $009D4A35                               ; 009D4AAC: $6087
+        bra.s   $009D4A37                               ; 009D4AAE: $6087
+        bra.s   $009D4A39                               ; 009D4AB0: $6087
+        bra.s   $009D4A3B                               ; 009D4AB2: $6087
+        bra.s   $009D4A3D                               ; 009D4AB4: $6087
+        bra.s   $009D4A3F                               ; 009D4AB6: $6087
+        bra.s   $009D4A41                               ; 009D4AB8: $6087
+        bra.s   $009D4A43                               ; 009D4ABA: $6087
+        eori.b  #$00BF,(a6)                             ; 009D4ABC: $0B16, $0BBF
+        cmpi.l  #$60876087,#$60876087                   ; 009D4AC0: $0CBC, $6087, $6087, $6087, $6087
+        bra.s   $009D4A53                               ; 009D4ACA: $6087
+        bra.s   $009D4A55                               ; 009D4ACC: $6087
+        bra.s   $009D4A57                               ; 009D4ACE: $6087
+        bra.s   $009D4A59                               ; 009D4AD0: $6087
+        cmpi.b  #$00BA,$-79(pc,d6.w)                    ; 009D4AD2: $0D3B, $0DBA, $6087
+        bra.s   $009D4A61                               ; 009D4AD8: $6087
+        bra.s   $009D4A63                               ; 009D4ADA: $6087
+        bra.s   $009D4A65                               ; 009D4ADC: $6087
+        bra.s   $009D4A67                               ; 009D4ADE: $6087
+        bra.s   $009D4A69                               ; 009D4AE0: $6087
+        bra.s   $009D4A6B                               ; 009D4AE2: $6087
+        bra.s   $009D4A6D                               ; 009D4AE4: $6087
+        bra.s   $009D4A6F                               ; 009D4AE6: $6087
+        bra.s   $009D4A71                               ; 009D4AE8: $6087
+        bra.s   $009D4A73                               ; 009D4AEA: $6087
+        bra.s   $009D4A75                               ; 009D4AEC: $6087
+        bra.s   $009D4A77                               ; 009D4AEE: $6087
+        bra.s   $009D4A79                               ; 009D4AF0: $6087
+        bra.s   $009D4A7B                               ; 009D4AF2: $6087
+        bra.s   $009D4A7D                               ; 009D4AF4: $6087
+        bra.s   $009D4A7F                               ; 009D4AF6: $6087
+        bra.s   $009D4A81                               ; 009D4AF8: $6087
+        bra.s   $009D4A83                               ; 009D4AFA: $6087
+        bra.s   $009D4A85                               ; 009D4AFC: $6087
+        bra.s   $009D4A87                               ; 009D4AFE: $6087
+        bra.s   $009D4A89                               ; 009D4B00: $6087
+        bra.s   $009D4A8B                               ; 009D4B02: $6087
+        bra.s   $009D4A8D                               ; 009D4B04: $6087
+        bra.s   $009D4A8F                               ; 009D4B06: $6087
+        bra.s   $009D4A91                               ; 009D4B08: $6087
+        bra.s   $009D4A93                               ; 009D4B0A: $6087
+        bra.s   $009D4A95                               ; 009D4B0C: $6087
+        bra.s   $009D4A97                               ; 009D4B0E: $6087
+        bra.s   $009D4A99                               ; 009D4B10: $6087
+        bra.s   $009D4A9B                               ; 009D4B12: $6087
+        bra.s   $009D4A9D                               ; 009D4B14: $6087
+        bra.s   $009D4A9F                               ; 009D4B16: $6087
+        bra.s   $009D4AA1                               ; 009D4B18: $6087
+        bra.s   $009D4AA3                               ; 009D4B1A: $6087
+        bra.s   $009D4AA5                               ; 009D4B1C: $6087
+        bra.s   $009D4AA7                               ; 009D4B1E: $6087
+        bra.s   $009D4AA9                               ; 009D4B20: $6087
+        bra.s   $009D4AAB                               ; 009D4B22: $6087
+        bra.s   $009D4AAD                               ; 009D4B24: $6087
+        bra.s   $009D4AAF                               ; 009D4B26: $6087
+        bra.s   $009D4AB1                               ; 009D4B28: $6087
+        bra.s   $009D4AB3                               ; 009D4B2A: $6087
+        bra.s   $009D4AB5                               ; 009D4B2C: $6087
+        bra.s   $009D4AB7                               ; 009D4B2E: $6087
+        bra.s   $009D4AB9                               ; 009D4B30: $6087
+        bra.s   $009D4ABB                               ; 009D4B32: $6087
+        bra.s   $009D4ABD                               ; 009D4B34: $6087
+        bra.s   $009D4ABF                               ; 009D4B36: $6087
+        bra.s   $009D4AC1                               ; 009D4B38: $6087
+        bra.s   $009D4AC3                               ; 009D4B3A: $6087
+        bset    d6,-(a5)                                ; 009D4B3C: $0DE5
         dc.w    $0E48                    ; 009D4B3E: dc.w $0E48
-        dc.w    $6087                    ; 009D4B40: BRA.S $009D4AC9
-        dc.w    $6087                    ; 009D4B42: BRA.S $009D4ACB
-        dc.w    $6087                    ; 009D4B44: BRA.S $009D4ACD
-        dc.w    $6087                    ; 009D4B46: BRA.S $009D4ACF
-        dc.w    $6087                    ; 009D4B48: BRA.S $009D4AD1
-        dc.w    $6087                    ; 009D4B4A: BRA.S $009D4AD3
-        dc.w    $6087                    ; 009D4B4C: BRA.S $009D4AD5
-        dc.w    $6087                    ; 009D4B4E: BRA.S $009D4AD7
+        bra.s   $009D4AC9                               ; 009D4B40: $6087
+        bra.s   $009D4ACB                               ; 009D4B42: $6087
+        bra.s   $009D4ACD                               ; 009D4B44: $6087
+        bra.s   $009D4ACF                               ; 009D4B46: $6087
+        bra.s   $009D4AD1                               ; 009D4B48: $6087
+        bra.s   $009D4AD3                               ; 009D4B4A: $6087
+        bra.s   $009D4AD5                               ; 009D4B4C: $6087
+        bra.s   $009D4AD7                               ; 009D4B4E: $6087
         dc.w    $0EF1                    ; 009D4B50: dc.w $0EF1
-        dc.w    $0F0E                    ; 009D4B52: dc.w $0F0E
-        dc.w    $0FB7                    ; 009D4B54: dc.w $0FB7
-        dc.w    $6087                    ; 009D4B56: BRA.S $009D4ADF
-        dc.w    $6087                    ; 009D4B58: BRA.S $009D4AE1
-        dc.w    $6087                    ; 009D4B5A: BRA.S $009D4AE3
-        dc.w    $6087                    ; 009D4B5C: BRA.S $009D4AE5
-        dc.w    $6087                    ; 009D4B5E: BRA.S $009D4AE7
-        dc.w    $6087                    ; 009D4B60: BRA.S $009D4AE9
-        dc.w    $6087                    ; 009D4B62: BRA.S $009D4AEB
-        dc.w    $6087                    ; 009D4B64: BRA.S $009D4AED
-        dc.w    $6087                    ; 009D4B66: BRA.S $009D4AEF
-        dc.w    $6087                    ; 009D4B68: BRA.S $009D4AF1
-        dc.w    $6087                    ; 009D4B6A: BRA.S $009D4AF3
-        dc.w    $6087                    ; 009D4B6C: BRA.S $009D4AF5
-        dc.w    $6087                    ; 009D4B6E: BRA.S $009D4AF7
-        dc.w    $6087                    ; 009D4B70: BRA.S $009D4AF9
-        dc.w    $6087                    ; 009D4B72: BRA.S $009D4AFB
-        dc.w    $6087                    ; 009D4B74: BRA.S $009D4AFD
-        dc.w    $6087                    ; 009D4B76: BRA.S $009D4AFF
-        dc.w    $6087                    ; 009D4B78: BRA.S $009D4B01
-        dc.w    $6087                    ; 009D4B7A: BRA.S $009D4B03
-        dc.w    $6087                    ; 009D4B7C: BRA.S $009D4B05
-        dc.w    $6087                    ; 009D4B7E: BRA.S $009D4B07
-        dc.w    $6087                    ; 009D4B80: BRA.S $009D4B09
-        dc.w    $6087                    ; 009D4B82: BRA.S $009D4B0B
-        dc.w    $6087                    ; 009D4B84: BRA.S $009D4B0D
-        dc.w    $6087                    ; 009D4B86: BRA.S $009D4B0F
-        dc.w    $6087                    ; 009D4B88: BRA.S $009D4B11
-        dc.w    $6087                    ; 009D4B8A: BRA.S $009D4B13
-        dc.w    $6087                    ; 009D4B8C: BRA.S $009D4B15
-        dc.w    $6087                    ; 009D4B8E: BRA.S $009D4B17
-        dc.w    $6087                    ; 009D4B90: BRA.S $009D4B19
-        dc.w    $6087                    ; 009D4B92: BRA.S $009D4B1B
-        dc.w    $6087                    ; 009D4B94: BRA.S $009D4B1D
-        dc.w    $6087                    ; 009D4B96: BRA.S $009D4B1F
-        dc.w    $6087                    ; 009D4B98: BRA.S $009D4B21
-        dc.w    $6087                    ; 009D4B9A: BRA.S $009D4B23
-        dc.w    $6087                    ; 009D4B9C: BRA.S $009D4B25
-        dc.w    $6087                    ; 009D4B9E: BRA.S $009D4B27
-        dc.w    $6087                    ; 009D4BA0: BRA.S $009D4B29
-        dc.w    $6087                    ; 009D4BA2: BRA.S $009D4B2B
-        dc.w    $6087                    ; 009D4BA4: BRA.S $009D4B2D
-        dc.w    $6087                    ; 009D4BA6: BRA.S $009D4B2F
-        dc.w    $6087                    ; 009D4BA8: BRA.S $009D4B31
-        dc.w    $6087                    ; 009D4BAA: BRA.S $009D4B33
-        dc.w    $6087                    ; 009D4BAC: BRA.S $009D4B35
-        dc.w    $6087                    ; 009D4BAE: BRA.S $009D4B37
-        dc.w    $6087                    ; 009D4BB0: BRA.S $009D4B39
-        dc.w    $6087                    ; 009D4BB2: BRA.S $009D4B3B
-        dc.w    $6087                    ; 009D4BB4: BRA.S $009D4B3D
-        dc.w    $6087                    ; 009D4BB6: BRA.S $009D4B3F
-        dc.w    $6087                    ; 009D4BB8: BRA.S $009D4B41
-        dc.w    $6087                    ; 009D4BBA: BRA.S $009D4B43
-        dc.w    $0FD4                    ; 009D4BBC: dc.w $0FD4
-        dc.w    $1029                    ; 009D4BBE: dc.w $1029
-        dc.w    $6087                    ; 009D4BC0: BRA.S $009D4B49
-        dc.w    $6087                    ; 009D4BC2: BRA.S $009D4B4B
-        dc.w    $6087                    ; 009D4BC4: BRA.S $009D4B4D
-        dc.w    $6087                    ; 009D4BC6: BRA.S $009D4B4F
-        dc.w    $6087                    ; 009D4BC8: BRA.S $009D4B51
-        dc.w    $6087                    ; 009D4BCA: BRA.S $009D4B53
-        dc.w    $6087                    ; 009D4BCC: BRA.S $009D4B55
-        dc.w    $10A8                    ; 009D4BCE: dc.w $10A8
-        dc.w    $10C5                    ; 009D4BD0: dc.w $10C5
-        dc.w    $1152                    ; 009D4BD2: dc.w $1152
-        dc.w    $6087                    ; 009D4BD4: BRA.S $009D4B5D
-        dc.w    $6087                    ; 009D4BD6: BRA.S $009D4B5F
-        dc.w    $6087                    ; 009D4BD8: BRA.S $009D4B61
-        dc.w    $6087                    ; 009D4BDA: BRA.S $009D4B63
-        dc.w    $6087                    ; 009D4BDC: BRA.S $009D4B65
-        dc.w    $6087                    ; 009D4BDE: BRA.S $009D4B67
-        dc.w    $6087                    ; 009D4BE0: BRA.S $009D4B69
-        dc.w    $6087                    ; 009D4BE2: BRA.S $009D4B6B
-        dc.w    $6087                    ; 009D4BE4: BRA.S $009D4B6D
-        dc.w    $6087                    ; 009D4BE6: BRA.S $009D4B6F
-        dc.w    $6087                    ; 009D4BE8: BRA.S $009D4B71
-        dc.w    $6087                    ; 009D4BEA: BRA.S $009D4B73
-        dc.w    $6087                    ; 009D4BEC: BRA.S $009D4B75
-        dc.w    $6087                    ; 009D4BEE: BRA.S $009D4B77
-        dc.w    $6087                    ; 009D4BF0: BRA.S $009D4B79
-        dc.w    $6087                    ; 009D4BF2: BRA.S $009D4B7B
-        dc.w    $6087                    ; 009D4BF4: BRA.S $009D4B7D
-        dc.w    $6087                    ; 009D4BF6: BRA.S $009D4B7F
-        dc.w    $6087                    ; 009D4BF8: BRA.S $009D4B81
-        dc.w    $6087                    ; 009D4BFA: BRA.S $009D4B83
-        dc.w    $6087                    ; 009D4BFC: BRA.S $009D4B85
-        dc.w    $6087                    ; 009D4BFE: BRA.S $009D4B87
-        dc.w    $6087                    ; 009D4C00: BRA.S $009D4B89
-        dc.w    $6087                    ; 009D4C02: BRA.S $009D4B8B
-        dc.w    $6087                    ; 009D4C04: BRA.S $009D4B8D
-        dc.w    $6087                    ; 009D4C06: BRA.S $009D4B8F
-        dc.w    $6087                    ; 009D4C08: BRA.S $009D4B91
-        dc.w    $6087                    ; 009D4C0A: BRA.S $009D4B93
-        dc.w    $6087                    ; 009D4C0C: BRA.S $009D4B95
-        dc.w    $6087                    ; 009D4C0E: BRA.S $009D4B97
-        dc.w    $6087                    ; 009D4C10: BRA.S $009D4B99
-        dc.w    $6087                    ; 009D4C12: BRA.S $009D4B9B
-        dc.w    $6087                    ; 009D4C14: BRA.S $009D4B9D
-        dc.w    $6087                    ; 009D4C16: BRA.S $009D4B9F
-        dc.w    $6087                    ; 009D4C18: BRA.S $009D4BA1
-        dc.w    $6087                    ; 009D4C1A: BRA.S $009D4BA3
-        dc.w    $6087                    ; 009D4C1C: BRA.S $009D4BA5
-        dc.w    $6087                    ; 009D4C1E: BRA.S $009D4BA7
-        dc.w    $6087                    ; 009D4C20: BRA.S $009D4BA9
-        dc.w    $6087                    ; 009D4C22: BRA.S $009D4BAB
-        dc.w    $6087                    ; 009D4C24: BRA.S $009D4BAD
-        dc.w    $6087                    ; 009D4C26: BRA.S $009D4BAF
-        dc.w    $6087                    ; 009D4C28: BRA.S $009D4BB1
-        dc.w    $6087                    ; 009D4C2A: BRA.S $009D4BB3
-        dc.w    $6087                    ; 009D4C2C: BRA.S $009D4BB5
-        dc.w    $6087                    ; 009D4C2E: BRA.S $009D4BB7
-        dc.w    $6087                    ; 009D4C30: BRA.S $009D4BB9
-        dc.w    $6087                    ; 009D4C32: BRA.S $009D4BBB
-        dc.w    $6087                    ; 009D4C34: BRA.S $009D4BBD
-        dc.w    $6087                    ; 009D4C36: BRA.S $009D4BBF
-        dc.w    $6087                    ; 009D4C38: BRA.S $009D4BC1
-        dc.w    $6087                    ; 009D4C3A: BRA.S $009D4BC3
-        dc.w    $11B5                    ; 009D4C3C: dc.w $11B5
-        dc.w    $120A                    ; 009D4C3E: dc.w $120A
-        dc.w    $6087                    ; 009D4C40: BRA.S $009D4BC9
-        dc.w    $6087                    ; 009D4C42: BRA.S $009D4BCB
-        dc.w    $6087                    ; 009D4C44: BRA.S $009D4BCD
-        dc.w    $6087                    ; 009D4C46: BRA.S $009D4BCF
-        dc.w    $6087                    ; 009D4C48: BRA.S $009D4BD1
-        dc.w    $6087                    ; 009D4C4A: BRA.S $009D4BD3
-        dc.w    $126D                    ; 009D4C4C: dc.w $126D
-        dc.w    $12C2                    ; 009D4C4E: dc.w $12C2
-        dc.w    $134F                    ; 009D4C50: dc.w $134F
-        dc.w    $13C0                    ; 009D4C52: dc.w $13C0
-        dc.w    $6087                    ; 009D4C54: BRA.S $009D4BDD
-        dc.w    $6087                    ; 009D4C56: BRA.S $009D4BDF
-        dc.w    $6087                    ; 009D4C58: BRA.S $009D4BE1
-        dc.w    $6087                    ; 009D4C5A: BRA.S $009D4BE3
-        dc.w    $6087                    ; 009D4C5C: BRA.S $009D4BE5
-        dc.w    $6087                    ; 009D4C5E: BRA.S $009D4BE7
-        dc.w    $6087                    ; 009D4C60: BRA.S $009D4BE9
-        dc.w    $6087                    ; 009D4C62: BRA.S $009D4BEB
-        dc.w    $6087                    ; 009D4C64: BRA.S $009D4BED
-        dc.w    $6087                    ; 009D4C66: BRA.S $009D4BEF
-        dc.w    $6087                    ; 009D4C68: BRA.S $009D4BF1
-        dc.w    $6087                    ; 009D4C6A: BRA.S $009D4BF3
-        dc.w    $6087                    ; 009D4C6C: BRA.S $009D4BF5
-        dc.w    $6087                    ; 009D4C6E: BRA.S $009D4BF7
-        dc.w    $6087                    ; 009D4C70: BRA.S $009D4BF9
-        dc.w    $6087                    ; 009D4C72: BRA.S $009D4BFB
-        dc.w    $6087                    ; 009D4C74: BRA.S $009D4BFD
-        dc.w    $6087                    ; 009D4C76: BRA.S $009D4BFF
-        dc.w    $6087                    ; 009D4C78: BRA.S $009D4C01
-        dc.w    $6087                    ; 009D4C7A: BRA.S $009D4C03
-        dc.w    $6087                    ; 009D4C7C: BRA.S $009D4C05
-        dc.w    $6087                    ; 009D4C7E: BRA.S $009D4C07
-        dc.w    $6087                    ; 009D4C80: BRA.S $009D4C09
-        dc.w    $6087                    ; 009D4C82: BRA.S $009D4C0B
-        dc.w    $6087                    ; 009D4C84: BRA.S $009D4C0D
-        dc.w    $6087                    ; 009D4C86: BRA.S $009D4C0F
-        dc.w    $6087                    ; 009D4C88: BRA.S $009D4C11
-        dc.w    $6087                    ; 009D4C8A: BRA.S $009D4C13
-        dc.w    $6087                    ; 009D4C8C: BRA.S $009D4C15
-        dc.w    $6087                    ; 009D4C8E: BRA.S $009D4C17
-        dc.w    $6087                    ; 009D4C90: BRA.S $009D4C19
-        dc.w    $6087                    ; 009D4C92: BRA.S $009D4C1B
-        dc.w    $6087                    ; 009D4C94: BRA.S $009D4C1D
-        dc.w    $6087                    ; 009D4C96: BRA.S $009D4C1F
-        dc.w    $6087                    ; 009D4C98: BRA.S $009D4C21
-        dc.w    $6087                    ; 009D4C9A: BRA.S $009D4C23
-        dc.w    $6087                    ; 009D4C9C: BRA.S $009D4C25
-        dc.w    $6087                    ; 009D4C9E: BRA.S $009D4C27
-        dc.w    $6087                    ; 009D4CA0: BRA.S $009D4C29
-        dc.w    $6087                    ; 009D4CA2: BRA.S $009D4C2B
-        dc.w    $6087                    ; 009D4CA4: BRA.S $009D4C2D
-        dc.w    $6087                    ; 009D4CA6: BRA.S $009D4C2F
-        dc.w    $6087                    ; 009D4CA8: BRA.S $009D4C31
-        dc.w    $6087                    ; 009D4CAA: BRA.S $009D4C33
-        dc.w    $6087                    ; 009D4CAC: BRA.S $009D4C35
-        dc.w    $13EB                    ; 009D4CAE: dc.w $13EB
-        dc.w    $1424                    ; 009D4CB0: dc.w $1424
-        dc.w    $14A3                    ; 009D4CB2: dc.w $14A3
-        dc.w    $14EA                    ; 009D4CB4: dc.w $14EA
-        dc.w    $6087                    ; 009D4CB6: BRA.S $009D4C3F
-        dc.w    $6087                    ; 009D4CB8: BRA.S $009D4C41
-        dc.w    $6087                    ; 009D4CBA: BRA.S $009D4C43
-        dc.w    $14F9                    ; 009D4CBC: dc.w $14F9
-        dc.w    $156A                    ; 009D4CBE: dc.w $156A
-        dc.w    $6087                    ; 009D4CC0: BRA.S $009D4C49
-        dc.w    $6087                    ; 009D4CC2: BRA.S $009D4C4B
-        dc.w    $6087                    ; 009D4CC4: BRA.S $009D4C4D
-        dc.w    $6087                    ; 009D4CC6: BRA.S $009D4C4F
-        dc.w    $15DB                    ; 009D4CC8: dc.w $15DB
-        dc.w    $1614                    ; 009D4CCA: dc.w $1614
-        dc.w    $1677                    ; 009D4CCC: dc.w $1677
-        dc.w    $1720                    ; 009D4CCE: dc.w $1720
-        dc.w    $6087                    ; 009D4CD0: BRA.S $009D4C59
-        dc.w    $6087                    ; 009D4CD2: BRA.S $009D4C5B
-        dc.w    $6087                    ; 009D4CD4: BRA.S $009D4C5D
-        dc.w    $6087                    ; 009D4CD6: BRA.S $009D4C5F
-        dc.w    $6087                    ; 009D4CD8: BRA.S $009D4C61
-        dc.w    $6087                    ; 009D4CDA: BRA.S $009D4C63
-        dc.w    $6087                    ; 009D4CDC: BRA.S $009D4C65
-        dc.w    $6087                    ; 009D4CDE: BRA.S $009D4C67
-        dc.w    $6087                    ; 009D4CE0: BRA.S $009D4C69
-        dc.w    $6087                    ; 009D4CE2: BRA.S $009D4C6B
-        dc.w    $6087                    ; 009D4CE4: BRA.S $009D4C6D
-        dc.w    $6087                    ; 009D4CE6: BRA.S $009D4C6F
-        dc.w    $6087                    ; 009D4CE8: BRA.S $009D4C71
-        dc.w    $6087                    ; 009D4CEA: BRA.S $009D4C73
-        dc.w    $6087                    ; 009D4CEC: BRA.S $009D4C75
-        dc.w    $6087                    ; 009D4CEE: BRA.S $009D4C77
-        dc.w    $6087                    ; 009D4CF0: BRA.S $009D4C79
-        dc.w    $6087                    ; 009D4CF2: BRA.S $009D4C7B
-        dc.w    $6087                    ; 009D4CF4: BRA.S $009D4C7D
-        dc.w    $6087                    ; 009D4CF6: BRA.S $009D4C7F
-        dc.w    $6087                    ; 009D4CF8: BRA.S $009D4C81
-        dc.w    $6087                    ; 009D4CFA: BRA.S $009D4C83
-        dc.w    $6087                    ; 009D4CFC: BRA.S $009D4C85
-        dc.w    $6087                    ; 009D4CFE: BRA.S $009D4C87
-        dc.w    $6087                    ; 009D4D00: BRA.S $009D4C89
-        dc.w    $6087                    ; 009D4D02: BRA.S $009D4C8B
-        dc.w    $6087                    ; 009D4D04: BRA.S $009D4C8D
-        dc.w    $6087                    ; 009D4D06: BRA.S $009D4C8F
-        dc.w    $6087                    ; 009D4D08: BRA.S $009D4C91
-        dc.w    $6087                    ; 009D4D0A: BRA.S $009D4C93
-        dc.w    $6087                    ; 009D4D0C: BRA.S $009D4C95
-        dc.w    $6087                    ; 009D4D0E: BRA.S $009D4C97
-        dc.w    $6087                    ; 009D4D10: BRA.S $009D4C99
-        dc.w    $6087                    ; 009D4D12: BRA.S $009D4C9B
-        dc.w    $6087                    ; 009D4D14: BRA.S $009D4C9D
-        dc.w    $6087                    ; 009D4D16: BRA.S $009D4C9F
-        dc.w    $6087                    ; 009D4D18: BRA.S $009D4CA1
-        dc.w    $6087                    ; 009D4D1A: BRA.S $009D4CA3
-        dc.w    $6087                    ; 009D4D1C: BRA.S $009D4CA5
-        dc.w    $6087                    ; 009D4D1E: BRA.S $009D4CA7
-        dc.w    $6087                    ; 009D4D20: BRA.S $009D4CA9
-        dc.w    $6087                    ; 009D4D22: BRA.S $009D4CAB
-        dc.w    $6087                    ; 009D4D24: BRA.S $009D4CAD
-        dc.w    $6087                    ; 009D4D26: BRA.S $009D4CAF
-        dc.w    $6087                    ; 009D4D28: BRA.S $009D4CB1
-        dc.w    $6087                    ; 009D4D2A: BRA.S $009D4CB3
-        dc.w    $1775                    ; 009D4D2C: dc.w $1775
-        dc.w    $1784                    ; 009D4D2E: dc.w $1784
-        dc.w    $1811                    ; 009D4D30: dc.w $1811
-        dc.w    $1866                    ; 009D4D32: dc.w $1866
-        dc.w    $1891                    ; 009D4D34: dc.w $1891
-        dc.w    $6087                    ; 009D4D36: BRA.S $009D4CBF
-        dc.w    $6087                    ; 009D4D38: BRA.S $009D4CC1
-        dc.w    $6087                    ; 009D4D3A: BRA.S $009D4CC3
-        dc.w    $18AE                    ; 009D4D3C: dc.w $18AE
-        dc.w    $1903                    ; 009D4D3E: dc.w $1903
-        dc.w    $1958                    ; 009D4D40: dc.w $1958
-        dc.w    $199F                    ; 009D4D42: dc.w $199F
-        dc.w    $1A3A                    ; 009D4D44: dc.w $1A3A
-        dc.w    $1AB9                    ; 009D4D46: dc.w $1AB9
-        dc.w    $1B38                    ; 009D4D48: dc.w $1B38
-        dc.w    $1BC5                    ; 009D4D4A: dc.w $1BC5
-        dc.w    $1C36                    ; 009D4D4C: dc.w $1C36
-        dc.w    $6087                    ; 009D4D4E: BRA.S $009D4CD7
-        dc.w    $6087                    ; 009D4D50: BRA.S $009D4CD9
-        dc.w    $6087                    ; 009D4D52: BRA.S $009D4CDB
-        dc.w    $6087                    ; 009D4D54: BRA.S $009D4CDD
-        dc.w    $6087                    ; 009D4D56: BRA.S $009D4CDF
-        dc.w    $6087                    ; 009D4D58: BRA.S $009D4CE1
-        dc.w    $6087                    ; 009D4D5A: BRA.S $009D4CE3
-        dc.w    $6087                    ; 009D4D5C: BRA.S $009D4CE5
-        dc.w    $6087                    ; 009D4D5E: BRA.S $009D4CE7
-        dc.w    $6087                    ; 009D4D60: BRA.S $009D4CE9
-        dc.w    $6087                    ; 009D4D62: BRA.S $009D4CEB
-        dc.w    $6087                    ; 009D4D64: BRA.S $009D4CED
-        dc.w    $6087                    ; 009D4D66: BRA.S $009D4CEF
-        dc.w    $6087                    ; 009D4D68: BRA.S $009D4CF1
-        dc.w    $6087                    ; 009D4D6A: BRA.S $009D4CF3
-        dc.w    $6087                    ; 009D4D6C: BRA.S $009D4CF5
-        dc.w    $6087                    ; 009D4D6E: BRA.S $009D4CF7
-        dc.w    $6087                    ; 009D4D70: BRA.S $009D4CF9
-        dc.w    $6087                    ; 009D4D72: BRA.S $009D4CFB
-        dc.w    $6087                    ; 009D4D74: BRA.S $009D4CFD
-        dc.w    $6087                    ; 009D4D76: BRA.S $009D4CFF
-        dc.w    $6087                    ; 009D4D78: BRA.S $009D4D01
-        dc.w    $6087                    ; 009D4D7A: BRA.S $009D4D03
-        dc.w    $6087                    ; 009D4D7C: BRA.S $009D4D05
-        dc.w    $6087                    ; 009D4D7E: BRA.S $009D4D07
-        dc.w    $6087                    ; 009D4D80: BRA.S $009D4D09
-        dc.w    $6087                    ; 009D4D82: BRA.S $009D4D0B
-        dc.w    $6087                    ; 009D4D84: BRA.S $009D4D0D
-        dc.w    $6087                    ; 009D4D86: BRA.S $009D4D0F
-        dc.w    $6087                    ; 009D4D88: BRA.S $009D4D11
-        dc.w    $6087                    ; 009D4D8A: BRA.S $009D4D13
-        dc.w    $6087                    ; 009D4D8C: BRA.S $009D4D15
-        dc.w    $6087                    ; 009D4D8E: BRA.S $009D4D17
-        dc.w    $6087                    ; 009D4D90: BRA.S $009D4D19
-        dc.w    $6087                    ; 009D4D92: BRA.S $009D4D1B
-        dc.w    $6087                    ; 009D4D94: BRA.S $009D4D1D
-        dc.w    $6087                    ; 009D4D96: BRA.S $009D4D1F
-        dc.w    $6087                    ; 009D4D98: BRA.S $009D4D21
-        dc.w    $6087                    ; 009D4D9A: BRA.S $009D4D23
-        dc.w    $6087                    ; 009D4D9C: BRA.S $009D4D25
-        dc.w    $6087                    ; 009D4D9E: BRA.S $009D4D27
-        dc.w    $6087                    ; 009D4DA0: BRA.S $009D4D29
-        dc.w    $6087                    ; 009D4DA2: BRA.S $009D4D2B
-        dc.w    $6087                    ; 009D4DA4: BRA.S $009D4D2D
-        dc.w    $6087                    ; 009D4DA6: BRA.S $009D4D2F
-        dc.w    $6087                    ; 009D4DA8: BRA.S $009D4D31
-        dc.w    $6087                    ; 009D4DAA: BRA.S $009D4D33
-        dc.w    $1C53                    ; 009D4DAC: dc.w $1C53
-        dc.w    $1CA8                    ; 009D4DAE: dc.w $1CA8
-        dc.w    $1D5F                    ; 009D4DB0: dc.w $1D5F
+        btst    d7,a6                                   ; 009D4B52: $0F0E
+        bclr    d7,$-79(a7,d6.w)                        ; 009D4B54: $0FB7, $6087
+        bra.s   $009D4AE1                               ; 009D4B58: $6087
+        bra.s   $009D4AE3                               ; 009D4B5A: $6087
+        bra.s   $009D4AE5                               ; 009D4B5C: $6087
+        bra.s   $009D4AE7                               ; 009D4B5E: $6087
+        bra.s   $009D4AE9                               ; 009D4B60: $6087
+        bra.s   $009D4AEB                               ; 009D4B62: $6087
+        bra.s   $009D4AED                               ; 009D4B64: $6087
+        bra.s   $009D4AEF                               ; 009D4B66: $6087
+        bra.s   $009D4AF1                               ; 009D4B68: $6087
+        bra.s   $009D4AF3                               ; 009D4B6A: $6087
+        bra.s   $009D4AF5                               ; 009D4B6C: $6087
+        bra.s   $009D4AF7                               ; 009D4B6E: $6087
+        bra.s   $009D4AF9                               ; 009D4B70: $6087
+        bra.s   $009D4AFB                               ; 009D4B72: $6087
+        bra.s   $009D4AFD                               ; 009D4B74: $6087
+        bra.s   $009D4AFF                               ; 009D4B76: $6087
+        bra.s   $009D4B01                               ; 009D4B78: $6087
+        bra.s   $009D4B03                               ; 009D4B7A: $6087
+        bra.s   $009D4B05                               ; 009D4B7C: $6087
+        bra.s   $009D4B07                               ; 009D4B7E: $6087
+        bra.s   $009D4B09                               ; 009D4B80: $6087
+        bra.s   $009D4B0B                               ; 009D4B82: $6087
+        bra.s   $009D4B0D                               ; 009D4B84: $6087
+        bra.s   $009D4B0F                               ; 009D4B86: $6087
+        bra.s   $009D4B11                               ; 009D4B88: $6087
+        bra.s   $009D4B13                               ; 009D4B8A: $6087
+        bra.s   $009D4B15                               ; 009D4B8C: $6087
+        bra.s   $009D4B17                               ; 009D4B8E: $6087
+        bra.s   $009D4B19                               ; 009D4B90: $6087
+        bra.s   $009D4B1B                               ; 009D4B92: $6087
+        bra.s   $009D4B1D                               ; 009D4B94: $6087
+        bra.s   $009D4B1F                               ; 009D4B96: $6087
+        bra.s   $009D4B21                               ; 009D4B98: $6087
+        bra.s   $009D4B23                               ; 009D4B9A: $6087
+        bra.s   $009D4B25                               ; 009D4B9C: $6087
+        bra.s   $009D4B27                               ; 009D4B9E: $6087
+        bra.s   $009D4B29                               ; 009D4BA0: $6087
+        bra.s   $009D4B2B                               ; 009D4BA2: $6087
+        bra.s   $009D4B2D                               ; 009D4BA4: $6087
+        bra.s   $009D4B2F                               ; 009D4BA6: $6087
+        bra.s   $009D4B31                               ; 009D4BA8: $6087
+        bra.s   $009D4B33                               ; 009D4BAA: $6087
+        bra.s   $009D4B35                               ; 009D4BAC: $6087
+        bra.s   $009D4B37                               ; 009D4BAE: $6087
+        bra.s   $009D4B39                               ; 009D4BB0: $6087
+        bra.s   $009D4B3B                               ; 009D4BB2: $6087
+        bra.s   $009D4B3D                               ; 009D4BB4: $6087
+        bra.s   $009D4B3F                               ; 009D4BB6: $6087
+        bra.s   $009D4B41                               ; 009D4BB8: $6087
+        bra.s   $009D4B43                               ; 009D4BBA: $6087
+        bset    d7,(a4)                                 ; 009D4BBC: $0FD4
+        move.b  $6087(a1),d0                            ; 009D4BBE: $1029, $6087
+        bra.s   $009D4B4B                               ; 009D4BC2: $6087
+        bra.s   $009D4B4D                               ; 009D4BC4: $6087
+        bra.s   $009D4B4F                               ; 009D4BC6: $6087
+        bra.s   $009D4B51                               ; 009D4BC8: $6087
+        bra.s   $009D4B53                               ; 009D4BCA: $6087
+        bra.s   $009D4B55                               ; 009D4BCC: $6087
+        move.b  $10C5(a0),(a0)                          ; 009D4BCE: $10A8, $10C5
+        move.b  (a2),$6087(a0)                          ; 009D4BD2: $1152, $6087
+        bra.s   $009D4B5F                               ; 009D4BD6: $6087
+        bra.s   $009D4B61                               ; 009D4BD8: $6087
+        bra.s   $009D4B63                               ; 009D4BDA: $6087
+        bra.s   $009D4B65                               ; 009D4BDC: $6087
+        bra.s   $009D4B67                               ; 009D4BDE: $6087
+        bra.s   $009D4B69                               ; 009D4BE0: $6087
+        bra.s   $009D4B6B                               ; 009D4BE2: $6087
+        bra.s   $009D4B6D                               ; 009D4BE4: $6087
+        bra.s   $009D4B6F                               ; 009D4BE6: $6087
+        bra.s   $009D4B71                               ; 009D4BE8: $6087
+        bra.s   $009D4B73                               ; 009D4BEA: $6087
+        bra.s   $009D4B75                               ; 009D4BEC: $6087
+        bra.s   $009D4B77                               ; 009D4BEE: $6087
+        bra.s   $009D4B79                               ; 009D4BF0: $6087
+        bra.s   $009D4B7B                               ; 009D4BF2: $6087
+        bra.s   $009D4B7D                               ; 009D4BF4: $6087
+        bra.s   $009D4B7F                               ; 009D4BF6: $6087
+        bra.s   $009D4B81                               ; 009D4BF8: $6087
+        bra.s   $009D4B83                               ; 009D4BFA: $6087
+        bra.s   $009D4B85                               ; 009D4BFC: $6087
+        bra.s   $009D4B87                               ; 009D4BFE: $6087
+        bra.s   $009D4B89                               ; 009D4C00: $6087
+        bra.s   $009D4B8B                               ; 009D4C02: $6087
+        bra.s   $009D4B8D                               ; 009D4C04: $6087
+        bra.s   $009D4B8F                               ; 009D4C06: $6087
+        bra.s   $009D4B91                               ; 009D4C08: $6087
+        bra.s   $009D4B93                               ; 009D4C0A: $6087
+        bra.s   $009D4B95                               ; 009D4C0C: $6087
+        bra.s   $009D4B97                               ; 009D4C0E: $6087
+        bra.s   $009D4B99                               ; 009D4C10: $6087
+        bra.s   $009D4B9B                               ; 009D4C12: $6087
+        bra.s   $009D4B9D                               ; 009D4C14: $6087
+        bra.s   $009D4B9F                               ; 009D4C16: $6087
+        bra.s   $009D4BA1                               ; 009D4C18: $6087
+        bra.s   $009D4BA3                               ; 009D4C1A: $6087
+        bra.s   $009D4BA5                               ; 009D4C1C: $6087
+        bra.s   $009D4BA7                               ; 009D4C1E: $6087
+        bra.s   $009D4BA9                               ; 009D4C20: $6087
+        bra.s   $009D4BAB                               ; 009D4C22: $6087
+        bra.s   $009D4BAD                               ; 009D4C24: $6087
+        bra.s   $009D4BAF                               ; 009D4C26: $6087
+        bra.s   $009D4BB1                               ; 009D4C28: $6087
+        bra.s   $009D4BB3                               ; 009D4C2A: $6087
+        bra.s   $009D4BB5                               ; 009D4C2C: $6087
+        bra.s   $009D4BB7                               ; 009D4C2E: $6087
+        bra.s   $009D4BB9                               ; 009D4C30: $6087
+        bra.s   $009D4BBB                               ; 009D4C32: $6087
+        bra.s   $009D4BBD                               ; 009D4C34: $6087
+        bra.s   $009D4BBF                               ; 009D4C36: $6087
+        bra.s   $009D4BC1                               ; 009D4C38: $6087
+        bra.s   $009D4BC3                               ; 009D4C3A: $6087
+        move.b  $0A(a5,d1.w),$-79(a0,d6.w)              ; 009D4C3C: $11B5, $120A, $6087
+        bra.s   $009D4BCB                               ; 009D4C42: $6087
+        bra.s   $009D4BCD                               ; 009D4C44: $6087
+        bra.s   $009D4BCF                               ; 009D4C46: $6087
+        bra.s   $009D4BD1                               ; 009D4C48: $6087
+        bra.s   $009D4BD3                               ; 009D4C4A: $6087
+        movea.b $12C2(a5),a1                            ; 009D4C4C: $126D, $12C2
+        move.b  a7,$13C0(a1)                            ; 009D4C50: $134F, $13C0
+        bra.s   $009D4BDD                               ; 009D4C54: $6087
+        bra.s   $009D4BDF                               ; 009D4C56: $6087
+        bra.s   $009D4BE1                               ; 009D4C58: $6087
+        bra.s   $009D4BE3                               ; 009D4C5A: $6087
+        bra.s   $009D4BE5                               ; 009D4C5C: $6087
+        bra.s   $009D4BE7                               ; 009D4C5E: $6087
+        bra.s   $009D4BE9                               ; 009D4C60: $6087
+        bra.s   $009D4BEB                               ; 009D4C62: $6087
+        bra.s   $009D4BED                               ; 009D4C64: $6087
+        bra.s   $009D4BEF                               ; 009D4C66: $6087
+        bra.s   $009D4BF1                               ; 009D4C68: $6087
+        bra.s   $009D4BF3                               ; 009D4C6A: $6087
+        bra.s   $009D4BF5                               ; 009D4C6C: $6087
+        bra.s   $009D4BF7                               ; 009D4C6E: $6087
+        bra.s   $009D4BF9                               ; 009D4C70: $6087
+        bra.s   $009D4BFB                               ; 009D4C72: $6087
+        bra.s   $009D4BFD                               ; 009D4C74: $6087
+        bra.s   $009D4BFF                               ; 009D4C76: $6087
+        bra.s   $009D4C01                               ; 009D4C78: $6087
+        bra.s   $009D4C03                               ; 009D4C7A: $6087
+        bra.s   $009D4C05                               ; 009D4C7C: $6087
+        bra.s   $009D4C07                               ; 009D4C7E: $6087
+        bra.s   $009D4C09                               ; 009D4C80: $6087
+        bra.s   $009D4C0B                               ; 009D4C82: $6087
+        bra.s   $009D4C0D                               ; 009D4C84: $6087
+        bra.s   $009D4C0F                               ; 009D4C86: $6087
+        bra.s   $009D4C11                               ; 009D4C88: $6087
+        bra.s   $009D4C13                               ; 009D4C8A: $6087
+        bra.s   $009D4C15                               ; 009D4C8C: $6087
+        bra.s   $009D4C17                               ; 009D4C8E: $6087
+        bra.s   $009D4C19                               ; 009D4C90: $6087
+        bra.s   $009D4C1B                               ; 009D4C92: $6087
+        bra.s   $009D4C1D                               ; 009D4C94: $6087
+        bra.s   $009D4C1F                               ; 009D4C96: $6087
+        bra.s   $009D4C21                               ; 009D4C98: $6087
+        bra.s   $009D4C23                               ; 009D4C9A: $6087
+        bra.s   $009D4C25                               ; 009D4C9C: $6087
+        bra.s   $009D4C27                               ; 009D4C9E: $6087
+        bra.s   $009D4C29                               ; 009D4CA0: $6087
+        bra.s   $009D4C2B                               ; 009D4CA2: $6087
+        bra.s   $009D4C2D                               ; 009D4CA4: $6087
+        bra.s   $009D4C2F                               ; 009D4CA6: $6087
+        bra.s   $009D4C31                               ; 009D4CA8: $6087
+        bra.s   $009D4C33                               ; 009D4CAA: $6087
+        bra.s   $009D4C35                               ; 009D4CAC: $6087
+        move.b  $1424(a3),($14A314EA).l                 ; 009D4CAE: $13EB, $1424, $14A3, $14EA
+        bra.s   $009D4C3F                               ; 009D4CB6: $6087
+        bra.s   $009D4C41                               ; 009D4CB8: $6087
+        bra.s   $009D4C43                               ; 009D4CBA: $6087
+        move.b  ($156A6087).l,(a2)+                     ; 009D4CBC: $14F9, $156A, $6087
+        bra.s   $009D4C4B                               ; 009D4CC2: $6087
+        bra.s   $009D4C4D                               ; 009D4CC4: $6087
+        bra.s   $009D4C4F                               ; 009D4CC6: $6087
+        move.b  (a3)+,$1614(pc)                         ; 009D4CC8: $15DB, $1614
+        movea.b $20(a7,d1.w),a3                         ; 009D4CCC: $1677, $1720
+        bra.s   $009D4C59                               ; 009D4CD0: $6087
+        bra.s   $009D4C5B                               ; 009D4CD2: $6087
+        bra.s   $009D4C5D                               ; 009D4CD4: $6087
+        bra.s   $009D4C5F                               ; 009D4CD6: $6087
+        bra.s   $009D4C61                               ; 009D4CD8: $6087
+        bra.s   $009D4C63                               ; 009D4CDA: $6087
+        bra.s   $009D4C65                               ; 009D4CDC: $6087
+        bra.s   $009D4C67                               ; 009D4CDE: $6087
+        bra.s   $009D4C69                               ; 009D4CE0: $6087
+        bra.s   $009D4C6B                               ; 009D4CE2: $6087
+        bra.s   $009D4C6D                               ; 009D4CE4: $6087
+        bra.s   $009D4C6F                               ; 009D4CE6: $6087
+        bra.s   $009D4C71                               ; 009D4CE8: $6087
+        bra.s   $009D4C73                               ; 009D4CEA: $6087
+        bra.s   $009D4C75                               ; 009D4CEC: $6087
+        bra.s   $009D4C77                               ; 009D4CEE: $6087
+        bra.s   $009D4C79                               ; 009D4CF0: $6087
+        bra.s   $009D4C7B                               ; 009D4CF2: $6087
+        bra.s   $009D4C7D                               ; 009D4CF4: $6087
+        bra.s   $009D4C7F                               ; 009D4CF6: $6087
+        bra.s   $009D4C81                               ; 009D4CF8: $6087
+        bra.s   $009D4C83                               ; 009D4CFA: $6087
+        bra.s   $009D4C85                               ; 009D4CFC: $6087
+        bra.s   $009D4C87                               ; 009D4CFE: $6087
+        bra.s   $009D4C89                               ; 009D4D00: $6087
+        bra.s   $009D4C8B                               ; 009D4D02: $6087
+        bra.s   $009D4C8D                               ; 009D4D04: $6087
+        bra.s   $009D4C8F                               ; 009D4D06: $6087
+        bra.s   $009D4C91                               ; 009D4D08: $6087
+        bra.s   $009D4C93                               ; 009D4D0A: $6087
+        bra.s   $009D4C95                               ; 009D4D0C: $6087
+        bra.s   $009D4C97                               ; 009D4D0E: $6087
+        bra.s   $009D4C99                               ; 009D4D10: $6087
+        bra.s   $009D4C9B                               ; 009D4D12: $6087
+        bra.s   $009D4C9D                               ; 009D4D14: $6087
+        bra.s   $009D4C9F                               ; 009D4D16: $6087
+        bra.s   $009D4CA1                               ; 009D4D18: $6087
+        bra.s   $009D4CA3                               ; 009D4D1A: $6087
+        bra.s   $009D4CA5                               ; 009D4D1C: $6087
+        bra.s   $009D4CA7                               ; 009D4D1E: $6087
+        bra.s   $009D4CA9                               ; 009D4D20: $6087
+        bra.s   $009D4CAB                               ; 009D4D22: $6087
+        bra.s   $009D4CAD                               ; 009D4D24: $6087
+        bra.s   $009D4CAF                               ; 009D4D26: $6087
+        bra.s   $009D4CB1                               ; 009D4D28: $6087
+        bra.s   $009D4CB3                               ; 009D4D2A: $6087
+        move.b  $-7C(a5,d1.w),$1811(a3)                 ; 009D4D2C: $1775, $1784, $1811
+        movea.b -(a6),a4                                ; 009D4D32: $1866
+        move.b  (a1),(a4)                               ; 009D4D34: $1891
+        bra.s   $009D4CBF                               ; 009D4D36: $6087
+        bra.s   $009D4CC1                               ; 009D4D38: $6087
+        bra.s   $009D4CC3                               ; 009D4D3A: $6087
+        move.b  $1903(a6),(a4)                          ; 009D4D3C: $18AE, $1903
+        move.b  (a0)+,$199F(a4)                         ; 009D4D40: $1958, $199F
+        move.b  $1AB9(pc),d5                            ; 009D4D44: $1A3A, $1AB9
+        move.b  ($1BC5).w,-(a5)                         ; 009D4D48: $1B38, $1BC5
+        move.b  $-79(a6,d6.w),d6                        ; 009D4D4C: $1C36, $6087
+        bra.s   $009D4CD9                               ; 009D4D50: $6087
+        bra.s   $009D4CDB                               ; 009D4D52: $6087
+        bra.s   $009D4CDD                               ; 009D4D54: $6087
+        bra.s   $009D4CDF                               ; 009D4D56: $6087
+        bra.s   $009D4CE1                               ; 009D4D58: $6087
+        bra.s   $009D4CE3                               ; 009D4D5A: $6087
+        bra.s   $009D4CE5                               ; 009D4D5C: $6087
+        bra.s   $009D4CE7                               ; 009D4D5E: $6087
+        bra.s   $009D4CE9                               ; 009D4D60: $6087
+        bra.s   $009D4CEB                               ; 009D4D62: $6087
+        bra.s   $009D4CED                               ; 009D4D64: $6087
+        bra.s   $009D4CEF                               ; 009D4D66: $6087
+        bra.s   $009D4CF1                               ; 009D4D68: $6087
+        bra.s   $009D4CF3                               ; 009D4D6A: $6087
+        bra.s   $009D4CF5                               ; 009D4D6C: $6087
+        bra.s   $009D4CF7                               ; 009D4D6E: $6087
+        bra.s   $009D4CF9                               ; 009D4D70: $6087
+        bra.s   $009D4CFB                               ; 009D4D72: $6087
+        bra.s   $009D4CFD                               ; 009D4D74: $6087
+        bra.s   $009D4CFF                               ; 009D4D76: $6087
+        bra.s   $009D4D01                               ; 009D4D78: $6087
+        bra.s   $009D4D03                               ; 009D4D7A: $6087
+        bra.s   $009D4D05                               ; 009D4D7C: $6087
+        bra.s   $009D4D07                               ; 009D4D7E: $6087
+        bra.s   $009D4D09                               ; 009D4D80: $6087
+        bra.s   $009D4D0B                               ; 009D4D82: $6087
+        bra.s   $009D4D0D                               ; 009D4D84: $6087
+        bra.s   $009D4D0F                               ; 009D4D86: $6087
+        bra.s   $009D4D11                               ; 009D4D88: $6087
+        bra.s   $009D4D13                               ; 009D4D8A: $6087
+        bra.s   $009D4D15                               ; 009D4D8C: $6087
+        bra.s   $009D4D17                               ; 009D4D8E: $6087
+        bra.s   $009D4D19                               ; 009D4D90: $6087
+        bra.s   $009D4D1B                               ; 009D4D92: $6087
+        bra.s   $009D4D1D                               ; 009D4D94: $6087
+        bra.s   $009D4D1F                               ; 009D4D96: $6087
+        bra.s   $009D4D21                               ; 009D4D98: $6087
+        bra.s   $009D4D23                               ; 009D4D9A: $6087
+        bra.s   $009D4D25                               ; 009D4D9C: $6087
+        bra.s   $009D4D27                               ; 009D4D9E: $6087
+        bra.s   $009D4D29                               ; 009D4DA0: $6087
+        bra.s   $009D4D2B                               ; 009D4DA2: $6087
+        bra.s   $009D4D2D                               ; 009D4DA4: $6087
+        bra.s   $009D4D2F                               ; 009D4DA6: $6087
+        bra.s   $009D4D31                               ; 009D4DA8: $6087
+        bra.s   $009D4D33                               ; 009D4DAA: $6087
+        movea.b (a3),a6                                 ; 009D4DAC: $1C53
+        move.b  $1D5F(a0),(a6)                          ; 009D4DAE: $1CA8, $1D5F
         dc.w    $1DD0                    ; 009D4DB2: dc.w $1DD0
-        dc.w    $6087                    ; 009D4DB4: BRA.S $009D4D3D
-        dc.w    $6087                    ; 009D4DB6: BRA.S $009D4D3F
-        dc.w    $6087                    ; 009D4DB8: BRA.S $009D4D41
+        bra.s   $009D4D3D                               ; 009D4DB4: $6087
+        bra.s   $009D4D3F                               ; 009D4DB6: $6087
+        bra.s   $009D4D41                               ; 009D4DB8: $6087
         dc.w    $1DFB                    ; 009D4DBA: dc.w $1DFB
-        dc.w    $1E26                    ; 009D4DBC: dc.w $1E26
-        dc.w    $1ECF                    ; 009D4DBE: dc.w $1ECF
-        dc.w    $6087                    ; 009D4DC0: BRA.S $009D4D49
-        dc.w    $6087                    ; 009D4DC2: BRA.S $009D4D4B
-        dc.w    $6087                    ; 009D4DC4: BRA.S $009D4D4D
-        dc.w    $6087                    ; 009D4DC6: BRA.S $009D4D4F
-        dc.w    $6087                    ; 009D4DC8: BRA.S $009D4D51
-        dc.w    $6087                    ; 009D4DCA: BRA.S $009D4D53
-        dc.w    $6087                    ; 009D4DCC: BRA.S $009D4D55
-        dc.w    $6087                    ; 009D4DCE: BRA.S $009D4D57
-        dc.w    $6087                    ; 009D4DD0: BRA.S $009D4D59
-        dc.w    $6087                    ; 009D4DD2: BRA.S $009D4D5B
-        dc.w    $6087                    ; 009D4DD4: BRA.S $009D4D5D
-        dc.w    $6087                    ; 009D4DD6: BRA.S $009D4D5F
-        dc.w    $6087                    ; 009D4DD8: BRA.S $009D4D61
-        dc.w    $6087                    ; 009D4DDA: BRA.S $009D4D63
-        dc.w    $6087                    ; 009D4DDC: BRA.S $009D4D65
-        dc.w    $6087                    ; 009D4DDE: BRA.S $009D4D67
-        dc.w    $6087                    ; 009D4DE0: BRA.S $009D4D69
-        dc.w    $6087                    ; 009D4DE2: BRA.S $009D4D6B
-        dc.w    $6087                    ; 009D4DE4: BRA.S $009D4D6D
-        dc.w    $6087                    ; 009D4DE6: BRA.S $009D4D6F
-        dc.w    $6087                    ; 009D4DE8: BRA.S $009D4D71
-        dc.w    $6087                    ; 009D4DEA: BRA.S $009D4D73
-        dc.w    $6087                    ; 009D4DEC: BRA.S $009D4D75
-        dc.w    $6087                    ; 009D4DEE: BRA.S $009D4D77
-        dc.w    $6087                    ; 009D4DF0: BRA.S $009D4D79
-        dc.w    $6087                    ; 009D4DF2: BRA.S $009D4D7B
-        dc.w    $6087                    ; 009D4DF4: BRA.S $009D4D7D
-        dc.w    $6087                    ; 009D4DF6: BRA.S $009D4D7F
-        dc.w    $6087                    ; 009D4DF8: BRA.S $009D4D81
-        dc.w    $6087                    ; 009D4DFA: BRA.S $009D4D83
-        dc.w    $6087                    ; 009D4DFC: BRA.S $009D4D85
-        dc.w    $6087                    ; 009D4DFE: BRA.S $009D4D87
-        dc.w    $6087                    ; 009D4E00: BRA.S $009D4D89
-        dc.w    $6087                    ; 009D4E02: BRA.S $009D4D8B
-        dc.w    $6087                    ; 009D4E04: BRA.S $009D4D8D
-        dc.w    $6087                    ; 009D4E06: BRA.S $009D4D8F
-        dc.w    $6087                    ; 009D4E08: BRA.S $009D4D91
-        dc.w    $6087                    ; 009D4E0A: BRA.S $009D4D93
-        dc.w    $6087                    ; 009D4E0C: BRA.S $009D4D95
-        dc.w    $6087                    ; 009D4E0E: BRA.S $009D4D97
-        dc.w    $6087                    ; 009D4E10: BRA.S $009D4D99
-        dc.w    $6087                    ; 009D4E12: BRA.S $009D4D9B
-        dc.w    $6087                    ; 009D4E14: BRA.S $009D4D9D
-        dc.w    $6087                    ; 009D4E16: BRA.S $009D4D9F
-        dc.w    $6087                    ; 009D4E18: BRA.S $009D4DA1
-        dc.w    $6087                    ; 009D4E1A: BRA.S $009D4DA3
-        dc.w    $6087                    ; 009D4E1C: BRA.S $009D4DA5
-        dc.w    $6087                    ; 009D4E1E: BRA.S $009D4DA7
-        dc.w    $6087                    ; 009D4E20: BRA.S $009D4DA9
-        dc.w    $6087                    ; 009D4E22: BRA.S $009D4DAB
-        dc.w    $6087                    ; 009D4E24: BRA.S $009D4DAD
-        dc.w    $6087                    ; 009D4E26: BRA.S $009D4DAF
-        dc.w    $6087                    ; 009D4E28: BRA.S $009D4DB1
-        dc.w    $6087                    ; 009D4E2A: BRA.S $009D4DB3
-        dc.w    $1F78                    ; 009D4E2C: dc.w $1F78
-        dc.w    $1FDB                    ; 009D4E2E: dc.w $1FDB
-        dc.w    $205A                    ; 009D4E30: dc.w $205A
-        dc.w    $6087                    ; 009D4E32: BRA.S $009D4DBB
-        dc.w    $6087                    ; 009D4E34: BRA.S $009D4DBD
-        dc.w    $6087                    ; 009D4E36: BRA.S $009D4DBF
-        dc.w    $6087                    ; 009D4E38: BRA.S $009D4DC1
-        dc.w    $2093                    ; 009D4E3A: dc.w $2093
+        move.b  -(a6),d7                                ; 009D4DBC: $1E26
+        move.b  a7,(a7)+                                ; 009D4DBE: $1ECF
+        bra.s   $009D4D49                               ; 009D4DC0: $6087
+        bra.s   $009D4D4B                               ; 009D4DC2: $6087
+        bra.s   $009D4D4D                               ; 009D4DC4: $6087
+        bra.s   $009D4D4F                               ; 009D4DC6: $6087
+        bra.s   $009D4D51                               ; 009D4DC8: $6087
+        bra.s   $009D4D53                               ; 009D4DCA: $6087
+        bra.s   $009D4D55                               ; 009D4DCC: $6087
+        bra.s   $009D4D57                               ; 009D4DCE: $6087
+        bra.s   $009D4D59                               ; 009D4DD0: $6087
+        bra.s   $009D4D5B                               ; 009D4DD2: $6087
+        bra.s   $009D4D5D                               ; 009D4DD4: $6087
+        bra.s   $009D4D5F                               ; 009D4DD6: $6087
+        bra.s   $009D4D61                               ; 009D4DD8: $6087
+        bra.s   $009D4D63                               ; 009D4DDA: $6087
+        bra.s   $009D4D65                               ; 009D4DDC: $6087
+        bra.s   $009D4D67                               ; 009D4DDE: $6087
+        bra.s   $009D4D69                               ; 009D4DE0: $6087
+        bra.s   $009D4D6B                               ; 009D4DE2: $6087
+        bra.s   $009D4D6D                               ; 009D4DE4: $6087
+        bra.s   $009D4D6F                               ; 009D4DE6: $6087
+        bra.s   $009D4D71                               ; 009D4DE8: $6087
+        bra.s   $009D4D73                               ; 009D4DEA: $6087
+        bra.s   $009D4D75                               ; 009D4DEC: $6087
+        bra.s   $009D4D77                               ; 009D4DEE: $6087
+        bra.s   $009D4D79                               ; 009D4DF0: $6087
+        bra.s   $009D4D7B                               ; 009D4DF2: $6087
+        bra.s   $009D4D7D                               ; 009D4DF4: $6087
+        bra.s   $009D4D7F                               ; 009D4DF6: $6087
+        bra.s   $009D4D81                               ; 009D4DF8: $6087
+        bra.s   $009D4D83                               ; 009D4DFA: $6087
+        bra.s   $009D4D85                               ; 009D4DFC: $6087
+        bra.s   $009D4D87                               ; 009D4DFE: $6087
+        bra.s   $009D4D89                               ; 009D4E00: $6087
+        bra.s   $009D4D8B                               ; 009D4E02: $6087
+        bra.s   $009D4D8D                               ; 009D4E04: $6087
+        bra.s   $009D4D8F                               ; 009D4E06: $6087
+        bra.s   $009D4D91                               ; 009D4E08: $6087
+        bra.s   $009D4D93                               ; 009D4E0A: $6087
+        bra.s   $009D4D95                               ; 009D4E0C: $6087
+        bra.s   $009D4D97                               ; 009D4E0E: $6087
+        bra.s   $009D4D99                               ; 009D4E10: $6087
+        bra.s   $009D4D9B                               ; 009D4E12: $6087
+        bra.s   $009D4D9D                               ; 009D4E14: $6087
+        bra.s   $009D4D9F                               ; 009D4E16: $6087
+        bra.s   $009D4DA1                               ; 009D4E18: $6087
+        bra.s   $009D4DA3                               ; 009D4E1A: $6087
+        bra.s   $009D4DA5                               ; 009D4E1C: $6087
+        bra.s   $009D4DA7                               ; 009D4E1E: $6087
+        bra.s   $009D4DA9                               ; 009D4E20: $6087
+        bra.s   $009D4DAB                               ; 009D4E22: $6087
+        bra.s   $009D4DAD                               ; 009D4E24: $6087
+        bra.s   $009D4DAF                               ; 009D4E26: $6087
+        bra.s   $009D4DB1                               ; 009D4E28: $6087
+        bra.s   $009D4DB3                               ; 009D4E2A: $6087
+        move.b  ($1FDB).w,$205A(a7)                     ; 009D4E2C: $1F78, $1FDB, $205A
+        bra.s   $009D4DBB                               ; 009D4E32: $6087
+        bra.s   $009D4DBD                               ; 009D4E34: $6087
+        bra.s   $009D4DBF                               ; 009D4E36: $6087
+        bra.s   $009D4DC1                               ; 009D4E38: $6087
+        move.l  (a3),(a0)                               ; 009D4E3A: $2093
         dc.w    $20BE                    ; 009D4E3C: dc.w $20BE
-        dc.w    $21D7                    ; 009D4E3E: dc.w $21D7
-        dc.w    $6087                    ; 009D4E40: BRA.S $009D4DC9
-        dc.w    $6087                    ; 009D4E42: BRA.S $009D4DCB
-        dc.w    $6087                    ; 009D4E44: BRA.S $009D4DCD
-        dc.w    $6087                    ; 009D4E46: BRA.S $009D4DCF
-        dc.w    $6087                    ; 009D4E48: BRA.S $009D4DD1
-        dc.w    $6087                    ; 009D4E4A: BRA.S $009D4DD3
-        dc.w    $6087                    ; 009D4E4C: BRA.S $009D4DD5
-        dc.w    $6087                    ; 009D4E4E: BRA.S $009D4DD7
-        dc.w    $6087                    ; 009D4E50: BRA.S $009D4DD9
-        dc.w    $6087                    ; 009D4E52: BRA.S $009D4DDB
-        dc.w    $6087                    ; 009D4E54: BRA.S $009D4DDD
-        dc.w    $6087                    ; 009D4E56: BRA.S $009D4DDF
-        dc.w    $6087                    ; 009D4E58: BRA.S $009D4DE1
-        dc.w    $6087                    ; 009D4E5A: BRA.S $009D4DE3
-        dc.w    $6087                    ; 009D4E5C: BRA.S $009D4DE5
-        dc.w    $6087                    ; 009D4E5E: BRA.S $009D4DE7
-        dc.w    $6087                    ; 009D4E60: BRA.S $009D4DE9
-        dc.w    $6087                    ; 009D4E62: BRA.S $009D4DEB
-        dc.w    $6087                    ; 009D4E64: BRA.S $009D4DED
-        dc.w    $6087                    ; 009D4E66: BRA.S $009D4DEF
-        dc.w    $6087                    ; 009D4E68: BRA.S $009D4DF1
-        dc.w    $6087                    ; 009D4E6A: BRA.S $009D4DF3
-        dc.w    $6087                    ; 009D4E6C: BRA.S $009D4DF5
-        dc.w    $6087                    ; 009D4E6E: BRA.S $009D4DF7
-        dc.w    $6087                    ; 009D4E70: BRA.S $009D4DF9
-        dc.w    $6087                    ; 009D4E72: BRA.S $009D4DFB
-        dc.w    $6087                    ; 009D4E74: BRA.S $009D4DFD
-        dc.w    $6087                    ; 009D4E76: BRA.S $009D4DFF
-        dc.w    $6087                    ; 009D4E78: BRA.S $009D4E01
-        dc.w    $6087                    ; 009D4E7A: BRA.S $009D4E03
-        dc.w    $6087                    ; 009D4E7C: BRA.S $009D4E05
-        dc.w    $6087                    ; 009D4E7E: BRA.S $009D4E07
-        dc.w    $6087                    ; 009D4E80: BRA.S $009D4E09
-        dc.w    $6087                    ; 009D4E82: BRA.S $009D4E0B
-        dc.w    $6087                    ; 009D4E84: BRA.S $009D4E0D
-        dc.w    $6087                    ; 009D4E86: BRA.S $009D4E0F
-        dc.w    $6087                    ; 009D4E88: BRA.S $009D4E11
-        dc.w    $6087                    ; 009D4E8A: BRA.S $009D4E13
-        dc.w    $6087                    ; 009D4E8C: BRA.S $009D4E15
-        dc.w    $6087                    ; 009D4E8E: BRA.S $009D4E17
-        dc.w    $6087                    ; 009D4E90: BRA.S $009D4E19
-        dc.w    $6087                    ; 009D4E92: BRA.S $009D4E1B
-        dc.w    $6087                    ; 009D4E94: BRA.S $009D4E1D
-        dc.w    $6087                    ; 009D4E96: BRA.S $009D4E1F
-        dc.w    $6087                    ; 009D4E98: BRA.S $009D4E21
-        dc.w    $6087                    ; 009D4E9A: BRA.S $009D4E23
-        dc.w    $6087                    ; 009D4E9C: BRA.S $009D4E25
-        dc.w    $6087                    ; 009D4E9E: BRA.S $009D4E27
-        dc.w    $6087                    ; 009D4EA0: BRA.S $009D4E29
-        dc.w    $6087                    ; 009D4EA2: BRA.S $009D4E2B
-        dc.w    $6087                    ; 009D4EA4: BRA.S $009D4E2D
-        dc.w    $6087                    ; 009D4EA6: BRA.S $009D4E2F
-        dc.w    $6087                    ; 009D4EA8: BRA.S $009D4E31
-        dc.w    $2264                    ; 009D4EAA: dc.w $2264
-        dc.w    $228F                    ; 009D4EAC: dc.w $228F
-        dc.w    $2300                    ; 009D4EAE: dc.w $2300
-        dc.w    $6087                    ; 009D4EB0: BRA.S $009D4E39
-        dc.w    $6087                    ; 009D4EB2: BRA.S $009D4E3B
-        dc.w    $6087                    ; 009D4EB4: BRA.S $009D4E3D
-        dc.w    $6087                    ; 009D4EB6: BRA.S $009D4E3F
-        dc.w    $6087                    ; 009D4EB8: BRA.S $009D4E41
-        dc.w    $2355                    ; 009D4EBA: dc.w $2355
-        dc.w    $2372                    ; 009D4EBC: dc.w $2372
-        dc.w    $24D1                    ; 009D4EBE: dc.w $24D1
-        dc.w    $6087                    ; 009D4EC0: BRA.S $009D4E49
-        dc.w    $6087                    ; 009D4EC2: BRA.S $009D4E4B
-        dc.w    $6087                    ; 009D4EC4: BRA.S $009D4E4D
-        dc.w    $6087                    ; 009D4EC6: BRA.S $009D4E4F
-        dc.w    $6087                    ; 009D4EC8: BRA.S $009D4E51
-        dc.w    $6087                    ; 009D4ECA: BRA.S $009D4E53
-        dc.w    $6087                    ; 009D4ECC: BRA.S $009D4E55
-        dc.w    $6087                    ; 009D4ECE: BRA.S $009D4E57
-        dc.w    $6087                    ; 009D4ED0: BRA.S $009D4E59
-        dc.w    $6087                    ; 009D4ED2: BRA.S $009D4E5B
-        dc.w    $6087                    ; 009D4ED4: BRA.S $009D4E5D
-        dc.w    $6087                    ; 009D4ED6: BRA.S $009D4E5F
-        dc.w    $6087                    ; 009D4ED8: BRA.S $009D4E61
-        dc.w    $6087                    ; 009D4EDA: BRA.S $009D4E63
-        dc.w    $6087                    ; 009D4EDC: BRA.S $009D4E65
-        dc.w    $6087                    ; 009D4EDE: BRA.S $009D4E67
-        dc.w    $6087                    ; 009D4EE0: BRA.S $009D4E69
-        dc.w    $6087                    ; 009D4EE2: BRA.S $009D4E6B
-        dc.w    $6087                    ; 009D4EE4: BRA.S $009D4E6D
-        dc.w    $6087                    ; 009D4EE6: BRA.S $009D4E6F
-        dc.w    $6087                    ; 009D4EE8: BRA.S $009D4E71
-        dc.w    $6087                    ; 009D4EEA: BRA.S $009D4E73
-        dc.w    $6087                    ; 009D4EEC: BRA.S $009D4E75
-        dc.w    $6087                    ; 009D4EEE: BRA.S $009D4E77
-        dc.w    $6087                    ; 009D4EF0: BRA.S $009D4E79
-        dc.w    $6087                    ; 009D4EF2: BRA.S $009D4E7B
-        dc.w    $6087                    ; 009D4EF4: BRA.S $009D4E7D
-        dc.w    $6087                    ; 009D4EF6: BRA.S $009D4E7F
-        dc.w    $6087                    ; 009D4EF8: BRA.S $009D4E81
-        dc.w    $6087                    ; 009D4EFA: BRA.S $009D4E83
-        dc.w    $6087                    ; 009D4EFC: BRA.S $009D4E85
-        dc.w    $6087                    ; 009D4EFE: BRA.S $009D4E87
-        dc.w    $6087                    ; 009D4F00: BRA.S $009D4E89
-        dc.w    $6087                    ; 009D4F02: BRA.S $009D4E8B
-        dc.w    $6087                    ; 009D4F04: BRA.S $009D4E8D
-        dc.w    $6087                    ; 009D4F06: BRA.S $009D4E8F
-        dc.w    $6087                    ; 009D4F08: BRA.S $009D4E91
-        dc.w    $6087                    ; 009D4F0A: BRA.S $009D4E93
-        dc.w    $6087                    ; 009D4F0C: BRA.S $009D4E95
-        dc.w    $6087                    ; 009D4F0E: BRA.S $009D4E97
-        dc.w    $6087                    ; 009D4F10: BRA.S $009D4E99
-        dc.w    $6087                    ; 009D4F12: BRA.S $009D4E9B
-        dc.w    $6087                    ; 009D4F14: BRA.S $009D4E9D
-        dc.w    $6087                    ; 009D4F16: BRA.S $009D4E9F
-        dc.w    $6087                    ; 009D4F18: BRA.S $009D4EA1
-        dc.w    $6087                    ; 009D4F1A: BRA.S $009D4EA3
-        dc.w    $6087                    ; 009D4F1C: BRA.S $009D4EA5
-        dc.w    $6087                    ; 009D4F1E: BRA.S $009D4EA7
-        dc.w    $6087                    ; 009D4F20: BRA.S $009D4EA9
-        dc.w    $6087                    ; 009D4F22: BRA.S $009D4EAB
-        dc.w    $6087                    ; 009D4F24: BRA.S $009D4EAD
-        dc.w    $6087                    ; 009D4F26: BRA.S $009D4EAF
-        dc.w    $255E                    ; 009D4F28: dc.w $255E
-        dc.w    $257B                    ; 009D4F2A: dc.w $257B
-        dc.w    $25D0                    ; 009D4F2C: dc.w $25D0
-        dc.w    $2641                    ; 009D4F2E: dc.w $2641
-        dc.w    $6087                    ; 009D4F30: BRA.S $009D4EB9
-        dc.w    $6087                    ; 009D4F32: BRA.S $009D4EBB
-        dc.w    $6087                    ; 009D4F34: BRA.S $009D4EBD
-        dc.w    $6087                    ; 009D4F36: BRA.S $009D4EBF
-        dc.w    $6087                    ; 009D4F38: BRA.S $009D4EC1
-        dc.w    $6087                    ; 009D4F3A: BRA.S $009D4EC3
-        dc.w    $265E                    ; 009D4F3C: dc.w $265E
-        dc.w    $2769                    ; 009D4F3E: dc.w $2769
-        dc.w    $6087                    ; 009D4F40: BRA.S $009D4EC9
-        dc.w    $6087                    ; 009D4F42: BRA.S $009D4ECB
-        dc.w    $6087                    ; 009D4F44: BRA.S $009D4ECD
-        dc.w    $6087                    ; 009D4F46: BRA.S $009D4ECF
-        dc.w    $6087                    ; 009D4F48: BRA.S $009D4ED1
-        dc.w    $6087                    ; 009D4F4A: BRA.S $009D4ED3
-        dc.w    $6087                    ; 009D4F4C: BRA.S $009D4ED5
-        dc.w    $6087                    ; 009D4F4E: BRA.S $009D4ED7
-        dc.w    $6087                    ; 009D4F50: BRA.S $009D4ED9
-        dc.w    $6087                    ; 009D4F52: BRA.S $009D4EDB
-        dc.w    $6087                    ; 009D4F54: BRA.S $009D4EDD
-        dc.w    $6087                    ; 009D4F56: BRA.S $009D4EDF
-        dc.w    $6087                    ; 009D4F58: BRA.S $009D4EE1
-        dc.w    $6087                    ; 009D4F5A: BRA.S $009D4EE3
-        dc.w    $6087                    ; 009D4F5C: BRA.S $009D4EE5
-        dc.w    $6087                    ; 009D4F5E: BRA.S $009D4EE7
-        dc.w    $6087                    ; 009D4F60: BRA.S $009D4EE9
-        dc.w    $6087                    ; 009D4F62: BRA.S $009D4EEB
-        dc.w    $6087                    ; 009D4F64: BRA.S $009D4EED
-        dc.w    $6087                    ; 009D4F66: BRA.S $009D4EEF
-        dc.w    $6087                    ; 009D4F68: BRA.S $009D4EF1
-        dc.w    $6087                    ; 009D4F6A: BRA.S $009D4EF3
-        dc.w    $6087                    ; 009D4F6C: BRA.S $009D4EF5
-        dc.w    $6087                    ; 009D4F6E: BRA.S $009D4EF7
-        dc.w    $6087                    ; 009D4F70: BRA.S $009D4EF9
-        dc.w    $6087                    ; 009D4F72: BRA.S $009D4EFB
-        dc.w    $6087                    ; 009D4F74: BRA.S $009D4EFD
-        dc.w    $6087                    ; 009D4F76: BRA.S $009D4EFF
-        dc.w    $6087                    ; 009D4F78: BRA.S $009D4F01
-        dc.w    $6087                    ; 009D4F7A: BRA.S $009D4F03
-        dc.w    $6087                    ; 009D4F7C: BRA.S $009D4F05
-        dc.w    $6087                    ; 009D4F7E: BRA.S $009D4F07
-        dc.w    $6087                    ; 009D4F80: BRA.S $009D4F09
-        dc.w    $6087                    ; 009D4F82: BRA.S $009D4F0B
-        dc.w    $6087                    ; 009D4F84: BRA.S $009D4F0D
-        dc.w    $6087                    ; 009D4F86: BRA.S $009D4F0F
-        dc.w    $6087                    ; 009D4F88: BRA.S $009D4F11
-        dc.w    $6087                    ; 009D4F8A: BRA.S $009D4F13
-        dc.w    $6087                    ; 009D4F8C: BRA.S $009D4F15
-        dc.w    $6087                    ; 009D4F8E: BRA.S $009D4F17
-        dc.w    $6087                    ; 009D4F90: BRA.S $009D4F19
-        dc.w    $6087                    ; 009D4F92: BRA.S $009D4F1B
-        dc.w    $6087                    ; 009D4F94: BRA.S $009D4F1D
-        dc.w    $6087                    ; 009D4F96: BRA.S $009D4F1F
-        dc.w    $6087                    ; 009D4F98: BRA.S $009D4F21
-        dc.w    $6087                    ; 009D4F9A: BRA.S $009D4F23
-        dc.w    $6087                    ; 009D4F9C: BRA.S $009D4F25
-        dc.w    $6087                    ; 009D4F9E: BRA.S $009D4F27
-        dc.w    $6087                    ; 009D4FA0: BRA.S $009D4F29
-        dc.w    $6087                    ; 009D4FA2: BRA.S $009D4F2B
-        dc.w    $6087                    ; 009D4FA4: BRA.S $009D4F2D
-        dc.w    $6087                    ; 009D4FA6: BRA.S $009D4F2F
-        dc.w    $27CC                    ; 009D4FA8: dc.w $27CC
-        dc.w    $2813                    ; 009D4FAA: dc.w $2813
+        move.l  (a7),($6087).w                          ; 009D4E3E: $21D7, $6087
+        bra.s   $009D4DCB                               ; 009D4E42: $6087
+        bra.s   $009D4DCD                               ; 009D4E44: $6087
+        bra.s   $009D4DCF                               ; 009D4E46: $6087
+        bra.s   $009D4DD1                               ; 009D4E48: $6087
+        bra.s   $009D4DD3                               ; 009D4E4A: $6087
+        bra.s   $009D4DD5                               ; 009D4E4C: $6087
+        bra.s   $009D4DD7                               ; 009D4E4E: $6087
+        bra.s   $009D4DD9                               ; 009D4E50: $6087
+        bra.s   $009D4DDB                               ; 009D4E52: $6087
+        bra.s   $009D4DDD                               ; 009D4E54: $6087
+        bra.s   $009D4DDF                               ; 009D4E56: $6087
+        bra.s   $009D4DE1                               ; 009D4E58: $6087
+        bra.s   $009D4DE3                               ; 009D4E5A: $6087
+        bra.s   $009D4DE5                               ; 009D4E5C: $6087
+        bra.s   $009D4DE7                               ; 009D4E5E: $6087
+        bra.s   $009D4DE9                               ; 009D4E60: $6087
+        bra.s   $009D4DEB                               ; 009D4E62: $6087
+        bra.s   $009D4DED                               ; 009D4E64: $6087
+        bra.s   $009D4DEF                               ; 009D4E66: $6087
+        bra.s   $009D4DF1                               ; 009D4E68: $6087
+        bra.s   $009D4DF3                               ; 009D4E6A: $6087
+        bra.s   $009D4DF5                               ; 009D4E6C: $6087
+        bra.s   $009D4DF7                               ; 009D4E6E: $6087
+        bra.s   $009D4DF9                               ; 009D4E70: $6087
+        bra.s   $009D4DFB                               ; 009D4E72: $6087
+        bra.s   $009D4DFD                               ; 009D4E74: $6087
+        bra.s   $009D4DFF                               ; 009D4E76: $6087
+        bra.s   $009D4E01                               ; 009D4E78: $6087
+        bra.s   $009D4E03                               ; 009D4E7A: $6087
+        bra.s   $009D4E05                               ; 009D4E7C: $6087
+        bra.s   $009D4E07                               ; 009D4E7E: $6087
+        bra.s   $009D4E09                               ; 009D4E80: $6087
+        bra.s   $009D4E0B                               ; 009D4E82: $6087
+        bra.s   $009D4E0D                               ; 009D4E84: $6087
+        bra.s   $009D4E0F                               ; 009D4E86: $6087
+        bra.s   $009D4E11                               ; 009D4E88: $6087
+        bra.s   $009D4E13                               ; 009D4E8A: $6087
+        bra.s   $009D4E15                               ; 009D4E8C: $6087
+        bra.s   $009D4E17                               ; 009D4E8E: $6087
+        bra.s   $009D4E19                               ; 009D4E90: $6087
+        bra.s   $009D4E1B                               ; 009D4E92: $6087
+        bra.s   $009D4E1D                               ; 009D4E94: $6087
+        bra.s   $009D4E1F                               ; 009D4E96: $6087
+        bra.s   $009D4E21                               ; 009D4E98: $6087
+        bra.s   $009D4E23                               ; 009D4E9A: $6087
+        bra.s   $009D4E25                               ; 009D4E9C: $6087
+        bra.s   $009D4E27                               ; 009D4E9E: $6087
+        bra.s   $009D4E29                               ; 009D4EA0: $6087
+        bra.s   $009D4E2B                               ; 009D4EA2: $6087
+        bra.s   $009D4E2D                               ; 009D4EA4: $6087
+        bra.s   $009D4E2F                               ; 009D4EA6: $6087
+        bra.s   $009D4E31                               ; 009D4EA8: $6087
+        movea.l -(a4),a1                                ; 009D4EAA: $2264
+        move.l  a7,(a1)                                 ; 009D4EAC: $228F
+        move.l  d0,-(a1)                                ; 009D4EAE: $2300
+        bra.s   $009D4E39                               ; 009D4EB0: $6087
+        bra.s   $009D4E3B                               ; 009D4EB2: $6087
+        bra.s   $009D4E3D                               ; 009D4EB4: $6087
+        bra.s   $009D4E3F                               ; 009D4EB6: $6087
+        bra.s   $009D4E41                               ; 009D4EB8: $6087
+        move.l  (a5),$2372(a1)                          ; 009D4EBA: $2355, $2372
+        move.l  (a1),(a2)+                              ; 009D4EBE: $24D1
+        bra.s   $009D4E49                               ; 009D4EC0: $6087
+        bra.s   $009D4E4B                               ; 009D4EC2: $6087
+        bra.s   $009D4E4D                               ; 009D4EC4: $6087
+        bra.s   $009D4E4F                               ; 009D4EC6: $6087
+        bra.s   $009D4E51                               ; 009D4EC8: $6087
+        bra.s   $009D4E53                               ; 009D4ECA: $6087
+        bra.s   $009D4E55                               ; 009D4ECC: $6087
+        bra.s   $009D4E57                               ; 009D4ECE: $6087
+        bra.s   $009D4E59                               ; 009D4ED0: $6087
+        bra.s   $009D4E5B                               ; 009D4ED2: $6087
+        bra.s   $009D4E5D                               ; 009D4ED4: $6087
+        bra.s   $009D4E5F                               ; 009D4ED6: $6087
+        bra.s   $009D4E61                               ; 009D4ED8: $6087
+        bra.s   $009D4E63                               ; 009D4EDA: $6087
+        bra.s   $009D4E65                               ; 009D4EDC: $6087
+        bra.s   $009D4E67                               ; 009D4EDE: $6087
+        bra.s   $009D4E69                               ; 009D4EE0: $6087
+        bra.s   $009D4E6B                               ; 009D4EE2: $6087
+        bra.s   $009D4E6D                               ; 009D4EE4: $6087
+        bra.s   $009D4E6F                               ; 009D4EE6: $6087
+        bra.s   $009D4E71                               ; 009D4EE8: $6087
+        bra.s   $009D4E73                               ; 009D4EEA: $6087
+        bra.s   $009D4E75                               ; 009D4EEC: $6087
+        bra.s   $009D4E77                               ; 009D4EEE: $6087
+        bra.s   $009D4E79                               ; 009D4EF0: $6087
+        bra.s   $009D4E7B                               ; 009D4EF2: $6087
+        bra.s   $009D4E7D                               ; 009D4EF4: $6087
+        bra.s   $009D4E7F                               ; 009D4EF6: $6087
+        bra.s   $009D4E81                               ; 009D4EF8: $6087
+        bra.s   $009D4E83                               ; 009D4EFA: $6087
+        bra.s   $009D4E85                               ; 009D4EFC: $6087
+        bra.s   $009D4E87                               ; 009D4EFE: $6087
+        bra.s   $009D4E89                               ; 009D4F00: $6087
+        bra.s   $009D4E8B                               ; 009D4F02: $6087
+        bra.s   $009D4E8D                               ; 009D4F04: $6087
+        bra.s   $009D4E8F                               ; 009D4F06: $6087
+        bra.s   $009D4E91                               ; 009D4F08: $6087
+        bra.s   $009D4E93                               ; 009D4F0A: $6087
+        bra.s   $009D4E95                               ; 009D4F0C: $6087
+        bra.s   $009D4E97                               ; 009D4F0E: $6087
+        bra.s   $009D4E99                               ; 009D4F10: $6087
+        bra.s   $009D4E9B                               ; 009D4F12: $6087
+        bra.s   $009D4E9D                               ; 009D4F14: $6087
+        bra.s   $009D4E9F                               ; 009D4F16: $6087
+        bra.s   $009D4EA1                               ; 009D4F18: $6087
+        bra.s   $009D4EA3                               ; 009D4F1A: $6087
+        bra.s   $009D4EA5                               ; 009D4F1C: $6087
+        bra.s   $009D4EA7                               ; 009D4F1E: $6087
+        bra.s   $009D4EA9                               ; 009D4F20: $6087
+        bra.s   $009D4EAB                               ; 009D4F22: $6087
+        bra.s   $009D4EAD                               ; 009D4F24: $6087
+        bra.s   $009D4EAF                               ; 009D4F26: $6087
+        move.l  (a6)+,$257B(a2)                         ; 009D4F28: $255E, $257B
+        move.l  (a0),$2641(pc)                          ; 009D4F2C: $25D0, $2641
+        bra.s   $009D4EB9                               ; 009D4F30: $6087
+        bra.s   $009D4EBB                               ; 009D4F32: $6087
+        bra.s   $009D4EBD                               ; 009D4F34: $6087
+        bra.s   $009D4EBF                               ; 009D4F36: $6087
+        bra.s   $009D4EC1                               ; 009D4F38: $6087
+        bra.s   $009D4EC3                               ; 009D4F3A: $6087
+        movea.l (a6)+,a3                                ; 009D4F3C: $265E
+        move.l  $6087(a1),$6087(a3)                     ; 009D4F3E: $2769, $6087, $6087
+        bra.s   $009D4ECD                               ; 009D4F44: $6087
+        bra.s   $009D4ECF                               ; 009D4F46: $6087
+        bra.s   $009D4ED1                               ; 009D4F48: $6087
+        bra.s   $009D4ED3                               ; 009D4F4A: $6087
+        bra.s   $009D4ED5                               ; 009D4F4C: $6087
+        bra.s   $009D4ED7                               ; 009D4F4E: $6087
+        bra.s   $009D4ED9                               ; 009D4F50: $6087
+        bra.s   $009D4EDB                               ; 009D4F52: $6087
+        bra.s   $009D4EDD                               ; 009D4F54: $6087
+        bra.s   $009D4EDF                               ; 009D4F56: $6087
+        bra.s   $009D4EE1                               ; 009D4F58: $6087
+        bra.s   $009D4EE3                               ; 009D4F5A: $6087
+        bra.s   $009D4EE5                               ; 009D4F5C: $6087
+        bra.s   $009D4EE7                               ; 009D4F5E: $6087
+        bra.s   $009D4EE9                               ; 009D4F60: $6087
+        bra.s   $009D4EEB                               ; 009D4F62: $6087
+        bra.s   $009D4EED                               ; 009D4F64: $6087
+        bra.s   $009D4EEF                               ; 009D4F66: $6087
+        bra.s   $009D4EF1                               ; 009D4F68: $6087
+        bra.s   $009D4EF3                               ; 009D4F6A: $6087
+        bra.s   $009D4EF5                               ; 009D4F6C: $6087
+        bra.s   $009D4EF7                               ; 009D4F6E: $6087
+        bra.s   $009D4EF9                               ; 009D4F70: $6087
+        bra.s   $009D4EFB                               ; 009D4F72: $6087
+        bra.s   $009D4EFD                               ; 009D4F74: $6087
+        bra.s   $009D4EFF                               ; 009D4F76: $6087
+        bra.s   $009D4F01                               ; 009D4F78: $6087
+        bra.s   $009D4F03                               ; 009D4F7A: $6087
+        bra.s   $009D4F05                               ; 009D4F7C: $6087
+        bra.s   $009D4F07                               ; 009D4F7E: $6087
+        bra.s   $009D4F09                               ; 009D4F80: $6087
+        bra.s   $009D4F0B                               ; 009D4F82: $6087
+        bra.s   $009D4F0D                               ; 009D4F84: $6087
+        bra.s   $009D4F0F                               ; 009D4F86: $6087
+        bra.s   $009D4F11                               ; 009D4F88: $6087
+        bra.s   $009D4F13                               ; 009D4F8A: $6087
+        bra.s   $009D4F15                               ; 009D4F8C: $6087
+        bra.s   $009D4F17                               ; 009D4F8E: $6087
+        bra.s   $009D4F19                               ; 009D4F90: $6087
+        bra.s   $009D4F1B                               ; 009D4F92: $6087
+        bra.s   $009D4F1D                               ; 009D4F94: $6087
+        bra.s   $009D4F1F                               ; 009D4F96: $6087
+        bra.s   $009D4F21                               ; 009D4F98: $6087
+        bra.s   $009D4F23                               ; 009D4F9A: $6087
+        bra.s   $009D4F25                               ; 009D4F9C: $6087
+        bra.s   $009D4F27                               ; 009D4F9E: $6087
+        bra.s   $009D4F29                               ; 009D4FA0: $6087
+        bra.s   $009D4F2B                               ; 009D4FA2: $6087
+        bra.s   $009D4F2D                               ; 009D4FA4: $6087
+        bra.s   $009D4F2F                               ; 009D4FA6: $6087
+        move.l  a4,$13(pc,d2.l)                         ; 009D4FA8: $27CC, $2813
         dc.w    $283E                    ; 009D4FAC: dc.w $283E
-        dc.w    $6087                    ; 009D4FAE: BRA.S $009D4F37
-        dc.w    $6087                    ; 009D4FB0: BRA.S $009D4F39
-        dc.w    $6087                    ; 009D4FB2: BRA.S $009D4F3B
-        dc.w    $6087                    ; 009D4FB4: BRA.S $009D4F3D
-        dc.w    $6087                    ; 009D4FB6: BRA.S $009D4F3F
-        dc.w    $6087                    ; 009D4FB8: BRA.S $009D4F41
-        dc.w    $6087                    ; 009D4FBA: BRA.S $009D4F43
-        dc.w    $2885                    ; 009D4FBC: dc.w $2885
-        dc.w    $2974                    ; 009D4FBE: dc.w $2974
-        dc.w    $6087                    ; 009D4FC0: BRA.S $009D4F49
-        dc.w    $6087                    ; 009D4FC2: BRA.S $009D4F4B
-        dc.w    $6087                    ; 009D4FC4: BRA.S $009D4F4D
-        dc.w    $6087                    ; 009D4FC6: BRA.S $009D4F4F
-        dc.w    $6087                    ; 009D4FC8: BRA.S $009D4F51
-        dc.w    $6087                    ; 009D4FCA: BRA.S $009D4F53
-        dc.w    $6087                    ; 009D4FCC: BRA.S $009D4F55
-        dc.w    $6087                    ; 009D4FCE: BRA.S $009D4F57
-        dc.w    $6087                    ; 009D4FD0: BRA.S $009D4F59
-        dc.w    $6087                    ; 009D4FD2: BRA.S $009D4F5B
-        dc.w    $6087                    ; 009D4FD4: BRA.S $009D4F5D
-        dc.w    $6087                    ; 009D4FD6: BRA.S $009D4F5F
-        dc.w    $6087                    ; 009D4FD8: BRA.S $009D4F61
-        dc.w    $6087                    ; 009D4FDA: BRA.S $009D4F63
-        dc.w    $6087                    ; 009D4FDC: BRA.S $009D4F65
-        dc.w    $6087                    ; 009D4FDE: BRA.S $009D4F67
-        dc.w    $6087                    ; 009D4FE0: BRA.S $009D4F69
-        dc.w    $6087                    ; 009D4FE2: BRA.S $009D4F6B
-        dc.w    $6087                    ; 009D4FE4: BRA.S $009D4F6D
-        dc.w    $6087                    ; 009D4FE6: BRA.S $009D4F6F
-        dc.w    $6087                    ; 009D4FE8: BRA.S $009D4F71
-        dc.w    $6087                    ; 009D4FEA: BRA.S $009D4F73
-        dc.w    $6087                    ; 009D4FEC: BRA.S $009D4F75
-        dc.w    $6087                    ; 009D4FEE: BRA.S $009D4F77
-        dc.w    $6087                    ; 009D4FF0: BRA.S $009D4F79
-        dc.w    $6087                    ; 009D4FF2: BRA.S $009D4F7B
-        dc.w    $6087                    ; 009D4FF4: BRA.S $009D4F7D
-        dc.w    $6087                    ; 009D4FF6: BRA.S $009D4F7F
-        dc.w    $6087                    ; 009D4FF8: BRA.S $009D4F81
-        dc.w    $6087                    ; 009D4FFA: BRA.S $009D4F83
-        dc.w    $6087                    ; 009D4FFC: BRA.S $009D4F85
-        dc.w    $6087                    ; 009D4FFE: BRA.S $009D4F87
-        dc.w    $6087                    ; 009D5000: BRA.S $009D4F89
-        dc.w    $6087                    ; 009D5002: BRA.S $009D4F8B
-        dc.w    $6087                    ; 009D5004: BRA.S $009D4F8D
-        dc.w    $6087                    ; 009D5006: BRA.S $009D4F8F
-        dc.w    $6087                    ; 009D5008: BRA.S $009D4F91
-        dc.w    $6087                    ; 009D500A: BRA.S $009D4F93
-        dc.w    $6087                    ; 009D500C: BRA.S $009D4F95
-        dc.w    $6087                    ; 009D500E: BRA.S $009D4F97
-        dc.w    $6087                    ; 009D5010: BRA.S $009D4F99
-        dc.w    $6087                    ; 009D5012: BRA.S $009D4F9B
-        dc.w    $6087                    ; 009D5014: BRA.S $009D4F9D
-        dc.w    $6087                    ; 009D5016: BRA.S $009D4F9F
-        dc.w    $6087                    ; 009D5018: BRA.S $009D4FA1
-        dc.w    $6087                    ; 009D501A: BRA.S $009D4FA3
-        dc.w    $6087                    ; 009D501C: BRA.S $009D4FA5
-        dc.w    $6087                    ; 009D501E: BRA.S $009D4FA7
-        dc.w    $6087                    ; 009D5020: BRA.S $009D4FA9
-        dc.w    $6087                    ; 009D5022: BRA.S $009D4FAB
-        dc.w    $6087                    ; 009D5024: BRA.S $009D4FAD
-        dc.w    $6087                    ; 009D5026: BRA.S $009D4FAF
-        dc.w    $29E5                    ; 009D5028: dc.w $29E5
-        dc.w    $2A48                    ; 009D502A: dc.w $2A48
-        dc.w    $2A81                    ; 009D502C: dc.w $2A81
-        dc.w    $6087                    ; 009D502E: BRA.S $009D4FB7
-        dc.w    $6087                    ; 009D5030: BRA.S $009D4FB9
-        dc.w    $6087                    ; 009D5032: BRA.S $009D4FBB
-        dc.w    $6087                    ; 009D5034: BRA.S $009D4FBD
-        dc.w    $6087                    ; 009D5036: BRA.S $009D4FBF
-        dc.w    $6087                    ; 009D5038: BRA.S $009D4FC1
-        dc.w    $6087                    ; 009D503A: BRA.S $009D4FC3
-        dc.w    $2AD6                    ; 009D503C: dc.w $2AD6
-        dc.w    $2C19                    ; 009D503E: dc.w $2C19
-        dc.w    $6087                    ; 009D5040: BRA.S $009D4FC9
-        dc.w    $6087                    ; 009D5042: BRA.S $009D4FCB
-        dc.w    $6087                    ; 009D5044: BRA.S $009D4FCD
-        dc.w    $6087                    ; 009D5046: BRA.S $009D4FCF
-        dc.w    $6087                    ; 009D5048: BRA.S $009D4FD1
-        dc.w    $6087                    ; 009D504A: BRA.S $009D4FD3
-        dc.w    $6087                    ; 009D504C: BRA.S $009D4FD5
-        dc.w    $6087                    ; 009D504E: BRA.S $009D4FD7
-        dc.w    $6087                    ; 009D5050: BRA.S $009D4FD9
-        dc.w    $6087                    ; 009D5052: BRA.S $009D4FDB
-        dc.w    $6087                    ; 009D5054: BRA.S $009D4FDD
-        dc.w    $6087                    ; 009D5056: BRA.S $009D4FDF
-        dc.w    $6087                    ; 009D5058: BRA.S $009D4FE1
-        dc.w    $6087                    ; 009D505A: BRA.S $009D4FE3
-        dc.w    $6087                    ; 009D505C: BRA.S $009D4FE5
-        dc.w    $6087                    ; 009D505E: BRA.S $009D4FE7
-        dc.w    $6087                    ; 009D5060: BRA.S $009D4FE9
-        dc.w    $6087                    ; 009D5062: BRA.S $009D4FEB
-        dc.w    $6087                    ; 009D5064: BRA.S $009D4FED
-        dc.w    $6087                    ; 009D5066: BRA.S $009D4FEF
-        dc.w    $6087                    ; 009D5068: BRA.S $009D4FF1
-        dc.w    $6087                    ; 009D506A: BRA.S $009D4FF3
-        dc.w    $6087                    ; 009D506C: BRA.S $009D4FF5
-        dc.w    $6087                    ; 009D506E: BRA.S $009D4FF7
-        dc.w    $6087                    ; 009D5070: BRA.S $009D4FF9
-        dc.w    $6087                    ; 009D5072: BRA.S $009D4FFB
-        dc.w    $6087                    ; 009D5074: BRA.S $009D4FFD
-        dc.w    $6087                    ; 009D5076: BRA.S $009D4FFF
-        dc.w    $6087                    ; 009D5078: BRA.S $009D5001
-        dc.w    $6087                    ; 009D507A: BRA.S $009D5003
-        dc.w    $6087                    ; 009D507C: BRA.S $009D5005
-        dc.w    $6087                    ; 009D507E: BRA.S $009D5007
-        dc.w    $6087                    ; 009D5080: BRA.S $009D5009
-        dc.w    $6087                    ; 009D5082: BRA.S $009D500B
-        dc.w    $6087                    ; 009D5084: BRA.S $009D500D
-        dc.w    $6087                    ; 009D5086: BRA.S $009D500F
-        dc.w    $6087                    ; 009D5088: BRA.S $009D5011
-        dc.w    $6087                    ; 009D508A: BRA.S $009D5013
-        dc.w    $6087                    ; 009D508C: BRA.S $009D5015
-        dc.w    $6087                    ; 009D508E: BRA.S $009D5017
-        dc.w    $6087                    ; 009D5090: BRA.S $009D5019
-        dc.w    $6087                    ; 009D5092: BRA.S $009D501B
-        dc.w    $6087                    ; 009D5094: BRA.S $009D501D
-        dc.w    $6087                    ; 009D5096: BRA.S $009D501F
-        dc.w    $6087                    ; 009D5098: BRA.S $009D5021
-        dc.w    $6087                    ; 009D509A: BRA.S $009D5023
-        dc.w    $6087                    ; 009D509C: BRA.S $009D5025
-        dc.w    $6087                    ; 009D509E: BRA.S $009D5027
-        dc.w    $6087                    ; 009D50A0: BRA.S $009D5029
-        dc.w    $6087                    ; 009D50A2: BRA.S $009D502B
-        dc.w    $6087                    ; 009D50A4: BRA.S $009D502D
-        dc.w    $6087                    ; 009D50A6: BRA.S $009D502F
-        dc.w    $2CC2                    ; 009D50A8: dc.w $2CC2
-        dc.w    $2D17                    ; 009D50AA: dc.w $2D17
-        dc.w    $2D42                    ; 009D50AC: dc.w $2D42
-        dc.w    $6087                    ; 009D50AE: BRA.S $009D5037
-        dc.w    $6087                    ; 009D50B0: BRA.S $009D5039
-        dc.w    $6087                    ; 009D50B2: BRA.S $009D503B
-        dc.w    $6087                    ; 009D50B4: BRA.S $009D503D
-        dc.w    $6087                    ; 009D50B6: BRA.S $009D503F
-        dc.w    $6087                    ; 009D50B8: BRA.S $009D5041
-        dc.w    $6087                    ; 009D50BA: BRA.S $009D5043
-        dc.w    $2D97                    ; 009D50BC: dc.w $2D97
-        dc.w    $2DFA                    ; 009D50BE: dc.w $2DFA
+        bra.s   $009D4F37                               ; 009D4FAE: $6087
+        bra.s   $009D4F39                               ; 009D4FB0: $6087
+        bra.s   $009D4F3B                               ; 009D4FB2: $6087
+        bra.s   $009D4F3D                               ; 009D4FB4: $6087
+        bra.s   $009D4F3F                               ; 009D4FB6: $6087
+        bra.s   $009D4F41                               ; 009D4FB8: $6087
+        bra.s   $009D4F43                               ; 009D4FBA: $6087
+        move.l  d5,(a4)                                 ; 009D4FBC: $2885
+        move.l  $-79(a4,d6.w),$6087(a4)                 ; 009D4FBE: $2974, $6087, $6087
+        bra.s   $009D4F4D                               ; 009D4FC4: $6087
+        bra.s   $009D4F4F                               ; 009D4FC6: $6087
+        bra.s   $009D4F51                               ; 009D4FC8: $6087
+        bra.s   $009D4F53                               ; 009D4FCA: $6087
+        bra.s   $009D4F55                               ; 009D4FCC: $6087
+        bra.s   $009D4F57                               ; 009D4FCE: $6087
+        bra.s   $009D4F59                               ; 009D4FD0: $6087
+        bra.s   $009D4F5B                               ; 009D4FD2: $6087
+        bra.s   $009D4F5D                               ; 009D4FD4: $6087
+        bra.s   $009D4F5F                               ; 009D4FD6: $6087
+        bra.s   $009D4F61                               ; 009D4FD8: $6087
+        bra.s   $009D4F63                               ; 009D4FDA: $6087
+        bra.s   $009D4F65                               ; 009D4FDC: $6087
+        bra.s   $009D4F67                               ; 009D4FDE: $6087
+        bra.s   $009D4F69                               ; 009D4FE0: $6087
+        bra.s   $009D4F6B                               ; 009D4FE2: $6087
+        bra.s   $009D4F6D                               ; 009D4FE4: $6087
+        bra.s   $009D4F6F                               ; 009D4FE6: $6087
+        bra.s   $009D4F71                               ; 009D4FE8: $6087
+        bra.s   $009D4F73                               ; 009D4FEA: $6087
+        bra.s   $009D4F75                               ; 009D4FEC: $6087
+        bra.s   $009D4F77                               ; 009D4FEE: $6087
+        bra.s   $009D4F79                               ; 009D4FF0: $6087
+        bra.s   $009D4F7B                               ; 009D4FF2: $6087
+        bra.s   $009D4F7D                               ; 009D4FF4: $6087
+        bra.s   $009D4F7F                               ; 009D4FF6: $6087
+        bra.s   $009D4F81                               ; 009D4FF8: $6087
+        bra.s   $009D4F83                               ; 009D4FFA: $6087
+        bra.s   $009D4F85                               ; 009D4FFC: $6087
+        bra.s   $009D4F87                               ; 009D4FFE: $6087
+        bra.s   $009D4F89                               ; 009D5000: $6087
+        bra.s   $009D4F8B                               ; 009D5002: $6087
+        bra.s   $009D4F8D                               ; 009D5004: $6087
+        bra.s   $009D4F8F                               ; 009D5006: $6087
+        bra.s   $009D4F91                               ; 009D5008: $6087
+        bra.s   $009D4F93                               ; 009D500A: $6087
+        bra.s   $009D4F95                               ; 009D500C: $6087
+        bra.s   $009D4F97                               ; 009D500E: $6087
+        bra.s   $009D4F99                               ; 009D5010: $6087
+        bra.s   $009D4F9B                               ; 009D5012: $6087
+        bra.s   $009D4F9D                               ; 009D5014: $6087
+        bra.s   $009D4F9F                               ; 009D5016: $6087
+        bra.s   $009D4FA1                               ; 009D5018: $6087
+        bra.s   $009D4FA3                               ; 009D501A: $6087
+        bra.s   $009D4FA5                               ; 009D501C: $6087
+        bra.s   $009D4FA7                               ; 009D501E: $6087
+        bra.s   $009D4FA9                               ; 009D5020: $6087
+        bra.s   $009D4FAB                               ; 009D5022: $6087
+        bra.s   $009D4FAD                               ; 009D5024: $6087
+        bra.s   $009D4FAF                               ; 009D5026: $6087
+        move.l  -(a5),#$2A482A81                        ; 009D5028: $29E5, $2A48, $2A81
+        bra.s   $009D4FB7                               ; 009D502E: $6087
+        bra.s   $009D4FB9                               ; 009D5030: $6087
+        bra.s   $009D4FBB                               ; 009D5032: $6087
+        bra.s   $009D4FBD                               ; 009D5034: $6087
+        bra.s   $009D4FBF                               ; 009D5036: $6087
+        bra.s   $009D4FC1                               ; 009D5038: $6087
+        bra.s   $009D4FC3                               ; 009D503A: $6087
+        move.l  (a6),(a5)+                              ; 009D503C: $2AD6
+        move.l  (a1)+,d6                                ; 009D503E: $2C19
+        bra.s   $009D4FC9                               ; 009D5040: $6087
+        bra.s   $009D4FCB                               ; 009D5042: $6087
+        bra.s   $009D4FCD                               ; 009D5044: $6087
+        bra.s   $009D4FCF                               ; 009D5046: $6087
+        bra.s   $009D4FD1                               ; 009D5048: $6087
+        bra.s   $009D4FD3                               ; 009D504A: $6087
+        bra.s   $009D4FD5                               ; 009D504C: $6087
+        bra.s   $009D4FD7                               ; 009D504E: $6087
+        bra.s   $009D4FD9                               ; 009D5050: $6087
+        bra.s   $009D4FDB                               ; 009D5052: $6087
+        bra.s   $009D4FDD                               ; 009D5054: $6087
+        bra.s   $009D4FDF                               ; 009D5056: $6087
+        bra.s   $009D4FE1                               ; 009D5058: $6087
+        bra.s   $009D4FE3                               ; 009D505A: $6087
+        bra.s   $009D4FE5                               ; 009D505C: $6087
+        bra.s   $009D4FE7                               ; 009D505E: $6087
+        bra.s   $009D4FE9                               ; 009D5060: $6087
+        bra.s   $009D4FEB                               ; 009D5062: $6087
+        bra.s   $009D4FED                               ; 009D5064: $6087
+        bra.s   $009D4FEF                               ; 009D5066: $6087
+        bra.s   $009D4FF1                               ; 009D5068: $6087
+        bra.s   $009D4FF3                               ; 009D506A: $6087
+        bra.s   $009D4FF5                               ; 009D506C: $6087
+        bra.s   $009D4FF7                               ; 009D506E: $6087
+        bra.s   $009D4FF9                               ; 009D5070: $6087
+        bra.s   $009D4FFB                               ; 009D5072: $6087
+        bra.s   $009D4FFD                               ; 009D5074: $6087
+        bra.s   $009D4FFF                               ; 009D5076: $6087
+        bra.s   $009D5001                               ; 009D5078: $6087
+        bra.s   $009D5003                               ; 009D507A: $6087
+        bra.s   $009D5005                               ; 009D507C: $6087
+        bra.s   $009D5007                               ; 009D507E: $6087
+        bra.s   $009D5009                               ; 009D5080: $6087
+        bra.s   $009D500B                               ; 009D5082: $6087
+        bra.s   $009D500D                               ; 009D5084: $6087
+        bra.s   $009D500F                               ; 009D5086: $6087
+        bra.s   $009D5011                               ; 009D5088: $6087
+        bra.s   $009D5013                               ; 009D508A: $6087
+        bra.s   $009D5015                               ; 009D508C: $6087
+        bra.s   $009D5017                               ; 009D508E: $6087
+        bra.s   $009D5019                               ; 009D5090: $6087
+        bra.s   $009D501B                               ; 009D5092: $6087
+        bra.s   $009D501D                               ; 009D5094: $6087
+        bra.s   $009D501F                               ; 009D5096: $6087
+        bra.s   $009D5021                               ; 009D5098: $6087
+        bra.s   $009D5023                               ; 009D509A: $6087
+        bra.s   $009D5025                               ; 009D509C: $6087
+        bra.s   $009D5027                               ; 009D509E: $6087
+        bra.s   $009D5029                               ; 009D50A0: $6087
+        bra.s   $009D502B                               ; 009D50A2: $6087
+        bra.s   $009D502D                               ; 009D50A4: $6087
+        bra.s   $009D502F                               ; 009D50A6: $6087
+        move.l  d2,(a6)+                                ; 009D50A8: $2CC2
+        move.l  (a7),-(a6)                              ; 009D50AA: $2D17
+        move.l  d2,$6087(a6)                            ; 009D50AC: $2D42, $6087
+        bra.s   $009D5039                               ; 009D50B0: $6087
+        bra.s   $009D503B                               ; 009D50B2: $6087
+        bra.s   $009D503D                               ; 009D50B4: $6087
+        bra.s   $009D503F                               ; 009D50B6: $6087
+        bra.s   $009D5041                               ; 009D50B8: $6087
+        bra.s   $009D5043                               ; 009D50BA: $6087
+        move.l  (a7),$-6(a6,d2.l)                       ; 009D50BC: $2D97, $2DFA
         dc.w    $2EBF                    ; 009D50C0: dc.w $2EBF
         dc.w    $2F3E                    ; 009D50C2: dc.w $2F3E
-        dc.w    $2F93                    ; 009D50C4: dc.w $2F93
-        dc.w    $3012                    ; 009D50C6: dc.w $3012
-        dc.w    $3083                    ; 009D50C8: dc.w $3083
-        dc.w    $6087                    ; 009D50CA: BRA.S $009D5053
-        dc.w    $6087                    ; 009D50CC: BRA.S $009D5055
-        dc.w    $6087                    ; 009D50CE: BRA.S $009D5057
-        dc.w    $6087                    ; 009D50D0: BRA.S $009D5059
-        dc.w    $6087                    ; 009D50D2: BRA.S $009D505B
-        dc.w    $6087                    ; 009D50D4: BRA.S $009D505D
-        dc.w    $6087                    ; 009D50D6: BRA.S $009D505F
-        dc.w    $6087                    ; 009D50D8: BRA.S $009D5061
-        dc.w    $6087                    ; 009D50DA: BRA.S $009D5063
-        dc.w    $6087                    ; 009D50DC: BRA.S $009D5065
-        dc.w    $6087                    ; 009D50DE: BRA.S $009D5067
-        dc.w    $6087                    ; 009D50E0: BRA.S $009D5069
-        dc.w    $6087                    ; 009D50E2: BRA.S $009D506B
-        dc.w    $6087                    ; 009D50E4: BRA.S $009D506D
-        dc.w    $6087                    ; 009D50E6: BRA.S $009D506F
-        dc.w    $6087                    ; 009D50E8: BRA.S $009D5071
-        dc.w    $6087                    ; 009D50EA: BRA.S $009D5073
-        dc.w    $6087                    ; 009D50EC: BRA.S $009D5075
-        dc.w    $6087                    ; 009D50EE: BRA.S $009D5077
-        dc.w    $6087                    ; 009D50F0: BRA.S $009D5079
-        dc.w    $6087                    ; 009D50F2: BRA.S $009D507B
-        dc.w    $6087                    ; 009D50F4: BRA.S $009D507D
-        dc.w    $6087                    ; 009D50F6: BRA.S $009D507F
-        dc.w    $6087                    ; 009D50F8: BRA.S $009D5081
-        dc.w    $6087                    ; 009D50FA: BRA.S $009D5083
-        dc.w    $6087                    ; 009D50FC: BRA.S $009D5085
-        dc.w    $6087                    ; 009D50FE: BRA.S $009D5087
-        dc.w    $6087                    ; 009D5100: BRA.S $009D5089
-        dc.w    $6087                    ; 009D5102: BRA.S $009D508B
-        dc.w    $6087                    ; 009D5104: BRA.S $009D508D
-        dc.w    $6087                    ; 009D5106: BRA.S $009D508F
-        dc.w    $6087                    ; 009D5108: BRA.S $009D5091
-        dc.w    $6087                    ; 009D510A: BRA.S $009D5093
-        dc.w    $6087                    ; 009D510C: BRA.S $009D5095
-        dc.w    $6087                    ; 009D510E: BRA.S $009D5097
-        dc.w    $6087                    ; 009D5110: BRA.S $009D5099
-        dc.w    $6087                    ; 009D5112: BRA.S $009D509B
-        dc.w    $6087                    ; 009D5114: BRA.S $009D509D
-        dc.w    $6087                    ; 009D5116: BRA.S $009D509F
-        dc.w    $6087                    ; 009D5118: BRA.S $009D50A1
-        dc.w    $6087                    ; 009D511A: BRA.S $009D50A3
-        dc.w    $6087                    ; 009D511C: BRA.S $009D50A5
-        dc.w    $6087                    ; 009D511E: BRA.S $009D50A7
-        dc.w    $6087                    ; 009D5120: BRA.S $009D50A9
-        dc.w    $6087                    ; 009D5122: BRA.S $009D50AB
-        dc.w    $6087                    ; 009D5124: BRA.S $009D50AD
-        dc.w    $6087                    ; 009D5126: BRA.S $009D50AF
-        dc.w    $3092                    ; 009D5128: dc.w $3092
-        dc.w    $3103                    ; 009D512A: dc.w $3103
-        dc.w    $313C                    ; 009D512C: dc.w $313C
-        dc.w    $6087                    ; 009D512E: BRA.S $009D50B7
-        dc.w    $6087                    ; 009D5130: BRA.S $009D50B9
-        dc.w    $6087                    ; 009D5132: BRA.S $009D50BB
-        dc.w    $6087                    ; 009D5134: BRA.S $009D50BD
-        dc.w    $6087                    ; 009D5136: BRA.S $009D50BF
-        dc.w    $6087                    ; 009D5138: BRA.S $009D50C1
-        dc.w    $6087                    ; 009D513A: BRA.S $009D50C3
-        dc.w    $31AD                    ; 009D513C: dc.w $31AD
-        dc.w    $3202                    ; 009D513E: dc.w $3202
-        dc.w    $3281                    ; 009D5140: dc.w $3281
-        dc.w    $33A8                    ; 009D5142: dc.w $33A8
-        dc.w    $347B                    ; 009D5144: dc.w $347B
-        dc.w    $3594                    ; 009D5146: dc.w $3594
-        dc.w    $35F7                    ; 009D5148: dc.w $35F7
-        dc.w    $364C                    ; 009D514A: dc.w $364C
-        dc.w    $6087                    ; 009D514C: BRA.S $009D50D5
-        dc.w    $6087                    ; 009D514E: BRA.S $009D50D7
-        dc.w    $6087                    ; 009D5150: BRA.S $009D50D9
-        dc.w    $6087                    ; 009D5152: BRA.S $009D50DB
-        dc.w    $6087                    ; 009D5154: BRA.S $009D50DD
-        dc.w    $6087                    ; 009D5156: BRA.S $009D50DF
-        dc.w    $6087                    ; 009D5158: BRA.S $009D50E1
-        dc.w    $6087                    ; 009D515A: BRA.S $009D50E3
-        dc.w    $6087                    ; 009D515C: BRA.S $009D50E5
-        dc.w    $6087                    ; 009D515E: BRA.S $009D50E7
-        dc.w    $6087                    ; 009D5160: BRA.S $009D50E9
-        dc.w    $6087                    ; 009D5162: BRA.S $009D50EB
-        dc.w    $6087                    ; 009D5164: BRA.S $009D50ED
-        dc.w    $6087                    ; 009D5166: BRA.S $009D50EF
-        dc.w    $6087                    ; 009D5168: BRA.S $009D50F1
-        dc.w    $6087                    ; 009D516A: BRA.S $009D50F3
-        dc.w    $6087                    ; 009D516C: BRA.S $009D50F5
-        dc.w    $6087                    ; 009D516E: BRA.S $009D50F7
-        dc.w    $6087                    ; 009D5170: BRA.S $009D50F9
-        dc.w    $6087                    ; 009D5172: BRA.S $009D50FB
-        dc.w    $6087                    ; 009D5174: BRA.S $009D50FD
-        dc.w    $6087                    ; 009D5176: BRA.S $009D50FF
-        dc.w    $6087                    ; 009D5178: BRA.S $009D5101
-        dc.w    $6087                    ; 009D517A: BRA.S $009D5103
-        dc.w    $6087                    ; 009D517C: BRA.S $009D5105
-        dc.w    $6087                    ; 009D517E: BRA.S $009D5107
-        dc.w    $6087                    ; 009D5180: BRA.S $009D5109
-        dc.w    $6087                    ; 009D5182: BRA.S $009D510B
-        dc.w    $6087                    ; 009D5184: BRA.S $009D510D
-        dc.w    $6087                    ; 009D5186: BRA.S $009D510F
-        dc.w    $6087                    ; 009D5188: BRA.S $009D5111
-        dc.w    $6087                    ; 009D518A: BRA.S $009D5113
-        dc.w    $6087                    ; 009D518C: BRA.S $009D5115
-        dc.w    $6087                    ; 009D518E: BRA.S $009D5117
-        dc.w    $6087                    ; 009D5190: BRA.S $009D5119
-        dc.w    $6087                    ; 009D5192: BRA.S $009D511B
-        dc.w    $6087                    ; 009D5194: BRA.S $009D511D
-        dc.w    $6087                    ; 009D5196: BRA.S $009D511F
-        dc.w    $6087                    ; 009D5198: BRA.S $009D5121
-        dc.w    $6087                    ; 009D519A: BRA.S $009D5123
-        dc.w    $6087                    ; 009D519C: BRA.S $009D5125
-        dc.w    $6087                    ; 009D519E: BRA.S $009D5127
-        dc.w    $6087                    ; 009D51A0: BRA.S $009D5129
-        dc.w    $6087                    ; 009D51A2: BRA.S $009D512B
-        dc.w    $6087                    ; 009D51A4: BRA.S $009D512D
-        dc.w    $6087                    ; 009D51A6: BRA.S $009D512F
-        dc.w    $3677                    ; 009D51A8: dc.w $3677
-        dc.w    $36CC                    ; 009D51AA: dc.w $36CC
-        dc.w    $36F7                    ; 009D51AC: dc.w $36F7
-        dc.w    $6087                    ; 009D51AE: BRA.S $009D5137
-        dc.w    $6087                    ; 009D51B0: BRA.S $009D5139
-        dc.w    $6087                    ; 009D51B2: BRA.S $009D513B
-        dc.w    $6087                    ; 009D51B4: BRA.S $009D513D
-        dc.w    $6087                    ; 009D51B6: BRA.S $009D513F
-        dc.w    $6087                    ; 009D51B8: BRA.S $009D5141
-        dc.w    $6087                    ; 009D51BA: BRA.S $009D5143
-        dc.w    $374C                    ; 009D51BC: dc.w $374C
-        dc.w    $3785                    ; 009D51BE: dc.w $3785
+        move.l  (a3),$12(a7,d3.w)                       ; 009D50C4: $2F93, $3012
+        move.w  d3,(a0)                                 ; 009D50C8: $3083
+        bra.s   $009D5053                               ; 009D50CA: $6087
+        bra.s   $009D5055                               ; 009D50CC: $6087
+        bra.s   $009D5057                               ; 009D50CE: $6087
+        bra.s   $009D5059                               ; 009D50D0: $6087
+        bra.s   $009D505B                               ; 009D50D2: $6087
+        bra.s   $009D505D                               ; 009D50D4: $6087
+        bra.s   $009D505F                               ; 009D50D6: $6087
+        bra.s   $009D5061                               ; 009D50D8: $6087
+        bra.s   $009D5063                               ; 009D50DA: $6087
+        bra.s   $009D5065                               ; 009D50DC: $6087
+        bra.s   $009D5067                               ; 009D50DE: $6087
+        bra.s   $009D5069                               ; 009D50E0: $6087
+        bra.s   $009D506B                               ; 009D50E2: $6087
+        bra.s   $009D506D                               ; 009D50E4: $6087
+        bra.s   $009D506F                               ; 009D50E6: $6087
+        bra.s   $009D5071                               ; 009D50E8: $6087
+        bra.s   $009D5073                               ; 009D50EA: $6087
+        bra.s   $009D5075                               ; 009D50EC: $6087
+        bra.s   $009D5077                               ; 009D50EE: $6087
+        bra.s   $009D5079                               ; 009D50F0: $6087
+        bra.s   $009D507B                               ; 009D50F2: $6087
+        bra.s   $009D507D                               ; 009D50F4: $6087
+        bra.s   $009D507F                               ; 009D50F6: $6087
+        bra.s   $009D5081                               ; 009D50F8: $6087
+        bra.s   $009D5083                               ; 009D50FA: $6087
+        bra.s   $009D5085                               ; 009D50FC: $6087
+        bra.s   $009D5087                               ; 009D50FE: $6087
+        bra.s   $009D5089                               ; 009D5100: $6087
+        bra.s   $009D508B                               ; 009D5102: $6087
+        bra.s   $009D508D                               ; 009D5104: $6087
+        bra.s   $009D508F                               ; 009D5106: $6087
+        bra.s   $009D5091                               ; 009D5108: $6087
+        bra.s   $009D5093                               ; 009D510A: $6087
+        bra.s   $009D5095                               ; 009D510C: $6087
+        bra.s   $009D5097                               ; 009D510E: $6087
+        bra.s   $009D5099                               ; 009D5110: $6087
+        bra.s   $009D509B                               ; 009D5112: $6087
+        bra.s   $009D509D                               ; 009D5114: $6087
+        bra.s   $009D509F                               ; 009D5116: $6087
+        bra.s   $009D50A1                               ; 009D5118: $6087
+        bra.s   $009D50A3                               ; 009D511A: $6087
+        bra.s   $009D50A5                               ; 009D511C: $6087
+        bra.s   $009D50A7                               ; 009D511E: $6087
+        bra.s   $009D50A9                               ; 009D5120: $6087
+        bra.s   $009D50AB                               ; 009D5122: $6087
+        bra.s   $009D50AD                               ; 009D5124: $6087
+        bra.s   $009D50AF                               ; 009D5126: $6087
+        move.w  (a2),(a0)                               ; 009D5128: $3092
+        move.w  d3,-(a0)                                ; 009D512A: $3103
+        move.w  #$6087,-(a0)                            ; 009D512C: $313C, $6087
+        bra.s   $009D50B9                               ; 009D5130: $6087
+        bra.s   $009D50BB                               ; 009D5132: $6087
+        bra.s   $009D50BD                               ; 009D5134: $6087
+        bra.s   $009D50BF                               ; 009D5136: $6087
+        bra.s   $009D50C1                               ; 009D5138: $6087
+        bra.s   $009D50C3                               ; 009D513A: $6087
+        move.w  $3202(a5),$-7F(a0,d3.w)                 ; 009D513C: $31AD, $3202, $3281
+        move.w  $347B(a0),$-6C(a1,d3.w)                 ; 009D5142: $33A8, $347B, $3594
+        move.w  $4C(a7,d3.w),$6087(pc)                  ; 009D5148: $35F7, $364C, $6087
+        bra.s   $009D50D7                               ; 009D514E: $6087
+        bra.s   $009D50D9                               ; 009D5150: $6087
+        bra.s   $009D50DB                               ; 009D5152: $6087
+        bra.s   $009D50DD                               ; 009D5154: $6087
+        bra.s   $009D50DF                               ; 009D5156: $6087
+        bra.s   $009D50E1                               ; 009D5158: $6087
+        bra.s   $009D50E3                               ; 009D515A: $6087
+        bra.s   $009D50E5                               ; 009D515C: $6087
+        bra.s   $009D50E7                               ; 009D515E: $6087
+        bra.s   $009D50E9                               ; 009D5160: $6087
+        bra.s   $009D50EB                               ; 009D5162: $6087
+        bra.s   $009D50ED                               ; 009D5164: $6087
+        bra.s   $009D50EF                               ; 009D5166: $6087
+        bra.s   $009D50F1                               ; 009D5168: $6087
+        bra.s   $009D50F3                               ; 009D516A: $6087
+        bra.s   $009D50F5                               ; 009D516C: $6087
+        bra.s   $009D50F7                               ; 009D516E: $6087
+        bra.s   $009D50F9                               ; 009D5170: $6087
+        bra.s   $009D50FB                               ; 009D5172: $6087
+        bra.s   $009D50FD                               ; 009D5174: $6087
+        bra.s   $009D50FF                               ; 009D5176: $6087
+        bra.s   $009D5101                               ; 009D5178: $6087
+        bra.s   $009D5103                               ; 009D517A: $6087
+        bra.s   $009D5105                               ; 009D517C: $6087
+        bra.s   $009D5107                               ; 009D517E: $6087
+        bra.s   $009D5109                               ; 009D5180: $6087
+        bra.s   $009D510B                               ; 009D5182: $6087
+        bra.s   $009D510D                               ; 009D5184: $6087
+        bra.s   $009D510F                               ; 009D5186: $6087
+        bra.s   $009D5111                               ; 009D5188: $6087
+        bra.s   $009D5113                               ; 009D518A: $6087
+        bra.s   $009D5115                               ; 009D518C: $6087
+        bra.s   $009D5117                               ; 009D518E: $6087
+        bra.s   $009D5119                               ; 009D5190: $6087
+        bra.s   $009D511B                               ; 009D5192: $6087
+        bra.s   $009D511D                               ; 009D5194: $6087
+        bra.s   $009D511F                               ; 009D5196: $6087
+        bra.s   $009D5121                               ; 009D5198: $6087
+        bra.s   $009D5123                               ; 009D519A: $6087
+        bra.s   $009D5125                               ; 009D519C: $6087
+        bra.s   $009D5127                               ; 009D519E: $6087
+        bra.s   $009D5129                               ; 009D51A0: $6087
+        bra.s   $009D512B                               ; 009D51A2: $6087
+        bra.s   $009D512D                               ; 009D51A4: $6087
+        bra.s   $009D512F                               ; 009D51A6: $6087
+        movea.w $-34(a7,d3.w),a3                        ; 009D51A8: $3677, $36CC
+        move.w  $-79(a7,d6.w),(a3)+                     ; 009D51AC: $36F7, $6087
+        bra.s   $009D5139                               ; 009D51B0: $6087
+        bra.s   $009D513B                               ; 009D51B2: $6087
+        bra.s   $009D513D                               ; 009D51B4: $6087
+        bra.s   $009D513F                               ; 009D51B6: $6087
+        bra.s   $009D5141                               ; 009D51B8: $6087
+        bra.s   $009D5143                               ; 009D51BA: $6087
+        move.w  a4,$3785(a3)                            ; 009D51BC: $374C, $3785
         dc.w    $37BE                    ; 009D51C0: dc.w $37BE
-        dc.w    $3813                    ; 009D51C2: dc.w $3813
-        dc.w    $3868                    ; 009D51C4: dc.w $3868
-        dc.w    $38BD                    ; 009D51C6: dc.w $38BD
-        dc.w    $394A                    ; 009D51C8: dc.w $394A
-        dc.w    $39D7                    ; 009D51CA: dc.w $39D7
-        dc.w    $6087                    ; 009D51CC: BRA.S $009D5155
-        dc.w    $6087                    ; 009D51CE: BRA.S $009D5157
-        dc.w    $6087                    ; 009D51D0: BRA.S $009D5159
-        dc.w    $6087                    ; 009D51D2: BRA.S $009D515B
-        dc.w    $6087                    ; 009D51D4: BRA.S $009D515D
-        dc.w    $6087                    ; 009D51D6: BRA.S $009D515F
-        dc.w    $6087                    ; 009D51D8: BRA.S $009D5161
-        dc.w    $6087                    ; 009D51DA: BRA.S $009D5163
-        dc.w    $6087                    ; 009D51DC: BRA.S $009D5165
-        dc.w    $6087                    ; 009D51DE: BRA.S $009D5167
-        dc.w    $6087                    ; 009D51E0: BRA.S $009D5169
-        dc.w    $6087                    ; 009D51E2: BRA.S $009D516B
-        dc.w    $6087                    ; 009D51E4: BRA.S $009D516D
-        dc.w    $6087                    ; 009D51E6: BRA.S $009D516F
-        dc.w    $6087                    ; 009D51E8: BRA.S $009D5171
-        dc.w    $6087                    ; 009D51EA: BRA.S $009D5173
-        dc.w    $6087                    ; 009D51EC: BRA.S $009D5175
-        dc.w    $6087                    ; 009D51EE: BRA.S $009D5177
-        dc.w    $6087                    ; 009D51F0: BRA.S $009D5179
-        dc.w    $6087                    ; 009D51F2: BRA.S $009D517B
-        dc.w    $6087                    ; 009D51F4: BRA.S $009D517D
-        dc.w    $6087                    ; 009D51F6: BRA.S $009D517F
-        dc.w    $6087                    ; 009D51F8: BRA.S $009D5181
-        dc.w    $6087                    ; 009D51FA: BRA.S $009D5183
-        dc.w    $6087                    ; 009D51FC: BRA.S $009D5185
-        dc.w    $6087                    ; 009D51FE: BRA.S $009D5187
-        dc.w    $6087                    ; 009D5200: BRA.S $009D5189
-        dc.w    $6087                    ; 009D5202: BRA.S $009D518B
-        dc.w    $6087                    ; 009D5204: BRA.S $009D518D
-        dc.w    $6087                    ; 009D5206: BRA.S $009D518F
-        dc.w    $6087                    ; 009D5208: BRA.S $009D5191
-        dc.w    $6087                    ; 009D520A: BRA.S $009D5193
-        dc.w    $6087                    ; 009D520C: BRA.S $009D5195
-        dc.w    $6087                    ; 009D520E: BRA.S $009D5197
-        dc.w    $6087                    ; 009D5210: BRA.S $009D5199
-        dc.w    $6087                    ; 009D5212: BRA.S $009D519B
-        dc.w    $6087                    ; 009D5214: BRA.S $009D519D
-        dc.w    $6087                    ; 009D5216: BRA.S $009D519F
-        dc.w    $6087                    ; 009D5218: BRA.S $009D51A1
-        dc.w    $6087                    ; 009D521A: BRA.S $009D51A3
-        dc.w    $6087                    ; 009D521C: BRA.S $009D51A5
-        dc.w    $6087                    ; 009D521E: BRA.S $009D51A7
-        dc.w    $6087                    ; 009D5220: BRA.S $009D51A9
-        dc.w    $6087                    ; 009D5222: BRA.S $009D51AB
-        dc.w    $6087                    ; 009D5224: BRA.S $009D51AD
-        dc.w    $6087                    ; 009D5226: BRA.S $009D51AF
-        dc.w    $3A48                    ; 009D5228: dc.w $3A48
-        dc.w    $3A9D                    ; 009D522A: dc.w $3A9D
-        dc.w    $3AC8                    ; 009D522C: dc.w $3AC8
-        dc.w    $6087                    ; 009D522E: BRA.S $009D51B7
-        dc.w    $6087                    ; 009D5230: BRA.S $009D51B9
-        dc.w    $6087                    ; 009D5232: BRA.S $009D51BB
-        dc.w    $6087                    ; 009D5234: BRA.S $009D51BD
-        dc.w    $6087                    ; 009D5236: BRA.S $009D51BF
-        dc.w    $6087                    ; 009D5238: BRA.S $009D51C1
-        dc.w    $6087                    ; 009D523A: BRA.S $009D51C3
-        dc.w    $6087                    ; 009D523C: BRA.S $009D51C5
-        dc.w    $6087                    ; 009D523E: BRA.S $009D51C7
-        dc.w    $6087                    ; 009D5240: BRA.S $009D51C9
-        dc.w    $6087                    ; 009D5242: BRA.S $009D51CB
-        dc.w    $6087                    ; 009D5244: BRA.S $009D51CD
-        dc.w    $6087                    ; 009D5246: BRA.S $009D51CF
-        dc.w    $3B1D                    ; 009D5248: dc.w $3B1D
-        dc.w    $3BAA                    ; 009D524A: dc.w $3BAA
-        dc.w    $6087                    ; 009D524C: BRA.S $009D51D5
-        dc.w    $6087                    ; 009D524E: BRA.S $009D51D7
-        dc.w    $6087                    ; 009D5250: BRA.S $009D51D9
-        dc.w    $6087                    ; 009D5252: BRA.S $009D51DB
-        dc.w    $6087                    ; 009D5254: BRA.S $009D51DD
-        dc.w    $6087                    ; 009D5256: BRA.S $009D51DF
-        dc.w    $6087                    ; 009D5258: BRA.S $009D51E1
-        dc.w    $6087                    ; 009D525A: BRA.S $009D51E3
-        dc.w    $6087                    ; 009D525C: BRA.S $009D51E5
-        dc.w    $6087                    ; 009D525E: BRA.S $009D51E7
-        dc.w    $6087                    ; 009D5260: BRA.S $009D51E9
-        dc.w    $6087                    ; 009D5262: BRA.S $009D51EB
-        dc.w    $6087                    ; 009D5264: BRA.S $009D51ED
-        dc.w    $6087                    ; 009D5266: BRA.S $009D51EF
-        dc.w    $6087                    ; 009D5268: BRA.S $009D51F1
-        dc.w    $6087                    ; 009D526A: BRA.S $009D51F3
-        dc.w    $6087                    ; 009D526C: BRA.S $009D51F5
-        dc.w    $6087                    ; 009D526E: BRA.S $009D51F7
-        dc.w    $6087                    ; 009D5270: BRA.S $009D51F9
-        dc.w    $6087                    ; 009D5272: BRA.S $009D51FB
-        dc.w    $6087                    ; 009D5274: BRA.S $009D51FD
-        dc.w    $6087                    ; 009D5276: BRA.S $009D51FF
-        dc.w    $6087                    ; 009D5278: BRA.S $009D5201
-        dc.w    $6087                    ; 009D527A: BRA.S $009D5203
-        dc.w    $6087                    ; 009D527C: BRA.S $009D5205
-        dc.w    $6087                    ; 009D527E: BRA.S $009D5207
-        dc.w    $6087                    ; 009D5280: BRA.S $009D5209
-        dc.w    $6087                    ; 009D5282: BRA.S $009D520B
-        dc.w    $6087                    ; 009D5284: BRA.S $009D520D
-        dc.w    $6087                    ; 009D5286: BRA.S $009D520F
-        dc.w    $6087                    ; 009D5288: BRA.S $009D5211
-        dc.w    $6087                    ; 009D528A: BRA.S $009D5213
-        dc.w    $6087                    ; 009D528C: BRA.S $009D5215
-        dc.w    $6087                    ; 009D528E: BRA.S $009D5217
-        dc.w    $6087                    ; 009D5290: BRA.S $009D5219
-        dc.w    $6087                    ; 009D5292: BRA.S $009D521B
-        dc.w    $6087                    ; 009D5294: BRA.S $009D521D
-        dc.w    $6087                    ; 009D5296: BRA.S $009D521F
-        dc.w    $6087                    ; 009D5298: BRA.S $009D5221
-        dc.w    $6087                    ; 009D529A: BRA.S $009D5223
-        dc.w    $6087                    ; 009D529C: BRA.S $009D5225
-        dc.w    $6087                    ; 009D529E: BRA.S $009D5227
-        dc.w    $6087                    ; 009D52A0: BRA.S $009D5229
-        dc.w    $6087                    ; 009D52A2: BRA.S $009D522B
-        dc.w    $6087                    ; 009D52A4: BRA.S $009D522D
-        dc.w    $6087                    ; 009D52A6: BRA.S $009D522F
-        dc.w    $3C0D                    ; 009D52A8: dc.w $3C0D
-        dc.w    $3C70                    ; 009D52AA: dc.w $3C70
-        dc.w    $3CA9                    ; 009D52AC: dc.w $3CA9
-        dc.w    $6087                    ; 009D52AE: BRA.S $009D5237
-        dc.w    $6087                    ; 009D52B0: BRA.S $009D5239
-        dc.w    $6087                    ; 009D52B2: BRA.S $009D523B
-        dc.w    $6087                    ; 009D52B4: BRA.S $009D523D
-        dc.w    $6087                    ; 009D52B6: BRA.S $009D523F
-        dc.w    $6087                    ; 009D52B8: BRA.S $009D5241
-        dc.w    $6087                    ; 009D52BA: BRA.S $009D5243
-        dc.w    $6087                    ; 009D52BC: BRA.S $009D5245
-        dc.w    $6087                    ; 009D52BE: BRA.S $009D5247
-        dc.w    $6087                    ; 009D52C0: BRA.S $009D5249
-        dc.w    $6087                    ; 009D52C2: BRA.S $009D524B
-        dc.w    $6087                    ; 009D52C4: BRA.S $009D524D
-        dc.w    $6087                    ; 009D52C6: BRA.S $009D524F
+        move.w  (a3),d4                                 ; 009D51C2: $3813
+        movea.w $38BD(a0),a4                            ; 009D51C4: $3868, $38BD
+        move.w  a2,$39D7(a4)                            ; 009D51C8: $394A, $39D7
+        bra.s   $009D5155                               ; 009D51CC: $6087
+        bra.s   $009D5157                               ; 009D51CE: $6087
+        bra.s   $009D5159                               ; 009D51D0: $6087
+        bra.s   $009D515B                               ; 009D51D2: $6087
+        bra.s   $009D515D                               ; 009D51D4: $6087
+        bra.s   $009D515F                               ; 009D51D6: $6087
+        bra.s   $009D5161                               ; 009D51D8: $6087
+        bra.s   $009D5163                               ; 009D51DA: $6087
+        bra.s   $009D5165                               ; 009D51DC: $6087
+        bra.s   $009D5167                               ; 009D51DE: $6087
+        bra.s   $009D5169                               ; 009D51E0: $6087
+        bra.s   $009D516B                               ; 009D51E2: $6087
+        bra.s   $009D516D                               ; 009D51E4: $6087
+        bra.s   $009D516F                               ; 009D51E6: $6087
+        bra.s   $009D5171                               ; 009D51E8: $6087
+        bra.s   $009D5173                               ; 009D51EA: $6087
+        bra.s   $009D5175                               ; 009D51EC: $6087
+        bra.s   $009D5177                               ; 009D51EE: $6087
+        bra.s   $009D5179                               ; 009D51F0: $6087
+        bra.s   $009D517B                               ; 009D51F2: $6087
+        bra.s   $009D517D                               ; 009D51F4: $6087
+        bra.s   $009D517F                               ; 009D51F6: $6087
+        bra.s   $009D5181                               ; 009D51F8: $6087
+        bra.s   $009D5183                               ; 009D51FA: $6087
+        bra.s   $009D5185                               ; 009D51FC: $6087
+        bra.s   $009D5187                               ; 009D51FE: $6087
+        bra.s   $009D5189                               ; 009D5200: $6087
+        bra.s   $009D518B                               ; 009D5202: $6087
+        bra.s   $009D518D                               ; 009D5204: $6087
+        bra.s   $009D518F                               ; 009D5206: $6087
+        bra.s   $009D5191                               ; 009D5208: $6087
+        bra.s   $009D5193                               ; 009D520A: $6087
+        bra.s   $009D5195                               ; 009D520C: $6087
+        bra.s   $009D5197                               ; 009D520E: $6087
+        bra.s   $009D5199                               ; 009D5210: $6087
+        bra.s   $009D519B                               ; 009D5212: $6087
+        bra.s   $009D519D                               ; 009D5214: $6087
+        bra.s   $009D519F                               ; 009D5216: $6087
+        bra.s   $009D51A1                               ; 009D5218: $6087
+        bra.s   $009D51A3                               ; 009D521A: $6087
+        bra.s   $009D51A5                               ; 009D521C: $6087
+        bra.s   $009D51A7                               ; 009D521E: $6087
+        bra.s   $009D51A9                               ; 009D5220: $6087
+        bra.s   $009D51AB                               ; 009D5222: $6087
+        bra.s   $009D51AD                               ; 009D5224: $6087
+        bra.s   $009D51AF                               ; 009D5226: $6087
+        movea.w a0,a5                                   ; 009D5228: $3A48
+        move.w  (a5)+,(a5)                              ; 009D522A: $3A9D
+        move.w  a0,(a5)+                                ; 009D522C: $3AC8
+        bra.s   $009D51B7                               ; 009D522E: $6087
+        bra.s   $009D51B9                               ; 009D5230: $6087
+        bra.s   $009D51BB                               ; 009D5232: $6087
+        bra.s   $009D51BD                               ; 009D5234: $6087
+        bra.s   $009D51BF                               ; 009D5236: $6087
+        bra.s   $009D51C1                               ; 009D5238: $6087
+        bra.s   $009D51C3                               ; 009D523A: $6087
+        bra.s   $009D51C5                               ; 009D523C: $6087
+        bra.s   $009D51C7                               ; 009D523E: $6087
+        bra.s   $009D51C9                               ; 009D5240: $6087
+        bra.s   $009D51CB                               ; 009D5242: $6087
+        bra.s   $009D51CD                               ; 009D5244: $6087
+        bra.s   $009D51CF                               ; 009D5246: $6087
+        move.w  (a5)+,-(a5)                             ; 009D5248: $3B1D
+        move.w  $6087(a2),$-79(a5,d6.w)                 ; 009D524A: $3BAA, $6087, $6087
+        bra.s   $009D51D9                               ; 009D5250: $6087
+        bra.s   $009D51DB                               ; 009D5252: $6087
+        bra.s   $009D51DD                               ; 009D5254: $6087
+        bra.s   $009D51DF                               ; 009D5256: $6087
+        bra.s   $009D51E1                               ; 009D5258: $6087
+        bra.s   $009D51E3                               ; 009D525A: $6087
+        bra.s   $009D51E5                               ; 009D525C: $6087
+        bra.s   $009D51E7                               ; 009D525E: $6087
+        bra.s   $009D51E9                               ; 009D5260: $6087
+        bra.s   $009D51EB                               ; 009D5262: $6087
+        bra.s   $009D51ED                               ; 009D5264: $6087
+        bra.s   $009D51EF                               ; 009D5266: $6087
+        bra.s   $009D51F1                               ; 009D5268: $6087
+        bra.s   $009D51F3                               ; 009D526A: $6087
+        bra.s   $009D51F5                               ; 009D526C: $6087
+        bra.s   $009D51F7                               ; 009D526E: $6087
+        bra.s   $009D51F9                               ; 009D5270: $6087
+        bra.s   $009D51FB                               ; 009D5272: $6087
+        bra.s   $009D51FD                               ; 009D5274: $6087
+        bra.s   $009D51FF                               ; 009D5276: $6087
+        bra.s   $009D5201                               ; 009D5278: $6087
+        bra.s   $009D5203                               ; 009D527A: $6087
+        bra.s   $009D5205                               ; 009D527C: $6087
+        bra.s   $009D5207                               ; 009D527E: $6087
+        bra.s   $009D5209                               ; 009D5280: $6087
+        bra.s   $009D520B                               ; 009D5282: $6087
+        bra.s   $009D520D                               ; 009D5284: $6087
+        bra.s   $009D520F                               ; 009D5286: $6087
+        bra.s   $009D5211                               ; 009D5288: $6087
+        bra.s   $009D5213                               ; 009D528A: $6087
+        bra.s   $009D5215                               ; 009D528C: $6087
+        bra.s   $009D5217                               ; 009D528E: $6087
+        bra.s   $009D5219                               ; 009D5290: $6087
+        bra.s   $009D521B                               ; 009D5292: $6087
+        bra.s   $009D521D                               ; 009D5294: $6087
+        bra.s   $009D521F                               ; 009D5296: $6087
+        bra.s   $009D5221                               ; 009D5298: $6087
+        bra.s   $009D5223                               ; 009D529A: $6087
+        bra.s   $009D5225                               ; 009D529C: $6087
+        bra.s   $009D5227                               ; 009D529E: $6087
+        bra.s   $009D5229                               ; 009D52A0: $6087
+        bra.s   $009D522B                               ; 009D52A2: $6087
+        bra.s   $009D522D                               ; 009D52A4: $6087
+        bra.s   $009D522F                               ; 009D52A6: $6087
+        move.w  a5,d6                                   ; 009D52A8: $3C0D
+        movea.w $-57(a0,d3.l),a6                        ; 009D52AA: $3C70, $3CA9
+        bra.s   $009D5237                               ; 009D52AE: $6087
+        bra.s   $009D5239                               ; 009D52B0: $6087
+        bra.s   $009D523B                               ; 009D52B2: $6087
+        bra.s   $009D523D                               ; 009D52B4: $6087
+        bra.s   $009D523F                               ; 009D52B6: $6087
+        bra.s   $009D5241                               ; 009D52B8: $6087
+        bra.s   $009D5243                               ; 009D52BA: $6087
+        bra.s   $009D5245                               ; 009D52BC: $6087
+        bra.s   $009D5247                               ; 009D52BE: $6087
+        bra.s   $009D5249                               ; 009D52C0: $6087
+        bra.s   $009D524B                               ; 009D52C2: $6087
+        bra.s   $009D524D                               ; 009D52C4: $6087
+        bra.s   $009D524F                               ; 009D52C6: $6087
         dc.w    $3CFE                    ; 009D52C8: dc.w $3CFE
-        dc.w    $3D61                    ; 009D52CA: dc.w $3D61
-        dc.w    $3DB6                    ; 009D52CC: dc.w $3DB6
-        dc.w    $6087                    ; 009D52CE: BRA.S $009D5257
-        dc.w    $6087                    ; 009D52D0: BRA.S $009D5259
-        dc.w    $6087                    ; 009D52D2: BRA.S $009D525B
-        dc.w    $6087                    ; 009D52D4: BRA.S $009D525D
-        dc.w    $6087                    ; 009D52D6: BRA.S $009D525F
-        dc.w    $6087                    ; 009D52D8: BRA.S $009D5261
-        dc.w    $6087                    ; 009D52DA: BRA.S $009D5263
-        dc.w    $6087                    ; 009D52DC: BRA.S $009D5265
-        dc.w    $6087                    ; 009D52DE: BRA.S $009D5267
-        dc.w    $6087                    ; 009D52E0: BRA.S $009D5269
-        dc.w    $6087                    ; 009D52E2: BRA.S $009D526B
-        dc.w    $6087                    ; 009D52E4: BRA.S $009D526D
-        dc.w    $6087                    ; 009D52E6: BRA.S $009D526F
-        dc.w    $6087                    ; 009D52E8: BRA.S $009D5271
-        dc.w    $6087                    ; 009D52EA: BRA.S $009D5273
-        dc.w    $6087                    ; 009D52EC: BRA.S $009D5275
-        dc.w    $6087                    ; 009D52EE: BRA.S $009D5277
-        dc.w    $6087                    ; 009D52F0: BRA.S $009D5279
-        dc.w    $6087                    ; 009D52F2: BRA.S $009D527B
-        dc.w    $6087                    ; 009D52F4: BRA.S $009D527D
-        dc.w    $6087                    ; 009D52F6: BRA.S $009D527F
-        dc.w    $6087                    ; 009D52F8: BRA.S $009D5281
-        dc.w    $6087                    ; 009D52FA: BRA.S $009D5283
-        dc.w    $6087                    ; 009D52FC: BRA.S $009D5285
-        dc.w    $6087                    ; 009D52FE: BRA.S $009D5287
-        dc.w    $6087                    ; 009D5300: BRA.S $009D5289
-        dc.w    $6087                    ; 009D5302: BRA.S $009D528B
-        dc.w    $6087                    ; 009D5304: BRA.S $009D528D
-        dc.w    $6087                    ; 009D5306: BRA.S $009D528F
-        dc.w    $6087                    ; 009D5308: BRA.S $009D5291
-        dc.w    $6087                    ; 009D530A: BRA.S $009D5293
-        dc.w    $6087                    ; 009D530C: BRA.S $009D5295
-        dc.w    $6087                    ; 009D530E: BRA.S $009D5297
-        dc.w    $6087                    ; 009D5310: BRA.S $009D5299
-        dc.w    $6087                    ; 009D5312: BRA.S $009D529B
-        dc.w    $6087                    ; 009D5314: BRA.S $009D529D
-        dc.w    $6087                    ; 009D5316: BRA.S $009D529F
-        dc.w    $6087                    ; 009D5318: BRA.S $009D52A1
-        dc.w    $6087                    ; 009D531A: BRA.S $009D52A3
-        dc.w    $6087                    ; 009D531C: BRA.S $009D52A5
-        dc.w    $6087                    ; 009D531E: BRA.S $009D52A7
-        dc.w    $6087                    ; 009D5320: BRA.S $009D52A9
-        dc.w    $6087                    ; 009D5322: BRA.S $009D52AB
-        dc.w    $6087                    ; 009D5324: BRA.S $009D52AD
-        dc.w    $6087                    ; 009D5326: BRA.S $009D52AF
+        move.w  -(a1),$3DB6(a6)                         ; 009D52CA: $3D61, $3DB6
+        bra.s   $009D5257                               ; 009D52CE: $6087
+        bra.s   $009D5259                               ; 009D52D0: $6087
+        bra.s   $009D525B                               ; 009D52D2: $6087
+        bra.s   $009D525D                               ; 009D52D4: $6087
+        bra.s   $009D525F                               ; 009D52D6: $6087
+        bra.s   $009D5261                               ; 009D52D8: $6087
+        bra.s   $009D5263                               ; 009D52DA: $6087
+        bra.s   $009D5265                               ; 009D52DC: $6087
+        bra.s   $009D5267                               ; 009D52DE: $6087
+        bra.s   $009D5269                               ; 009D52E0: $6087
+        bra.s   $009D526B                               ; 009D52E2: $6087
+        bra.s   $009D526D                               ; 009D52E4: $6087
+        bra.s   $009D526F                               ; 009D52E6: $6087
+        bra.s   $009D5271                               ; 009D52E8: $6087
+        bra.s   $009D5273                               ; 009D52EA: $6087
+        bra.s   $009D5275                               ; 009D52EC: $6087
+        bra.s   $009D5277                               ; 009D52EE: $6087
+        bra.s   $009D5279                               ; 009D52F0: $6087
+        bra.s   $009D527B                               ; 009D52F2: $6087
+        bra.s   $009D527D                               ; 009D52F4: $6087
+        bra.s   $009D527F                               ; 009D52F6: $6087
+        bra.s   $009D5281                               ; 009D52F8: $6087
+        bra.s   $009D5283                               ; 009D52FA: $6087
+        bra.s   $009D5285                               ; 009D52FC: $6087
+        bra.s   $009D5287                               ; 009D52FE: $6087
+        bra.s   $009D5289                               ; 009D5300: $6087
+        bra.s   $009D528B                               ; 009D5302: $6087
+        bra.s   $009D528D                               ; 009D5304: $6087
+        bra.s   $009D528F                               ; 009D5306: $6087
+        bra.s   $009D5291                               ; 009D5308: $6087
+        bra.s   $009D5293                               ; 009D530A: $6087
+        bra.s   $009D5295                               ; 009D530C: $6087
+        bra.s   $009D5297                               ; 009D530E: $6087
+        bra.s   $009D5299                               ; 009D5310: $6087
+        bra.s   $009D529B                               ; 009D5312: $6087
+        bra.s   $009D529D                               ; 009D5314: $6087
+        bra.s   $009D529F                               ; 009D5316: $6087
+        bra.s   $009D52A1                               ; 009D5318: $6087
+        bra.s   $009D52A3                               ; 009D531A: $6087
+        bra.s   $009D52A5                               ; 009D531C: $6087
+        bra.s   $009D52A7                               ; 009D531E: $6087
+        bra.s   $009D52A9                               ; 009D5320: $6087
+        bra.s   $009D52AB                               ; 009D5322: $6087
+        bra.s   $009D52AD                               ; 009D5324: $6087
+        bra.s   $009D52AF                               ; 009D5326: $6087
         dc.w    $3DE1                    ; 009D5328: dc.w $3DE1
-        dc.w    $3E44                    ; 009D532A: dc.w $3E44
+        movea.w d4,a7                                   ; 009D532A: $3E44
         dc.w    $3E7D                    ; 009D532C: dc.w $3E7D
-        dc.w    $3F18                    ; 009D532E: dc.w $3F18
-        dc.w    $6087                    ; 009D5330: BRA.S $009D52B9
-        dc.w    $6087                    ; 009D5332: BRA.S $009D52BB
-        dc.w    $6087                    ; 009D5334: BRA.S $009D52BD
-        dc.w    $6087                    ; 009D5336: BRA.S $009D52BF
-        dc.w    $6087                    ; 009D5338: BRA.S $009D52C1
-        dc.w    $6087                    ; 009D533A: BRA.S $009D52C3
-        dc.w    $6087                    ; 009D533C: BRA.S $009D52C5
-        dc.w    $6087                    ; 009D533E: BRA.S $009D52C7
-        dc.w    $6087                    ; 009D5340: BRA.S $009D52C9
-        dc.w    $6087                    ; 009D5342: BRA.S $009D52CB
-        dc.w    $6087                    ; 009D5344: BRA.S $009D52CD
-        dc.w    $6087                    ; 009D5346: BRA.S $009D52CF
-        dc.w    $3F51                    ; 009D5348: dc.w $3F51
-        dc.w    $3FC2                    ; 009D534A: dc.w $3FC2
+        move.w  (a0)+,-(a7)                             ; 009D532E: $3F18
+        bra.s   $009D52B9                               ; 009D5330: $6087
+        bra.s   $009D52BB                               ; 009D5332: $6087
+        bra.s   $009D52BD                               ; 009D5334: $6087
+        bra.s   $009D52BF                               ; 009D5336: $6087
+        bra.s   $009D52C1                               ; 009D5338: $6087
+        bra.s   $009D52C3                               ; 009D533A: $6087
+        bra.s   $009D52C5                               ; 009D533C: $6087
+        bra.s   $009D52C7                               ; 009D533E: $6087
+        bra.s   $009D52C9                               ; 009D5340: $6087
+        bra.s   $009D52CB                               ; 009D5342: $6087
+        bra.s   $009D52CD                               ; 009D5344: $6087
+        bra.s   $009D52CF                               ; 009D5346: $6087
+        move.w  (a1),$3FC2(a7)                          ; 009D5348: $3F51, $3FC2
         dc.w    $4033                    ; 009D534C: dc.w $4033
-        dc.w    $6087                    ; 009D534E: BRA.S $009D52D7
-        dc.w    $6087                    ; 009D5350: BRA.S $009D52D9
-        dc.w    $6087                    ; 009D5352: BRA.S $009D52DB
-        dc.w    $6087                    ; 009D5354: BRA.S $009D52DD
-        dc.w    $6087                    ; 009D5356: BRA.S $009D52DF
-        dc.w    $6087                    ; 009D5358: BRA.S $009D52E1
-        dc.w    $6087                    ; 009D535A: BRA.S $009D52E3
-        dc.w    $6087                    ; 009D535C: BRA.S $009D52E5
-        dc.w    $6087                    ; 009D535E: BRA.S $009D52E7
-        dc.w    $6087                    ; 009D5360: BRA.S $009D52E9
-        dc.w    $6087                    ; 009D5362: BRA.S $009D52EB
-        dc.w    $6087                    ; 009D5364: BRA.S $009D52ED
-        dc.w    $6087                    ; 009D5366: BRA.S $009D52EF
-        dc.w    $6087                    ; 009D5368: BRA.S $009D52F1
-        dc.w    $6087                    ; 009D536A: BRA.S $009D52F3
-        dc.w    $6087                    ; 009D536C: BRA.S $009D52F5
-        dc.w    $6087                    ; 009D536E: BRA.S $009D52F7
-        dc.w    $6087                    ; 009D5370: BRA.S $009D52F9
-        dc.w    $6087                    ; 009D5372: BRA.S $009D52FB
-        dc.w    $6087                    ; 009D5374: BRA.S $009D52FD
-        dc.w    $6087                    ; 009D5376: BRA.S $009D52FF
-        dc.w    $6087                    ; 009D5378: BRA.S $009D5301
-        dc.w    $6087                    ; 009D537A: BRA.S $009D5303
-        dc.w    $6087                    ; 009D537C: BRA.S $009D5305
-        dc.w    $6087                    ; 009D537E: BRA.S $009D5307
-        dc.w    $6087                    ; 009D5380: BRA.S $009D5309
-        dc.w    $6087                    ; 009D5382: BRA.S $009D530B
-        dc.w    $6087                    ; 009D5384: BRA.S $009D530D
-        dc.w    $6087                    ; 009D5386: BRA.S $009D530F
-        dc.w    $6087                    ; 009D5388: BRA.S $009D5311
-        dc.w    $6087                    ; 009D538A: BRA.S $009D5313
-        dc.w    $6087                    ; 009D538C: BRA.S $009D5315
-        dc.w    $6087                    ; 009D538E: BRA.S $009D5317
-        dc.w    $6087                    ; 009D5390: BRA.S $009D5319
-        dc.w    $6087                    ; 009D5392: BRA.S $009D531B
-        dc.w    $6087                    ; 009D5394: BRA.S $009D531D
-        dc.w    $6087                    ; 009D5396: BRA.S $009D531F
-        dc.w    $6087                    ; 009D5398: BRA.S $009D5321
-        dc.w    $6087                    ; 009D539A: BRA.S $009D5323
-        dc.w    $6087                    ; 009D539C: BRA.S $009D5325
-        dc.w    $6087                    ; 009D539E: BRA.S $009D5327
-        dc.w    $6087                    ; 009D53A0: BRA.S $009D5329
-        dc.w    $6087                    ; 009D53A2: BRA.S $009D532B
-        dc.w    $6087                    ; 009D53A4: BRA.S $009D532D
-        dc.w    $6087                    ; 009D53A6: BRA.S $009D532F
+        bra.s   $009D52D7                               ; 009D534E: $6087
+        bra.s   $009D52D9                               ; 009D5350: $6087
+        bra.s   $009D52DB                               ; 009D5352: $6087
+        bra.s   $009D52DD                               ; 009D5354: $6087
+        bra.s   $009D52DF                               ; 009D5356: $6087
+        bra.s   $009D52E1                               ; 009D5358: $6087
+        bra.s   $009D52E3                               ; 009D535A: $6087
+        bra.s   $009D52E5                               ; 009D535C: $6087
+        bra.s   $009D52E7                               ; 009D535E: $6087
+        bra.s   $009D52E9                               ; 009D5360: $6087
+        bra.s   $009D52EB                               ; 009D5362: $6087
+        bra.s   $009D52ED                               ; 009D5364: $6087
+        bra.s   $009D52EF                               ; 009D5366: $6087
+        bra.s   $009D52F1                               ; 009D5368: $6087
+        bra.s   $009D52F3                               ; 009D536A: $6087
+        bra.s   $009D52F5                               ; 009D536C: $6087
+        bra.s   $009D52F7                               ; 009D536E: $6087
+        bra.s   $009D52F9                               ; 009D5370: $6087
+        bra.s   $009D52FB                               ; 009D5372: $6087
+        bra.s   $009D52FD                               ; 009D5374: $6087
+        bra.s   $009D52FF                               ; 009D5376: $6087
+        bra.s   $009D5301                               ; 009D5378: $6087
+        bra.s   $009D5303                               ; 009D537A: $6087
+        bra.s   $009D5305                               ; 009D537C: $6087
+        bra.s   $009D5307                               ; 009D537E: $6087
+        bra.s   $009D5309                               ; 009D5380: $6087
+        bra.s   $009D530B                               ; 009D5382: $6087
+        bra.s   $009D530D                               ; 009D5384: $6087
+        bra.s   $009D530F                               ; 009D5386: $6087
+        bra.s   $009D5311                               ; 009D5388: $6087
+        bra.s   $009D5313                               ; 009D538A: $6087
+        bra.s   $009D5315                               ; 009D538C: $6087
+        bra.s   $009D5317                               ; 009D538E: $6087
+        bra.s   $009D5319                               ; 009D5390: $6087
+        bra.s   $009D531B                               ; 009D5392: $6087
+        bra.s   $009D531D                               ; 009D5394: $6087
+        bra.s   $009D531F                               ; 009D5396: $6087
+        bra.s   $009D5321                               ; 009D5398: $6087
+        bra.s   $009D5323                               ; 009D539A: $6087
+        bra.s   $009D5325                               ; 009D539C: $6087
+        bra.s   $009D5327                               ; 009D539E: $6087
+        bra.s   $009D5329                               ; 009D53A0: $6087
+        bra.s   $009D532B                               ; 009D53A2: $6087
+        bra.s   $009D532D                               ; 009D53A4: $6087
+        bra.s   $009D532F                               ; 009D53A6: $6087
         dc.w    $4088                    ; 009D53A8: dc.w $4088
         dc.w    $40B3                    ; 009D53AA: dc.w $40B3
         dc.w    $40DE                    ; 009D53AC: dc.w $40DE
         dc.w    $4117                    ; 009D53AE: dc.w $4117
-        dc.w    $6087                    ; 009D53B0: BRA.S $009D5339
-        dc.w    $6087                    ; 009D53B2: BRA.S $009D533B
-        dc.w    $6087                    ; 009D53B4: BRA.S $009D533D
-        dc.w    $6087                    ; 009D53B6: BRA.S $009D533F
-        dc.w    $6087                    ; 009D53B8: BRA.S $009D5341
-        dc.w    $6087                    ; 009D53BA: BRA.S $009D5343
-        dc.w    $6087                    ; 009D53BC: BRA.S $009D5345
-        dc.w    $6087                    ; 009D53BE: BRA.S $009D5347
-        dc.w    $6087                    ; 009D53C0: BRA.S $009D5349
-        dc.w    $6087                    ; 009D53C2: BRA.S $009D534B
-        dc.w    $6087                    ; 009D53C4: BRA.S $009D534D
+        bra.s   $009D5339                               ; 009D53B0: $6087
+        bra.s   $009D533B                               ; 009D53B2: $6087
+        bra.s   $009D533D                               ; 009D53B4: $6087
+        bra.s   $009D533F                               ; 009D53B6: $6087
+        bra.s   $009D5341                               ; 009D53B8: $6087
+        bra.s   $009D5343                               ; 009D53BA: $6087
+        bra.s   $009D5345                               ; 009D53BC: $6087
+        bra.s   $009D5347                               ; 009D53BE: $6087
+        bra.s   $009D5349                               ; 009D53C0: $6087
+        bra.s   $009D534B                               ; 009D53C2: $6087
+        bra.s   $009D534D                               ; 009D53C4: $6087
         dc.w    $4142                    ; 009D53C6: dc.w $4142
         dc.w    $417B                    ; 009D53C8: dc.w $417B
-        dc.w    $4224                    ; 009D53CA: dc.w $4224
-        dc.w    $426B                    ; 009D53CC: dc.w $426B
-        dc.w    $6087                    ; 009D53CE: BRA.S $009D5357
-        dc.w    $6087                    ; 009D53D0: BRA.S $009D5359
-        dc.w    $6087                    ; 009D53D2: BRA.S $009D535B
-        dc.w    $6087                    ; 009D53D4: BRA.S $009D535D
-        dc.w    $6087                    ; 009D53D6: BRA.S $009D535F
-        dc.w    $6087                    ; 009D53D8: BRA.S $009D5361
-        dc.w    $6087                    ; 009D53DA: BRA.S $009D5363
-        dc.w    $6087                    ; 009D53DC: BRA.S $009D5365
-        dc.w    $6087                    ; 009D53DE: BRA.S $009D5367
-        dc.w    $6087                    ; 009D53E0: BRA.S $009D5369
-        dc.w    $6087                    ; 009D53E2: BRA.S $009D536B
-        dc.w    $6087                    ; 009D53E4: BRA.S $009D536D
-        dc.w    $6087                    ; 009D53E6: BRA.S $009D536F
-        dc.w    $6087                    ; 009D53E8: BRA.S $009D5371
-        dc.w    $6087                    ; 009D53EA: BRA.S $009D5373
-        dc.w    $6087                    ; 009D53EC: BRA.S $009D5375
-        dc.w    $6087                    ; 009D53EE: BRA.S $009D5377
-        dc.w    $6087                    ; 009D53F0: BRA.S $009D5379
-        dc.w    $6087                    ; 009D53F2: BRA.S $009D537B
-        dc.w    $6087                    ; 009D53F4: BRA.S $009D537D
-        dc.w    $6087                    ; 009D53F6: BRA.S $009D537F
-        dc.w    $6087                    ; 009D53F8: BRA.S $009D5381
-        dc.w    $6087                    ; 009D53FA: BRA.S $009D5383
-        dc.w    $6087                    ; 009D53FC: BRA.S $009D5385
-        dc.w    $6087                    ; 009D53FE: BRA.S $009D5387
-        dc.w    $6087                    ; 009D5400: BRA.S $009D5389
-        dc.w    $6087                    ; 009D5402: BRA.S $009D538B
-        dc.w    $6087                    ; 009D5404: BRA.S $009D538D
-        dc.w    $6087                    ; 009D5406: BRA.S $009D538F
-        dc.w    $6087                    ; 009D5408: BRA.S $009D5391
-        dc.w    $6087                    ; 009D540A: BRA.S $009D5393
-        dc.w    $6087                    ; 009D540C: BRA.S $009D5395
-        dc.w    $6087                    ; 009D540E: BRA.S $009D5397
-        dc.w    $6087                    ; 009D5410: BRA.S $009D5399
-        dc.w    $6087                    ; 009D5412: BRA.S $009D539B
-        dc.w    $6087                    ; 009D5414: BRA.S $009D539D
-        dc.w    $6087                    ; 009D5416: BRA.S $009D539F
-        dc.w    $6087                    ; 009D5418: BRA.S $009D53A1
-        dc.w    $6087                    ; 009D541A: BRA.S $009D53A3
-        dc.w    $6087                    ; 009D541C: BRA.S $009D53A5
-        dc.w    $6087                    ; 009D541E: BRA.S $009D53A7
-        dc.w    $6087                    ; 009D5420: BRA.S $009D53A9
-        dc.w    $6087                    ; 009D5422: BRA.S $009D53AB
-        dc.w    $6087                    ; 009D5424: BRA.S $009D53AD
-        dc.w    $6087                    ; 009D5426: BRA.S $009D53AF
-        dc.w    $4288                    ; 009D5428: dc.w $4288
+        clr.b   -(a4)                                   ; 009D53CA: $4224
+        clr.w   $6087(a3)                               ; 009D53CC: $426B, $6087
+        bra.s   $009D5359                               ; 009D53D0: $6087
+        bra.s   $009D535B                               ; 009D53D2: $6087
+        bra.s   $009D535D                               ; 009D53D4: $6087
+        bra.s   $009D535F                               ; 009D53D6: $6087
+        bra.s   $009D5361                               ; 009D53D8: $6087
+        bra.s   $009D5363                               ; 009D53DA: $6087
+        bra.s   $009D5365                               ; 009D53DC: $6087
+        bra.s   $009D5367                               ; 009D53DE: $6087
+        bra.s   $009D5369                               ; 009D53E0: $6087
+        bra.s   $009D536B                               ; 009D53E2: $6087
+        bra.s   $009D536D                               ; 009D53E4: $6087
+        bra.s   $009D536F                               ; 009D53E6: $6087
+        bra.s   $009D5371                               ; 009D53E8: $6087
+        bra.s   $009D5373                               ; 009D53EA: $6087
+        bra.s   $009D5375                               ; 009D53EC: $6087
+        bra.s   $009D5377                               ; 009D53EE: $6087
+        bra.s   $009D5379                               ; 009D53F0: $6087
+        bra.s   $009D537B                               ; 009D53F2: $6087
+        bra.s   $009D537D                               ; 009D53F4: $6087
+        bra.s   $009D537F                               ; 009D53F6: $6087
+        bra.s   $009D5381                               ; 009D53F8: $6087
+        bra.s   $009D5383                               ; 009D53FA: $6087
+        bra.s   $009D5385                               ; 009D53FC: $6087
+        bra.s   $009D5387                               ; 009D53FE: $6087
+        bra.s   $009D5389                               ; 009D5400: $6087
+        bra.s   $009D538B                               ; 009D5402: $6087
+        bra.s   $009D538D                               ; 009D5404: $6087
+        bra.s   $009D538F                               ; 009D5406: $6087
+        bra.s   $009D5391                               ; 009D5408: $6087
+        bra.s   $009D5393                               ; 009D540A: $6087
+        bra.s   $009D5395                               ; 009D540C: $6087
+        bra.s   $009D5397                               ; 009D540E: $6087
+        bra.s   $009D5399                               ; 009D5410: $6087
+        bra.s   $009D539B                               ; 009D5412: $6087
+        bra.s   $009D539D                               ; 009D5414: $6087
+        bra.s   $009D539F                               ; 009D5416: $6087
+        bra.s   $009D53A1                               ; 009D5418: $6087
+        bra.s   $009D53A3                               ; 009D541A: $6087
+        bra.s   $009D53A5                               ; 009D541C: $6087
+        bra.s   $009D53A7                               ; 009D541E: $6087
+        bra.s   $009D53A9                               ; 009D5420: $6087
+        bra.s   $009D53AB                               ; 009D5422: $6087
+        bra.s   $009D53AD                               ; 009D5424: $6087
+        bra.s   $009D53AF                               ; 009D5426: $6087
+        clr.l   a0                                      ; 009D5428: $4288
         dc.w    $42C1                    ; 009D542A: dc.w $42C1
         dc.w    $42FA                    ; 009D542C: dc.w $42FA
         dc.w    $436B                    ; 009D542E: dc.w $436B
-        dc.w    $6087                    ; 009D5430: BRA.S $009D53B9
-        dc.w    $6087                    ; 009D5432: BRA.S $009D53BB
-        dc.w    $6087                    ; 009D5434: BRA.S $009D53BD
-        dc.w    $6087                    ; 009D5436: BRA.S $009D53BF
-        dc.w    $6087                    ; 009D5438: BRA.S $009D53C1
-        dc.w    $6087                    ; 009D543A: BRA.S $009D53C3
-        dc.w    $6087                    ; 009D543C: BRA.S $009D53C5
-        dc.w    $6087                    ; 009D543E: BRA.S $009D53C7
-        dc.w    $6087                    ; 009D5440: BRA.S $009D53C9
-        dc.w    $6087                    ; 009D5442: BRA.S $009D53CB
+        bra.s   $009D53B9                               ; 009D5430: $6087
+        bra.s   $009D53BB                               ; 009D5432: $6087
+        bra.s   $009D53BD                               ; 009D5434: $6087
+        bra.s   $009D53BF                               ; 009D5436: $6087
+        bra.s   $009D53C1                               ; 009D5438: $6087
+        bra.s   $009D53C3                               ; 009D543A: $6087
+        bra.s   $009D53C5                               ; 009D543C: $6087
+        bra.s   $009D53C7                               ; 009D543E: $6087
+        bra.s   $009D53C9                               ; 009D5440: $6087
+        bra.s   $009D53CB                               ; 009D5442: $6087
         dc.w    $43C0                    ; 009D5444: dc.w $43C0
-        dc.w    $4415                    ; 009D5446: dc.w $4415
-        dc.w    $4494                    ; 009D5448: dc.w $4494
+        neg.b   (a5)                                    ; 009D5446: $4415
+        neg.l   (a4)                                    ; 009D5448: $4494
         dc.w    $44F7                    ; 009D544A: dc.w $44F7
-        dc.w    $6087                    ; 009D544C: BRA.S $009D53D5
-        dc.w    $6087                    ; 009D544E: BRA.S $009D53D7
-        dc.w    $6087                    ; 009D5450: BRA.S $009D53D9
-        dc.w    $6087                    ; 009D5452: BRA.S $009D53DB
-        dc.w    $6087                    ; 009D5454: BRA.S $009D53DD
-        dc.w    $6087                    ; 009D5456: BRA.S $009D53DF
-        dc.w    $6087                    ; 009D5458: BRA.S $009D53E1
-        dc.w    $6087                    ; 009D545A: BRA.S $009D53E3
-        dc.w    $6087                    ; 009D545C: BRA.S $009D53E5
-        dc.w    $6087                    ; 009D545E: BRA.S $009D53E7
-        dc.w    $6087                    ; 009D5460: BRA.S $009D53E9
-        dc.w    $6087                    ; 009D5462: BRA.S $009D53EB
-        dc.w    $6087                    ; 009D5464: BRA.S $009D53ED
-        dc.w    $6087                    ; 009D5466: BRA.S $009D53EF
-        dc.w    $6087                    ; 009D5468: BRA.S $009D53F1
-        dc.w    $6087                    ; 009D546A: BRA.S $009D53F3
-        dc.w    $6087                    ; 009D546C: BRA.S $009D53F5
-        dc.w    $6087                    ; 009D546E: BRA.S $009D53F7
-        dc.w    $6087                    ; 009D5470: BRA.S $009D53F9
-        dc.w    $6087                    ; 009D5472: BRA.S $009D53FB
-        dc.w    $6087                    ; 009D5474: BRA.S $009D53FD
-        dc.w    $6087                    ; 009D5476: BRA.S $009D53FF
-        dc.w    $6087                    ; 009D5478: BRA.S $009D5401
-        dc.w    $6087                    ; 009D547A: BRA.S $009D5403
-        dc.w    $6087                    ; 009D547C: BRA.S $009D5405
-        dc.w    $6087                    ; 009D547E: BRA.S $009D5407
-        dc.w    $6087                    ; 009D5480: BRA.S $009D5409
-        dc.w    $6087                    ; 009D5482: BRA.S $009D540B
-        dc.w    $6087                    ; 009D5484: BRA.S $009D540D
-        dc.w    $6087                    ; 009D5486: BRA.S $009D540F
-        dc.w    $6087                    ; 009D5488: BRA.S $009D5411
-        dc.w    $6087                    ; 009D548A: BRA.S $009D5413
-        dc.w    $6087                    ; 009D548C: BRA.S $009D5415
-        dc.w    $6087                    ; 009D548E: BRA.S $009D5417
-        dc.w    $6087                    ; 009D5490: BRA.S $009D5419
-        dc.w    $6087                    ; 009D5492: BRA.S $009D541B
-        dc.w    $6087                    ; 009D5494: BRA.S $009D541D
-        dc.w    $6087                    ; 009D5496: BRA.S $009D541F
-        dc.w    $6087                    ; 009D5498: BRA.S $009D5421
-        dc.w    $6087                    ; 009D549A: BRA.S $009D5423
-        dc.w    $6087                    ; 009D549C: BRA.S $009D5425
-        dc.w    $6087                    ; 009D549E: BRA.S $009D5427
-        dc.w    $6087                    ; 009D54A0: BRA.S $009D5429
-        dc.w    $6087                    ; 009D54A2: BRA.S $009D542B
-        dc.w    $6087                    ; 009D54A4: BRA.S $009D542D
-        dc.w    $6087                    ; 009D54A6: BRA.S $009D542F
-        dc.w    $6087                    ; 009D54A8: BRA.S $009D5431
-        dc.w    $6087                    ; 009D54AA: BRA.S $009D5433
+        bra.s   $009D53D5                               ; 009D544C: $6087
+        bra.s   $009D53D7                               ; 009D544E: $6087
+        bra.s   $009D53D9                               ; 009D5450: $6087
+        bra.s   $009D53DB                               ; 009D5452: $6087
+        bra.s   $009D53DD                               ; 009D5454: $6087
+        bra.s   $009D53DF                               ; 009D5456: $6087
+        bra.s   $009D53E1                               ; 009D5458: $6087
+        bra.s   $009D53E3                               ; 009D545A: $6087
+        bra.s   $009D53E5                               ; 009D545C: $6087
+        bra.s   $009D53E7                               ; 009D545E: $6087
+        bra.s   $009D53E9                               ; 009D5460: $6087
+        bra.s   $009D53EB                               ; 009D5462: $6087
+        bra.s   $009D53ED                               ; 009D5464: $6087
+        bra.s   $009D53EF                               ; 009D5466: $6087
+        bra.s   $009D53F1                               ; 009D5468: $6087
+        bra.s   $009D53F3                               ; 009D546A: $6087
+        bra.s   $009D53F5                               ; 009D546C: $6087
+        bra.s   $009D53F7                               ; 009D546E: $6087
+        bra.s   $009D53F9                               ; 009D5470: $6087
+        bra.s   $009D53FB                               ; 009D5472: $6087
+        bra.s   $009D53FD                               ; 009D5474: $6087
+        bra.s   $009D53FF                               ; 009D5476: $6087
+        bra.s   $009D5401                               ; 009D5478: $6087
+        bra.s   $009D5403                               ; 009D547A: $6087
+        bra.s   $009D5405                               ; 009D547C: $6087
+        bra.s   $009D5407                               ; 009D547E: $6087
+        bra.s   $009D5409                               ; 009D5480: $6087
+        bra.s   $009D540B                               ; 009D5482: $6087
+        bra.s   $009D540D                               ; 009D5484: $6087
+        bra.s   $009D540F                               ; 009D5486: $6087
+        bra.s   $009D5411                               ; 009D5488: $6087
+        bra.s   $009D5413                               ; 009D548A: $6087
+        bra.s   $009D5415                               ; 009D548C: $6087
+        bra.s   $009D5417                               ; 009D548E: $6087
+        bra.s   $009D5419                               ; 009D5490: $6087
+        bra.s   $009D541B                               ; 009D5492: $6087
+        bra.s   $009D541D                               ; 009D5494: $6087
+        bra.s   $009D541F                               ; 009D5496: $6087
+        bra.s   $009D5421                               ; 009D5498: $6087
+        bra.s   $009D5423                               ; 009D549A: $6087
+        bra.s   $009D5425                               ; 009D549C: $6087
+        bra.s   $009D5427                               ; 009D549E: $6087
+        bra.s   $009D5429                               ; 009D54A0: $6087
+        bra.s   $009D542B                               ; 009D54A2: $6087
+        bra.s   $009D542D                               ; 009D54A4: $6087
+        bra.s   $009D542F                               ; 009D54A6: $6087
+        bra.s   $009D5431                               ; 009D54A8: $6087
+        bra.s   $009D5433                               ; 009D54AA: $6087
         dc.w    $4506                    ; 009D54AC: dc.w $4506
         dc.w    $4577                    ; 009D54AE: dc.w $4577
-        dc.w    $6087                    ; 009D54B0: BRA.S $009D5439
-        dc.w    $6087                    ; 009D54B2: BRA.S $009D543B
-        dc.w    $6087                    ; 009D54B4: BRA.S $009D543D
-        dc.w    $6087                    ; 009D54B6: BRA.S $009D543F
-        dc.w    $6087                    ; 009D54B8: BRA.S $009D5441
-        dc.w    $6087                    ; 009D54BA: BRA.S $009D5443
-        dc.w    $6087                    ; 009D54BC: BRA.S $009D5445
-        dc.w    $6087                    ; 009D54BE: BRA.S $009D5447
-        dc.w    $6087                    ; 009D54C0: BRA.S $009D5449
-        dc.w    $45E8                    ; 009D54C2: dc.w $45E8
-        dc.w    $4621                    ; 009D54C4: dc.w $4621
-        dc.w    $46A0                    ; 009D54C6: dc.w $46A0
-        dc.w    $6087                    ; 009D54C8: BRA.S $009D5451
-        dc.w    $6087                    ; 009D54CA: BRA.S $009D5453
-        dc.w    $6087                    ; 009D54CC: BRA.S $009D5455
-        dc.w    $6087                    ; 009D54CE: BRA.S $009D5457
-        dc.w    $6087                    ; 009D54D0: BRA.S $009D5459
-        dc.w    $6087                    ; 009D54D2: BRA.S $009D545B
-        dc.w    $6087                    ; 009D54D4: BRA.S $009D545D
-        dc.w    $6087                    ; 009D54D6: BRA.S $009D545F
-        dc.w    $6087                    ; 009D54D8: BRA.S $009D5461
-        dc.w    $6087                    ; 009D54DA: BRA.S $009D5463
-        dc.w    $6087                    ; 009D54DC: BRA.S $009D5465
-        dc.w    $6087                    ; 009D54DE: BRA.S $009D5467
-        dc.w    $6087                    ; 009D54E0: BRA.S $009D5469
-        dc.w    $6087                    ; 009D54E2: BRA.S $009D546B
-        dc.w    $6087                    ; 009D54E4: BRA.S $009D546D
-        dc.w    $6087                    ; 009D54E6: BRA.S $009D546F
-        dc.w    $6087                    ; 009D54E8: BRA.S $009D5471
-        dc.w    $6087                    ; 009D54EA: BRA.S $009D5473
-        dc.w    $6087                    ; 009D54EC: BRA.S $009D5475
-        dc.w    $6087                    ; 009D54EE: BRA.S $009D5477
-        dc.w    $6087                    ; 009D54F0: BRA.S $009D5479
-        dc.w    $6087                    ; 009D54F2: BRA.S $009D547B
-        dc.w    $6087                    ; 009D54F4: BRA.S $009D547D
-        dc.w    $6087                    ; 009D54F6: BRA.S $009D547F
-        dc.w    $6087                    ; 009D54F8: BRA.S $009D5481
-        dc.w    $6087                    ; 009D54FA: BRA.S $009D5483
-        dc.w    $6087                    ; 009D54FC: BRA.S $009D5485
-        dc.w    $6087                    ; 009D54FE: BRA.S $009D5487
-        dc.w    $6087                    ; 009D5500: BRA.S $009D5489
-        dc.w    $6087                    ; 009D5502: BRA.S $009D548B
-        dc.w    $6087                    ; 009D5504: BRA.S $009D548D
-        dc.w    $6087                    ; 009D5506: BRA.S $009D548F
-        dc.w    $6087                    ; 009D5508: BRA.S $009D5491
-        dc.w    $6087                    ; 009D550A: BRA.S $009D5493
-        dc.w    $6087                    ; 009D550C: BRA.S $009D5495
-        dc.w    $6087                    ; 009D550E: BRA.S $009D5497
-        dc.w    $6087                    ; 009D5510: BRA.S $009D5499
-        dc.w    $6087                    ; 009D5512: BRA.S $009D549B
-        dc.w    $6087                    ; 009D5514: BRA.S $009D549D
-        dc.w    $6087                    ; 009D5516: BRA.S $009D549F
-        dc.w    $6087                    ; 009D5518: BRA.S $009D54A1
-        dc.w    $6087                    ; 009D551A: BRA.S $009D54A3
-        dc.w    $6087                    ; 009D551C: BRA.S $009D54A5
-        dc.w    $6087                    ; 009D551E: BRA.S $009D54A7
-        dc.w    $6087                    ; 009D5520: BRA.S $009D54A9
-        dc.w    $6087                    ; 009D5522: BRA.S $009D54AB
-        dc.w    $6087                    ; 009D5524: BRA.S $009D54AD
-        dc.w    $6087                    ; 009D5526: BRA.S $009D54AF
-        dc.w    $6087                    ; 009D5528: BRA.S $009D54B1
-        dc.w    $6087                    ; 009D552A: BRA.S $009D54B3
+        bra.s   $009D5439                               ; 009D54B0: $6087
+        bra.s   $009D543B                               ; 009D54B2: $6087
+        bra.s   $009D543D                               ; 009D54B4: $6087
+        bra.s   $009D543F                               ; 009D54B6: $6087
+        bra.s   $009D5441                               ; 009D54B8: $6087
+        bra.s   $009D5443                               ; 009D54BA: $6087
+        bra.s   $009D5445                               ; 009D54BC: $6087
+        bra.s   $009D5447                               ; 009D54BE: $6087
+        bra.s   $009D5449                               ; 009D54C0: $6087
+        lea     $4621(a0),a2                            ; 009D54C2: $45E8, $4621
+        not.l   -(a0)                                   ; 009D54C6: $46A0
+        bra.s   $009D5451                               ; 009D54C8: $6087
+        bra.s   $009D5453                               ; 009D54CA: $6087
+        bra.s   $009D5455                               ; 009D54CC: $6087
+        bra.s   $009D5457                               ; 009D54CE: $6087
+        bra.s   $009D5459                               ; 009D54D0: $6087
+        bra.s   $009D545B                               ; 009D54D2: $6087
+        bra.s   $009D545D                               ; 009D54D4: $6087
+        bra.s   $009D545F                               ; 009D54D6: $6087
+        bra.s   $009D5461                               ; 009D54D8: $6087
+        bra.s   $009D5463                               ; 009D54DA: $6087
+        bra.s   $009D5465                               ; 009D54DC: $6087
+        bra.s   $009D5467                               ; 009D54DE: $6087
+        bra.s   $009D5469                               ; 009D54E0: $6087
+        bra.s   $009D546B                               ; 009D54E2: $6087
+        bra.s   $009D546D                               ; 009D54E4: $6087
+        bra.s   $009D546F                               ; 009D54E6: $6087
+        bra.s   $009D5471                               ; 009D54E8: $6087
+        bra.s   $009D5473                               ; 009D54EA: $6087
+        bra.s   $009D5475                               ; 009D54EC: $6087
+        bra.s   $009D5477                               ; 009D54EE: $6087
+        bra.s   $009D5479                               ; 009D54F0: $6087
+        bra.s   $009D547B                               ; 009D54F2: $6087
+        bra.s   $009D547D                               ; 009D54F4: $6087
+        bra.s   $009D547F                               ; 009D54F6: $6087
+        bra.s   $009D5481                               ; 009D54F8: $6087
+        bra.s   $009D5483                               ; 009D54FA: $6087
+        bra.s   $009D5485                               ; 009D54FC: $6087
+        bra.s   $009D5487                               ; 009D54FE: $6087
+        bra.s   $009D5489                               ; 009D5500: $6087
+        bra.s   $009D548B                               ; 009D5502: $6087
+        bra.s   $009D548D                               ; 009D5504: $6087
+        bra.s   $009D548F                               ; 009D5506: $6087
+        bra.s   $009D5491                               ; 009D5508: $6087
+        bra.s   $009D5493                               ; 009D550A: $6087
+        bra.s   $009D5495                               ; 009D550C: $6087
+        bra.s   $009D5497                               ; 009D550E: $6087
+        bra.s   $009D5499                               ; 009D5510: $6087
+        bra.s   $009D549B                               ; 009D5512: $6087
+        bra.s   $009D549D                               ; 009D5514: $6087
+        bra.s   $009D549F                               ; 009D5516: $6087
+        bra.s   $009D54A1                               ; 009D5518: $6087
+        bra.s   $009D54A3                               ; 009D551A: $6087
+        bra.s   $009D54A5                               ; 009D551C: $6087
+        bra.s   $009D54A7                               ; 009D551E: $6087
+        bra.s   $009D54A9                               ; 009D5520: $6087
+        bra.s   $009D54AB                               ; 009D5522: $6087
+        bra.s   $009D54AD                               ; 009D5524: $6087
+        bra.s   $009D54AF                               ; 009D5526: $6087
+        bra.s   $009D54B1                               ; 009D5528: $6087
+        bra.s   $009D54B3                               ; 009D552A: $6087
         dc.w    $46D9                    ; 009D552C: dc.w $46D9
         dc.w    $474A                    ; 009D552E: dc.w $474A
-        dc.w    $6087                    ; 009D5530: BRA.S $009D54B9
-        dc.w    $6087                    ; 009D5532: BRA.S $009D54BB
-        dc.w    $6087                    ; 009D5534: BRA.S $009D54BD
-        dc.w    $6087                    ; 009D5536: BRA.S $009D54BF
-        dc.w    $6087                    ; 009D5538: BRA.S $009D54C1
-        dc.w    $6087                    ; 009D553A: BRA.S $009D54C3
-        dc.w    $6087                    ; 009D553C: BRA.S $009D54C5
-        dc.w    $6087                    ; 009D553E: BRA.S $009D54C7
-        dc.w    $6087                    ; 009D5540: BRA.S $009D54C9
+        bra.s   $009D54B9                               ; 009D5530: $6087
+        bra.s   $009D54BB                               ; 009D5532: $6087
+        bra.s   $009D54BD                               ; 009D5534: $6087
+        bra.s   $009D54BF                               ; 009D5536: $6087
+        bra.s   $009D54C1                               ; 009D5538: $6087
+        bra.s   $009D54C3                               ; 009D553A: $6087
+        bra.s   $009D54C5                               ; 009D553C: $6087
+        bra.s   $009D54C7                               ; 009D553E: $6087
+        bra.s   $009D54C9                               ; 009D5540: $6087
         dc.w    $47BB                    ; 009D5542: dc.w $47BB
         dc.w    $4810                    ; 009D5544: dc.w $4810
-        dc.w    $6087                    ; 009D5546: BRA.S $009D54CF
-        dc.w    $6087                    ; 009D5548: BRA.S $009D54D1
-        dc.w    $6087                    ; 009D554A: BRA.S $009D54D3
-        dc.w    $6087                    ; 009D554C: BRA.S $009D54D5
-        dc.w    $6087                    ; 009D554E: BRA.S $009D54D7
-        dc.w    $6087                    ; 009D5550: BRA.S $009D54D9
-        dc.w    $6087                    ; 009D5552: BRA.S $009D54DB
-        dc.w    $6087                    ; 009D5554: BRA.S $009D54DD
-        dc.w    $6087                    ; 009D5556: BRA.S $009D54DF
-        dc.w    $6087                    ; 009D5558: BRA.S $009D54E1
-        dc.w    $6087                    ; 009D555A: BRA.S $009D54E3
-        dc.w    $6087                    ; 009D555C: BRA.S $009D54E5
-        dc.w    $6087                    ; 009D555E: BRA.S $009D54E7
-        dc.w    $6087                    ; 009D5560: BRA.S $009D54E9
-        dc.w    $6087                    ; 009D5562: BRA.S $009D54EB
-        dc.w    $6087                    ; 009D5564: BRA.S $009D54ED
-        dc.w    $6087                    ; 009D5566: BRA.S $009D54EF
-        dc.w    $6087                    ; 009D5568: BRA.S $009D54F1
-        dc.w    $6087                    ; 009D556A: BRA.S $009D54F3
-        dc.w    $6087                    ; 009D556C: BRA.S $009D54F5
-        dc.w    $6087                    ; 009D556E: BRA.S $009D54F7
-        dc.w    $6087                    ; 009D5570: BRA.S $009D54F9
-        dc.w    $6087                    ; 009D5572: BRA.S $009D54FB
-        dc.w    $6087                    ; 009D5574: BRA.S $009D54FD
-        dc.w    $6087                    ; 009D5576: BRA.S $009D54FF
-        dc.w    $6087                    ; 009D5578: BRA.S $009D5501
-        dc.w    $6087                    ; 009D557A: BRA.S $009D5503
-        dc.w    $6087                    ; 009D557C: BRA.S $009D5505
-        dc.w    $6087                    ; 009D557E: BRA.S $009D5507
-        dc.w    $6087                    ; 009D5580: BRA.S $009D5509
-        dc.w    $6087                    ; 009D5582: BRA.S $009D550B
-        dc.w    $6087                    ; 009D5584: BRA.S $009D550D
-        dc.w    $6087                    ; 009D5586: BRA.S $009D550F
-        dc.w    $6087                    ; 009D5588: BRA.S $009D5511
-        dc.w    $6087                    ; 009D558A: BRA.S $009D5513
-        dc.w    $6087                    ; 009D558C: BRA.S $009D5515
-        dc.w    $6087                    ; 009D558E: BRA.S $009D5517
-        dc.w    $6087                    ; 009D5590: BRA.S $009D5519
-        dc.w    $6087                    ; 009D5592: BRA.S $009D551B
-        dc.w    $6087                    ; 009D5594: BRA.S $009D551D
-        dc.w    $6087                    ; 009D5596: BRA.S $009D551F
-        dc.w    $6087                    ; 009D5598: BRA.S $009D5521
-        dc.w    $6087                    ; 009D559A: BRA.S $009D5523
-        dc.w    $6087                    ; 009D559C: BRA.S $009D5525
-        dc.w    $6087                    ; 009D559E: BRA.S $009D5527
-        dc.w    $6087                    ; 009D55A0: BRA.S $009D5529
-        dc.w    $6087                    ; 009D55A2: BRA.S $009D552B
-        dc.w    $6087                    ; 009D55A4: BRA.S $009D552D
-        dc.w    $6087                    ; 009D55A6: BRA.S $009D552F
-        dc.w    $6087                    ; 009D55A8: BRA.S $009D5531
-        dc.w    $4881                    ; 009D55AA: dc.w $4881
-        dc.w    $48D6                    ; 009D55AC: dc.w $48D6
+        bra.s   $009D54CF                               ; 009D5546: $6087
+        bra.s   $009D54D1                               ; 009D5548: $6087
+        bra.s   $009D54D3                               ; 009D554A: $6087
+        bra.s   $009D54D5                               ; 009D554C: $6087
+        bra.s   $009D54D7                               ; 009D554E: $6087
+        bra.s   $009D54D9                               ; 009D5550: $6087
+        bra.s   $009D54DB                               ; 009D5552: $6087
+        bra.s   $009D54DD                               ; 009D5554: $6087
+        bra.s   $009D54DF                               ; 009D5556: $6087
+        bra.s   $009D54E1                               ; 009D5558: $6087
+        bra.s   $009D54E3                               ; 009D555A: $6087
+        bra.s   $009D54E5                               ; 009D555C: $6087
+        bra.s   $009D54E7                               ; 009D555E: $6087
+        bra.s   $009D54E9                               ; 009D5560: $6087
+        bra.s   $009D54EB                               ; 009D5562: $6087
+        bra.s   $009D54ED                               ; 009D5564: $6087
+        bra.s   $009D54EF                               ; 009D5566: $6087
+        bra.s   $009D54F1                               ; 009D5568: $6087
+        bra.s   $009D54F3                               ; 009D556A: $6087
+        bra.s   $009D54F5                               ; 009D556C: $6087
+        bra.s   $009D54F7                               ; 009D556E: $6087
+        bra.s   $009D54F9                               ; 009D5570: $6087
+        bra.s   $009D54FB                               ; 009D5572: $6087
+        bra.s   $009D54FD                               ; 009D5574: $6087
+        bra.s   $009D54FF                               ; 009D5576: $6087
+        bra.s   $009D5501                               ; 009D5578: $6087
+        bra.s   $009D5503                               ; 009D557A: $6087
+        bra.s   $009D5505                               ; 009D557C: $6087
+        bra.s   $009D5507                               ; 009D557E: $6087
+        bra.s   $009D5509                               ; 009D5580: $6087
+        bra.s   $009D550B                               ; 009D5582: $6087
+        bra.s   $009D550D                               ; 009D5584: $6087
+        bra.s   $009D550F                               ; 009D5586: $6087
+        bra.s   $009D5511                               ; 009D5588: $6087
+        bra.s   $009D5513                               ; 009D558A: $6087
+        bra.s   $009D5515                               ; 009D558C: $6087
+        bra.s   $009D5517                               ; 009D558E: $6087
+        bra.s   $009D5519                               ; 009D5590: $6087
+        bra.s   $009D551B                               ; 009D5592: $6087
+        bra.s   $009D551D                               ; 009D5594: $6087
+        bra.s   $009D551F                               ; 009D5596: $6087
+        bra.s   $009D5521                               ; 009D5598: $6087
+        bra.s   $009D5523                               ; 009D559A: $6087
+        bra.s   $009D5525                               ; 009D559C: $6087
+        bra.s   $009D5527                               ; 009D559E: $6087
+        bra.s   $009D5529                               ; 009D55A0: $6087
+        bra.s   $009D552B                               ; 009D55A2: $6087
+        bra.s   $009D552D                               ; 009D55A4: $6087
+        bra.s   $009D552F                               ; 009D55A6: $6087
+        bra.s   $009D5531                               ; 009D55A8: $6087
+        movem.w d1/d2/d4/d6/d7/a3/a6,d1                 ; 009D55AA: $4881, $48D6
         dc.w    $492B                    ; 009D55AE: dc.w $492B
-        dc.w    $6087                    ; 009D55B0: BRA.S $009D5539
-        dc.w    $6087                    ; 009D55B2: BRA.S $009D553B
-        dc.w    $6087                    ; 009D55B4: BRA.S $009D553D
-        dc.w    $6087                    ; 009D55B6: BRA.S $009D553F
-        dc.w    $6087                    ; 009D55B8: BRA.S $009D5541
-        dc.w    $6087                    ; 009D55BA: BRA.S $009D5543
-        dc.w    $6087                    ; 009D55BC: BRA.S $009D5545
-        dc.w    $6087                    ; 009D55BE: BRA.S $009D5547
-        dc.w    $6087                    ; 009D55C0: BRA.S $009D5549
+        bra.s   $009D5539                               ; 009D55B0: $6087
+        bra.s   $009D553B                               ; 009D55B2: $6087
+        bra.s   $009D553D                               ; 009D55B4: $6087
+        bra.s   $009D553F                               ; 009D55B6: $6087
+        bra.s   $009D5541                               ; 009D55B8: $6087
+        bra.s   $009D5543                               ; 009D55BA: $6087
+        bra.s   $009D5545                               ; 009D55BC: $6087
+        bra.s   $009D5547                               ; 009D55BE: $6087
+        bra.s   $009D5549                               ; 009D55C0: $6087
         dc.w    $4972                    ; 009D55C2: dc.w $4972
         dc.w    $49E3                    ; 009D55C4: dc.w $49E3
-        dc.w    $6087                    ; 009D55C6: BRA.S $009D554F
-        dc.w    $6087                    ; 009D55C8: BRA.S $009D5551
-        dc.w    $6087                    ; 009D55CA: BRA.S $009D5553
-        dc.w    $6087                    ; 009D55CC: BRA.S $009D5555
-        dc.w    $6087                    ; 009D55CE: BRA.S $009D5557
-        dc.w    $6087                    ; 009D55D0: BRA.S $009D5559
-        dc.w    $6087                    ; 009D55D2: BRA.S $009D555B
-        dc.w    $6087                    ; 009D55D4: BRA.S $009D555D
-        dc.w    $6087                    ; 009D55D6: BRA.S $009D555F
-        dc.w    $6087                    ; 009D55D8: BRA.S $009D5561
-        dc.w    $6087                    ; 009D55DA: BRA.S $009D5563
-        dc.w    $6087                    ; 009D55DC: BRA.S $009D5565
-        dc.w    $6087                    ; 009D55DE: BRA.S $009D5567
-        dc.w    $6087                    ; 009D55E0: BRA.S $009D5569
-        dc.w    $6087                    ; 009D55E2: BRA.S $009D556B
-        dc.w    $6087                    ; 009D55E4: BRA.S $009D556D
-        dc.w    $6087                    ; 009D55E6: BRA.S $009D556F
-        dc.w    $6087                    ; 009D55E8: BRA.S $009D5571
-        dc.w    $6087                    ; 009D55EA: BRA.S $009D5573
-        dc.w    $6087                    ; 009D55EC: BRA.S $009D5575
-        dc.w    $6087                    ; 009D55EE: BRA.S $009D5577
-        dc.w    $6087                    ; 009D55F0: BRA.S $009D5579
-        dc.w    $6087                    ; 009D55F2: BRA.S $009D557B
-        dc.w    $6087                    ; 009D55F4: BRA.S $009D557D
-        dc.w    $6087                    ; 009D55F6: BRA.S $009D557F
-        dc.w    $6087                    ; 009D55F8: BRA.S $009D5581
-        dc.w    $6087                    ; 009D55FA: BRA.S $009D5583
-        dc.w    $6087                    ; 009D55FC: BRA.S $009D5585
-        dc.w    $6087                    ; 009D55FE: BRA.S $009D5587
-        dc.w    $6087                    ; 009D5600: BRA.S $009D5589
-        dc.w    $6087                    ; 009D5602: BRA.S $009D558B
-        dc.w    $6087                    ; 009D5604: BRA.S $009D558D
-        dc.w    $6087                    ; 009D5606: BRA.S $009D558F
-        dc.w    $6087                    ; 009D5608: BRA.S $009D5591
-        dc.w    $6087                    ; 009D560A: BRA.S $009D5593
-        dc.w    $6087                    ; 009D560C: BRA.S $009D5595
-        dc.w    $6087                    ; 009D560E: BRA.S $009D5597
-        dc.w    $6087                    ; 009D5610: BRA.S $009D5599
-        dc.w    $6087                    ; 009D5612: BRA.S $009D559B
-        dc.w    $6087                    ; 009D5614: BRA.S $009D559D
-        dc.w    $6087                    ; 009D5616: BRA.S $009D559F
-        dc.w    $6087                    ; 009D5618: BRA.S $009D55A1
-        dc.w    $6087                    ; 009D561A: BRA.S $009D55A3
-        dc.w    $6087                    ; 009D561C: BRA.S $009D55A5
-        dc.w    $6087                    ; 009D561E: BRA.S $009D55A7
-        dc.w    $6087                    ; 009D5620: BRA.S $009D55A9
-        dc.w    $6087                    ; 009D5622: BRA.S $009D55AB
-        dc.w    $6087                    ; 009D5624: BRA.S $009D55AD
-        dc.w    $6087                    ; 009D5626: BRA.S $009D55AF
-        dc.w    $4A2A                    ; 009D5628: dc.w $4A2A
-        dc.w    $4A7F                    ; 009D562A: dc.w $4A7F
+        bra.s   $009D554F                               ; 009D55C6: $6087
+        bra.s   $009D5551                               ; 009D55C8: $6087
+        bra.s   $009D5553                               ; 009D55CA: $6087
+        bra.s   $009D5555                               ; 009D55CC: $6087
+        bra.s   $009D5557                               ; 009D55CE: $6087
+        bra.s   $009D5559                               ; 009D55D0: $6087
+        bra.s   $009D555B                               ; 009D55D2: $6087
+        bra.s   $009D555D                               ; 009D55D4: $6087
+        bra.s   $009D555F                               ; 009D55D6: $6087
+        bra.s   $009D5561                               ; 009D55D8: $6087
+        bra.s   $009D5563                               ; 009D55DA: $6087
+        bra.s   $009D5565                               ; 009D55DC: $6087
+        bra.s   $009D5567                               ; 009D55DE: $6087
+        bra.s   $009D5569                               ; 009D55E0: $6087
+        bra.s   $009D556B                               ; 009D55E2: $6087
+        bra.s   $009D556D                               ; 009D55E4: $6087
+        bra.s   $009D556F                               ; 009D55E6: $6087
+        bra.s   $009D5571                               ; 009D55E8: $6087
+        bra.s   $009D5573                               ; 009D55EA: $6087
+        bra.s   $009D5575                               ; 009D55EC: $6087
+        bra.s   $009D5577                               ; 009D55EE: $6087
+        bra.s   $009D5579                               ; 009D55F0: $6087
+        bra.s   $009D557B                               ; 009D55F2: $6087
+        bra.s   $009D557D                               ; 009D55F4: $6087
+        bra.s   $009D557F                               ; 009D55F6: $6087
+        bra.s   $009D5581                               ; 009D55F8: $6087
+        bra.s   $009D5583                               ; 009D55FA: $6087
+        bra.s   $009D5585                               ; 009D55FC: $6087
+        bra.s   $009D5587                               ; 009D55FE: $6087
+        bra.s   $009D5589                               ; 009D5600: $6087
+        bra.s   $009D558B                               ; 009D5602: $6087
+        bra.s   $009D558D                               ; 009D5604: $6087
+        bra.s   $009D558F                               ; 009D5606: $6087
+        bra.s   $009D5591                               ; 009D5608: $6087
+        bra.s   $009D5593                               ; 009D560A: $6087
+        bra.s   $009D5595                               ; 009D560C: $6087
+        bra.s   $009D5597                               ; 009D560E: $6087
+        bra.s   $009D5599                               ; 009D5610: $6087
+        bra.s   $009D559B                               ; 009D5612: $6087
+        bra.s   $009D559D                               ; 009D5614: $6087
+        bra.s   $009D559F                               ; 009D5616: $6087
+        bra.s   $009D55A1                               ; 009D5618: $6087
+        bra.s   $009D55A3                               ; 009D561A: $6087
+        bra.s   $009D55A5                               ; 009D561C: $6087
+        bra.s   $009D55A7                               ; 009D561E: $6087
+        bra.s   $009D55A9                               ; 009D5620: $6087
+        bra.s   $009D55AB                               ; 009D5622: $6087
+        bra.s   $009D55AD                               ; 009D5624: $6087
+        bra.s   $009D55AF                               ; 009D5626: $6087
+        tst.b   $4A7F(a2)                               ; 009D5628: $4A2A, $4A7F
         dc.w    $4AD4                    ; 009D562C: dc.w $4AD4
-        dc.w    $6087                    ; 009D562E: BRA.S $009D55B7
-        dc.w    $6087                    ; 009D5630: BRA.S $009D55B9
-        dc.w    $6087                    ; 009D5632: BRA.S $009D55BB
-        dc.w    $6087                    ; 009D5634: BRA.S $009D55BD
-        dc.w    $6087                    ; 009D5636: BRA.S $009D55BF
-        dc.w    $6087                    ; 009D5638: BRA.S $009D55C1
-        dc.w    $6087                    ; 009D563A: BRA.S $009D55C3
-        dc.w    $6087                    ; 009D563C: BRA.S $009D55C5
-        dc.w    $6087                    ; 009D563E: BRA.S $009D55C7
-        dc.w    $6087                    ; 009D5640: BRA.S $009D55C9
+        bra.s   $009D55B7                               ; 009D562E: $6087
+        bra.s   $009D55B9                               ; 009D5630: $6087
+        bra.s   $009D55BB                               ; 009D5632: $6087
+        bra.s   $009D55BD                               ; 009D5634: $6087
+        bra.s   $009D55BF                               ; 009D5636: $6087
+        bra.s   $009D55C1                               ; 009D5638: $6087
+        bra.s   $009D55C3                               ; 009D563A: $6087
+        bra.s   $009D55C5                               ; 009D563C: $6087
+        bra.s   $009D55C7                               ; 009D563E: $6087
+        bra.s   $009D55C9                               ; 009D5640: $6087
         dc.w    $4B45                    ; 009D5642: dc.w $4B45
-        dc.w    $6087                    ; 009D5644: BRA.S $009D55CD
-        dc.w    $6087                    ; 009D5646: BRA.S $009D55CF
-        dc.w    $6087                    ; 009D5648: BRA.S $009D55D1
-        dc.w    $6087                    ; 009D564A: BRA.S $009D55D3
-        dc.w    $6087                    ; 009D564C: BRA.S $009D55D5
-        dc.w    $6087                    ; 009D564E: BRA.S $009D55D7
-        dc.w    $6087                    ; 009D5650: BRA.S $009D55D9
-        dc.w    $6087                    ; 009D5652: BRA.S $009D55DB
-        dc.w    $6087                    ; 009D5654: BRA.S $009D55DD
-        dc.w    $6087                    ; 009D5656: BRA.S $009D55DF
-        dc.w    $6087                    ; 009D5658: BRA.S $009D55E1
-        dc.w    $6087                    ; 009D565A: BRA.S $009D55E3
-        dc.w    $6087                    ; 009D565C: BRA.S $009D55E5
-        dc.w    $6087                    ; 009D565E: BRA.S $009D55E7
-        dc.w    $6087                    ; 009D5660: BRA.S $009D55E9
-        dc.w    $6087                    ; 009D5662: BRA.S $009D55EB
-        dc.w    $6087                    ; 009D5664: BRA.S $009D55ED
-        dc.w    $6087                    ; 009D5666: BRA.S $009D55EF
-        dc.w    $6087                    ; 009D5668: BRA.S $009D55F1
-        dc.w    $6087                    ; 009D566A: BRA.S $009D55F3
-        dc.w    $6087                    ; 009D566C: BRA.S $009D55F5
-        dc.w    $6087                    ; 009D566E: BRA.S $009D55F7
-        dc.w    $6087                    ; 009D5670: BRA.S $009D55F9
-        dc.w    $6087                    ; 009D5672: BRA.S $009D55FB
-        dc.w    $6087                    ; 009D5674: BRA.S $009D55FD
-        dc.w    $6087                    ; 009D5676: BRA.S $009D55FF
-        dc.w    $6087                    ; 009D5678: BRA.S $009D5601
-        dc.w    $6087                    ; 009D567A: BRA.S $009D5603
-        dc.w    $6087                    ; 009D567C: BRA.S $009D5605
-        dc.w    $6087                    ; 009D567E: BRA.S $009D5607
-        dc.w    $6087                    ; 009D5680: BRA.S $009D5609
-        dc.w    $6087                    ; 009D5682: BRA.S $009D560B
-        dc.w    $6087                    ; 009D5684: BRA.S $009D560D
-        dc.w    $6087                    ; 009D5686: BRA.S $009D560F
-        dc.w    $6087                    ; 009D5688: BRA.S $009D5611
-        dc.w    $6087                    ; 009D568A: BRA.S $009D5613
-        dc.w    $6087                    ; 009D568C: BRA.S $009D5615
-        dc.w    $6087                    ; 009D568E: BRA.S $009D5617
-        dc.w    $6087                    ; 009D5690: BRA.S $009D5619
-        dc.w    $6087                    ; 009D5692: BRA.S $009D561B
-        dc.w    $6087                    ; 009D5694: BRA.S $009D561D
-        dc.w    $6087                    ; 009D5696: BRA.S $009D561F
-        dc.w    $6087                    ; 009D5698: BRA.S $009D5621
-        dc.w    $6087                    ; 009D569A: BRA.S $009D5623
-        dc.w    $6087                    ; 009D569C: BRA.S $009D5625
-        dc.w    $6087                    ; 009D569E: BRA.S $009D5627
-        dc.w    $6087                    ; 009D56A0: BRA.S $009D5629
-        dc.w    $6087                    ; 009D56A2: BRA.S $009D562B
-        dc.w    $6087                    ; 009D56A4: BRA.S $009D562D
-        dc.w    $6087                    ; 009D56A6: BRA.S $009D562F
+        bra.s   $009D55CD                               ; 009D5644: $6087
+        bra.s   $009D55CF                               ; 009D5646: $6087
+        bra.s   $009D55D1                               ; 009D5648: $6087
+        bra.s   $009D55D3                               ; 009D564A: $6087
+        bra.s   $009D55D5                               ; 009D564C: $6087
+        bra.s   $009D55D7                               ; 009D564E: $6087
+        bra.s   $009D55D9                               ; 009D5650: $6087
+        bra.s   $009D55DB                               ; 009D5652: $6087
+        bra.s   $009D55DD                               ; 009D5654: $6087
+        bra.s   $009D55DF                               ; 009D5656: $6087
+        bra.s   $009D55E1                               ; 009D5658: $6087
+        bra.s   $009D55E3                               ; 009D565A: $6087
+        bra.s   $009D55E5                               ; 009D565C: $6087
+        bra.s   $009D55E7                               ; 009D565E: $6087
+        bra.s   $009D55E9                               ; 009D5660: $6087
+        bra.s   $009D55EB                               ; 009D5662: $6087
+        bra.s   $009D55ED                               ; 009D5664: $6087
+        bra.s   $009D55EF                               ; 009D5666: $6087
+        bra.s   $009D55F1                               ; 009D5668: $6087
+        bra.s   $009D55F3                               ; 009D566A: $6087
+        bra.s   $009D55F5                               ; 009D566C: $6087
+        bra.s   $009D55F7                               ; 009D566E: $6087
+        bra.s   $009D55F9                               ; 009D5670: $6087
+        bra.s   $009D55FB                               ; 009D5672: $6087
+        bra.s   $009D55FD                               ; 009D5674: $6087
+        bra.s   $009D55FF                               ; 009D5676: $6087
+        bra.s   $009D5601                               ; 009D5678: $6087
+        bra.s   $009D5603                               ; 009D567A: $6087
+        bra.s   $009D5605                               ; 009D567C: $6087
+        bra.s   $009D5607                               ; 009D567E: $6087
+        bra.s   $009D5609                               ; 009D5680: $6087
+        bra.s   $009D560B                               ; 009D5682: $6087
+        bra.s   $009D560D                               ; 009D5684: $6087
+        bra.s   $009D560F                               ; 009D5686: $6087
+        bra.s   $009D5611                               ; 009D5688: $6087
+        bra.s   $009D5613                               ; 009D568A: $6087
+        bra.s   $009D5615                               ; 009D568C: $6087
+        bra.s   $009D5617                               ; 009D568E: $6087
+        bra.s   $009D5619                               ; 009D5690: $6087
+        bra.s   $009D561B                               ; 009D5692: $6087
+        bra.s   $009D561D                               ; 009D5694: $6087
+        bra.s   $009D561F                               ; 009D5696: $6087
+        bra.s   $009D5621                               ; 009D5698: $6087
+        bra.s   $009D5623                               ; 009D569A: $6087
+        bra.s   $009D5625                               ; 009D569C: $6087
+        bra.s   $009D5627                               ; 009D569E: $6087
+        bra.s   $009D5629                               ; 009D56A0: $6087
+        bra.s   $009D562B                               ; 009D56A2: $6087
+        bra.s   $009D562D                               ; 009D56A4: $6087
+        bra.s   $009D562F                               ; 009D56A6: $6087
         dc.w    $4BC4                    ; 009D56A8: dc.w $4BC4
         dc.w    $4C19                    ; 009D56AA: dc.w $4C19
         dc.w    $4C44                    ; 009D56AC: dc.w $4C44
-        dc.w    $6087                    ; 009D56AE: BRA.S $009D5637
-        dc.w    $6087                    ; 009D56B0: BRA.S $009D5639
-        dc.w    $6087                    ; 009D56B2: BRA.S $009D563B
-        dc.w    $6087                    ; 009D56B4: BRA.S $009D563D
-        dc.w    $6087                    ; 009D56B6: BRA.S $009D563F
-        dc.w    $6087                    ; 009D56B8: BRA.S $009D5641
-        dc.w    $6087                    ; 009D56BA: BRA.S $009D5643
-        dc.w    $6087                    ; 009D56BC: BRA.S $009D5645
-        dc.w    $6087                    ; 009D56BE: BRA.S $009D5647
-        dc.w    $4C99                    ; 009D56C0: dc.w $4C99
-        dc.w    $4CEE                    ; 009D56C2: dc.w $4CEE
-        dc.w    $6087                    ; 009D56C4: BRA.S $009D564D
-        dc.w    $6087                    ; 009D56C6: BRA.S $009D564F
-        dc.w    $6087                    ; 009D56C8: BRA.S $009D5651
-        dc.w    $6087                    ; 009D56CA: BRA.S $009D5653
-        dc.w    $6087                    ; 009D56CC: BRA.S $009D5655
-        dc.w    $6087                    ; 009D56CE: BRA.S $009D5657
-        dc.w    $6087                    ; 009D56D0: BRA.S $009D5659
-        dc.w    $6087                    ; 009D56D2: BRA.S $009D565B
-        dc.w    $6087                    ; 009D56D4: BRA.S $009D565D
-        dc.w    $6087                    ; 009D56D6: BRA.S $009D565F
-        dc.w    $6087                    ; 009D56D8: BRA.S $009D5661
-        dc.w    $6087                    ; 009D56DA: BRA.S $009D5663
-        dc.w    $6087                    ; 009D56DC: BRA.S $009D5665
-        dc.w    $6087                    ; 009D56DE: BRA.S $009D5667
-        dc.w    $6087                    ; 009D56E0: BRA.S $009D5669
-        dc.w    $6087                    ; 009D56E2: BRA.S $009D566B
-        dc.w    $6087                    ; 009D56E4: BRA.S $009D566D
-        dc.w    $6087                    ; 009D56E6: BRA.S $009D566F
-        dc.w    $6087                    ; 009D56E8: BRA.S $009D5671
-        dc.w    $6087                    ; 009D56EA: BRA.S $009D5673
-        dc.w    $6087                    ; 009D56EC: BRA.S $009D5675
-        dc.w    $6087                    ; 009D56EE: BRA.S $009D5677
-        dc.w    $6087                    ; 009D56F0: BRA.S $009D5679
-        dc.w    $6087                    ; 009D56F2: BRA.S $009D567B
-        dc.w    $6087                    ; 009D56F4: BRA.S $009D567D
-        dc.w    $6087                    ; 009D56F6: BRA.S $009D567F
-        dc.w    $6087                    ; 009D56F8: BRA.S $009D5681
-        dc.w    $6087                    ; 009D56FA: BRA.S $009D5683
-        dc.w    $6087                    ; 009D56FC: BRA.S $009D5685
-        dc.w    $6087                    ; 009D56FE: BRA.S $009D5687
-        dc.w    $6087                    ; 009D5700: BRA.S $009D5689
-        dc.w    $6087                    ; 009D5702: BRA.S $009D568B
-        dc.w    $6087                    ; 009D5704: BRA.S $009D568D
-        dc.w    $6087                    ; 009D5706: BRA.S $009D568F
-        dc.w    $6087                    ; 009D5708: BRA.S $009D5691
-        dc.w    $6087                    ; 009D570A: BRA.S $009D5693
-        dc.w    $6087                    ; 009D570C: BRA.S $009D5695
-        dc.w    $6087                    ; 009D570E: BRA.S $009D5697
-        dc.w    $6087                    ; 009D5710: BRA.S $009D5699
-        dc.w    $6087                    ; 009D5712: BRA.S $009D569B
-        dc.w    $6087                    ; 009D5714: BRA.S $009D569D
-        dc.w    $6087                    ; 009D5716: BRA.S $009D569F
-        dc.w    $6087                    ; 009D5718: BRA.S $009D56A1
-        dc.w    $6087                    ; 009D571A: BRA.S $009D56A3
-        dc.w    $6087                    ; 009D571C: BRA.S $009D56A5
-        dc.w    $6087                    ; 009D571E: BRA.S $009D56A7
-        dc.w    $6087                    ; 009D5720: BRA.S $009D56A9
-        dc.w    $6087                    ; 009D5722: BRA.S $009D56AB
-        dc.w    $6087                    ; 009D5724: BRA.S $009D56AD
-        dc.w    $6087                    ; 009D5726: BRA.S $009D56AF
+        bra.s   $009D5637                               ; 009D56AE: $6087
+        bra.s   $009D5639                               ; 009D56B0: $6087
+        bra.s   $009D563B                               ; 009D56B2: $6087
+        bra.s   $009D563D                               ; 009D56B4: $6087
+        bra.s   $009D563F                               ; 009D56B6: $6087
+        bra.s   $009D5641                               ; 009D56B8: $6087
+        bra.s   $009D5643                               ; 009D56BA: $6087
+        bra.s   $009D5645                               ; 009D56BC: $6087
+        bra.s   $009D5647                               ; 009D56BE: $6087
+        movem.w (a1)+,d1/d2/d3/d5/d6/d7/a2/a3/a6        ; 009D56C0: $4C99, $4CEE
+        bra.s   $009D564D                               ; 009D56C4: $6087
+        bra.s   $009D564F                               ; 009D56C6: $6087
+        bra.s   $009D5651                               ; 009D56C8: $6087
+        bra.s   $009D5653                               ; 009D56CA: $6087
+        bra.s   $009D5655                               ; 009D56CC: $6087
+        bra.s   $009D5657                               ; 009D56CE: $6087
+        bra.s   $009D5659                               ; 009D56D0: $6087
+        bra.s   $009D565B                               ; 009D56D2: $6087
+        bra.s   $009D565D                               ; 009D56D4: $6087
+        bra.s   $009D565F                               ; 009D56D6: $6087
+        bra.s   $009D5661                               ; 009D56D8: $6087
+        bra.s   $009D5663                               ; 009D56DA: $6087
+        bra.s   $009D5665                               ; 009D56DC: $6087
+        bra.s   $009D5667                               ; 009D56DE: $6087
+        bra.s   $009D5669                               ; 009D56E0: $6087
+        bra.s   $009D566B                               ; 009D56E2: $6087
+        bra.s   $009D566D                               ; 009D56E4: $6087
+        bra.s   $009D566F                               ; 009D56E6: $6087
+        bra.s   $009D5671                               ; 009D56E8: $6087
+        bra.s   $009D5673                               ; 009D56EA: $6087
+        bra.s   $009D5675                               ; 009D56EC: $6087
+        bra.s   $009D5677                               ; 009D56EE: $6087
+        bra.s   $009D5679                               ; 009D56F0: $6087
+        bra.s   $009D567B                               ; 009D56F2: $6087
+        bra.s   $009D567D                               ; 009D56F4: $6087
+        bra.s   $009D567F                               ; 009D56F6: $6087
+        bra.s   $009D5681                               ; 009D56F8: $6087
+        bra.s   $009D5683                               ; 009D56FA: $6087
+        bra.s   $009D5685                               ; 009D56FC: $6087
+        bra.s   $009D5687                               ; 009D56FE: $6087
+        bra.s   $009D5689                               ; 009D5700: $6087
+        bra.s   $009D568B                               ; 009D5702: $6087
+        bra.s   $009D568D                               ; 009D5704: $6087
+        bra.s   $009D568F                               ; 009D5706: $6087
+        bra.s   $009D5691                               ; 009D5708: $6087
+        bra.s   $009D5693                               ; 009D570A: $6087
+        bra.s   $009D5695                               ; 009D570C: $6087
+        bra.s   $009D5697                               ; 009D570E: $6087
+        bra.s   $009D5699                               ; 009D5710: $6087
+        bra.s   $009D569B                               ; 009D5712: $6087
+        bra.s   $009D569D                               ; 009D5714: $6087
+        bra.s   $009D569F                               ; 009D5716: $6087
+        bra.s   $009D56A1                               ; 009D5718: $6087
+        bra.s   $009D56A3                               ; 009D571A: $6087
+        bra.s   $009D56A5                               ; 009D571C: $6087
+        bra.s   $009D56A7                               ; 009D571E: $6087
+        bra.s   $009D56A9                               ; 009D5720: $6087
+        bra.s   $009D56AB                               ; 009D5722: $6087
+        bra.s   $009D56AD                               ; 009D5724: $6087
+        bra.s   $009D56AF                               ; 009D5726: $6087
         dc.w    $4D7B                    ; 009D5728: dc.w $4D7B
         dc.w    $4DB4                    ; 009D572A: dc.w $4DB4
         dc.w    $4DDF                    ; 009D572C: dc.w $4DDF
-        dc.w    $6087                    ; 009D572E: BRA.S $009D56B7
-        dc.w    $6087                    ; 009D5730: BRA.S $009D56B9
-        dc.w    $6087                    ; 009D5732: BRA.S $009D56BB
-        dc.w    $6087                    ; 009D5734: BRA.S $009D56BD
-        dc.w    $6087                    ; 009D5736: BRA.S $009D56BF
-        dc.w    $6087                    ; 009D5738: BRA.S $009D56C1
-        dc.w    $6087                    ; 009D573A: BRA.S $009D56C3
-        dc.w    $6087                    ; 009D573C: BRA.S $009D56C5
-        dc.w    $6087                    ; 009D573E: BRA.S $009D56C7
+        bra.s   $009D56B7                               ; 009D572E: $6087
+        bra.s   $009D56B9                               ; 009D5730: $6087
+        bra.s   $009D56BB                               ; 009D5732: $6087
+        bra.s   $009D56BD                               ; 009D5734: $6087
+        bra.s   $009D56BF                               ; 009D5736: $6087
+        bra.s   $009D56C1                               ; 009D5738: $6087
+        bra.s   $009D56C3                               ; 009D573A: $6087
+        bra.s   $009D56C5                               ; 009D573C: $6087
+        bra.s   $009D56C7                               ; 009D573E: $6087
         dc.w    $4E34                    ; 009D5740: dc.w $4E34
-        dc.w    $4EA5                    ; 009D5742: dc.w $4EA5
-        dc.w    $6087                    ; 009D5744: BRA.S $009D56CD
-        dc.w    $6087                    ; 009D5746: BRA.S $009D56CF
-        dc.w    $6087                    ; 009D5748: BRA.S $009D56D1
-        dc.w    $6087                    ; 009D574A: BRA.S $009D56D3
-        dc.w    $6087                    ; 009D574C: BRA.S $009D56D5
-        dc.w    $6087                    ; 009D574E: BRA.S $009D56D7
-        dc.w    $6087                    ; 009D5750: BRA.S $009D56D9
-        dc.w    $6087                    ; 009D5752: BRA.S $009D56DB
-        dc.w    $6087                    ; 009D5754: BRA.S $009D56DD
-        dc.w    $6087                    ; 009D5756: BRA.S $009D56DF
-        dc.w    $6087                    ; 009D5758: BRA.S $009D56E1
-        dc.w    $6087                    ; 009D575A: BRA.S $009D56E3
-        dc.w    $6087                    ; 009D575C: BRA.S $009D56E5
-        dc.w    $6087                    ; 009D575E: BRA.S $009D56E7
-        dc.w    $6087                    ; 009D5760: BRA.S $009D56E9
-        dc.w    $6087                    ; 009D5762: BRA.S $009D56EB
-        dc.w    $6087                    ; 009D5764: BRA.S $009D56ED
-        dc.w    $6087                    ; 009D5766: BRA.S $009D56EF
-        dc.w    $6087                    ; 009D5768: BRA.S $009D56F1
-        dc.w    $6087                    ; 009D576A: BRA.S $009D56F3
-        dc.w    $6087                    ; 009D576C: BRA.S $009D56F5
-        dc.w    $6087                    ; 009D576E: BRA.S $009D56F7
-        dc.w    $6087                    ; 009D5770: BRA.S $009D56F9
-        dc.w    $6087                    ; 009D5772: BRA.S $009D56FB
-        dc.w    $6087                    ; 009D5774: BRA.S $009D56FD
-        dc.w    $6087                    ; 009D5776: BRA.S $009D56FF
-        dc.w    $6087                    ; 009D5778: BRA.S $009D5701
-        dc.w    $6087                    ; 009D577A: BRA.S $009D5703
-        dc.w    $6087                    ; 009D577C: BRA.S $009D5705
-        dc.w    $6087                    ; 009D577E: BRA.S $009D5707
-        dc.w    $6087                    ; 009D5780: BRA.S $009D5709
-        dc.w    $6087                    ; 009D5782: BRA.S $009D570B
-        dc.w    $6087                    ; 009D5784: BRA.S $009D570D
-        dc.w    $6087                    ; 009D5786: BRA.S $009D570F
-        dc.w    $6087                    ; 009D5788: BRA.S $009D5711
-        dc.w    $6087                    ; 009D578A: BRA.S $009D5713
-        dc.w    $6087                    ; 009D578C: BRA.S $009D5715
-        dc.w    $6087                    ; 009D578E: BRA.S $009D5717
-        dc.w    $6087                    ; 009D5790: BRA.S $009D5719
-        dc.w    $6087                    ; 009D5792: BRA.S $009D571B
-        dc.w    $6087                    ; 009D5794: BRA.S $009D571D
-        dc.w    $6087                    ; 009D5796: BRA.S $009D571F
-        dc.w    $6087                    ; 009D5798: BRA.S $009D5721
-        dc.w    $6087                    ; 009D579A: BRA.S $009D5723
-        dc.w    $6087                    ; 009D579C: BRA.S $009D5725
-        dc.w    $6087                    ; 009D579E: BRA.S $009D5727
-        dc.w    $6087                    ; 009D57A0: BRA.S $009D5729
-        dc.w    $6087                    ; 009D57A2: BRA.S $009D572B
-        dc.w    $6087                    ; 009D57A4: BRA.S $009D572D
-        dc.w    $6087                    ; 009D57A6: BRA.S $009D572F
-        dc.w    $4EFA                    ; 009D57A8: dc.w $4EFA
-        dc.w    $4F33                    ; 009D57AA: dc.w $4F33
+        jsr     -(a5)                                   ; 009D5742: $4EA5
+        bra.s   $009D56CD                               ; 009D5744: $6087
+        bra.s   $009D56CF                               ; 009D5746: $6087
+        bra.s   $009D56D1                               ; 009D5748: $6087
+        bra.s   $009D56D3                               ; 009D574A: $6087
+        bra.s   $009D56D5                               ; 009D574C: $6087
+        bra.s   $009D56D7                               ; 009D574E: $6087
+        bra.s   $009D56D9                               ; 009D5750: $6087
+        bra.s   $009D56DB                               ; 009D5752: $6087
+        bra.s   $009D56DD                               ; 009D5754: $6087
+        bra.s   $009D56DF                               ; 009D5756: $6087
+        bra.s   $009D56E1                               ; 009D5758: $6087
+        bra.s   $009D56E3                               ; 009D575A: $6087
+        bra.s   $009D56E5                               ; 009D575C: $6087
+        bra.s   $009D56E7                               ; 009D575E: $6087
+        bra.s   $009D56E9                               ; 009D5760: $6087
+        bra.s   $009D56EB                               ; 009D5762: $6087
+        bra.s   $009D56ED                               ; 009D5764: $6087
+        bra.s   $009D56EF                               ; 009D5766: $6087
+        bra.s   $009D56F1                               ; 009D5768: $6087
+        bra.s   $009D56F3                               ; 009D576A: $6087
+        bra.s   $009D56F5                               ; 009D576C: $6087
+        bra.s   $009D56F7                               ; 009D576E: $6087
+        bra.s   $009D56F9                               ; 009D5770: $6087
+        bra.s   $009D56FB                               ; 009D5772: $6087
+        bra.s   $009D56FD                               ; 009D5774: $6087
+        bra.s   $009D56FF                               ; 009D5776: $6087
+        bra.s   $009D5701                               ; 009D5778: $6087
+        bra.s   $009D5703                               ; 009D577A: $6087
+        bra.s   $009D5705                               ; 009D577C: $6087
+        bra.s   $009D5707                               ; 009D577E: $6087
+        bra.s   $009D5709                               ; 009D5780: $6087
+        bra.s   $009D570B                               ; 009D5782: $6087
+        bra.s   $009D570D                               ; 009D5784: $6087
+        bra.s   $009D570F                               ; 009D5786: $6087
+        bra.s   $009D5711                               ; 009D5788: $6087
+        bra.s   $009D5713                               ; 009D578A: $6087
+        bra.s   $009D5715                               ; 009D578C: $6087
+        bra.s   $009D5717                               ; 009D578E: $6087
+        bra.s   $009D5719                               ; 009D5790: $6087
+        bra.s   $009D571B                               ; 009D5792: $6087
+        bra.s   $009D571D                               ; 009D5794: $6087
+        bra.s   $009D571F                               ; 009D5796: $6087
+        bra.s   $009D5721                               ; 009D5798: $6087
+        bra.s   $009D5723                               ; 009D579A: $6087
+        bra.s   $009D5725                               ; 009D579C: $6087
+        bra.s   $009D5727                               ; 009D579E: $6087
+        bra.s   $009D5729                               ; 009D57A0: $6087
+        bra.s   $009D572B                               ; 009D57A2: $6087
+        bra.s   $009D572D                               ; 009D57A4: $6087
+        bra.s   $009D572F                               ; 009D57A6: $6087
+        jmp     $4F33(pc)                               ; 009D57A8: $4EFA, $4F33
         dc.w    $4F7A                    ; 009D57AC: dc.w $4F7A
-        dc.w    $4FEB                    ; 009D57AE: dc.w $4FEB
-        dc.w    $6087                    ; 009D57B0: BRA.S $009D5739
-        dc.w    $6087                    ; 009D57B2: BRA.S $009D573B
-        dc.w    $6087                    ; 009D57B4: BRA.S $009D573D
-        dc.w    $6087                    ; 009D57B6: BRA.S $009D573F
-        dc.w    $6087                    ; 009D57B8: BRA.S $009D5741
-        dc.w    $6087                    ; 009D57BA: BRA.S $009D5743
-        dc.w    $5016                    ; 009D57BC: dc.w $5016
-        dc.w    $5041                    ; 009D57BE: dc.w $5041
-        dc.w    $50B2                    ; 009D57C0: dc.w $50B2
-        dc.w    $5107                    ; 009D57C2: dc.w $5107
-        dc.w    $6087                    ; 009D57C4: BRA.S $009D574D
-        dc.w    $6087                    ; 009D57C6: BRA.S $009D574F
-        dc.w    $6087                    ; 009D57C8: BRA.S $009D5751
-        dc.w    $6087                    ; 009D57CA: BRA.S $009D5753
-        dc.w    $6087                    ; 009D57CC: BRA.S $009D5755
-        dc.w    $6087                    ; 009D57CE: BRA.S $009D5757
-        dc.w    $6087                    ; 009D57D0: BRA.S $009D5759
-        dc.w    $6087                    ; 009D57D2: BRA.S $009D575B
-        dc.w    $6087                    ; 009D57D4: BRA.S $009D575D
-        dc.w    $6087                    ; 009D57D6: BRA.S $009D575F
-        dc.w    $6087                    ; 009D57D8: BRA.S $009D5761
-        dc.w    $6087                    ; 009D57DA: BRA.S $009D5763
-        dc.w    $6087                    ; 009D57DC: BRA.S $009D5765
-        dc.w    $6087                    ; 009D57DE: BRA.S $009D5767
-        dc.w    $6087                    ; 009D57E0: BRA.S $009D5769
-        dc.w    $6087                    ; 009D57E2: BRA.S $009D576B
-        dc.w    $6087                    ; 009D57E4: BRA.S $009D576D
-        dc.w    $6087                    ; 009D57E6: BRA.S $009D576F
-        dc.w    $6087                    ; 009D57E8: BRA.S $009D5771
-        dc.w    $6087                    ; 009D57EA: BRA.S $009D5773
-        dc.w    $6087                    ; 009D57EC: BRA.S $009D5775
-        dc.w    $6087                    ; 009D57EE: BRA.S $009D5777
-        dc.w    $6087                    ; 009D57F0: BRA.S $009D5779
-        dc.w    $6087                    ; 009D57F2: BRA.S $009D577B
-        dc.w    $6087                    ; 009D57F4: BRA.S $009D577D
-        dc.w    $6087                    ; 009D57F6: BRA.S $009D577F
-        dc.w    $6087                    ; 009D57F8: BRA.S $009D5781
-        dc.w    $6087                    ; 009D57FA: BRA.S $009D5783
-        dc.w    $6087                    ; 009D57FC: BRA.S $009D5785
-        dc.w    $6087                    ; 009D57FE: BRA.S $009D5787
-        dc.w    $6087                    ; 009D5800: BRA.S $009D5789
-        dc.w    $6087                    ; 009D5802: BRA.S $009D578B
-        dc.w    $6087                    ; 009D5804: BRA.S $009D578D
-        dc.w    $6087                    ; 009D5806: BRA.S $009D578F
-        dc.w    $6087                    ; 009D5808: BRA.S $009D5791
-        dc.w    $6087                    ; 009D580A: BRA.S $009D5793
-        dc.w    $6087                    ; 009D580C: BRA.S $009D5795
-        dc.w    $6087                    ; 009D580E: BRA.S $009D5797
-        dc.w    $6087                    ; 009D5810: BRA.S $009D5799
-        dc.w    $6087                    ; 009D5812: BRA.S $009D579B
-        dc.w    $6087                    ; 009D5814: BRA.S $009D579D
-        dc.w    $6087                    ; 009D5816: BRA.S $009D579F
-        dc.w    $6087                    ; 009D5818: BRA.S $009D57A1
-        dc.w    $6087                    ; 009D581A: BRA.S $009D57A3
-        dc.w    $6087                    ; 009D581C: BRA.S $009D57A5
-        dc.w    $6087                    ; 009D581E: BRA.S $009D57A7
-        dc.w    $6087                    ; 009D5820: BRA.S $009D57A9
-        dc.w    $6087                    ; 009D5822: BRA.S $009D57AB
-        dc.w    $6087                    ; 009D5824: BRA.S $009D57AD
-        dc.w    $6087                    ; 009D5826: BRA.S $009D57AF
-        dc.w    $6087                    ; 009D5828: BRA.S $009D57B1
-        dc.w    $515C                    ; 009D582A: dc.w $515C
-        dc.w    $51B1                    ; 009D582C: dc.w $51B1
-        dc.w    $51F8                    ; 009D582E: dc.w $51F8
-        dc.w    $6087                    ; 009D5830: BRA.S $009D57B9
-        dc.w    $6087                    ; 009D5832: BRA.S $009D57BB
-        dc.w    $6087                    ; 009D5834: BRA.S $009D57BD
-        dc.w    $6087                    ; 009D5836: BRA.S $009D57BF
-        dc.w    $6087                    ; 009D5838: BRA.S $009D57C1
-        dc.w    $524D                    ; 009D583A: dc.w $524D
-        dc.w    $52A2                    ; 009D583C: dc.w $52A2
-        dc.w    $534B                    ; 009D583E: dc.w $534B
-        dc.w    $53BC                    ; 009D5840: dc.w $53BC
-        dc.w    $5411                    ; 009D5842: dc.w $5411
-        dc.w    $6087                    ; 009D5844: BRA.S $009D57CD
-        dc.w    $6087                    ; 009D5846: BRA.S $009D57CF
-        dc.w    $6087                    ; 009D5848: BRA.S $009D57D1
-        dc.w    $6087                    ; 009D584A: BRA.S $009D57D3
-        dc.w    $6087                    ; 009D584C: BRA.S $009D57D5
-        dc.w    $6087                    ; 009D584E: BRA.S $009D57D7
-        dc.w    $6087                    ; 009D5850: BRA.S $009D57D9
-        dc.w    $6087                    ; 009D5852: BRA.S $009D57DB
-        dc.w    $6087                    ; 009D5854: BRA.S $009D57DD
-        dc.w    $6087                    ; 009D5856: BRA.S $009D57DF
-        dc.w    $6087                    ; 009D5858: BRA.S $009D57E1
-        dc.w    $6087                    ; 009D585A: BRA.S $009D57E3
-        dc.w    $6087                    ; 009D585C: BRA.S $009D57E5
-        dc.w    $6087                    ; 009D585E: BRA.S $009D57E7
-        dc.w    $6087                    ; 009D5860: BRA.S $009D57E9
-        dc.w    $6087                    ; 009D5862: BRA.S $009D57EB
-        dc.w    $6087                    ; 009D5864: BRA.S $009D57ED
-        dc.w    $6087                    ; 009D5866: BRA.S $009D57EF
-        dc.w    $6087                    ; 009D5868: BRA.S $009D57F1
-        dc.w    $6087                    ; 009D586A: BRA.S $009D57F3
-        dc.w    $6087                    ; 009D586C: BRA.S $009D57F5
-        dc.w    $6087                    ; 009D586E: BRA.S $009D57F7
-        dc.w    $6087                    ; 009D5870: BRA.S $009D57F9
-        dc.w    $6087                    ; 009D5872: BRA.S $009D57FB
-        dc.w    $6087                    ; 009D5874: BRA.S $009D57FD
-        dc.w    $6087                    ; 009D5876: BRA.S $009D57FF
-        dc.w    $6087                    ; 009D5878: BRA.S $009D5801
-        dc.w    $6087                    ; 009D587A: BRA.S $009D5803
-        dc.w    $6087                    ; 009D587C: BRA.S $009D5805
-        dc.w    $6087                    ; 009D587E: BRA.S $009D5807
-        dc.w    $6087                    ; 009D5880: BRA.S $009D5809
-        dc.w    $6087                    ; 009D5882: BRA.S $009D580B
-        dc.w    $6087                    ; 009D5884: BRA.S $009D580D
-        dc.w    $6087                    ; 009D5886: BRA.S $009D580F
-        dc.w    $6087                    ; 009D5888: BRA.S $009D5811
-        dc.w    $6087                    ; 009D588A: BRA.S $009D5813
-        dc.w    $6087                    ; 009D588C: BRA.S $009D5815
-        dc.w    $6087                    ; 009D588E: BRA.S $009D5817
-        dc.w    $6087                    ; 009D5890: BRA.S $009D5819
-        dc.w    $6087                    ; 009D5892: BRA.S $009D581B
-        dc.w    $6087                    ; 009D5894: BRA.S $009D581D
-        dc.w    $6087                    ; 009D5896: BRA.S $009D581F
-        dc.w    $6087                    ; 009D5898: BRA.S $009D5821
-        dc.w    $6087                    ; 009D589A: BRA.S $009D5823
-        dc.w    $6087                    ; 009D589C: BRA.S $009D5825
-        dc.w    $6087                    ; 009D589E: BRA.S $009D5827
-        dc.w    $6087                    ; 009D58A0: BRA.S $009D5829
-        dc.w    $6087                    ; 009D58A2: BRA.S $009D582B
-        dc.w    $6087                    ; 009D58A4: BRA.S $009D582D
-        dc.w    $6087                    ; 009D58A6: BRA.S $009D582F
-        dc.w    $6087                    ; 009D58A8: BRA.S $009D5831
-        dc.w    $542E                    ; 009D58AA: dc.w $542E
-        dc.w    $543D                    ; 009D58AC: dc.w $543D
-        dc.w    $54AE                    ; 009D58AE: dc.w $54AE
-        dc.w    $5503                    ; 009D58B0: dc.w $5503
-        dc.w    $6087                    ; 009D58B2: BRA.S $009D583B
-        dc.w    $6087                    ; 009D58B4: BRA.S $009D583D
-        dc.w    $6087                    ; 009D58B6: BRA.S $009D583F
-        dc.w    $5558                    ; 009D58B8: dc.w $5558
-        dc.w    $5591                    ; 009D58BA: dc.w $5591
-        dc.w    $561E                    ; 009D58BC: dc.w $561E
-        dc.w    $6087                    ; 009D58BE: BRA.S $009D5847
-        dc.w    $6087                    ; 009D58C0: BRA.S $009D5849
-        dc.w    $6087                    ; 009D58C2: BRA.S $009D584B
-        dc.w    $6087                    ; 009D58C4: BRA.S $009D584D
-        dc.w    $6087                    ; 009D58C6: BRA.S $009D584F
-        dc.w    $6087                    ; 009D58C8: BRA.S $009D5851
-        dc.w    $6087                    ; 009D58CA: BRA.S $009D5853
-        dc.w    $6087                    ; 009D58CC: BRA.S $009D5855
-        dc.w    $6087                    ; 009D58CE: BRA.S $009D5857
-        dc.w    $6087                    ; 009D58D0: BRA.S $009D5859
-        dc.w    $6087                    ; 009D58D2: BRA.S $009D585B
-        dc.w    $6087                    ; 009D58D4: BRA.S $009D585D
-        dc.w    $6087                    ; 009D58D6: BRA.S $009D585F
-        dc.w    $6087                    ; 009D58D8: BRA.S $009D5861
-        dc.w    $6087                    ; 009D58DA: BRA.S $009D5863
-        dc.w    $6087                    ; 009D58DC: BRA.S $009D5865
-        dc.w    $6087                    ; 009D58DE: BRA.S $009D5867
-        dc.w    $6087                    ; 009D58E0: BRA.S $009D5869
-        dc.w    $6087                    ; 009D58E2: BRA.S $009D586B
-        dc.w    $6087                    ; 009D58E4: BRA.S $009D586D
-        dc.w    $6087                    ; 009D58E6: BRA.S $009D586F
-        dc.w    $6087                    ; 009D58E8: BRA.S $009D5871
-        dc.w    $6087                    ; 009D58EA: BRA.S $009D5873
-        dc.w    $6087                    ; 009D58EC: BRA.S $009D5875
-        dc.w    $6087                    ; 009D58EE: BRA.S $009D5877
-        dc.w    $6087                    ; 009D58F0: BRA.S $009D5879
-        dc.w    $6087                    ; 009D58F2: BRA.S $009D587B
-        dc.w    $6087                    ; 009D58F4: BRA.S $009D587D
-        dc.w    $6087                    ; 009D58F6: BRA.S $009D587F
-        dc.w    $6087                    ; 009D58F8: BRA.S $009D5881
-        dc.w    $6087                    ; 009D58FA: BRA.S $009D5883
-        dc.w    $6087                    ; 009D58FC: BRA.S $009D5885
-        dc.w    $6087                    ; 009D58FE: BRA.S $009D5887
-        dc.w    $6087                    ; 009D5900: BRA.S $009D5889
-        dc.w    $6087                    ; 009D5902: BRA.S $009D588B
-        dc.w    $6087                    ; 009D5904: BRA.S $009D588D
-        dc.w    $6087                    ; 009D5906: BRA.S $009D588F
-        dc.w    $6087                    ; 009D5908: BRA.S $009D5891
-        dc.w    $6087                    ; 009D590A: BRA.S $009D5893
-        dc.w    $6087                    ; 009D590C: BRA.S $009D5895
-        dc.w    $6087                    ; 009D590E: BRA.S $009D5897
-        dc.w    $6087                    ; 009D5910: BRA.S $009D5899
-        dc.w    $6087                    ; 009D5912: BRA.S $009D589B
-        dc.w    $6087                    ; 009D5914: BRA.S $009D589D
-        dc.w    $6087                    ; 009D5916: BRA.S $009D589F
-        dc.w    $6087                    ; 009D5918: BRA.S $009D58A1
-        dc.w    $6087                    ; 009D591A: BRA.S $009D58A3
-        dc.w    $6087                    ; 009D591C: BRA.S $009D58A5
-        dc.w    $6087                    ; 009D591E: BRA.S $009D58A7
-        dc.w    $6087                    ; 009D5920: BRA.S $009D58A9
-        dc.w    $6087                    ; 009D5922: BRA.S $009D58AB
-        dc.w    $6087                    ; 009D5924: BRA.S $009D58AD
-        dc.w    $6087                    ; 009D5926: BRA.S $009D58AF
-        dc.w    $6087                    ; 009D5928: BRA.S $009D58B1
-        dc.w    $6087                    ; 009D592A: BRA.S $009D58B3
-        dc.w    $5665                    ; 009D592C: dc.w $5665
-        dc.w    $569E                    ; 009D592E: dc.w $569E
-        dc.w    $5701                    ; 009D5930: dc.w $5701
-        dc.w    $5764                    ; 009D5932: dc.w $5764
-        dc.w    $6087                    ; 009D5934: BRA.S $009D58BD
-        dc.w    $6087                    ; 009D5936: BRA.S $009D58BF
-        dc.w    $5773                    ; 009D5938: dc.w $5773
-        dc.w    $57C8                    ; 009D593A: dc.w $57C8
-        dc.w    $6087                    ; 009D593C: BRA.S $009D58C5
-        dc.w    $6087                    ; 009D593E: BRA.S $009D58C7
-        dc.w    $6087                    ; 009D5940: BRA.S $009D58C9
-        dc.w    $6087                    ; 009D5942: BRA.S $009D58CB
-        dc.w    $6087                    ; 009D5944: BRA.S $009D58CD
-        dc.w    $6087                    ; 009D5946: BRA.S $009D58CF
-        dc.w    $6087                    ; 009D5948: BRA.S $009D58D1
-        dc.w    $6087                    ; 009D594A: BRA.S $009D58D3
-        dc.w    $6087                    ; 009D594C: BRA.S $009D58D5
-        dc.w    $6087                    ; 009D594E: BRA.S $009D58D7
-        dc.w    $6087                    ; 009D5950: BRA.S $009D58D9
-        dc.w    $6087                    ; 009D5952: BRA.S $009D58DB
-        dc.w    $6087                    ; 009D5954: BRA.S $009D58DD
-        dc.w    $6087                    ; 009D5956: BRA.S $009D58DF
-        dc.w    $6087                    ; 009D5958: BRA.S $009D58E1
-        dc.w    $6087                    ; 009D595A: BRA.S $009D58E3
-        dc.w    $6087                    ; 009D595C: BRA.S $009D58E5
-        dc.w    $6087                    ; 009D595E: BRA.S $009D58E7
-        dc.w    $6087                    ; 009D5960: BRA.S $009D58E9
-        dc.w    $6087                    ; 009D5962: BRA.S $009D58EB
-        dc.w    $6087                    ; 009D5964: BRA.S $009D58ED
-        dc.w    $6087                    ; 009D5966: BRA.S $009D58EF
-        dc.w    $6087                    ; 009D5968: BRA.S $009D58F1
-        dc.w    $6087                    ; 009D596A: BRA.S $009D58F3
-        dc.w    $6087                    ; 009D596C: BRA.S $009D58F5
-        dc.w    $6087                    ; 009D596E: BRA.S $009D58F7
-        dc.w    $6087                    ; 009D5970: BRA.S $009D58F9
-        dc.w    $6087                    ; 009D5972: BRA.S $009D58FB
-        dc.w    $6087                    ; 009D5974: BRA.S $009D58FD
-        dc.w    $6087                    ; 009D5976: BRA.S $009D58FF
-        dc.w    $6087                    ; 009D5978: BRA.S $009D5901
-        dc.w    $6087                    ; 009D597A: BRA.S $009D5903
-        dc.w    $6087                    ; 009D597C: BRA.S $009D5905
-        dc.w    $6087                    ; 009D597E: BRA.S $009D5907
-        dc.w    $6087                    ; 009D5980: BRA.S $009D5909
-        dc.w    $6087                    ; 009D5982: BRA.S $009D590B
-        dc.w    $6087                    ; 009D5984: BRA.S $009D590D
-        dc.w    $6087                    ; 009D5986: BRA.S $009D590F
-        dc.w    $6087                    ; 009D5988: BRA.S $009D5911
-        dc.w    $6087                    ; 009D598A: BRA.S $009D5913
-        dc.w    $6087                    ; 009D598C: BRA.S $009D5915
-        dc.w    $6087                    ; 009D598E: BRA.S $009D5917
-        dc.w    $6087                    ; 009D5990: BRA.S $009D5919
-        dc.w    $6087                    ; 009D5992: BRA.S $009D591B
-        dc.w    $6087                    ; 009D5994: BRA.S $009D591D
-        dc.w    $6087                    ; 009D5996: BRA.S $009D591F
-        dc.w    $6087                    ; 009D5998: BRA.S $009D5921
-        dc.w    $6087                    ; 009D599A: BRA.S $009D5923
-        dc.w    $6087                    ; 009D599C: BRA.S $009D5925
-        dc.w    $6087                    ; 009D599E: BRA.S $009D5927
-        dc.w    $6087                    ; 009D59A0: BRA.S $009D5929
-        dc.w    $6087                    ; 009D59A2: BRA.S $009D592B
-        dc.w    $6087                    ; 009D59A4: BRA.S $009D592D
-        dc.w    $6087                    ; 009D59A6: BRA.S $009D592F
-        dc.w    $6087                    ; 009D59A8: BRA.S $009D5931
-        dc.w    $6087                    ; 009D59AA: BRA.S $009D5933
-        dc.w    $6087                    ; 009D59AC: BRA.S $009D5935
-        dc.w    $5839                    ; 009D59AE: dc.w $5839
-        dc.w    $589C                    ; 009D59B0: dc.w $589C
-        dc.w    $58E3                    ; 009D59B2: dc.w $58E3
-        dc.w    $6087                    ; 009D59B4: BRA.S $009D593D
-        dc.w    $6087                    ; 009D59B6: BRA.S $009D593F
-        dc.w    $5938                    ; 009D59B8: dc.w $5938
-        dc.w    $59C5                    ; 009D59BA: dc.w $59C5
-        dc.w    $6087                    ; 009D59BC: BRA.S $009D5945
-        dc.w    $6087                    ; 009D59BE: BRA.S $009D5947
-        dc.w    $6087                    ; 009D59C0: BRA.S $009D5949
-        dc.w    $6087                    ; 009D59C2: BRA.S $009D594B
-        dc.w    $6087                    ; 009D59C4: BRA.S $009D594D
-        dc.w    $6087                    ; 009D59C6: BRA.S $009D594F
-        dc.w    $6087                    ; 009D59C8: BRA.S $009D5951
-        dc.w    $6087                    ; 009D59CA: BRA.S $009D5953
-        dc.w    $6087                    ; 009D59CC: BRA.S $009D5955
-        dc.w    $6087                    ; 009D59CE: BRA.S $009D5957
-        dc.w    $6087                    ; 009D59D0: BRA.S $009D5959
-        dc.w    $6087                    ; 009D59D2: BRA.S $009D595B
-        dc.w    $6087                    ; 009D59D4: BRA.S $009D595D
-        dc.w    $6087                    ; 009D59D6: BRA.S $009D595F
-        dc.w    $6087                    ; 009D59D8: BRA.S $009D5961
-        dc.w    $6087                    ; 009D59DA: BRA.S $009D5963
-        dc.w    $6087                    ; 009D59DC: BRA.S $009D5965
-        dc.w    $6087                    ; 009D59DE: BRA.S $009D5967
-        dc.w    $6087                    ; 009D59E0: BRA.S $009D5969
-        dc.w    $6087                    ; 009D59E2: BRA.S $009D596B
-        dc.w    $6087                    ; 009D59E4: BRA.S $009D596D
-        dc.w    $6087                    ; 009D59E6: BRA.S $009D596F
-        dc.w    $6087                    ; 009D59E8: BRA.S $009D5971
-        dc.w    $6087                    ; 009D59EA: BRA.S $009D5973
-        dc.w    $6087                    ; 009D59EC: BRA.S $009D5975
-        dc.w    $6087                    ; 009D59EE: BRA.S $009D5977
-        dc.w    $6087                    ; 009D59F0: BRA.S $009D5979
-        dc.w    $6087                    ; 009D59F2: BRA.S $009D597B
-        dc.w    $6087                    ; 009D59F4: BRA.S $009D597D
-        dc.w    $6087                    ; 009D59F6: BRA.S $009D597F
-        dc.w    $6087                    ; 009D59F8: BRA.S $009D5981
-        dc.w    $6087                    ; 009D59FA: BRA.S $009D5983
-        dc.w    $6087                    ; 009D59FC: BRA.S $009D5985
-        dc.w    $6087                    ; 009D59FE: BRA.S $009D5987
-        dc.w    $6087                    ; 009D5A00: BRA.S $009D5989
-        dc.w    $6087                    ; 009D5A02: BRA.S $009D598B
-        dc.w    $6087                    ; 009D5A04: BRA.S $009D598D
-        dc.w    $6087                    ; 009D5A06: BRA.S $009D598F
-        dc.w    $6087                    ; 009D5A08: BRA.S $009D5991
-        dc.w    $6087                    ; 009D5A0A: BRA.S $009D5993
-        dc.w    $6087                    ; 009D5A0C: BRA.S $009D5995
-        dc.w    $6087                    ; 009D5A0E: BRA.S $009D5997
-        dc.w    $6087                    ; 009D5A10: BRA.S $009D5999
-        dc.w    $6087                    ; 009D5A12: BRA.S $009D599B
-        dc.w    $6087                    ; 009D5A14: BRA.S $009D599D
-        dc.w    $6087                    ; 009D5A16: BRA.S $009D599F
-        dc.w    $6087                    ; 009D5A18: BRA.S $009D59A1
-        dc.w    $6087                    ; 009D5A1A: BRA.S $009D59A3
-        dc.w    $6087                    ; 009D5A1C: BRA.S $009D59A5
-        dc.w    $6087                    ; 009D5A1E: BRA.S $009D59A7
-        dc.w    $6087                    ; 009D5A20: BRA.S $009D59A9
-        dc.w    $6087                    ; 009D5A22: BRA.S $009D59AB
-        dc.w    $6087                    ; 009D5A24: BRA.S $009D59AD
-        dc.w    $6087                    ; 009D5A26: BRA.S $009D59AF
-        dc.w    $6087                    ; 009D5A28: BRA.S $009D59B1
-        dc.w    $6087                    ; 009D5A2A: BRA.S $009D59B3
-        dc.w    $6087                    ; 009D5A2C: BRA.S $009D59B5
-        dc.w    $5A28                    ; 009D5A2E: dc.w $5A28
-        dc.w    $5A99                    ; 009D5A30: dc.w $5A99
+        lea     $6087(a3),a7                            ; 009D57AE: $4FEB, $6087
+        bra.s   $009D573B                               ; 009D57B2: $6087
+        bra.s   $009D573D                               ; 009D57B4: $6087
+        bra.s   $009D573F                               ; 009D57B6: $6087
+        bra.s   $009D5741                               ; 009D57B8: $6087
+        bra.s   $009D5743                               ; 009D57BA: $6087
+        addq.b  #8,(a6)                                 ; 009D57BC: $5016
+        addq.w  #8,d1                                   ; 009D57BE: $5041
+        addq.l  #8,$07(a2,d5.w)                         ; 009D57C0: $50B2, $5107
+        bra.s   $009D574D                               ; 009D57C4: $6087
+        bra.s   $009D574F                               ; 009D57C6: $6087
+        bra.s   $009D5751                               ; 009D57C8: $6087
+        bra.s   $009D5753                               ; 009D57CA: $6087
+        bra.s   $009D5755                               ; 009D57CC: $6087
+        bra.s   $009D5757                               ; 009D57CE: $6087
+        bra.s   $009D5759                               ; 009D57D0: $6087
+        bra.s   $009D575B                               ; 009D57D2: $6087
+        bra.s   $009D575D                               ; 009D57D4: $6087
+        bra.s   $009D575F                               ; 009D57D6: $6087
+        bra.s   $009D5761                               ; 009D57D8: $6087
+        bra.s   $009D5763                               ; 009D57DA: $6087
+        bra.s   $009D5765                               ; 009D57DC: $6087
+        bra.s   $009D5767                               ; 009D57DE: $6087
+        bra.s   $009D5769                               ; 009D57E0: $6087
+        bra.s   $009D576B                               ; 009D57E2: $6087
+        bra.s   $009D576D                               ; 009D57E4: $6087
+        bra.s   $009D576F                               ; 009D57E6: $6087
+        bra.s   $009D5771                               ; 009D57E8: $6087
+        bra.s   $009D5773                               ; 009D57EA: $6087
+        bra.s   $009D5775                               ; 009D57EC: $6087
+        bra.s   $009D5777                               ; 009D57EE: $6087
+        bra.s   $009D5779                               ; 009D57F0: $6087
+        bra.s   $009D577B                               ; 009D57F2: $6087
+        bra.s   $009D577D                               ; 009D57F4: $6087
+        bra.s   $009D577F                               ; 009D57F6: $6087
+        bra.s   $009D5781                               ; 009D57F8: $6087
+        bra.s   $009D5783                               ; 009D57FA: $6087
+        bra.s   $009D5785                               ; 009D57FC: $6087
+        bra.s   $009D5787                               ; 009D57FE: $6087
+        bra.s   $009D5789                               ; 009D5800: $6087
+        bra.s   $009D578B                               ; 009D5802: $6087
+        bra.s   $009D578D                               ; 009D5804: $6087
+        bra.s   $009D578F                               ; 009D5806: $6087
+        bra.s   $009D5791                               ; 009D5808: $6087
+        bra.s   $009D5793                               ; 009D580A: $6087
+        bra.s   $009D5795                               ; 009D580C: $6087
+        bra.s   $009D5797                               ; 009D580E: $6087
+        bra.s   $009D5799                               ; 009D5810: $6087
+        bra.s   $009D579B                               ; 009D5812: $6087
+        bra.s   $009D579D                               ; 009D5814: $6087
+        bra.s   $009D579F                               ; 009D5816: $6087
+        bra.s   $009D57A1                               ; 009D5818: $6087
+        bra.s   $009D57A3                               ; 009D581A: $6087
+        bra.s   $009D57A5                               ; 009D581C: $6087
+        bra.s   $009D57A7                               ; 009D581E: $6087
+        bra.s   $009D57A9                               ; 009D5820: $6087
+        bra.s   $009D57AB                               ; 009D5822: $6087
+        bra.s   $009D57AD                               ; 009D5824: $6087
+        bra.s   $009D57AF                               ; 009D5826: $6087
+        bra.s   $009D57B1                               ; 009D5828: $6087
+        subq.w  #8,(a4)+                                ; 009D582A: $515C
+        subq.l  #8,$-8(a1,d5.w)                         ; 009D582C: $51B1, $51F8
+        bra.s   $009D57B9                               ; 009D5830: $6087
+        bra.s   $009D57BB                               ; 009D5832: $6087
+        bra.s   $009D57BD                               ; 009D5834: $6087
+        bra.s   $009D57BF                               ; 009D5836: $6087
+        bra.s   $009D57C1                               ; 009D5838: $6087
+        addq.w  #1,a5                                   ; 009D583A: $524D
+        addq.l  #1,-(a2)                                ; 009D583C: $52A2
+        subq.w  #1,a3                                   ; 009D583E: $534B
+        subq.l  #1,#$54116087                           ; 009D5840: $53BC, $5411, $6087
+        bra.s   $009D57CF                               ; 009D5846: $6087
+        bra.s   $009D57D1                               ; 009D5848: $6087
+        bra.s   $009D57D3                               ; 009D584A: $6087
+        bra.s   $009D57D5                               ; 009D584C: $6087
+        bra.s   $009D57D7                               ; 009D584E: $6087
+        bra.s   $009D57D9                               ; 009D5850: $6087
+        bra.s   $009D57DB                               ; 009D5852: $6087
+        bra.s   $009D57DD                               ; 009D5854: $6087
+        bra.s   $009D57DF                               ; 009D5856: $6087
+        bra.s   $009D57E1                               ; 009D5858: $6087
+        bra.s   $009D57E3                               ; 009D585A: $6087
+        bra.s   $009D57E5                               ; 009D585C: $6087
+        bra.s   $009D57E7                               ; 009D585E: $6087
+        bra.s   $009D57E9                               ; 009D5860: $6087
+        bra.s   $009D57EB                               ; 009D5862: $6087
+        bra.s   $009D57ED                               ; 009D5864: $6087
+        bra.s   $009D57EF                               ; 009D5866: $6087
+        bra.s   $009D57F1                               ; 009D5868: $6087
+        bra.s   $009D57F3                               ; 009D586A: $6087
+        bra.s   $009D57F5                               ; 009D586C: $6087
+        bra.s   $009D57F7                               ; 009D586E: $6087
+        bra.s   $009D57F9                               ; 009D5870: $6087
+        bra.s   $009D57FB                               ; 009D5872: $6087
+        bra.s   $009D57FD                               ; 009D5874: $6087
+        bra.s   $009D57FF                               ; 009D5876: $6087
+        bra.s   $009D5801                               ; 009D5878: $6087
+        bra.s   $009D5803                               ; 009D587A: $6087
+        bra.s   $009D5805                               ; 009D587C: $6087
+        bra.s   $009D5807                               ; 009D587E: $6087
+        bra.s   $009D5809                               ; 009D5880: $6087
+        bra.s   $009D580B                               ; 009D5882: $6087
+        bra.s   $009D580D                               ; 009D5884: $6087
+        bra.s   $009D580F                               ; 009D5886: $6087
+        bra.s   $009D5811                               ; 009D5888: $6087
+        bra.s   $009D5813                               ; 009D588A: $6087
+        bra.s   $009D5815                               ; 009D588C: $6087
+        bra.s   $009D5817                               ; 009D588E: $6087
+        bra.s   $009D5819                               ; 009D5890: $6087
+        bra.s   $009D581B                               ; 009D5892: $6087
+        bra.s   $009D581D                               ; 009D5894: $6087
+        bra.s   $009D581F                               ; 009D5896: $6087
+        bra.s   $009D5821                               ; 009D5898: $6087
+        bra.s   $009D5823                               ; 009D589A: $6087
+        bra.s   $009D5825                               ; 009D589C: $6087
+        bra.s   $009D5827                               ; 009D589E: $6087
+        bra.s   $009D5829                               ; 009D58A0: $6087
+        bra.s   $009D582B                               ; 009D58A2: $6087
+        bra.s   $009D582D                               ; 009D58A4: $6087
+        bra.s   $009D582F                               ; 009D58A6: $6087
+        bra.s   $009D5831                               ; 009D58A8: $6087
+        addq.b  #2,$543D(a6)                            ; 009D58AA: $542E, $543D
+        addq.l  #2,$5503(a6)                            ; 009D58AE: $54AE, $5503
+        bra.s   $009D583B                               ; 009D58B2: $6087
+        bra.s   $009D583D                               ; 009D58B4: $6087
+        bra.s   $009D583F                               ; 009D58B6: $6087
+        subq.w  #2,(a0)+                                ; 009D58B8: $5558
+        subq.l  #2,(a1)                                 ; 009D58BA: $5591
+        addq.b  #3,(a6)+                                ; 009D58BC: $561E
+        bra.s   $009D5847                               ; 009D58BE: $6087
+        bra.s   $009D5849                               ; 009D58C0: $6087
+        bra.s   $009D584B                               ; 009D58C2: $6087
+        bra.s   $009D584D                               ; 009D58C4: $6087
+        bra.s   $009D584F                               ; 009D58C6: $6087
+        bra.s   $009D5851                               ; 009D58C8: $6087
+        bra.s   $009D5853                               ; 009D58CA: $6087
+        bra.s   $009D5855                               ; 009D58CC: $6087
+        bra.s   $009D5857                               ; 009D58CE: $6087
+        bra.s   $009D5859                               ; 009D58D0: $6087
+        bra.s   $009D585B                               ; 009D58D2: $6087
+        bra.s   $009D585D                               ; 009D58D4: $6087
+        bra.s   $009D585F                               ; 009D58D6: $6087
+        bra.s   $009D5861                               ; 009D58D8: $6087
+        bra.s   $009D5863                               ; 009D58DA: $6087
+        bra.s   $009D5865                               ; 009D58DC: $6087
+        bra.s   $009D5867                               ; 009D58DE: $6087
+        bra.s   $009D5869                               ; 009D58E0: $6087
+        bra.s   $009D586B                               ; 009D58E2: $6087
+        bra.s   $009D586D                               ; 009D58E4: $6087
+        bra.s   $009D586F                               ; 009D58E6: $6087
+        bra.s   $009D5871                               ; 009D58E8: $6087
+        bra.s   $009D5873                               ; 009D58EA: $6087
+        bra.s   $009D5875                               ; 009D58EC: $6087
+        bra.s   $009D5877                               ; 009D58EE: $6087
+        bra.s   $009D5879                               ; 009D58F0: $6087
+        bra.s   $009D587B                               ; 009D58F2: $6087
+        bra.s   $009D587D                               ; 009D58F4: $6087
+        bra.s   $009D587F                               ; 009D58F6: $6087
+        bra.s   $009D5881                               ; 009D58F8: $6087
+        bra.s   $009D5883                               ; 009D58FA: $6087
+        bra.s   $009D5885                               ; 009D58FC: $6087
+        bra.s   $009D5887                               ; 009D58FE: $6087
+        bra.s   $009D5889                               ; 009D5900: $6087
+        bra.s   $009D588B                               ; 009D5902: $6087
+        bra.s   $009D588D                               ; 009D5904: $6087
+        bra.s   $009D588F                               ; 009D5906: $6087
+        bra.s   $009D5891                               ; 009D5908: $6087
+        bra.s   $009D5893                               ; 009D590A: $6087
+        bra.s   $009D5895                               ; 009D590C: $6087
+        bra.s   $009D5897                               ; 009D590E: $6087
+        bra.s   $009D5899                               ; 009D5910: $6087
+        bra.s   $009D589B                               ; 009D5912: $6087
+        bra.s   $009D589D                               ; 009D5914: $6087
+        bra.s   $009D589F                               ; 009D5916: $6087
+        bra.s   $009D58A1                               ; 009D5918: $6087
+        bra.s   $009D58A3                               ; 009D591A: $6087
+        bra.s   $009D58A5                               ; 009D591C: $6087
+        bra.s   $009D58A7                               ; 009D591E: $6087
+        bra.s   $009D58A9                               ; 009D5920: $6087
+        bra.s   $009D58AB                               ; 009D5922: $6087
+        bra.s   $009D58AD                               ; 009D5924: $6087
+        bra.s   $009D58AF                               ; 009D5926: $6087
+        bra.s   $009D58B1                               ; 009D5928: $6087
+        bra.s   $009D58B3                               ; 009D592A: $6087
+        addq.w  #3,-(a5)                                ; 009D592C: $5665
+        addq.l  #3,(a6)+                                ; 009D592E: $569E
+        subq.b  #3,d1                                   ; 009D5930: $5701
+        subq.w  #3,-(a4)                                ; 009D5932: $5764
+        bra.s   $009D58BD                               ; 009D5934: $6087
+        bra.s   $009D58BF                               ; 009D5936: $6087
+        subq.w  #3,$-38(a3,d5.w)                        ; 009D5938: $5773, $57C8
+        bra.s   $009D58C5                               ; 009D593C: $6087
+        bra.s   $009D58C7                               ; 009D593E: $6087
+        bra.s   $009D58C9                               ; 009D5940: $6087
+        bra.s   $009D58CB                               ; 009D5942: $6087
+        bra.s   $009D58CD                               ; 009D5944: $6087
+        bra.s   $009D58CF                               ; 009D5946: $6087
+        bra.s   $009D58D1                               ; 009D5948: $6087
+        bra.s   $009D58D3                               ; 009D594A: $6087
+        bra.s   $009D58D5                               ; 009D594C: $6087
+        bra.s   $009D58D7                               ; 009D594E: $6087
+        bra.s   $009D58D9                               ; 009D5950: $6087
+        bra.s   $009D58DB                               ; 009D5952: $6087
+        bra.s   $009D58DD                               ; 009D5954: $6087
+        bra.s   $009D58DF                               ; 009D5956: $6087
+        bra.s   $009D58E1                               ; 009D5958: $6087
+        bra.s   $009D58E3                               ; 009D595A: $6087
+        bra.s   $009D58E5                               ; 009D595C: $6087
+        bra.s   $009D58E7                               ; 009D595E: $6087
+        bra.s   $009D58E9                               ; 009D5960: $6087
+        bra.s   $009D58EB                               ; 009D5962: $6087
+        bra.s   $009D58ED                               ; 009D5964: $6087
+        bra.s   $009D58EF                               ; 009D5966: $6087
+        bra.s   $009D58F1                               ; 009D5968: $6087
+        bra.s   $009D58F3                               ; 009D596A: $6087
+        bra.s   $009D58F5                               ; 009D596C: $6087
+        bra.s   $009D58F7                               ; 009D596E: $6087
+        bra.s   $009D58F9                               ; 009D5970: $6087
+        bra.s   $009D58FB                               ; 009D5972: $6087
+        bra.s   $009D58FD                               ; 009D5974: $6087
+        bra.s   $009D58FF                               ; 009D5976: $6087
+        bra.s   $009D5901                               ; 009D5978: $6087
+        bra.s   $009D5903                               ; 009D597A: $6087
+        bra.s   $009D5905                               ; 009D597C: $6087
+        bra.s   $009D5907                               ; 009D597E: $6087
+        bra.s   $009D5909                               ; 009D5980: $6087
+        bra.s   $009D590B                               ; 009D5982: $6087
+        bra.s   $009D590D                               ; 009D5984: $6087
+        bra.s   $009D590F                               ; 009D5986: $6087
+        bra.s   $009D5911                               ; 009D5988: $6087
+        bra.s   $009D5913                               ; 009D598A: $6087
+        bra.s   $009D5915                               ; 009D598C: $6087
+        bra.s   $009D5917                               ; 009D598E: $6087
+        bra.s   $009D5919                               ; 009D5990: $6087
+        bra.s   $009D591B                               ; 009D5992: $6087
+        bra.s   $009D591D                               ; 009D5994: $6087
+        bra.s   $009D591F                               ; 009D5996: $6087
+        bra.s   $009D5921                               ; 009D5998: $6087
+        bra.s   $009D5923                               ; 009D599A: $6087
+        bra.s   $009D5925                               ; 009D599C: $6087
+        bra.s   $009D5927                               ; 009D599E: $6087
+        bra.s   $009D5929                               ; 009D59A0: $6087
+        bra.s   $009D592B                               ; 009D59A2: $6087
+        bra.s   $009D592D                               ; 009D59A4: $6087
+        bra.s   $009D592F                               ; 009D59A6: $6087
+        bra.s   $009D5931                               ; 009D59A8: $6087
+        bra.s   $009D5933                               ; 009D59AA: $6087
+        bra.s   $009D5935                               ; 009D59AC: $6087
+        addq.b  #4,($589C58E3).l                        ; 009D59AE: $5839, $589C, $58E3
+        bra.s   $009D593D                               ; 009D59B4: $6087
+        bra.s   $009D593F                               ; 009D59B6: $6087
+        subq.b  #4,($59C5).w                            ; 009D59B8: $5938, $59C5
+        bra.s   $009D5945                               ; 009D59BC: $6087
+        bra.s   $009D5947                               ; 009D59BE: $6087
+        bra.s   $009D5949                               ; 009D59C0: $6087
+        bra.s   $009D594B                               ; 009D59C2: $6087
+        bra.s   $009D594D                               ; 009D59C4: $6087
+        bra.s   $009D594F                               ; 009D59C6: $6087
+        bra.s   $009D5951                               ; 009D59C8: $6087
+        bra.s   $009D5953                               ; 009D59CA: $6087
+        bra.s   $009D5955                               ; 009D59CC: $6087
+        bra.s   $009D5957                               ; 009D59CE: $6087
+        bra.s   $009D5959                               ; 009D59D0: $6087
+        bra.s   $009D595B                               ; 009D59D2: $6087
+        bra.s   $009D595D                               ; 009D59D4: $6087
+        bra.s   $009D595F                               ; 009D59D6: $6087
+        bra.s   $009D5961                               ; 009D59D8: $6087
+        bra.s   $009D5963                               ; 009D59DA: $6087
+        bra.s   $009D5965                               ; 009D59DC: $6087
+        bra.s   $009D5967                               ; 009D59DE: $6087
+        bra.s   $009D5969                               ; 009D59E0: $6087
+        bra.s   $009D596B                               ; 009D59E2: $6087
+        bra.s   $009D596D                               ; 009D59E4: $6087
+        bra.s   $009D596F                               ; 009D59E6: $6087
+        bra.s   $009D5971                               ; 009D59E8: $6087
+        bra.s   $009D5973                               ; 009D59EA: $6087
+        bra.s   $009D5975                               ; 009D59EC: $6087
+        bra.s   $009D5977                               ; 009D59EE: $6087
+        bra.s   $009D5979                               ; 009D59F0: $6087
+        bra.s   $009D597B                               ; 009D59F2: $6087
+        bra.s   $009D597D                               ; 009D59F4: $6087
+        bra.s   $009D597F                               ; 009D59F6: $6087
+        bra.s   $009D5981                               ; 009D59F8: $6087
+        bra.s   $009D5983                               ; 009D59FA: $6087
+        bra.s   $009D5985                               ; 009D59FC: $6087
+        bra.s   $009D5987                               ; 009D59FE: $6087
+        bra.s   $009D5989                               ; 009D5A00: $6087
+        bra.s   $009D598B                               ; 009D5A02: $6087
+        bra.s   $009D598D                               ; 009D5A04: $6087
+        bra.s   $009D598F                               ; 009D5A06: $6087
+        bra.s   $009D5991                               ; 009D5A08: $6087
+        bra.s   $009D5993                               ; 009D5A0A: $6087
+        bra.s   $009D5995                               ; 009D5A0C: $6087
+        bra.s   $009D5997                               ; 009D5A0E: $6087
+        bra.s   $009D5999                               ; 009D5A10: $6087
+        bra.s   $009D599B                               ; 009D5A12: $6087
+        bra.s   $009D599D                               ; 009D5A14: $6087
+        bra.s   $009D599F                               ; 009D5A16: $6087
+        bra.s   $009D59A1                               ; 009D5A18: $6087
+        bra.s   $009D59A3                               ; 009D5A1A: $6087
+        bra.s   $009D59A5                               ; 009D5A1C: $6087
+        bra.s   $009D59A7                               ; 009D5A1E: $6087
+        bra.s   $009D59A9                               ; 009D5A20: $6087
+        bra.s   $009D59AB                               ; 009D5A22: $6087
+        bra.s   $009D59AD                               ; 009D5A24: $6087
+        bra.s   $009D59AF                               ; 009D5A26: $6087
+        bra.s   $009D59B1                               ; 009D5A28: $6087
+        bra.s   $009D59B3                               ; 009D5A2A: $6087
+        bra.s   $009D59B5                               ; 009D5A2C: $6087
+        addq.b  #5,$5A99(a0)                            ; 009D5A2E: $5A28, $5A99
         dc.w    $5AD2                    ; 009D5A32: dc.w $5AD2
-        dc.w    $6087                    ; 009D5A34: BRA.S $009D59BD
-        dc.w    $6087                    ; 009D5A36: BRA.S $009D59BF
-        dc.w    $5B27                    ; 009D5A38: dc.w $5B27
-        dc.w    $5BB4                    ; 009D5A3A: dc.w $5BB4
-        dc.w    $5BED                    ; 009D5A3C: dc.w $5BED
-        dc.w    $6087                    ; 009D5A3E: BRA.S $009D59C7
-        dc.w    $6087                    ; 009D5A40: BRA.S $009D59C9
-        dc.w    $6087                    ; 009D5A42: BRA.S $009D59CB
-        dc.w    $6087                    ; 009D5A44: BRA.S $009D59CD
-        dc.w    $6087                    ; 009D5A46: BRA.S $009D59CF
-        dc.w    $6087                    ; 009D5A48: BRA.S $009D59D1
-        dc.w    $6087                    ; 009D5A4A: BRA.S $009D59D3
-        dc.w    $6087                    ; 009D5A4C: BRA.S $009D59D5
-        dc.w    $6087                    ; 009D5A4E: BRA.S $009D59D7
-        dc.w    $6087                    ; 009D5A50: BRA.S $009D59D9
-        dc.w    $6087                    ; 009D5A52: BRA.S $009D59DB
-        dc.w    $6087                    ; 009D5A54: BRA.S $009D59DD
-        dc.w    $6087                    ; 009D5A56: BRA.S $009D59DF
-        dc.w    $6087                    ; 009D5A58: BRA.S $009D59E1
-        dc.w    $6087                    ; 009D5A5A: BRA.S $009D59E3
-        dc.w    $6087                    ; 009D5A5C: BRA.S $009D59E5
-        dc.w    $6087                    ; 009D5A5E: BRA.S $009D59E7
-        dc.w    $6087                    ; 009D5A60: BRA.S $009D59E9
-        dc.w    $6087                    ; 009D5A62: BRA.S $009D59EB
-        dc.w    $6087                    ; 009D5A64: BRA.S $009D59ED
-        dc.w    $6087                    ; 009D5A66: BRA.S $009D59EF
-        dc.w    $6087                    ; 009D5A68: BRA.S $009D59F1
-        dc.w    $6087                    ; 009D5A6A: BRA.S $009D59F3
-        dc.w    $6087                    ; 009D5A6C: BRA.S $009D59F5
-        dc.w    $6087                    ; 009D5A6E: BRA.S $009D59F7
-        dc.w    $6087                    ; 009D5A70: BRA.S $009D59F9
-        dc.w    $6087                    ; 009D5A72: BRA.S $009D59FB
-        dc.w    $6087                    ; 009D5A74: BRA.S $009D59FD
-        dc.w    $6087                    ; 009D5A76: BRA.S $009D59FF
-        dc.w    $6087                    ; 009D5A78: BRA.S $009D5A01
-        dc.w    $6087                    ; 009D5A7A: BRA.S $009D5A03
-        dc.w    $6087                    ; 009D5A7C: BRA.S $009D5A05
-        dc.w    $6087                    ; 009D5A7E: BRA.S $009D5A07
-        dc.w    $6087                    ; 009D5A80: BRA.S $009D5A09
-        dc.w    $6087                    ; 009D5A82: BRA.S $009D5A0B
-        dc.w    $6087                    ; 009D5A84: BRA.S $009D5A0D
-        dc.w    $6087                    ; 009D5A86: BRA.S $009D5A0F
-        dc.w    $6087                    ; 009D5A88: BRA.S $009D5A11
-        dc.w    $6087                    ; 009D5A8A: BRA.S $009D5A13
-        dc.w    $6087                    ; 009D5A8C: BRA.S $009D5A15
-        dc.w    $6087                    ; 009D5A8E: BRA.S $009D5A17
-        dc.w    $6087                    ; 009D5A90: BRA.S $009D5A19
-        dc.w    $6087                    ; 009D5A92: BRA.S $009D5A1B
-        dc.w    $6087                    ; 009D5A94: BRA.S $009D5A1D
-        dc.w    $6087                    ; 009D5A96: BRA.S $009D5A1F
-        dc.w    $6087                    ; 009D5A98: BRA.S $009D5A21
-        dc.w    $6087                    ; 009D5A9A: BRA.S $009D5A23
-        dc.w    $6087                    ; 009D5A9C: BRA.S $009D5A25
-        dc.w    $6087                    ; 009D5A9E: BRA.S $009D5A27
-        dc.w    $6087                    ; 009D5AA0: BRA.S $009D5A29
-        dc.w    $6087                    ; 009D5AA2: BRA.S $009D5A2B
-        dc.w    $6087                    ; 009D5AA4: BRA.S $009D5A2D
-        dc.w    $6087                    ; 009D5AA6: BRA.S $009D5A2F
-        dc.w    $6087                    ; 009D5AA8: BRA.S $009D5A31
-        dc.w    $6087                    ; 009D5AAA: BRA.S $009D5A33
-        dc.w    $6087                    ; 009D5AAC: BRA.S $009D5A35
-        dc.w    $5C26                    ; 009D5AAE: dc.w $5C26
-        dc.w    $5C6D                    ; 009D5AB0: dc.w $5C6D
-        dc.w    $5C98                    ; 009D5AB2: dc.w $5C98
-        dc.w    $5D25                    ; 009D5AB4: dc.w $5D25
-        dc.w    $5D88                    ; 009D5AB6: dc.w $5D88
+        bra.s   $009D59BD                               ; 009D5A34: $6087
+        bra.s   $009D59BF                               ; 009D5A36: $6087
+        subq.b  #5,-(a7)                                ; 009D5A38: $5B27
+        subq.l  #5,$-13(a4,d5.l)                        ; 009D5A3A: $5BB4, $5BED
+        bra.s   $009D59C7                               ; 009D5A3E: $6087
+        bra.s   $009D59C9                               ; 009D5A40: $6087
+        bra.s   $009D59CB                               ; 009D5A42: $6087
+        bra.s   $009D59CD                               ; 009D5A44: $6087
+        bra.s   $009D59CF                               ; 009D5A46: $6087
+        bra.s   $009D59D1                               ; 009D5A48: $6087
+        bra.s   $009D59D3                               ; 009D5A4A: $6087
+        bra.s   $009D59D5                               ; 009D5A4C: $6087
+        bra.s   $009D59D7                               ; 009D5A4E: $6087
+        bra.s   $009D59D9                               ; 009D5A50: $6087
+        bra.s   $009D59DB                               ; 009D5A52: $6087
+        bra.s   $009D59DD                               ; 009D5A54: $6087
+        bra.s   $009D59DF                               ; 009D5A56: $6087
+        bra.s   $009D59E1                               ; 009D5A58: $6087
+        bra.s   $009D59E3                               ; 009D5A5A: $6087
+        bra.s   $009D59E5                               ; 009D5A5C: $6087
+        bra.s   $009D59E7                               ; 009D5A5E: $6087
+        bra.s   $009D59E9                               ; 009D5A60: $6087
+        bra.s   $009D59EB                               ; 009D5A62: $6087
+        bra.s   $009D59ED                               ; 009D5A64: $6087
+        bra.s   $009D59EF                               ; 009D5A66: $6087
+        bra.s   $009D59F1                               ; 009D5A68: $6087
+        bra.s   $009D59F3                               ; 009D5A6A: $6087
+        bra.s   $009D59F5                               ; 009D5A6C: $6087
+        bra.s   $009D59F7                               ; 009D5A6E: $6087
+        bra.s   $009D59F9                               ; 009D5A70: $6087
+        bra.s   $009D59FB                               ; 009D5A72: $6087
+        bra.s   $009D59FD                               ; 009D5A74: $6087
+        bra.s   $009D59FF                               ; 009D5A76: $6087
+        bra.s   $009D5A01                               ; 009D5A78: $6087
+        bra.s   $009D5A03                               ; 009D5A7A: $6087
+        bra.s   $009D5A05                               ; 009D5A7C: $6087
+        bra.s   $009D5A07                               ; 009D5A7E: $6087
+        bra.s   $009D5A09                               ; 009D5A80: $6087
+        bra.s   $009D5A0B                               ; 009D5A82: $6087
+        bra.s   $009D5A0D                               ; 009D5A84: $6087
+        bra.s   $009D5A0F                               ; 009D5A86: $6087
+        bra.s   $009D5A11                               ; 009D5A88: $6087
+        bra.s   $009D5A13                               ; 009D5A8A: $6087
+        bra.s   $009D5A15                               ; 009D5A8C: $6087
+        bra.s   $009D5A17                               ; 009D5A8E: $6087
+        bra.s   $009D5A19                               ; 009D5A90: $6087
+        bra.s   $009D5A1B                               ; 009D5A92: $6087
+        bra.s   $009D5A1D                               ; 009D5A94: $6087
+        bra.s   $009D5A1F                               ; 009D5A96: $6087
+        bra.s   $009D5A21                               ; 009D5A98: $6087
+        bra.s   $009D5A23                               ; 009D5A9A: $6087
+        bra.s   $009D5A25                               ; 009D5A9C: $6087
+        bra.s   $009D5A27                               ; 009D5A9E: $6087
+        bra.s   $009D5A29                               ; 009D5AA0: $6087
+        bra.s   $009D5A2B                               ; 009D5AA2: $6087
+        bra.s   $009D5A2D                               ; 009D5AA4: $6087
+        bra.s   $009D5A2F                               ; 009D5AA6: $6087
+        bra.s   $009D5A31                               ; 009D5AA8: $6087
+        bra.s   $009D5A33                               ; 009D5AAA: $6087
+        bra.s   $009D5A35                               ; 009D5AAC: $6087
+        addq.b  #6,-(a6)                                ; 009D5AAE: $5C26
+        addq.w  #6,$5C98(a5)                            ; 009D5AB0: $5C6D, $5C98
+        subq.b  #6,-(a5)                                ; 009D5AB4: $5D25
+        subq.l  #6,a0                                   ; 009D5AB6: $5D88
         dc.w    $5DDD                    ; 009D5AB8: dc.w $5DDD
-        dc.w    $5E24                    ; 009D5ABA: dc.w $5E24
-        dc.w    $5E5D                    ; 009D5ABC: dc.w $5E5D
-        dc.w    $6087                    ; 009D5ABE: BRA.S $009D5A47
-        dc.w    $6087                    ; 009D5AC0: BRA.S $009D5A49
-        dc.w    $6087                    ; 009D5AC2: BRA.S $009D5A4B
-        dc.w    $6087                    ; 009D5AC4: BRA.S $009D5A4D
-        dc.w    $6087                    ; 009D5AC6: BRA.S $009D5A4F
-        dc.w    $6087                    ; 009D5AC8: BRA.S $009D5A51
-        dc.w    $6087                    ; 009D5ACA: BRA.S $009D5A53
-        dc.w    $6087                    ; 009D5ACC: BRA.S $009D5A55
-        dc.w    $6087                    ; 009D5ACE: BRA.S $009D5A57
-        dc.w    $6087                    ; 009D5AD0: BRA.S $009D5A59
-        dc.w    $6087                    ; 009D5AD2: BRA.S $009D5A5B
-        dc.w    $6087                    ; 009D5AD4: BRA.S $009D5A5D
-        dc.w    $6087                    ; 009D5AD6: BRA.S $009D5A5F
-        dc.w    $6087                    ; 009D5AD8: BRA.S $009D5A61
-        dc.w    $6087                    ; 009D5ADA: BRA.S $009D5A63
-        dc.w    $6087                    ; 009D5ADC: BRA.S $009D5A65
-        dc.w    $6087                    ; 009D5ADE: BRA.S $009D5A67
-        dc.w    $6087                    ; 009D5AE0: BRA.S $009D5A69
-        dc.w    $6087                    ; 009D5AE2: BRA.S $009D5A6B
-        dc.w    $6087                    ; 009D5AE4: BRA.S $009D5A6D
-        dc.w    $6087                    ; 009D5AE6: BRA.S $009D5A6F
-        dc.w    $6087                    ; 009D5AE8: BRA.S $009D5A71
-        dc.w    $6087                    ; 009D5AEA: BRA.S $009D5A73
-        dc.w    $6087                    ; 009D5AEC: BRA.S $009D5A75
-        dc.w    $6087                    ; 009D5AEE: BRA.S $009D5A77
-        dc.w    $6087                    ; 009D5AF0: BRA.S $009D5A79
-        dc.w    $6087                    ; 009D5AF2: BRA.S $009D5A7B
-        dc.w    $6087                    ; 009D5AF4: BRA.S $009D5A7D
-        dc.w    $6087                    ; 009D5AF6: BRA.S $009D5A7F
-        dc.w    $6087                    ; 009D5AF8: BRA.S $009D5A81
-        dc.w    $6087                    ; 009D5AFA: BRA.S $009D5A83
-        dc.w    $6087                    ; 009D5AFC: BRA.S $009D5A85
-        dc.w    $6087                    ; 009D5AFE: BRA.S $009D5A87
-        dc.w    $6087                    ; 009D5B00: BRA.S $009D5A89
-        dc.w    $6087                    ; 009D5B02: BRA.S $009D5A8B
-        dc.w    $6087                    ; 009D5B04: BRA.S $009D5A8D
-        dc.w    $6087                    ; 009D5B06: BRA.S $009D5A8F
-        dc.w    $6087                    ; 009D5B08: BRA.S $009D5A91
-        dc.w    $6087                    ; 009D5B0A: BRA.S $009D5A93
-        dc.w    $6087                    ; 009D5B0C: BRA.S $009D5A95
-        dc.w    $6087                    ; 009D5B0E: BRA.S $009D5A97
-        dc.w    $6087                    ; 009D5B10: BRA.S $009D5A99
-        dc.w    $6087                    ; 009D5B12: BRA.S $009D5A9B
-        dc.w    $6087                    ; 009D5B14: BRA.S $009D5A9D
-        dc.w    $6087                    ; 009D5B16: BRA.S $009D5A9F
-        dc.w    $6087                    ; 009D5B18: BRA.S $009D5AA1
-        dc.w    $6087                    ; 009D5B1A: BRA.S $009D5AA3
-        dc.w    $6087                    ; 009D5B1C: BRA.S $009D5AA5
-        dc.w    $6087                    ; 009D5B1E: BRA.S $009D5AA7
-        dc.w    $6087                    ; 009D5B20: BRA.S $009D5AA9
-        dc.w    $6087                    ; 009D5B22: BRA.S $009D5AAB
-        dc.w    $6087                    ; 009D5B24: BRA.S $009D5AAD
-        dc.w    $6087                    ; 009D5B26: BRA.S $009D5AAF
-        dc.w    $6087                    ; 009D5B28: BRA.S $009D5AB1
-        dc.w    $6087                    ; 009D5B2A: BRA.S $009D5AB3
-        dc.w    $6087                    ; 009D5B2C: BRA.S $009D5AB5
-        dc.w    $5E96                    ; 009D5B2E: dc.w $5E96
-        dc.w    $5ECF                    ; 009D5B30: dc.w $5ECF
-        dc.w    $5EFA                    ; 009D5B32: dc.w $5EFA
-        dc.w    $5F33                    ; 009D5B34: dc.w $5F33
-        dc.w    $5F96                    ; 009D5B36: dc.w $5F96
+        addq.b  #7,-(a4)                                ; 009D5ABA: $5E24
+        addq.w  #7,(a5)+                                ; 009D5ABC: $5E5D
+        bra.s   $009D5A47                               ; 009D5ABE: $6087
+        bra.s   $009D5A49                               ; 009D5AC0: $6087
+        bra.s   $009D5A4B                               ; 009D5AC2: $6087
+        bra.s   $009D5A4D                               ; 009D5AC4: $6087
+        bra.s   $009D5A4F                               ; 009D5AC6: $6087
+        bra.s   $009D5A51                               ; 009D5AC8: $6087
+        bra.s   $009D5A53                               ; 009D5ACA: $6087
+        bra.s   $009D5A55                               ; 009D5ACC: $6087
+        bra.s   $009D5A57                               ; 009D5ACE: $6087
+        bra.s   $009D5A59                               ; 009D5AD0: $6087
+        bra.s   $009D5A5B                               ; 009D5AD2: $6087
+        bra.s   $009D5A5D                               ; 009D5AD4: $6087
+        bra.s   $009D5A5F                               ; 009D5AD6: $6087
+        bra.s   $009D5A61                               ; 009D5AD8: $6087
+        bra.s   $009D5A63                               ; 009D5ADA: $6087
+        bra.s   $009D5A65                               ; 009D5ADC: $6087
+        bra.s   $009D5A67                               ; 009D5ADE: $6087
+        bra.s   $009D5A69                               ; 009D5AE0: $6087
+        bra.s   $009D5A6B                               ; 009D5AE2: $6087
+        bra.s   $009D5A6D                               ; 009D5AE4: $6087
+        bra.s   $009D5A6F                               ; 009D5AE6: $6087
+        bra.s   $009D5A71                               ; 009D5AE8: $6087
+        bra.s   $009D5A73                               ; 009D5AEA: $6087
+        bra.s   $009D5A75                               ; 009D5AEC: $6087
+        bra.s   $009D5A77                               ; 009D5AEE: $6087
+        bra.s   $009D5A79                               ; 009D5AF0: $6087
+        bra.s   $009D5A7B                               ; 009D5AF2: $6087
+        bra.s   $009D5A7D                               ; 009D5AF4: $6087
+        bra.s   $009D5A7F                               ; 009D5AF6: $6087
+        bra.s   $009D5A81                               ; 009D5AF8: $6087
+        bra.s   $009D5A83                               ; 009D5AFA: $6087
+        bra.s   $009D5A85                               ; 009D5AFC: $6087
+        bra.s   $009D5A87                               ; 009D5AFE: $6087
+        bra.s   $009D5A89                               ; 009D5B00: $6087
+        bra.s   $009D5A8B                               ; 009D5B02: $6087
+        bra.s   $009D5A8D                               ; 009D5B04: $6087
+        bra.s   $009D5A8F                               ; 009D5B06: $6087
+        bra.s   $009D5A91                               ; 009D5B08: $6087
+        bra.s   $009D5A93                               ; 009D5B0A: $6087
+        bra.s   $009D5A95                               ; 009D5B0C: $6087
+        bra.s   $009D5A97                               ; 009D5B0E: $6087
+        bra.s   $009D5A99                               ; 009D5B10: $6087
+        bra.s   $009D5A9B                               ; 009D5B12: $6087
+        bra.s   $009D5A9D                               ; 009D5B14: $6087
+        bra.s   $009D5A9F                               ; 009D5B16: $6087
+        bra.s   $009D5AA1                               ; 009D5B18: $6087
+        bra.s   $009D5AA3                               ; 009D5B1A: $6087
+        bra.s   $009D5AA5                               ; 009D5B1C: $6087
+        bra.s   $009D5AA7                               ; 009D5B1E: $6087
+        bra.s   $009D5AA9                               ; 009D5B20: $6087
+        bra.s   $009D5AAB                               ; 009D5B22: $6087
+        bra.s   $009D5AAD                               ; 009D5B24: $6087
+        bra.s   $009D5AAF                               ; 009D5B26: $6087
+        bra.s   $009D5AB1                               ; 009D5B28: $6087
+        bra.s   $009D5AB3                               ; 009D5B2A: $6087
+        bra.s   $009D5AB5                               ; 009D5B2C: $6087
+        addq.l  #7,(a6)                                 ; 009D5B2E: $5E96
+        dbgt    d7,$009DBA2C                            ; 009D5B30: $5ECF, $5EFA
+        subq.b  #7,$-6A(a3,d5.l)                        ; 009D5B34: $5F33, $5F96
         dc.w    $5FF9                    ; 009D5B38: dc.w $5FF9
-        dc.w    $604E                    ; 009D5B3A: BRA.S $009D5B8A
-        dc.w    $6087                    ; 009D5B3C: BRA.S $009D5AC5
-        dc.w    $6087                    ; 009D5B3E: BRA.S $009D5AC7
-        dc.w    $6087                    ; 009D5B40: BRA.S $009D5AC9
-        dc.w    $6087                    ; 009D5B42: BRA.S $009D5ACB
-        dc.w    $6087                    ; 009D5B44: BRA.S $009D5ACD
-        dc.w    $6087                    ; 009D5B46: BRA.S $009D5ACF
-        dc.w    $6087                    ; 009D5B48: BRA.S $009D5AD1
-        dc.w    $6087                    ; 009D5B4A: BRA.S $009D5AD3
-        dc.w    $6087                    ; 009D5B4C: BRA.S $009D5AD5
-        dc.w    $6087                    ; 009D5B4E: BRA.S $009D5AD7
-        dc.w    $6087                    ; 009D5B50: BRA.S $009D5AD9
-        dc.w    $6087                    ; 009D5B52: BRA.S $009D5ADB
-        dc.w    $6087                    ; 009D5B54: BRA.S $009D5ADD
-        dc.w    $6087                    ; 009D5B56: BRA.S $009D5ADF
-        dc.w    $6087                    ; 009D5B58: BRA.S $009D5AE1
-        dc.w    $6087                    ; 009D5B5A: BRA.S $009D5AE3
-        dc.w    $6087                    ; 009D5B5C: BRA.S $009D5AE5
-        dc.w    $6087                    ; 009D5B5E: BRA.S $009D5AE7
-        dc.w    $6087                    ; 009D5B60: BRA.S $009D5AE9
-        dc.w    $6087                    ; 009D5B62: BRA.S $009D5AEB
-        dc.w    $6087                    ; 009D5B64: BRA.S $009D5AED
-        dc.w    $6087                    ; 009D5B66: BRA.S $009D5AEF
-        dc.w    $6087                    ; 009D5B68: BRA.S $009D5AF1
-        dc.w    $6087                    ; 009D5B6A: BRA.S $009D5AF3
-        dc.w    $6087                    ; 009D5B6C: BRA.S $009D5AF5
-        dc.w    $6087                    ; 009D5B6E: BRA.S $009D5AF7
-        dc.w    $6087                    ; 009D5B70: BRA.S $009D5AF9
-        dc.w    $6087                    ; 009D5B72: BRA.S $009D5AFB
-        dc.w    $6087                    ; 009D5B74: BRA.S $009D5AFD
-        dc.w    $6087                    ; 009D5B76: BRA.S $009D5AFF
-        dc.w    $6087                    ; 009D5B78: BRA.S $009D5B01
-        dc.w    $6087                    ; 009D5B7A: BRA.S $009D5B03
-        dc.w    $6087                    ; 009D5B7C: BRA.S $009D5B05
-        dc.w    $6087                    ; 009D5B7E: BRA.S $009D5B07
-        dc.w    $6087                    ; 009D5B80: BRA.S $009D5B09
-        dc.w    $6087                    ; 009D5B82: BRA.S $009D5B0B
-        dc.w    $6087                    ; 009D5B84: BRA.S $009D5B0D
-        dc.w    $6087                    ; 009D5B86: BRA.S $009D5B0F
-        dc.w    $6087                    ; 009D5B88: BRA.S $009D5B11
-        dc.w    $6087                    ; 009D5B8A: BRA.S $009D5B13
-        dc.w    $6087                    ; 009D5B8C: BRA.S $009D5B15
-        dc.w    $6087                    ; 009D5B8E: BRA.S $009D5B17
-        dc.w    $6087                    ; 009D5B90: BRA.S $009D5B19
-        dc.w    $6087                    ; 009D5B92: BRA.S $009D5B1B
-        dc.w    $6087                    ; 009D5B94: BRA.S $009D5B1D
-        dc.w    $6087                    ; 009D5B96: BRA.S $009D5B1F
-        dc.w    $6087                    ; 009D5B98: BRA.S $009D5B21
-        dc.w    $6087                    ; 009D5B9A: BRA.S $009D5B23
-        dc.w    $6087                    ; 009D5B9C: BRA.S $009D5B25
-        dc.w    $6087                    ; 009D5B9E: BRA.S $009D5B27
-        dc.w    $6087                    ; 009D5BA0: BRA.S $009D5B29
-        dc.w    $6087                    ; 009D5BA2: BRA.S $009D5B2B
-        dc.w    $6087                    ; 009D5BA4: BRA.S $009D5B2D
-        dc.w    $6087                    ; 009D5BA6: BRA.S $009D5B2F
-        dc.w    $6087                    ; 009D5BA8: BRA.S $009D5B31
-        dc.w    $6087                    ; 009D5BAA: BRA.S $009D5B33
-        dc.w    $6087                    ; 009D5BAC: BRA.S $009D5B35
-        dc.w    $6087                    ; 009D5BAE: BRA.S $009D5B37
-        dc.w    $6087                    ; 009D5BB0: BRA.S $009D5B39
-        dc.w    $6087                    ; 009D5BB2: BRA.S $009D5B3B
-        dc.w    $6087                    ; 009D5BB4: BRA.S $009D5B3D
-        dc.w    $6087                    ; 009D5BB6: BRA.S $009D5B3F
-        dc.w    $6087                    ; 009D5BB8: BRA.S $009D5B41
-        dc.w    $6087                    ; 009D5BBA: BRA.S $009D5B43
-        dc.w    $6087                    ; 009D5BBC: BRA.S $009D5B45
-        dc.w    $6087                    ; 009D5BBE: BRA.S $009D5B47
-        dc.w    $6087                    ; 009D5BC0: BRA.S $009D5B49
-        dc.w    $6087                    ; 009D5BC2: BRA.S $009D5B4B
-        dc.w    $6087                    ; 009D5BC4: BRA.S $009D5B4D
-        dc.w    $6087                    ; 009D5BC6: BRA.S $009D5B4F
-        dc.w    $6087                    ; 009D5BC8: BRA.S $009D5B51
-        dc.w    $6087                    ; 009D5BCA: BRA.S $009D5B53
-        dc.w    $6087                    ; 009D5BCC: BRA.S $009D5B55
-        dc.w    $6087                    ; 009D5BCE: BRA.S $009D5B57
-        dc.w    $6087                    ; 009D5BD0: BRA.S $009D5B59
-        dc.w    $6087                    ; 009D5BD2: BRA.S $009D5B5B
-        dc.w    $6087                    ; 009D5BD4: BRA.S $009D5B5D
-        dc.w    $6087                    ; 009D5BD6: BRA.S $009D5B5F
-        dc.w    $6087                    ; 009D5BD8: BRA.S $009D5B61
-        dc.w    $6087                    ; 009D5BDA: BRA.S $009D5B63
-        dc.w    $6087                    ; 009D5BDC: BRA.S $009D5B65
-        dc.w    $6087                    ; 009D5BDE: BRA.S $009D5B67
-        dc.w    $6087                    ; 009D5BE0: BRA.S $009D5B69
-        dc.w    $6087                    ; 009D5BE2: BRA.S $009D5B6B
-        dc.w    $6087                    ; 009D5BE4: BRA.S $009D5B6D
-        dc.w    $6087                    ; 009D5BE6: BRA.S $009D5B6F
-        dc.w    $6087                    ; 009D5BE8: BRA.S $009D5B71
-        dc.w    $6087                    ; 009D5BEA: BRA.S $009D5B73
-        dc.w    $6087                    ; 009D5BEC: BRA.S $009D5B75
-        dc.w    $6087                    ; 009D5BEE: BRA.S $009D5B77
-        dc.w    $6087                    ; 009D5BF0: BRA.S $009D5B79
-        dc.w    $6087                    ; 009D5BF2: BRA.S $009D5B7B
-        dc.w    $6087                    ; 009D5BF4: BRA.S $009D5B7D
-        dc.w    $6087                    ; 009D5BF6: BRA.S $009D5B7F
-        dc.w    $6087                    ; 009D5BF8: BRA.S $009D5B81
-        dc.w    $6087                    ; 009D5BFA: BRA.S $009D5B83
-        dc.w    $6087                    ; 009D5BFC: BRA.S $009D5B85
-        dc.w    $6087                    ; 009D5BFE: BRA.S $009D5B87
-        dc.w    $6087                    ; 009D5C00: BRA.S $009D5B89
-        dc.w    $6087                    ; 009D5C02: BRA.S $009D5B8B
-        dc.w    $6087                    ; 009D5C04: BRA.S $009D5B8D
-        dc.w    $6087                    ; 009D5C06: BRA.S $009D5B8F
-        dc.w    $6087                    ; 009D5C08: BRA.S $009D5B91
-        dc.w    $6087                    ; 009D5C0A: BRA.S $009D5B93
-        dc.w    $6087                    ; 009D5C0C: BRA.S $009D5B95
-        dc.w    $6087                    ; 009D5C0E: BRA.S $009D5B97
-        dc.w    $6087                    ; 009D5C10: BRA.S $009D5B99
-        dc.w    $6087                    ; 009D5C12: BRA.S $009D5B9B
-        dc.w    $6087                    ; 009D5C14: BRA.S $009D5B9D
-        dc.w    $6087                    ; 009D5C16: BRA.S $009D5B9F
-        dc.w    $6087                    ; 009D5C18: BRA.S $009D5BA1
-        dc.w    $6087                    ; 009D5C1A: BRA.S $009D5BA3
-        dc.w    $6087                    ; 009D5C1C: BRA.S $009D5BA5
-        dc.w    $6087                    ; 009D5C1E: BRA.S $009D5BA7
-        dc.w    $6087                    ; 009D5C20: BRA.S $009D5BA9
-        dc.w    $6087                    ; 009D5C22: BRA.S $009D5BAB
-        dc.w    $6087                    ; 009D5C24: BRA.S $009D5BAD
-        dc.w    $6087                    ; 009D5C26: BRA.S $009D5BAF
-        dc.w    $6087                    ; 009D5C28: BRA.S $009D5BB1
-        dc.w    $6087                    ; 009D5C2A: BRA.S $009D5BB3
-        dc.w    $6087                    ; 009D5C2C: BRA.S $009D5BB5
-        dc.w    $6087                    ; 009D5C2E: BRA.S $009D5BB7
-        dc.w    $6087                    ; 009D5C30: BRA.S $009D5BB9
-        dc.w    $6087                    ; 009D5C32: BRA.S $009D5BBB
-        dc.w    $6087                    ; 009D5C34: BRA.S $009D5BBD
-        dc.w    $6087                    ; 009D5C36: BRA.S $009D5BBF
-        dc.w    $6087                    ; 009D5C38: BRA.S $009D5BC1
-        dc.w    $6087                    ; 009D5C3A: BRA.S $009D5BC3
-        dc.w    $6087                    ; 009D5C3C: BRA.S $009D5BC5
-        dc.w    $6087                    ; 009D5C3E: BRA.S $009D5BC7
-        dc.w    $6087                    ; 009D5C40: BRA.S $009D5BC9
-        dc.w    $6087                    ; 009D5C42: BRA.S $009D5BCB
-        dc.w    $6087                    ; 009D5C44: BRA.S $009D5BCD
-        dc.w    $6087                    ; 009D5C46: BRA.S $009D5BCF
-        dc.w    $6087                    ; 009D5C48: BRA.S $009D5BD1
-        dc.w    $6087                    ; 009D5C4A: BRA.S $009D5BD3
-        dc.w    $6087                    ; 009D5C4C: BRA.S $009D5BD5
-        dc.w    $6087                    ; 009D5C4E: BRA.S $009D5BD7
-        dc.w    $6087                    ; 009D5C50: BRA.S $009D5BD9
-        dc.w    $6087                    ; 009D5C52: BRA.S $009D5BDB
-        dc.w    $6087                    ; 009D5C54: BRA.S $009D5BDD
-        dc.w    $6087                    ; 009D5C56: BRA.S $009D5BDF
-        dc.w    $6087                    ; 009D5C58: BRA.S $009D5BE1
-        dc.w    $6087                    ; 009D5C5A: BRA.S $009D5BE3
-        dc.w    $6087                    ; 009D5C5C: BRA.S $009D5BE5
-        dc.w    $6087                    ; 009D5C5E: BRA.S $009D5BE7
-        dc.w    $6087                    ; 009D5C60: BRA.S $009D5BE9
-        dc.w    $6087                    ; 009D5C62: BRA.S $009D5BEB
-        dc.w    $6087                    ; 009D5C64: BRA.S $009D5BED
-        dc.w    $6087                    ; 009D5C66: BRA.S $009D5BEF
-        dc.w    $6087                    ; 009D5C68: BRA.S $009D5BF1
-        dc.w    $6087                    ; 009D5C6A: BRA.S $009D5BF3
-        dc.w    $6087                    ; 009D5C6C: BRA.S $009D5BF5
-        dc.w    $6087                    ; 009D5C6E: BRA.S $009D5BF7
-        dc.w    $6087                    ; 009D5C70: BRA.S $009D5BF9
-        dc.w    $6087                    ; 009D5C72: BRA.S $009D5BFB
-        dc.w    $6087                    ; 009D5C74: BRA.S $009D5BFD
-        dc.w    $6087                    ; 009D5C76: BRA.S $009D5BFF
-        dc.w    $6087                    ; 009D5C78: BRA.S $009D5C01
-        dc.w    $6087                    ; 009D5C7A: BRA.S $009D5C03
-        dc.w    $6087                    ; 009D5C7C: BRA.S $009D5C05
-        dc.w    $6087                    ; 009D5C7E: BRA.S $009D5C07
-        dc.w    $6087                    ; 009D5C80: BRA.S $009D5C09
-        dc.w    $6087                    ; 009D5C82: BRA.S $009D5C0B
-        dc.w    $6087                    ; 009D5C84: BRA.S $009D5C0D
-        dc.w    $6087                    ; 009D5C86: BRA.S $009D5C0F
-        dc.w    $6087                    ; 009D5C88: BRA.S $009D5C11
-        dc.w    $6087                    ; 009D5C8A: BRA.S $009D5C13
-        dc.w    $6087                    ; 009D5C8C: BRA.S $009D5C15
-        dc.w    $6087                    ; 009D5C8E: BRA.S $009D5C17
-        dc.w    $6087                    ; 009D5C90: BRA.S $009D5C19
-        dc.w    $6087                    ; 009D5C92: BRA.S $009D5C1B
-        dc.w    $6087                    ; 009D5C94: BRA.S $009D5C1D
-        dc.w    $6087                    ; 009D5C96: BRA.S $009D5C1F
-        dc.w    $6087                    ; 009D5C98: BRA.S $009D5C21
-        dc.w    $6087                    ; 009D5C9A: BRA.S $009D5C23
-        dc.w    $6087                    ; 009D5C9C: BRA.S $009D5C25
-        dc.w    $6087                    ; 009D5C9E: BRA.S $009D5C27
-        dc.w    $6087                    ; 009D5CA0: BRA.S $009D5C29
-        dc.w    $6087                    ; 009D5CA2: BRA.S $009D5C2B
-        dc.w    $6087                    ; 009D5CA4: BRA.S $009D5C2D
-        dc.w    $6087                    ; 009D5CA6: BRA.S $009D5C2F
-        dc.w    $6087                    ; 009D5CA8: BRA.S $009D5C31
-        dc.w    $6087                    ; 009D5CAA: BRA.S $009D5C33
-        dc.w    $6087                    ; 009D5CAC: BRA.S $009D5C35
-        dc.w    $6087                    ; 009D5CAE: BRA.S $009D5C37
-        dc.w    $6087                    ; 009D5CB0: BRA.S $009D5C39
-        dc.w    $6087                    ; 009D5CB2: BRA.S $009D5C3B
-        dc.w    $6087                    ; 009D5CB4: BRA.S $009D5C3D
-        dc.w    $6087                    ; 009D5CB6: BRA.S $009D5C3F
-        dc.w    $6087                    ; 009D5CB8: BRA.S $009D5C41
-        dc.w    $6087                    ; 009D5CBA: BRA.S $009D5C43
-        dc.w    $6087                    ; 009D5CBC: BRA.S $009D5C45
-        dc.w    $6087                    ; 009D5CBE: BRA.S $009D5C47
-        dc.w    $6087                    ; 009D5CC0: BRA.S $009D5C49
-        dc.w    $6087                    ; 009D5CC2: BRA.S $009D5C4B
-        dc.w    $6087                    ; 009D5CC4: BRA.S $009D5C4D
-        dc.w    $6087                    ; 009D5CC6: BRA.S $009D5C4F
-        dc.w    $6087                    ; 009D5CC8: BRA.S $009D5C51
-        dc.w    $6087                    ; 009D5CCA: BRA.S $009D5C53
-        dc.w    $6087                    ; 009D5CCC: BRA.S $009D5C55
-        dc.w    $6087                    ; 009D5CCE: BRA.S $009D5C57
-        dc.w    $6087                    ; 009D5CD0: BRA.S $009D5C59
-        dc.w    $6087                    ; 009D5CD2: BRA.S $009D5C5B
-        dc.w    $6087                    ; 009D5CD4: BRA.S $009D5C5D
-        dc.w    $6087                    ; 009D5CD6: BRA.S $009D5C5F
-        dc.w    $6087                    ; 009D5CD8: BRA.S $009D5C61
-        dc.w    $6087                    ; 009D5CDA: BRA.S $009D5C63
-        dc.w    $6087                    ; 009D5CDC: BRA.S $009D5C65
-        dc.w    $6087                    ; 009D5CDE: BRA.S $009D5C67
-        dc.w    $6087                    ; 009D5CE0: BRA.S $009D5C69
-        dc.w    $6087                    ; 009D5CE2: BRA.S $009D5C6B
-        dc.w    $6087                    ; 009D5CE4: BRA.S $009D5C6D
-        dc.w    $6087                    ; 009D5CE6: BRA.S $009D5C6F
-        dc.w    $6087                    ; 009D5CE8: BRA.S $009D5C71
-        dc.w    $6087                    ; 009D5CEA: BRA.S $009D5C73
-        dc.w    $6087                    ; 009D5CEC: BRA.S $009D5C75
-        dc.w    $6087                    ; 009D5CEE: BRA.S $009D5C77
-        dc.w    $6087                    ; 009D5CF0: BRA.S $009D5C79
-        dc.w    $6087                    ; 009D5CF2: BRA.S $009D5C7B
-        dc.w    $6087                    ; 009D5CF4: BRA.S $009D5C7D
-        dc.w    $6087                    ; 009D5CF6: BRA.S $009D5C7F
-        dc.w    $6087                    ; 009D5CF8: BRA.S $009D5C81
-        dc.w    $6087                    ; 009D5CFA: BRA.S $009D5C83
-        dc.w    $6087                    ; 009D5CFC: BRA.S $009D5C85
-        dc.w    $6087                    ; 009D5CFE: BRA.S $009D5C87
-        dc.w    $6087                    ; 009D5D00: BRA.S $009D5C89
-        dc.w    $6087                    ; 009D5D02: BRA.S $009D5C8B
-        dc.w    $6087                    ; 009D5D04: BRA.S $009D5C8D
-        dc.w    $6087                    ; 009D5D06: BRA.S $009D5C8F
-        dc.w    $6087                    ; 009D5D08: BRA.S $009D5C91
-        dc.w    $6087                    ; 009D5D0A: BRA.S $009D5C93
-        dc.w    $6087                    ; 009D5D0C: BRA.S $009D5C95
-        dc.w    $6087                    ; 009D5D0E: BRA.S $009D5C97
-        dc.w    $6087                    ; 009D5D10: BRA.S $009D5C99
-        dc.w    $6087                    ; 009D5D12: BRA.S $009D5C9B
-        dc.w    $6087                    ; 009D5D14: BRA.S $009D5C9D
-        dc.w    $6087                    ; 009D5D16: BRA.S $009D5C9F
-        dc.w    $6087                    ; 009D5D18: BRA.S $009D5CA1
-        dc.w    $6087                    ; 009D5D1A: BRA.S $009D5CA3
-        dc.w    $6087                    ; 009D5D1C: BRA.S $009D5CA5
-        dc.w    $6087                    ; 009D5D1E: BRA.S $009D5CA7
-        dc.w    $6087                    ; 009D5D20: BRA.S $009D5CA9
-        dc.w    $6087                    ; 009D5D22: BRA.S $009D5CAB
-        dc.w    $6087                    ; 009D5D24: BRA.S $009D5CAD
-        dc.w    $6087                    ; 009D5D26: BRA.S $009D5CAF
-        dc.w    $6087                    ; 009D5D28: BRA.S $009D5CB1
-        dc.w    $6087                    ; 009D5D2A: BRA.S $009D5CB3
-        dc.w    $6087                    ; 009D5D2C: BRA.S $009D5CB5
-        dc.w    $6087                    ; 009D5D2E: BRA.S $009D5CB7
-        dc.w    $6087                    ; 009D5D30: BRA.S $009D5CB9
-        dc.w    $6087                    ; 009D5D32: BRA.S $009D5CBB
-        dc.w    $6087                    ; 009D5D34: BRA.S $009D5CBD
-        dc.w    $6087                    ; 009D5D36: BRA.S $009D5CBF
-        dc.w    $6087                    ; 009D5D38: BRA.S $009D5CC1
-        dc.w    $6087                    ; 009D5D3A: BRA.S $009D5CC3
-        dc.w    $6087                    ; 009D5D3C: BRA.S $009D5CC5
-        dc.w    $6087                    ; 009D5D3E: BRA.S $009D5CC7
-        dc.w    $6087                    ; 009D5D40: BRA.S $009D5CC9
-        dc.w    $6087                    ; 009D5D42: BRA.S $009D5CCB
-        dc.w    $6087                    ; 009D5D44: BRA.S $009D5CCD
-        dc.w    $6087                    ; 009D5D46: BRA.S $009D5CCF
-        dc.w    $6087                    ; 009D5D48: BRA.S $009D5CD1
-        dc.w    $6087                    ; 009D5D4A: BRA.S $009D5CD3
-        dc.w    $6087                    ; 009D5D4C: BRA.S $009D5CD5
-        dc.w    $6087                    ; 009D5D4E: BRA.S $009D5CD7
-        dc.w    $6087                    ; 009D5D50: BRA.S $009D5CD9
-        dc.w    $6087                    ; 009D5D52: BRA.S $009D5CDB
-        dc.w    $6087                    ; 009D5D54: BRA.S $009D5CDD
-        dc.w    $6087                    ; 009D5D56: BRA.S $009D5CDF
-        dc.w    $6087                    ; 009D5D58: BRA.S $009D5CE1
-        dc.w    $6087                    ; 009D5D5A: BRA.S $009D5CE3
-        dc.w    $6087                    ; 009D5D5C: BRA.S $009D5CE5
-        dc.w    $6087                    ; 009D5D5E: BRA.S $009D5CE7
-        dc.w    $6087                    ; 009D5D60: BRA.S $009D5CE9
-        dc.w    $6087                    ; 009D5D62: BRA.S $009D5CEB
-        dc.w    $6087                    ; 009D5D64: BRA.S $009D5CED
-        dc.w    $6087                    ; 009D5D66: BRA.S $009D5CEF
-        dc.w    $6087                    ; 009D5D68: BRA.S $009D5CF1
-        dc.w    $6087                    ; 009D5D6A: BRA.S $009D5CF3
-        dc.w    $6087                    ; 009D5D6C: BRA.S $009D5CF5
-        dc.w    $6087                    ; 009D5D6E: BRA.S $009D5CF7
-        dc.w    $6087                    ; 009D5D70: BRA.S $009D5CF9
-        dc.w    $6087                    ; 009D5D72: BRA.S $009D5CFB
-        dc.w    $6087                    ; 009D5D74: BRA.S $009D5CFD
-        dc.w    $6087                    ; 009D5D76: BRA.S $009D5CFF
-        dc.w    $6087                    ; 009D5D78: BRA.S $009D5D01
-        dc.w    $6087                    ; 009D5D7A: BRA.S $009D5D03
-        dc.w    $6087                    ; 009D5D7C: BRA.S $009D5D05
-        dc.w    $6087                    ; 009D5D7E: BRA.S $009D5D07
-        dc.w    $6087                    ; 009D5D80: BRA.S $009D5D09
-        dc.w    $6087                    ; 009D5D82: BRA.S $009D5D0B
-        dc.w    $6087                    ; 009D5D84: BRA.S $009D5D0D
-        dc.w    $6087                    ; 009D5D86: BRA.S $009D5D0F
-        dc.w    $6087                    ; 009D5D88: BRA.S $009D5D11
-        dc.w    $6087                    ; 009D5D8A: BRA.S $009D5D13
-        dc.w    $6087                    ; 009D5D8C: BRA.S $009D5D15
-        dc.w    $6087                    ; 009D5D8E: BRA.S $009D5D17
-        dc.w    $6087                    ; 009D5D90: BRA.S $009D5D19
-        dc.w    $6087                    ; 009D5D92: BRA.S $009D5D1B
-        dc.w    $6087                    ; 009D5D94: BRA.S $009D5D1D
-        dc.w    $6087                    ; 009D5D96: BRA.S $009D5D1F
-        dc.w    $6087                    ; 009D5D98: BRA.S $009D5D21
-        dc.w    $6087                    ; 009D5D9A: BRA.S $009D5D23
-        dc.w    $6087                    ; 009D5D9C: BRA.S $009D5D25
-        dc.w    $6087                    ; 009D5D9E: BRA.S $009D5D27
-        dc.w    $6087                    ; 009D5DA0: BRA.S $009D5D29
-        dc.w    $6087                    ; 009D5DA2: BRA.S $009D5D2B
-        dc.w    $6087                    ; 009D5DA4: BRA.S $009D5D2D
-        dc.w    $6087                    ; 009D5DA6: BRA.S $009D5D2F
-        dc.w    $6087                    ; 009D5DA8: BRA.S $009D5D31
-        dc.w    $6087                    ; 009D5DAA: BRA.S $009D5D33
-        dc.w    $6087                    ; 009D5DAC: BRA.S $009D5D35
-        dc.w    $6087                    ; 009D5DAE: BRA.S $009D5D37
-        dc.w    $6087                    ; 009D5DB0: BRA.S $009D5D39
-        dc.w    $6087                    ; 009D5DB2: BRA.S $009D5D3B
-        dc.w    $6087                    ; 009D5DB4: BRA.S $009D5D3D
-        dc.w    $6087                    ; 009D5DB6: BRA.S $009D5D3F
-        dc.w    $6087                    ; 009D5DB8: BRA.S $009D5D41
-        dc.w    $6087                    ; 009D5DBA: BRA.S $009D5D43
-        dc.w    $6087                    ; 009D5DBC: BRA.S $009D5D45
-        dc.w    $6087                    ; 009D5DBE: BRA.S $009D5D47
-        dc.w    $6087                    ; 009D5DC0: BRA.S $009D5D49
-        dc.w    $6087                    ; 009D5DC2: BRA.S $009D5D4B
-        dc.w    $6087                    ; 009D5DC4: BRA.S $009D5D4D
-        dc.w    $6087                    ; 009D5DC6: BRA.S $009D5D4F
-        dc.w    $6087                    ; 009D5DC8: BRA.S $009D5D51
-        dc.w    $6087                    ; 009D5DCA: BRA.S $009D5D53
-        dc.w    $6087                    ; 009D5DCC: BRA.S $009D5D55
-        dc.w    $6087                    ; 009D5DCE: BRA.S $009D5D57
-        dc.w    $6087                    ; 009D5DD0: BRA.S $009D5D59
-        dc.w    $6087                    ; 009D5DD2: BRA.S $009D5D5B
-        dc.w    $6087                    ; 009D5DD4: BRA.S $009D5D5D
-        dc.w    $6087                    ; 009D5DD6: BRA.S $009D5D5F
-        dc.w    $6087                    ; 009D5DD8: BRA.S $009D5D61
-        dc.w    $6087                    ; 009D5DDA: BRA.S $009D5D63
-        dc.w    $6087                    ; 009D5DDC: BRA.S $009D5D65
-        dc.w    $6087                    ; 009D5DDE: BRA.S $009D5D67
-        dc.w    $6087                    ; 009D5DE0: BRA.S $009D5D69
-        dc.w    $6087                    ; 009D5DE2: BRA.S $009D5D6B
-        dc.w    $6087                    ; 009D5DE4: BRA.S $009D5D6D
-        dc.w    $6087                    ; 009D5DE6: BRA.S $009D5D6F
-        dc.w    $6087                    ; 009D5DE8: BRA.S $009D5D71
-        dc.w    $6087                    ; 009D5DEA: BRA.S $009D5D73
-        dc.w    $6087                    ; 009D5DEC: BRA.S $009D5D75
-        dc.w    $6087                    ; 009D5DEE: BRA.S $009D5D77
-        dc.w    $6087                    ; 009D5DF0: BRA.S $009D5D79
-        dc.w    $6087                    ; 009D5DF2: BRA.S $009D5D7B
-        dc.w    $6087                    ; 009D5DF4: BRA.S $009D5D7D
-        dc.w    $6087                    ; 009D5DF6: BRA.S $009D5D7F
-        dc.w    $6087                    ; 009D5DF8: BRA.S $009D5D81
-        dc.w    $6087                    ; 009D5DFA: BRA.S $009D5D83
-        dc.w    $6087                    ; 009D5DFC: BRA.S $009D5D85
-        dc.w    $6087                    ; 009D5DFE: BRA.S $009D5D87
-        dc.w    $6087                    ; 009D5E00: BRA.S $009D5D89
-        dc.w    $6087                    ; 009D5E02: BRA.S $009D5D8B
-        dc.w    $6087                    ; 009D5E04: BRA.S $009D5D8D
-        dc.w    $6087                    ; 009D5E06: BRA.S $009D5D8F
-        dc.w    $6087                    ; 009D5E08: BRA.S $009D5D91
-        dc.w    $6087                    ; 009D5E0A: BRA.S $009D5D93
-        dc.w    $6087                    ; 009D5E0C: BRA.S $009D5D95
-        dc.w    $6087                    ; 009D5E0E: BRA.S $009D5D97
-        dc.w    $6087                    ; 009D5E10: BRA.S $009D5D99
-        dc.w    $6087                    ; 009D5E12: BRA.S $009D5D9B
-        dc.w    $6087                    ; 009D5E14: BRA.S $009D5D9D
-        dc.w    $6087                    ; 009D5E16: BRA.S $009D5D9F
-        dc.w    $6087                    ; 009D5E18: BRA.S $009D5DA1
-        dc.w    $6087                    ; 009D5E1A: BRA.S $009D5DA3
-        dc.w    $6087                    ; 009D5E1C: BRA.S $009D5DA5
-        dc.w    $6087                    ; 009D5E1E: BRA.S $009D5DA7
-        dc.w    $6087                    ; 009D5E20: BRA.S $009D5DA9
-        dc.w    $6087                    ; 009D5E22: BRA.S $009D5DAB
-        dc.w    $6087                    ; 009D5E24: BRA.S $009D5DAD
-        dc.w    $6087                    ; 009D5E26: BRA.S $009D5DAF
-        dc.w    $6087                    ; 009D5E28: BRA.S $009D5DB1
-        dc.w    $6087                    ; 009D5E2A: BRA.S $009D5DB3
-        dc.w    $6087                    ; 009D5E2C: BRA.S $009D5DB5
-        dc.w    $6087                    ; 009D5E2E: BRA.S $009D5DB7
-        dc.w    $6087                    ; 009D5E30: BRA.S $009D5DB9
-        dc.w    $6087                    ; 009D5E32: BRA.S $009D5DBB
-        dc.w    $6087                    ; 009D5E34: BRA.S $009D5DBD
-        dc.w    $6087                    ; 009D5E36: BRA.S $009D5DBF
-        dc.w    $6087                    ; 009D5E38: BRA.S $009D5DC1
-        dc.w    $6087                    ; 009D5E3A: BRA.S $009D5DC3
-        dc.w    $6087                    ; 009D5E3C: BRA.S $009D5DC5
-        dc.w    $6087                    ; 009D5E3E: BRA.S $009D5DC7
-        dc.w    $6087                    ; 009D5E40: BRA.S $009D5DC9
-        dc.w    $6087                    ; 009D5E42: BRA.S $009D5DCB
-        dc.w    $6087                    ; 009D5E44: BRA.S $009D5DCD
-        dc.w    $6087                    ; 009D5E46: BRA.S $009D5DCF
-        dc.w    $6087                    ; 009D5E48: BRA.S $009D5DD1
-        dc.w    $6087                    ; 009D5E4A: BRA.S $009D5DD3
-        dc.w    $6087                    ; 009D5E4C: BRA.S $009D5DD5
-        dc.w    $6087                    ; 009D5E4E: BRA.S $009D5DD7
-        dc.w    $6087                    ; 009D5E50: BRA.S $009D5DD9
-        dc.w    $6087                    ; 009D5E52: BRA.S $009D5DDB
-        dc.w    $6087                    ; 009D5E54: BRA.S $009D5DDD
-        dc.w    $6087                    ; 009D5E56: BRA.S $009D5DDF
-        dc.w    $6087                    ; 009D5E58: BRA.S $009D5DE1
-        dc.w    $6087                    ; 009D5E5A: BRA.S $009D5DE3
-        dc.w    $6087                    ; 009D5E5C: BRA.S $009D5DE5
-        dc.w    $6087                    ; 009D5E5E: BRA.S $009D5DE7
-        dc.w    $6087                    ; 009D5E60: BRA.S $009D5DE9
-        dc.w    $6087                    ; 009D5E62: BRA.S $009D5DEB
-        dc.w    $6087                    ; 009D5E64: BRA.S $009D5DED
-        dc.w    $6087                    ; 009D5E66: BRA.S $009D5DEF
-        dc.w    $6087                    ; 009D5E68: BRA.S $009D5DF1
-        dc.w    $6087                    ; 009D5E6A: BRA.S $009D5DF3
-        dc.w    $6087                    ; 009D5E6C: BRA.S $009D5DF5
-        dc.w    $6087                    ; 009D5E6E: BRA.S $009D5DF7
-        dc.w    $6087                    ; 009D5E70: BRA.S $009D5DF9
-        dc.w    $6087                    ; 009D5E72: BRA.S $009D5DFB
-        dc.w    $6087                    ; 009D5E74: BRA.S $009D5DFD
-        dc.w    $6087                    ; 009D5E76: BRA.S $009D5DFF
-        dc.w    $6087                    ; 009D5E78: BRA.S $009D5E01
-        dc.w    $6087                    ; 009D5E7A: BRA.S $009D5E03
-        dc.w    $6087                    ; 009D5E7C: BRA.S $009D5E05
-        dc.w    $6087                    ; 009D5E7E: BRA.S $009D5E07
-        dc.w    $6087                    ; 009D5E80: BRA.S $009D5E09
-        dc.w    $6087                    ; 009D5E82: BRA.S $009D5E0B
-        dc.w    $6087                    ; 009D5E84: BRA.S $009D5E0D
-        dc.w    $6087                    ; 009D5E86: BRA.S $009D5E0F
-        dc.w    $6087                    ; 009D5E88: BRA.S $009D5E11
-        dc.w    $6087                    ; 009D5E8A: BRA.S $009D5E13
-        dc.w    $6087                    ; 009D5E8C: BRA.S $009D5E15
-        dc.w    $6087                    ; 009D5E8E: BRA.S $009D5E17
-        dc.w    $6087                    ; 009D5E90: BRA.S $009D5E19
-        dc.w    $6087                    ; 009D5E92: BRA.S $009D5E1B
-        dc.w    $6087                    ; 009D5E94: BRA.S $009D5E1D
-        dc.w    $6087                    ; 009D5E96: BRA.S $009D5E1F
-        dc.w    $6087                    ; 009D5E98: BRA.S $009D5E21
-        dc.w    $6087                    ; 009D5E9A: BRA.S $009D5E23
-        dc.w    $6087                    ; 009D5E9C: BRA.S $009D5E25
-        dc.w    $6087                    ; 009D5E9E: BRA.S $009D5E27
-        dc.w    $6087                    ; 009D5EA0: BRA.S $009D5E29
-        dc.w    $6087                    ; 009D5EA2: BRA.S $009D5E2B
-        dc.w    $6087                    ; 009D5EA4: BRA.S $009D5E2D
-        dc.w    $6087                    ; 009D5EA6: BRA.S $009D5E2F
-        dc.w    $6087                    ; 009D5EA8: BRA.S $009D5E31
-        dc.w    $6087                    ; 009D5EAA: BRA.S $009D5E33
-        dc.w    $6087                    ; 009D5EAC: BRA.S $009D5E35
-        dc.w    $6087                    ; 009D5EAE: BRA.S $009D5E37
-        dc.w    $6087                    ; 009D5EB0: BRA.S $009D5E39
-        dc.w    $6087                    ; 009D5EB2: BRA.S $009D5E3B
-        dc.w    $6087                    ; 009D5EB4: BRA.S $009D5E3D
-        dc.w    $6087                    ; 009D5EB6: BRA.S $009D5E3F
-        dc.w    $6087                    ; 009D5EB8: BRA.S $009D5E41
-        dc.w    $6087                    ; 009D5EBA: BRA.S $009D5E43
-        dc.w    $6087                    ; 009D5EBC: BRA.S $009D5E45
-        dc.w    $6087                    ; 009D5EBE: BRA.S $009D5E47
-        dc.w    $6087                    ; 009D5EC0: BRA.S $009D5E49
-        dc.w    $6087                    ; 009D5EC2: BRA.S $009D5E4B
-        dc.w    $6087                    ; 009D5EC4: BRA.S $009D5E4D
-        dc.w    $6087                    ; 009D5EC6: BRA.S $009D5E4F
-        dc.w    $6087                    ; 009D5EC8: BRA.S $009D5E51
-        dc.w    $6087                    ; 009D5ECA: BRA.S $009D5E53
-        dc.w    $6087                    ; 009D5ECC: BRA.S $009D5E55
-        dc.w    $6087                    ; 009D5ECE: BRA.S $009D5E57
-        dc.w    $6087                    ; 009D5ED0: BRA.S $009D5E59
-        dc.w    $6087                    ; 009D5ED2: BRA.S $009D5E5B
-        dc.w    $6087                    ; 009D5ED4: BRA.S $009D5E5D
-        dc.w    $6087                    ; 009D5ED6: BRA.S $009D5E5F
-        dc.w    $6087                    ; 009D5ED8: BRA.S $009D5E61
-        dc.w    $6087                    ; 009D5EDA: BRA.S $009D5E63
-        dc.w    $6087                    ; 009D5EDC: BRA.S $009D5E65
-        dc.w    $6087                    ; 009D5EDE: BRA.S $009D5E67
-        dc.w    $6087                    ; 009D5EE0: BRA.S $009D5E69
-        dc.w    $6087                    ; 009D5EE2: BRA.S $009D5E6B
-        dc.w    $6087                    ; 009D5EE4: BRA.S $009D5E6D
-        dc.w    $6087                    ; 009D5EE6: BRA.S $009D5E6F
-        dc.w    $6087                    ; 009D5EE8: BRA.S $009D5E71
-        dc.w    $6087                    ; 009D5EEA: BRA.S $009D5E73
-        dc.w    $6087                    ; 009D5EEC: BRA.S $009D5E75
-        dc.w    $6087                    ; 009D5EEE: BRA.S $009D5E77
-        dc.w    $6087                    ; 009D5EF0: BRA.S $009D5E79
-        dc.w    $6087                    ; 009D5EF2: BRA.S $009D5E7B
-        dc.w    $6087                    ; 009D5EF4: BRA.S $009D5E7D
-        dc.w    $6087                    ; 009D5EF6: BRA.S $009D5E7F
-        dc.w    $6087                    ; 009D5EF8: BRA.S $009D5E81
-        dc.w    $6087                    ; 009D5EFA: BRA.S $009D5E83
-        dc.w    $6087                    ; 009D5EFC: BRA.S $009D5E85
-        dc.w    $6087                    ; 009D5EFE: BRA.S $009D5E87
-        dc.w    $6087                    ; 009D5F00: BRA.S $009D5E89
-        dc.w    $6087                    ; 009D5F02: BRA.S $009D5E8B
-        dc.w    $6087                    ; 009D5F04: BRA.S $009D5E8D
-        dc.w    $6087                    ; 009D5F06: BRA.S $009D5E8F
-        dc.w    $6087                    ; 009D5F08: BRA.S $009D5E91
-        dc.w    $6087                    ; 009D5F0A: BRA.S $009D5E93
-        dc.w    $6087                    ; 009D5F0C: BRA.S $009D5E95
-        dc.w    $6087                    ; 009D5F0E: BRA.S $009D5E97
-        dc.w    $6087                    ; 009D5F10: BRA.S $009D5E99
-        dc.w    $6087                    ; 009D5F12: BRA.S $009D5E9B
-        dc.w    $6087                    ; 009D5F14: BRA.S $009D5E9D
-        dc.w    $6087                    ; 009D5F16: BRA.S $009D5E9F
-        dc.w    $6087                    ; 009D5F18: BRA.S $009D5EA1
-        dc.w    $6087                    ; 009D5F1A: BRA.S $009D5EA3
-        dc.w    $6087                    ; 009D5F1C: BRA.S $009D5EA5
-        dc.w    $6087                    ; 009D5F1E: BRA.S $009D5EA7
-        dc.w    $6087                    ; 009D5F20: BRA.S $009D5EA9
-        dc.w    $6087                    ; 009D5F22: BRA.S $009D5EAB
-        dc.w    $6087                    ; 009D5F24: BRA.S $009D5EAD
-        dc.w    $6087                    ; 009D5F26: BRA.S $009D5EAF
-        dc.w    $6087                    ; 009D5F28: BRA.S $009D5EB1
-        dc.w    $6087                    ; 009D5F2A: BRA.S $009D5EB3
-        dc.w    $6087                    ; 009D5F2C: BRA.S $009D5EB5
-        dc.w    $6087                    ; 009D5F2E: BRA.S $009D5EB7
-        dc.w    $6087                    ; 009D5F30: BRA.S $009D5EB9
-        dc.w    $6087                    ; 009D5F32: BRA.S $009D5EBB
-        dc.w    $6087                    ; 009D5F34: BRA.S $009D5EBD
-        dc.w    $6087                    ; 009D5F36: BRA.S $009D5EBF
-        dc.w    $6087                    ; 009D5F38: BRA.S $009D5EC1
-        dc.w    $6087                    ; 009D5F3A: BRA.S $009D5EC3
-        dc.w    $6087                    ; 009D5F3C: BRA.S $009D5EC5
-        dc.w    $6087                    ; 009D5F3E: BRA.S $009D5EC7
-        dc.w    $6087                    ; 009D5F40: BRA.S $009D5EC9
-        dc.w    $6087                    ; 009D5F42: BRA.S $009D5ECB
-        dc.w    $6087                    ; 009D5F44: BRA.S $009D5ECD
-        dc.w    $6087                    ; 009D5F46: BRA.S $009D5ECF
-        dc.w    $6087                    ; 009D5F48: BRA.S $009D5ED1
-        dc.w    $6087                    ; 009D5F4A: BRA.S $009D5ED3
-        dc.w    $6087                    ; 009D5F4C: BRA.S $009D5ED5
-        dc.w    $6087                    ; 009D5F4E: BRA.S $009D5ED7
-        dc.w    $6087                    ; 009D5F50: BRA.S $009D5ED9
-        dc.w    $6087                    ; 009D5F52: BRA.S $009D5EDB
-        dc.w    $6087                    ; 009D5F54: BRA.S $009D5EDD
-        dc.w    $6087                    ; 009D5F56: BRA.S $009D5EDF
-        dc.w    $6087                    ; 009D5F58: BRA.S $009D5EE1
-        dc.w    $6087                    ; 009D5F5A: BRA.S $009D5EE3
-        dc.w    $6087                    ; 009D5F5C: BRA.S $009D5EE5
-        dc.w    $6087                    ; 009D5F5E: BRA.S $009D5EE7
-        dc.w    $6087                    ; 009D5F60: BRA.S $009D5EE9
-        dc.w    $6087                    ; 009D5F62: BRA.S $009D5EEB
-        dc.w    $6087                    ; 009D5F64: BRA.S $009D5EED
-        dc.w    $6087                    ; 009D5F66: BRA.S $009D5EEF
-        dc.w    $6087                    ; 009D5F68: BRA.S $009D5EF1
-        dc.w    $6087                    ; 009D5F6A: BRA.S $009D5EF3
-        dc.w    $6087                    ; 009D5F6C: BRA.S $009D5EF5
-        dc.w    $6087                    ; 009D5F6E: BRA.S $009D5EF7
-        dc.w    $6087                    ; 009D5F70: BRA.S $009D5EF9
-        dc.w    $6087                    ; 009D5F72: BRA.S $009D5EFB
-        dc.w    $6087                    ; 009D5F74: BRA.S $009D5EFD
-        dc.w    $6087                    ; 009D5F76: BRA.S $009D5EFF
-        dc.w    $6087                    ; 009D5F78: BRA.S $009D5F01
-        dc.w    $6087                    ; 009D5F7A: BRA.S $009D5F03
-        dc.w    $6087                    ; 009D5F7C: BRA.S $009D5F05
-        dc.w    $6087                    ; 009D5F7E: BRA.S $009D5F07
-        dc.w    $6087                    ; 009D5F80: BRA.S $009D5F09
-        dc.w    $6087                    ; 009D5F82: BRA.S $009D5F0B
-        dc.w    $6087                    ; 009D5F84: BRA.S $009D5F0D
-        dc.w    $6087                    ; 009D5F86: BRA.S $009D5F0F
-        dc.w    $6087                    ; 009D5F88: BRA.S $009D5F11
-        dc.w    $6087                    ; 009D5F8A: BRA.S $009D5F13
-        dc.w    $6087                    ; 009D5F8C: BRA.S $009D5F15
-        dc.w    $6087                    ; 009D5F8E: BRA.S $009D5F17
-        dc.w    $6087                    ; 009D5F90: BRA.S $009D5F19
-        dc.w    $6087                    ; 009D5F92: BRA.S $009D5F1B
-        dc.w    $6087                    ; 009D5F94: BRA.S $009D5F1D
-        dc.w    $6087                    ; 009D5F96: BRA.S $009D5F1F
-        dc.w    $6087                    ; 009D5F98: BRA.S $009D5F21
-        dc.w    $6087                    ; 009D5F9A: BRA.S $009D5F23
-        dc.w    $6087                    ; 009D5F9C: BRA.S $009D5F25
-        dc.w    $6087                    ; 009D5F9E: BRA.S $009D5F27
-        dc.w    $6087                    ; 009D5FA0: BRA.S $009D5F29
-        dc.w    $6087                    ; 009D5FA2: BRA.S $009D5F2B
-        dc.w    $6087                    ; 009D5FA4: BRA.S $009D5F2D
-        dc.w    $6087                    ; 009D5FA6: BRA.S $009D5F2F
-        dc.w    $6087                    ; 009D5FA8: BRA.S $009D5F31
-        dc.w    $6087                    ; 009D5FAA: BRA.S $009D5F33
-        dc.w    $6087                    ; 009D5FAC: BRA.S $009D5F35
-        dc.w    $6087                    ; 009D5FAE: BRA.S $009D5F37
-        dc.w    $6087                    ; 009D5FB0: BRA.S $009D5F39
-        dc.w    $6087                    ; 009D5FB2: BRA.S $009D5F3B
-        dc.w    $6087                    ; 009D5FB4: BRA.S $009D5F3D
-        dc.w    $6087                    ; 009D5FB6: BRA.S $009D5F3F
-        dc.w    $6087                    ; 009D5FB8: BRA.S $009D5F41
-        dc.w    $6087                    ; 009D5FBA: BRA.S $009D5F43
-        dc.w    $6087                    ; 009D5FBC: BRA.S $009D5F45
-        dc.w    $6087                    ; 009D5FBE: BRA.S $009D5F47
-        dc.w    $6087                    ; 009D5FC0: BRA.S $009D5F49
-        dc.w    $6087                    ; 009D5FC2: BRA.S $009D5F4B
-        dc.w    $6087                    ; 009D5FC4: BRA.S $009D5F4D
-        dc.w    $6087                    ; 009D5FC6: BRA.S $009D5F4F
-        dc.w    $6087                    ; 009D5FC8: BRA.S $009D5F51
-        dc.w    $6087                    ; 009D5FCA: BRA.S $009D5F53
-        dc.w    $6087                    ; 009D5FCC: BRA.S $009D5F55
-        dc.w    $6087                    ; 009D5FCE: BRA.S $009D5F57
-        dc.w    $6087                    ; 009D5FD0: BRA.S $009D5F59
-        dc.w    $6087                    ; 009D5FD2: BRA.S $009D5F5B
-        dc.w    $6087                    ; 009D5FD4: BRA.S $009D5F5D
-        dc.w    $6087                    ; 009D5FD6: BRA.S $009D5F5F
-        dc.w    $6087                    ; 009D5FD8: BRA.S $009D5F61
-        dc.w    $6087                    ; 009D5FDA: BRA.S $009D5F63
-        dc.w    $6087                    ; 009D5FDC: BRA.S $009D5F65
-        dc.w    $6087                    ; 009D5FDE: BRA.S $009D5F67
-        dc.w    $6087                    ; 009D5FE0: BRA.S $009D5F69
-        dc.w    $6087                    ; 009D5FE2: BRA.S $009D5F6B
-        dc.w    $6087                    ; 009D5FE4: BRA.S $009D5F6D
-        dc.w    $6087                    ; 009D5FE6: BRA.S $009D5F6F
-        dc.w    $6087                    ; 009D5FE8: BRA.S $009D5F71
-        dc.w    $6087                    ; 009D5FEA: BRA.S $009D5F73
-        dc.w    $6087                    ; 009D5FEC: BRA.S $009D5F75
-        dc.w    $6087                    ; 009D5FEE: BRA.S $009D5F77
-        dc.w    $6087                    ; 009D5FF0: BRA.S $009D5F79
-        dc.w    $6087                    ; 009D5FF2: BRA.S $009D5F7B
-        dc.w    $6087                    ; 009D5FF4: BRA.S $009D5F7D
-        dc.w    $6087                    ; 009D5FF6: BRA.S $009D5F7F
-        dc.w    $6087                    ; 009D5FF8: BRA.S $009D5F81
-        dc.w    $6087                    ; 009D5FFA: BRA.S $009D5F83
-        dc.w    $6087                    ; 009D5FFC: BRA.S $009D5F85
-        dc.w    $6087                    ; 009D5FFE: BRA.S $009D5F87
+        bra.s   $009D5B8A                               ; 009D5B3A: $604E
+        bra.s   $009D5AC5                               ; 009D5B3C: $6087
+        bra.s   $009D5AC7                               ; 009D5B3E: $6087
+        bra.s   $009D5AC9                               ; 009D5B40: $6087
+        bra.s   $009D5ACB                               ; 009D5B42: $6087
+        bra.s   $009D5ACD                               ; 009D5B44: $6087
+        bra.s   $009D5ACF                               ; 009D5B46: $6087
+        bra.s   $009D5AD1                               ; 009D5B48: $6087
+        bra.s   $009D5AD3                               ; 009D5B4A: $6087
+        bra.s   $009D5AD5                               ; 009D5B4C: $6087
+        bra.s   $009D5AD7                               ; 009D5B4E: $6087
+        bra.s   $009D5AD9                               ; 009D5B50: $6087
+        bra.s   $009D5ADB                               ; 009D5B52: $6087
+        bra.s   $009D5ADD                               ; 009D5B54: $6087
+        bra.s   $009D5ADF                               ; 009D5B56: $6087
+        bra.s   $009D5AE1                               ; 009D5B58: $6087
+        bra.s   $009D5AE3                               ; 009D5B5A: $6087
+        bra.s   $009D5AE5                               ; 009D5B5C: $6087
+        bra.s   $009D5AE7                               ; 009D5B5E: $6087
+        bra.s   $009D5AE9                               ; 009D5B60: $6087
+        bra.s   $009D5AEB                               ; 009D5B62: $6087
+        bra.s   $009D5AED                               ; 009D5B64: $6087
+        bra.s   $009D5AEF                               ; 009D5B66: $6087
+        bra.s   $009D5AF1                               ; 009D5B68: $6087
+        bra.s   $009D5AF3                               ; 009D5B6A: $6087
+        bra.s   $009D5AF5                               ; 009D5B6C: $6087
+        bra.s   $009D5AF7                               ; 009D5B6E: $6087
+        bra.s   $009D5AF9                               ; 009D5B70: $6087
+        bra.s   $009D5AFB                               ; 009D5B72: $6087
+        bra.s   $009D5AFD                               ; 009D5B74: $6087
+        bra.s   $009D5AFF                               ; 009D5B76: $6087
+        bra.s   $009D5B01                               ; 009D5B78: $6087
+        bra.s   $009D5B03                               ; 009D5B7A: $6087
+        bra.s   $009D5B05                               ; 009D5B7C: $6087
+        bra.s   $009D5B07                               ; 009D5B7E: $6087
+        bra.s   $009D5B09                               ; 009D5B80: $6087
+        bra.s   $009D5B0B                               ; 009D5B82: $6087
+        bra.s   $009D5B0D                               ; 009D5B84: $6087
+        bra.s   $009D5B0F                               ; 009D5B86: $6087
+        bra.s   $009D5B11                               ; 009D5B88: $6087
+        bra.s   $009D5B13                               ; 009D5B8A: $6087
+        bra.s   $009D5B15                               ; 009D5B8C: $6087
+        bra.s   $009D5B17                               ; 009D5B8E: $6087
+        bra.s   $009D5B19                               ; 009D5B90: $6087
+        bra.s   $009D5B1B                               ; 009D5B92: $6087
+        bra.s   $009D5B1D                               ; 009D5B94: $6087
+        bra.s   $009D5B1F                               ; 009D5B96: $6087
+        bra.s   $009D5B21                               ; 009D5B98: $6087
+        bra.s   $009D5B23                               ; 009D5B9A: $6087
+        bra.s   $009D5B25                               ; 009D5B9C: $6087
+        bra.s   $009D5B27                               ; 009D5B9E: $6087
+        bra.s   $009D5B29                               ; 009D5BA0: $6087
+        bra.s   $009D5B2B                               ; 009D5BA2: $6087
+        bra.s   $009D5B2D                               ; 009D5BA4: $6087
+        bra.s   $009D5B2F                               ; 009D5BA6: $6087
+        bra.s   $009D5B31                               ; 009D5BA8: $6087
+        bra.s   $009D5B33                               ; 009D5BAA: $6087
+        bra.s   $009D5B35                               ; 009D5BAC: $6087
+        bra.s   $009D5B37                               ; 009D5BAE: $6087
+        bra.s   $009D5B39                               ; 009D5BB0: $6087
+        bra.s   $009D5B3B                               ; 009D5BB2: $6087
+        bra.s   $009D5B3D                               ; 009D5BB4: $6087
+        bra.s   $009D5B3F                               ; 009D5BB6: $6087
+        bra.s   $009D5B41                               ; 009D5BB8: $6087
+        bra.s   $009D5B43                               ; 009D5BBA: $6087
+        bra.s   $009D5B45                               ; 009D5BBC: $6087
+        bra.s   $009D5B47                               ; 009D5BBE: $6087
+        bra.s   $009D5B49                               ; 009D5BC0: $6087
+        bra.s   $009D5B4B                               ; 009D5BC2: $6087
+        bra.s   $009D5B4D                               ; 009D5BC4: $6087
+        bra.s   $009D5B4F                               ; 009D5BC6: $6087
+        bra.s   $009D5B51                               ; 009D5BC8: $6087
+        bra.s   $009D5B53                               ; 009D5BCA: $6087
+        bra.s   $009D5B55                               ; 009D5BCC: $6087
+        bra.s   $009D5B57                               ; 009D5BCE: $6087
+        bra.s   $009D5B59                               ; 009D5BD0: $6087
+        bra.s   $009D5B5B                               ; 009D5BD2: $6087
+        bra.s   $009D5B5D                               ; 009D5BD4: $6087
+        bra.s   $009D5B5F                               ; 009D5BD6: $6087
+        bra.s   $009D5B61                               ; 009D5BD8: $6087
+        bra.s   $009D5B63                               ; 009D5BDA: $6087
+        bra.s   $009D5B65                               ; 009D5BDC: $6087
+        bra.s   $009D5B67                               ; 009D5BDE: $6087
+        bra.s   $009D5B69                               ; 009D5BE0: $6087
+        bra.s   $009D5B6B                               ; 009D5BE2: $6087
+        bra.s   $009D5B6D                               ; 009D5BE4: $6087
+        bra.s   $009D5B6F                               ; 009D5BE6: $6087
+        bra.s   $009D5B71                               ; 009D5BE8: $6087
+        bra.s   $009D5B73                               ; 009D5BEA: $6087
+        bra.s   $009D5B75                               ; 009D5BEC: $6087
+        bra.s   $009D5B77                               ; 009D5BEE: $6087
+        bra.s   $009D5B79                               ; 009D5BF0: $6087
+        bra.s   $009D5B7B                               ; 009D5BF2: $6087
+        bra.s   $009D5B7D                               ; 009D5BF4: $6087
+        bra.s   $009D5B7F                               ; 009D5BF6: $6087
+        bra.s   $009D5B81                               ; 009D5BF8: $6087
+        bra.s   $009D5B83                               ; 009D5BFA: $6087
+        bra.s   $009D5B85                               ; 009D5BFC: $6087
+        bra.s   $009D5B87                               ; 009D5BFE: $6087
+        bra.s   $009D5B89                               ; 009D5C00: $6087
+        bra.s   $009D5B8B                               ; 009D5C02: $6087
+        bra.s   $009D5B8D                               ; 009D5C04: $6087
+        bra.s   $009D5B8F                               ; 009D5C06: $6087
+        bra.s   $009D5B91                               ; 009D5C08: $6087
+        bra.s   $009D5B93                               ; 009D5C0A: $6087
+        bra.s   $009D5B95                               ; 009D5C0C: $6087
+        bra.s   $009D5B97                               ; 009D5C0E: $6087
+        bra.s   $009D5B99                               ; 009D5C10: $6087
+        bra.s   $009D5B9B                               ; 009D5C12: $6087
+        bra.s   $009D5B9D                               ; 009D5C14: $6087
+        bra.s   $009D5B9F                               ; 009D5C16: $6087
+        bra.s   $009D5BA1                               ; 009D5C18: $6087
+        bra.s   $009D5BA3                               ; 009D5C1A: $6087
+        bra.s   $009D5BA5                               ; 009D5C1C: $6087
+        bra.s   $009D5BA7                               ; 009D5C1E: $6087
+        bra.s   $009D5BA9                               ; 009D5C20: $6087
+        bra.s   $009D5BAB                               ; 009D5C22: $6087
+        bra.s   $009D5BAD                               ; 009D5C24: $6087
+        bra.s   $009D5BAF                               ; 009D5C26: $6087
+        bra.s   $009D5BB1                               ; 009D5C28: $6087
+        bra.s   $009D5BB3                               ; 009D5C2A: $6087
+        bra.s   $009D5BB5                               ; 009D5C2C: $6087
+        bra.s   $009D5BB7                               ; 009D5C2E: $6087
+        bra.s   $009D5BB9                               ; 009D5C30: $6087
+        bra.s   $009D5BBB                               ; 009D5C32: $6087
+        bra.s   $009D5BBD                               ; 009D5C34: $6087
+        bra.s   $009D5BBF                               ; 009D5C36: $6087
+        bra.s   $009D5BC1                               ; 009D5C38: $6087
+        bra.s   $009D5BC3                               ; 009D5C3A: $6087
+        bra.s   $009D5BC5                               ; 009D5C3C: $6087
+        bra.s   $009D5BC7                               ; 009D5C3E: $6087
+        bra.s   $009D5BC9                               ; 009D5C40: $6087
+        bra.s   $009D5BCB                               ; 009D5C42: $6087
+        bra.s   $009D5BCD                               ; 009D5C44: $6087
+        bra.s   $009D5BCF                               ; 009D5C46: $6087
+        bra.s   $009D5BD1                               ; 009D5C48: $6087
+        bra.s   $009D5BD3                               ; 009D5C4A: $6087
+        bra.s   $009D5BD5                               ; 009D5C4C: $6087
+        bra.s   $009D5BD7                               ; 009D5C4E: $6087
+        bra.s   $009D5BD9                               ; 009D5C50: $6087
+        bra.s   $009D5BDB                               ; 009D5C52: $6087
+        bra.s   $009D5BDD                               ; 009D5C54: $6087
+        bra.s   $009D5BDF                               ; 009D5C56: $6087
+        bra.s   $009D5BE1                               ; 009D5C58: $6087
+        bra.s   $009D5BE3                               ; 009D5C5A: $6087
+        bra.s   $009D5BE5                               ; 009D5C5C: $6087
+        bra.s   $009D5BE7                               ; 009D5C5E: $6087
+        bra.s   $009D5BE9                               ; 009D5C60: $6087
+        bra.s   $009D5BEB                               ; 009D5C62: $6087
+        bra.s   $009D5BED                               ; 009D5C64: $6087
+        bra.s   $009D5BEF                               ; 009D5C66: $6087
+        bra.s   $009D5BF1                               ; 009D5C68: $6087
+        bra.s   $009D5BF3                               ; 009D5C6A: $6087
+        bra.s   $009D5BF5                               ; 009D5C6C: $6087
+        bra.s   $009D5BF7                               ; 009D5C6E: $6087
+        bra.s   $009D5BF9                               ; 009D5C70: $6087
+        bra.s   $009D5BFB                               ; 009D5C72: $6087
+        bra.s   $009D5BFD                               ; 009D5C74: $6087
+        bra.s   $009D5BFF                               ; 009D5C76: $6087
+        bra.s   $009D5C01                               ; 009D5C78: $6087
+        bra.s   $009D5C03                               ; 009D5C7A: $6087
+        bra.s   $009D5C05                               ; 009D5C7C: $6087
+        bra.s   $009D5C07                               ; 009D5C7E: $6087
+        bra.s   $009D5C09                               ; 009D5C80: $6087
+        bra.s   $009D5C0B                               ; 009D5C82: $6087
+        bra.s   $009D5C0D                               ; 009D5C84: $6087
+        bra.s   $009D5C0F                               ; 009D5C86: $6087
+        bra.s   $009D5C11                               ; 009D5C88: $6087
+        bra.s   $009D5C13                               ; 009D5C8A: $6087
+        bra.s   $009D5C15                               ; 009D5C8C: $6087
+        bra.s   $009D5C17                               ; 009D5C8E: $6087
+        bra.s   $009D5C19                               ; 009D5C90: $6087
+        bra.s   $009D5C1B                               ; 009D5C92: $6087
+        bra.s   $009D5C1D                               ; 009D5C94: $6087
+        bra.s   $009D5C1F                               ; 009D5C96: $6087
+        bra.s   $009D5C21                               ; 009D5C98: $6087
+        bra.s   $009D5C23                               ; 009D5C9A: $6087
+        bra.s   $009D5C25                               ; 009D5C9C: $6087
+        bra.s   $009D5C27                               ; 009D5C9E: $6087
+        bra.s   $009D5C29                               ; 009D5CA0: $6087
+        bra.s   $009D5C2B                               ; 009D5CA2: $6087
+        bra.s   $009D5C2D                               ; 009D5CA4: $6087
+        bra.s   $009D5C2F                               ; 009D5CA6: $6087
+        bra.s   $009D5C31                               ; 009D5CA8: $6087
+        bra.s   $009D5C33                               ; 009D5CAA: $6087
+        bra.s   $009D5C35                               ; 009D5CAC: $6087
+        bra.s   $009D5C37                               ; 009D5CAE: $6087
+        bra.s   $009D5C39                               ; 009D5CB0: $6087
+        bra.s   $009D5C3B                               ; 009D5CB2: $6087
+        bra.s   $009D5C3D                               ; 009D5CB4: $6087
+        bra.s   $009D5C3F                               ; 009D5CB6: $6087
+        bra.s   $009D5C41                               ; 009D5CB8: $6087
+        bra.s   $009D5C43                               ; 009D5CBA: $6087
+        bra.s   $009D5C45                               ; 009D5CBC: $6087
+        bra.s   $009D5C47                               ; 009D5CBE: $6087
+        bra.s   $009D5C49                               ; 009D5CC0: $6087
+        bra.s   $009D5C4B                               ; 009D5CC2: $6087
+        bra.s   $009D5C4D                               ; 009D5CC4: $6087
+        bra.s   $009D5C4F                               ; 009D5CC6: $6087
+        bra.s   $009D5C51                               ; 009D5CC8: $6087
+        bra.s   $009D5C53                               ; 009D5CCA: $6087
+        bra.s   $009D5C55                               ; 009D5CCC: $6087
+        bra.s   $009D5C57                               ; 009D5CCE: $6087
+        bra.s   $009D5C59                               ; 009D5CD0: $6087
+        bra.s   $009D5C5B                               ; 009D5CD2: $6087
+        bra.s   $009D5C5D                               ; 009D5CD4: $6087
+        bra.s   $009D5C5F                               ; 009D5CD6: $6087
+        bra.s   $009D5C61                               ; 009D5CD8: $6087
+        bra.s   $009D5C63                               ; 009D5CDA: $6087
+        bra.s   $009D5C65                               ; 009D5CDC: $6087
+        bra.s   $009D5C67                               ; 009D5CDE: $6087
+        bra.s   $009D5C69                               ; 009D5CE0: $6087
+        bra.s   $009D5C6B                               ; 009D5CE2: $6087
+        bra.s   $009D5C6D                               ; 009D5CE4: $6087
+        bra.s   $009D5C6F                               ; 009D5CE6: $6087
+        bra.s   $009D5C71                               ; 009D5CE8: $6087
+        bra.s   $009D5C73                               ; 009D5CEA: $6087
+        bra.s   $009D5C75                               ; 009D5CEC: $6087
+        bra.s   $009D5C77                               ; 009D5CEE: $6087
+        bra.s   $009D5C79                               ; 009D5CF0: $6087
+        bra.s   $009D5C7B                               ; 009D5CF2: $6087
+        bra.s   $009D5C7D                               ; 009D5CF4: $6087
+        bra.s   $009D5C7F                               ; 009D5CF6: $6087
+        bra.s   $009D5C81                               ; 009D5CF8: $6087
+        bra.s   $009D5C83                               ; 009D5CFA: $6087
+        bra.s   $009D5C85                               ; 009D5CFC: $6087
+        bra.s   $009D5C87                               ; 009D5CFE: $6087
+        bra.s   $009D5C89                               ; 009D5D00: $6087
+        bra.s   $009D5C8B                               ; 009D5D02: $6087
+        bra.s   $009D5C8D                               ; 009D5D04: $6087
+        bra.s   $009D5C8F                               ; 009D5D06: $6087
+        bra.s   $009D5C91                               ; 009D5D08: $6087
+        bra.s   $009D5C93                               ; 009D5D0A: $6087
+        bra.s   $009D5C95                               ; 009D5D0C: $6087
+        bra.s   $009D5C97                               ; 009D5D0E: $6087
+        bra.s   $009D5C99                               ; 009D5D10: $6087
+        bra.s   $009D5C9B                               ; 009D5D12: $6087
+        bra.s   $009D5C9D                               ; 009D5D14: $6087
+        bra.s   $009D5C9F                               ; 009D5D16: $6087
+        bra.s   $009D5CA1                               ; 009D5D18: $6087
+        bra.s   $009D5CA3                               ; 009D5D1A: $6087
+        bra.s   $009D5CA5                               ; 009D5D1C: $6087
+        bra.s   $009D5CA7                               ; 009D5D1E: $6087
+        bra.s   $009D5CA9                               ; 009D5D20: $6087
+        bra.s   $009D5CAB                               ; 009D5D22: $6087
+        bra.s   $009D5CAD                               ; 009D5D24: $6087
+        bra.s   $009D5CAF                               ; 009D5D26: $6087
+        bra.s   $009D5CB1                               ; 009D5D28: $6087
+        bra.s   $009D5CB3                               ; 009D5D2A: $6087
+        bra.s   $009D5CB5                               ; 009D5D2C: $6087
+        bra.s   $009D5CB7                               ; 009D5D2E: $6087
+        bra.s   $009D5CB9                               ; 009D5D30: $6087
+        bra.s   $009D5CBB                               ; 009D5D32: $6087
+        bra.s   $009D5CBD                               ; 009D5D34: $6087
+        bra.s   $009D5CBF                               ; 009D5D36: $6087
+        bra.s   $009D5CC1                               ; 009D5D38: $6087
+        bra.s   $009D5CC3                               ; 009D5D3A: $6087
+        bra.s   $009D5CC5                               ; 009D5D3C: $6087
+        bra.s   $009D5CC7                               ; 009D5D3E: $6087
+        bra.s   $009D5CC9                               ; 009D5D40: $6087
+        bra.s   $009D5CCB                               ; 009D5D42: $6087
+        bra.s   $009D5CCD                               ; 009D5D44: $6087
+        bra.s   $009D5CCF                               ; 009D5D46: $6087
+        bra.s   $009D5CD1                               ; 009D5D48: $6087
+        bra.s   $009D5CD3                               ; 009D5D4A: $6087
+        bra.s   $009D5CD5                               ; 009D5D4C: $6087
+        bra.s   $009D5CD7                               ; 009D5D4E: $6087
+        bra.s   $009D5CD9                               ; 009D5D50: $6087
+        bra.s   $009D5CDB                               ; 009D5D52: $6087
+        bra.s   $009D5CDD                               ; 009D5D54: $6087
+        bra.s   $009D5CDF                               ; 009D5D56: $6087
+        bra.s   $009D5CE1                               ; 009D5D58: $6087
+        bra.s   $009D5CE3                               ; 009D5D5A: $6087
+        bra.s   $009D5CE5                               ; 009D5D5C: $6087
+        bra.s   $009D5CE7                               ; 009D5D5E: $6087
+        bra.s   $009D5CE9                               ; 009D5D60: $6087
+        bra.s   $009D5CEB                               ; 009D5D62: $6087
+        bra.s   $009D5CED                               ; 009D5D64: $6087
+        bra.s   $009D5CEF                               ; 009D5D66: $6087
+        bra.s   $009D5CF1                               ; 009D5D68: $6087
+        bra.s   $009D5CF3                               ; 009D5D6A: $6087
+        bra.s   $009D5CF5                               ; 009D5D6C: $6087
+        bra.s   $009D5CF7                               ; 009D5D6E: $6087
+        bra.s   $009D5CF9                               ; 009D5D70: $6087
+        bra.s   $009D5CFB                               ; 009D5D72: $6087
+        bra.s   $009D5CFD                               ; 009D5D74: $6087
+        bra.s   $009D5CFF                               ; 009D5D76: $6087
+        bra.s   $009D5D01                               ; 009D5D78: $6087
+        bra.s   $009D5D03                               ; 009D5D7A: $6087
+        bra.s   $009D5D05                               ; 009D5D7C: $6087
+        bra.s   $009D5D07                               ; 009D5D7E: $6087
+        bra.s   $009D5D09                               ; 009D5D80: $6087
+        bra.s   $009D5D0B                               ; 009D5D82: $6087
+        bra.s   $009D5D0D                               ; 009D5D84: $6087
+        bra.s   $009D5D0F                               ; 009D5D86: $6087
+        bra.s   $009D5D11                               ; 009D5D88: $6087
+        bra.s   $009D5D13                               ; 009D5D8A: $6087
+        bra.s   $009D5D15                               ; 009D5D8C: $6087
+        bra.s   $009D5D17                               ; 009D5D8E: $6087
+        bra.s   $009D5D19                               ; 009D5D90: $6087
+        bra.s   $009D5D1B                               ; 009D5D92: $6087
+        bra.s   $009D5D1D                               ; 009D5D94: $6087
+        bra.s   $009D5D1F                               ; 009D5D96: $6087
+        bra.s   $009D5D21                               ; 009D5D98: $6087
+        bra.s   $009D5D23                               ; 009D5D9A: $6087
+        bra.s   $009D5D25                               ; 009D5D9C: $6087
+        bra.s   $009D5D27                               ; 009D5D9E: $6087
+        bra.s   $009D5D29                               ; 009D5DA0: $6087
+        bra.s   $009D5D2B                               ; 009D5DA2: $6087
+        bra.s   $009D5D2D                               ; 009D5DA4: $6087
+        bra.s   $009D5D2F                               ; 009D5DA6: $6087
+        bra.s   $009D5D31                               ; 009D5DA8: $6087
+        bra.s   $009D5D33                               ; 009D5DAA: $6087
+        bra.s   $009D5D35                               ; 009D5DAC: $6087
+        bra.s   $009D5D37                               ; 009D5DAE: $6087
+        bra.s   $009D5D39                               ; 009D5DB0: $6087
+        bra.s   $009D5D3B                               ; 009D5DB2: $6087
+        bra.s   $009D5D3D                               ; 009D5DB4: $6087
+        bra.s   $009D5D3F                               ; 009D5DB6: $6087
+        bra.s   $009D5D41                               ; 009D5DB8: $6087
+        bra.s   $009D5D43                               ; 009D5DBA: $6087
+        bra.s   $009D5D45                               ; 009D5DBC: $6087
+        bra.s   $009D5D47                               ; 009D5DBE: $6087
+        bra.s   $009D5D49                               ; 009D5DC0: $6087
+        bra.s   $009D5D4B                               ; 009D5DC2: $6087
+        bra.s   $009D5D4D                               ; 009D5DC4: $6087
+        bra.s   $009D5D4F                               ; 009D5DC6: $6087
+        bra.s   $009D5D51                               ; 009D5DC8: $6087
+        bra.s   $009D5D53                               ; 009D5DCA: $6087
+        bra.s   $009D5D55                               ; 009D5DCC: $6087
+        bra.s   $009D5D57                               ; 009D5DCE: $6087
+        bra.s   $009D5D59                               ; 009D5DD0: $6087
+        bra.s   $009D5D5B                               ; 009D5DD2: $6087
+        bra.s   $009D5D5D                               ; 009D5DD4: $6087
+        bra.s   $009D5D5F                               ; 009D5DD6: $6087
+        bra.s   $009D5D61                               ; 009D5DD8: $6087
+        bra.s   $009D5D63                               ; 009D5DDA: $6087
+        bra.s   $009D5D65                               ; 009D5DDC: $6087
+        bra.s   $009D5D67                               ; 009D5DDE: $6087
+        bra.s   $009D5D69                               ; 009D5DE0: $6087
+        bra.s   $009D5D6B                               ; 009D5DE2: $6087
+        bra.s   $009D5D6D                               ; 009D5DE4: $6087
+        bra.s   $009D5D6F                               ; 009D5DE6: $6087
+        bra.s   $009D5D71                               ; 009D5DE8: $6087
+        bra.s   $009D5D73                               ; 009D5DEA: $6087
+        bra.s   $009D5D75                               ; 009D5DEC: $6087
+        bra.s   $009D5D77                               ; 009D5DEE: $6087
+        bra.s   $009D5D79                               ; 009D5DF0: $6087
+        bra.s   $009D5D7B                               ; 009D5DF2: $6087
+        bra.s   $009D5D7D                               ; 009D5DF4: $6087
+        bra.s   $009D5D7F                               ; 009D5DF6: $6087
+        bra.s   $009D5D81                               ; 009D5DF8: $6087
+        bra.s   $009D5D83                               ; 009D5DFA: $6087
+        bra.s   $009D5D85                               ; 009D5DFC: $6087
+        bra.s   $009D5D87                               ; 009D5DFE: $6087
+        bra.s   $009D5D89                               ; 009D5E00: $6087
+        bra.s   $009D5D8B                               ; 009D5E02: $6087
+        bra.s   $009D5D8D                               ; 009D5E04: $6087
+        bra.s   $009D5D8F                               ; 009D5E06: $6087
+        bra.s   $009D5D91                               ; 009D5E08: $6087
+        bra.s   $009D5D93                               ; 009D5E0A: $6087
+        bra.s   $009D5D95                               ; 009D5E0C: $6087
+        bra.s   $009D5D97                               ; 009D5E0E: $6087
+        bra.s   $009D5D99                               ; 009D5E10: $6087
+        bra.s   $009D5D9B                               ; 009D5E12: $6087
+        bra.s   $009D5D9D                               ; 009D5E14: $6087
+        bra.s   $009D5D9F                               ; 009D5E16: $6087
+        bra.s   $009D5DA1                               ; 009D5E18: $6087
+        bra.s   $009D5DA3                               ; 009D5E1A: $6087
+        bra.s   $009D5DA5                               ; 009D5E1C: $6087
+        bra.s   $009D5DA7                               ; 009D5E1E: $6087
+        bra.s   $009D5DA9                               ; 009D5E20: $6087
+        bra.s   $009D5DAB                               ; 009D5E22: $6087
+        bra.s   $009D5DAD                               ; 009D5E24: $6087
+        bra.s   $009D5DAF                               ; 009D5E26: $6087
+        bra.s   $009D5DB1                               ; 009D5E28: $6087
+        bra.s   $009D5DB3                               ; 009D5E2A: $6087
+        bra.s   $009D5DB5                               ; 009D5E2C: $6087
+        bra.s   $009D5DB7                               ; 009D5E2E: $6087
+        bra.s   $009D5DB9                               ; 009D5E30: $6087
+        bra.s   $009D5DBB                               ; 009D5E32: $6087
+        bra.s   $009D5DBD                               ; 009D5E34: $6087
+        bra.s   $009D5DBF                               ; 009D5E36: $6087
+        bra.s   $009D5DC1                               ; 009D5E38: $6087
+        bra.s   $009D5DC3                               ; 009D5E3A: $6087
+        bra.s   $009D5DC5                               ; 009D5E3C: $6087
+        bra.s   $009D5DC7                               ; 009D5E3E: $6087
+        bra.s   $009D5DC9                               ; 009D5E40: $6087
+        bra.s   $009D5DCB                               ; 009D5E42: $6087
+        bra.s   $009D5DCD                               ; 009D5E44: $6087
+        bra.s   $009D5DCF                               ; 009D5E46: $6087
+        bra.s   $009D5DD1                               ; 009D5E48: $6087
+        bra.s   $009D5DD3                               ; 009D5E4A: $6087
+        bra.s   $009D5DD5                               ; 009D5E4C: $6087
+        bra.s   $009D5DD7                               ; 009D5E4E: $6087
+        bra.s   $009D5DD9                               ; 009D5E50: $6087
+        bra.s   $009D5DDB                               ; 009D5E52: $6087
+        bra.s   $009D5DDD                               ; 009D5E54: $6087
+        bra.s   $009D5DDF                               ; 009D5E56: $6087
+        bra.s   $009D5DE1                               ; 009D5E58: $6087
+        bra.s   $009D5DE3                               ; 009D5E5A: $6087
+        bra.s   $009D5DE5                               ; 009D5E5C: $6087
+        bra.s   $009D5DE7                               ; 009D5E5E: $6087
+        bra.s   $009D5DE9                               ; 009D5E60: $6087
+        bra.s   $009D5DEB                               ; 009D5E62: $6087
+        bra.s   $009D5DED                               ; 009D5E64: $6087
+        bra.s   $009D5DEF                               ; 009D5E66: $6087
+        bra.s   $009D5DF1                               ; 009D5E68: $6087
+        bra.s   $009D5DF3                               ; 009D5E6A: $6087
+        bra.s   $009D5DF5                               ; 009D5E6C: $6087
+        bra.s   $009D5DF7                               ; 009D5E6E: $6087
+        bra.s   $009D5DF9                               ; 009D5E70: $6087
+        bra.s   $009D5DFB                               ; 009D5E72: $6087
+        bra.s   $009D5DFD                               ; 009D5E74: $6087
+        bra.s   $009D5DFF                               ; 009D5E76: $6087
+        bra.s   $009D5E01                               ; 009D5E78: $6087
+        bra.s   $009D5E03                               ; 009D5E7A: $6087
+        bra.s   $009D5E05                               ; 009D5E7C: $6087
+        bra.s   $009D5E07                               ; 009D5E7E: $6087
+        bra.s   $009D5E09                               ; 009D5E80: $6087
+        bra.s   $009D5E0B                               ; 009D5E82: $6087
+        bra.s   $009D5E0D                               ; 009D5E84: $6087
+        bra.s   $009D5E0F                               ; 009D5E86: $6087
+        bra.s   $009D5E11                               ; 009D5E88: $6087
+        bra.s   $009D5E13                               ; 009D5E8A: $6087
+        bra.s   $009D5E15                               ; 009D5E8C: $6087
+        bra.s   $009D5E17                               ; 009D5E8E: $6087
+        bra.s   $009D5E19                               ; 009D5E90: $6087
+        bra.s   $009D5E1B                               ; 009D5E92: $6087
+        bra.s   $009D5E1D                               ; 009D5E94: $6087
+        bra.s   $009D5E1F                               ; 009D5E96: $6087
+        bra.s   $009D5E21                               ; 009D5E98: $6087
+        bra.s   $009D5E23                               ; 009D5E9A: $6087
+        bra.s   $009D5E25                               ; 009D5E9C: $6087
+        bra.s   $009D5E27                               ; 009D5E9E: $6087
+        bra.s   $009D5E29                               ; 009D5EA0: $6087
+        bra.s   $009D5E2B                               ; 009D5EA2: $6087
+        bra.s   $009D5E2D                               ; 009D5EA4: $6087
+        bra.s   $009D5E2F                               ; 009D5EA6: $6087
+        bra.s   $009D5E31                               ; 009D5EA8: $6087
+        bra.s   $009D5E33                               ; 009D5EAA: $6087
+        bra.s   $009D5E35                               ; 009D5EAC: $6087
+        bra.s   $009D5E37                               ; 009D5EAE: $6087
+        bra.s   $009D5E39                               ; 009D5EB0: $6087
+        bra.s   $009D5E3B                               ; 009D5EB2: $6087
+        bra.s   $009D5E3D                               ; 009D5EB4: $6087
+        bra.s   $009D5E3F                               ; 009D5EB6: $6087
+        bra.s   $009D5E41                               ; 009D5EB8: $6087
+        bra.s   $009D5E43                               ; 009D5EBA: $6087
+        bra.s   $009D5E45                               ; 009D5EBC: $6087
+        bra.s   $009D5E47                               ; 009D5EBE: $6087
+        bra.s   $009D5E49                               ; 009D5EC0: $6087
+        bra.s   $009D5E4B                               ; 009D5EC2: $6087
+        bra.s   $009D5E4D                               ; 009D5EC4: $6087
+        bra.s   $009D5E4F                               ; 009D5EC6: $6087
+        bra.s   $009D5E51                               ; 009D5EC8: $6087
+        bra.s   $009D5E53                               ; 009D5ECA: $6087
+        bra.s   $009D5E55                               ; 009D5ECC: $6087
+        bra.s   $009D5E57                               ; 009D5ECE: $6087
+        bra.s   $009D5E59                               ; 009D5ED0: $6087
+        bra.s   $009D5E5B                               ; 009D5ED2: $6087
+        bra.s   $009D5E5D                               ; 009D5ED4: $6087
+        bra.s   $009D5E5F                               ; 009D5ED6: $6087
+        bra.s   $009D5E61                               ; 009D5ED8: $6087
+        bra.s   $009D5E63                               ; 009D5EDA: $6087
+        bra.s   $009D5E65                               ; 009D5EDC: $6087
+        bra.s   $009D5E67                               ; 009D5EDE: $6087
+        bra.s   $009D5E69                               ; 009D5EE0: $6087
+        bra.s   $009D5E6B                               ; 009D5EE2: $6087
+        bra.s   $009D5E6D                               ; 009D5EE4: $6087
+        bra.s   $009D5E6F                               ; 009D5EE6: $6087
+        bra.s   $009D5E71                               ; 009D5EE8: $6087
+        bra.s   $009D5E73                               ; 009D5EEA: $6087
+        bra.s   $009D5E75                               ; 009D5EEC: $6087
+        bra.s   $009D5E77                               ; 009D5EEE: $6087
+        bra.s   $009D5E79                               ; 009D5EF0: $6087
+        bra.s   $009D5E7B                               ; 009D5EF2: $6087
+        bra.s   $009D5E7D                               ; 009D5EF4: $6087
+        bra.s   $009D5E7F                               ; 009D5EF6: $6087
+        bra.s   $009D5E81                               ; 009D5EF8: $6087
+        bra.s   $009D5E83                               ; 009D5EFA: $6087
+        bra.s   $009D5E85                               ; 009D5EFC: $6087
+        bra.s   $009D5E87                               ; 009D5EFE: $6087
+        bra.s   $009D5E89                               ; 009D5F00: $6087
+        bra.s   $009D5E8B                               ; 009D5F02: $6087
+        bra.s   $009D5E8D                               ; 009D5F04: $6087
+        bra.s   $009D5E8F                               ; 009D5F06: $6087
+        bra.s   $009D5E91                               ; 009D5F08: $6087
+        bra.s   $009D5E93                               ; 009D5F0A: $6087
+        bra.s   $009D5E95                               ; 009D5F0C: $6087
+        bra.s   $009D5E97                               ; 009D5F0E: $6087
+        bra.s   $009D5E99                               ; 009D5F10: $6087
+        bra.s   $009D5E9B                               ; 009D5F12: $6087
+        bra.s   $009D5E9D                               ; 009D5F14: $6087
+        bra.s   $009D5E9F                               ; 009D5F16: $6087
+        bra.s   $009D5EA1                               ; 009D5F18: $6087
+        bra.s   $009D5EA3                               ; 009D5F1A: $6087
+        bra.s   $009D5EA5                               ; 009D5F1C: $6087
+        bra.s   $009D5EA7                               ; 009D5F1E: $6087
+        bra.s   $009D5EA9                               ; 009D5F20: $6087
+        bra.s   $009D5EAB                               ; 009D5F22: $6087
+        bra.s   $009D5EAD                               ; 009D5F24: $6087
+        bra.s   $009D5EAF                               ; 009D5F26: $6087
+        bra.s   $009D5EB1                               ; 009D5F28: $6087
+        bra.s   $009D5EB3                               ; 009D5F2A: $6087
+        bra.s   $009D5EB5                               ; 009D5F2C: $6087
+        bra.s   $009D5EB7                               ; 009D5F2E: $6087
+        bra.s   $009D5EB9                               ; 009D5F30: $6087
+        bra.s   $009D5EBB                               ; 009D5F32: $6087
+        bra.s   $009D5EBD                               ; 009D5F34: $6087
+        bra.s   $009D5EBF                               ; 009D5F36: $6087
+        bra.s   $009D5EC1                               ; 009D5F38: $6087
+        bra.s   $009D5EC3                               ; 009D5F3A: $6087
+        bra.s   $009D5EC5                               ; 009D5F3C: $6087
+        bra.s   $009D5EC7                               ; 009D5F3E: $6087
+        bra.s   $009D5EC9                               ; 009D5F40: $6087
+        bra.s   $009D5ECB                               ; 009D5F42: $6087
+        bra.s   $009D5ECD                               ; 009D5F44: $6087
+        bra.s   $009D5ECF                               ; 009D5F46: $6087
+        bra.s   $009D5ED1                               ; 009D5F48: $6087
+        bra.s   $009D5ED3                               ; 009D5F4A: $6087
+        bra.s   $009D5ED5                               ; 009D5F4C: $6087
+        bra.s   $009D5ED7                               ; 009D5F4E: $6087
+        bra.s   $009D5ED9                               ; 009D5F50: $6087
+        bra.s   $009D5EDB                               ; 009D5F52: $6087
+        bra.s   $009D5EDD                               ; 009D5F54: $6087
+        bra.s   $009D5EDF                               ; 009D5F56: $6087
+        bra.s   $009D5EE1                               ; 009D5F58: $6087
+        bra.s   $009D5EE3                               ; 009D5F5A: $6087
+        bra.s   $009D5EE5                               ; 009D5F5C: $6087
+        bra.s   $009D5EE7                               ; 009D5F5E: $6087
+        bra.s   $009D5EE9                               ; 009D5F60: $6087
+        bra.s   $009D5EEB                               ; 009D5F62: $6087
+        bra.s   $009D5EED                               ; 009D5F64: $6087
+        bra.s   $009D5EEF                               ; 009D5F66: $6087
+        bra.s   $009D5EF1                               ; 009D5F68: $6087
+        bra.s   $009D5EF3                               ; 009D5F6A: $6087
+        bra.s   $009D5EF5                               ; 009D5F6C: $6087
+        bra.s   $009D5EF7                               ; 009D5F6E: $6087
+        bra.s   $009D5EF9                               ; 009D5F70: $6087
+        bra.s   $009D5EFB                               ; 009D5F72: $6087
+        bra.s   $009D5EFD                               ; 009D5F74: $6087
+        bra.s   $009D5EFF                               ; 009D5F76: $6087
+        bra.s   $009D5F01                               ; 009D5F78: $6087
+        bra.s   $009D5F03                               ; 009D5F7A: $6087
+        bra.s   $009D5F05                               ; 009D5F7C: $6087
+        bra.s   $009D5F07                               ; 009D5F7E: $6087
+        bra.s   $009D5F09                               ; 009D5F80: $6087
+        bra.s   $009D5F0B                               ; 009D5F82: $6087
+        bra.s   $009D5F0D                               ; 009D5F84: $6087
+        bra.s   $009D5F0F                               ; 009D5F86: $6087
+        bra.s   $009D5F11                               ; 009D5F88: $6087
+        bra.s   $009D5F13                               ; 009D5F8A: $6087
+        bra.s   $009D5F15                               ; 009D5F8C: $6087
+        bra.s   $009D5F17                               ; 009D5F8E: $6087
+        bra.s   $009D5F19                               ; 009D5F90: $6087
+        bra.s   $009D5F1B                               ; 009D5F92: $6087
+        bra.s   $009D5F1D                               ; 009D5F94: $6087
+        bra.s   $009D5F1F                               ; 009D5F96: $6087
+        bra.s   $009D5F21                               ; 009D5F98: $6087
+        bra.s   $009D5F23                               ; 009D5F9A: $6087
+        bra.s   $009D5F25                               ; 009D5F9C: $6087
+        bra.s   $009D5F27                               ; 009D5F9E: $6087
+        bra.s   $009D5F29                               ; 009D5FA0: $6087
+        bra.s   $009D5F2B                               ; 009D5FA2: $6087
+        bra.s   $009D5F2D                               ; 009D5FA4: $6087
+        bra.s   $009D5F2F                               ; 009D5FA6: $6087
+        bra.s   $009D5F31                               ; 009D5FA8: $6087
+        bra.s   $009D5F33                               ; 009D5FAA: $6087
+        bra.s   $009D5F35                               ; 009D5FAC: $6087
+        bra.s   $009D5F37                               ; 009D5FAE: $6087
+        bra.s   $009D5F39                               ; 009D5FB0: $6087
+        bra.s   $009D5F3B                               ; 009D5FB2: $6087
+        bra.s   $009D5F3D                               ; 009D5FB4: $6087
+        bra.s   $009D5F3F                               ; 009D5FB6: $6087
+        bra.s   $009D5F41                               ; 009D5FB8: $6087
+        bra.s   $009D5F43                               ; 009D5FBA: $6087
+        bra.s   $009D5F45                               ; 009D5FBC: $6087
+        bra.s   $009D5F47                               ; 009D5FBE: $6087
+        bra.s   $009D5F49                               ; 009D5FC0: $6087
+        bra.s   $009D5F4B                               ; 009D5FC2: $6087
+        bra.s   $009D5F4D                               ; 009D5FC4: $6087
+        bra.s   $009D5F4F                               ; 009D5FC6: $6087
+        bra.s   $009D5F51                               ; 009D5FC8: $6087
+        bra.s   $009D5F53                               ; 009D5FCA: $6087
+        bra.s   $009D5F55                               ; 009D5FCC: $6087
+        bra.s   $009D5F57                               ; 009D5FCE: $6087
+        bra.s   $009D5F59                               ; 009D5FD0: $6087
+        bra.s   $009D5F5B                               ; 009D5FD2: $6087
+        bra.s   $009D5F5D                               ; 009D5FD4: $6087
+        bra.s   $009D5F5F                               ; 009D5FD6: $6087
+        bra.s   $009D5F61                               ; 009D5FD8: $6087
+        bra.s   $009D5F63                               ; 009D5FDA: $6087
+        bra.s   $009D5F65                               ; 009D5FDC: $6087
+        bra.s   $009D5F67                               ; 009D5FDE: $6087
+        bra.s   $009D5F69                               ; 009D5FE0: $6087
+        bra.s   $009D5F6B                               ; 009D5FE2: $6087
+        bra.s   $009D5F6D                               ; 009D5FE4: $6087
+        bra.s   $009D5F6F                               ; 009D5FE6: $6087
+        bra.s   $009D5F71                               ; 009D5FE8: $6087
+        bra.s   $009D5F73                               ; 009D5FEA: $6087
+        bra.s   $009D5F75                               ; 009D5FEC: $6087
+        bra.s   $009D5F77                               ; 009D5FEE: $6087
+        bra.s   $009D5F79                               ; 009D5FF0: $6087
+        bra.s   $009D5F7B                               ; 009D5FF2: $6087
+        bra.s   $009D5F7D                               ; 009D5FF4: $6087
+        bra.s   $009D5F7F                               ; 009D5FF6: $6087
+        bra.s   $009D5F81                               ; 009D5FF8: $6087
+        bra.s   $009D5F83                               ; 009D5FFA: $6087
+        bra.s   $009D5F85                               ; 009D5FFC: $6087
+        bra.s   $009D5F87                               ; 009D5FFE: $6087
 
