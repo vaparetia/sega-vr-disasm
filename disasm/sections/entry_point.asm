@@ -270,7 +270,13 @@ SecurityStrings:
         dc.w    $312E                    ; 008805A2: dc.w $312E
         dc.w    $3000                    ; 008805A4: dc.w $3000
 
-; --- VDP register init function ---
+; ============================================================================
+; InitVDPRegs - Initialize VDP Registers
+; ============================================================================
+; Writes VDP register configuration table to Genesis VDP. Applies display
+; mode settings, pattern table addresses, and scroll control configuration.
+; Called by: EntryPoint during boot sequence
+; ============================================================================
 InitVDPRegs:
         dc.w    $48E7, $C040            ; 008805A6: MOVEM.L regs,-(SP)
         dc.w    $43F9, $00C0, $0004    ; 008805AA: LEA $00C00004,A1
@@ -288,7 +294,12 @@ InitVDPRegs:
         dc.w    $4CDF, $0203            ; 008805C8: MOVEM.L (SP)+,regs
         dc.w    $4E75                    ; 008805CC: RTS
 
-; --- Clear Genesis VDP memory ---
+; ============================================================================
+; ClearVDPRAM - Clear Genesis VDP Memory
+; ============================================================================
+; Clears all Genesis VDP VRAM (64KB) and CRAM (palette). Initializes
+; video memory for display mode, called after InitVDPRegs.
+; ============================================================================
 ClearVDPRAM:
         dc.w    $48E7, $81C0            ; 008805CE: MOVEM.L regs,-(SP)
         dc.w    $41F9, $0000, $063E    ; 008805D2: LEA $0000063E,A0
@@ -350,6 +361,11 @@ ClearVDPRAM:
         dc.w    $8104                    ; 00880650: dc.w $8104
         dc.w    $8F02                    ; 00880652: dc.w $8F02
 
+; ============================================================================
+; Init32XVDP - Initialize 32X VDP Mode
+; ============================================================================
+; Configures 32X-specific VDP mode, sets frame buffer, and enables display.
+; ============================================================================
 ; --- 32X VDP mode setup ---
 Init32XVDP:
         dc.w    $48E7, $C140            ; 00880654: MOVEM.L regs,-(SP)
@@ -378,6 +394,11 @@ Init32XVDP:
         dc.w    $4CDF, $0283            ; 0088068E: MOVEM.L (SP)+,regs
         dc.w    $4E75                    ; 00880692: RTS
 
+; ============================================================================
+; ClearFrameBuffer - Clear 32X Frame Buffer
+; ============================================================================
+; Clears both 32X frame buffers for clean display initialization.
+; ============================================================================
 ; --- Clear 32X frame buffer ---
 ClearFrameBuffer:
         dc.w    $48E7, $8180            ; 00880694: MOVEM.L regs,-(SP)
@@ -396,6 +417,11 @@ ClearFrameBuffer:
         dc.w    $4CDF, $0181            ; 008806B6: MOVEM.L (SP)+,regs
         dc.w    $4E75                    ; 008806BA: RTS
 
+; ============================================================================
+; ClearWorkRAM - Clear 64KB Work RAM
+; ============================================================================
+; Clears work RAM used for runtime state and variables during execution.
+; ============================================================================
 ; --- Clear 64KB work RAM ---
 ClearWorkRAM:
         dc.w    $41F9, $00FF, $0000    ; 008806BC: LEA $00FF0000,A0
@@ -416,10 +442,21 @@ ClearWorkRAM:
         dc.w    $1200                    ; 008806E0: dc.w $1200
         dc.w    $7E0A                    ; 008806E2: MOVEQ #$0A,D7
 
+; ============================================================================
+; SecurityLoop - Security Delay Loop
+; ============================================================================
+; Implements security timing delay for MARS authentication handshake.
+; ============================================================================
 ; --- Security delay loop ---
 SecurityLoop:
         dc.w    $51CF, $FFFE            ; 008806E4: DBRA D7,$008806E4
 
+; ============================================================================
+; MARSRegInit - Complete MARS Hardware Initialization
+; ============================================================================
+; Full MARS adapter initialization: sets up communication, DMA, and modes.
+; Largest and most complex initialization function in boot sequence.
+; ============================================================================
 ; --- MARS register initialization ---
 MARSRegInit:
         dc.w    $43F9, $00A1, $5100    ; 008806E8: LEA $00A15100,A1
@@ -539,6 +576,11 @@ MARSRegInit:
         dc.w    $0000                    ; 008807E8: dc.w $0000
         dc.w    $6014                    ; 008807EA: BRA.S $00880800
 
+; ============================================================================
+; ErrorPath - Error Handler
+; ============================================================================
+; Error handling for boot failures (MARS detect or handshake failures).
+; ============================================================================
 ; --- Error handler path ---
 ErrorPath1:
         dc.w    $43F9, $00A1, $5100    ; 008807EC: LEA $00A15100,A1
@@ -548,6 +590,11 @@ ErrorPath1:
         dc.w    $8000                    ; 008807F8: dc.w $8000
         dc.w    $6004                    ; 008807FA: BRA.S $00880800
 
+; ============================================================================
+; ErrorPath - Error Handler
+; ============================================================================
+; Error handling for boot failures (MARS detect or handshake failures).
+; ============================================================================
 ; --- Error handler path ---
 ErrorPath2:
         dc.w    $44FC                    ; 008807FC: dc.w $44FC
