@@ -5,29 +5,14 @@
         org     $01A000
 
 Code_1A000:
-        dc.w    $02B6                    ; 0089A000: dc.w $02B6
-        dc.w    $02B6                    ; 0089A002: dc.w $02B6
-        dc.w    $02B6                    ; 0089A004: dc.w $02B6
-        dc.w    $02B6                    ; 0089A006: dc.w $02B6
-        dc.w    $02B6                    ; 0089A008: dc.w $02B6
-        dc.w    $028D                    ; 0089A00A: dc.w $028D
-        dc.w    $028D                    ; 0089A00C: dc.w $028D
-        dc.w    $028D                    ; 0089A00E: dc.w $028D
-        dc.w    $028D                    ; 0089A010: dc.w $028D
-        dc.w    $028D                    ; 0089A012: dc.w $028D
-        dc.w    $025E                    ; 0089A014: dc.w $025E
-        dc.w    $025E                    ; 0089A016: dc.w $025E
-        dc.w    $025E                    ; 0089A018: dc.w $025E
-        dc.w    $025E                    ; 0089A01A: dc.w $025E
-        dc.w    $025E                    ; 0089A01C: dc.w $025E
-        dc.w    $025E                    ; 0089A01E: dc.w $025E
-        dc.w    $022E                    ; 0089A020: dc.w $022E
-        dc.w    $022E                    ; 0089A022: dc.w $022E
-        dc.w    $022E                    ; 0089A024: dc.w $022E
-        dc.w    $022E                    ; 0089A026: dc.w $022E
-        dc.w    $022E                    ; 0089A028: dc.w $022E
-        dc.w    $01FE                    ; 0089A02A: dc.w $01FE
-        dc.w    $01FE                    ; 0089A02C: dc.w $01FE
+        andi.l  #$02B602B6,$-4A(a6,d0.w)                ; 0089A000: $02B6, $02B6, $02B6, $02B6
+        andi.l  #$028D028D,$-73(a6,d0.w)                ; 0089A008: $02B6, $028D, $028D, $028D
+        andi.l  #$028D025E,a5                           ; 0089A010: $028D, $028D, $025E
+        andi.w  #$025E,(a6)+                            ; 0089A016: $025E, $025E
+        andi.w  #$025E,(a6)+                            ; 0089A01A: $025E, $025E
+        andi.w  #$022E,(a6)+                            ; 0089A01E: $025E, $022E
+        andi.b  #$002E,$022E(a6)                        ; 0089A022: $022E, $022E, $022E
+        andi.b  #$00FE,$01FE(a6)                        ; 0089A028: $022E, $01FE, $01FE
         dc.w    $01FE                    ; 0089A02E: dc.w $01FE
         dc.w    $01FE                    ; 0089A030: dc.w $01FE
         dc.w    $01FE                    ; 0089A032: dc.w $01FE
@@ -47,4044 +32,2423 @@ Code_1A000:
         dc.w    $01FE                    ; 0089A04E: dc.w $01FE
         dc.w    $01FE                    ; 0089A050: dc.w $01FE
         dc.w    $01FE                    ; 0089A052: dc.w $01FE
-        dc.w    $0186                    ; 0089A054: dc.w $0186
-        dc.w    $0186                    ; 0089A056: dc.w $0186
-        dc.w    $0186                    ; 0089A058: dc.w $0186
-        dc.w    $0186                    ; 0089A05A: dc.w $0186
-        dc.w    $0186                    ; 0089A05C: dc.w $0186
-        dc.w    $0186                    ; 0089A05E: dc.w $0186
-        dc.w    $0186                    ; 0089A060: dc.w $0186
-        dc.w    $0186                    ; 0089A062: dc.w $0186
-        dc.w    $0186                    ; 0089A064: dc.w $0186
-        dc.w    $0186                    ; 0089A066: dc.w $0186
-        dc.w    $0186                    ; 0089A068: dc.w $0186
-        dc.w    $0186                    ; 0089A06A: dc.w $0186
-        dc.w    $0186                    ; 0089A06C: dc.w $0186
-        dc.w    $0186                    ; 0089A06E: dc.w $0186
-        dc.w    $0186                    ; 0089A070: dc.w $0186
-        dc.w    $0186                    ; 0089A072: dc.w $0186
-        dc.w    $0186                    ; 0089A074: dc.w $0186
-        dc.w    $0186                    ; 0089A076: dc.w $0186
-        dc.w    $0186                    ; 0089A078: dc.w $0186
-        dc.w    $0186                    ; 0089A07A: dc.w $0186
-        dc.w    $0186                    ; 0089A07C: dc.w $0186
-        dc.w    $0186                    ; 0089A07E: dc.w $0186
-        dc.w    $0186                    ; 0089A080: dc.w $0186
-        dc.w    $0186                    ; 0089A082: dc.w $0186
-        dc.w    $015E                    ; 0089A084: dc.w $015E
-        dc.w    $015E                    ; 0089A086: dc.w $015E
-        dc.w    $015E                    ; 0089A088: dc.w $015E
-        dc.w    $015E                    ; 0089A08A: dc.w $015E
-        dc.w    $015E                    ; 0089A08C: dc.w $015E
-        dc.w    $015E                    ; 0089A08E: dc.w $015E
-        dc.w    $015E                    ; 0089A090: dc.w $015E
-        dc.w    $015E                    ; 0089A092: dc.w $015E
-        dc.w    $015E                    ; 0089A094: dc.w $015E
-        dc.w    $015E                    ; 0089A096: dc.w $015E
-        dc.w    $015E                    ; 0089A098: dc.w $015E
-        dc.w    $015E                    ; 0089A09A: dc.w $015E
-        dc.w    $015E                    ; 0089A09C: dc.w $015E
-        dc.w    $015E                    ; 0089A09E: dc.w $015E
-        dc.w    $015E                    ; 0089A0A0: dc.w $015E
-        dc.w    $015E                    ; 0089A0A2: dc.w $015E
-        dc.w    $015E                    ; 0089A0A4: dc.w $015E
-        dc.w    $015E                    ; 0089A0A6: dc.w $015E
-        dc.w    $015E                    ; 0089A0A8: dc.w $015E
-        dc.w    $015E                    ; 0089A0AA: dc.w $015E
-        dc.w    $015E                    ; 0089A0AC: dc.w $015E
-        dc.w    $015E                    ; 0089A0AE: dc.w $015E
-        dc.w    $015E                    ; 0089A0B0: dc.w $015E
-        dc.w    $015E                    ; 0089A0B2: dc.w $015E
-        dc.w    $015E                    ; 0089A0B4: dc.w $015E
-        dc.w    $015E                    ; 0089A0B6: dc.w $015E
-        dc.w    $015E                    ; 0089A0B8: dc.w $015E
-        dc.w    $015E                    ; 0089A0BA: dc.w $015E
-        dc.w    $015E                    ; 0089A0BC: dc.w $015E
-        dc.w    $015E                    ; 0089A0BE: dc.w $015E
-        dc.w    $015E                    ; 0089A0C0: dc.w $015E
-        dc.w    $0140                    ; 0089A0C2: dc.w $0140
-        dc.w    $0000                    ; 0089A0C4: dc.w $0000
-        dc.w    $0000                    ; 0089A0C6: dc.w $0000
-        dc.w    $0000                    ; 0089A0C8: dc.w $0000
-        dc.w    $0000                    ; 0089A0CA: dc.w $0000
-        dc.w    $0000                    ; 0089A0CC: dc.w $0000
-        dc.w    $0000                    ; 0089A0CE: dc.w $0000
-        dc.w    $0000                    ; 0089A0D0: dc.w $0000
-        dc.w    $0000                    ; 0089A0D2: dc.w $0000
-        dc.w    $0089                    ; 0089A0D4: dc.w $0089
-        dc.w    $A114                    ; 0089A0D6: dc.w $A114
-        dc.w    $0089                    ; 0089A0D8: dc.w $0089
+        ori.l   #$01860186,d6                           ; 0089A054: $0186, $0186, $0186
+        ori.l   #$01860186,d6                           ; 0089A05A: $0186, $0186, $0186
+        ori.l   #$01860186,d6                           ; 0089A060: $0186, $0186, $0186
+        ori.l   #$01860186,d6                           ; 0089A066: $0186, $0186, $0186
+        ori.l   #$01860186,d6                           ; 0089A06C: $0186, $0186, $0186
+        ori.l   #$01860186,d6                           ; 0089A072: $0186, $0186, $0186
+        ori.l   #$01860186,d6                           ; 0089A078: $0186, $0186, $0186
+        ori.l   #$01860186,d6                           ; 0089A07E: $0186, $0186, $0186
+        ori.w   #$015E,(a6)+                            ; 0089A084: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A088: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A08C: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A090: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A094: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A098: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A09C: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A0A0: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A0A4: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A0A8: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A0AC: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A0B0: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A0B4: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A0B8: $015E, $015E
+        ori.w   #$015E,(a6)+                            ; 0089A0BC: $015E, $015E
+        ori.w   #$0140,(a6)+                            ; 0089A0C0: $015E, $0140
+        ori.b   #$0000,d0                               ; 0089A0C4: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089A0C8: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089A0CC: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089A0D0: $0000, $0000
+        ori.l   #$A1140089,a1                           ; 0089A0D4: $0089, $A114, $0089
         dc.w    $A146                    ; 0089A0DA: dc.w $A146
-        dc.w    $0089                    ; 0089A0DC: dc.w $0089
-        dc.w    $A178                    ; 0089A0DE: dc.w $A178
-        dc.w    $0089                    ; 0089A0E0: dc.w $0089
+        ori.l   #$A1780089,a1                           ; 0089A0DC: $0089, $A178, $0089
         dc.w    $A1AA                    ; 0089A0E2: dc.w $A1AA
-        dc.w    $0089                    ; 0089A0E4: dc.w $0089
-        dc.w    $A1DC                    ; 0089A0E6: dc.w $A1DC
-        dc.w    $0089                    ; 0089A0E8: dc.w $0089
+        ori.l   #$A1DC0089,a1                           ; 0089A0E4: $0089, $A1DC, $0089
         dc.w    $A20E                    ; 0089A0EA: dc.w $A20E
-        dc.w    $0089                    ; 0089A0EC: dc.w $0089
-        dc.w    $A240                    ; 0089A0EE: dc.w $A240
-        dc.w    $0089                    ; 0089A0F0: dc.w $0089
+        ori.l   #$A2400089,a1                           ; 0089A0EC: $0089, $A240, $0089
         dc.w    $A272                    ; 0089A0F2: dc.w $A272
-        dc.w    $0089                    ; 0089A0F4: dc.w $0089
-        dc.w    $A2A4                    ; 0089A0F6: dc.w $A2A4
-        dc.w    $0089                    ; 0089A0F8: dc.w $0089
+        ori.l   #$A2A40089,a1                           ; 0089A0F4: $0089, $A2A4, $0089
         dc.w    $A2D6                    ; 0089A0FA: dc.w $A2D6
-        dc.w    $0089                    ; 0089A0FC: dc.w $0089
-        dc.w    $A308                    ; 0089A0FE: dc.w $A308
-        dc.w    $0089                    ; 0089A100: dc.w $0089
+        ori.l   #$A3080089,a1                           ; 0089A0FC: $0089, $A308, $0089
         dc.w    $A33A                    ; 0089A102: dc.w $A33A
-        dc.w    $0089                    ; 0089A104: dc.w $0089
-        dc.w    $A36C                    ; 0089A106: dc.w $A36C
-        dc.w    $0089                    ; 0089A108: dc.w $0089
+        ori.l   #$A36C0089,a1                           ; 0089A104: $0089, $A36C, $0089
         dc.w    $A39E                    ; 0089A10A: dc.w $A39E
-        dc.w    $0089                    ; 0089A10C: dc.w $0089
-        dc.w    $A3D0                    ; 0089A10E: dc.w $A3D0
-        dc.w    $0089                    ; 0089A110: dc.w $0089
+        ori.l   #$A3D00089,a1                           ; 0089A10C: $0089, $A3D0, $0089
         dc.w    $A402                    ; 0089A112: dc.w $A402
-        dc.w    $0017                    ; 0089A114: dc.w $0017
-        dc.w    $FE78                    ; 0089A116: dc.w $FE78
+        ori.b   #$0078,(a7)                             ; 0089A114: $0017, $FE78
         dc.w    $FEF8                    ; 0089A118: dc.w $FEF8
         dc.w    $FF78                    ; 0089A11A: dc.w $FF78
         dc.w    $FFF8                    ; 0089A11C: dc.w $FFF8
-        dc.w    $0078                    ; 0089A11E: dc.w $0078
-        dc.w    $FE7C                    ; 0089A120: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A122: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A11E: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A124: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A126: dc.w $FFFC
-        dc.w    $007C                    ; 0089A128: dc.w $007C
-        dc.w    $FE80                    ; 0089A12A: dc.w $FE80
-        dc.w    $FF00                    ; 0089A12C: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A128: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A12E: dc.w $FF80
-        dc.w    $0080                    ; 0089A130: dc.w $0080
-        dc.w    $FE84                    ; 0089A132: dc.w $FE84
-        dc.w    $FF04                    ; 0089A134: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A130: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A136: dc.w $FF84
-        dc.w    $0004                    ; 0089A138: dc.w $0004
-        dc.w    $0084                    ; 0089A13A: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A138: $0004, $0084
         dc.w    $FE88                    ; 0089A13C: dc.w $FE88
         dc.w    $FF08                    ; 0089A13E: dc.w $FF08
         dc.w    $FF88                    ; 0089A140: dc.w $FF88
-        dc.w    $0008                    ; 0089A142: dc.w $0008
-        dc.w    $0088                    ; 0089A144: dc.w $0088
-        dc.w    $0017                    ; 0089A146: dc.w $0017
-        dc.w    $FE74                    ; 0089A148: dc.w $FE74
+        ori.b   #$0088,a0                               ; 0089A142: $0008, $0088
+        ori.b   #$0074,(a7)                             ; 0089A146: $0017, $FE74
         dc.w    $FEF4                    ; 0089A14A: dc.w $FEF4
         dc.w    $FF74                    ; 0089A14C: dc.w $FF74
         dc.w    $FFF4                    ; 0089A14E: dc.w $FFF4
-        dc.w    $0074                    ; 0089A150: dc.w $0074
-        dc.w    $FE78                    ; 0089A152: dc.w $FE78
-        dc.w    $FEF8                    ; 0089A154: dc.w $FEF8
+        ori.w   #$FE78,$-8(a4,a7.l)                     ; 0089A150: $0074, $FE78, $FEF8
         dc.w    $FF78                    ; 0089A156: dc.w $FF78
         dc.w    $FFF8                    ; 0089A158: dc.w $FFF8
-        dc.w    $0078                    ; 0089A15A: dc.w $0078
-        dc.w    $FE7C                    ; 0089A15C: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A15E: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A15A: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A160: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A162: dc.w $FFFC
-        dc.w    $007C                    ; 0089A164: dc.w $007C
-        dc.w    $FE80                    ; 0089A166: dc.w $FE80
-        dc.w    $FF00                    ; 0089A168: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A164: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A16A: dc.w $FF80
-        dc.w    $0080                    ; 0089A16C: dc.w $0080
-        dc.w    $FE84                    ; 0089A16E: dc.w $FE84
-        dc.w    $FF04                    ; 0089A170: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A16C: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A172: dc.w $FF84
-        dc.w    $0004                    ; 0089A174: dc.w $0004
-        dc.w    $0084                    ; 0089A176: dc.w $0084
-        dc.w    $0017                    ; 0089A178: dc.w $0017
-        dc.w    $FE74                    ; 0089A17A: dc.w $FE74
+        ori.b   #$0084,d4                               ; 0089A174: $0004, $0084
+        ori.b   #$0074,(a7)                             ; 0089A178: $0017, $FE74
         dc.w    $FEF4                    ; 0089A17C: dc.w $FEF4
         dc.w    $FF74                    ; 0089A17E: dc.w $FF74
         dc.w    $FFF4                    ; 0089A180: dc.w $FFF4
-        dc.w    $0074                    ; 0089A182: dc.w $0074
-        dc.w    $FE78                    ; 0089A184: dc.w $FE78
-        dc.w    $FEF8                    ; 0089A186: dc.w $FEF8
+        ori.w   #$FE78,$-8(a4,a7.l)                     ; 0089A182: $0074, $FE78, $FEF8
         dc.w    $FF78                    ; 0089A188: dc.w $FF78
         dc.w    $FFF8                    ; 0089A18A: dc.w $FFF8
-        dc.w    $0078                    ; 0089A18C: dc.w $0078
-        dc.w    $FE7C                    ; 0089A18E: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A190: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A18C: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A192: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A194: dc.w $FFFC
-        dc.w    $007C                    ; 0089A196: dc.w $007C
-        dc.w    $FE80                    ; 0089A198: dc.w $FE80
-        dc.w    $FF00                    ; 0089A19A: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A196: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A19C: dc.w $FF80
-        dc.w    $0080                    ; 0089A19E: dc.w $0080
-        dc.w    $FE84                    ; 0089A1A0: dc.w $FE84
-        dc.w    $FF04                    ; 0089A1A2: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A19E: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A1A4: dc.w $FF84
-        dc.w    $0004                    ; 0089A1A6: dc.w $0004
-        dc.w    $0084                    ; 0089A1A8: dc.w $0084
-        dc.w    $0017                    ; 0089A1AA: dc.w $0017
-        dc.w    $FEF4                    ; 0089A1AC: dc.w $FEF4
+        ori.b   #$0084,d4                               ; 0089A1A6: $0004, $0084
+        ori.b   #$00F4,(a7)                             ; 0089A1AA: $0017, $FEF4
         dc.w    $FF74                    ; 0089A1AE: dc.w $FF74
         dc.w    $FFF4                    ; 0089A1B0: dc.w $FFF4
-        dc.w    $0074                    ; 0089A1B2: dc.w $0074
-        dc.w    $00F4                    ; 0089A1B4: dc.w $00F4
-        dc.w    $FEF8                    ; 0089A1B6: dc.w $FEF8
+        ori.w   #$00F4,$-8(a4,a7.l)                     ; 0089A1B2: $0074, $00F4, $FEF8
         dc.w    $FF78                    ; 0089A1B8: dc.w $FF78
         dc.w    $FFF8                    ; 0089A1BA: dc.w $FFF8
-        dc.w    $0078                    ; 0089A1BC: dc.w $0078
-        dc.w    $00F8                    ; 0089A1BE: dc.w $00F8
-        dc.w    $FEFC                    ; 0089A1C0: dc.w $FEFC
+        ori.w   #$00F8,($FEFC).w                        ; 0089A1BC: $0078, $00F8, $FEFC
         dc.w    $FF7C                    ; 0089A1C2: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A1C4: dc.w $FFFC
-        dc.w    $007C                    ; 0089A1C6: dc.w $007C
-        dc.w    $00FC                    ; 0089A1C8: dc.w $00FC
-        dc.w    $FF00                    ; 0089A1CA: dc.w $FF00
+        ori.w   #$00FC,#$FF00                           ; 0089A1C6: $007C, $00FC, $FF00
         dc.w    $FF80                    ; 0089A1CC: dc.w $FF80
-        dc.w    $0080                    ; 0089A1CE: dc.w $0080
-        dc.w    $0100                    ; 0089A1D0: dc.w $0100
-        dc.w    $FF04                    ; 0089A1D2: dc.w $FF04
+        ori.l   #$0100FF04,d0                           ; 0089A1CE: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A1D4: dc.w $FF84
-        dc.w    $0004                    ; 0089A1D6: dc.w $0004
-        dc.w    $0084                    ; 0089A1D8: dc.w $0084
-        dc.w    $0104                    ; 0089A1DA: dc.w $0104
-        dc.w    $0017                    ; 0089A1DC: dc.w $0017
+        ori.b   #$0084,d4                               ; 0089A1D6: $0004, $0084
+        ori.b   #$0017,d4                               ; 0089A1DA: $0104, $0017
         dc.w    $FEF4                    ; 0089A1DE: dc.w $FEF4
         dc.w    $FF74                    ; 0089A1E0: dc.w $FF74
         dc.w    $FFF4                    ; 0089A1E2: dc.w $FFF4
-        dc.w    $0074                    ; 0089A1E4: dc.w $0074
-        dc.w    $00F4                    ; 0089A1E6: dc.w $00F4
-        dc.w    $FEF8                    ; 0089A1E8: dc.w $FEF8
+        ori.w   #$00F4,$-8(a4,a7.l)                     ; 0089A1E4: $0074, $00F4, $FEF8
         dc.w    $FF78                    ; 0089A1EA: dc.w $FF78
         dc.w    $FFF8                    ; 0089A1EC: dc.w $FFF8
-        dc.w    $0078                    ; 0089A1EE: dc.w $0078
-        dc.w    $00F8                    ; 0089A1F0: dc.w $00F8
-        dc.w    $FEFC                    ; 0089A1F2: dc.w $FEFC
+        ori.w   #$00F8,($FEFC).w                        ; 0089A1EE: $0078, $00F8, $FEFC
         dc.w    $FF7C                    ; 0089A1F4: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A1F6: dc.w $FFFC
-        dc.w    $007C                    ; 0089A1F8: dc.w $007C
-        dc.w    $00FC                    ; 0089A1FA: dc.w $00FC
-        dc.w    $FF00                    ; 0089A1FC: dc.w $FF00
+        ori.w   #$00FC,#$FF00                           ; 0089A1F8: $007C, $00FC, $FF00
         dc.w    $FF80                    ; 0089A1FE: dc.w $FF80
-        dc.w    $0080                    ; 0089A200: dc.w $0080
-        dc.w    $0100                    ; 0089A202: dc.w $0100
-        dc.w    $FF04                    ; 0089A204: dc.w $FF04
+        ori.l   #$0100FF04,d0                           ; 0089A200: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A206: dc.w $FF84
-        dc.w    $0004                    ; 0089A208: dc.w $0004
-        dc.w    $0084                    ; 0089A20A: dc.w $0084
-        dc.w    $0104                    ; 0089A20C: dc.w $0104
-        dc.w    $0017                    ; 0089A20E: dc.w $0017
+        ori.b   #$0084,d4                               ; 0089A208: $0004, $0084
+        ori.b   #$0017,d4                               ; 0089A20C: $0104, $0017
         dc.w    $FF74                    ; 0089A210: dc.w $FF74
         dc.w    $FFF4                    ; 0089A212: dc.w $FFF4
-        dc.w    $0074                    ; 0089A214: dc.w $0074
-        dc.w    $00F4                    ; 0089A216: dc.w $00F4
-        dc.w    $0174                    ; 0089A218: dc.w $0174
+        ori.w   #$00F4,$74(a4,d0.w)                     ; 0089A214: $0074, $00F4, $0174
         dc.w    $FF78                    ; 0089A21A: dc.w $FF78
         dc.w    $FFF8                    ; 0089A21C: dc.w $FFF8
-        dc.w    $0078                    ; 0089A21E: dc.w $0078
-        dc.w    $00F8                    ; 0089A220: dc.w $00F8
-        dc.w    $0178                    ; 0089A222: dc.w $0178
+        ori.w   #$00F8,($0178).w                        ; 0089A21E: $0078, $00F8, $0178
         dc.w    $FF7C                    ; 0089A224: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A226: dc.w $FFFC
-        dc.w    $007C                    ; 0089A228: dc.w $007C
-        dc.w    $00FC                    ; 0089A22A: dc.w $00FC
-        dc.w    $017C                    ; 0089A22C: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A228: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A22E: dc.w $FF80
-        dc.w    $0080                    ; 0089A230: dc.w $0080
-        dc.w    $0100                    ; 0089A232: dc.w $0100
-        dc.w    $0180                    ; 0089A234: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A230: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A236: dc.w $FF84
-        dc.w    $0004                    ; 0089A238: dc.w $0004
-        dc.w    $0084                    ; 0089A23A: dc.w $0084
-        dc.w    $0104                    ; 0089A23C: dc.w $0104
-        dc.w    $0184                    ; 0089A23E: dc.w $0184
-        dc.w    $0017                    ; 0089A240: dc.w $0017
-        dc.w    $FF74                    ; 0089A242: dc.w $FF74
+        ori.b   #$0084,d4                               ; 0089A238: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A23C: $0104, $0184
+        ori.b   #$0074,(a7)                             ; 0089A240: $0017, $FF74
         dc.w    $FFF4                    ; 0089A244: dc.w $FFF4
-        dc.w    $0074                    ; 0089A246: dc.w $0074
-        dc.w    $00F4                    ; 0089A248: dc.w $00F4
-        dc.w    $0174                    ; 0089A24A: dc.w $0174
+        ori.w   #$00F4,$74(a4,d0.w)                     ; 0089A246: $0074, $00F4, $0174
         dc.w    $FF78                    ; 0089A24C: dc.w $FF78
         dc.w    $FFF8                    ; 0089A24E: dc.w $FFF8
-        dc.w    $0078                    ; 0089A250: dc.w $0078
-        dc.w    $00F8                    ; 0089A252: dc.w $00F8
-        dc.w    $0178                    ; 0089A254: dc.w $0178
+        ori.w   #$00F8,($0178).w                        ; 0089A250: $0078, $00F8, $0178
         dc.w    $FF7C                    ; 0089A256: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A258: dc.w $FFFC
-        dc.w    $007C                    ; 0089A25A: dc.w $007C
-        dc.w    $00FC                    ; 0089A25C: dc.w $00FC
-        dc.w    $017C                    ; 0089A25E: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A25A: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A260: dc.w $FF80
-        dc.w    $0080                    ; 0089A262: dc.w $0080
-        dc.w    $0100                    ; 0089A264: dc.w $0100
-        dc.w    $0180                    ; 0089A266: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A262: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A268: dc.w $FF84
-        dc.w    $0004                    ; 0089A26A: dc.w $0004
-        dc.w    $0084                    ; 0089A26C: dc.w $0084
-        dc.w    $0104                    ; 0089A26E: dc.w $0104
-        dc.w    $0184                    ; 0089A270: dc.w $0184
-        dc.w    $0017                    ; 0089A272: dc.w $0017
-        dc.w    $FF78                    ; 0089A274: dc.w $FF78
+        ori.b   #$0084,d4                               ; 0089A26A: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A26E: $0104, $0184
+        ori.b   #$0078,(a7)                             ; 0089A272: $0017, $FF78
         dc.w    $FFF8                    ; 0089A276: dc.w $FFF8
-        dc.w    $0078                    ; 0089A278: dc.w $0078
-        dc.w    $00F8                    ; 0089A27A: dc.w $00F8
-        dc.w    $0178                    ; 0089A27C: dc.w $0178
+        ori.w   #$00F8,($0178).w                        ; 0089A278: $0078, $00F8, $0178
         dc.w    $FF7C                    ; 0089A27E: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A280: dc.w $FFFC
-        dc.w    $007C                    ; 0089A282: dc.w $007C
-        dc.w    $00FC                    ; 0089A284: dc.w $00FC
-        dc.w    $017C                    ; 0089A286: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A282: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A288: dc.w $FF80
-        dc.w    $0080                    ; 0089A28A: dc.w $0080
-        dc.w    $0100                    ; 0089A28C: dc.w $0100
-        dc.w    $0180                    ; 0089A28E: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A28A: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A290: dc.w $FF84
-        dc.w    $0004                    ; 0089A292: dc.w $0004
-        dc.w    $0084                    ; 0089A294: dc.w $0084
-        dc.w    $0104                    ; 0089A296: dc.w $0104
-        dc.w    $0184                    ; 0089A298: dc.w $0184
+        ori.b   #$0084,d4                               ; 0089A292: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A296: $0104, $0184
         dc.w    $FF88                    ; 0089A29A: dc.w $FF88
-        dc.w    $0008                    ; 0089A29C: dc.w $0008
-        dc.w    $0088                    ; 0089A29E: dc.w $0088
-        dc.w    $0108                    ; 0089A2A0: dc.w $0108
-        dc.w    $0188                    ; 0089A2A2: dc.w $0188
-        dc.w    $0017                    ; 0089A2A4: dc.w $0017
-        dc.w    $FF78                    ; 0089A2A6: dc.w $FF78
+        ori.b   #$0088,a0                               ; 0089A29C: $0008, $0088
+        ori.b   #$0088,a0                               ; 0089A2A0: $0108, $0188
+        ori.b   #$0078,(a7)                             ; 0089A2A4: $0017, $FF78
         dc.w    $FFF8                    ; 0089A2A8: dc.w $FFF8
-        dc.w    $0078                    ; 0089A2AA: dc.w $0078
-        dc.w    $00F8                    ; 0089A2AC: dc.w $00F8
-        dc.w    $0178                    ; 0089A2AE: dc.w $0178
+        ori.w   #$00F8,($0178).w                        ; 0089A2AA: $0078, $00F8, $0178
         dc.w    $FF7C                    ; 0089A2B0: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A2B2: dc.w $FFFC
-        dc.w    $007C                    ; 0089A2B4: dc.w $007C
-        dc.w    $00FC                    ; 0089A2B6: dc.w $00FC
-        dc.w    $017C                    ; 0089A2B8: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A2B4: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A2BA: dc.w $FF80
-        dc.w    $0080                    ; 0089A2BC: dc.w $0080
-        dc.w    $0100                    ; 0089A2BE: dc.w $0100
-        dc.w    $0180                    ; 0089A2C0: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A2BC: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A2C2: dc.w $FF84
-        dc.w    $0004                    ; 0089A2C4: dc.w $0004
-        dc.w    $0084                    ; 0089A2C6: dc.w $0084
-        dc.w    $0104                    ; 0089A2C8: dc.w $0104
-        dc.w    $0184                    ; 0089A2CA: dc.w $0184
+        ori.b   #$0084,d4                               ; 0089A2C4: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A2C8: $0104, $0184
         dc.w    $FF88                    ; 0089A2CC: dc.w $FF88
-        dc.w    $0008                    ; 0089A2CE: dc.w $0008
-        dc.w    $0088                    ; 0089A2D0: dc.w $0088
-        dc.w    $0108                    ; 0089A2D2: dc.w $0108
-        dc.w    $0188                    ; 0089A2D4: dc.w $0188
-        dc.w    $0017                    ; 0089A2D6: dc.w $0017
-        dc.w    $FF7C                    ; 0089A2D8: dc.w $FF7C
+        ori.b   #$0088,a0                               ; 0089A2CE: $0008, $0088
+        ori.b   #$0088,a0                               ; 0089A2D2: $0108, $0188
+        ori.b   #$007C,(a7)                             ; 0089A2D6: $0017, $FF7C
         dc.w    $FFFC                    ; 0089A2DA: dc.w $FFFC
-        dc.w    $007C                    ; 0089A2DC: dc.w $007C
-        dc.w    $00FC                    ; 0089A2DE: dc.w $00FC
-        dc.w    $017C                    ; 0089A2E0: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A2DC: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A2E2: dc.w $FF80
-        dc.w    $0080                    ; 0089A2E4: dc.w $0080
-        dc.w    $0100                    ; 0089A2E6: dc.w $0100
-        dc.w    $0180                    ; 0089A2E8: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A2E4: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A2EA: dc.w $FF84
-        dc.w    $0004                    ; 0089A2EC: dc.w $0004
-        dc.w    $0084                    ; 0089A2EE: dc.w $0084
-        dc.w    $0104                    ; 0089A2F0: dc.w $0104
-        dc.w    $0184                    ; 0089A2F2: dc.w $0184
+        ori.b   #$0084,d4                               ; 0089A2EC: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A2F0: $0104, $0184
         dc.w    $FF88                    ; 0089A2F4: dc.w $FF88
-        dc.w    $0008                    ; 0089A2F6: dc.w $0008
-        dc.w    $0088                    ; 0089A2F8: dc.w $0088
-        dc.w    $0108                    ; 0089A2FA: dc.w $0108
-        dc.w    $0188                    ; 0089A2FC: dc.w $0188
+        ori.b   #$0088,a0                               ; 0089A2F6: $0008, $0088
+        ori.b   #$0088,a0                               ; 0089A2FA: $0108, $0188
         dc.w    $FF8C                    ; 0089A2FE: dc.w $FF8C
-        dc.w    $000C                    ; 0089A300: dc.w $000C
-        dc.w    $008C                    ; 0089A302: dc.w $008C
-        dc.w    $010C                    ; 0089A304: dc.w $010C
-        dc.w    $018C                    ; 0089A306: dc.w $018C
-        dc.w    $0017                    ; 0089A308: dc.w $0017
-        dc.w    $FF7C                    ; 0089A30A: dc.w $FF7C
+        ori.b   #$008C,a4                               ; 0089A300: $000C, $008C
+        ori.b   #$008C,a4                               ; 0089A304: $010C, $018C
+        ori.b   #$007C,(a7)                             ; 0089A308: $0017, $FF7C
         dc.w    $FFFC                    ; 0089A30C: dc.w $FFFC
-        dc.w    $007C                    ; 0089A30E: dc.w $007C
-        dc.w    $00FC                    ; 0089A310: dc.w $00FC
-        dc.w    $017C                    ; 0089A312: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A30E: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A314: dc.w $FF80
-        dc.w    $0080                    ; 0089A316: dc.w $0080
-        dc.w    $0100                    ; 0089A318: dc.w $0100
-        dc.w    $0180                    ; 0089A31A: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A316: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A31C: dc.w $FF84
-        dc.w    $0004                    ; 0089A31E: dc.w $0004
-        dc.w    $0084                    ; 0089A320: dc.w $0084
-        dc.w    $0104                    ; 0089A322: dc.w $0104
-        dc.w    $0184                    ; 0089A324: dc.w $0184
+        ori.b   #$0084,d4                               ; 0089A31E: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A322: $0104, $0184
         dc.w    $FF88                    ; 0089A326: dc.w $FF88
-        dc.w    $0008                    ; 0089A328: dc.w $0008
-        dc.w    $0088                    ; 0089A32A: dc.w $0088
-        dc.w    $0108                    ; 0089A32C: dc.w $0108
-        dc.w    $0188                    ; 0089A32E: dc.w $0188
+        ori.b   #$0088,a0                               ; 0089A328: $0008, $0088
+        ori.b   #$0088,a0                               ; 0089A32C: $0108, $0188
         dc.w    $FF8C                    ; 0089A330: dc.w $FF8C
-        dc.w    $000C                    ; 0089A332: dc.w $000C
-        dc.w    $008C                    ; 0089A334: dc.w $008C
-        dc.w    $010C                    ; 0089A336: dc.w $010C
-        dc.w    $018C                    ; 0089A338: dc.w $018C
-        dc.w    $0017                    ; 0089A33A: dc.w $0017
-        dc.w    $FEFC                    ; 0089A33C: dc.w $FEFC
+        ori.b   #$008C,a4                               ; 0089A332: $000C, $008C
+        ori.b   #$008C,a4                               ; 0089A336: $010C, $018C
+        ori.b   #$00FC,(a7)                             ; 0089A33A: $0017, $FEFC
         dc.w    $FF7C                    ; 0089A33E: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A340: dc.w $FFFC
-        dc.w    $007C                    ; 0089A342: dc.w $007C
-        dc.w    $00FC                    ; 0089A344: dc.w $00FC
-        dc.w    $FF00                    ; 0089A346: dc.w $FF00
+        ori.w   #$00FC,#$FF00                           ; 0089A342: $007C, $00FC, $FF00
         dc.w    $FF80                    ; 0089A348: dc.w $FF80
-        dc.w    $0080                    ; 0089A34A: dc.w $0080
-        dc.w    $0100                    ; 0089A34C: dc.w $0100
-        dc.w    $FF04                    ; 0089A34E: dc.w $FF04
+        ori.l   #$0100FF04,d0                           ; 0089A34A: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A350: dc.w $FF84
-        dc.w    $0004                    ; 0089A352: dc.w $0004
-        dc.w    $0084                    ; 0089A354: dc.w $0084
-        dc.w    $0104                    ; 0089A356: dc.w $0104
-        dc.w    $FF08                    ; 0089A358: dc.w $FF08
+        ori.b   #$0084,d4                               ; 0089A352: $0004, $0084
+        ori.b   #$0008,d4                               ; 0089A356: $0104, $FF08
         dc.w    $FF88                    ; 0089A35A: dc.w $FF88
-        dc.w    $0008                    ; 0089A35C: dc.w $0008
-        dc.w    $0088                    ; 0089A35E: dc.w $0088
-        dc.w    $0108                    ; 0089A360: dc.w $0108
-        dc.w    $FF0C                    ; 0089A362: dc.w $FF0C
+        ori.b   #$0088,a0                               ; 0089A35C: $0008, $0088
+        ori.b   #$000C,a0                               ; 0089A360: $0108, $FF0C
         dc.w    $FF8C                    ; 0089A364: dc.w $FF8C
-        dc.w    $000C                    ; 0089A366: dc.w $000C
-        dc.w    $008C                    ; 0089A368: dc.w $008C
-        dc.w    $010C                    ; 0089A36A: dc.w $010C
-        dc.w    $0017                    ; 0089A36C: dc.w $0017
+        ori.b   #$008C,a4                               ; 0089A366: $000C, $008C
+        ori.b   #$0017,a4                               ; 0089A36A: $010C, $0017
         dc.w    $FEFC                    ; 0089A36E: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A370: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A372: dc.w $FFFC
-        dc.w    $007C                    ; 0089A374: dc.w $007C
-        dc.w    $00FC                    ; 0089A376: dc.w $00FC
-        dc.w    $FF00                    ; 0089A378: dc.w $FF00
+        ori.w   #$00FC,#$FF00                           ; 0089A374: $007C, $00FC, $FF00
         dc.w    $FF80                    ; 0089A37A: dc.w $FF80
-        dc.w    $0080                    ; 0089A37C: dc.w $0080
-        dc.w    $0100                    ; 0089A37E: dc.w $0100
-        dc.w    $FF04                    ; 0089A380: dc.w $FF04
+        ori.l   #$0100FF04,d0                           ; 0089A37C: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A382: dc.w $FF84
-        dc.w    $0004                    ; 0089A384: dc.w $0004
-        dc.w    $0084                    ; 0089A386: dc.w $0084
-        dc.w    $0104                    ; 0089A388: dc.w $0104
-        dc.w    $FF08                    ; 0089A38A: dc.w $FF08
+        ori.b   #$0084,d4                               ; 0089A384: $0004, $0084
+        ori.b   #$0008,d4                               ; 0089A388: $0104, $FF08
         dc.w    $FF88                    ; 0089A38C: dc.w $FF88
-        dc.w    $0008                    ; 0089A38E: dc.w $0008
-        dc.w    $0088                    ; 0089A390: dc.w $0088
-        dc.w    $0108                    ; 0089A392: dc.w $0108
-        dc.w    $FF0C                    ; 0089A394: dc.w $FF0C
+        ori.b   #$0088,a0                               ; 0089A38E: $0008, $0088
+        ori.b   #$000C,a0                               ; 0089A392: $0108, $FF0C
         dc.w    $FF8C                    ; 0089A396: dc.w $FF8C
-        dc.w    $000C                    ; 0089A398: dc.w $000C
-        dc.w    $008C                    ; 0089A39A: dc.w $008C
-        dc.w    $010C                    ; 0089A39C: dc.w $010C
-        dc.w    $0017                    ; 0089A39E: dc.w $0017
+        ori.b   #$008C,a4                               ; 0089A398: $000C, $008C
+        ori.b   #$0017,a4                               ; 0089A39C: $010C, $0017
         dc.w    $FE7C                    ; 0089A3A0: dc.w $FE7C
         dc.w    $FEFC                    ; 0089A3A2: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A3A4: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A3A6: dc.w $FFFC
-        dc.w    $007C                    ; 0089A3A8: dc.w $007C
-        dc.w    $FE80                    ; 0089A3AA: dc.w $FE80
-        dc.w    $FF00                    ; 0089A3AC: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A3A8: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A3AE: dc.w $FF80
-        dc.w    $0080                    ; 0089A3B0: dc.w $0080
-        dc.w    $FE84                    ; 0089A3B2: dc.w $FE84
-        dc.w    $FF04                    ; 0089A3B4: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A3B0: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A3B6: dc.w $FF84
-        dc.w    $0004                    ; 0089A3B8: dc.w $0004
-        dc.w    $0084                    ; 0089A3BA: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A3B8: $0004, $0084
         dc.w    $FE88                    ; 0089A3BC: dc.w $FE88
         dc.w    $FF08                    ; 0089A3BE: dc.w $FF08
         dc.w    $FF88                    ; 0089A3C0: dc.w $FF88
-        dc.w    $0008                    ; 0089A3C2: dc.w $0008
-        dc.w    $0088                    ; 0089A3C4: dc.w $0088
+        ori.b   #$0088,a0                               ; 0089A3C2: $0008, $0088
         dc.w    $FE8C                    ; 0089A3C6: dc.w $FE8C
         dc.w    $FF0C                    ; 0089A3C8: dc.w $FF0C
         dc.w    $FF8C                    ; 0089A3CA: dc.w $FF8C
-        dc.w    $000C                    ; 0089A3CC: dc.w $000C
-        dc.w    $008C                    ; 0089A3CE: dc.w $008C
-        dc.w    $0017                    ; 0089A3D0: dc.w $0017
-        dc.w    $FE7C                    ; 0089A3D2: dc.w $FE7C
+        ori.b   #$008C,a4                               ; 0089A3CC: $000C, $008C
+        ori.b   #$007C,(a7)                             ; 0089A3D0: $0017, $FE7C
         dc.w    $FEFC                    ; 0089A3D4: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A3D6: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A3D8: dc.w $FFFC
-        dc.w    $007C                    ; 0089A3DA: dc.w $007C
-        dc.w    $FE80                    ; 0089A3DC: dc.w $FE80
-        dc.w    $FF00                    ; 0089A3DE: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A3DA: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A3E0: dc.w $FF80
-        dc.w    $0080                    ; 0089A3E2: dc.w $0080
-        dc.w    $FE84                    ; 0089A3E4: dc.w $FE84
-        dc.w    $FF04                    ; 0089A3E6: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A3E2: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A3E8: dc.w $FF84
-        dc.w    $0004                    ; 0089A3EA: dc.w $0004
-        dc.w    $0084                    ; 0089A3EC: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A3EA: $0004, $0084
         dc.w    $FE88                    ; 0089A3EE: dc.w $FE88
         dc.w    $FF08                    ; 0089A3F0: dc.w $FF08
         dc.w    $FF88                    ; 0089A3F2: dc.w $FF88
-        dc.w    $0008                    ; 0089A3F4: dc.w $0008
-        dc.w    $0088                    ; 0089A3F6: dc.w $0088
+        ori.b   #$0088,a0                               ; 0089A3F4: $0008, $0088
         dc.w    $FE8C                    ; 0089A3F8: dc.w $FE8C
         dc.w    $FF0C                    ; 0089A3FA: dc.w $FF0C
         dc.w    $FF8C                    ; 0089A3FC: dc.w $FF8C
-        dc.w    $000C                    ; 0089A3FE: dc.w $000C
-        dc.w    $008C                    ; 0089A400: dc.w $008C
-        dc.w    $0017                    ; 0089A402: dc.w $0017
-        dc.w    $FE78                    ; 0089A404: dc.w $FE78
+        ori.b   #$008C,a4                               ; 0089A3FE: $000C, $008C
+        ori.b   #$0078,(a7)                             ; 0089A402: $0017, $FE78
         dc.w    $FEF8                    ; 0089A406: dc.w $FEF8
         dc.w    $FF78                    ; 0089A408: dc.w $FF78
         dc.w    $FFF8                    ; 0089A40A: dc.w $FFF8
-        dc.w    $0078                    ; 0089A40C: dc.w $0078
-        dc.w    $FE7C                    ; 0089A40E: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A410: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A40C: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A412: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A414: dc.w $FFFC
-        dc.w    $007C                    ; 0089A416: dc.w $007C
-        dc.w    $FE80                    ; 0089A418: dc.w $FE80
-        dc.w    $FF00                    ; 0089A41A: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A416: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A41C: dc.w $FF80
-        dc.w    $0080                    ; 0089A41E: dc.w $0080
-        dc.w    $FE84                    ; 0089A420: dc.w $FE84
-        dc.w    $FF04                    ; 0089A422: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A41E: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A424: dc.w $FF84
-        dc.w    $0004                    ; 0089A426: dc.w $0004
-        dc.w    $0084                    ; 0089A428: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A426: $0004, $0084
         dc.w    $FE88                    ; 0089A42A: dc.w $FE88
         dc.w    $FF08                    ; 0089A42C: dc.w $FF08
         dc.w    $FF88                    ; 0089A42E: dc.w $FF88
-        dc.w    $0008                    ; 0089A430: dc.w $0008
-        dc.w    $0088                    ; 0089A432: dc.w $0088
-        dc.w    $0089                    ; 0089A434: dc.w $0089
-        dc.w    $A474                    ; 0089A436: dc.w $A474
-        dc.w    $0089                    ; 0089A438: dc.w $0089
+        ori.b   #$0088,a0                               ; 0089A430: $0008, $0088
+        ori.l   #$A4740089,a1                           ; 0089A434: $0089, $A474, $0089
         dc.w    $A4A6                    ; 0089A43A: dc.w $A4A6
-        dc.w    $0089                    ; 0089A43C: dc.w $0089
-        dc.w    $A4A6                    ; 0089A43E: dc.w $A4A6
-        dc.w    $0089                    ; 0089A440: dc.w $0089
+        ori.l   #$A4A60089,a1                           ; 0089A43C: $0089, $A4A6, $0089
         dc.w    $A4D8                    ; 0089A442: dc.w $A4D8
-        dc.w    $0089                    ; 0089A444: dc.w $0089
-        dc.w    $A4D8                    ; 0089A446: dc.w $A4D8
-        dc.w    $0089                    ; 0089A448: dc.w $0089
+        ori.l   #$A4D80089,a1                           ; 0089A444: $0089, $A4D8, $0089
         dc.w    $A500                    ; 0089A44A: dc.w $A500
-        dc.w    $0089                    ; 0089A44C: dc.w $0089
-        dc.w    $A500                    ; 0089A44E: dc.w $A500
-        dc.w    $0089                    ; 0089A450: dc.w $0089
+        ori.l   #$A5000089,a1                           ; 0089A44C: $0089, $A500, $0089
         dc.w    $A528                    ; 0089A452: dc.w $A528
-        dc.w    $0089                    ; 0089A454: dc.w $0089
-        dc.w    $A528                    ; 0089A456: dc.w $A528
-        dc.w    $0089                    ; 0089A458: dc.w $0089
+        ori.l   #$A5280089,a1                           ; 0089A454: $0089, $A528, $0089
         dc.w    $A550                    ; 0089A45A: dc.w $A550
-        dc.w    $0089                    ; 0089A45C: dc.w $0089
-        dc.w    $A550                    ; 0089A45E: dc.w $A550
-        dc.w    $0089                    ; 0089A460: dc.w $0089
+        ori.l   #$A5500089,a1                           ; 0089A45C: $0089, $A550, $0089
         dc.w    $A578                    ; 0089A462: dc.w $A578
-        dc.w    $0089                    ; 0089A464: dc.w $0089
-        dc.w    $A578                    ; 0089A466: dc.w $A578
-        dc.w    $0089                    ; 0089A468: dc.w $0089
+        ori.l   #$A5780089,a1                           ; 0089A464: $0089, $A578, $0089
         dc.w    $A5A0                    ; 0089A46A: dc.w $A5A0
-        dc.w    $0089                    ; 0089A46C: dc.w $0089
-        dc.w    $A5A0                    ; 0089A46E: dc.w $A5A0
-        dc.w    $0089                    ; 0089A470: dc.w $0089
+        ori.l   #$A5A00089,a1                           ; 0089A46C: $0089, $A5A0, $0089
         dc.w    $A474                    ; 0089A472: dc.w $A474
-        dc.w    $0017                    ; 0089A474: dc.w $0017
-        dc.w    $FE78                    ; 0089A476: dc.w $FE78
+        ori.b   #$0078,(a7)                             ; 0089A474: $0017, $FE78
         dc.w    $FEF8                    ; 0089A478: dc.w $FEF8
         dc.w    $FF78                    ; 0089A47A: dc.w $FF78
         dc.w    $FFF8                    ; 0089A47C: dc.w $FFF8
-        dc.w    $0078                    ; 0089A47E: dc.w $0078
-        dc.w    $FE7C                    ; 0089A480: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A482: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A47E: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A484: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A486: dc.w $FFFC
-        dc.w    $007C                    ; 0089A488: dc.w $007C
-        dc.w    $FE80                    ; 0089A48A: dc.w $FE80
-        dc.w    $FF00                    ; 0089A48C: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A488: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A48E: dc.w $FF80
-        dc.w    $0080                    ; 0089A490: dc.w $0080
-        dc.w    $FE84                    ; 0089A492: dc.w $FE84
-        dc.w    $FF04                    ; 0089A494: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A490: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A496: dc.w $FF84
-        dc.w    $0004                    ; 0089A498: dc.w $0004
-        dc.w    $0084                    ; 0089A49A: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A498: $0004, $0084
         dc.w    $FE88                    ; 0089A49C: dc.w $FE88
         dc.w    $FF08                    ; 0089A49E: dc.w $FF08
         dc.w    $FF88                    ; 0089A4A0: dc.w $FF88
-        dc.w    $0008                    ; 0089A4A2: dc.w $0008
-        dc.w    $0088                    ; 0089A4A4: dc.w $0088
-        dc.w    $0017                    ; 0089A4A6: dc.w $0017
-        dc.w    $FE74                    ; 0089A4A8: dc.w $FE74
+        ori.b   #$0088,a0                               ; 0089A4A2: $0008, $0088
+        ori.b   #$0074,(a7)                             ; 0089A4A6: $0017, $FE74
         dc.w    $FEF4                    ; 0089A4AA: dc.w $FEF4
         dc.w    $FF74                    ; 0089A4AC: dc.w $FF74
         dc.w    $FFF4                    ; 0089A4AE: dc.w $FFF4
-        dc.w    $0074                    ; 0089A4B0: dc.w $0074
-        dc.w    $FE78                    ; 0089A4B2: dc.w $FE78
-        dc.w    $FEF8                    ; 0089A4B4: dc.w $FEF8
+        ori.w   #$FE78,$-8(a4,a7.l)                     ; 0089A4B0: $0074, $FE78, $FEF8
         dc.w    $FF78                    ; 0089A4B6: dc.w $FF78
         dc.w    $FFF8                    ; 0089A4B8: dc.w $FFF8
-        dc.w    $0078                    ; 0089A4BA: dc.w $0078
-        dc.w    $FE7C                    ; 0089A4BC: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A4BE: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A4BA: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A4C0: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A4C2: dc.w $FFFC
-        dc.w    $007C                    ; 0089A4C4: dc.w $007C
-        dc.w    $FE80                    ; 0089A4C6: dc.w $FE80
-        dc.w    $FF00                    ; 0089A4C8: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A4C4: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A4CA: dc.w $FF80
-        dc.w    $0080                    ; 0089A4CC: dc.w $0080
-        dc.w    $FE84                    ; 0089A4CE: dc.w $FE84
-        dc.w    $FF04                    ; 0089A4D0: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A4CC: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A4D2: dc.w $FF84
-        dc.w    $0004                    ; 0089A4D4: dc.w $0004
-        dc.w    $0084                    ; 0089A4D6: dc.w $0084
-        dc.w    $0012                    ; 0089A4D8: dc.w $0012
-        dc.w    $FF74                    ; 0089A4DA: dc.w $FF74
+        ori.b   #$0084,d4                               ; 0089A4D4: $0004, $0084
+        ori.b   #$0074,(a2)                             ; 0089A4D8: $0012, $FF74
         dc.w    $FFF4                    ; 0089A4DC: dc.w $FFF4
         dc.w    $FF78                    ; 0089A4DE: dc.w $FF78
         dc.w    $FFF8                    ; 0089A4E0: dc.w $FFF8
-        dc.w    $0078                    ; 0089A4E2: dc.w $0078
-        dc.w    $FEFC                    ; 0089A4E4: dc.w $FEFC
-        dc.w    $FF7C                    ; 0089A4E6: dc.w $FF7C
+        ori.w   #$FEFC,($FF7C).w                        ; 0089A4E2: $0078, $FEFC, $FF7C
         dc.w    $FFFC                    ; 0089A4E8: dc.w $FFFC
-        dc.w    $007C                    ; 0089A4EA: dc.w $007C
-        dc.w    $00FC                    ; 0089A4EC: dc.w $00FC
-        dc.w    $FF00                    ; 0089A4EE: dc.w $FF00
+        ori.w   #$00FC,#$FF00                           ; 0089A4EA: $007C, $00FC, $FF00
         dc.w    $FF80                    ; 0089A4F0: dc.w $FF80
-        dc.w    $0080                    ; 0089A4F2: dc.w $0080
-        dc.w    $0100                    ; 0089A4F4: dc.w $0100
-        dc.w    $FF04                    ; 0089A4F6: dc.w $FF04
+        ori.l   #$0100FF04,d0                           ; 0089A4F2: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A4F8: dc.w $FF84
-        dc.w    $0004                    ; 0089A4FA: dc.w $0004
-        dc.w    $0084                    ; 0089A4FC: dc.w $0084
-        dc.w    $0104                    ; 0089A4FE: dc.w $0104
-        dc.w    $0012                    ; 0089A500: dc.w $0012
+        ori.b   #$0084,d4                               ; 0089A4FA: $0004, $0084
+        ori.b   #$0012,d4                               ; 0089A4FE: $0104, $0012
         dc.w    $FFF4                    ; 0089A502: dc.w $FFF4
-        dc.w    $0074                    ; 0089A504: dc.w $0074
-        dc.w    $00F4                    ; 0089A506: dc.w $00F4
-        dc.w    $FF78                    ; 0089A508: dc.w $FF78
+        ori.w   #$00F4,$78(a4,a7.l)                     ; 0089A504: $0074, $00F4, $FF78
         dc.w    $FFF8                    ; 0089A50A: dc.w $FFF8
-        dc.w    $0078                    ; 0089A50C: dc.w $0078
-        dc.w    $00F8                    ; 0089A50E: dc.w $00F8
-        dc.w    $FF7C                    ; 0089A510: dc.w $FF7C
+        ori.w   #$00F8,($FF7C).w                        ; 0089A50C: $0078, $00F8, $FF7C
         dc.w    $FFFC                    ; 0089A512: dc.w $FFFC
-        dc.w    $007C                    ; 0089A514: dc.w $007C
-        dc.w    $00FC                    ; 0089A516: dc.w $00FC
-        dc.w    $FF80                    ; 0089A518: dc.w $FF80
-        dc.w    $0080                    ; 0089A51A: dc.w $0080
-        dc.w    $0100                    ; 0089A51C: dc.w $0100
-        dc.w    $0180                    ; 0089A51E: dc.w $0180
+        ori.w   #$00FC,#$FF80                           ; 0089A514: $007C, $00FC, $FF80
+        ori.l   #$01000180,d0                           ; 0089A51A: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A520: dc.w $FF84
-        dc.w    $0004                    ; 0089A522: dc.w $0004
-        dc.w    $0084                    ; 0089A524: dc.w $0084
-        dc.w    $0104                    ; 0089A526: dc.w $0104
-        dc.w    $0012                    ; 0089A528: dc.w $0012
+        ori.b   #$0084,d4                               ; 0089A522: $0004, $0084
+        ori.b   #$0012,d4                               ; 0089A526: $0104, $0012
         dc.w    $FF78                    ; 0089A52A: dc.w $FF78
         dc.w    $FFF8                    ; 0089A52C: dc.w $FFF8
-        dc.w    $0078                    ; 0089A52E: dc.w $0078
-        dc.w    $00F8                    ; 0089A530: dc.w $00F8
-        dc.w    $FF7C                    ; 0089A532: dc.w $FF7C
+        ori.w   #$00F8,($FF7C).w                        ; 0089A52E: $0078, $00F8, $FF7C
         dc.w    $FFFC                    ; 0089A534: dc.w $FFFC
-        dc.w    $007C                    ; 0089A536: dc.w $007C
-        dc.w    $00FC                    ; 0089A538: dc.w $00FC
-        dc.w    $FF80                    ; 0089A53A: dc.w $FF80
-        dc.w    $0080                    ; 0089A53C: dc.w $0080
-        dc.w    $0100                    ; 0089A53E: dc.w $0100
-        dc.w    $0180                    ; 0089A540: dc.w $0180
+        ori.w   #$00FC,#$FF80                           ; 0089A536: $007C, $00FC, $FF80
+        ori.l   #$01000180,d0                           ; 0089A53C: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A542: dc.w $FF84
-        dc.w    $0004                    ; 0089A544: dc.w $0004
-        dc.w    $0084                    ; 0089A546: dc.w $0084
-        dc.w    $0104                    ; 0089A548: dc.w $0104
-        dc.w    $0008                    ; 0089A54A: dc.w $0008
-        dc.w    $0088                    ; 0089A54C: dc.w $0088
-        dc.w    $0108                    ; 0089A54E: dc.w $0108
-        dc.w    $0012                    ; 0089A550: dc.w $0012
+        ori.b   #$0084,d4                               ; 0089A544: $0004, $0084
+        ori.b   #$0008,d4                               ; 0089A548: $0104, $0008
+        ori.l   #$01080012,a0                           ; 0089A54C: $0088, $0108, $0012
         dc.w    $FF7C                    ; 0089A552: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A554: dc.w $FFFC
-        dc.w    $007C                    ; 0089A556: dc.w $007C
-        dc.w    $00FC                    ; 0089A558: dc.w $00FC
-        dc.w    $FF80                    ; 0089A55A: dc.w $FF80
-        dc.w    $0080                    ; 0089A55C: dc.w $0080
-        dc.w    $0100                    ; 0089A55E: dc.w $0100
-        dc.w    $0180                    ; 0089A560: dc.w $0180
+        ori.w   #$00FC,#$FF80                           ; 0089A556: $007C, $00FC, $FF80
+        ori.l   #$01000180,d0                           ; 0089A55C: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A562: dc.w $FF84
-        dc.w    $0004                    ; 0089A564: dc.w $0004
-        dc.w    $0084                    ; 0089A566: dc.w $0084
-        dc.w    $0104                    ; 0089A568: dc.w $0104
-        dc.w    $FF88                    ; 0089A56A: dc.w $FF88
-        dc.w    $0008                    ; 0089A56C: dc.w $0008
-        dc.w    $0088                    ; 0089A56E: dc.w $0088
-        dc.w    $0108                    ; 0089A570: dc.w $0108
-        dc.w    $000C                    ; 0089A572: dc.w $000C
-        dc.w    $008C                    ; 0089A574: dc.w $008C
-        dc.w    $010C                    ; 0089A576: dc.w $010C
-        dc.w    $0012                    ; 0089A578: dc.w $0012
+        ori.b   #$0084,d4                               ; 0089A564: $0004, $0084
+        ori.b   #$0088,d4                               ; 0089A568: $0104, $FF88
+        ori.b   #$0088,a0                               ; 0089A56C: $0008, $0088
+        ori.b   #$000C,a0                               ; 0089A570: $0108, $000C
+        ori.l   #$010C0012,a4                           ; 0089A574: $008C, $010C, $0012
         dc.w    $FEFC                    ; 0089A57A: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A57C: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A57E: dc.w $FFFC
-        dc.w    $007C                    ; 0089A580: dc.w $007C
-        dc.w    $FF00                    ; 0089A582: dc.w $FF00
-        dc.w    $FF80                    ; 0089A584: dc.w $FF80
-        dc.w    $0080                    ; 0089A586: dc.w $0080
-        dc.w    $0100                    ; 0089A588: dc.w $0100
-        dc.w    $FF04                    ; 0089A58A: dc.w $FF04
+        ori.w   #$FF00,#$FF80                           ; 0089A580: $007C, $FF00, $FF80
+        ori.l   #$0100FF04,d0                           ; 0089A586: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A58C: dc.w $FF84
-        dc.w    $0004                    ; 0089A58E: dc.w $0004
-        dc.w    $0084                    ; 0089A590: dc.w $0084
-        dc.w    $0104                    ; 0089A592: dc.w $0104
-        dc.w    $FF88                    ; 0089A594: dc.w $FF88
-        dc.w    $0008                    ; 0089A596: dc.w $0008
-        dc.w    $0088                    ; 0089A598: dc.w $0088
+        ori.b   #$0084,d4                               ; 0089A58E: $0004, $0084
+        ori.b   #$0088,d4                               ; 0089A592: $0104, $FF88
+        ori.b   #$0088,a0                               ; 0089A596: $0008, $0088
         dc.w    $FF8C                    ; 0089A59A: dc.w $FF8C
-        dc.w    $000C                    ; 0089A59C: dc.w $000C
-        dc.w    $008C                    ; 0089A59E: dc.w $008C
-        dc.w    $0017                    ; 0089A5A0: dc.w $0017
-        dc.w    $FE7C                    ; 0089A5A2: dc.w $FE7C
+        ori.b   #$008C,a4                               ; 0089A59C: $000C, $008C
+        ori.b   #$007C,(a7)                             ; 0089A5A0: $0017, $FE7C
         dc.w    $FEFC                    ; 0089A5A4: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A5A6: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A5A8: dc.w $FFFC
-        dc.w    $007C                    ; 0089A5AA: dc.w $007C
-        dc.w    $FE80                    ; 0089A5AC: dc.w $FE80
-        dc.w    $FF00                    ; 0089A5AE: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A5AA: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A5B0: dc.w $FF80
-        dc.w    $0080                    ; 0089A5B2: dc.w $0080
-        dc.w    $FE84                    ; 0089A5B4: dc.w $FE84
-        dc.w    $FF04                    ; 0089A5B6: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A5B2: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A5B8: dc.w $FF84
-        dc.w    $0004                    ; 0089A5BA: dc.w $0004
-        dc.w    $0084                    ; 0089A5BC: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A5BA: $0004, $0084
         dc.w    $FE88                    ; 0089A5BE: dc.w $FE88
         dc.w    $FF08                    ; 0089A5C0: dc.w $FF08
         dc.w    $FF88                    ; 0089A5C2: dc.w $FF88
-        dc.w    $0008                    ; 0089A5C4: dc.w $0008
-        dc.w    $0088                    ; 0089A5C6: dc.w $0088
+        ori.b   #$0088,a0                               ; 0089A5C4: $0008, $0088
         dc.w    $FE8C                    ; 0089A5C8: dc.w $FE8C
         dc.w    $FF0C                    ; 0089A5CA: dc.w $FF0C
         dc.w    $FF8C                    ; 0089A5CC: dc.w $FF8C
-        dc.w    $000C                    ; 0089A5CE: dc.w $000C
-        dc.w    $008C                    ; 0089A5D0: dc.w $008C
-        dc.w    $0089                    ; 0089A5D2: dc.w $0089
-        dc.w    $A612                    ; 0089A5D4: dc.w $A612
-        dc.w    $0089                    ; 0089A5D6: dc.w $0089
+        ori.b   #$008C,a4                               ; 0089A5CE: $000C, $008C
+        ori.l   #$A6120089,a1                           ; 0089A5D2: $0089, $A612, $0089
         dc.w    $A644                    ; 0089A5D8: dc.w $A644
-        dc.w    $0089                    ; 0089A5DA: dc.w $0089
-        dc.w    $A676                    ; 0089A5DC: dc.w $A676
-        dc.w    $0089                    ; 0089A5DE: dc.w $0089
+        ori.l   #$A6760089,a1                           ; 0089A5DA: $0089, $A676, $0089
         dc.w    $A6A8                    ; 0089A5E0: dc.w $A6A8
-        dc.w    $0089                    ; 0089A5E2: dc.w $0089
-        dc.w    $A6DA                    ; 0089A5E4: dc.w $A6DA
-        dc.w    $0089                    ; 0089A5E6: dc.w $0089
+        ori.l   #$A6DA0089,a1                           ; 0089A5E2: $0089, $A6DA, $0089
         dc.w    $A70C                    ; 0089A5E8: dc.w $A70C
-        dc.w    $0089                    ; 0089A5EA: dc.w $0089
-        dc.w    $A73E                    ; 0089A5EC: dc.w $A73E
-        dc.w    $0089                    ; 0089A5EE: dc.w $0089
+        ori.l   #$A73E0089,a1                           ; 0089A5EA: $0089, $A73E, $0089
         dc.w    $A770                    ; 0089A5F0: dc.w $A770
-        dc.w    $0089                    ; 0089A5F2: dc.w $0089
-        dc.w    $A7A2                    ; 0089A5F4: dc.w $A7A2
-        dc.w    $0089                    ; 0089A5F6: dc.w $0089
+        ori.l   #$A7A20089,a1                           ; 0089A5F2: $0089, $A7A2, $0089
         dc.w    $A7D4                    ; 0089A5F8: dc.w $A7D4
-        dc.w    $0089                    ; 0089A5FA: dc.w $0089
-        dc.w    $A806                    ; 0089A5FC: dc.w $A806
-        dc.w    $0089                    ; 0089A5FE: dc.w $0089
+        ori.l   #$A8060089,a1                           ; 0089A5FA: $0089, $A806, $0089
         dc.w    $A838                    ; 0089A600: dc.w $A838
-        dc.w    $0089                    ; 0089A602: dc.w $0089
-        dc.w    $A86A                    ; 0089A604: dc.w $A86A
-        dc.w    $0089                    ; 0089A606: dc.w $0089
+        ori.l   #$A86A0089,a1                           ; 0089A602: $0089, $A86A, $0089
         dc.w    $A89C                    ; 0089A608: dc.w $A89C
-        dc.w    $0089                    ; 0089A60A: dc.w $0089
-        dc.w    $A8CE                    ; 0089A60C: dc.w $A8CE
-        dc.w    $0089                    ; 0089A60E: dc.w $0089
+        ori.l   #$A8CE0089,a1                           ; 0089A60A: $0089, $A8CE, $0089
         dc.w    $A900                    ; 0089A610: dc.w $A900
-        dc.w    $0017                    ; 0089A612: dc.w $0017
-        dc.w    $FE78                    ; 0089A614: dc.w $FE78
+        ori.b   #$0078,(a7)                             ; 0089A612: $0017, $FE78
         dc.w    $FEF8                    ; 0089A616: dc.w $FEF8
         dc.w    $FF78                    ; 0089A618: dc.w $FF78
         dc.w    $FFF8                    ; 0089A61A: dc.w $FFF8
-        dc.w    $0078                    ; 0089A61C: dc.w $0078
-        dc.w    $FE7C                    ; 0089A61E: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A620: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A61C: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A622: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A624: dc.w $FFFC
-        dc.w    $007C                    ; 0089A626: dc.w $007C
-        dc.w    $FE80                    ; 0089A628: dc.w $FE80
-        dc.w    $FF00                    ; 0089A62A: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A626: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A62C: dc.w $FF80
-        dc.w    $0080                    ; 0089A62E: dc.w $0080
-        dc.w    $FE84                    ; 0089A630: dc.w $FE84
-        dc.w    $FF04                    ; 0089A632: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A62E: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A634: dc.w $FF84
-        dc.w    $0004                    ; 0089A636: dc.w $0004
-        dc.w    $0084                    ; 0089A638: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A636: $0004, $0084
         dc.w    $FE88                    ; 0089A63A: dc.w $FE88
         dc.w    $FF08                    ; 0089A63C: dc.w $FF08
         dc.w    $FF88                    ; 0089A63E: dc.w $FF88
-        dc.w    $0008                    ; 0089A640: dc.w $0008
-        dc.w    $0088                    ; 0089A642: dc.w $0088
-        dc.w    $0017                    ; 0089A644: dc.w $0017
-        dc.w    $FE74                    ; 0089A646: dc.w $FE74
+        ori.b   #$0088,a0                               ; 0089A640: $0008, $0088
+        ori.b   #$0074,(a7)                             ; 0089A644: $0017, $FE74
         dc.w    $FEF4                    ; 0089A648: dc.w $FEF4
         dc.w    $FF74                    ; 0089A64A: dc.w $FF74
         dc.w    $FFF4                    ; 0089A64C: dc.w $FFF4
-        dc.w    $0074                    ; 0089A64E: dc.w $0074
-        dc.w    $FE78                    ; 0089A650: dc.w $FE78
-        dc.w    $FEF8                    ; 0089A652: dc.w $FEF8
+        ori.w   #$FE78,$-8(a4,a7.l)                     ; 0089A64E: $0074, $FE78, $FEF8
         dc.w    $FF78                    ; 0089A654: dc.w $FF78
         dc.w    $FFF8                    ; 0089A656: dc.w $FFF8
-        dc.w    $0078                    ; 0089A658: dc.w $0078
-        dc.w    $FE7C                    ; 0089A65A: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A65C: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A658: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A65E: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A660: dc.w $FFFC
-        dc.w    $007C                    ; 0089A662: dc.w $007C
-        dc.w    $FE80                    ; 0089A664: dc.w $FE80
-        dc.w    $FF00                    ; 0089A666: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A662: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A668: dc.w $FF80
-        dc.w    $0080                    ; 0089A66A: dc.w $0080
-        dc.w    $FE84                    ; 0089A66C: dc.w $FE84
-        dc.w    $FF04                    ; 0089A66E: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A66A: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A670: dc.w $FF84
-        dc.w    $0004                    ; 0089A672: dc.w $0004
-        dc.w    $0084                    ; 0089A674: dc.w $0084
-        dc.w    $0017                    ; 0089A676: dc.w $0017
-        dc.w    $FE74                    ; 0089A678: dc.w $FE74
+        ori.b   #$0084,d4                               ; 0089A672: $0004, $0084
+        ori.b   #$0074,(a7)                             ; 0089A676: $0017, $FE74
         dc.w    $FEF4                    ; 0089A67A: dc.w $FEF4
         dc.w    $FF74                    ; 0089A67C: dc.w $FF74
         dc.w    $FFF4                    ; 0089A67E: dc.w $FFF4
-        dc.w    $0074                    ; 0089A680: dc.w $0074
-        dc.w    $FE78                    ; 0089A682: dc.w $FE78
-        dc.w    $FEF8                    ; 0089A684: dc.w $FEF8
+        ori.w   #$FE78,$-8(a4,a7.l)                     ; 0089A680: $0074, $FE78, $FEF8
         dc.w    $FF78                    ; 0089A686: dc.w $FF78
         dc.w    $FFF8                    ; 0089A688: dc.w $FFF8
-        dc.w    $0078                    ; 0089A68A: dc.w $0078
-        dc.w    $FE7C                    ; 0089A68C: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A68E: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A68A: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A690: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A692: dc.w $FFFC
-        dc.w    $007C                    ; 0089A694: dc.w $007C
-        dc.w    $FE80                    ; 0089A696: dc.w $FE80
-        dc.w    $FF00                    ; 0089A698: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A694: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A69A: dc.w $FF80
-        dc.w    $0080                    ; 0089A69C: dc.w $0080
-        dc.w    $FE84                    ; 0089A69E: dc.w $FE84
-        dc.w    $FF04                    ; 0089A6A0: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A69C: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A6A2: dc.w $FF84
-        dc.w    $0004                    ; 0089A6A4: dc.w $0004
-        dc.w    $0084                    ; 0089A6A6: dc.w $0084
-        dc.w    $0017                    ; 0089A6A8: dc.w $0017
-        dc.w    $FEF4                    ; 0089A6AA: dc.w $FEF4
+        ori.b   #$0084,d4                               ; 0089A6A4: $0004, $0084
+        ori.b   #$00F4,(a7)                             ; 0089A6A8: $0017, $FEF4
         dc.w    $FF74                    ; 0089A6AC: dc.w $FF74
         dc.w    $FFF4                    ; 0089A6AE: dc.w $FFF4
-        dc.w    $0074                    ; 0089A6B0: dc.w $0074
-        dc.w    $00F4                    ; 0089A6B2: dc.w $00F4
-        dc.w    $FEF8                    ; 0089A6B4: dc.w $FEF8
+        ori.w   #$00F4,$-8(a4,a7.l)                     ; 0089A6B0: $0074, $00F4, $FEF8
         dc.w    $FF78                    ; 0089A6B6: dc.w $FF78
         dc.w    $FFF8                    ; 0089A6B8: dc.w $FFF8
-        dc.w    $0078                    ; 0089A6BA: dc.w $0078
-        dc.w    $00F8                    ; 0089A6BC: dc.w $00F8
-        dc.w    $FEFC                    ; 0089A6BE: dc.w $FEFC
+        ori.w   #$00F8,($FEFC).w                        ; 0089A6BA: $0078, $00F8, $FEFC
         dc.w    $FF7C                    ; 0089A6C0: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A6C2: dc.w $FFFC
-        dc.w    $007C                    ; 0089A6C4: dc.w $007C
-        dc.w    $00FC                    ; 0089A6C6: dc.w $00FC
-        dc.w    $FF00                    ; 0089A6C8: dc.w $FF00
+        ori.w   #$00FC,#$FF00                           ; 0089A6C4: $007C, $00FC, $FF00
         dc.w    $FF80                    ; 0089A6CA: dc.w $FF80
-        dc.w    $0080                    ; 0089A6CC: dc.w $0080
-        dc.w    $0100                    ; 0089A6CE: dc.w $0100
-        dc.w    $FF04                    ; 0089A6D0: dc.w $FF04
+        ori.l   #$0100FF04,d0                           ; 0089A6CC: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A6D2: dc.w $FF84
-        dc.w    $0004                    ; 0089A6D4: dc.w $0004
-        dc.w    $0084                    ; 0089A6D6: dc.w $0084
-        dc.w    $0104                    ; 0089A6D8: dc.w $0104
-        dc.w    $0017                    ; 0089A6DA: dc.w $0017
+        ori.b   #$0084,d4                               ; 0089A6D4: $0004, $0084
+        ori.b   #$0017,d4                               ; 0089A6D8: $0104, $0017
         dc.w    $FEF4                    ; 0089A6DC: dc.w $FEF4
         dc.w    $FF74                    ; 0089A6DE: dc.w $FF74
         dc.w    $FFF4                    ; 0089A6E0: dc.w $FFF4
-        dc.w    $0074                    ; 0089A6E2: dc.w $0074
-        dc.w    $00F4                    ; 0089A6E4: dc.w $00F4
-        dc.w    $FEF8                    ; 0089A6E6: dc.w $FEF8
+        ori.w   #$00F4,$-8(a4,a7.l)                     ; 0089A6E2: $0074, $00F4, $FEF8
         dc.w    $FF78                    ; 0089A6E8: dc.w $FF78
         dc.w    $FFF8                    ; 0089A6EA: dc.w $FFF8
-        dc.w    $0078                    ; 0089A6EC: dc.w $0078
-        dc.w    $00F8                    ; 0089A6EE: dc.w $00F8
-        dc.w    $FEFC                    ; 0089A6F0: dc.w $FEFC
+        ori.w   #$00F8,($FEFC).w                        ; 0089A6EC: $0078, $00F8, $FEFC
         dc.w    $FF7C                    ; 0089A6F2: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A6F4: dc.w $FFFC
-        dc.w    $007C                    ; 0089A6F6: dc.w $007C
-        dc.w    $00FC                    ; 0089A6F8: dc.w $00FC
-        dc.w    $FF00                    ; 0089A6FA: dc.w $FF00
+        ori.w   #$00FC,#$FF00                           ; 0089A6F6: $007C, $00FC, $FF00
         dc.w    $FF80                    ; 0089A6FC: dc.w $FF80
-        dc.w    $0080                    ; 0089A6FE: dc.w $0080
-        dc.w    $0100                    ; 0089A700: dc.w $0100
-        dc.w    $FF04                    ; 0089A702: dc.w $FF04
+        ori.l   #$0100FF04,d0                           ; 0089A6FE: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A704: dc.w $FF84
-        dc.w    $0004                    ; 0089A706: dc.w $0004
-        dc.w    $0084                    ; 0089A708: dc.w $0084
-        dc.w    $0104                    ; 0089A70A: dc.w $0104
-        dc.w    $0017                    ; 0089A70C: dc.w $0017
+        ori.b   #$0084,d4                               ; 0089A706: $0004, $0084
+        ori.b   #$0017,d4                               ; 0089A70A: $0104, $0017
         dc.w    $FF74                    ; 0089A70E: dc.w $FF74
         dc.w    $FFF4                    ; 0089A710: dc.w $FFF4
-        dc.w    $0074                    ; 0089A712: dc.w $0074
-        dc.w    $00F4                    ; 0089A714: dc.w $00F4
-        dc.w    $0174                    ; 0089A716: dc.w $0174
+        ori.w   #$00F4,$74(a4,d0.w)                     ; 0089A712: $0074, $00F4, $0174
         dc.w    $FF78                    ; 0089A718: dc.w $FF78
         dc.w    $FFF8                    ; 0089A71A: dc.w $FFF8
-        dc.w    $0078                    ; 0089A71C: dc.w $0078
-        dc.w    $00F8                    ; 0089A71E: dc.w $00F8
-        dc.w    $0178                    ; 0089A720: dc.w $0178
+        ori.w   #$00F8,($0178).w                        ; 0089A71C: $0078, $00F8, $0178
         dc.w    $FF7C                    ; 0089A722: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A724: dc.w $FFFC
-        dc.w    $007C                    ; 0089A726: dc.w $007C
-        dc.w    $00FC                    ; 0089A728: dc.w $00FC
-        dc.w    $017C                    ; 0089A72A: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A726: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A72C: dc.w $FF80
-        dc.w    $0080                    ; 0089A72E: dc.w $0080
-        dc.w    $0100                    ; 0089A730: dc.w $0100
-        dc.w    $0180                    ; 0089A732: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A72E: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A734: dc.w $FF84
-        dc.w    $0004                    ; 0089A736: dc.w $0004
-        dc.w    $0084                    ; 0089A738: dc.w $0084
-        dc.w    $0104                    ; 0089A73A: dc.w $0104
-        dc.w    $0184                    ; 0089A73C: dc.w $0184
-        dc.w    $0017                    ; 0089A73E: dc.w $0017
-        dc.w    $FF74                    ; 0089A740: dc.w $FF74
+        ori.b   #$0084,d4                               ; 0089A736: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A73A: $0104, $0184
+        ori.b   #$0074,(a7)                             ; 0089A73E: $0017, $FF74
         dc.w    $FFF4                    ; 0089A742: dc.w $FFF4
-        dc.w    $0074                    ; 0089A744: dc.w $0074
-        dc.w    $00F4                    ; 0089A746: dc.w $00F4
-        dc.w    $0174                    ; 0089A748: dc.w $0174
+        ori.w   #$00F4,$74(a4,d0.w)                     ; 0089A744: $0074, $00F4, $0174
         dc.w    $FF78                    ; 0089A74A: dc.w $FF78
         dc.w    $FFF8                    ; 0089A74C: dc.w $FFF8
-        dc.w    $0078                    ; 0089A74E: dc.w $0078
-        dc.w    $00F8                    ; 0089A750: dc.w $00F8
-        dc.w    $0178                    ; 0089A752: dc.w $0178
+        ori.w   #$00F8,($0178).w                        ; 0089A74E: $0078, $00F8, $0178
         dc.w    $FF7C                    ; 0089A754: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A756: dc.w $FFFC
-        dc.w    $007C                    ; 0089A758: dc.w $007C
-        dc.w    $00FC                    ; 0089A75A: dc.w $00FC
-        dc.w    $017C                    ; 0089A75C: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A758: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A75E: dc.w $FF80
-        dc.w    $0080                    ; 0089A760: dc.w $0080
-        dc.w    $0100                    ; 0089A762: dc.w $0100
-        dc.w    $0180                    ; 0089A764: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A760: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A766: dc.w $FF84
-        dc.w    $0004                    ; 0089A768: dc.w $0004
-        dc.w    $0084                    ; 0089A76A: dc.w $0084
-        dc.w    $0104                    ; 0089A76C: dc.w $0104
-        dc.w    $0184                    ; 0089A76E: dc.w $0184
-        dc.w    $0017                    ; 0089A770: dc.w $0017
-        dc.w    $FF78                    ; 0089A772: dc.w $FF78
+        ori.b   #$0084,d4                               ; 0089A768: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A76C: $0104, $0184
+        ori.b   #$0078,(a7)                             ; 0089A770: $0017, $FF78
         dc.w    $FFF8                    ; 0089A774: dc.w $FFF8
-        dc.w    $0078                    ; 0089A776: dc.w $0078
-        dc.w    $00F8                    ; 0089A778: dc.w $00F8
-        dc.w    $0178                    ; 0089A77A: dc.w $0178
+        ori.w   #$00F8,($0178).w                        ; 0089A776: $0078, $00F8, $0178
         dc.w    $FF7C                    ; 0089A77C: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A77E: dc.w $FFFC
-        dc.w    $007C                    ; 0089A780: dc.w $007C
-        dc.w    $00FC                    ; 0089A782: dc.w $00FC
-        dc.w    $017C                    ; 0089A784: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A780: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A786: dc.w $FF80
-        dc.w    $0080                    ; 0089A788: dc.w $0080
-        dc.w    $0100                    ; 0089A78A: dc.w $0100
-        dc.w    $0180                    ; 0089A78C: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A788: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A78E: dc.w $FF84
-        dc.w    $0004                    ; 0089A790: dc.w $0004
-        dc.w    $0084                    ; 0089A792: dc.w $0084
-        dc.w    $0104                    ; 0089A794: dc.w $0104
-        dc.w    $0184                    ; 0089A796: dc.w $0184
+        ori.b   #$0084,d4                               ; 0089A790: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A794: $0104, $0184
         dc.w    $FF88                    ; 0089A798: dc.w $FF88
-        dc.w    $0008                    ; 0089A79A: dc.w $0008
-        dc.w    $0088                    ; 0089A79C: dc.w $0088
-        dc.w    $0108                    ; 0089A79E: dc.w $0108
-        dc.w    $0188                    ; 0089A7A0: dc.w $0188
-        dc.w    $0017                    ; 0089A7A2: dc.w $0017
-        dc.w    $FF78                    ; 0089A7A4: dc.w $FF78
+        ori.b   #$0088,a0                               ; 0089A79A: $0008, $0088
+        ori.b   #$0088,a0                               ; 0089A79E: $0108, $0188
+        ori.b   #$0078,(a7)                             ; 0089A7A2: $0017, $FF78
         dc.w    $FFF8                    ; 0089A7A6: dc.w $FFF8
-        dc.w    $0078                    ; 0089A7A8: dc.w $0078
-        dc.w    $00F8                    ; 0089A7AA: dc.w $00F8
-        dc.w    $0178                    ; 0089A7AC: dc.w $0178
+        ori.w   #$00F8,($0178).w                        ; 0089A7A8: $0078, $00F8, $0178
         dc.w    $FF7C                    ; 0089A7AE: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A7B0: dc.w $FFFC
-        dc.w    $007C                    ; 0089A7B2: dc.w $007C
-        dc.w    $00FC                    ; 0089A7B4: dc.w $00FC
-        dc.w    $017C                    ; 0089A7B6: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A7B2: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A7B8: dc.w $FF80
-        dc.w    $0080                    ; 0089A7BA: dc.w $0080
-        dc.w    $0100                    ; 0089A7BC: dc.w $0100
-        dc.w    $0180                    ; 0089A7BE: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A7BA: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A7C0: dc.w $FF84
-        dc.w    $0004                    ; 0089A7C2: dc.w $0004
-        dc.w    $0084                    ; 0089A7C4: dc.w $0084
-        dc.w    $0104                    ; 0089A7C6: dc.w $0104
-        dc.w    $0184                    ; 0089A7C8: dc.w $0184
+        ori.b   #$0084,d4                               ; 0089A7C2: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A7C6: $0104, $0184
         dc.w    $FF88                    ; 0089A7CA: dc.w $FF88
-        dc.w    $0008                    ; 0089A7CC: dc.w $0008
-        dc.w    $0088                    ; 0089A7CE: dc.w $0088
-        dc.w    $0108                    ; 0089A7D0: dc.w $0108
-        dc.w    $0188                    ; 0089A7D2: dc.w $0188
-        dc.w    $0017                    ; 0089A7D4: dc.w $0017
-        dc.w    $FF7C                    ; 0089A7D6: dc.w $FF7C
+        ori.b   #$0088,a0                               ; 0089A7CC: $0008, $0088
+        ori.b   #$0088,a0                               ; 0089A7D0: $0108, $0188
+        ori.b   #$007C,(a7)                             ; 0089A7D4: $0017, $FF7C
         dc.w    $FFFC                    ; 0089A7D8: dc.w $FFFC
-        dc.w    $007C                    ; 0089A7DA: dc.w $007C
-        dc.w    $00FC                    ; 0089A7DC: dc.w $00FC
-        dc.w    $017C                    ; 0089A7DE: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A7DA: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A7E0: dc.w $FF80
-        dc.w    $0080                    ; 0089A7E2: dc.w $0080
-        dc.w    $0100                    ; 0089A7E4: dc.w $0100
-        dc.w    $0180                    ; 0089A7E6: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A7E2: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A7E8: dc.w $FF84
-        dc.w    $0004                    ; 0089A7EA: dc.w $0004
-        dc.w    $0084                    ; 0089A7EC: dc.w $0084
-        dc.w    $0104                    ; 0089A7EE: dc.w $0104
-        dc.w    $0184                    ; 0089A7F0: dc.w $0184
+        ori.b   #$0084,d4                               ; 0089A7EA: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A7EE: $0104, $0184
         dc.w    $FF88                    ; 0089A7F2: dc.w $FF88
-        dc.w    $0008                    ; 0089A7F4: dc.w $0008
-        dc.w    $0088                    ; 0089A7F6: dc.w $0088
-        dc.w    $0108                    ; 0089A7F8: dc.w $0108
-        dc.w    $0188                    ; 0089A7FA: dc.w $0188
+        ori.b   #$0088,a0                               ; 0089A7F4: $0008, $0088
+        ori.b   #$0088,a0                               ; 0089A7F8: $0108, $0188
         dc.w    $FF8C                    ; 0089A7FC: dc.w $FF8C
-        dc.w    $000C                    ; 0089A7FE: dc.w $000C
-        dc.w    $008C                    ; 0089A800: dc.w $008C
-        dc.w    $010C                    ; 0089A802: dc.w $010C
-        dc.w    $018C                    ; 0089A804: dc.w $018C
-        dc.w    $0017                    ; 0089A806: dc.w $0017
-        dc.w    $FF7C                    ; 0089A808: dc.w $FF7C
+        ori.b   #$008C,a4                               ; 0089A7FE: $000C, $008C
+        ori.b   #$008C,a4                               ; 0089A802: $010C, $018C
+        ori.b   #$007C,(a7)                             ; 0089A806: $0017, $FF7C
         dc.w    $FFFC                    ; 0089A80A: dc.w $FFFC
-        dc.w    $007C                    ; 0089A80C: dc.w $007C
-        dc.w    $00FC                    ; 0089A80E: dc.w $00FC
-        dc.w    $017C                    ; 0089A810: dc.w $017C
+        ori.w   #$00FC,#$017C                           ; 0089A80C: $007C, $00FC, $017C
         dc.w    $FF80                    ; 0089A812: dc.w $FF80
-        dc.w    $0080                    ; 0089A814: dc.w $0080
-        dc.w    $0100                    ; 0089A816: dc.w $0100
-        dc.w    $0180                    ; 0089A818: dc.w $0180
+        ori.l   #$01000180,d0                           ; 0089A814: $0080, $0100, $0180
         dc.w    $FF84                    ; 0089A81A: dc.w $FF84
-        dc.w    $0004                    ; 0089A81C: dc.w $0004
-        dc.w    $0084                    ; 0089A81E: dc.w $0084
-        dc.w    $0104                    ; 0089A820: dc.w $0104
-        dc.w    $0184                    ; 0089A822: dc.w $0184
+        ori.b   #$0084,d4                               ; 0089A81C: $0004, $0084
+        ori.b   #$0084,d4                               ; 0089A820: $0104, $0184
         dc.w    $FF88                    ; 0089A824: dc.w $FF88
-        dc.w    $0008                    ; 0089A826: dc.w $0008
-        dc.w    $0088                    ; 0089A828: dc.w $0088
-        dc.w    $0108                    ; 0089A82A: dc.w $0108
-        dc.w    $0188                    ; 0089A82C: dc.w $0188
+        ori.b   #$0088,a0                               ; 0089A826: $0008, $0088
+        ori.b   #$0088,a0                               ; 0089A82A: $0108, $0188
         dc.w    $FF8C                    ; 0089A82E: dc.w $FF8C
-        dc.w    $000C                    ; 0089A830: dc.w $000C
-        dc.w    $008C                    ; 0089A832: dc.w $008C
-        dc.w    $010C                    ; 0089A834: dc.w $010C
-        dc.w    $018C                    ; 0089A836: dc.w $018C
-        dc.w    $0017                    ; 0089A838: dc.w $0017
-        dc.w    $FEFC                    ; 0089A83A: dc.w $FEFC
+        ori.b   #$008C,a4                               ; 0089A830: $000C, $008C
+        ori.b   #$008C,a4                               ; 0089A834: $010C, $018C
+        ori.b   #$00FC,(a7)                             ; 0089A838: $0017, $FEFC
         dc.w    $FF7C                    ; 0089A83C: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A83E: dc.w $FFFC
-        dc.w    $007C                    ; 0089A840: dc.w $007C
-        dc.w    $00FC                    ; 0089A842: dc.w $00FC
-        dc.w    $FF00                    ; 0089A844: dc.w $FF00
+        ori.w   #$00FC,#$FF00                           ; 0089A840: $007C, $00FC, $FF00
         dc.w    $FF80                    ; 0089A846: dc.w $FF80
-        dc.w    $0080                    ; 0089A848: dc.w $0080
-        dc.w    $0100                    ; 0089A84A: dc.w $0100
-        dc.w    $FF04                    ; 0089A84C: dc.w $FF04
+        ori.l   #$0100FF04,d0                           ; 0089A848: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A84E: dc.w $FF84
-        dc.w    $0004                    ; 0089A850: dc.w $0004
-        dc.w    $0084                    ; 0089A852: dc.w $0084
-        dc.w    $0104                    ; 0089A854: dc.w $0104
-        dc.w    $FF08                    ; 0089A856: dc.w $FF08
+        ori.b   #$0084,d4                               ; 0089A850: $0004, $0084
+        ori.b   #$0008,d4                               ; 0089A854: $0104, $FF08
         dc.w    $FF88                    ; 0089A858: dc.w $FF88
-        dc.w    $0008                    ; 0089A85A: dc.w $0008
-        dc.w    $0088                    ; 0089A85C: dc.w $0088
-        dc.w    $0108                    ; 0089A85E: dc.w $0108
-        dc.w    $FF0C                    ; 0089A860: dc.w $FF0C
+        ori.b   #$0088,a0                               ; 0089A85A: $0008, $0088
+        ori.b   #$000C,a0                               ; 0089A85E: $0108, $FF0C
         dc.w    $FF8C                    ; 0089A862: dc.w $FF8C
-        dc.w    $000C                    ; 0089A864: dc.w $000C
-        dc.w    $008C                    ; 0089A866: dc.w $008C
-        dc.w    $010C                    ; 0089A868: dc.w $010C
-        dc.w    $0017                    ; 0089A86A: dc.w $0017
+        ori.b   #$008C,a4                               ; 0089A864: $000C, $008C
+        ori.b   #$0017,a4                               ; 0089A868: $010C, $0017
         dc.w    $FEFC                    ; 0089A86C: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A86E: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A870: dc.w $FFFC
-        dc.w    $007C                    ; 0089A872: dc.w $007C
-        dc.w    $00FC                    ; 0089A874: dc.w $00FC
-        dc.w    $FF00                    ; 0089A876: dc.w $FF00
+        ori.w   #$00FC,#$FF00                           ; 0089A872: $007C, $00FC, $FF00
         dc.w    $FF80                    ; 0089A878: dc.w $FF80
-        dc.w    $0080                    ; 0089A87A: dc.w $0080
-        dc.w    $0100                    ; 0089A87C: dc.w $0100
-        dc.w    $FF04                    ; 0089A87E: dc.w $FF04
+        ori.l   #$0100FF04,d0                           ; 0089A87A: $0080, $0100, $FF04
         dc.w    $FF84                    ; 0089A880: dc.w $FF84
-        dc.w    $0004                    ; 0089A882: dc.w $0004
-        dc.w    $0084                    ; 0089A884: dc.w $0084
-        dc.w    $0104                    ; 0089A886: dc.w $0104
-        dc.w    $FF08                    ; 0089A888: dc.w $FF08
+        ori.b   #$0084,d4                               ; 0089A882: $0004, $0084
+        ori.b   #$0008,d4                               ; 0089A886: $0104, $FF08
         dc.w    $FF88                    ; 0089A88A: dc.w $FF88
-        dc.w    $0008                    ; 0089A88C: dc.w $0008
-        dc.w    $0088                    ; 0089A88E: dc.w $0088
-        dc.w    $0108                    ; 0089A890: dc.w $0108
-        dc.w    $FF0C                    ; 0089A892: dc.w $FF0C
+        ori.b   #$0088,a0                               ; 0089A88C: $0008, $0088
+        ori.b   #$000C,a0                               ; 0089A890: $0108, $FF0C
         dc.w    $FF8C                    ; 0089A894: dc.w $FF8C
-        dc.w    $000C                    ; 0089A896: dc.w $000C
-        dc.w    $008C                    ; 0089A898: dc.w $008C
-        dc.w    $010C                    ; 0089A89A: dc.w $010C
-        dc.w    $0017                    ; 0089A89C: dc.w $0017
+        ori.b   #$008C,a4                               ; 0089A896: $000C, $008C
+        ori.b   #$0017,a4                               ; 0089A89A: $010C, $0017
         dc.w    $FE7C                    ; 0089A89E: dc.w $FE7C
         dc.w    $FEFC                    ; 0089A8A0: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A8A2: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A8A4: dc.w $FFFC
-        dc.w    $007C                    ; 0089A8A6: dc.w $007C
-        dc.w    $FE80                    ; 0089A8A8: dc.w $FE80
-        dc.w    $FF00                    ; 0089A8AA: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A8A6: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A8AC: dc.w $FF80
-        dc.w    $0080                    ; 0089A8AE: dc.w $0080
-        dc.w    $FE84                    ; 0089A8B0: dc.w $FE84
-        dc.w    $FF04                    ; 0089A8B2: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A8AE: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A8B4: dc.w $FF84
-        dc.w    $0004                    ; 0089A8B6: dc.w $0004
-        dc.w    $0084                    ; 0089A8B8: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A8B6: $0004, $0084
         dc.w    $FE88                    ; 0089A8BA: dc.w $FE88
         dc.w    $FF08                    ; 0089A8BC: dc.w $FF08
         dc.w    $FF88                    ; 0089A8BE: dc.w $FF88
-        dc.w    $0008                    ; 0089A8C0: dc.w $0008
-        dc.w    $0088                    ; 0089A8C2: dc.w $0088
+        ori.b   #$0088,a0                               ; 0089A8C0: $0008, $0088
         dc.w    $FE8C                    ; 0089A8C4: dc.w $FE8C
         dc.w    $FF0C                    ; 0089A8C6: dc.w $FF0C
         dc.w    $FF8C                    ; 0089A8C8: dc.w $FF8C
-        dc.w    $000C                    ; 0089A8CA: dc.w $000C
-        dc.w    $008C                    ; 0089A8CC: dc.w $008C
-        dc.w    $0017                    ; 0089A8CE: dc.w $0017
-        dc.w    $FE7C                    ; 0089A8D0: dc.w $FE7C
+        ori.b   #$008C,a4                               ; 0089A8CA: $000C, $008C
+        ori.b   #$007C,(a7)                             ; 0089A8CE: $0017, $FE7C
         dc.w    $FEFC                    ; 0089A8D2: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A8D4: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A8D6: dc.w $FFFC
-        dc.w    $007C                    ; 0089A8D8: dc.w $007C
-        dc.w    $FE80                    ; 0089A8DA: dc.w $FE80
-        dc.w    $FF00                    ; 0089A8DC: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A8D8: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A8DE: dc.w $FF80
-        dc.w    $0080                    ; 0089A8E0: dc.w $0080
-        dc.w    $FE84                    ; 0089A8E2: dc.w $FE84
-        dc.w    $FF04                    ; 0089A8E4: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A8E0: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A8E6: dc.w $FF84
-        dc.w    $0004                    ; 0089A8E8: dc.w $0004
-        dc.w    $0084                    ; 0089A8EA: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A8E8: $0004, $0084
         dc.w    $FE88                    ; 0089A8EC: dc.w $FE88
         dc.w    $FF08                    ; 0089A8EE: dc.w $FF08
         dc.w    $FF88                    ; 0089A8F0: dc.w $FF88
-        dc.w    $0008                    ; 0089A8F2: dc.w $0008
-        dc.w    $0088                    ; 0089A8F4: dc.w $0088
+        ori.b   #$0088,a0                               ; 0089A8F2: $0008, $0088
         dc.w    $FE8C                    ; 0089A8F6: dc.w $FE8C
         dc.w    $FF0C                    ; 0089A8F8: dc.w $FF0C
         dc.w    $FF8C                    ; 0089A8FA: dc.w $FF8C
-        dc.w    $000C                    ; 0089A8FC: dc.w $000C
-        dc.w    $008C                    ; 0089A8FE: dc.w $008C
-        dc.w    $0017                    ; 0089A900: dc.w $0017
-        dc.w    $FE78                    ; 0089A902: dc.w $FE78
+        ori.b   #$008C,a4                               ; 0089A8FC: $000C, $008C
+        ori.b   #$0078,(a7)                             ; 0089A900: $0017, $FE78
         dc.w    $FEF8                    ; 0089A904: dc.w $FEF8
         dc.w    $FF78                    ; 0089A906: dc.w $FF78
         dc.w    $FFF8                    ; 0089A908: dc.w $FFF8
-        dc.w    $0078                    ; 0089A90A: dc.w $0078
-        dc.w    $FE7C                    ; 0089A90C: dc.w $FE7C
-        dc.w    $FEFC                    ; 0089A90E: dc.w $FEFC
+        ori.w   #$FE7C,($FEFC).w                        ; 0089A90A: $0078, $FE7C, $FEFC
         dc.w    $FF7C                    ; 0089A910: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A912: dc.w $FFFC
-        dc.w    $007C                    ; 0089A914: dc.w $007C
-        dc.w    $FE80                    ; 0089A916: dc.w $FE80
-        dc.w    $FF00                    ; 0089A918: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A914: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A91A: dc.w $FF80
-        dc.w    $0080                    ; 0089A91C: dc.w $0080
-        dc.w    $FE84                    ; 0089A91E: dc.w $FE84
-        dc.w    $FF04                    ; 0089A920: dc.w $FF04
+        ori.l   #$FE84FF04,d0                           ; 0089A91C: $0080, $FE84, $FF04
         dc.w    $FF84                    ; 0089A922: dc.w $FF84
-        dc.w    $0004                    ; 0089A924: dc.w $0004
-        dc.w    $0084                    ; 0089A926: dc.w $0084
+        ori.b   #$0084,d4                               ; 0089A924: $0004, $0084
         dc.w    $FE88                    ; 0089A928: dc.w $FE88
         dc.w    $FF08                    ; 0089A92A: dc.w $FF08
         dc.w    $FF88                    ; 0089A92C: dc.w $FF88
-        dc.w    $0008                    ; 0089A92E: dc.w $0008
-        dc.w    $0088                    ; 0089A930: dc.w $0088
-        dc.w    $0089                    ; 0089A932: dc.w $0089
-        dc.w    $A952                    ; 0089A934: dc.w $A952
-        dc.w    $0089                    ; 0089A936: dc.w $0089
+        ori.b   #$0088,a0                               ; 0089A92E: $0008, $0088
+        ori.l   #$A9520089,a1                           ; 0089A932: $0089, $A952, $0089
         dc.w    $A96A                    ; 0089A938: dc.w $A96A
-        dc.w    $0089                    ; 0089A93A: dc.w $0089
-        dc.w    $A982                    ; 0089A93C: dc.w $A982
-        dc.w    $0089                    ; 0089A93E: dc.w $0089
+        ori.l   #$A9820089,a1                           ; 0089A93A: $0089, $A982, $0089
         dc.w    $A99A                    ; 0089A940: dc.w $A99A
-        dc.w    $0089                    ; 0089A942: dc.w $0089
-        dc.w    $A9B2                    ; 0089A944: dc.w $A9B2
-        dc.w    $0089                    ; 0089A946: dc.w $0089
+        ori.l   #$A9B20089,a1                           ; 0089A942: $0089, $A9B2, $0089
         dc.w    $A9CA                    ; 0089A948: dc.w $A9CA
-        dc.w    $0089                    ; 0089A94A: dc.w $0089
-        dc.w    $A9E2                    ; 0089A94C: dc.w $A9E2
-        dc.w    $0089                    ; 0089A94E: dc.w $0089
+        ori.l   #$A9E20089,a1                           ; 0089A94A: $0089, $A9E2, $0089
         dc.w    $A9FA                    ; 0089A950: dc.w $A9FA
         dc.w    $FEFC                    ; 0089A952: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A954: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A956: dc.w $FFFC
-        dc.w    $007C                    ; 0089A958: dc.w $007C
-        dc.w    $FE80                    ; 0089A95A: dc.w $FE80
-        dc.w    $FF00                    ; 0089A95C: dc.w $FF00
+        ori.w   #$FE80,#$FF00                           ; 0089A958: $007C, $FE80, $FF00
         dc.w    $FF80                    ; 0089A95E: dc.w $FF80
-        dc.w    $0080                    ; 0089A960: dc.w $0080
-        dc.w    $FF04                    ; 0089A962: dc.w $FF04
-        dc.w    $FF84                    ; 0089A964: dc.w $FF84
-        dc.w    $0004                    ; 0089A966: dc.w $0004
-        dc.w    $0084                    ; 0089A968: dc.w $0084
+        ori.l   #$FF04FF84,d0                           ; 0089A960: $0080, $FF04, $FF84
+        ori.b   #$0084,d4                               ; 0089A966: $0004, $0084
         dc.w    $FF78                    ; 0089A96A: dc.w $FF78
         dc.w    $FFF8                    ; 0089A96C: dc.w $FFF8
         dc.w    $FEFC                    ; 0089A96E: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A970: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A972: dc.w $FFFC
-        dc.w    $007C                    ; 0089A974: dc.w $007C
-        dc.w    $FF00                    ; 0089A976: dc.w $FF00
-        dc.w    $FF80                    ; 0089A978: dc.w $FF80
-        dc.w    $0080                    ; 0089A97A: dc.w $0080
-        dc.w    $FF84                    ; 0089A97C: dc.w $FF84
-        dc.w    $0004                    ; 0089A97E: dc.w $0004
-        dc.w    $0084                    ; 0089A980: dc.w $0084
-        dc.w    $FF78                    ; 0089A982: dc.w $FF78
-        dc.w    $FFF8                    ; 0089A984: dc.w $FFF8
+        ori.w   #$FF00,#$FF80                           ; 0089A974: $007C, $FF00, $FF80
+        ori.l   #$FF840004,d0                           ; 0089A97A: $0080, $FF84, $0004
+        ori.l   #$FF78FFF8,d4                           ; 0089A980: $0084, $FF78, $FFF8
         dc.w    $FEFC                    ; 0089A986: dc.w $FEFC
         dc.w    $FF7C                    ; 0089A988: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A98A: dc.w $FFFC
-        dc.w    $007C                    ; 0089A98C: dc.w $007C
-        dc.w    $FF00                    ; 0089A98E: dc.w $FF00
-        dc.w    $FF80                    ; 0089A990: dc.w $FF80
-        dc.w    $0080                    ; 0089A992: dc.w $0080
-        dc.w    $FF84                    ; 0089A994: dc.w $FF84
-        dc.w    $0004                    ; 0089A996: dc.w $0004
-        dc.w    $0084                    ; 0089A998: dc.w $0084
-        dc.w    $FFF8                    ; 0089A99A: dc.w $FFF8
-        dc.w    $0078                    ; 0089A99C: dc.w $0078
+        ori.w   #$FF00,#$FF80                           ; 0089A98C: $007C, $FF00, $FF80
+        ori.l   #$FF840004,d0                           ; 0089A992: $0080, $FF84, $0004
+        ori.l   #$FFF80078,d4                           ; 0089A998: $0084, $FFF8, $0078
         dc.w    $FF7C                    ; 0089A99E: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A9A0: dc.w $FFFC
-        dc.w    $007C                    ; 0089A9A2: dc.w $007C
-        dc.w    $00FC                    ; 0089A9A4: dc.w $00FC
-        dc.w    $FF80                    ; 0089A9A6: dc.w $FF80
-        dc.w    $0080                    ; 0089A9A8: dc.w $0080
-        dc.w    $0100                    ; 0089A9AA: dc.w $0100
-        dc.w    $FF84                    ; 0089A9AC: dc.w $FF84
-        dc.w    $0004                    ; 0089A9AE: dc.w $0004
-        dc.w    $0084                    ; 0089A9B0: dc.w $0084
+        ori.w   #$00FC,#$FF80                           ; 0089A9A2: $007C, $00FC, $FF80
+        ori.l   #$0100FF84,d0                           ; 0089A9A8: $0080, $0100, $FF84
+        ori.b   #$0084,d4                               ; 0089A9AE: $0004, $0084
         dc.w    $FF7C                    ; 0089A9B2: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A9B4: dc.w $FFFC
-        dc.w    $007C                    ; 0089A9B6: dc.w $007C
-        dc.w    $FF80                    ; 0089A9B8: dc.w $FF80
-        dc.w    $0080                    ; 0089A9BA: dc.w $0080
-        dc.w    $0100                    ; 0089A9BC: dc.w $0100
-        dc.w    $0180                    ; 0089A9BE: dc.w $0180
+        ori.w   #$FF80,#$0080                           ; 0089A9B6: $007C, $FF80, $0080
+        ori.b   #$0080,d0                               ; 0089A9BC: $0100, $0180
         dc.w    $FF84                    ; 0089A9C0: dc.w $FF84
-        dc.w    $0004                    ; 0089A9C2: dc.w $0004
-        dc.w    $0084                    ; 0089A9C4: dc.w $0084
-        dc.w    $0104                    ; 0089A9C6: dc.w $0104
-        dc.w    $0008                    ; 0089A9C8: dc.w $0008
+        ori.b   #$0084,d4                               ; 0089A9C2: $0004, $0084
+        ori.b   #$0008,d4                               ; 0089A9C6: $0104, $0008
         dc.w    $FF7C                    ; 0089A9CA: dc.w $FF7C
         dc.w    $FFFC                    ; 0089A9CC: dc.w $FFFC
-        dc.w    $007C                    ; 0089A9CE: dc.w $007C
-        dc.w    $FF80                    ; 0089A9D0: dc.w $FF80
-        dc.w    $0080                    ; 0089A9D2: dc.w $0080
-        dc.w    $0100                    ; 0089A9D4: dc.w $0100
-        dc.w    $FF84                    ; 0089A9D6: dc.w $FF84
-        dc.w    $0004                    ; 0089A9D8: dc.w $0004
-        dc.w    $0084                    ; 0089A9DA: dc.w $0084
-        dc.w    $0104                    ; 0089A9DC: dc.w $0104
-        dc.w    $0008                    ; 0089A9DE: dc.w $0008
-        dc.w    $0088                    ; 0089A9E0: dc.w $0088
-        dc.w    $FF7C                    ; 0089A9E2: dc.w $FF7C
-        dc.w    $FFFC                    ; 0089A9E4: dc.w $FFFC
-        dc.w    $007C                    ; 0089A9E6: dc.w $007C
-        dc.w    $FF00                    ; 0089A9E8: dc.w $FF00
-        dc.w    $FF80                    ; 0089A9EA: dc.w $FF80
-        dc.w    $0080                    ; 0089A9EC: dc.w $0080
-        dc.w    $FF04                    ; 0089A9EE: dc.w $FF04
-        dc.w    $FF84                    ; 0089A9F0: dc.w $FF84
-        dc.w    $0004                    ; 0089A9F2: dc.w $0004
-        dc.w    $0084                    ; 0089A9F4: dc.w $0084
+        ori.w   #$FF80,#$0080                           ; 0089A9CE: $007C, $FF80, $0080
+        ori.b   #$0084,d0                               ; 0089A9D4: $0100, $FF84
+        ori.b   #$0084,d4                               ; 0089A9D8: $0004, $0084
+        ori.b   #$0008,d4                               ; 0089A9DC: $0104, $0008
+        ori.l   #$FF7CFFFC,a0                           ; 0089A9E0: $0088, $FF7C, $FFFC
+        ori.w   #$FF00,#$FF80                           ; 0089A9E6: $007C, $FF00, $FF80
+        ori.l   #$FF04FF84,d0                           ; 0089A9EC: $0080, $FF04, $FF84
+        ori.b   #$0084,d4                               ; 0089A9F2: $0004, $0084
         dc.w    $FF88                    ; 0089A9F6: dc.w $FF88
-        dc.w    $0008                    ; 0089A9F8: dc.w $0008
-        dc.w    $FF7C                    ; 0089A9FA: dc.w $FF7C
+        ori.b   #$007C,a0                               ; 0089A9F8: $0008, $FF7C
         dc.w    $FFFC                    ; 0089A9FC: dc.w $FFFC
-        dc.w    $007C                    ; 0089A9FE: dc.w $007C
-        dc.w    $FF00                    ; 0089AA00: dc.w $FF00
-        dc.w    $FF80                    ; 0089AA02: dc.w $FF80
-        dc.w    $0080                    ; 0089AA04: dc.w $0080
-        dc.w    $FF04                    ; 0089AA06: dc.w $FF04
-        dc.w    $FF84                    ; 0089AA08: dc.w $FF84
-        dc.w    $0004                    ; 0089AA0A: dc.w $0004
-        dc.w    $0084                    ; 0089AA0C: dc.w $0084
+        ori.w   #$FF00,#$FF80                           ; 0089A9FE: $007C, $FF00, $FF80
+        ori.l   #$FF04FF84,d0                           ; 0089AA04: $0080, $FF04, $FF84
+        ori.b   #$0084,d4                               ; 0089AA0A: $0004, $0084
         dc.w    $FF88                    ; 0089AA0E: dc.w $FF88
-        dc.w    $0008                    ; 0089AA10: dc.w $0008
-        dc.w    $0601                    ; 0089AA12: dc.w $0601
-        dc.w    $4E80                    ; 0089AA14: dc.w $4E80
-        dc.w    $0601                    ; 0089AA16: dc.w $0601
-        dc.w    $5300                    ; 0089AA18: dc.w $5300
-        dc.w    $0601                    ; 0089AA1A: dc.w $0601
-        dc.w    $5780                    ; 0089AA1C: dc.w $5780
-        dc.w    $0601                    ; 0089AA1E: dc.w $0601
-        dc.w    $5C00                    ; 0089AA20: dc.w $5C00
-        dc.w    $0601                    ; 0089AA22: dc.w $0601
-        dc.w    $6080                    ; 0089AA24: BRA.S $0089A9A6
+        ori.b   #$0001,a0                               ; 0089AA10: $0008, $0601
+        jsr     d0                                      ; 0089AA14: $4E80
+        addi.b  #$0000,d1                               ; 0089AA16: $0601, $5300
+        addi.b  #$0080,d1                               ; 0089AA1A: $0601, $5780
+        addi.b  #$0000,d1                               ; 0089AA1E: $0601, $5C00
+        addi.b  #$0080,d1                               ; 0089AA22: $0601, $6080
         dc.w    $0601                    ; 0089AA26: dc.w $0601
         dc.w    $6500, $0601            ; 0089AA28: BCS.W $0089B02B
-        dc.w    $6980                    ; 0089AA2C: BVS.S $0089A9AE
-        dc.w    $0601                    ; 0089AA2E: dc.w $0601
-        dc.w    $7280                    ; 0089AA30: MOVEQ #$80,D1
-        dc.w    $0089                    ; 0089AA32: dc.w $0089
-        dc.w    $AA7E                    ; 0089AA34: dc.w $AA7E
-        dc.w    $0028                    ; 0089AA36: dc.w $0028
-        dc.w    $0601                    ; 0089AA38: dc.w $0601
-        dc.w    $73C0                    ; 0089AA3A: dc.w $73C0
-        dc.w    $0089                    ; 0089AA3C: dc.w $0089
-        dc.w    $AAAA                    ; 0089AA3E: dc.w $AAAA
-        dc.w    $0028                    ; 0089AA40: dc.w $0028
-        dc.w    $0601                    ; 0089AA42: dc.w $0601
-        dc.w    $7080                    ; 0089AA44: MOVEQ #$80,D0
-        dc.w    $0089                    ; 0089AA46: dc.w $0089
-        dc.w    $AAD6                    ; 0089AA48: dc.w $AAD6
-        dc.w    $0040                    ; 0089AA4A: dc.w $0040
+        bvs.s   $0089A9AE                               ; 0089AA2C: $6980
+        addi.b  #$0080,d1                               ; 0089AA2E: $0601, $7280
+        ori.l   #$AA7E0028,a1                           ; 0089AA32: $0089, $AA7E, $0028
+        addi.b  #$00C0,d1                               ; 0089AA38: $0601, $73C0
+        ori.l   #$AAAA0028,a1                           ; 0089AA3C: $0089, $AAAA, $0028
+        addi.b  #$0080,d1                               ; 0089AA42: $0601, $7080
+        ori.l   #$AAD60040,a1                           ; 0089AA46: $0089, $AAD6, $0040
         dc.w    $0601                    ; 0089AA4C: dc.w $0601
         dc.w    $6E00, $0089            ; 0089AA4E: BGT.W $0089AAD9
         dc.w    $AB02                    ; 0089AA52: dc.w $AB02
-        dc.w    $0050                    ; 0089AA54: dc.w $0050
-        dc.w    $0601                    ; 0089AA56: dc.w $0601
+        ori.w   #$0601,(a0)                             ; 0089AA54: $0050, $0601
         dc.w    $7780                    ; 0089AA58: dc.w $7780
-        dc.w    $0089                    ; 0089AA5A: dc.w $0089
-        dc.w    $AB2E                    ; 0089AA5C: dc.w $AB2E
-        dc.w    $0038                    ; 0089AA5E: dc.w $0038
-        dc.w    $0601                    ; 0089AA60: dc.w $0601
-        dc.w    $75C0                    ; 0089AA62: dc.w $75C0
-        dc.w    $0089                    ; 0089AA64: dc.w $0089
-        dc.w    $AB2E                    ; 0089AA66: dc.w $AB2E
-        dc.w    $0038                    ; 0089AA68: dc.w $0038
-        dc.w    $0601                    ; 0089AA6A: dc.w $0601
-        dc.w    $7940                    ; 0089AA6C: dc.w $7940
-        dc.w    $0089                    ; 0089AA6E: dc.w $0089
-        dc.w    $AB2E                    ; 0089AA70: dc.w $AB2E
-        dc.w    $0038                    ; 0089AA72: dc.w $0038
-        dc.w    $0601                    ; 0089AA74: dc.w $0601
-        dc.w    $7B00                    ; 0089AA76: dc.w $7B00
-        dc.w    $0089                    ; 0089AA78: dc.w $0089
-        dc.w    $AB2E                    ; 0089AA7A: dc.w $AB2E
-        dc.w    $0038                    ; 0089AA7C: dc.w $0038
-        dc.w    $0402                    ; 0089AA7E: dc.w $0402
-        dc.w    $9E18                    ; 0089AA80: dc.w $9E18
-        dc.w    $0402                    ; 0089AA82: dc.w $0402
-        dc.w    $EE18                    ; 0089AA84: dc.w $EE18
-        dc.w    $0000                    ; 0089AA86: dc.w $0000
-        dc.w    $0000                    ; 0089AA88: dc.w $0000
-        dc.w    $0000                    ; 0089AA8A: dc.w $0000
-        dc.w    $0000                    ; 0089AA8C: dc.w $0000
-        dc.w    $0402                    ; 0089AA8E: dc.w $0402
-        dc.w    $EF00                    ; 0089AA90: dc.w $EF00
-        dc.w    $0402                    ; 0089AA92: dc.w $0402
-        dc.w    $CF00                    ; 0089AA94: dc.w $CF00
-        dc.w    $0403                    ; 0089AA96: dc.w $0403
-        dc.w    $0F00                    ; 0089AA98: dc.w $0F00
-        dc.w    $0000                    ; 0089AA9A: dc.w $0000
-        dc.w    $0000                    ; 0089AA9C: dc.w $0000
-        dc.w    $0402                    ; 0089AA9E: dc.w $0402
-        dc.w    $AF00                    ; 0089AAA0: dc.w $AF00
-        dc.w    $0402                    ; 0089AAA2: dc.w $0402
-        dc.w    $8F00                    ; 0089AAA4: dc.w $8F00
+        ori.l   #$AB2E0038,a1                           ; 0089AA5A: $0089, $AB2E, $0038
+        addi.b  #$00C0,d1                               ; 0089AA60: $0601, $75C0
+        ori.l   #$AB2E0038,a1                           ; 0089AA64: $0089, $AB2E, $0038
+        addi.b  #$0040,d1                               ; 0089AA6A: $0601, $7940
+        ori.l   #$AB2E0038,a1                           ; 0089AA6E: $0089, $AB2E, $0038
+        addi.b  #$0000,d1                               ; 0089AA74: $0601, $7B00
+        ori.l   #$AB2E0038,a1                           ; 0089AA78: $0089, $AB2E, $0038
+        subi.b  #$0018,d2                               ; 0089AA7E: $0402, $9E18
+        subi.b  #$0018,d2                               ; 0089AA82: $0402, $EE18
+        ori.b   #$0000,d0                               ; 0089AA86: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089AA8A: $0000, $0000
+        subi.b  #$0000,d2                               ; 0089AA8E: $0402, $EF00
+        subi.b  #$0000,d2                               ; 0089AA92: $0402, $CF00
+        subi.b  #$0000,d3                               ; 0089AA96: $0403, $0F00
+        ori.b   #$0000,d0                               ; 0089AA9A: $0000, $0000
+        subi.b  #$0000,d2                               ; 0089AA9E: $0402, $AF00
+        subi.b  #$0000,d2                               ; 0089AAA2: $0402, $8F00
         dc.w    $0402                    ; 0089AAA6: dc.w $0402
         dc.w    $6F00, $0402            ; 0089AAA8: BLE.W $0089AEAC
-        dc.w    $9E18                    ; 0089AAAC: dc.w $9E18
-        dc.w    $0402                    ; 0089AAAE: dc.w $0402
-        dc.w    $EE18                    ; 0089AAB0: dc.w $EE18
-        dc.w    $0000                    ; 0089AAB2: dc.w $0000
-        dc.w    $0000                    ; 0089AAB4: dc.w $0000
-        dc.w    $0000                    ; 0089AAB6: dc.w $0000
-        dc.w    $0000                    ; 0089AAB8: dc.w $0000
-        dc.w    $0402                    ; 0089AABA: dc.w $0402
-        dc.w    $EF00                    ; 0089AABC: dc.w $EF00
-        dc.w    $0402                    ; 0089AABE: dc.w $0402
-        dc.w    $CF00                    ; 0089AAC0: dc.w $CF00
-        dc.w    $0403                    ; 0089AAC2: dc.w $0403
-        dc.w    $0F00                    ; 0089AAC4: dc.w $0F00
-        dc.w    $0000                    ; 0089AAC6: dc.w $0000
-        dc.w    $0000                    ; 0089AAC8: dc.w $0000
-        dc.w    $0402                    ; 0089AACA: dc.w $0402
-        dc.w    $AF00                    ; 0089AACC: dc.w $AF00
-        dc.w    $0402                    ; 0089AACE: dc.w $0402
-        dc.w    $8F00                    ; 0089AAD0: dc.w $8F00
+        sub.b   (a0)+,d7                                ; 0089AAAC: $9E18
+        subi.b  #$0018,d2                               ; 0089AAAE: $0402, $EE18
+        ori.b   #$0000,d0                               ; 0089AAB2: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089AAB6: $0000, $0000
+        subi.b  #$0000,d2                               ; 0089AABA: $0402, $EF00
+        subi.b  #$0000,d2                               ; 0089AABE: $0402, $CF00
+        subi.b  #$0000,d3                               ; 0089AAC2: $0403, $0F00
+        ori.b   #$0000,d0                               ; 0089AAC6: $0000, $0000
+        subi.b  #$0000,d2                               ; 0089AACA: $0402, $AF00
+        subi.b  #$0000,d2                               ; 0089AACE: $0402, $8F00
         dc.w    $0402                    ; 0089AAD2: dc.w $0402
         dc.w    $6F00, $0402            ; 0089AAD4: BLE.W $0089AED8
-        dc.w    $9E18                    ; 0089AAD8: dc.w $9E18
-        dc.w    $0402                    ; 0089AADA: dc.w $0402
-        dc.w    $EE18                    ; 0089AADC: dc.w $EE18
-        dc.w    $0000                    ; 0089AADE: dc.w $0000
-        dc.w    $0000                    ; 0089AAE0: dc.w $0000
-        dc.w    $0000                    ; 0089AAE2: dc.w $0000
-        dc.w    $0000                    ; 0089AAE4: dc.w $0000
-        dc.w    $0402                    ; 0089AAE6: dc.w $0402
-        dc.w    $EEEC                    ; 0089AAE8: dc.w $EEEC
-        dc.w    $0402                    ; 0089AAEA: dc.w $0402
-        dc.w    $CEEC                    ; 0089AAEC: dc.w $CEEC
-        dc.w    $0403                    ; 0089AAEE: dc.w $0403
-        dc.w    $0EEC                    ; 0089AAF0: dc.w $0EEC
-        dc.w    $0000                    ; 0089AAF2: dc.w $0000
-        dc.w    $0000                    ; 0089AAF4: dc.w $0000
-        dc.w    $0402                    ; 0089AAF6: dc.w $0402
-        dc.w    $AEEC                    ; 0089AAF8: dc.w $AEEC
-        dc.w    $0402                    ; 0089AAFA: dc.w $0402
-        dc.w    $8EEC                    ; 0089AAFC: dc.w $8EEC
-        dc.w    $0402                    ; 0089AAFE: dc.w $0402
-        dc.w    $6EEC                    ; 0089AB00: BGT.S $0089AAEE
-        dc.w    $0402                    ; 0089AB02: dc.w $0402
-        dc.w    $9E18                    ; 0089AB04: dc.w $9E18
-        dc.w    $0402                    ; 0089AB06: dc.w $0402
-        dc.w    $EE18                    ; 0089AB08: dc.w $EE18
-        dc.w    $0000                    ; 0089AB0A: dc.w $0000
-        dc.w    $0000                    ; 0089AB0C: dc.w $0000
-        dc.w    $0000                    ; 0089AB0E: dc.w $0000
-        dc.w    $0000                    ; 0089AB10: dc.w $0000
-        dc.w    $0402                    ; 0089AB12: dc.w $0402
-        dc.w    $EEDC                    ; 0089AB14: dc.w $EEDC
-        dc.w    $0402                    ; 0089AB16: dc.w $0402
-        dc.w    $CEDC                    ; 0089AB18: dc.w $CEDC
-        dc.w    $0403                    ; 0089AB1A: dc.w $0403
-        dc.w    $0EDC                    ; 0089AB1C: dc.w $0EDC
-        dc.w    $0000                    ; 0089AB1E: dc.w $0000
-        dc.w    $0000                    ; 0089AB20: dc.w $0000
-        dc.w    $0402                    ; 0089AB22: dc.w $0402
-        dc.w    $AEDC                    ; 0089AB24: dc.w $AEDC
-        dc.w    $0402                    ; 0089AB26: dc.w $0402
-        dc.w    $8EDC                    ; 0089AB28: dc.w $8EDC
-        dc.w    $0402                    ; 0089AB2A: dc.w $0402
-        dc.w    $6EDC                    ; 0089AB2C: BGT.S $0089AB0A
-        dc.w    $0402                    ; 0089AB2E: dc.w $0402
-        dc.w    $9E18                    ; 0089AB30: dc.w $9E18
-        dc.w    $0402                    ; 0089AB32: dc.w $0402
-        dc.w    $EE18                    ; 0089AB34: dc.w $EE18
-        dc.w    $0000                    ; 0089AB36: dc.w $0000
-        dc.w    $0000                    ; 0089AB38: dc.w $0000
-        dc.w    $0000                    ; 0089AB3A: dc.w $0000
-        dc.w    $0000                    ; 0089AB3C: dc.w $0000
-        dc.w    $0402                    ; 0089AB3E: dc.w $0402
-        dc.w    $EEF0                    ; 0089AB40: dc.w $EEF0
-        dc.w    $0402                    ; 0089AB42: dc.w $0402
-        dc.w    $CEF0                    ; 0089AB44: dc.w $CEF0
-        dc.w    $0403                    ; 0089AB46: dc.w $0403
-        dc.w    $0EF0                    ; 0089AB48: dc.w $0EF0
-        dc.w    $0000                    ; 0089AB4A: dc.w $0000
-        dc.w    $0000                    ; 0089AB4C: dc.w $0000
-        dc.w    $0402                    ; 0089AB4E: dc.w $0402
-        dc.w    $AEF0                    ; 0089AB50: dc.w $AEF0
-        dc.w    $0402                    ; 0089AB52: dc.w $0402
-        dc.w    $8EF0                    ; 0089AB54: dc.w $8EF0
-        dc.w    $0402                    ; 0089AB56: dc.w $0402
-        dc.w    $6EF0                    ; 0089AB58: BGT.S $0089AB4A
-        dc.w    $0402                    ; 0089AB5A: dc.w $0402
-        dc.w    $A018                    ; 0089AB5C: dc.w $A018
-        dc.w    $0402                    ; 0089AB5E: dc.w $0402
-        dc.w    $F018                    ; 0089AB60: dc.w $F018
-        dc.w    $0402                    ; 0089AB62: dc.w $0402
-        dc.w    $D0DC                    ; 0089AB64: dc.w $D0DC
-        dc.w    $0402                    ; 0089AB66: dc.w $0402
-        dc.w    $F0DC                    ; 0089AB68: dc.w $F0DC
-        dc.w    $0403                    ; 0089AB6A: dc.w $0403
-        dc.w    $10DC                    ; 0089AB6C: dc.w $10DC
-        dc.w    $0402                    ; 0089AB6E: dc.w $0402
-        dc.w    $A018                    ; 0089AB70: dc.w $A018
-        dc.w    $0402                    ; 0089AB72: dc.w $0402
-        dc.w    $F018                    ; 0089AB74: dc.w $F018
-        dc.w    $0402                    ; 0089AB76: dc.w $0402
-        dc.w    $70DC                    ; 0089AB78: MOVEQ #$DC,D0
-        dc.w    $0402                    ; 0089AB7A: dc.w $0402
-        dc.w    $90DC                    ; 0089AB7C: dc.w $90DC
-        dc.w    $0402                    ; 0089AB7E: dc.w $0402
-        dc.w    $B0DC                    ; 0089AB80: dc.w $B0DC
-        dc.w    $0402                    ; 0089AB82: dc.w $0402
-        dc.w    $D0DC                    ; 0089AB84: dc.w $D0DC
-        dc.w    $0402                    ; 0089AB86: dc.w $0402
-        dc.w    $F0DC                    ; 0089AB88: dc.w $F0DC
-        dc.w    $0403                    ; 0089AB8A: dc.w $0403
-        dc.w    $10DC                    ; 0089AB8C: dc.w $10DC
-        dc.w    $0406                    ; 0089AB8E: dc.w $0406
-        dc.w    $0100                    ; 0089AB90: dc.w $0100
-        dc.w    $0500                    ; 0089AB92: dc.w $0500
-        dc.w    $0000                    ; 0089AB94: dc.w $0000
-        dc.w    $0406                    ; 0089AB96: dc.w $0406
-        dc.w    $0001                    ; 0089AB98: dc.w $0001
-        dc.w    $0500                    ; 0089AB9A: dc.w $0500
-        dc.w    $0000                    ; 0089AB9C: dc.w $0000
-        dc.w    $0604                    ; 0089AB9E: dc.w $0604
-        dc.w    $0100                    ; 0089ABA0: dc.w $0100
-        dc.w    $0500                    ; 0089ABA2: dc.w $0500
-        dc.w    $0000                    ; 0089ABA4: dc.w $0000
-        dc.w    $0604                    ; 0089ABA6: dc.w $0604
-        dc.w    $0001                    ; 0089ABA8: dc.w $0001
-        dc.w    $0500                    ; 0089ABAA: dc.w $0500
-        dc.w    $0000                    ; 0089ABAC: dc.w $0000
-        dc.w    $0504                    ; 0089ABAE: dc.w $0504
-        dc.w    $0106                    ; 0089ABB0: dc.w $0106
-        dc.w    $0000                    ; 0089ABB2: dc.w $0000
-        dc.w    $0000                    ; 0089ABB4: dc.w $0000
-        dc.w    $0401                    ; 0089ABB6: dc.w $0401
-        dc.w    $0506                    ; 0089ABB8: dc.w $0506
-        dc.w    $0000                    ; 0089ABBA: dc.w $0000
-        dc.w    $0000                    ; 0089ABBC: dc.w $0000
-        dc.w    $0406                    ; 0089ABBE: dc.w $0406
-        dc.w    $0100                    ; 0089ABC0: dc.w $0100
-        dc.w    $050A                    ; 0089ABC2: dc.w $050A
-        dc.w    $0908                    ; 0089ABC4: dc.w $0908
-        dc.w    $0406                    ; 0089ABC6: dc.w $0406
-        dc.w    $0001                    ; 0089ABC8: dc.w $0001
-        dc.w    $050A                    ; 0089ABCA: dc.w $050A
-        dc.w    $0908                    ; 0089ABCC: dc.w $0908
-        dc.w    $0604                    ; 0089ABCE: dc.w $0604
-        dc.w    $0100                    ; 0089ABD0: dc.w $0100
-        dc.w    $050A                    ; 0089ABD2: dc.w $050A
-        dc.w    $0908                    ; 0089ABD4: dc.w $0908
-        dc.w    $0604                    ; 0089ABD6: dc.w $0604
-        dc.w    $0001                    ; 0089ABD8: dc.w $0001
-        dc.w    $050A                    ; 0089ABDA: dc.w $050A
-        dc.w    $0908                    ; 0089ABDC: dc.w $0908
-        dc.w    $0504                    ; 0089ABDE: dc.w $0504
-        dc.w    $0A06                    ; 0089ABE0: dc.w $0A06
-        dc.w    $0908                    ; 0089ABE2: dc.w $0908
-        dc.w    $0100                    ; 0089ABE4: dc.w $0100
-        dc.w    $0409                    ; 0089ABE6: dc.w $0409
-        dc.w    $0506                    ; 0089ABE8: dc.w $0506
-        dc.w    $000A                    ; 0089ABEA: dc.w $000A
-        dc.w    $0108                    ; 0089ABEC: dc.w $0108
-        dc.w    $0603                    ; 0089ABEE: dc.w $0603
+        sub.b   (a0)+,d7                                ; 0089AAD8: $9E18
+        subi.b  #$0018,d2                               ; 0089AADA: $0402, $EE18
+        ori.b   #$0000,d0                               ; 0089AADE: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089AAE2: $0000, $0000
+        subi.b  #$00EC,d2                               ; 0089AAE6: $0402, $EEEC
+        subi.b  #$00EC,d2                               ; 0089AAEA: $0402, $CEEC
+        subi.b  #$00EC,d3                               ; 0089AAEE: $0403, $0EEC
+        ori.b   #$0000,d0                               ; 0089AAF2: $0000, $0000
+        subi.b  #$00EC,d2                               ; 0089AAF6: $0402, $AEEC
+        subi.b  #$00EC,d2                               ; 0089AAFA: $0402, $8EEC
+        subi.b  #$00EC,d2                               ; 0089AAFE: $0402, $6EEC
+        subi.b  #$0018,d2                               ; 0089AB02: $0402, $9E18
+        subi.b  #$0018,d2                               ; 0089AB06: $0402, $EE18
+        ori.b   #$0000,d0                               ; 0089AB0A: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089AB0E: $0000, $0000
+        subi.b  #$00DC,d2                               ; 0089AB12: $0402, $EEDC
+        subi.b  #$00DC,d2                               ; 0089AB16: $0402, $CEDC
+        subi.b  #$00DC,d3                               ; 0089AB1A: $0403, $0EDC
+        ori.b   #$0000,d0                               ; 0089AB1E: $0000, $0000
+        subi.b  #$00DC,d2                               ; 0089AB22: $0402, $AEDC
+        subi.b  #$00DC,d2                               ; 0089AB26: $0402, $8EDC
+        subi.b  #$00DC,d2                               ; 0089AB2A: $0402, $6EDC
+        subi.b  #$0018,d2                               ; 0089AB2E: $0402, $9E18
+        subi.b  #$0018,d2                               ; 0089AB32: $0402, $EE18
+        ori.b   #$0000,d0                               ; 0089AB36: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089AB3A: $0000, $0000
+        subi.b  #$00F0,d2                               ; 0089AB3E: $0402, $EEF0
+        subi.b  #$00F0,d2                               ; 0089AB42: $0402, $CEF0
+        subi.b  #$00F0,d3                               ; 0089AB46: $0403, $0EF0
+        ori.b   #$0000,d0                               ; 0089AB4A: $0000, $0000
+        subi.b  #$00F0,d2                               ; 0089AB4E: $0402, $AEF0
+        subi.b  #$00F0,d2                               ; 0089AB52: $0402, $8EF0
+        subi.b  #$00F0,d2                               ; 0089AB56: $0402, $6EF0
+        subi.b  #$0018,d2                               ; 0089AB5A: $0402, $A018
+        subi.b  #$0018,d2                               ; 0089AB5E: $0402, $F018
+        subi.b  #$00DC,d2                               ; 0089AB62: $0402, $D0DC
+        subi.b  #$00DC,d2                               ; 0089AB66: $0402, $F0DC
+        subi.b  #$00DC,d3                               ; 0089AB6A: $0403, $10DC
+        subi.b  #$0018,d2                               ; 0089AB6E: $0402, $A018
+        subi.b  #$0018,d2                               ; 0089AB72: $0402, $F018
+        subi.b  #$00DC,d2                               ; 0089AB76: $0402, $70DC
+        subi.b  #$00DC,d2                               ; 0089AB7A: $0402, $90DC
+        subi.b  #$00DC,d2                               ; 0089AB7E: $0402, $B0DC
+        subi.b  #$00DC,d2                               ; 0089AB82: $0402, $D0DC
+        subi.b  #$00DC,d2                               ; 0089AB86: $0402, $F0DC
+        subi.b  #$00DC,d3                               ; 0089AB8A: $0403, $10DC
+        subi.b  #$0000,d6                               ; 0089AB8E: $0406, $0100
+        subi.b  #$0000,d0                               ; 0089AB92: $0500, $0000
+        subi.b  #$0001,d6                               ; 0089AB96: $0406, $0001
+        subi.b  #$0000,d0                               ; 0089AB9A: $0500, $0000
+        addi.b  #$0000,d4                               ; 0089AB9E: $0604, $0100
+        subi.b  #$0000,d0                               ; 0089ABA2: $0500, $0000
+        addi.b  #$0001,d4                               ; 0089ABA6: $0604, $0001
+        subi.b  #$0000,d0                               ; 0089ABAA: $0500, $0000
+        subi.b  #$0006,d4                               ; 0089ABAE: $0504, $0106
+        ori.b   #$0000,d0                               ; 0089ABB2: $0000, $0000
+        subi.b  #$0006,d1                               ; 0089ABB6: $0401, $0506
+        ori.b   #$0000,d0                               ; 0089ABBA: $0000, $0000
+        subi.b  #$0000,d6                               ; 0089ABBE: $0406, $0100
+        subi.b  #$0008,a2                               ; 0089ABC2: $050A, $0908
+        subi.b  #$0001,d6                               ; 0089ABC6: $0406, $0001
+        subi.b  #$0008,a2                               ; 0089ABCA: $050A, $0908
+        addi.b  #$0000,d4                               ; 0089ABCE: $0604, $0100
+        subi.b  #$0008,a2                               ; 0089ABD2: $050A, $0908
+        addi.b  #$0001,d4                               ; 0089ABD6: $0604, $0001
+        subi.b  #$0008,a2                               ; 0089ABDA: $050A, $0908
+        subi.b  #$0006,d4                               ; 0089ABDE: $0504, $0A06
+        btst    d4,a0                                   ; 0089ABE2: $0908
+        ori.b   #$0009,d0                               ; 0089ABE4: $0100, $0409
+        subi.b  #$000A,d6                               ; 0089ABE8: $0506, $000A
+        ori.b   #$0003,a0                               ; 0089ABEC: $0108, $0603
         dc.w    $6100, $0603            ; 0089ABF0: BSR.W $0089B1F5
         dc.w    $6500, $0603            ; 0089ABF4: BCS.W $0089B1F9
         dc.w    $6900, $0601            ; 0089ABF8: BVS.W $0089B1FB
-        dc.w    $ED00                    ; 0089ABFC: dc.w $ED00
-        dc.w    $0601                    ; 0089ABFE: dc.w $0601
-        dc.w    $F480                    ; 0089AC00: dc.w $F480
-        dc.w    $0601                    ; 0089AC02: dc.w $0601
-        dc.w    $FC00                    ; 0089AC04: dc.w $FC00
-        dc.w    $0602                    ; 0089AC06: dc.w $0602
-        dc.w    $0380                    ; 0089AC08: dc.w $0380
-        dc.w    $0602                    ; 0089AC0A: dc.w $0602
-        dc.w    $0B00                    ; 0089AC0C: dc.w $0B00
-        dc.w    $0602                    ; 0089AC0E: dc.w $0602
-        dc.w    $1280                    ; 0089AC10: dc.w $1280
-        dc.w    $0602                    ; 0089AC12: dc.w $0602
-        dc.w    $1A00                    ; 0089AC14: dc.w $1A00
-        dc.w    $0602                    ; 0089AC16: dc.w $0602
-        dc.w    $2180                    ; 0089AC18: dc.w $2180
-        dc.w    $0602                    ; 0089AC1A: dc.w $0602
-        dc.w    $2900                    ; 0089AC1C: dc.w $2900
-        dc.w    $0602                    ; 0089AC1E: dc.w $0602
-        dc.w    $3080                    ; 0089AC20: dc.w $3080
-        dc.w    $0602                    ; 0089AC22: dc.w $0602
-        dc.w    $3800                    ; 0089AC24: dc.w $3800
-        dc.w    $0602                    ; 0089AC26: dc.w $0602
-        dc.w    $3F80                    ; 0089AC28: dc.w $3F80
-        dc.w    $0602                    ; 0089AC2A: dc.w $0602
-        dc.w    $4700                    ; 0089AC2C: dc.w $4700
-        dc.w    $0602                    ; 0089AC2E: dc.w $0602
-        dc.w    $4E80                    ; 0089AC30: dc.w $4E80
-        dc.w    $0602                    ; 0089AC32: dc.w $0602
-        dc.w    $5600                    ; 0089AC34: dc.w $5600
-        dc.w    $0602                    ; 0089AC36: dc.w $0602
-        dc.w    $5D80                    ; 0089AC38: dc.w $5D80
+        asl.b   #6,d0                                   ; 0089ABFC: $ED00
+        addi.b  #$0080,d1                               ; 0089ABFE: $0601, $F480
+        addi.b  #$0000,d1                               ; 0089AC02: $0601, $FC00
+        addi.b  #$0080,d2                               ; 0089AC06: $0602, $0380
+        addi.b  #$0000,d2                               ; 0089AC0A: $0602, $0B00
+        addi.b  #$0080,d2                               ; 0089AC0E: $0602, $1280
+        addi.b  #$0000,d2                               ; 0089AC12: $0602, $1A00
+        addi.b  #$0080,d2                               ; 0089AC16: $0602, $2180
+        addi.b  #$0000,d2                               ; 0089AC1A: $0602, $2900
+        addi.b  #$0080,d2                               ; 0089AC1E: $0602, $3080
+        addi.b  #$0000,d2                               ; 0089AC22: $0602, $3800
+        addi.b  #$0080,d2                               ; 0089AC26: $0602, $3F80
+        addi.b  #$0000,d2                               ; 0089AC2A: $0602, $4700
+        addi.b  #$0080,d2                               ; 0089AC2E: $0602, $4E80
+        addi.b  #$0000,d2                               ; 0089AC32: $0602, $5600
+        addi.b  #$0080,d2                               ; 0089AC36: $0602, $5D80
         dc.w    $0602                    ; 0089AC3A: dc.w $0602
         dc.w    $6500, $0602            ; 0089AC3C: BCS.W $0089B240
-        dc.w    $6C80                    ; 0089AC40: BGE.S $0089ABC2
-        dc.w    $0602                    ; 0089AC42: dc.w $0602
-        dc.w    $7400                    ; 0089AC44: MOVEQ #$00,D2
-        dc.w    $0602                    ; 0089AC46: dc.w $0602
-        dc.w    $7B80                    ; 0089AC48: dc.w $7B80
-        dc.w    $0602                    ; 0089AC4A: dc.w $0602
-        dc.w    $8300                    ; 0089AC4C: dc.w $8300
-        dc.w    $0602                    ; 0089AC4E: dc.w $0602
-        dc.w    $8A80                    ; 0089AC50: dc.w $8A80
-        dc.w    $0602                    ; 0089AC52: dc.w $0602
-        dc.w    $9200                    ; 0089AC54: dc.w $9200
-        dc.w    $0602                    ; 0089AC56: dc.w $0602
-        dc.w    $9980                    ; 0089AC58: dc.w $9980
-        dc.w    $0602                    ; 0089AC5A: dc.w $0602
-        dc.w    $A100                    ; 0089AC5C: dc.w $A100
-        dc.w    $0602                    ; 0089AC5E: dc.w $0602
-        dc.w    $A880                    ; 0089AC60: dc.w $A880
-        dc.w    $979B                    ; 0089AC62: dc.w $979B
-        dc.w    $8182                    ; 0089AC64: dc.w $8182
-        dc.w    $8384                    ; 0089AC66: dc.w $8384
-        dc.w    $999E                    ; 0089AC68: dc.w $999E
-        dc.w    $8586                    ; 0089AC6A: dc.w $8586
-        dc.w    $8788                    ; 0089AC6C: dc.w $8788
-        dc.w    $8994                    ; 0089AC6E: dc.w $8994
-        dc.w    $8A8B                    ; 0089AC70: dc.w $8A8B
-        dc.w    $8C8D                    ; 0089AC72: dc.w $8C8D
-        dc.w    $9091                    ; 0089AC74: dc.w $9091
-        dc.w    $929A                    ; 0089AC76: dc.w $929A
-        dc.w    $8F8E                    ; 0089AC78: dc.w $8F8E
-        dc.w    $9893                    ; 0089AC7A: dc.w $9893
-        dc.w    $0602                    ; 0089AC7C: dc.w $0602
-        dc.w    $B780                    ; 0089AC7E: dc.w $B780
-        dc.w    $0602                    ; 0089AC80: dc.w $0602
-        dc.w    $BE00                    ; 0089AC82: dc.w $BE00
-        dc.w    $0602                    ; 0089AC84: dc.w $0602
-        dc.w    $C480                    ; 0089AC86: dc.w $C480
-        dc.w    $0602                    ; 0089AC88: dc.w $0602
-        dc.w    $CB00                    ; 0089AC8A: dc.w $CB00
-        dc.w    $0602                    ; 0089AC8C: dc.w $0602
-        dc.w    $D180                    ; 0089AC8E: dc.w $D180
-        dc.w    $0602                    ; 0089AC90: dc.w $0602
-        dc.w    $D800                    ; 0089AC92: dc.w $D800
-        dc.w    $0602                    ; 0089AC94: dc.w $0602
-        dc.w    $DE80                    ; 0089AC96: dc.w $DE80
-        dc.w    $0602                    ; 0089AC98: dc.w $0602
-        dc.w    $E500                    ; 0089AC9A: dc.w $E500
-        dc.w    $0602                    ; 0089AC9C: dc.w $0602
-        dc.w    $EB80                    ; 0089AC9E: dc.w $EB80
-        dc.w    $0602                    ; 0089ACA0: dc.w $0602
-        dc.w    $F200                    ; 0089ACA2: dc.w $F200
-        dc.w    $0602                    ; 0089ACA4: dc.w $0602
-        dc.w    $F880                    ; 0089ACA6: dc.w $F880
-        dc.w    $0602                    ; 0089ACA8: dc.w $0602
-        dc.w    $FF00                    ; 0089ACAA: dc.w $FF00
-        dc.w    $0603                    ; 0089ACAC: dc.w $0603
-        dc.w    $0580                    ; 0089ACAE: dc.w $0580
-        dc.w    $BCBB                    ; 0089ACB0: dc.w $BCBB
-        dc.w    $B3B1                    ; 0089ACB2: dc.w $B3B1
-        dc.w    $D2B7                    ; 0089ACB4: dc.w $D2B7
-        dc.w    $B5B8                    ; 0089ACB6: dc.w $B5B8
-        dc.w    $B0B4                    ; 0089ACB8: dc.w $B0B4
-        dc.w    $BDB2                    ; 0089ACBA: dc.w $BDB2
-        dc.w    $BA00                    ; 0089ACBC: dc.w $BA00
-        dc.w    $0603                    ; 0089ACBE: dc.w $0603
-        dc.w    $0C00                    ; 0089ACC0: dc.w $0C00
-        dc.w    $0603                    ; 0089ACC2: dc.w $0603
-        dc.w    $1480                    ; 0089ACC4: dc.w $1480
-        dc.w    $0603                    ; 0089ACC6: dc.w $0603
-        dc.w    $1D00                    ; 0089ACC8: dc.w $1D00
-        dc.w    $0603                    ; 0089ACCA: dc.w $0603
-        dc.w    $2580                    ; 0089ACCC: dc.w $2580
-        dc.w    $0603                    ; 0089ACCE: dc.w $0603
-        dc.w    $2E00                    ; 0089ACD0: dc.w $2E00
-        dc.w    $0603                    ; 0089ACD2: dc.w $0603
-        dc.w    $3680                    ; 0089ACD4: dc.w $3680
-        dc.w    $0603                    ; 0089ACD6: dc.w $0603
-        dc.w    $5880                    ; 0089ACD8: dc.w $5880
-        dc.w    $0603                    ; 0089ACDA: dc.w $0603
-        dc.w    $5000                    ; 0089ACDC: dc.w $5000
-        dc.w    $0603                    ; 0089ACDE: dc.w $0603
-        dc.w    $4780                    ; 0089ACE0: dc.w $4780
-        dc.w    $0603                    ; 0089ACE2: dc.w $0603
-        dc.w    $3F00                    ; 0089ACE4: dc.w $3F00
+        bge.s   $0089ABC2                               ; 0089AC40: $6C80
+        addi.b  #$0000,d2                               ; 0089AC42: $0602, $7400
+        addi.b  #$0080,d2                               ; 0089AC46: $0602, $7B80
+        addi.b  #$0000,d2                               ; 0089AC4A: $0602, $8300
+        addi.b  #$0080,d2                               ; 0089AC4E: $0602, $8A80
+        addi.b  #$0000,d2                               ; 0089AC52: $0602, $9200
+        addi.b  #$0080,d2                               ; 0089AC56: $0602, $9980
+        addi.b  #$0000,d2                               ; 0089AC5A: $0602, $A100
+        addi.b  #$0080,d2                               ; 0089AC5E: $0602, $A880
+        sub.l   d3,(a3)+                                ; 0089AC62: $979B
+        or.l    d0,d2                                   ; 0089AC64: $8182
+        or.l    d1,d4                                   ; 0089AC66: $8384
+        sub.l   d4,(a6)+                                ; 0089AC68: $999E
+        or.l    d2,d6                                   ; 0089AC6A: $8586
+        or.l    d3,a0                                   ; 0089AC6C: $8788
+        or.l    d4,(a4)                                 ; 0089AC6E: $8994
+        or.l    a3,d5                                   ; 0089AC70: $8A8B
+        or.l    a5,d6                                   ; 0089AC72: $8C8D
+        sub.l   (a1),d0                                 ; 0089AC74: $9091
+        sub.l   (a2)+,d1                                ; 0089AC76: $929A
+        or.l    d7,a6                                   ; 0089AC78: $8F8E
+        sub.l   (a3),d4                                 ; 0089AC7A: $9893
+        addi.b  #$0080,d2                               ; 0089AC7C: $0602, $B780
+        addi.b  #$0000,d2                               ; 0089AC80: $0602, $BE00
+        addi.b  #$0080,d2                               ; 0089AC84: $0602, $C480
+        addi.b  #$0000,d2                               ; 0089AC88: $0602, $CB00
+        addi.b  #$0080,d2                               ; 0089AC8C: $0602, $D180
+        addi.b  #$0000,d2                               ; 0089AC90: $0602, $D800
+        addi.b  #$0080,d2                               ; 0089AC94: $0602, $DE80
+        addi.b  #$0000,d2                               ; 0089AC98: $0602, $E500
+        addi.b  #$0080,d2                               ; 0089AC9C: $0602, $EB80
+        addi.b  #$0000,d2                               ; 0089ACA0: $0602, $F200
+        addi.b  #$0080,d2                               ; 0089ACA4: $0602, $F880
+        addi.b  #$0000,d2                               ; 0089ACA8: $0602, $FF00
+        addi.b  #$0080,d3                               ; 0089ACAC: $0603, $0580
+        cmp.l   $-4F(pc,a3.w),d6                        ; 0089ACB0: $BCBB, $B3B1
+        add.l   $-48(a7,a3.w),d1                        ; 0089ACB4: $D2B7, $B5B8
+        cmp.l   $-4E(a4,a3.l),d0                        ; 0089ACB8: $B0B4, $BDB2
+        cmp.b   d0,d5                                   ; 0089ACBC: $BA00
+        addi.b  #$0000,d3                               ; 0089ACBE: $0603, $0C00
+        addi.b  #$0080,d3                               ; 0089ACC2: $0603, $1480
+        addi.b  #$0000,d3                               ; 0089ACC6: $0603, $1D00
+        addi.b  #$0080,d3                               ; 0089ACCA: $0603, $2580
+        addi.b  #$0000,d3                               ; 0089ACCE: $0603, $2E00
+        addi.b  #$0080,d3                               ; 0089ACD2: $0603, $3680
+        addi.b  #$0080,d3                               ; 0089ACD6: $0603, $5880
+        addi.b  #$0000,d3                               ; 0089ACDA: $0603, $5000
+        addi.b  #$0080,d3                               ; 0089ACDE: $0603, $4780
+        addi.b  #$0000,d3                               ; 0089ACE2: $0603, $3F00
         dc.w    $BFBE                    ; 0089ACE6: dc.w $BFBE
         dc.w    $C5C9                    ; 0089ACE8: dc.w $C5C9
         dc.w    $CBC4                    ; 0089ACEA: dc.w $CBC4
         dc.w    $C0C1                    ; 0089ACEC: dc.w $C0C1
         dc.w    $C2C3                    ; 0089ACEE: dc.w $C2C3
-        dc.w    $0089                    ; 0089ACF0: dc.w $0089
-        dc.w    $AD10                    ; 0089ACF2: dc.w $AD10
-        dc.w    $0089                    ; 0089ACF4: dc.w $0089
+        ori.l   #$AD100089,a1                           ; 0089ACF0: $0089, $AD10, $0089
         dc.w    $AD1E                    ; 0089ACF6: dc.w $AD1E
-        dc.w    $0089                    ; 0089ACF8: dc.w $0089
-        dc.w    $AD38                    ; 0089ACFA: dc.w $AD38
-        dc.w    $0089                    ; 0089ACFC: dc.w $0089
+        ori.l   #$AD380089,a1                           ; 0089ACF8: $0089, $AD38, $0089
         dc.w    $AD9A                    ; 0089ACFE: dc.w $AD9A
-        dc.w    $0089                    ; 0089AD00: dc.w $0089
-        dc.w    $ADF0                    ; 0089AD02: dc.w $ADF0
-        dc.w    $0089                    ; 0089AD04: dc.w $0089
+        ori.l   #$ADF00089,a1                           ; 0089AD00: $0089, $ADF0, $0089
         dc.w    $AE3A                    ; 0089AD06: dc.w $AE3A
-        dc.w    $0089                    ; 0089AD08: dc.w $0089
-        dc.w    $AE90                    ; 0089AD0A: dc.w $AE90
-        dc.w    $0089                    ; 0089AD0C: dc.w $0089
+        ori.l   #$AE900089,a1                           ; 0089AD08: $0089, $AE90, $0089
         dc.w    $AEF2                    ; 0089AD0E: dc.w $AEF2
-        dc.w    $0000                    ; 0089AD10: dc.w $0000
-        dc.w    $0D00                    ; 0089AD12: dc.w $0D00
-        dc.w    $0046                    ; 0089AD14: dc.w $0046
-        dc.w    $0402                    ; 0089AD16: dc.w $0402
+        ori.b   #$0000,d0                               ; 0089AD10: $0000, $0D00
+        ori.w   #$0402,d6                               ; 0089AD14: $0046, $0402
         dc.w    $A834                    ; 0089AD18: dc.w $A834
-        dc.w    $222D                    ; 0089AD1A: dc.w $222D
-        dc.w    $9B80                    ; 0089AD1C: dc.w $9B80
-        dc.w    $0001                    ; 0089AD1E: dc.w $0001
-        dc.w    $0D00                    ; 0089AD20: dc.w $0D00
-        dc.w    $0028                    ; 0089AD22: dc.w $0028
-        dc.w    $0402                    ; 0089AD24: dc.w $0402
-        dc.w    $A080                    ; 0089AD26: dc.w $A080
-        dc.w    $222D                    ; 0089AD28: dc.w $222D
-        dc.w    $55CC                    ; 0089AD2A: dc.w $55CC
-        dc.w    $0D00                    ; 0089AD2C: dc.w $0D00
-        dc.w    $0050                    ; 0089AD2E: dc.w $0050
-        dc.w    $0402                    ; 0089AD30: dc.w $0402
-        dc.w    $E080                    ; 0089AD32: dc.w $E080
-        dc.w    $222D                    ; 0089AD34: dc.w $222D
-        dc.w    $2018                    ; 0089AD36: dc.w $2018
-        dc.w    $0007                    ; 0089AD38: dc.w $0007
-        dc.w    $0D00                    ; 0089AD3A: dc.w $0D00
-        dc.w    $0046                    ; 0089AD3C: dc.w $0046
-        dc.w    $0402                    ; 0089AD3E: dc.w $0402
-        dc.w    $805C                    ; 0089AD40: dc.w $805C
-        dc.w    $222D                    ; 0089AD42: dc.w $222D
-        dc.w    $0A08                    ; 0089AD44: dc.w $0A08
-        dc.w    $0D00                    ; 0089AD46: dc.w $0D00
-        dc.w    $008C                    ; 0089AD48: dc.w $008C
-        dc.w    $0402                    ; 0089AD4A: dc.w $0402
-        dc.w    $A87C                    ; 0089AD4C: dc.w $A87C
-        dc.w    $222D                    ; 0089AD4E: dc.w $222D
-        dc.w    $6558                    ; 0089AD50: BCS.S $0089ADAA
-        dc.w    $0D00                    ; 0089AD52: dc.w $0D00
-        dc.w    $00D2                    ; 0089AD54: dc.w $00D2
-        dc.w    $0402                    ; 0089AD56: dc.w $0402
-        dc.w    $D06C                    ; 0089AD58: dc.w $D06C
-        dc.w    $222D                    ; 0089AD5A: dc.w $222D
-        dc.w    $6DE0                    ; 0089AD5C: BLT.S $0089AD3E
-        dc.w    $0D00                    ; 0089AD5E: dc.w $0D00
-        dc.w    $0118                    ; 0089AD60: dc.w $0118
-        dc.w    $0402                    ; 0089AD62: dc.w $0402
-        dc.w    $F888                    ; 0089AD64: dc.w $F888
-        dc.w    $222D                    ; 0089AD66: dc.w $222D
-        dc.w    $4F44                    ; 0089AD68: dc.w $4F44
-        dc.w    $0D00                    ; 0089AD6A: dc.w $0D00
-        dc.w    $015E                    ; 0089AD6C: dc.w $015E
-        dc.w    $0403                    ; 0089AD6E: dc.w $0403
-        dc.w    $2074                    ; 0089AD70: dc.w $2074
-        dc.w    $222D                    ; 0089AD72: dc.w $222D
-        dc.w    $59D0                    ; 0089AD74: dc.w $59D0
-        dc.w    $0D00                    ; 0089AD76: dc.w $0D00
-        dc.w    $01A4                    ; 0089AD78: dc.w $01A4
-        dc.w    $0403                    ; 0089AD7A: dc.w $0403
-        dc.w    $4888                    ; 0089AD7C: dc.w $4888
-        dc.w    $222D                    ; 0089AD7E: dc.w $222D
-        dc.w    $241C                    ; 0089AD80: dc.w $241C
-        dc.w    $0D00                    ; 0089AD82: dc.w $0D00
-        dc.w    $01EA                    ; 0089AD84: dc.w $01EA
-        dc.w    $0403                    ; 0089AD86: dc.w $0403
-        dc.w    $6880                    ; 0089AD88: BVC.S $0089AD0A
-        dc.w    $222D                    ; 0089AD8A: dc.w $222D
-        dc.w    $1690                    ; 0089AD8C: dc.w $1690
-        dc.w    $0D00                    ; 0089AD8E: dc.w $0D00
-        dc.w    $0230                    ; 0089AD90: dc.w $0230
-        dc.w    $0403                    ; 0089AD92: dc.w $0403
-        dc.w    $8884                    ; 0089AD94: dc.w $8884
-        dc.w    $222D                    ; 0089AD96: dc.w $222D
-        dc.w    $2F28                    ; 0089AD98: dc.w $2F28
-        dc.w    $0006                    ; 0089AD9A: dc.w $0006
-        dc.w    $0D00                    ; 0089AD9C: dc.w $0D00
-        dc.w    $0046                    ; 0089AD9E: dc.w $0046
-        dc.w    $0402                    ; 0089ADA0: dc.w $0402
-        dc.w    $8068                    ; 0089ADA2: dc.w $8068
-        dc.w    $222D                    ; 0089ADA4: dc.w $222D
-        dc.w    $0384                    ; 0089ADA6: dc.w $0384
-        dc.w    $0D00                    ; 0089ADA8: dc.w $0D00
-        dc.w    $008C                    ; 0089ADAA: dc.w $008C
-        dc.w    $0402                    ; 0089ADAC: dc.w $0402
-        dc.w    $A870                    ; 0089ADAE: dc.w $A870
-        dc.w    $222D                    ; 0089ADB0: dc.w $222D
-        dc.w    $3B34                    ; 0089ADB2: dc.w $3B34
-        dc.w    $0D00                    ; 0089ADB4: dc.w $0D00
-        dc.w    $00D2                    ; 0089ADB6: dc.w $00D2
-        dc.w    $0402                    ; 0089ADB8: dc.w $0402
-        dc.w    $D07C                    ; 0089ADBA: dc.w $D07C
-        dc.w    $222D                    ; 0089ADBC: dc.w $222D
-        dc.w    $120C                    ; 0089ADBE: dc.w $120C
-        dc.w    $0D00                    ; 0089ADC0: dc.w $0D00
-        dc.w    $0118                    ; 0089ADC2: dc.w $0118
-        dc.w    $0402                    ; 0089ADC4: dc.w $0402
-        dc.w    $F880                    ; 0089ADC6: dc.w $F880
-        dc.w    $222D                    ; 0089ADC8: dc.w $222D
-        dc.w    $69DC                    ; 0089ADCA: BVS.S $0089ADA8
-        dc.w    $0D00                    ; 0089ADCC: dc.w $0D00
-        dc.w    $015E                    ; 0089ADCE: dc.w $015E
-        dc.w    $0403                    ; 0089ADD0: dc.w $0403
-        dc.w    $1888                    ; 0089ADD2: dc.w $1888
-        dc.w    $222D                    ; 0089ADD4: dc.w $222D
-        dc.w    $3830                    ; 0089ADD6: dc.w $3830
-        dc.w    $0D00                    ; 0089ADD8: dc.w $0D00
-        dc.w    $01A4                    ; 0089ADDA: dc.w $01A4
-        dc.w    $0403                    ; 0089ADDC: dc.w $0403
-        dc.w    $4084                    ; 0089ADDE: dc.w $4084
-        dc.w    $222D                    ; 0089ADE0: dc.w $222D
-        dc.w    $5248                    ; 0089ADE2: dc.w $5248
-        dc.w    $0D00                    ; 0089ADE4: dc.w $0D00
-        dc.w    $01EA                    ; 0089ADE6: dc.w $01EA
-        dc.w    $0403                    ; 0089ADE8: dc.w $0403
-        dc.w    $6884                    ; 0089ADEA: BVC.S $0089AD70
-        dc.w    $222D                    ; 0089ADEC: dc.w $222D
-        dc.w    $9378                    ; 0089ADEE: dc.w $9378
-        dc.w    $0005                    ; 0089ADF0: dc.w $0005
-        dc.w    $0D00                    ; 0089ADF2: dc.w $0D00
-        dc.w    $0046                    ; 0089ADF4: dc.w $0046
-        dc.w    $0402                    ; 0089ADF6: dc.w $0402
-        dc.w    $8068                    ; 0089ADF8: dc.w $8068
-        dc.w    $222D                    ; 0089ADFA: dc.w $222D
+        move.l  $-6480(a5),d1                           ; 0089AD1A: $222D, $9B80
+        ori.b   #$0000,d1                               ; 0089AD1E: $0001, $0D00
+        ori.b   #$0002,$-5F80(a0)                       ; 0089AD22: $0028, $0402, $A080
+        move.l  $55CC(a5),d1                            ; 0089AD28: $222D, $55CC
+        cmpi.b  #$0050,d0                               ; 0089AD2C: $0D00, $0050
+        subi.b  #$0080,d2                               ; 0089AD30: $0402, $E080
+        move.l  $2018(a5),d1                            ; 0089AD34: $222D, $2018
+        ori.b   #$0000,d7                               ; 0089AD38: $0007, $0D00
+        ori.w   #$0402,d6                               ; 0089AD3C: $0046, $0402
+        or.w    (a4)+,d0                                ; 0089AD40: $805C
+        move.l  $0A08(a5),d1                            ; 0089AD42: $222D, $0A08
+        cmpi.b  #$008C,d0                               ; 0089AD46: $0D00, $008C
+        subi.b  #$007C,d2                               ; 0089AD4A: $0402, $A87C
+        move.l  $6558(a5),d1                            ; 0089AD4E: $222D, $6558
+        cmpi.b  #$00D2,d0                               ; 0089AD52: $0D00, $00D2
+        subi.b  #$006C,d2                               ; 0089AD56: $0402, $D06C
+        move.l  $6DE0(a5),d1                            ; 0089AD5A: $222D, $6DE0
+        cmpi.b  #$0018,d0                               ; 0089AD5E: $0D00, $0118
+        subi.b  #$0088,d2                               ; 0089AD62: $0402, $F888
+        move.l  $4F44(a5),d1                            ; 0089AD66: $222D, $4F44
+        cmpi.b  #$005E,d0                               ; 0089AD6A: $0D00, $015E
+        subi.b  #$0074,d3                               ; 0089AD6E: $0403, $2074
+        move.l  $59D0(a5),d1                            ; 0089AD72: $222D, $59D0
+        cmpi.b  #$00A4,d0                               ; 0089AD76: $0D00, $01A4
+        subi.b  #$0088,d3                               ; 0089AD7A: $0403, $4888
+        move.l  $241C(a5),d1                            ; 0089AD7E: $222D, $241C
+        cmpi.b  #$00EA,d0                               ; 0089AD82: $0D00, $01EA
+        subi.b  #$0080,d3                               ; 0089AD86: $0403, $6880
+        move.l  $1690(a5),d1                            ; 0089AD8A: $222D, $1690
+        cmpi.b  #$0030,d0                               ; 0089AD8E: $0D00, $0230
+        subi.b  #$0084,d3                               ; 0089AD92: $0403, $8884
+        move.l  $2F28(a5),d1                            ; 0089AD96: $222D, $2F28
+        ori.b   #$0000,d6                               ; 0089AD9A: $0006, $0D00
+        ori.w   #$0402,d6                               ; 0089AD9E: $0046, $0402
+        or.w    $222D(a0),d0                            ; 0089ADA2: $8068, $222D
+        andi.l  #$0D00008C,d4                           ; 0089ADA6: $0384, $0D00, $008C
+        subi.b  #$0070,d2                               ; 0089ADAC: $0402, $A870
+        move.l  $3B34(a5),d1                            ; 0089ADB0: $222D, $3B34
+        cmpi.b  #$00D2,d0                               ; 0089ADB4: $0D00, $00D2
+        subi.b  #$007C,d2                               ; 0089ADB8: $0402, $D07C
+        move.l  $120C(a5),d1                            ; 0089ADBC: $222D, $120C
+        cmpi.b  #$0018,d0                               ; 0089ADC0: $0D00, $0118
+        subi.b  #$0080,d2                               ; 0089ADC4: $0402, $F880
+        move.l  $69DC(a5),d1                            ; 0089ADC8: $222D, $69DC
+        cmpi.b  #$005E,d0                               ; 0089ADCC: $0D00, $015E
+        subi.b  #$0088,d3                               ; 0089ADD0: $0403, $1888
+        move.l  $3830(a5),d1                            ; 0089ADD4: $222D, $3830
+        cmpi.b  #$00A4,d0                               ; 0089ADD8: $0D00, $01A4
+        subi.b  #$0084,d3                               ; 0089ADDC: $0403, $4084
+        move.l  $5248(a5),d1                            ; 0089ADE0: $222D, $5248
+        cmpi.b  #$00EA,d0                               ; 0089ADE4: $0D00, $01EA
+        subi.b  #$0084,d3                               ; 0089ADE8: $0403, $6884
+        move.l  $-6C88(a5),d1                           ; 0089ADEC: $222D, $9378
+        ori.b   #$0000,d5                               ; 0089ADF0: $0005, $0D00
+        ori.w   #$0402,d6                               ; 0089ADF4: $0046, $0402
+        or.w    $222D(a0),d0                            ; 0089ADF8: $8068, $222D
         dc.w    $4038                    ; 0089ADFC: dc.w $4038
-        dc.w    $0D00                    ; 0089ADFE: dc.w $0D00
-        dc.w    $008C                    ; 0089AE00: dc.w $008C
-        dc.w    $0402                    ; 0089AE02: dc.w $0402
-        dc.w    $A880                    ; 0089AE04: dc.w $A880
-        dc.w    $222D                    ; 0089AE06: dc.w $222D
-        dc.w    $473C                    ; 0089AE08: dc.w $473C
-        dc.w    $0D00                    ; 0089AE0A: dc.w $0D00
-        dc.w    $00D2                    ; 0089AE0C: dc.w $00D2
-        dc.w    $0402                    ; 0089AE0E: dc.w $0402
-        dc.w    $D068                    ; 0089AE10: dc.w $D068
-        dc.w    $222D                    ; 0089AE12: dc.w $222D
-        dc.w    $74E4                    ; 0089AE14: MOVEQ #$E4,D2
-        dc.w    $0D00                    ; 0089AE16: dc.w $0D00
-        dc.w    $0118                    ; 0089AE18: dc.w $0118
-        dc.w    $0402                    ; 0089AE1A: dc.w $0402
-        dc.w    $F880                    ; 0089AE1C: dc.w $F880
-        dc.w    $222D                    ; 0089AE1E: dc.w $222D
-        dc.w    $8AF0                    ; 0089AE20: dc.w $8AF0
-        dc.w    $0D00                    ; 0089AE22: dc.w $0D00
-        dc.w    $015E                    ; 0089AE24: dc.w $015E
-        dc.w    $0403                    ; 0089AE26: dc.w $0403
-        dc.w    $2060                    ; 0089AE28: dc.w $2060
-        dc.w    $222D                    ; 0089AE2A: dc.w $222D
-        dc.w    $7BE8                    ; 0089AE2C: dc.w $7BE8
-        dc.w    $0D00                    ; 0089AE2E: dc.w $0D00
-        dc.w    $01A4                    ; 0089AE30: dc.w $01A4
-        dc.w    $0403                    ; 0089AE32: dc.w $0403
-        dc.w    $487C                    ; 0089AE34: dc.w $487C
-        dc.w    $222D                    ; 0089AE36: dc.w $222D
-        dc.w    $8EF4                    ; 0089AE38: dc.w $8EF4
-        dc.w    $0006                    ; 0089AE3A: dc.w $0006
-        dc.w    $0D00                    ; 0089AE3C: dc.w $0D00
-        dc.w    $0046                    ; 0089AE3E: dc.w $0046
-        dc.w    $0402                    ; 0089AE40: dc.w $0402
-        dc.w    $8084                    ; 0089AE42: dc.w $8084
-        dc.w    $222D                    ; 0089AE44: dc.w $222D
-        dc.w    $0000                    ; 0089AE46: dc.w $0000
-        dc.w    $0D00                    ; 0089AE48: dc.w $0D00
-        dc.w    $008C                    ; 0089AE4A: dc.w $008C
-        dc.w    $0402                    ; 0089AE4C: dc.w $0402
-        dc.w    $A874                    ; 0089AE4E: dc.w $A874
-        dc.w    $222D                    ; 0089AE50: dc.w $222D
-        dc.w    $32AC                    ; 0089AE52: dc.w $32AC
-        dc.w    $0D00                    ; 0089AE54: dc.w $0D00
-        dc.w    $00D2                    ; 0089AE56: dc.w $00D2
-        dc.w    $0402                    ; 0089AE58: dc.w $0402
-        dc.w    $D068                    ; 0089AE5A: dc.w $D068
-        dc.w    $222D                    ; 0089AE5C: dc.w $222D
-        dc.w    $846C                    ; 0089AE5E: dc.w $846C
-        dc.w    $0D00                    ; 0089AE60: dc.w $0D00
-        dc.w    $0118                    ; 0089AE62: dc.w $0118
-        dc.w    $0402                    ; 0089AE64: dc.w $0402
-        dc.w    $F884                    ; 0089AE66: dc.w $F884
-        dc.w    $222D                    ; 0089AE68: dc.w $222D
-        dc.w    $2720                    ; 0089AE6A: dc.w $2720
-        dc.w    $0D00                    ; 0089AE6C: dc.w $0D00
-        dc.w    $015E                    ; 0089AE6E: dc.w $015E
-        dc.w    $0403                    ; 0089AE70: dc.w $0403
-        dc.w    $1888                    ; 0089AE72: dc.w $1888
-        dc.w    $222D                    ; 0089AE74: dc.w $222D
-        dc.w    $D8AC                    ; 0089AE76: dc.w $D8AC
-        dc.w    $0D00                    ; 0089AE78: dc.w $0D00
-        dc.w    $01A4                    ; 0089AE7A: dc.w $01A4
-        dc.w    $0403                    ; 0089AE7C: dc.w $0403
-        dc.w    $3878                    ; 0089AE7E: dc.w $3878
-        dc.w    $222D                    ; 0089AE80: dc.w $222D
-        dc.w    $5FD4                    ; 0089AE82: dc.w $5FD4
-        dc.w    $0D00                    ; 0089AE84: dc.w $0D00
-        dc.w    $01EA                    ; 0089AE86: dc.w $01EA
-        dc.w    $0403                    ; 0089AE88: dc.w $0403
-        dc.w    $5884                    ; 0089AE8A: dc.w $5884
-        dc.w    $222D                    ; 0089AE8C: dc.w $222D
-        dc.w    $2B24                    ; 0089AE8E: dc.w $2B24
-        dc.w    $0007                    ; 0089AE90: dc.w $0007
-        dc.w    $0D00                    ; 0089AE92: dc.w $0D00
-        dc.w    $0046                    ; 0089AE94: dc.w $0046
-        dc.w    $0402                    ; 0089AE96: dc.w $0402
-        dc.w    $8068                    ; 0089AE98: dc.w $8068
-        dc.w    $222D                    ; 0089AE9A: dc.w $222D
-        dc.w    $846C                    ; 0089AE9C: dc.w $846C
-        dc.w    $0D00                    ; 0089AE9E: dc.w $0D00
-        dc.w    $008C                    ; 0089AEA0: dc.w $008C
-        dc.w    $0402                    ; 0089AEA2: dc.w $0402
-        dc.w    $A87C                    ; 0089AEA4: dc.w $A87C
-        dc.w    $222D                    ; 0089AEA6: dc.w $222D
-        dc.w    $96FC                    ; 0089AEA8: dc.w $96FC
-        dc.w    $0D00                    ; 0089AEAA: dc.w $0D00
-        dc.w    $00D2                    ; 0089AEAC: dc.w $00D2
-        dc.w    $0402                    ; 0089AEAE: dc.w $0402
-        dc.w    $C880                    ; 0089AEB0: dc.w $C880
-        dc.w    $222D                    ; 0089AEB2: dc.w $222D
-        dc.w    $4B40                    ; 0089AEB4: dc.w $4B40
-        dc.w    $0D00                    ; 0089AEB6: dc.w $0D00
-        dc.w    $0118                    ; 0089AEB8: dc.w $0118
-        dc.w    $0402                    ; 0089AEBA: dc.w $0402
-        dc.w    $E870                    ; 0089AEBC: dc.w $E870
-        dc.w    $222D                    ; 0089AEBE: dc.w $222D
-        dc.w    $1A94                    ; 0089AEC0: dc.w $1A94
-        dc.w    $0D00                    ; 0089AEC2: dc.w $0D00
-        dc.w    $015E                    ; 0089AEC4: dc.w $015E
-        dc.w    $0403                    ; 0089AEC6: dc.w $0403
-        dc.w    $0880                    ; 0089AEC8: dc.w $0880
-        dc.w    $222D                    ; 0089AECA: dc.w $222D
-        dc.w    $C41C                    ; 0089AECC: dc.w $C41C
-        dc.w    $0D00                    ; 0089AECE: dc.w $0D00
-        dc.w    $01A4                    ; 0089AED0: dc.w $01A4
-        dc.w    $0403                    ; 0089AED2: dc.w $0403
-        dc.w    $2870                    ; 0089AED4: dc.w $2870
-        dc.w    $222D                    ; 0089AED6: dc.w $222D
-        dc.w    $C820                    ; 0089AED8: dc.w $C820
-        dc.w    $0D00                    ; 0089AEDA: dc.w $0D00
-        dc.w    $01EA                    ; 0089AEDC: dc.w $01EA
-        dc.w    $0403                    ; 0089AEDE: dc.w $0403
-        dc.w    $4878                    ; 0089AEE0: dc.w $4878
-        dc.w    $222D                    ; 0089AEE2: dc.w $222D
-        dc.w    $CE24                    ; 0089AEE4: dc.w $CE24
-        dc.w    $0D00                    ; 0089AEE6: dc.w $0D00
-        dc.w    $0230                    ; 0089AEE8: dc.w $0230
-        dc.w    $0403                    ; 0089AEEA: dc.w $0403
-        dc.w    $6878                    ; 0089AEEC: BVC.S $0089AF66
-        dc.w    $222D                    ; 0089AEEE: dc.w $222D
-        dc.w    $D3A8                    ; 0089AEF0: dc.w $D3A8
-        dc.w    $0005                    ; 0089AEF2: dc.w $0005
-        dc.w    $0D00                    ; 0089AEF4: dc.w $0D00
-        dc.w    $0046                    ; 0089AEF6: dc.w $0046
-        dc.w    $0402                    ; 0089AEF8: dc.w $0402
-        dc.w    $9064                    ; 0089AEFA: dc.w $9064
-        dc.w    $222D                    ; 0089AEFC: dc.w $222D
-        dc.w    $A884                    ; 0089AEFE: dc.w $A884
-        dc.w    $0D00                    ; 0089AF00: dc.w $0D00
-        dc.w    $008C                    ; 0089AF02: dc.w $008C
-        dc.w    $0402                    ; 0089AF04: dc.w $0402
-        dc.w    $C090                    ; 0089AF06: dc.w $C090
-        dc.w    $222D                    ; 0089AF08: dc.w $222D
-        dc.w    $B008                    ; 0089AF0A: dc.w $B008
-        dc.w    $0D00                    ; 0089AF0C: dc.w $0D00
-        dc.w    $00D2                    ; 0089AF0E: dc.w $00D2
-        dc.w    $0402                    ; 0089AF10: dc.w $0402
-        dc.w    $F070                    ; 0089AF12: dc.w $F070
-        dc.w    $222D                    ; 0089AF14: dc.w $222D
-        dc.w    $B28C                    ; 0089AF16: dc.w $B28C
-        dc.w    $0D00                    ; 0089AF18: dc.w $0D00
-        dc.w    $0118                    ; 0089AF1A: dc.w $0118
-        dc.w    $0403                    ; 0089AF1C: dc.w $0403
-        dc.w    $2084                    ; 0089AF1E: dc.w $2084
-        dc.w    $222D                    ; 0089AF20: dc.w $222D
-        dc.w    $B910                    ; 0089AF22: dc.w $B910
-        dc.w    $0D00                    ; 0089AF24: dc.w $0D00
-        dc.w    $015E                    ; 0089AF26: dc.w $015E
-        dc.w    $0403                    ; 0089AF28: dc.w $0403
-        dc.w    $5098                    ; 0089AF2A: dc.w $5098
-        dc.w    $222D                    ; 0089AF2C: dc.w $222D
-        dc.w    $BC94                    ; 0089AF2E: dc.w $BC94
-        dc.w    $0D00                    ; 0089AF30: dc.w $0D00
-        dc.w    $01A4                    ; 0089AF32: dc.w $01A4
-        dc.w    $0403                    ; 0089AF34: dc.w $0403
-        dc.w    $8070                    ; 0089AF36: dc.w $8070
-        dc.w    $222D                    ; 0089AF38: dc.w $222D
-        dc.w    $BD98                    ; 0089AF3A: dc.w $BD98
+        cmpi.b  #$008C,d0                               ; 0089ADFE: $0D00, $008C
+        subi.b  #$0080,d2                               ; 0089AE02: $0402, $A880
+        move.l  $473C(a5),d1                            ; 0089AE06: $222D, $473C
+        cmpi.b  #$00D2,d0                               ; 0089AE0A: $0D00, $00D2
+        subi.b  #$0068,d2                               ; 0089AE0E: $0402, $D068
+        move.l  $74E4(a5),d1                            ; 0089AE12: $222D, $74E4
+        cmpi.b  #$0018,d0                               ; 0089AE16: $0D00, $0118
+        subi.b  #$0080,d2                               ; 0089AE1A: $0402, $F880
+        move.l  $-7510(a5),d1                           ; 0089AE1E: $222D, $8AF0
+        cmpi.b  #$005E,d0                               ; 0089AE22: $0D00, $015E
+        subi.b  #$0060,d3                               ; 0089AE26: $0403, $2060
+        move.l  $7BE8(a5),d1                            ; 0089AE2A: $222D, $7BE8
+        cmpi.b  #$00A4,d0                               ; 0089AE2E: $0D00, $01A4
+        subi.b  #$007C,d3                               ; 0089AE32: $0403, $487C
+        move.l  $-710C(a5),d1                           ; 0089AE36: $222D, $8EF4
+        ori.b   #$0000,d6                               ; 0089AE3A: $0006, $0D00
+        ori.w   #$0402,d6                               ; 0089AE3E: $0046, $0402
+        or.l    d4,d0                                   ; 0089AE42: $8084
+        move.l  $0000(a5),d1                            ; 0089AE44: $222D, $0000
+        cmpi.b  #$008C,d0                               ; 0089AE48: $0D00, $008C
+        subi.b  #$0074,d2                               ; 0089AE4C: $0402, $A874
+        move.l  $32AC(a5),d1                            ; 0089AE50: $222D, $32AC
+        cmpi.b  #$00D2,d0                               ; 0089AE54: $0D00, $00D2
+        subi.b  #$0068,d2                               ; 0089AE58: $0402, $D068
+        move.l  $-7B94(a5),d1                           ; 0089AE5C: $222D, $846C
+        cmpi.b  #$0018,d0                               ; 0089AE60: $0D00, $0118
+        subi.b  #$0084,d2                               ; 0089AE64: $0402, $F884
+        move.l  $2720(a5),d1                            ; 0089AE68: $222D, $2720
+        cmpi.b  #$005E,d0                               ; 0089AE6C: $0D00, $015E
+        subi.b  #$0088,d3                               ; 0089AE70: $0403, $1888
+        move.l  $-2754(a5),d1                           ; 0089AE74: $222D, $D8AC
+        cmpi.b  #$00A4,d0                               ; 0089AE78: $0D00, $01A4
+        subi.b  #$0078,d3                               ; 0089AE7C: $0403, $3878
+        move.l  $5FD4(a5),d1                            ; 0089AE80: $222D, $5FD4
+        cmpi.b  #$00EA,d0                               ; 0089AE84: $0D00, $01EA
+        subi.b  #$0084,d3                               ; 0089AE88: $0403, $5884
+        move.l  $2B24(a5),d1                            ; 0089AE8C: $222D, $2B24
+        ori.b   #$0000,d7                               ; 0089AE90: $0007, $0D00
+        ori.w   #$0402,d6                               ; 0089AE94: $0046, $0402
+        or.w    $222D(a0),d0                            ; 0089AE98: $8068, $222D
+        or.w    $0D00(a4),d2                            ; 0089AE9C: $846C, $0D00
+        ori.l   #$0402A87C,a4                           ; 0089AEA0: $008C, $0402, $A87C
+        move.l  $-6904(a5),d1                           ; 0089AEA6: $222D, $96FC
+        cmpi.b  #$00D2,d0                               ; 0089AEAA: $0D00, $00D2
+        subi.b  #$0080,d2                               ; 0089AEAE: $0402, $C880
+        move.l  $4B40(a5),d1                            ; 0089AEB2: $222D, $4B40
+        cmpi.b  #$0018,d0                               ; 0089AEB6: $0D00, $0118
+        subi.b  #$0070,d2                               ; 0089AEBA: $0402, $E870
+        move.l  $1A94(a5),d1                            ; 0089AEBE: $222D, $1A94
+        cmpi.b  #$005E,d0                               ; 0089AEC2: $0D00, $015E
+        subi.b  #$0080,d3                               ; 0089AEC6: $0403, $0880
+        move.l  $-3BE4(a5),d1                           ; 0089AECA: $222D, $C41C
+        cmpi.b  #$00A4,d0                               ; 0089AECE: $0D00, $01A4
+        subi.b  #$0070,d3                               ; 0089AED2: $0403, $2870
+        move.l  $-37E0(a5),d1                           ; 0089AED6: $222D, $C820
+        cmpi.b  #$00EA,d0                               ; 0089AEDA: $0D00, $01EA
+        subi.b  #$0078,d3                               ; 0089AEDE: $0403, $4878
+        move.l  $-31DC(a5),d1                           ; 0089AEE2: $222D, $CE24
+        cmpi.b  #$0030,d0                               ; 0089AEE6: $0D00, $0230
+        subi.b  #$0078,d3                               ; 0089AEEA: $0403, $6878
+        move.l  $-2C58(a5),d1                           ; 0089AEEE: $222D, $D3A8
+        ori.b   #$0000,d5                               ; 0089AEF2: $0005, $0D00
+        ori.w   #$0402,d6                               ; 0089AEF6: $0046, $0402
+        sub.w   -(a4),d0                                ; 0089AEFA: $9064
+        move.l  $-577C(a5),d1                           ; 0089AEFC: $222D, $A884
+        cmpi.b  #$008C,d0                               ; 0089AF00: $0D00, $008C
+        subi.b  #$0090,d2                               ; 0089AF04: $0402, $C090
+        move.l  $-4FF8(a5),d1                           ; 0089AF08: $222D, $B008
+        cmpi.b  #$00D2,d0                               ; 0089AF0C: $0D00, $00D2
+        subi.b  #$0070,d2                               ; 0089AF10: $0402, $F070
+        move.l  $-4D74(a5),d1                           ; 0089AF14: $222D, $B28C
+        cmpi.b  #$0018,d0                               ; 0089AF18: $0D00, $0118
+        subi.b  #$0084,d3                               ; 0089AF1C: $0403, $2084
+        move.l  $-46F0(a5),d1                           ; 0089AF20: $222D, $B910
+        cmpi.b  #$005E,d0                               ; 0089AF24: $0D00, $015E
+        subi.b  #$0098,d3                               ; 0089AF28: $0403, $5098
+        move.l  $-436C(a5),d1                           ; 0089AF2C: $222D, $BC94
+        cmpi.b  #$00A4,d0                               ; 0089AF30: $0D00, $01A4
+        subi.b  #$0070,d3                               ; 0089AF34: $0403, $8070
+        move.l  $-4268(a5),d1                           ; 0089AF38: $222D, $BD98
         dc.w    $FF87                    ; 0089AF3C: dc.w $FF87
-        dc.w    $5259                    ; 0089AF3E: dc.w $5259
-        dc.w    $5502                    ; 0089AF40: dc.w $5502
-        dc.w    $0312                    ; 0089AF42: dc.w $0312
-        dc.w    $0888                    ; 0089AF44: dc.w $0888
-        dc.w    $4E41                    ; 0089AF46: dc.w $4E41
-        dc.w    $47F8                    ; 0089AF48: dc.w $47F8
-        dc.w    $1FFF                    ; 0089AF4A: dc.w $1FFF
-        dc.w    $1304                    ; 0089AF4C: dc.w $1304
-        dc.w    $534D                    ; 0089AF4E: dc.w $534D
+        addq.w  #1,(a1)+                                ; 0089AF3E: $5259
+        subq.b  #2,d2                                   ; 0089AF40: $5502
+        andi.b  #$0088,(a2)                             ; 0089AF42: $0312, $0888
+        trap    #1                                      ; 0089AF46: $4E41
+        lea     ($1FFF).w,a3                            ; 0089AF48: $47F8, $1FFF
+        move.b  d4,-(a1)                                ; 0089AF4C: $1304
+        subq.w  #1,a5                                   ; 0089AF4E: $534D
         dc.w    $4154                    ; 0089AF50: dc.w $4154
         dc.w    $F809                    ; 0089AF52: dc.w $F809
-        dc.w    $664F                    ; 0089AF54: BNE.S $0089AFA5
-        dc.w    $2E48                    ; 0089AF56: dc.w $2E48
+        bne.s   $0089AFA5                               ; 0089AF54: $664F
+        movea.l a0,a7                                   ; 0089AF56: $2E48
         dc.w    $013F                    ; 0089AF58: dc.w $013F
         dc.w    $FC03                    ; 0089AF5A: dc.w $FC03
-        dc.w    $1408                    ; 0089AF5C: dc.w $1408
-        dc.w    $814B                    ; 0089AF5E: dc.w $814B
-        dc.w    $2E54                    ; 0089AF60: dc.w $2E54
+        move.b  a0,d2                                   ; 0089AF5C: $1408
+        or.w    d0,a3                                   ; 0089AF5E: $814B
+        movea.l (a4),a7                                 ; 0089AF60: $2E54
         dc.w    $F815                    ; 0089AF62: dc.w $F815
-        dc.w    $0120                    ; 0089AF64: dc.w $0120
-        dc.w    $414E                    ; 0089AF66: dc.w $414E
-        dc.w    $E1C3                    ; 0089AF68: dc.w $E1C3
+        ori.b   #$004E,-(a0)                            ; 0089AF64: $0120, $414E
+        asl     d3                                      ; 0089AF68: $E1C3
         dc.w    $4E03                    ; 0089AF6A: dc.w $4E03
         dc.w    $F809                    ; 0089AF6C: dc.w $F809
-        dc.w    $3542                    ; 0089AF6E: dc.w $3542
-        dc.w    $4F53                    ; 0089AF70: dc.w $4F53
+        move.w  d2,$4F53(a2)                            ; 0089AF6E: $3542, $4F53
         dc.w    $F018                    ; 0089AF72: dc.w $F018
         dc.w    $0F3F                    ; 0089AF74: dc.w $0F3F
-        dc.w    $0000                    ; 0089AF76: dc.w $0000
-        dc.w    $4170                    ; 0089AF78: dc.w $4170
-        dc.w    $70F0                    ; 0089AF7A: MOVEQ #$F0,D0
-        dc.w    $1907                    ; 0089AF7C: dc.w $1907
-        dc.w    $8254                    ; 0089AF7E: dc.w $8254
+        ori.b   #$0070,d0                               ; 0089AF76: $0000, $4170
+        moveq   #$F0,d0                                 ; 0089AF7A: $70F0
+        move.b  d7,-(a4)                                ; 0089AF7C: $1907
+        or.w    (a4),d1                                 ; 0089AF7E: $8254
         dc.w    $4F4D                    ; 0089AF80: dc.w $4F4D
         dc.w    $FCF0                    ; 0089AF82: dc.w $FCF0
         dc.w    $F021                    ; 0089AF84: dc.w $F021
         dc.w    $0829, $4B4F, $42C8    ; 0089AF86: BTST #19279,$42C8(A1)
-        dc.w    $2301                    ; 0089AF8C: dc.w $2301
-        dc.w    $14C3                    ; 0089AF8E: dc.w $14C3
-        dc.w    $0F48                    ; 0089AF90: dc.w $0F48
+        move.l  d1,-(a1)                                ; 0089AF8C: $2301
+        move.b  d3,(a2)+                                ; 0089AF8E: $14C3
+        bchg    d7,a0                                   ; 0089AF90: $0F48
         dc.w    $4944                    ; 0089AF92: dc.w $4944
         dc.w    $F825                    ; 0089AF94: dc.w $F825
-        dc.w    $0207                    ; 0089AF96: dc.w $0207
-        dc.w    $4750                    ; 0089AF98: dc.w $4750
+        andi.b  #$0050,d7                               ; 0089AF96: $0207, $4750
         dc.w    $5A3F                    ; 0089AF9A: dc.w $5A3F
-        dc.w    $7CF8                    ; 0089AF9C: MOVEQ #$F8,D6
-        dc.w    $2604                    ; 0089AF9E: dc.w $2604
-        dc.w    $8153                    ; 0089AFA0: dc.w $8153
-        dc.w    $4252                    ; 0089AFA2: dc.w $4252
-        dc.w    $E027                    ; 0089AFA4: dc.w $E027
-        dc.w    $0135                    ; 0089AFA6: dc.w $0135
-        dc.w    $495A                    ; 0089AFA8: dc.w $495A
-        dc.w    $FC7F                    ; 0089AFAA: dc.w $FC7F
-        dc.w    $9828                    ; 0089AFAC: dc.w $9828
-        dc.w    $0078                    ; 0089AFAE: dc.w $0078
-        dc.w    $554D                    ; 0089AFB0: dc.w $554D
+        moveq   #$F8,d6                                 ; 0089AF9C: $7CF8
+        move.l  d4,d3                                   ; 0089AF9E: $2604
+        or.w    d0,(a3)                                 ; 0089AFA0: $8153
+        clr.w   (a2)                                    ; 0089AFA2: $4252
+        asr.b   d0,d7                                   ; 0089AFA4: $E027
+        ori.b   #$005A,$7F(a5,a7.l)                     ; 0089AFA6: $0135, $495A, $FC7F
+        sub.b   $0078(a0),d4                            ; 0089AFAC: $9828, $0078
+        subq.w  #2,a5                                   ; 0089AFB0: $554D
         dc.w    $4500                    ; 0089AFB2: dc.w $4500
-        dc.w    $0329                    ; 0089AFB4: dc.w $0329
-        dc.w    $0699                    ; 0089AFB6: dc.w $0699
-        dc.w    $4880                    ; 0089AFB8: dc.w $4880
-        dc.w    $0098                    ; 0089AFBA: dc.w $0098
-        dc.w    $C031                    ; 0089AFBC: dc.w $C031
-        dc.w    $EDE1                    ; 0089AFBE: dc.w $EDE1
+        andi.b  #$0099,$4880(a1)                        ; 0089AFB4: $0329, $0699, $4880
+        ori.l   #$C031EDE1,(a0)+                        ; 0089AFBA: $0098, $C031, $EDE1
         dc.w    $87C8                    ; 0089AFC0: dc.w $87C8
         dc.w    $5AE0                    ; 0089AFC2: dc.w $5AE0
-        dc.w    $3209                    ; 0089AFC4: dc.w $3209
-        dc.w    $4448                    ; 0089AFC6: dc.w $4448
-        dc.w    $5459                    ; 0089AFC8: dc.w $5459
-        dc.w    $E81F                    ; 0089AFCA: dc.w $E81F
-        dc.w    $8634                    ; 0089AFCC: dc.w $8634
-        dc.w    $0690                    ; 0089AFCE: dc.w $0690
-        dc.w    $5756                    ; 0089AFD0: dc.w $5756
+        move.w  a1,d1                                   ; 0089AFC4: $3209
+        neg.w   a0                                      ; 0089AFC6: $4448
+        addq.w  #2,(a1)+                                ; 0089AFC8: $5459
+        ror.b   #4,d7                                   ; 0089AFCA: $E81F
+        or.b    $-70(a4,d0.w),d3                        ; 0089AFCC: $8634, $0690
+        subq.w  #3,(a6)                                 ; 0089AFD0: $5756
         dc.w    $55F0                    ; 0089AFD2: dc.w $55F0
-        dc.w    $3603                    ; 0089AFD4: dc.w $3603
+        move.w  d3,d3                                   ; 0089AFD4: $3603
         dc.w    $88E1                    ; 0089AFD6: dc.w $88E1
-        dc.w    $7C65                    ; 0089AFD8: MOVEQ #$65,D6
-        dc.w    $6EF0                    ; 0089AFDA: BGT.S $0089AFCC
-        dc.w    $3706                    ; 0089AFDC: dc.w $3706
-        dc.w    $1470                    ; 0089AFDE: dc.w $1470
-        dc.w    $1809                    ; 0089AFE0: dc.w $1809
-        dc.w    $8984                    ; 0089AFE2: dc.w $8984
-        dc.w    $23F0                    ; 0089AFE4: dc.w $23F0
-        dc.w    $F819                    ; 0089AFE6: dc.w $F819
-        dc.w    $0345                    ; 0089AFE8: dc.w $0345
-        dc.w    $E08E                    ; 0089AFEA: dc.w $E08E
-        dc.w    $38F8                    ; 0089AFEC: dc.w $38F8
-        dc.w    $0555                    ; 0089AFEE: dc.w $0555
-        dc.w    $B8F8                    ; 0089AFF0: dc.w $B8F8
-        dc.w    $0811                    ; 0089AFF2: dc.w $0811
+        moveq   #$65,d6                                 ; 0089AFD8: $7C65
+        bgt.s   $0089AFCC                               ; 0089AFDA: $6EF0
+        move.w  d6,-(a3)                                ; 0089AFDC: $3706
+        movea.b $09(a0,d1.l),a2                         ; 0089AFDE: $1470, $1809
+        or.l    d4,d4                                   ; 0089AFE2: $8984
+        move.l  $19(a0,a7.l),($0345E08E).l              ; 0089AFE4: $23F0, $F819, $0345, $E08E
+        move.w  ($0555).w,(a4)+                         ; 0089AFEC: $38F8, $0555
+        cmpa.w  ($0811).w,a4                            ; 0089AFF0: $B8F8, $0811
         dc.w    $C2F9                    ; 0089AFF4: dc.w $C2F9
         dc.w    $58F8                    ; 0089AFF6: dc.w $58F8
-        dc.w    $2002                    ; 0089AFF8: dc.w $2002
+        move.l  d2,d0                                   ; 0089AFF8: $2002
         dc.w    $4070                    ; 0089AFFA: dc.w $4070
-        dc.w    $2007                    ; 0089AFFC: dc.w $2007
-        dc.w    $8823                    ; 0089AFFE: dc.w $8823
-        dc.w    $0938                    ; 0089B000: dc.w $0938
-        dc.w    $7009                    ; 0089B002: MOVEQ #$09,D0
-        dc.w    $6328                    ; 0089B004: BLS.S $0089B02E
-        dc.w    $1CE1                    ; 0089B006: dc.w $1CE1
+        move.l  d7,d0                                   ; 0089AFFC: $2007
+        or.b    -(a3),d4                                ; 0089AFFE: $8823
+        btst    d4,($7009).w                            ; 0089B000: $0938, $7009
+        bls.s   $0089B02E                               ; 0089B004: $6328
+        move.b  -(a1),(a6)+                             ; 0089B006: $1CE1
         dc.w    $F023                    ; 0089B008: dc.w $F023
-        dc.w    $0333                    ; 0089B00A: dc.w $0333
-        dc.w    $78F0                    ; 0089B00C: MOVEQ #$F0,D4
-        dc.w    $2309                    ; 0089B00E: dc.w $2309
-        dc.w    $7CA4                    ; 0089B010: MOVEQ #$A4,D6
-        dc.w    $9578                    ; 0089B012: dc.w $9578
-        dc.w    $2400                    ; 0089B014: dc.w $2400
-        dc.w    $8050                    ; 0089B016: dc.w $8050
-        dc.w    $6008                    ; 0089B018: BRA.S $0089B022
+        andi.b  #$00F0,$09(a3,d2.w)                     ; 0089B00A: $0333, $78F0, $2309
+        moveq   #$A4,d6                                 ; 0089B010: $7CA4
+        sub.w   d2,($2400).w                            ; 0089B012: $9578, $2400
+        or.w    (a0),d0                                 ; 0089B016: $8050
+        bra.s   $0089B022                               ; 0089B018: $6008
         dc.w    $4732                    ; 0089B01A: dc.w $4732
         dc.w    $88E0                    ; 0089B01C: dc.w $88E0
-        dc.w    $2601                    ; 0089B01E: dc.w $2601
-        dc.w    $0988                    ; 0089B020: dc.w $0988
-        dc.w    $1C21                    ; 0089B022: dc.w $1C21
-        dc.w    $6005                    ; 0089B024: BRA.S $0089B02B
-        dc.w    $36C8                    ; 0089B026: dc.w $36C8
+        move.l  d1,d3                                   ; 0089B01E: $2601
+        bclr    d4,a0                                   ; 0089B020: $0988
+        move.b  -(a1),d6                                ; 0089B022: $1C21
+        bra.s   $0089B02B                               ; 0089B024: $6005
+        move.w  a0,(a3)+                                ; 0089B026: $36C8
         dc.w    $F029                    ; 0089B028: dc.w $F029
         dc.w    $F039                    ; 0089B02A: dc.w $F039
-        dc.w    $2840                    ; 0089B02C: dc.w $2840
-        dc.w    $3009                    ; 0089B02E: dc.w $3009
-        dc.w    $5710                    ; 0089B030: dc.w $5710
-        dc.w    $3278                    ; 0089B032: dc.w $3278
-        dc.w    $C480                    ; 0089B034: dc.w $C480
+        movea.l d0,a4                                   ; 0089B02C: $2840
+        move.w  a1,d0                                   ; 0089B02E: $3009
+        subq.b  #3,(a0)                                 ; 0089B030: $5710
+        movea.w ($C480).w,a1                            ; 0089B032: $3278, $C480
         dc.w    $00FB                    ; 0089B036: dc.w $00FB
-        dc.w    $3302                    ; 0089B038: dc.w $3302
-        dc.w    $4420                    ; 0089B03A: dc.w $4420
-        dc.w    $6085                    ; 0089B03C: BRA.S $0089AFC3
-        dc.w    $2303                    ; 0089B03E: dc.w $2303
+        move.w  d2,-(a1)                                ; 0089B038: $3302
+        neg.b   -(a0)                                   ; 0089B03A: $4420
+        bra.s   $0089AFC3                               ; 0089B03C: $6085
+        move.l  d3,-(a1)                                ; 0089B03E: $2303
         dc.w    $6800, $F9F8            ; 0089B040: BVC.W $0089AA3A
-        dc.w    $3601                    ; 0089B044: dc.w $3601
+        move.w  d1,d3                                   ; 0089B044: $3601
         dc.w    $4930                    ; 0089B046: dc.w $4930
-        dc.w    $9C1E                    ; 0089B048: dc.w $9C1E
-        dc.w    $E037                    ; 0089B04A: dc.w $E037
-        dc.w    $0401                    ; 0089B04C: dc.w $0401
-        dc.w    $9004                    ; 0089B04E: dc.w $9004
-        dc.w    $1106                    ; 0089B050: dc.w $1106
+        sub.b   (a6)+,d6                                ; 0089B048: $9C1E
+        roxr.b  d0,d7                                   ; 0089B04A: $E037
+        subi.b  #$0004,d1                               ; 0089B04C: $0401, $9004
+        move.b  d6,-(a0)                                ; 0089B050: $1106
         dc.w    $953F                    ; 0089B052: dc.w $953F
         dc.w    $86E8                    ; 0089B054: dc.w $86E8
-        dc.w    $0304                    ; 0089B056: dc.w $0304
-        dc.w    $1202                    ; 0089B058: dc.w $1202
-        dc.w    $2798                    ; 0089B05A: dc.w $2798
-        dc.w    $02F8                    ; 0089B05C: dc.w $02F8
-        dc.w    $118E                    ; 0089B05E: dc.w $118E
-        dc.w    $0357                    ; 0089B060: dc.w $0357
-        dc.w    $E0E8                    ; 0089B062: dc.w $E0E8
-        dc.w    $1208                    ; 0089B064: dc.w $1208
-        dc.w    $9270                    ; 0089B066: dc.w $9270
-        dc.w    $C2B0                    ; 0089B068: dc.w $C2B0
-        dc.w    $E813                    ; 0089B06A: dc.w $E813
-        dc.w    $0855                    ; 0089B06C: dc.w $0855
-        dc.w    $88F8                    ; 0089B06E: dc.w $88F8
-        dc.w    $3E42                    ; 0089B070: dc.w $3E42
+        andi.b  #$0002,d4                               ; 0089B056: $0304, $1202
+        move.l  (a0)+,$-8(a3,d0.w)                      ; 0089B05A: $2798, $02F8
+        move.b  a6,$57(a0,d0.w)                         ; 0089B05E: $118E, $0357
+        asr     $1208(a0)                               ; 0089B062: $E0E8, $1208
+        sub.w   $-50(a0,a4.w),d1                        ; 0089B066: $9270, $C2B0
+        roxr.b  #4,d3                                   ; 0089B06A: $E813
+        bchg    #$88F8,(a5)                             ; 0089B06C: $0855, $88F8
+        movea.w d2,a7                                   ; 0089B070: $3E42
         dc.w    $89E8                    ; 0089B072: dc.w $89E8
         dc.w    $F204                    ; 0089B074: dc.w $F204
-        dc.w    $1409                    ; 0089B076: dc.w $1409
-        dc.w    $8650                    ; 0089B078: dc.w $8650
-        dc.w    $E015                    ; 0089B07A: dc.w $E015
+        move.b  a1,d2                                   ; 0089B076: $1409
+        or.w    (a0),d3                                 ; 0089B078: $8650
+        roxr.b  #8,d5                                   ; 0089B07A: $E015
         dc.w    $4038                    ; 0089B07C: dc.w $4038
-        dc.w    $9040                    ; 0089B07E: dc.w $9040
-        dc.w    $E016                    ; 0089B080: dc.w $E016
-        dc.w    $0604                    ; 0089B082: dc.w $0604
-        dc.w    $C27D                    ; 0089B084: dc.w $C27D
-        dc.w    $78F8                    ; 0089B086: MOVEQ #$F8,D4
-        dc.w    $1700                    ; 0089B088: dc.w $1700
-        dc.w    $05F0                    ; 0089B08A: dc.w $05F0
-        dc.w    $F204                    ; 0089B08C: dc.w $F204
-        dc.w    $1801                    ; 0089B08E: dc.w $1801
-        dc.w    $517A                    ; 0089B090: dc.w $517A
-        dc.w    $5F88                    ; 0089B092: dc.w $5F88
-        dc.w    $0419                    ; 0089B094: dc.w $0419
-        dc.w    $0239                    ; 0089B096: dc.w $0239
+        sub.w   d0,d0                                   ; 0089B07E: $9040
+        roxr.b  #8,d6                                   ; 0089B080: $E016
+        addi.b  #$007D,d4                               ; 0089B082: $0604, $C27D
+        moveq   #$F8,d4                                 ; 0089B086: $78F8
+        move.b  d0,-(a3)                                ; 0089B088: $1700
+        bset    d2,$04(a0,a7.w)                         ; 0089B08A: $05F0, $F204
+        move.b  d1,d4                                   ; 0089B08E: $1801
+        subq.w  #8,$5F88(pc)                            ; 0089B090: $517A, $5F88
+        subi.b  #$0039,(a1)+                            ; 0089B094: $0419, $0239
         dc.w    $F8F2                    ; 0089B098: dc.w $F8F2
-        dc.w    $0420                    ; 0089B09A: dc.w $0420
-        dc.w    $0888                    ; 0089B09C: dc.w $0888
+        subi.b  #$0088,-(a0)                            ; 0089B09A: $0420, $0888
         dc.w    $F8F1                    ; 0089B09E: dc.w $F8F1
-        dc.w    $B870                    ; 0089B0A0: dc.w $B870
-        dc.w    $F822                    ; 0089B0A2: dc.w $F822
-        dc.w    $0541                    ; 0089B0A4: dc.w $0541
-        dc.w    $C8F1                    ; 0089B0A6: dc.w $C8F1
-        dc.w    $C025                    ; 0089B0A8: dc.w $C025
-        dc.w    $0572                    ; 0089B0AA: dc.w $0572
-        dc.w    $E108                    ; 0089B0AC: dc.w $E108
-        dc.w    $00F9                    ; 0089B0AE: dc.w $00F9
-        dc.w    $D026                    ; 0089B0B0: dc.w $D026
-        dc.w    $0091                    ; 0089B0B2: dc.w $0091
-        dc.w    $5847                    ; 0089B0B4: dc.w $5847
-        dc.w    $38F0                    ; 0089B0B6: dc.w $38F0
-        dc.w    $2801                    ; 0089B0B8: dc.w $2801
-        dc.w    $6510                    ; 0089B0BA: BCS.S $0089B0CC
-        dc.w    $E030                    ; 0089B0BC: dc.w $E030
-        dc.w    $0706                    ; 0089B0BE: dc.w $0706
-        dc.w    $0DBE                    ; 0089B0C0: dc.w $0DBE
-        dc.w    $5804                    ; 0089B0C2: dc.w $5804
+        cmp.w   $22(a0,a7.l),d4                         ; 0089B0A0: $B870, $F822
+        subi.w  #$C8F1,d1                               ; 0089B0A4: $0541, $C8F1
+        and.b   -(a5),d0                                ; 0089B0A8: $C025
+        subi.w  #$E108,$-7(a2,d0.w)                     ; 0089B0AA: $0572, $E108, $00F9
+        add.b   -(a6),d0                                ; 0089B0B0: $D026
+        ori.l   #$584738F0,(a1)                         ; 0089B0B2: $0091, $5847, $38F0
+        move.l  d1,d4                                   ; 0089B0B8: $2801
+        bcs.s   $0089B0CC                               ; 0089B0BA: $6510
+        roxr.b  d0,d0                                   ; 0089B0BC: $E030
+        addi.b  #$00BE,d6                               ; 0089B0BE: $0706, $0DBE
+        addq.b  #4,d4                                   ; 0089B0C2: $5804
         dc.w    $31BE                    ; 0089B0C4: dc.w $31BE
-        dc.w    $B8F2                    ; 0089B0C6: dc.w $B8F2
-        dc.w    $0432                    ; 0089B0C8: dc.w $0432
-        dc.w    $0755                    ; 0089B0CA: dc.w $0755
-        dc.w    $47B8                    ; 0089B0CC: dc.w $47B8
-        dc.w    $E0F3                    ; 0089B0CE: dc.w $E0F3
-        dc.w    $0904                    ; 0089B0D0: dc.w $0904
-        dc.w    $27C0                    ; 0089B0D2: dc.w $27C0
-        dc.w    $5010                    ; 0089B0D4: dc.w $5010
-        dc.w    $0021                    ; 0089B0D6: dc.w $0021
-        dc.w    $2718                    ; 0089B0D8: dc.w $2718
+        cmpa.w  $32(a2,d0.w),a4                         ; 0089B0C6: $B8F2, $0432
+        addi.w  #$47B8,(a5)                             ; 0089B0CA: $0755, $47B8
+        asr     $04(a3,d0.l)                            ; 0089B0CE: $E0F3, $0904
+        move.l  d0,$10(pc,d5.w)                         ; 0089B0D2: $27C0, $5010
+        ori.b   #$0018,-(a1)                            ; 0089B0D6: $0021, $2718
         dc.w    $E8F3                    ; 0089B0DA: dc.w $E8F3
-        dc.w    $1205                    ; 0089B0DC: dc.w $1205
-        dc.w    $57B8                    ; 0089B0DE: dc.w $57B8
-        dc.w    $F809                    ; 0089B0E0: dc.w $F809
+        move.b  d5,d1                                   ; 0089B0DC: $1205
+        subq.l  #3,($F809).w                            ; 0089B0DE: $57B8, $F809
         dc.w    $02E1                    ; 0089B0E2: dc.w $02E1
-        dc.w    $1ED0                    ; 0089B0E4: dc.w $1ED0
+        move.b  (a0),(a7)+                              ; 0089B0E4: $1ED0
         dc.w    $F013                    ; 0089B0E6: dc.w $F013
-        dc.w    $0300                    ; 0089B0E8: dc.w $0300
-        dc.w    $A0F3                    ; 0089B0EA: dc.w $A0F3
-        dc.w    $1400                    ; 0089B0EC: dc.w $1400
-        dc.w    $8971                    ; 0089B0EE: dc.w $8971
-        dc.w    $0480                    ; 0089B0F0: dc.w $0480
+        andi.b  #$00F3,d0                               ; 0089B0E8: $0300, $A0F3
+        move.b  d0,d2                                   ; 0089B0EC: $1400
+        or.w    d4,$-80(a1,d0.w)                        ; 0089B0EE: $8971, $0480
         dc.w    $F802                    ; 0089B0F2: dc.w $F802
-        dc.w    $8680                    ; 0089B0F4: dc.w $8680
+        or.l    d0,d3                                   ; 0089B0F4: $8680
         dc.w    $F844                    ; 0089B0F6: dc.w $F844
         dc.w    $4760                    ; 0089B0F8: dc.w $4760
         dc.w    $4808                    ; 0089B0FA: dc.w $4808
         dc.w    $F100                    ; 0089B0FC: dc.w $F100
-        dc.w    $6448                    ; 0089B0FE: BCC.S $0089B148
-        dc.w    $383A                    ; 0089B100: dc.w $383A
-        dc.w    $F817                    ; 0089B102: dc.w $F817
-        dc.w    $0105                    ; 0089B104: dc.w $0105
-        dc.w    $3000                    ; 0089B106: dc.w $3000
+        bcc.s   $0089B148                               ; 0089B0FE: $6448
+        move.w  $-7E9(pc),d4                            ; 0089B100: $383A, $F817
+        ori.b   #$0000,d5                               ; 0089B104: $0105, $3000
         dc.w    $F105                    ; 0089B108: dc.w $F105
         dc.w    $51C2                    ; 0089B10A: dc.w $51C2
-        dc.w    $1180                    ; 0089B10C: dc.w $1180
-        dc.w    $F819                    ; 0089B10E: dc.w $F819
-        dc.w    $0739                    ; 0089B110: dc.w $0739
-        dc.w    $808E                    ; 0089B112: dc.w $808E
-        dc.w    $0FF8                    ; 0089B114: dc.w $0FF8
-        dc.w    $2007                    ; 0089B116: dc.w $2007
-        dc.w    $9730                    ; 0089B118: dc.w $9730
-        dc.w    $0003                    ; 0089B11A: dc.w $0003
-        dc.w    $2206                    ; 0089B11C: dc.w $2206
-        dc.w    $9EA2                    ; 0089B11E: dc.w $9EA2
+        move.b  d0,$19(a0,a7.l)                         ; 0089B10C: $1180, $F819
+        addi.b  #$008E,($0FF82007).l                    ; 0089B110: $0739, $808E, $0FF8, $2007
+        sub.b   d3,$03(a0,d0.w)                         ; 0089B118: $9730, $0003
+        move.l  d6,d1                                   ; 0089B11C: $2206
+        sub.l   -(a2),d7                                ; 0089B11E: $9EA2
         dc.w    $F1B8                    ; 0089B120: dc.w $F1B8
-        dc.w    $EA25                    ; 0089B122: dc.w $EA25
-        dc.w    $0999                    ; 0089B124: dc.w $0999
-        dc.w    $3003                    ; 0089B126: dc.w $3003
-        dc.w    $6017                    ; 0089B128: BRA.S $0089B141
-        dc.w    $2E50                    ; 0089B12A: dc.w $2E50
+        asr.b   d5,d5                                   ; 0089B122: $EA25
+        bclr    d4,(a1)+                                ; 0089B124: $0999
+        move.w  d3,d0                                   ; 0089B126: $3003
+        bra.s   $0089B141                               ; 0089B128: $6017
+        movea.l (a0),a7                                 ; 0089B12A: $2E50
         dc.w    $F328                    ; 0089B12C: dc.w $F328
-        dc.w    $0865                    ; 0089B12E: dc.w $0865
-        dc.w    $F0F1                    ; 0089B130: dc.w $F0F1
-        dc.w    $E030                    ; 0089B132: dc.w $E030
-        dc.w    $0006                    ; 0089B134: dc.w $0006
-        dc.w    $E0F1                    ; 0089B136: dc.w $E0F1
+        bchg    #$F0F1,-(a5)                            ; 0089B12E: $0865, $F0F1
+        roxr.b  d0,d0                                   ; 0089B132: $E030
+        ori.b   #$00F1,d6                               ; 0089B134: $0006, $E0F1
         dc.w    $5C7D                    ; 0089B138: dc.w $5C7D
         dc.w    $F831                    ; 0089B13A: dc.w $F831
-        dc.w    $0118                    ; 0089B13C: dc.w $0118
-        dc.w    $D0F2                    ; 0089B13E: dc.w $D0F2
+        ori.b   #$00F2,(a0)+                            ; 0089B13C: $0118, $D0F2
         dc.w    $A0F1                    ; 0089B140: dc.w $A0F1
         dc.w    $E8F3                    ; 0089B142: dc.w $E8F3
-        dc.w    $0504                    ; 0089B144: dc.w $0504
-        dc.w    $0909                    ; 0089B146: dc.w $0909
-        dc.w    $1A08                    ; 0089B148: dc.w $1A08
-        dc.w    $7005                    ; 0089B14A: MOVEQ #$05,D0
-        dc.w    $0560                    ; 0089B14C: dc.w $0560
-        dc.w    $D082                    ; 0089B14E: dc.w $D082
-        dc.w    $B0F8                    ; 0089B150: dc.w $B0F8
-        dc.w    $0460                    ; 0089B152: dc.w $0460
+        subi.b  #$0009,d4                               ; 0089B144: $0504, $0909
+        move.b  a0,d5                                   ; 0089B148: $1A08
+        moveq   #$05,d0                                 ; 0089B14A: $7005
+        subi.w  #$D082,-(a0)                            ; 0089B14C: $0560, $D082
+        cmpa.w  ($0460).w,a0                            ; 0089B150: $B0F8, $0460
         dc.w    $C8F1                    ; 0089B154: dc.w $C8F1
         dc.w    $F808                    ; 0089B156: dc.w $F808
-        dc.w    $922F                    ; 0089B158: dc.w $922F
-        dc.w    $2CE0                    ; 0089B15A: dc.w $2CE0
+        sub.b   $2CE0(a7),d1                            ; 0089B158: $922F, $2CE0
         dc.w    $F205                    ; 0089B15C: dc.w $F205
-        dc.w    $0705                    ; 0089B15E: dc.w $0705
-        dc.w    $5038                    ; 0089B160: dc.w $5038
+        addi.b  #$0038,d5                               ; 0089B15E: $0705, $5038
         dc.w    $F2F8                    ; 0089B162: dc.w $F2F8
-        dc.w    $0989                    ; 0089B164: dc.w $0989
+        bclr    d4,a1                                   ; 0089B164: $0989
         dc.w    $A0F2                    ; 0089B166: dc.w $A0F2
-        dc.w    $2438                    ; 0089B168: dc.w $2438
-        dc.w    $E901                    ; 0089B16A: dc.w $E901
-        dc.w    $60F0                    ; 0089B16C: BRA.S $0089B15E
-        dc.w    $0900                    ; 0089B16E: dc.w $0900
+        move.l  ($E901).w,d2                            ; 0089B168: $2438, $E901
+        bra.s   $0089B15E                               ; 0089B16C: $60F0
+        btst    d4,d0                                   ; 0089B16E: $0900
         dc.w    $083D                    ; 0089B170: dc.w $083D
         dc.w    $BD60                    ; 0089B172: dc.w $BD60
-        dc.w    $0511                    ; 0089B174: dc.w $0511
-        dc.w    $0564                    ; 0089B176: dc.w $0564
-        dc.w    $2805                    ; 0089B178: dc.w $2805
-        dc.w    $1200                    ; 0089B17A: dc.w $1200
-        dc.w    $50B0                    ; 0089B17C: dc.w $50B0
-        dc.w    $1BC0                    ; 0089B17E: dc.w $1BC0
+        subi.b  #$0064,(a1)                             ; 0089B174: $0511, $0564
+        move.l  d5,d4                                   ; 0089B178: $2805
+        move.b  d0,d1                                   ; 0089B17A: $1200
+        addq.l  #8,$-40(a0,d1.l)                        ; 0089B17C: $50B0, $1BC0
         dc.w    $F2F8                    ; 0089B180: dc.w $F2F8
-        dc.w    $0651                    ; 0089B182: dc.w $0651
-        dc.w    $28F2                    ; 0089B184: dc.w $28F2
-        dc.w    $0513                    ; 0089B186: dc.w $0513
-        dc.w    $C0F4                    ; 0089B188: dc.w $C0F4
-        dc.w    $0522                    ; 0089B18A: dc.w $0522
-        dc.w    $CC40                    ; 0089B18C: dc.w $CC40
-        dc.w    $8860                    ; 0089B18E: dc.w $8860
-        dc.w    $C816                    ; 0089B190: dc.w $C816
-        dc.w    $0417                    ; 0089B192: dc.w $0417
-        dc.w    $7D60                    ; 0089B194: dc.w $7D60
-        dc.w    $0518                    ; 0089B196: dc.w $0518
-        dc.w    $08C0                    ; 0089B198: dc.w $08C0
+        addi.w  #$28F2,(a1)                             ; 0089B182: $0651, $28F2
+        subi.b  #$00F4,(a3)                             ; 0089B186: $0513, $C0F4
+        subi.b  #$0040,-(a2)                            ; 0089B18A: $0522, $CC40
+        or.w    -(a0),d4                                ; 0089B18E: $8860
+        and.b   (a6),d4                                 ; 0089B190: $C816
+        subi.b  #$0060,(a7)                             ; 0089B192: $0417, $7D60
+        subi.b  #$00C0,(a0)+                            ; 0089B196: $0518, $08C0
         dc.w    $F3F8                    ; 0089B19A: dc.w $F3F8
         dc.w    $C0F3                    ; 0089B19C: dc.w $C0F3
-        dc.w    $0520                    ; 0089B19E: dc.w $0520
-        dc.w    $0365                    ; 0089B1A0: dc.w $0365
-        dc.w    $7A07                    ; 0089B1A2: MOVEQ #$07,D5
-        dc.w    $7005                    ; 0089B1A4: MOVEQ #$05,D0
-        dc.w    $2105                    ; 0089B1A6: dc.w $2105
+        subi.b  #$0065,-(a0)                            ; 0089B19E: $0520, $0365
+        moveq   #$07,d5                                 ; 0089B1A2: $7A07
+        moveq   #$05,d0                                 ; 0089B1A4: $7005
+        move.l  d5,-(a0)                                ; 0089B1A6: $2105
         dc.w    $06D8                    ; 0089B1A8: dc.w $06D8
         dc.w    $F205                    ; 0089B1AA: dc.w $F205
-        dc.w    $241E                    ; 0089B1AC: dc.w $241E
-        dc.w    $E1F4                    ; 0089B1AE: dc.w $E1F4
-        dc.w    $E8F1                    ; 0089B1B0: dc.w $E8F1
-        dc.w    $C025                    ; 0089B1B2: dc.w $C025
-        dc.w    $0055                    ; 0089B1B4: dc.w $0055
-        dc.w    $D004                    ; 0089B1B6: dc.w $D004
-        dc.w    $1100                    ; 0089B1B8: dc.w $1100
-        dc.w    $06A9                    ; 0089B1BA: dc.w $06A9
-        dc.w    $9578                    ; 0089B1BC: dc.w $9578
-        dc.w    $EA04                    ; 0089B1BE: dc.w $EA04
-        dc.w    $A0C0                    ; 0089B1C0: dc.w $A0C0
+        move.l  (a6)+,d2                                ; 0089B1AC: $241E
+        asl     $-F(a4,a6.l)                            ; 0089B1AE: $E1F4, $E8F1
+        and.b   -(a5),d0                                ; 0089B1B2: $C025
+        ori.w   #$D004,(a5)                             ; 0089B1B4: $0055, $D004
+        move.b  d0,-(a0)                                ; 0089B1B8: $1100
+        addi.l  #$9578EA04,$-5F40(a1)                   ; 0089B1BA: $06A9, $9578, $EA04, $A0C0
         dc.w    $F2F8                    ; 0089B1C2: dc.w $F2F8
-        dc.w    $5738                    ; 0089B1C4: dc.w $5738
-        dc.w    $08E0                    ; 0089B1C6: dc.w $08E0
-        dc.w    $E2F8                    ; 0089B1C8: dc.w $E2F8
-        dc.w    $9248                    ; 0089B1CA: dc.w $9248
-        dc.w    $6F20                    ; 0089B1CC: BLE.S $0089B1EE
+        subq.b  #3,($08E0).w                            ; 0089B1C4: $5738, $08E0
+        lsr     ($9248).w                               ; 0089B1C8: $E2F8, $9248
+        ble.s   $0089B1EE                               ; 0089B1CC: $6F20
         dc.w    $F10B                    ; 0089B1CE: dc.w $F10B
         dc.w    $83D8                    ; 0089B1D0: dc.w $83D8
-        dc.w    $5961                    ; 0089B1D2: dc.w $5961
-        dc.w    $78F1                    ; 0089B1D4: MOVEQ #$F1,D4
+        subq.w  #4,-(a1)                                ; 0089B1D2: $5961
+        moveq   #$F1,d4                                 ; 0089B1D4: $78F1
         dc.w    $F889                    ; 0089B1D6: dc.w $F889
         dc.w    $4517                    ; 0089B1D8: dc.w $4517
         dc.w    $59FA                    ; 0089B1DA: dc.w $59FA
-        dc.w    $20F1                    ; 0089B1DC: dc.w $20F1
-        dc.w    $0060                    ; 0089B1DE: dc.w $0060
-        dc.w    $20F2                    ; 0089B1E0: dc.w $20F2
-        dc.w    $6004                    ; 0089B1E2: BRA.S $0089B1E8
-        dc.w    $1600                    ; 0089B1E4: dc.w $1600
-        dc.w    $64F5                    ; 0089B1E6: BCC.S $0089B1DD
-        dc.w    $7E54                    ; 0089B1E8: MOVEQ #$54,D7
+        move.l  $60(a1,d0.w),(a0)+                      ; 0089B1DC: $20F1, $0060
+        move.l  $04(a2,d6.w),(a0)+                      ; 0089B1E0: $20F2, $6004
+        move.b  d0,d3                                   ; 0089B1E4: $1600
+        bcc.s   $0089B1DD                               ; 0089B1E6: $64F5
+        moveq   #$54,d7                                 ; 0089B1E8: $7E54
         dc.w    $52E0                    ; 0089B1EA: dc.w $52E0
-        dc.w    $E920                    ; 0089B1EC: dc.w $E920
+        asl.b   d4,d0                                   ; 0089B1EC: $E920
         dc.w    $F141                    ; 0089B1EE: dc.w $F141
-        dc.w    $5341                    ; 0089B1F0: dc.w $5341
-        dc.w    $20F1                    ; 0089B1F2: dc.w $20F1
-        dc.w    $0051                    ; 0089B1F4: dc.w $0051
-        dc.w    $5441                    ; 0089B1F6: dc.w $5441
+        subq.w  #1,d1                                   ; 0089B1F0: $5341
+        move.l  $51(a1,d0.w),(a0)+                      ; 0089B1F2: $20F1, $0051
+        addq.w  #2,d1                                   ; 0089B1F6: $5441
         dc.w    $4BDF                    ; 0089B1F8: dc.w $4BDF
-        dc.w    $8020                    ; 0089B1FA: dc.w $8020
+        or.b    -(a0),d0                                ; 0089B1FA: $8020
         dc.w    $F100                    ; 0089B1FC: dc.w $F100
-        dc.w    $3950                    ; 0089B1FE: dc.w $3950
-        dc.w    $5550                    ; 0089B200: dc.w $5550
+        move.w  (a0),$5550(a4)                          ; 0089B1FE: $3950, $5550
         dc.w    $F120                    ; 0089B202: dc.w $F120
-        dc.w    $608E                    ; 0089B204: BRA.S $0089B194
+        bra.s   $0089B194                               ; 0089B204: $608E
         dc.w    $CEF0                    ; 0089B206: dc.w $CEF0
-        dc.w    $20F1                    ; 0089B208: dc.w $20F1
-        dc.w    $0041                    ; 0089B20A: dc.w $0041
+        move.l  $41(a1,d0.w),(a0)+                      ; 0089B208: $20F1, $0041
         dc.w    $F020                    ; 0089B20C: dc.w $F020
         dc.w    $F100                    ; 0089B20E: dc.w $F100
-        dc.w    $72F2                    ; 0089B210: MOVEQ #$F2,D1
-        dc.w    $D1C8                    ; 0089B212: dc.w $D1C8
+        moveq   #$F2,d1                                 ; 0089B210: $72F2
+        adda.l  a0,a0                                   ; 0089B212: $D1C8
         dc.w    $C0F1                    ; 0089B214: dc.w $C0F1
-        dc.w    $B028                    ; 0089B216: dc.w $B028
-        dc.w    $0065                    ; 0089B218: dc.w $0065
-        dc.w    $B020                    ; 0089B21A: dc.w $B020
+        cmp.b   $0065(a0),d0                            ; 0089B216: $B028, $0065
+        cmp.b   -(a0),d0                                ; 0089B21A: $B020
         dc.w    $F1D1                    ; 0089B21C: dc.w $F1D1
-        dc.w    $5100                    ; 0089B21E: dc.w $5100
-        dc.w    $0698                    ; 0089B220: dc.w $0698
-        dc.w    $20F1                    ; 0089B222: dc.w $20F1
-        dc.w    $0018                    ; 0089B224: dc.w $0018
-        dc.w    $8820                    ; 0089B226: dc.w $8820
+        subq.b  #8,d0                                   ; 0089B21E: $5100
+        addi.l  #$20F10018,(a0)+                        ; 0089B220: $0698, $20F1, $0018
+        or.b    -(a0),d4                                ; 0089B226: $8820
         dc.w    $F1F0                    ; 0089B228: dc.w $F1F0
-        dc.w    $4888                    ; 0089B22A: dc.w $4888
-        dc.w    $88E3                    ; 0089B22C: dc.w $88E3
-        dc.w    $3309                    ; 0089B22E: dc.w $3309
-        dc.w    $0040                    ; 0089B230: dc.w $0040
-        dc.w    $BD13                    ; 0089B232: dc.w $BD13
+        movem.w d0/d1/d5/d6/d7/a3/a7,a0                 ; 0089B22A: $4888, $88E3
+        move.w  a1,-(a1)                                ; 0089B22E: $3309
+        ori.w   #$BD13,d0                               ; 0089B230: $0040, $BD13
         dc.w    $F843                    ; 0089B234: dc.w $F843
-        dc.w    $D0E3                    ; 0089B236: dc.w $D0E3
-        dc.w    $3400                    ; 0089B238: dc.w $3400
-        dc.w    $9650                    ; 0089B23A: dc.w $9650
+        adda.w  -(a3),a0                                ; 0089B236: $D0E3
+        move.w  d0,d2                                   ; 0089B238: $3400
+        sub.w   (a0),d3                                 ; 0089B23A: $9650
         dc.w    $F334                    ; 0089B23C: dc.w $F334
-        dc.w    $0308                    ; 0089B23E: dc.w $0308
-        dc.w    $2C6E                    ; 0089B240: dc.w $2C6E
+        andi.b  #$006E,a0                               ; 0089B23E: $0308, $2C6E
         dc.w    $F835                    ; 0089B242: dc.w $F835
-        dc.w    $01D8                    ; 0089B244: dc.w $01D8
-        dc.w    $E2F8                    ; 0089B246: dc.w $E2F8
-        dc.w    $0693                    ; 0089B248: dc.w $0693
+        bset    d0,(a0)+                                ; 0089B244: $01D8
+        lsr     ($0693).w                               ; 0089B246: $E2F8, $0693
         dc.w    $00F3                    ; 0089B24A: dc.w $00F3
-        dc.w    $36EF                    ; 0089B24C: dc.w $36EF
-        dc.w    $BD28                    ; 0089B24E: dc.w $BD28
+        move.w  $-42D8(a7),(a3)+                        ; 0089B24C: $36EF, $BD28
         dc.w    $F536                    ; 0089B250: dc.w $F536
-        dc.w    $0978                    ; 0089B252: dc.w $0978
-        dc.w    $00EB                    ; 0089B254: dc.w $00EB
-        dc.w    $3706                    ; 0089B256: dc.w $3706
-        dc.w    $8210                    ; 0089B258: dc.w $8210
+        bchg    d4,($00EB).w                            ; 0089B252: $0978, $00EB
+        move.w  d6,-(a3)                                ; 0089B256: $3706
+        or.b    (a0),d1                                 ; 0089B258: $8210
         dc.w    $F338                    ; 0089B25A: dc.w $F338
-        dc.w    $0011                    ; 0089B25C: dc.w $0011
-        dc.w    $70EF                    ; 0089B25E: MOVEQ #$EF,D0
-        dc.w    $D0F1                    ; 0089B260: dc.w $D0F1
-        dc.w    $E839                    ; 0089B262: dc.w $E839
-        dc.w    $0720                    ; 0089B264: dc.w $0720
-        dc.w    $38F3                    ; 0089B266: dc.w $38F3
-        dc.w    $3908                    ; 0089B268: dc.w $3908
+        ori.b   #$00EF,(a1)                             ; 0089B25C: $0011, $70EF
+        adda.w  $39(a1,a6.l),a0                         ; 0089B260: $D0F1, $E839
+        addi.b  #$00F3,-(a0)                            ; 0089B264: $0720, $38F3
+        move.w  a0,-(a4)                                ; 0089B268: $3908
         dc.w    $4818                    ; 0089B26A: dc.w $4818
         dc.w    $F340                    ; 0089B26C: dc.w $F340
         dc.w    $7DC3                    ; 0089B26E: dc.w $7DC3
-        dc.w    $0001                    ; 0089B270: dc.w $0001
-        dc.w    $D8F2                    ; 0089B272: dc.w $D8F2
-        dc.w    $0342                    ; 0089B274: dc.w $0342
-        dc.w    $0551                    ; 0089B276: dc.w $0551
+        ori.b   #$00F2,d1                               ; 0089B270: $0001, $D8F2
+        andi.w  #$0551,d2                               ; 0089B274: $0342, $0551
         dc.w    $58F1                    ; 0089B278: dc.w $58F1
         dc.w    $00F8                    ; 0089B27A: dc.w $00F8
-        dc.w    $09DE                    ; 0089B27C: dc.w $09DE
-        dc.w    $0B99                    ; 0089B27E: dc.w $0B99
-        dc.w    $C0E3                    ; 0089B280: dc.w $C0E3
-        dc.w    $4305                    ; 0089B282: dc.w $4305
-        dc.w    $2350                    ; 0089B284: dc.w $2350
-        dc.w    $E344                    ; 0089B286: dc.w $E344
-        dc.w    $0294                    ; 0089B288: dc.w $0294
-        dc.w    $C8E3                    ; 0089B28A: dc.w $C8E3
-        dc.w    $BD47                    ; 0089B28C: dc.w $BD47
-        dc.w    $D569                    ; 0089B28E: dc.w $D569
-        dc.w    $98E3                    ; 0089B290: dc.w $98E3
-        dc.w    $4604                    ; 0089B292: dc.w $4604
-        dc.w    $38E0                    ; 0089B294: dc.w $38E0
-        dc.w    $E346                    ; 0089B296: dc.w $E346
-        dc.w    $0861                    ; 0089B298: dc.w $0861
-        dc.w    $A81C                    ; 0089B29A: dc.w $A81C
+        bset    d4,(a6)+                                ; 0089B27C: $09DE
+        eori.l  #$C0E34305,(a1)+                        ; 0089B27E: $0B99, $C0E3, $4305
+        move.l  (a0),$-1CBC(a1)                         ; 0089B284: $2350, $E344
+        andi.l  #$C8E3BD47,(a4)                         ; 0089B288: $0294, $C8E3, $BD47
+        add.w   d2,$-671D(a1)                           ; 0089B28E: $D569, $98E3
+        not.b   d4                                      ; 0089B292: $4604
+        move.w  -(a0),(a4)+                             ; 0089B294: $38E0
+        asl.w   #1,d6                                   ; 0089B296: $E346
+        bchg    #$A81C,-(a1)                            ; 0089B298: $0861, $A81C
         dc.w    $7178                    ; 0089B29C: dc.w $7178
-        dc.w    $0699                    ; 0089B29E: dc.w $0699
-        dc.w    $D880                    ; 0089B2A0: dc.w $D880
-        dc.w    $0321                    ; 0089B2A2: dc.w $0321
-        dc.w    $C49D                    ; 0089B2A4: dc.w $C49D
-        dc.w    $E0F8                    ; 0089B2A6: dc.w $E0F8
-        dc.w    $0575                    ; 0089B2A8: dc.w $0575
+        addi.l  #$D8800321,(a1)+                        ; 0089B29E: $0699, $D880, $0321
+        and.l   (a5)+,d2                                ; 0089B2A4: $C49D
+        asr     ($0575).w                               ; 0089B2A6: $E0F8, $0575
         dc.w    $C0E4                    ; 0089B2AA: dc.w $C0E4
-        dc.w    $0981                    ; 0089B2AC: dc.w $0981
-        dc.w    $2F2C                    ; 0089B2AE: dc.w $2F2C
-        dc.w    $5038                    ; 0089B2B0: dc.w $5038
-        dc.w    $0124                    ; 0089B2B2: dc.w $0124
-        dc.w    $10F2                    ; 0089B2B4: dc.w $10F2
-        dc.w    $9005                    ; 0089B2B6: dc.w $9005
+        bclr    d4,d1                                   ; 0089B2AC: $0981
+        move.l  $5038(a4),-(a7)                         ; 0089B2AE: $2F2C, $5038
+        ori.b   #$00F2,-(a4)                            ; 0089B2B2: $0124, $10F2
+        sub.b   d5,d0                                   ; 0089B2B6: $9005
         dc.w    $7950                    ; 0089B2B8: dc.w $7950
         dc.w    $EBE4                    ; 0089B2BA: dc.w $EBE4
-        dc.w    $0B90                    ; 0089B2BC: dc.w $0B90
-        dc.w    $9658                    ; 0089B2BE: dc.w $9658
-        dc.w    $4100                    ; 0089B2C0: dc.w $4100
-        dc.w    $3130                    ; 0089B2C2: dc.w $3130
-        dc.w    $E319                    ; 0089B2C4: dc.w $E319
-        dc.w    $841D                    ; 0089B2C6: dc.w $841D
-        dc.w    $9530                    ; 0089B2C8: dc.w $9530
-        dc.w    $8010                    ; 0089B2CA: dc.w $8010
+        eori.l  #$96584100,(a0)                         ; 0089B2BC: $0B90, $9658, $4100
+        move.w  $19(a0,a6.w),-(a0)                      ; 0089B2C2: $3130, $E319
+        or.b    (a5)+,d2                                ; 0089B2C6: $841D
+        sub.b   d2,$10(a0,a0.w)                         ; 0089B2C8: $9530, $8010
         dc.w    $F388                    ; 0089B2CC: dc.w $F388
-        dc.w    $859E                    ; 0089B2CE: dc.w $859E
-        dc.w    $0724                    ; 0089B2D0: dc.w $0724
-        dc.w    $60E3                    ; 0089B2D2: BRA.S $0089B2B7
-        dc.w    $8D19                    ; 0089B2D4: dc.w $8D19
+        or.l    d2,(a6)+                                ; 0089B2CE: $859E
+        addi.b  #$00E3,-(a4)                            ; 0089B2D0: $0724, $60E3
+        or.b    d6,(a1)+                                ; 0089B2D4: $8D19
         dc.w    $F8DB                    ; 0089B2D6: dc.w $F8DB
-        dc.w    $4605                    ; 0089B2D8: dc.w $4605
-        dc.w    $54A1                    ; 0089B2DA: dc.w $54A1
-        dc.w    $6738                    ; 0089B2DC: BEQ.S $0089B316
-        dc.w    $D500                    ; 0089B2DE: dc.w $D500
-        dc.w    $28EB                    ; 0089B2E0: dc.w $28EB
-        dc.w    $4909                    ; 0089B2E2: dc.w $4909
-        dc.w    $9560                    ; 0089B2E4: dc.w $9560
-        dc.w    $C010                    ; 0089B2E6: dc.w $C010
+        not.b   d5                                      ; 0089B2D8: $4605
+        addq.l  #2,-(a1)                                ; 0089B2DA: $54A1
+        beq.s   $0089B316                               ; 0089B2DC: $6738
+        add.b   d2,d0                                   ; 0089B2DE: $D500
+        move.l  $4909(a3),(a4)+                         ; 0089B2E0: $28EB, $4909
+        sub.w   d2,-(a0)                                ; 0089B2E4: $9560
+        and.b   (a0),d0                                 ; 0089B2E6: $C010
         dc.w    $F858                    ; 0089B2E8: dc.w $F858
         dc.w    $42E8                    ; 0089B2EA: dc.w $42E8
-        dc.w    $5004                    ; 0089B2EC: dc.w $5004
-        dc.w    $01D0                    ; 0089B2EE: dc.w $01D0
-        dc.w    $48E3                    ; 0089B2F0: dc.w $48E3
-        dc.w    $85B8                    ; 0089B2F2: dc.w $85B8
-        dc.w    $DAF8                    ; 0089B2F4: dc.w $DAF8
-        dc.w    $7AFC                    ; 0089B2F6: MOVEQ #$FC,D5
+        addq.b  #8,d4                                   ; 0089B2EC: $5004
+        bset    d0,(a0)                                 ; 0089B2EE: $01D0
+        movem.l a4/a3/a2/a0/d7/d5/d0,-(a3)              ; 0089B2F0: $48E3, $85B8
+        adda.w  ($7AFC).w,a5                            ; 0089B2F4: $DAF8, $7AFC
         dc.w    $F504                    ; 0089B2F8: dc.w $F504
         dc.w    $E8F3                    ; 0089B2FA: dc.w $E8F3
-        dc.w    $5504                    ; 0089B2FC: dc.w $5504
+        subq.b  #2,d4                                   ; 0089B2FC: $5504
         dc.w    $44F0                    ; 0089B2FE: dc.w $44F0
-        dc.w    $0104                    ; 0089B300: dc.w $0104
-        dc.w    $3700                    ; 0089B302: dc.w $3700
-        dc.w    $4217                    ; 0089B304: dc.w $4217
-        dc.w    $95E0                    ; 0089B306: dc.w $95E0
-        dc.w    $EA4A                    ; 0089B308: dc.w $EA4A
-        dc.w    $0220                    ; 0089B30A: dc.w $0220
-        dc.w    $F438                    ; 0089B30C: dc.w $F438
-        dc.w    $0520                    ; 0089B30E: dc.w $0520
-        dc.w    $F2EE                    ; 0089B310: dc.w $F2EE
+        ori.b   #$0000,d4                               ; 0089B300: $0104, $3700
+        clr.b   (a7)                                    ; 0089B304: $4217
+        suba.l  -(a0),a2                                ; 0089B306: $95E0
+        lsr.w   #5,d2                                   ; 0089B308: $EA4A
+        andi.b  #$0038,-(a0)                            ; 0089B30A: $0220, $F438
+        subi.b  #$00EE,-(a0)                            ; 0089B30E: $0520, $F2EE
         dc.w    $85F8                    ; 0089B312: dc.w $85F8
-        dc.w    $3900                    ; 0089B314: dc.w $3900
-        dc.w    $9298                    ; 0089B316: dc.w $9298
-        dc.w    $E339                    ; 0089B318: dc.w $E339
-        dc.w    $0255                    ; 0089B31A: dc.w $0255
-        dc.w    $98E3                    ; 0089B31C: dc.w $98E3
-        dc.w    $6008                    ; 0089B31E: BRA.S $0089B328
-        dc.w    $0B89                    ; 0089B320: dc.w $0B89
-        dc.w    $98F8                    ; 0089B322: dc.w $98F8
-        dc.w    $4104                    ; 0089B324: dc.w $4104
-        dc.w    $20F2                    ; 0089B326: dc.w $20F2
-        dc.w    $E07D                    ; 0089B328: dc.w $E07D
-        dc.w    $E8A5                    ; 0089B32A: dc.w $E8A5
-        dc.w    $20F4                    ; 0089B32C: dc.w $20F4
-        dc.w    $4209                    ; 0089B32E: dc.w $4209
-        dc.w    $64C8                    ; 0089B330: BCC.S $0089B2FA
-        dc.w    $EA04                    ; 0089B332: dc.w $EA04
+        move.w  d0,-(a4)                                ; 0089B314: $3900
+        sub.l   (a0)+,d1                                ; 0089B316: $9298
+        rol.b   d1,d1                                   ; 0089B318: $E339
+        andi.w  #$98E3,(a5)                             ; 0089B31A: $0255, $98E3
+        bra.s   $0089B328                               ; 0089B31E: $6008
+        eori.l  #$98F84104,a1                           ; 0089B320: $0B89, $98F8, $4104
+        move.l  $7D(a2,a6.w),(a0)+                      ; 0089B326: $20F2, $E07D
+        asr.l   d4,d5                                   ; 0089B32A: $E8A5
+        move.l  $09(a4,d4.w),(a0)+                      ; 0089B32C: $20F4, $4209
+        bcc.s   $0089B2FA                               ; 0089B330: $64C8
+        asr.b   #5,d4                                   ; 0089B332: $EA04
         dc.w    $4306                    ; 0089B334: dc.w $4306
-        dc.w    $0561                    ; 0089B336: dc.w $0561
-        dc.w    $61E0                    ; 0089B338: BSR.S $0089B31A
-        dc.w    $D2AA                    ; 0089B33A: dc.w $D2AA
-        dc.w    $0651                    ; 0089B33C: dc.w $0651
-        dc.w    $68F2                    ; 0089B33E: BVC.S $0089B332
+        subi.w  #$61E0,-(a1)                            ; 0089B336: $0561, $61E0
+        add.l   $0651(a2),d1                            ; 0089B33A: $D2AA, $0651
+        bvc.s   $0089B332                               ; 0089B33E: $68F2
         dc.w    $F800                    ; 0089B340: dc.w $F800
-        dc.w    $398F                    ; 0089B342: dc.w $398F
-        dc.w    $30E0                    ; 0089B344: dc.w $30E0
-        dc.w    $DB45                    ; 0089B346: dc.w $DB45
-        dc.w    $0788                    ; 0089B348: dc.w $0788
-        dc.w    $68F8                    ; 0089B34A: BVC.S $0089B344
-        dc.w    $4608                    ; 0089B34C: dc.w $4608
+        move.w  a7,$-20(a4,d3.w)                        ; 0089B342: $398F, $30E0
+        add.w   d5,d5                                   ; 0089B346: $DB45
+        addi.l  #$68F84608,a0                           ; 0089B348: $0788, $68F8, $4608
         dc.w    $F8BE                    ; 0089B34E: dc.w $F8BE
         dc.w    $F238                    ; 0089B350: dc.w $F238
-        dc.w    $E904                    ; 0089B352: dc.w $E904
+        asl.b   #4,d4                                   ; 0089B352: $E904
         dc.w    $4700                    ; 0089B354: dc.w $4700
         dc.w    $02F8                    ; 0089B356: dc.w $02F8
         dc.w    $F204                    ; 0089B358: dc.w $F204
         dc.w    $4807                    ; 0089B35A: dc.w $4807
-        dc.w    $9700                    ; 0089B35C: dc.w $9700
-        dc.w    $BE10                    ; 0089B35E: dc.w $BE10
+        sub.b   d3,d0                                   ; 0089B35C: $9700
+        cmp.b   (a0),d7                                 ; 0089B35E: $BE10
         dc.w    $EAF8                    ; 0089B360: dc.w $EAF8
         dc.w    $50C0                    ; 0089B362: dc.w $50C0
         dc.w    $F204                    ; 0089B364: dc.w $F204
-        dc.w    $5100                    ; 0089B366: dc.w $5100
-        dc.w    $0628                    ; 0089B368: dc.w $0628
-        dc.w    $06D8                    ; 0089B36A: dc.w $06D8
-        dc.w    $E2F8                    ; 0089B36C: dc.w $E2F8
+        subq.b  #8,d0                                   ; 0089B366: $5100
+        addi.b  #$00D8,$-1D08(a0)                       ; 0089B368: $0628, $06D8, $E2F8
         dc.w    $80E9                    ; 0089B36E: dc.w $80E9
-        dc.w    $D852                    ; 0089B370: dc.w $D852
-        dc.w    $8883                    ; 0089B372: dc.w $8883
+        add.w   (a2),d4                                 ; 0089B370: $D852
+        or.l    d3,d4                                   ; 0089B372: $8883
         dc.w    $A0B8                    ; 0089B374: dc.w $A0B8
-        dc.w    $E332                    ; 0089B376: dc.w $E332
-        dc.w    $E048                    ; 0089B378: dc.w $E048
-        dc.w    $DBF8                    ; 0089B37A: dc.w $DBF8
-        dc.w    $C8D2                    ; 0089B37C: dc.w $C8D2
-        dc.w    $1D78                    ; 0089B37E: dc.w $1D78
-        dc.w    $20F1                    ; 0089B380: dc.w $20F1
-        dc.w    $0380                    ; 0089B382: dc.w $0380
-        dc.w    $EB03                    ; 0089B384: dc.w $EB03
-        dc.w    $3560                    ; 0089B386: dc.w $3560
-        dc.w    $1836                    ; 0089B388: dc.w $1836
+        roxl.b  d1,d2                                   ; 0089B376: $E332
+        lsr.w   #8,d0                                   ; 0089B378: $E048
+        adda.l  ($C8D2).w,a5                            ; 0089B37A: $DBF8, $C8D2
+        move.b  ($20F1).w,$0380(a6)                     ; 0089B37E: $1D78, $20F1, $0380
+        asl.b   #5,d3                                   ; 0089B384: $EB03
+        move.w  -(a0),$1836(a2)                         ; 0089B386: $3560, $1836
         dc.w    $067E                    ; 0089B38A: dc.w $067E
-        dc.w    $8F60                    ; 0089B38C: dc.w $8F60
-        dc.w    $0337                    ; 0089B38E: dc.w $0337
-        dc.w    $0789                    ; 0089B390: dc.w $0789
-        dc.w    $F0F3                    ; 0089B392: dc.w $F0F3
-        dc.w    $3903                    ; 0089B394: dc.w $3903
-        dc.w    $860A                    ; 0089B396: dc.w $860A
-        dc.w    $9070                    ; 0089B398: dc.w $9070
-        dc.w    $48F2                    ; 0089B39A: dc.w $48F2
-        dc.w    $28E2                    ; 0089B39C: dc.w $28E2
-        dc.w    $E0F8                    ; 0089B39E: dc.w $E0F8
-        dc.w    $642F                    ; 0089B3A0: BCC.S $0089B3D1
-        dc.w    $1810                    ; 0089B3A2: dc.w $1810
+        or.w    d7,-(a0)                                ; 0089B38C: $8F60
+        andi.b  #$0089,$-D(a7,a7.w)                     ; 0089B38E: $0337, $0789, $F0F3
+        move.w  d3,-(a4)                                ; 0089B394: $3903
+        or.b    a2,d3                                   ; 0089B396: $860A
+        sub.w   $-E(a0,d4.l),d0                         ; 0089B398: $9070, $48F2
+        move.l  -(a2),(a4)+                             ; 0089B39C: $28E2
+        asr     ($642F).w                               ; 0089B39E: $E0F8, $642F
+        move.b  (a0),d4                                 ; 0089B3A2: $1810
         dc.w    $4003                    ; 0089B3A4: dc.w $4003
-        dc.w    $05E8                    ; 0089B3A6: dc.w $05E8
-        dc.w    $FC60                    ; 0089B3A8: dc.w $FC60
+        bset    d2,$-3A0(a0)                            ; 0089B3A6: $05E8, $FC60
         dc.w    $E8D3                    ; 0089B3AA: dc.w $E8D3
         dc.w    $41B4                    ; 0089B3AC: dc.w $41B4
         dc.w    $F760                    ; 0089B3AE: dc.w $F760
         dc.w    $C8DA                    ; 0089B3B0: dc.w $C8DA
         dc.w    $A0F1                    ; 0089B3B2: dc.w $A0F1
-        dc.w    $8820                    ; 0089B3B4: dc.w $8820
-        dc.w    $DB43                    ; 0089B3B6: dc.w $DB43
-        dc.w    $0741                    ; 0089B3B8: dc.w $0741
-        dc.w    $58D3                    ; 0089B3BA: dc.w $58D3
-        dc.w    $4401                    ; 0089B3BC: dc.w $4401
-        dc.w    $DE7B                    ; 0089B3BE: dc.w $DE7B
-        dc.w    $7258                    ; 0089B3C0: MOVEQ #$58,D1
+        or.b    -(a0),d4                                ; 0089B3B4: $8820
+        add.w   d5,d3                                   ; 0089B3B6: $DB43
+        addi.w  #$58D3,d1                               ; 0089B3B8: $0741, $58D3
+        neg.b   d1                                      ; 0089B3BC: $4401
+        add.w   $58(pc,d7.w),d7                         ; 0089B3BE: $DE7B, $7258
         dc.w    $F346                    ; 0089B3C2: dc.w $F346
-        dc.w    $0001                    ; 0089B3C4: dc.w $0001
-        dc.w    $28F3                    ; 0089B3C6: dc.w $28F3
+        ori.b   #$00F3,d1                               ; 0089B3C4: $0001, $28F3
         dc.w    $4706                    ; 0089B3C8: dc.w $4706
-        dc.w    $6080                    ; 0089B3CA: BRA.S $0089B34C
-        dc.w    $EA03                    ; 0089B3CC: dc.w $EA03
+        bra.s   $0089B34C                               ; 0089B3CA: $6080
+        asr.b   #5,d3                                   ; 0089B3CC: $EA03
         dc.w    $4800                    ; 0089B3CE: dc.w $4800
-        dc.w    $E1DE                    ; 0089B3D0: dc.w $E1DE
-        dc.w    $38F2                    ; 0089B3D2: dc.w $38F2
-        dc.w    $F849                    ; 0089B3D4: dc.w $F849
-        dc.w    $0010                    ; 0089B3D6: dc.w $0010
-        dc.w    $F8CB                    ; 0089B3D8: dc.w $F8CB
+        asl     (a6)+                                   ; 0089B3D0: $E1DE
+        move.w  $49(a2,a7.l),(a4)+                      ; 0089B3D2: $38F2, $F849
+        ori.b   #$00CB,(a0)                             ; 0089B3D6: $0010, $F8CB
         dc.w    $4907                    ; 0089B3DA: dc.w $4907
-        dc.w    $5530                    ; 0089B3DC: dc.w $5530
-        dc.w    $DAA7                    ; 0089B3DE: dc.w $DAA7
+        subq.b  #2,$-59(a0,a5.l)                        ; 0089B3DC: $5530, $DAA7
         dc.w    $F705                    ; 0089B3E0: dc.w $F705
-        dc.w    $3401                    ; 0089B3E2: dc.w $3401
-        dc.w    $2588                    ; 0089B3E4: dc.w $2588
-        dc.w    $0536                    ; 0089B3E6: dc.w $0536
-        dc.w    $0472                    ; 0089B3E8: dc.w $0472
-        dc.w    $78E3                    ; 0089B3EA: MOVEQ #$E3,D4
-        dc.w    $3706                    ; 0089B3EC: dc.w $3706
-        dc.w    $3478                    ; 0089B3EE: dc.w $3478
-        dc.w    $37E0                    ; 0089B3F0: dc.w $37E0
-        dc.w    $0538                    ; 0089B3F2: dc.w $0538
-        dc.w    $18B0                    ; 0089B3F4: dc.w $18B0
-        dc.w    $E338                    ; 0089B3F6: dc.w $E338
-        dc.w    $0505                    ; 0089B3F8: dc.w $0505
-        dc.w    $BF0B                    ; 0089B3FA: dc.w $BF0B
+        move.w  d1,d2                                   ; 0089B3E2: $3401
+        move.l  a0,$36(a2,d0.w)                         ; 0089B3E4: $2588, $0536
+        subi.w  #$78E3,$06(a2,d3.w)                     ; 0089B3E8: $0472, $78E3, $3706
+        movea.w ($37E0).w,a2                            ; 0089B3EE: $3478, $37E0
+        subi.b  #$00B0,($E338).w                        ; 0089B3F2: $0538, $18B0, $E338
+        subi.b  #$000B,d5                               ; 0089B3F8: $0505, $BF0B
         dc.w    $F8F1                    ; 0089B3FC: dc.w $F8F1
-        dc.w    $0005                    ; 0089B3FE: dc.w $0005
-        dc.w    $3909                    ; 0089B400: dc.w $3909
+        ori.b   #$0009,d5                               ; 0089B3FE: $0005, $3909
         dc.w    $80C0                    ; 0089B402: dc.w $80C0
         dc.w    $F205                    ; 0089B404: dc.w $F205
         dc.w    $41A0                    ; 0089B406: dc.w $41A0
-        dc.w    $DC20                    ; 0089B408: dc.w $DC20
+        add.b   -(a0),d6                                ; 0089B408: $DC20
         dc.w    $A4F8                    ; 0089B40A: dc.w $A4F8
-        dc.w    $5600                    ; 0089B40C: dc.w $5600
-        dc.w    $E388                    ; 0089B40E: dc.w $E388
-        dc.w    $6760                    ; 0089B410: BEQ.S $0089B472
-        dc.w    $C137                    ; 0089B412: dc.w $C137
-        dc.w    $0544                    ; 0089B414: dc.w $0544
-        dc.w    $DD00                    ; 0089B416: dc.w $DD00
+        addq.b  #3,d0                                   ; 0089B40C: $5600
+        lsl.l   #1,d0                                   ; 0089B40E: $E388
+        beq.s   $0089B472                               ; 0089B410: $6760
+        and.b   d0,$44(a7,d0.w)                         ; 0089B412: $C137, $0544
+        add.b   d6,d0                                   ; 0089B416: $DD00
         dc.w    $FA05                    ; 0089B418: dc.w $FA05
         dc.w    $4508                    ; 0089B41A: dc.w $4508
-        dc.w    $1920                    ; 0089B41C: dc.w $1920
+        move.b  -(a0),-(a4)                             ; 0089B41C: $1920
         dc.w    $F205                    ; 0089B41E: dc.w $F205
         dc.w    $F485                    ; 0089B420: dc.w $F485
-        dc.w    $CD09                    ; 0089B422: dc.w $CD09
-        dc.w    $B8F2                    ; 0089B424: dc.w $B8F2
-        dc.w    $0548                    ; 0089B426: dc.w $0548
-        dc.w    $0585                    ; 0089B428: dc.w $0585
-        dc.w    $38E3                    ; 0089B42A: dc.w $38E3
-        dc.w    $8806                    ; 0089B42C: dc.w $8806
+        and.b   d6,a1                                   ; 0089B422: $CD09
+        cmpa.w  $48(a2,d0.w),a4                         ; 0089B424: $B8F2, $0548
+        subi.l  #$38E38806,d5                           ; 0089B428: $0585, $38E3, $8806
         dc.w    $F700                    ; 0089B42E: dc.w $F700
-        dc.w    $E0DB                    ; 0089B430: dc.w $E0DB
+        asr     (a3)+                                   ; 0089B430: $E0DB
         dc.w    $4998                    ; 0089B432: dc.w $4998
-        dc.w    $E0DB                    ; 0089B434: dc.w $E0DB
-        dc.w    $5008                    ; 0089B436: dc.w $5008
+        asr     (a3)+                                   ; 0089B434: $E0DB
+        addq.b  #8,a0                                   ; 0089B436: $5008
         dc.w    $A0CB                    ; 0089B438: dc.w $A0CB
-        dc.w    $0552                    ; 0089B43A: dc.w $0552
-        dc.w    $05E8                    ; 0089B43C: dc.w $05E8
-        dc.w    $0524                    ; 0089B43E: dc.w $0524
-        dc.w    $F8F1                    ; 0089B440: dc.w $F8F1
-        dc.w    $E0C5                    ; 0089B442: dc.w $E0C5
-        dc.w    $06B8                    ; 0089B444: dc.w $06B8
-        dc.w    $DB56                    ; 0089B446: dc.w $DB56
-        dc.w    $7D25                    ; 0089B448: dc.w $7D25
-        dc.w    $0361                    ; 0089B44A: dc.w $0361
+        subi.w  #$05E8,(a2)                             ; 0089B43A: $0552, $05E8
+        subi.b  #$00F1,-(a4)                            ; 0089B43E: $0524, $F8F1
+        asr     d5                                      ; 0089B442: $E0C5
+        addi.l  #$DB567D25,($0361).w                    ; 0089B444: $06B8, $DB56, $7D25, $0361
         dc.w    $40F2                    ; 0089B44C: dc.w $40F2
-        dc.w    $0557                    ; 0089B44E: dc.w $0557
-        dc.w    $0095                    ; 0089B450: dc.w $0095
-        dc.w    $60D4                    ; 0089B452: BRA.S $0089B428
+        subi.w  #$0095,(a7)                             ; 0089B44E: $0557, $0095
+        bra.s   $0089B428                               ; 0089B452: $60D4
         dc.w    $40E0                    ; 0089B454: dc.w $40E0
-        dc.w    $24F8                    ; 0089B456: dc.w $24F8
-        dc.w    $0B82                    ; 0089B458: dc.w $0B82
+        move.l  ($0B82).w,(a2)+                         ; 0089B456: $24F8, $0B82
         dc.w    $40E0                    ; 0089B45A: dc.w $40E0
-        dc.w    $1300                    ; 0089B45C: dc.w $1300
+        move.b  d0,-(a1)                                ; 0089B45C: $1300
         dc.w    $40E0                    ; 0089B45E: dc.w $40E0
         dc.w    $0EF0                    ; 0089B460: dc.w $0EF0
         dc.w    $40E0                    ; 0089B462: dc.w $40E0
-        dc.w    $15C8                    ; 0089B464: dc.w $15C8
-        dc.w    $A0EF                    ; 0089B466: dc.w $A0EF
+        move.b  a0,$-5F11(pc)                           ; 0089B464: $15C8, $A0EF
         dc.w    $40E0                    ; 0089B468: dc.w $40E0
-        dc.w    $0DF8                    ; 0089B46A: dc.w $0DF8
-        dc.w    $40E0                    ; 0089B46C: dc.w $40E0
-        dc.w    $2288                    ; 0089B46E: dc.w $2288
-        dc.w    $EA03                    ; 0089B470: dc.w $EA03
-        dc.w    $0309                    ; 0089B472: dc.w $0309
-        dc.w    $53E0                    ; 0089B474: dc.w $53E0
-        dc.w    $E305                    ; 0089B476: dc.w $E305
+        bset    d6,($40E0).w                            ; 0089B46A: $0DF8, $40E0
+        move.l  a0,(a1)                                 ; 0089B46E: $2288
+        asr.b   #5,d3                                   ; 0089B470: $EA03
+        andi.b  #$00E0,a1                               ; 0089B472: $0309, $53E0
+        asl.b   #1,d5                                   ; 0089B476: $E305
         dc.w    $BD8F                    ; 0089B478: dc.w $BD8F
-        dc.w    $0703                    ; 0089B47A: dc.w $0703
-        dc.w    $58D3                    ; 0089B47C: dc.w $58D3
-        dc.w    $0504                    ; 0089B47E: dc.w $0504
-        dc.w    $9168                    ; 0089B480: dc.w $9168
-        dc.w    $EA03                    ; 0089B482: dc.w $EA03
-        dc.w    $0600                    ; 0089B484: dc.w $0600
-        dc.w    $8110                    ; 0089B486: dc.w $8110
+        addi.b  #$00D3,d3                               ; 0089B47A: $0703, $58D3
+        subi.b  #$0068,d4                               ; 0089B47E: $0504, $9168
+        asr.b   #5,d3                                   ; 0089B482: $EA03
+        addi.b  #$0010,d0                               ; 0089B484: $0600, $8110
         dc.w    $AC50                    ; 0089B488: dc.w $AC50
         dc.w    $F808                    ; 0089B48A: dc.w $F808
-        dc.w    $76E0                    ; 0089B48C: MOVEQ #$E0,D3
-        dc.w    $E310                    ; 0089B48E: dc.w $E310
+        moveq   #$E0,d3                                 ; 0089B48C: $76E0
+        roxl.b  #1,d0                                   ; 0089B48E: $E310
         dc.w    $85F1                    ; 0089B490: dc.w $85F1
-        dc.w    $B0F7                    ; 0089B492: dc.w $B0F7
-        dc.w    $A8C9                    ; 0089B494: dc.w $A8C9
+        cmpa.w  $-37(a7,a2.l),a0                        ; 0089B492: $B0F7, $A8C9
         dc.w    $F802                    ; 0089B496: dc.w $F802
-        dc.w    $2008                    ; 0089B498: dc.w $2008
+        move.l  a0,d0                                   ; 0089B498: $2008
         dc.w    $F311                    ; 0089B49A: dc.w $F311
-        dc.w    $0668                    ; 0089B49C: dc.w $0668
-        dc.w    $80C3                    ; 0089B49E: dc.w $80C3
-        dc.w    $1405                    ; 0089B4A0: dc.w $1405
-        dc.w    $DE0B                    ; 0089B4A2: dc.w $DE0B
-        dc.w    $5260                    ; 0089B4A4: dc.w $5260
+        addi.w  #$80C3,$1405(a0)                        ; 0089B49C: $0668, $80C3, $1405
+        add.b   a3,d7                                   ; 0089B4A2: $DE0B
+        addq.w  #1,-(a0)                                ; 0089B4A4: $5260
         dc.w    $F315                    ; 0089B4A6: dc.w $F315
-        dc.w    $0381                    ; 0089B4A8: dc.w $0381
-        dc.w    $E0EB                    ; 0089B4AA: dc.w $E0EB
-        dc.w    $1707                    ; 0089B4AC: dc.w $1707
+        andi.l  #$E0EB1707,d1                           ; 0089B4A8: $0381, $E0EB, $1707
         dc.w    $7740                    ; 0089B4AE: dc.w $7740
-        dc.w    $E385                    ; 0089B4B0: dc.w $E385
-        dc.w    $BE58                    ; 0089B4B2: dc.w $BE58
-        dc.w    $03E8                    ; 0089B4B4: dc.w $03E8
-        dc.w    $E358                    ; 0089B4B6: dc.w $E358
-        dc.w    $13C8                    ; 0089B4B8: dc.w $13C8
-        dc.w    $D203                    ; 0089B4BA: dc.w $D203
-        dc.w    $2202                    ; 0089B4BC: dc.w $2202
-        dc.w    $7270                    ; 0089B4BE: MOVEQ #$70,D1
+        asl.l   #1,d5                                   ; 0089B4B0: $E385
+        cmp.w   (a0)+,d7                                ; 0089B4B2: $BE58
+        bset    d1,$-1CA8(a0)                           ; 0089B4B4: $03E8, $E358
+        move.b  a0,($D2032202).l                        ; 0089B4B8: $13C8, $D203, $2202
+        moveq   #$70,d1                                 ; 0089B4BE: $7270
         dc.w    $4350                    ; 0089B4C0: dc.w $4350
         dc.w    $F1EB                    ; 0089B4C2: dc.w $F1EB
-        dc.w    $2301                    ; 0089B4C4: dc.w $2301
-        dc.w    $6128                    ; 0089B4C6: BSR.S $0089B4F0
-        dc.w    $EA03                    ; 0089B4C8: dc.w $EA03
-        dc.w    $5823                    ; 0089B4CA: dc.w $5823
+        move.l  d1,-(a1)                                ; 0089B4C4: $2301
+        bsr.s   $0089B4F0                               ; 0089B4C6: $6128
+        asr.b   #5,d3                                   ; 0089B4C8: $EA03
+        addq.b  #4,-(a3)                                ; 0089B4CA: $5823
         dc.w    $D7BD                    ; 0089B4CC: dc.w $D7BD
         dc.w    $40D3                    ; 0089B4CE: dc.w $40D3
-        dc.w    $2605                    ; 0089B4D0: dc.w $2605
+        move.l  d5,d3                                   ; 0089B4D0: $2605
         dc.w    $C0DA                    ; 0089B4D2: dc.w $C0DA
-        dc.w    $68C1                    ; 0089B4D4: BVC.S $0089B497
-        dc.w    $0449                    ; 0089B4D6: dc.w $0449
-        dc.w    $D0E3                    ; 0089B4D8: dc.w $D0E3
-        dc.w    $3303                    ; 0089B4DA: dc.w $3303
-        dc.w    $3870                    ; 0089B4DC: dc.w $3870
-        dc.w    $AEE0                    ; 0089B4DE: dc.w $AEE0
+        bvc.s   $0089B497                               ; 0089B4D4: $68C1
+        subi.w  #$D0E3,a1                               ; 0089B4D6: $0449, $D0E3
+        move.w  d3,-(a1)                                ; 0089B4DA: $3303
+        movea.w $-20(a0,a2.l),a4                        ; 0089B4DC: $3870, $AEE0
         dc.w    $F1F0                    ; 0089B4E0: dc.w $F1F0
-        dc.w    $3507                    ; 0089B4E2: dc.w $3507
-        dc.w    $62B0                    ; 0089B4E4: BHI.S $0089B496
-        dc.w    $06B8                    ; 0089B4E6: dc.w $06B8
-        dc.w    $E37B                    ; 0089B4E8: dc.w $E37B
-        dc.w    $6FB8                    ; 0089B4EA: BLE.S $0089B4A4
-        dc.w    $C902                    ; 0089B4EC: dc.w $C902
-        dc.w    $2698                    ; 0089B4EE: dc.w $2698
-        dc.w    $DB09                    ; 0089B4F0: dc.w $DB09
-        dc.w    $0334                    ; 0089B4F2: dc.w $0334
-        dc.w    $D8CB                    ; 0089B4F4: dc.w $D8CB
-        dc.w    $1108                    ; 0089B4F6: dc.w $1108
-        dc.w    $0140                    ; 0089B4F8: dc.w $0140
-        dc.w    $E312                    ; 0089B4FA: dc.w $E312
+        move.w  d7,-(a2)                                ; 0089B4E2: $3507
+        bhi.s   $0089B496                               ; 0089B4E4: $62B0
+        addi.l  #$E37B6FB8,($C902).w                    ; 0089B4E6: $06B8, $E37B, $6FB8, $C902
+        move.l  (a0)+,(a3)                              ; 0089B4EE: $2698
+        add.b   d5,a1                                   ; 0089B4F0: $DB09
+        andi.b  #$00CB,$08(a4,d1.w)                     ; 0089B4F2: $0334, $D8CB, $1108
+        ori.w   #$E312,d0                               ; 0089B4F8: $0140, $E312
         dc.w    $EDDE                    ; 0089B4FC: dc.w $EDDE
         dc.w    $80D4                    ; 0089B4FE: dc.w $80D4
         dc.w    $C0C9                    ; 0089B500: dc.w $C0C9
-        dc.w    $0968                    ; 0089B502: dc.w $0968
-        dc.w    $EB15                    ; 0089B504: dc.w $EB15
-        dc.w    $0508                    ; 0089B506: dc.w $0508
-        dc.w    $E416                    ; 0089B508: dc.w $E416
-        dc.w    $0832                    ; 0089B50A: dc.w $0832
-        dc.w    $40E3                    ; 0089B50C: dc.w $40E3
-        dc.w    $7B83                    ; 0089B50E: dc.w $7B83
-        dc.w    $1709                    ; 0089B510: dc.w $1709
-        dc.w    $05D8                    ; 0089B512: dc.w $05D8
-        dc.w    $DB18                    ; 0089B514: dc.w $DB18
-        dc.w    $0729                    ; 0089B516: dc.w $0729
-        dc.w    $38EB                    ; 0089B518: dc.w $38EB
-        dc.w    $2090                    ; 0089B51A: dc.w $2090
-        dc.w    $1736                    ; 0089B51C: dc.w $1736
-        dc.w    $68EB                    ; 0089B51E: BVC.S $0089B50B
-        dc.w    $2007                    ; 0089B520: dc.w $2007
-        dc.w    $99F8                    ; 0089B522: dc.w $99F8
-        dc.w    $C270                    ; 0089B524: dc.w $C270
-        dc.w    $0014                    ; 0089B526: dc.w $0014
-        dc.w    $90EB                    ; 0089B528: dc.w $90EB
-        dc.w    $2478                    ; 0089B52A: dc.w $2478
-        dc.w    $EFEE                    ; 0089B52C: dc.w $EFEE
-        dc.w    $C8BB                    ; 0089B52E: dc.w $C8BB
-        dc.w    $2506                    ; 0089B530: dc.w $2506
-        dc.w    $33E0                    ; 0089B532: dc.w $33E0
-        dc.w    $DB26                    ; 0089B534: dc.w $DB26
-        dc.w    $0464                    ; 0089B536: dc.w $0464
-        dc.w    $90CB                    ; 0089B538: dc.w $90CB
-        dc.w    $27E0                    ; 0089B53A: dc.w $27E0
-        dc.w    $5105                    ; 0089B53C: dc.w $5105
+        bchg    d4,$-14EB(a0)                           ; 0089B502: $0968, $EB15
+        subi.b  #$0016,a0                               ; 0089B506: $0508, $E416
+        btst    #$40E3,$-7D(a2,d7.l)                    ; 0089B50A: $0832, $40E3, $7B83
+        move.b  a1,-(a3)                                ; 0089B510: $1709
+        bset    d2,(a0)+                                ; 0089B512: $05D8
+        add.b   d5,(a0)+                                ; 0089B514: $DB18
+        addi.b  #$00EB,$2090(a1)                        ; 0089B516: $0729, $38EB, $2090
+        move.b  $-15(a6,d6.l),-(a3)                     ; 0089B51C: $1736, $68EB
+        move.l  d7,d0                                   ; 0089B520: $2007
+        suba.l  ($C270).w,a4                            ; 0089B522: $99F8, $C270
+        ori.b   #$00EB,(a4)                             ; 0089B526: $0014, $90EB
+        movea.l ($EFEE).w,a2                            ; 0089B52A: $2478, $EFEE
+        and.l   $06(pc,d2.w),d4                         ; 0089B52E: $C8BB, $2506
+        move.w  -(a0),($DB260464).l                     ; 0089B532: $33E0, $DB26, $0464
+        suba.w  a3,a0                                   ; 0089B538: $90CB
+        move.l  -(a0),$05(pc,d5.w)                      ; 0089B53A: $27E0, $5105
         dc.w    $A2C8                    ; 0089B53E: dc.w $A2C8
-        dc.w    $BA28                    ; 0089B540: dc.w $BA28
-        dc.w    $0136                    ; 0089B542: dc.w $0136
+        cmp.b   $0136(a0),d5                            ; 0089B540: $BA28, $0136
         dc.w    $50C0                    ; 0089B544: dc.w $50C0
-        dc.w    $C970                    ; 0089B546: dc.w $C970
-        dc.w    $DE86                    ; 0089B548: dc.w $DE86
+        and.w   d4,$-7A(a0,a5.l)                        ; 0089B546: $C970, $DE86
         dc.w    $E8E4                    ; 0089B54A: dc.w $E8E4
-        dc.w    $0241                    ; 0089B54C: dc.w $0241
-        dc.w    $7858                    ; 0089B54E: MOVEQ #$58,D4
-        dc.w    $0818                    ; 0089B550: dc.w $0818
-        dc.w    $CB0B                    ; 0089B552: dc.w $CB0B
-        dc.w    $2904                    ; 0089B554: dc.w $2904
-        dc.w    $0004                    ; 0089B556: dc.w $0004
-        dc.w    $20F4                    ; 0089B558: dc.w $20F4
+        andi.w  #$7858,d1                               ; 0089B54C: $0241, $7858
+        btst    #$CB0B,(a0)+                            ; 0089B550: $0818, $CB0B
+        move.l  d4,-(a4)                                ; 0089B554: $2904
+        ori.b   #$00F4,d4                               ; 0089B556: $0004, $20F4
         dc.w    $FE58                    ; 0089B55A: dc.w $FE58
-        dc.w    $2804                    ; 0089B55C: dc.w $2804
+        move.l  d4,d4                                   ; 0089B55C: $2804
         dc.w    $A4E0                    ; 0089B55E: dc.w $A4E0
-        dc.w    $5799                    ; 0089B560: dc.w $5799
-        dc.w    $B804                    ; 0089B562: dc.w $B804
-        dc.w    $91D0                    ; 0089B564: dc.w $91D0
+        subq.l  #3,(a1)+                                ; 0089B560: $5799
+        cmp.b   d4,d4                                   ; 0089B562: $B804
+        suba.l  (a0),a0                                 ; 0089B564: $91D0
         dc.w    $BB04                    ; 0089B566: dc.w $BB04
         dc.w    $7B43                    ; 0089B568: dc.w $7B43
-        dc.w    $0807                    ; 0089B56A: dc.w $0807
-        dc.w    $8768                    ; 0089B56C: dc.w $8768
+        btst    #$8768,d7                               ; 0089B56A: $0807, $8768
         dc.w    $F311                    ; 0089B56E: dc.w $F311
-        dc.w    $0181                    ; 0089B570: dc.w $0181
-        dc.w    $E8F2                    ; 0089B572: dc.w $E8F2
-        dc.w    $0448                    ; 0089B574: dc.w $0448
-        dc.w    $5031                    ; 0089B576: dc.w $5031
-        dc.w    $D988                    ; 0089B578: dc.w $D988
+        ori.l   #$E8F20448,d1                           ; 0089B570: $0181, $E8F2, $0448
+        addq.b  #8,$-78(a1,a5.l)                        ; 0089B576: $5031, $D988
         dc.w    $F2F8                    ; 0089B57A: dc.w $F2F8
-        dc.w    $6670                    ; 0089B57C: BNE.S $0089B5EE
+        bne.s   $0089B5EE                               ; 0089B57C: $6670
         dc.w    $00F1                    ; 0089B57E: dc.w $00F1
-        dc.w    $0708                    ; 0089B580: dc.w $0708
-        dc.w    $F4BD                    ; 0089B582: dc.w $F4BD
+        addi.b  #$00BD,a0                               ; 0089B580: $0708, $F4BD
         dc.w    $7706                    ; 0089B584: dc.w $7706
-        dc.w    $2160                    ; 0089B586: dc.w $2160
-        dc.w    $C316                    ; 0089B588: dc.w $C316
-        dc.w    $0939                    ; 0089B58A: dc.w $0939
-        dc.w    $88C3                    ; 0089B58C: dc.w $88C3
-        dc.w    $1705                    ; 0089B58E: dc.w $1705
-        dc.w    $3148                    ; 0089B590: dc.w $3148
-        dc.w    $CA04                    ; 0089B592: dc.w $CA04
-        dc.w    $20F0                    ; 0089B594: dc.w $20F0
-        dc.w    $DE86                    ; 0089B596: dc.w $DE86
+        move.l  -(a0),$-3CEA(a0)                        ; 0089B586: $2160, $C316
+        btst    d4,($88C31705).l                        ; 0089B58A: $0939, $88C3, $1705
+        move.w  a0,$-35FC(a0)                           ; 0089B590: $3148, $CA04
+        move.l  $-7A(a0,a5.l),(a0)+                     ; 0089B594: $20F0, $DE86
         dc.w    $40C3                    ; 0089B598: dc.w $40C3
-        dc.w    $2100                    ; 0089B59A: dc.w $2100
-        dc.w    $7008                    ; 0089B59C: MOVEQ #$08,D0
-        dc.w    $E322                    ; 0089B59E: dc.w $E322
-        dc.w    $0071                    ; 0089B5A0: dc.w $0071
-        dc.w    $48E3                    ; 0089B5A2: dc.w $48E3
-        dc.w    $FB0C                    ; 0089B5A4: dc.w $FB0C
-        dc.w    $2201                    ; 0089B5A6: dc.w $2201
-        dc.w    $65E8                    ; 0089B5A8: BCS.S $0089B592
-        dc.w    $D204                    ; 0089B5AA: dc.w $D204
-        dc.w    $2306                    ; 0089B5AC: dc.w $2306
-        dc.w    $66D0                    ; 0089B5AE: BNE.S $0089B580
-        dc.w    $0DDE                    ; 0089B5B0: dc.w $0DDE
+        move.l  d0,-(a0)                                ; 0089B59A: $2100
+        moveq   #$08,d0                                 ; 0089B59C: $7008
+        asl.b   d1,d2                                   ; 0089B59E: $E322
+        ori.w   #$48E3,$0C(a1,a7.l)                     ; 0089B5A0: $0071, $48E3, $FB0C
+        move.l  d1,d1                                   ; 0089B5A6: $2201
+        bcs.s   $0089B592                               ; 0089B5A8: $65E8
+        add.b   d4,d1                                   ; 0089B5AA: $D204
+        move.l  d6,-(a1)                                ; 0089B5AC: $2306
+        bne.s   $0089B580                               ; 0089B5AE: $66D0
+        bset    d6,(a6)+                                ; 0089B5B0: $0DDE
         dc.w    $4814                    ; 0089B5B2: dc.w $4814
         dc.w    $F8DB                    ; 0089B5B4: dc.w $F8DB
-        dc.w    $2868                    ; 0089B5B6: dc.w $2868
-        dc.w    $18CB                    ; 0089B5B8: dc.w $18CB
-        dc.w    $1103                    ; 0089B5BA: dc.w $1103
-        dc.w    $8728                    ; 0089B5BC: dc.w $8728
-        dc.w    $F3BB                    ; 0089B5BE: dc.w $F3BB
+        movea.l $18CB(a0),a4                            ; 0089B5B6: $2868, $18CB
+        move.b  d3,-(a0)                                ; 0089B5BA: $1103
+        or.b    d3,$-C45(a0)                            ; 0089B5BC: $8728, $F3BB
         dc.w    $7712                    ; 0089B5C0: dc.w $7712
-        dc.w    $0751                    ; 0089B5C2: dc.w $0751
-        dc.w    $D8F4                    ; 0089B5C4: dc.w $D8F4
-        dc.w    $0158                    ; 0089B5C6: dc.w $0158
-        dc.w    $70D3                    ; 0089B5C8: MOVEQ #$D3,D0
-        dc.w    $1502                    ; 0089B5CA: dc.w $1502
-        dc.w    $7268                    ; 0089B5CC: MOVEQ #$68,D1
-        dc.w    $E316                    ; 0089B5CE: dc.w $E316
-        dc.w    $0515                    ; 0089B5D0: dc.w $0515
-        dc.w    $EEA8                    ; 0089B5D2: dc.w $EEA8
-        dc.w    $C250                    ; 0089B5D4: dc.w $C250
+        addi.w  #$D8F4,(a1)                             ; 0089B5C2: $0751, $D8F4
+        ori.w   #$70D3,(a0)+                            ; 0089B5C6: $0158, $70D3
+        move.b  d2,-(a2)                                ; 0089B5CA: $1502
+        moveq   #$68,d1                                 ; 0089B5CC: $7268
+        roxl.b  #1,d6                                   ; 0089B5CE: $E316
+        subi.b  #$00A8,(a5)                             ; 0089B5D0: $0515, $EEA8
+        and.w   (a0),d1                                 ; 0089B5D4: $C250
         dc.w    $F220                    ; 0089B5D6: dc.w $F220
-        dc.w    $CA20                    ; 0089B5D8: dc.w $CA20
-        dc.w    $1906                    ; 0089B5DA: dc.w $1906
-        dc.w    $0018                    ; 0089B5DC: dc.w $0018
-        dc.w    $F321                    ; 0089B5DE: dc.w $F321
-        dc.w    $BDC1                    ; 0089B5E0: dc.w $BDC1
-        dc.w    $0169                    ; 0089B5E2: dc.w $0169
-        dc.w    $D0F3                    ; 0089B5E4: dc.w $D0F3
-        dc.w    $2203                    ; 0089B5E6: dc.w $2203
-        dc.w    $5758                    ; 0089B5E8: dc.w $5758
-        dc.w    $C323                    ; 0089B5EA: dc.w $C323
-        dc.w    $8D40                    ; 0089B5EC: dc.w $8D40
-        dc.w    $DBBA                    ; 0089B5EE: dc.w $DBBA
-        dc.w    $F725                    ; 0089B5F0: dc.w $F725
-        dc.w    $68E1                    ; 0089B5F2: BVC.S $0089B5D5
-        dc.w    $48BB                    ; 0089B5F4: dc.w $48BB
-        dc.w    $0119                    ; 0089B5F6: dc.w $0119
-        dc.w    $A8F3                    ; 0089B5F8: dc.w $A8F3
-        dc.w    $2703                    ; 0089B5FA: dc.w $2703
-        dc.w    $8300                    ; 0089B5FC: dc.w $8300
+        and.b   -(a0),d5                                ; 0089B5D8: $CA20
+        move.b  d6,-(a4)                                ; 0089B5DA: $1906
+        ori.b   #$0021,(a0)+                            ; 0089B5DC: $0018, $F321
+        cmpa.l  d1,a6                                   ; 0089B5E0: $BDC1
+        ori.w   #$D0F3,$2203(a1)                        ; 0089B5E2: $0169, $D0F3, $2203
+        subq.w  #3,(a0)+                                ; 0089B5E8: $5758
+        and.b   d1,-(a3)                                ; 0089B5EA: $C323
+        or.w    d6,d0                                   ; 0089B5EC: $8D40
+        add.l   d5,$-8DB(pc)                            ; 0089B5EE: $DBBA, $F725
+        bvc.s   $0089B5D5                               ; 0089B5F2: $68E1
+        movem.w d0/d3/d4/a0,$-D(pc,a2.l)                ; 0089B5F4: $48BB, $0119, $A8F3
+        move.l  d3,-(a3)                                ; 0089B5FA: $2703
+        or.b    d1,d0                                   ; 0089B5FC: $8300
         dc.w    $F328                    ; 0089B5FE: dc.w $F328
         dc.w    $04DE                    ; 0089B600: dc.w $04DE
-        dc.w    $1D41                    ; 0089B602: dc.w $1D41
-        dc.w    $D8F3                    ; 0089B604: dc.w $D8F3
-        dc.w    $3101                    ; 0089B606: dc.w $3101
-        dc.w    $5240                    ; 0089B608: dc.w $5240
-        dc.w    $BC08                    ; 0089B60A: dc.w $BC08
-        dc.w    $98E0                    ; 0089B60C: dc.w $98E0
+        move.b  d1,$-270D(a6)                           ; 0089B602: $1D41, $D8F3
+        move.w  d1,-(a0)                                ; 0089B606: $3101
+        addq.w  #1,d0                                   ; 0089B608: $5240
+        cmp.b   a0,d6                                   ; 0089B60A: $BC08
+        suba.w  -(a0),a4                                ; 0089B60C: $98E0
         dc.w    $F335                    ; 0089B60E: dc.w $F335
-        dc.w    $00BC                    ; 0089B610: dc.w $00BC
-        dc.w    $EFA0                    ; 0089B612: dc.w $EFA0
-        dc.w    $08E2                    ; 0089B614: dc.w $08E2
-        dc.w    $3604                    ; 0089B616: dc.w $3604
-        dc.w    $7178                    ; 0089B618: dc.w $7178
-        dc.w    $E203                    ; 0089B61A: dc.w $E203
-        dc.w    $3805                    ; 0089B61C: dc.w $3805
-        dc.w    $5800                    ; 0089B61E: dc.w $5800
-        dc.w    $E340                    ; 0089B620: dc.w $E340
+        ori.l   #$EFA008E2,#$36047178                   ; 0089B610: $00BC, $EFA0, $08E2, $3604, $7178
+        asr.b   #1,d3                                   ; 0089B61A: $E203
+        move.w  d5,d4                                   ; 0089B61C: $3805
+        addq.b  #4,d0                                   ; 0089B61E: $5800
+        asl.w   #1,d0                                   ; 0089B620: $E340
         dc.w    $BDA7                    ; 0089B622: dc.w $BDA7
-        dc.w    $0050                    ; 0089B624: dc.w $0050
-        dc.w    $E0E3                    ; 0089B626: dc.w $E0E3
+        ori.w   #$E0E3,(a0)                             ; 0089B624: $0050, $E0E3
         dc.w    $4702                    ; 0089B628: dc.w $4702
-        dc.w    $99E0                    ; 0089B62A: dc.w $99E0
-        dc.w    $E349                    ; 0089B62C: dc.w $E349
-        dc.w    $0725                    ; 0089B62E: dc.w $0725
-        dc.w    $60F7                    ; 0089B630: BRA.S $0089B629
-        dc.w    $0404                    ; 0089B632: dc.w $0404
-        dc.w    $5203                    ; 0089B634: dc.w $5203
-        dc.w    $37E0                    ; 0089B636: dc.w $37E0
-        dc.w    $E353                    ; 0089B638: dc.w $E353
-        dc.w    $0002                    ; 0089B63A: dc.w $0002
-        dc.w    $6085                    ; 0089B63C: BRA.S $0089B5C3
+        suba.l  -(a0),a4                                ; 0089B62A: $99E0
+        lsl.w   #1,d1                                   ; 0089B62C: $E349
+        addi.b  #$00F7,-(a5)                            ; 0089B62E: $0725, $60F7
+        subi.b  #$0003,d4                               ; 0089B632: $0404, $5203
+        move.w  -(a0),$53(pc,a6.w)                      ; 0089B636: $37E0, $E353
+        ori.b   #$0085,d2                               ; 0089B63A: $0002, $6085
         dc.w    $7BF8                    ; 0089B63E: dc.w $7BF8
-        dc.w    $05C8                    ; 0089B640: dc.w $05C8
+        bset    d2,a0                                   ; 0089B640: $05C8
         dc.w    $EAE0                    ; 0089B642: dc.w $EAE0
-        dc.w    $5409                    ; 0089B644: dc.w $5409
+        addq.b  #2,a1                                   ; 0089B644: $5409
         dc.w    $6900, $DB56            ; 0089B646: BVS.W $0089919E
-        dc.w    $0080                    ; 0089B64A: dc.w $0080
-        dc.w    $DF7B                    ; 0089B64C: dc.w $DF7B
-        dc.w    $40E2                    ; 0089B64E: dc.w $40E2
-        dc.w    $0457                    ; 0089B650: dc.w $0457
-        dc.w    $0101                    ; 0089B652: dc.w $0101
+        ori.l   #$DF7B40E2,d0                           ; 0089B64A: $0080, $DF7B, $40E2
+        subi.w  #$0101,(a7)                             ; 0089B650: $0457, $0101
         dc.w    $F8F3                    ; 0089B654: dc.w $F8F3
-        dc.w    $5803                    ; 0089B656: dc.w $5803
-        dc.w    $68C0                    ; 0089B658: BVC.S $0089B61A
+        addq.b  #4,d3                                   ; 0089B656: $5803
+        bvc.s   $0089B61A                               ; 0089B658: $68C0
         dc.w    $F359                    ; 0089B65A: dc.w $F359
-        dc.w    $0022                    ; 0089B65C: dc.w $0022
-        dc.w    $EF17                    ; 0089B65E: dc.w $EF17
+        ori.b   #$0017,-(a2)                            ; 0089B65C: $0022, $EF17
         dc.w    $C0DA                    ; 0089B660: dc.w $C0DA
-        dc.w    $0500                    ; 0089B662: dc.w $0500
-        dc.w    $0950                    ; 0089B664: dc.w $0950
+        subi.b  #$0050,d0                               ; 0089B662: $0500, $0950
         dc.w    $F201                    ; 0089B666: dc.w $F201
-        dc.w    $0501                    ; 0089B668: dc.w $0501
-        dc.w    $0759                    ; 0089B66A: dc.w $0759
+        subi.b  #$0059,d1                               ; 0089B668: $0501, $0759
         dc.w    $A8EA                    ; 0089B66C: dc.w $A8EA
         dc.w    $A617                    ; 0089B66E: dc.w $A617
         dc.w    $F809                    ; 0089B670: dc.w $F809
         dc.w    $7928                    ; 0089B672: dc.w $7928
-        dc.w    $0502                    ; 0089B674: dc.w $0502
-        dc.w    $0277                    ; 0089B676: dc.w $0277
-        dc.w    $90C3                    ; 0089B678: dc.w $90C3
+        subi.b  #$0077,d2                               ; 0089B674: $0502, $0277
+        suba.w  d3,a0                                   ; 0089B678: $90C3
         dc.w    $FADE                    ; 0089B67A: dc.w $FADE
-        dc.w    $DF70                    ; 0089B67C: dc.w $DF70
-        dc.w    $28F2                    ; 0089B67E: dc.w $28F2
-        dc.w    $0507                    ; 0089B680: dc.w $0507
-        dc.w    $0482                    ; 0089B682: dc.w $0482
-        dc.w    $20E3                    ; 0089B684: dc.w $20E3
-        dc.w    $0802                    ; 0089B686: dc.w $0802
-        dc.w    $63A8                    ; 0089B688: BLS.S $0089B632
-        dc.w    $DAD7                    ; 0089B68A: dc.w $DAD7
+        add.w   d7,$-E(a0,d2.l)                         ; 0089B67C: $DF70, $28F2
+        subi.b  #$0082,d7                               ; 0089B680: $0507, $0482
+        move.l  -(a3),(a0)+                             ; 0089B684: $20E3
+        btst    #$63A8,d2                               ; 0089B686: $0802, $63A8
+        adda.w  (a7),a5                                 ; 0089B68A: $DAD7
         dc.w    $AE05                    ; 0089B68C: dc.w $AE05
-        dc.w    $0909                    ; 0089B68E: dc.w $0909
-        dc.w    $16B8                    ; 0089B690: dc.w $16B8
-        dc.w    $F238                    ; 0089B692: dc.w $F238
-        dc.w    $C108                    ; 0089B694: dc.w $C108
-        dc.w    $38C3                    ; 0089B696: dc.w $38C3
-        dc.w    $1403                    ; 0089B698: dc.w $1403
-        dc.w    $38EB                    ; 0089B69A: dc.w $38EB
-        dc.w    $0200                    ; 0089B69C: dc.w $0200
+        btst    d4,a1                                   ; 0089B68E: $0909
+        move.b  ($F238).w,(a3)                          ; 0089B690: $16B8, $F238
+        and.b   d0,a0                                   ; 0089B694: $C108
+        move.w  d3,(a4)+                                ; 0089B696: $38C3
+        move.b  d3,d2                                   ; 0089B698: $1403
+        move.w  $0200(a3),(a4)+                         ; 0089B69A: $38EB, $0200
         dc.w    $80C0                    ; 0089B69E: dc.w $80C0
-        dc.w    $9B00                    ; 0089B6A0: dc.w $9B00
+        sub.b   d5,d0                                   ; 0089B6A0: $9B00
         dc.w    $F000                    ; 0089B6A2: dc.w $F000
-        dc.w    $0000                    ; 0089B6A4: dc.w $0000
-        dc.w    $0000                    ; 0089B6A6: dc.w $0000
-        dc.w    $0000                    ; 0089B6A8: dc.w $0000
-        dc.w    $0000                    ; 0089B6AA: dc.w $0000
+        ori.b   #$0000,d0                               ; 0089B6A4: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B6A8: $0000, $0000
         dc.w    $4F2E                    ; 0089B6AC: dc.w $4F2E
         dc.w    $4802                    ; 0089B6AE: dc.w $4802
-        dc.w    $0041                    ; 0089B6B0: dc.w $0041
-        dc.w    $0126                    ; 0089B6B2: dc.w $0126
-        dc.w    $5259                    ; 0089B6B4: dc.w $5259
-        dc.w    $5502                    ; 0089B6B6: dc.w $5502
-        dc.w    $0042                    ; 0089B6B8: dc.w $0042
-        dc.w    $0213                    ; 0089B6BA: dc.w $0213
-        dc.w    $4E41                    ; 0089B6BC: dc.w $4E41
+        ori.w   #$0126,d1                               ; 0089B6B0: $0041, $0126
+        addq.w  #1,(a1)+                                ; 0089B6B4: $5259
+        subq.b  #2,d2                                   ; 0089B6B6: $5502
+        ori.w   #$0213,d2                               ; 0089B6B8: $0042, $0213
+        trap    #1                                      ; 0089B6BC: $4E41
         dc.w    $4702                    ; 0089B6BE: dc.w $4702
-        dc.w    $0053                    ; 0089B6C0: dc.w $0053
-        dc.w    $0376                    ; 0089B6C2: dc.w $0376
+        ori.w   #$0376,(a3)                             ; 0089B6C0: $0053, $0376
         dc.w    $4D41                    ; 0089B6C4: dc.w $4D41
-        dc.w    $5402                    ; 0089B6C6: dc.w $5402
-        dc.w    $0040                    ; 0089B6C8: dc.w $0040
-        dc.w    $0747                    ; 0089B6CA: dc.w $0747
-        dc.w    $544F                    ; 0089B6CC: dc.w $544F
+        addq.b  #2,d2                                   ; 0089B6C6: $5402
+        ori.w   #$0747,d0                               ; 0089B6C8: $0040, $0747
+        addq.w  #2,a7                                   ; 0089B6CC: $544F
         dc.w    $4D02                    ; 0089B6CE: dc.w $4D02
-        dc.w    $0104                    ; 0089B6D0: dc.w $0104
-        dc.w    $0740                    ; 0089B6D2: dc.w $0740
+        ori.b   #$0040,d4                               ; 0089B6D0: $0104, $0740
         dc.w    $4B65                    ; 0089B6D4: dc.w $4B65
-        dc.w    $6E02                    ; 0089B6D6: BGT.S $0089B6DA
-        dc.w    $0053                    ; 0089B6D8: dc.w $0053
-        dc.w    $0676                    ; 0089B6DA: dc.w $0676
+        bgt.s   $0089B6DA                               ; 0089B6D6: $6E02
+        ori.w   #$0676,(a3)                             ; 0089B6D8: $0053, $0676
         dc.w    $4B2E                    ; 0089B6DC: dc.w $4B2E
-        dc.w    $5402                    ; 0089B6DE: dc.w $5402
-        dc.w    $0043                    ; 0089B6E0: dc.w $0043
-        dc.w    $0916                    ; 0089B6E2: dc.w $0916
-        dc.w    $4854                    ; 0089B6E4: dc.w $4854
-        dc.w    $5902                    ; 0089B6E6: dc.w $5902
-        dc.w    $0045                    ; 0089B6E8: dc.w $0045
-        dc.w    $0991                    ; 0089B6EA: dc.w $0991
+        addq.b  #2,d2                                   ; 0089B6DE: $5402
+        ori.w   #$0916,d3                               ; 0089B6E0: $0043, $0916
+        pea     (a4)                                    ; 0089B6E4: $4854
+        subq.b  #4,d2                                   ; 0089B6E6: $5902
+        ori.w   #$0991,d5                               ; 0089B6E8: $0045, $0991
         dc.w    $4B4F                    ; 0089B6EC: dc.w $4B4F
-        dc.w    $4202                    ; 0089B6EE: dc.w $4202
-        dc.w    $0058                    ; 0089B6F0: dc.w $0058
-        dc.w    $0320                    ; 0089B6F2: dc.w $0320
+        clr.b   d2                                      ; 0089B6EE: $4202
+        ori.w   #$0320,(a0)+                            ; 0089B6F0: $0058, $0320
         dc.w    $4170                    ; 0089B6F4: dc.w $4170
-        dc.w    $7002                    ; 0089B6F6: MOVEQ #$02,D0
-        dc.w    $0045                    ; 0089B6F8: dc.w $0045
-        dc.w    $0307                    ; 0089B6FA: dc.w $0307
+        moveq   #$02,d0                                 ; 0089B6F6: $7002
+        ori.w   #$0307,d5                               ; 0089B6F8: $0045, $0307
         dc.w    $4750                    ; 0089B6FC: dc.w $4750
-        dc.w    $5A02                    ; 0089B6FE: dc.w $5A02
-        dc.w    $0110                    ; 0089B700: dc.w $0110
-        dc.w    $0876                    ; 0089B702: dc.w $0876
-        dc.w    $4841                    ; 0089B704: dc.w $4841
-        dc.w    $5402                    ; 0089B706: dc.w $5402
-        dc.w    $0053                    ; 0089B708: dc.w $0053
-        dc.w    $0676                    ; 0089B70A: dc.w $0676
+        addq.b  #5,d2                                   ; 0089B6FE: $5A02
+        ori.b   #$0076,(a0)                             ; 0089B700: $0110, $0876
+        swap    d1                                      ; 0089B704: $4841
+        addq.b  #2,d2                                   ; 0089B706: $5402
+        ori.w   #$0676,(a3)                             ; 0089B708: $0053, $0676
         dc.w    $4B65                    ; 0089B70C: dc.w $4B65
-        dc.w    $6E02                    ; 0089B70E: BGT.S $0089B712
-        dc.w    $0039                    ; 0089B710: dc.w $0039
-        dc.w    $0513                    ; 0089B712: dc.w $0513
-        dc.w    $4841                    ; 0089B714: dc.w $4841
-        dc.w    $5402                    ; 0089B716: dc.w $5402
-        dc.w    $0041                    ; 0089B718: dc.w $0041
-        dc.w    $0991                    ; 0089B71A: dc.w $0991
-        dc.w    $424F                    ; 0089B71C: dc.w $424F
-        dc.w    $5302                    ; 0089B71E: dc.w $5302
-        dc.w    $0053                    ; 0089B720: dc.w $0053
-        dc.w    $0085                    ; 0089B722: dc.w $0085
+        bgt.s   $0089B712                               ; 0089B70E: $6E02
+        ori.b   #$0013,($48415402).l                    ; 0089B710: $0039, $0513, $4841, $5402
+        ori.w   #$0991,d1                               ; 0089B718: $0041, $0991
+        clr.w   a7                                      ; 0089B71C: $424F
+        subq.b  #1,d2                                   ; 0089B71E: $5302
+        ori.w   #$0085,(a3)                             ; 0089B720: $0053, $0085
         dc.w    $4B4F                    ; 0089B724: dc.w $4B4F
-        dc.w    $5A02                    ; 0089B726: dc.w $5A02
-        dc.w    $0042                    ; 0089B728: dc.w $0042
-        dc.w    $0164                    ; 0089B72A: dc.w $0164
-        dc.w    $5756                    ; 0089B72C: dc.w $5756
-        dc.w    $5502                    ; 0089B72E: dc.w $5502
-        dc.w    $0103                    ; 0089B730: dc.w $0103
-        dc.w    $0759                    ; 0089B732: dc.w $0759
-        dc.w    $4E41                    ; 0089B734: dc.w $4E41
+        addq.b  #5,d2                                   ; 0089B726: $5A02
+        ori.w   #$0164,d2                               ; 0089B728: $0042, $0164
+        subq.w  #3,(a6)                                 ; 0089B72C: $5756
+        subq.b  #2,d2                                   ; 0089B72E: $5502
+        ori.b   #$0059,d3                               ; 0089B730: $0103, $0759
+        trap    #1                                      ; 0089B734: $4E41
         dc.w    $4702                    ; 0089B736: dc.w $4702
-        dc.w    $0053                    ; 0089B738: dc.w $0053
-        dc.w    $0676                    ; 0089B73A: dc.w $0676
-        dc.w    $0041                    ; 0089B73C: dc.w $0041
-        dc.w    $0126                    ; 0089B73E: dc.w $0126
-        dc.w    $0015                    ; 0089B740: dc.w $0015
-        dc.w    $0469                    ; 0089B742: dc.w $0469
-        dc.w    $0026                    ; 0089B744: dc.w $0026
-        dc.w    $0766                    ; 0089B746: dc.w $0766
-        dc.w    $0043                    ; 0089B748: dc.w $0043
-        dc.w    $0916                    ; 0089B74A: dc.w $0916
-        dc.w    $0016                    ; 0089B74C: dc.w $0016
-        dc.w    $0806                    ; 0089B74E: dc.w $0806
-        dc.w    $0029                    ; 0089B750: dc.w $0029
-        dc.w    $0408                    ; 0089B752: dc.w $0408
-        dc.w    $0039                    ; 0089B754: dc.w $0039
-        dc.w    $0513                    ; 0089B756: dc.w $0513
-        dc.w    $0016                    ; 0089B758: dc.w $0016
-        dc.w    $0000                    ; 0089B75A: dc.w $0000
-        dc.w    $0025                    ; 0089B75C: dc.w $0025
-        dc.w    $0704                    ; 0089B75E: dc.w $0704
-        dc.w    $0042                    ; 0089B760: dc.w $0042
-        dc.w    $0213                    ; 0089B762: dc.w $0213
-        dc.w    $0014                    ; 0089B764: dc.w $0014
-        dc.w    $0909                    ; 0089B766: dc.w $0909
-        dc.w    $0023                    ; 0089B768: dc.w $0023
-        dc.w    $0991                    ; 0089B76A: dc.w $0991
-        dc.w    $0045                    ; 0089B76C: dc.w $0045
-        dc.w    $0991                    ; 0089B76E: dc.w $0991
-        dc.w    $0016                    ; 0089B770: dc.w $0016
-        dc.w    $0357                    ; 0089B772: dc.w $0357
-        dc.w    $0026                    ; 0089B774: dc.w $0026
-        dc.w    $0755                    ; 0089B776: dc.w $0755
-        dc.w    $0041                    ; 0089B778: dc.w $0041
-        dc.w    $0991                    ; 0089B77A: dc.w $0991
-        dc.w    $0015                    ; 0089B77C: dc.w $0015
-        dc.w    $0551                    ; 0089B77E: dc.w $0551
-        dc.w    $0024                    ; 0089B780: dc.w $0024
-        dc.w    $0102                    ; 0089B782: dc.w $0102
-        dc.w    $0053                    ; 0089B784: dc.w $0053
-        dc.w    $0376                    ; 0089B786: dc.w $0376
-        dc.w    $0020                    ; 0089B788: dc.w $0020
-        dc.w    $0307                    ; 0089B78A: dc.w $0307
-        dc.w    $0039                    ; 0089B78C: dc.w $0039
-        dc.w    $0909                    ; 0089B78E: dc.w $0909
-        dc.w    $0058                    ; 0089B790: dc.w $0058
-        dc.w    $0320                    ; 0089B792: dc.w $0320
-        dc.w    $0022                    ; 0089B794: dc.w $0022
-        dc.w    $0306                    ; 0089B796: dc.w $0306
-        dc.w    $0043                    ; 0089B798: dc.w $0043
-        dc.w    $0602                    ; 0089B79A: dc.w $0602
-        dc.w    $0053                    ; 0089B79C: dc.w $0053
-        dc.w    $0085                    ; 0089B79E: dc.w $0085
-        dc.w    $0020                    ; 0089B7A0: dc.w $0020
-        dc.w    $0500                    ; 0089B7A2: dc.w $0500
-        dc.w    $0040                    ; 0089B7A4: dc.w $0040
-        dc.w    $0704                    ; 0089B7A6: dc.w $0704
-        dc.w    $0040                    ; 0089B7A8: dc.w $0040
-        dc.w    $0747                    ; 0089B7AA: dc.w $0747
-        dc.w    $0013                    ; 0089B7AC: dc.w $0013
-        dc.w    $0153                    ; 0089B7AE: dc.w $0153
-        dc.w    $0025                    ; 0089B7B0: dc.w $0025
-        dc.w    $0551                    ; 0089B7B2: dc.w $0551
-        dc.w    $0045                    ; 0089B7B4: dc.w $0045
-        dc.w    $0307                    ; 0089B7B6: dc.w $0307
-        dc.w    $0014                    ; 0089B7B8: dc.w $0014
-        dc.w    $0357                    ; 0089B7BA: dc.w $0357
-        dc.w    $0028                    ; 0089B7BC: dc.w $0028
-        dc.w    $0357                    ; 0089B7BE: dc.w $0357
-        dc.w    $0042                    ; 0089B7C0: dc.w $0042
-        dc.w    $0164                    ; 0089B7C2: dc.w $0164
-        dc.w    $0014                    ; 0089B7C4: dc.w $0014
-        dc.w    $0408                    ; 0089B7C6: dc.w $0408
-        dc.w    $0027                    ; 0089B7C8: dc.w $0027
-        dc.w    $0408                    ; 0089B7CA: dc.w $0408
-        dc.w    $0104                    ; 0089B7CC: dc.w $0104
-        dc.w    $0740                    ; 0089B7CE: dc.w $0740
-        dc.w    $0023                    ; 0089B7D0: dc.w $0023
-        dc.w    $0204                    ; 0089B7D2: dc.w $0204
-        dc.w    $0047                    ; 0089B7D4: dc.w $0047
-        dc.w    $0704                    ; 0089B7D6: dc.w $0704
-        dc.w    $0110                    ; 0089B7D8: dc.w $0110
-        dc.w    $0876                    ; 0089B7DA: dc.w $0876
-        dc.w    $0025                    ; 0089B7DC: dc.w $0025
-        dc.w    $0500                    ; 0089B7DE: dc.w $0500
-        dc.w    $0051                    ; 0089B7E0: dc.w $0051
-        dc.w    $0245                    ; 0089B7E2: dc.w $0245
-        dc.w    $0103                    ; 0089B7E4: dc.w $0103
-        dc.w    $0759                    ; 0089B7E6: dc.w $0759
-        dc.w    $0023                    ; 0089B7E8: dc.w $0023
-        dc.w    $0041                    ; 0089B7EA: dc.w $0041
-        dc.w    $0047                    ; 0089B7EC: dc.w $0047
-        dc.w    $0551                    ; 0089B7EE: dc.w $0551
-        dc.w    $0053                    ; 0089B7F0: dc.w $0053
-        dc.w    $0376                    ; 0089B7F2: dc.w $0376
-        dc.w    $0020                    ; 0089B7F4: dc.w $0020
-        dc.w    $0307                    ; 0089B7F6: dc.w $0307
-        dc.w    $0039                    ; 0089B7F8: dc.w $0039
-        dc.w    $0909                    ; 0089B7FA: dc.w $0909
-        dc.w    $0053                    ; 0089B7FC: dc.w $0053
-        dc.w    $0376                    ; 0089B7FE: dc.w $0376
-        dc.w    $0020                    ; 0089B800: dc.w $0020
-        dc.w    $0307                    ; 0089B802: dc.w $0307
-        dc.w    $0039                    ; 0089B804: dc.w $0039
-        dc.w    $0909                    ; 0089B806: dc.w $0909
-        dc.w    $0053                    ; 0089B808: dc.w $0053
-        dc.w    $0376                    ; 0089B80A: dc.w $0376
-        dc.w    $0020                    ; 0089B80C: dc.w $0020
-        dc.w    $0307                    ; 0089B80E: dc.w $0307
-        dc.w    $0039                    ; 0089B810: dc.w $0039
-        dc.w    $0909                    ; 0089B812: dc.w $0909
-        dc.w    $0089                    ; 0089B814: dc.w $0089
-        dc.w    $B844                    ; 0089B816: dc.w $B844
-        dc.w    $0089                    ; 0089B818: dc.w $0089
-        dc.w    $B936                    ; 0089B81A: dc.w $B936
-        dc.w    $0089                    ; 0089B81C: dc.w $0089
-        dc.w    $BA18                    ; 0089B81E: dc.w $BA18
-        dc.w    $0089                    ; 0089B820: dc.w $0089
-        dc.w    $BAEA                    ; 0089B822: dc.w $BAEA
-        dc.w    $0089                    ; 0089B824: dc.w $0089
+        ori.w   #$0676,(a3)                             ; 0089B738: $0053, $0676
+        ori.w   #$0126,d1                               ; 0089B73C: $0041, $0126
+        ori.b   #$0069,(a5)                             ; 0089B740: $0015, $0469
+        ori.b   #$0066,-(a6)                            ; 0089B744: $0026, $0766
+        ori.w   #$0916,d3                               ; 0089B748: $0043, $0916
+        ori.b   #$0006,(a6)                             ; 0089B74C: $0016, $0806
+        ori.b   #$0008,$0039(a1)                        ; 0089B750: $0029, $0408, $0039
+        subi.b  #$0016,(a3)                             ; 0089B756: $0513, $0016
+        ori.b   #$0025,d0                               ; 0089B75A: $0000, $0025
+        addi.b  #$0042,d4                               ; 0089B75E: $0704, $0042
+        andi.b  #$0014,(a3)                             ; 0089B762: $0213, $0014
+        btst    d4,a1                                   ; 0089B766: $0909
+        ori.b   #$0091,-(a3)                            ; 0089B768: $0023, $0991
+        ori.w   #$0991,d5                               ; 0089B76C: $0045, $0991
+        ori.b   #$0057,(a6)                             ; 0089B770: $0016, $0357
+        ori.b   #$0055,-(a6)                            ; 0089B774: $0026, $0755
+        ori.w   #$0991,d1                               ; 0089B778: $0041, $0991
+        ori.b   #$0051,(a5)                             ; 0089B77C: $0015, $0551
+        ori.b   #$0002,-(a4)                            ; 0089B780: $0024, $0102
+        ori.w   #$0376,(a3)                             ; 0089B784: $0053, $0376
+        ori.b   #$0007,-(a0)                            ; 0089B788: $0020, $0307
+        ori.b   #$0009,($00580320).l                    ; 0089B78C: $0039, $0909, $0058, $0320
+        ori.b   #$0006,-(a2)                            ; 0089B794: $0022, $0306
+        ori.w   #$0602,d3                               ; 0089B798: $0043, $0602
+        ori.w   #$0085,(a3)                             ; 0089B79C: $0053, $0085
+        ori.b   #$0000,-(a0)                            ; 0089B7A0: $0020, $0500
+        ori.w   #$0704,d0                               ; 0089B7A4: $0040, $0704
+        ori.w   #$0747,d0                               ; 0089B7A8: $0040, $0747
+        ori.b   #$0053,(a3)                             ; 0089B7AC: $0013, $0153
+        ori.b   #$0051,-(a5)                            ; 0089B7B0: $0025, $0551
+        ori.w   #$0307,d5                               ; 0089B7B4: $0045, $0307
+        ori.b   #$0057,(a4)                             ; 0089B7B8: $0014, $0357
+        ori.b   #$0057,$0042(a0)                        ; 0089B7BC: $0028, $0357, $0042
+        ori.w   #$0014,-(a4)                            ; 0089B7C2: $0164, $0014
+        subi.b  #$0027,a0                               ; 0089B7C6: $0408, $0027
+        subi.b  #$0004,a0                               ; 0089B7CA: $0408, $0104
+        addi.w  #$0023,d0                               ; 0089B7CE: $0740, $0023
+        andi.b  #$0047,d4                               ; 0089B7D2: $0204, $0047
+        addi.b  #$0010,d4                               ; 0089B7D6: $0704, $0110
+        bchg    #$25,$00(a6,d0.w)                       ; 0089B7DA: $0876, $0025, $0500
+        ori.w   #$0245,(a1)                             ; 0089B7E0: $0051, $0245
+        ori.b   #$0059,d3                               ; 0089B7E4: $0103, $0759
+        ori.b   #$0041,-(a3)                            ; 0089B7E8: $0023, $0041
+        ori.w   #$0551,d7                               ; 0089B7EC: $0047, $0551
+        ori.w   #$0376,(a3)                             ; 0089B7F0: $0053, $0376
+        ori.b   #$0007,-(a0)                            ; 0089B7F4: $0020, $0307
+        ori.b   #$0009,($00530376).l                    ; 0089B7F8: $0039, $0909, $0053, $0376
+        ori.b   #$0007,-(a0)                            ; 0089B800: $0020, $0307
+        ori.b   #$0009,($00530376).l                    ; 0089B804: $0039, $0909, $0053, $0376
+        ori.b   #$0007,-(a0)                            ; 0089B80C: $0020, $0307
+        ori.b   #$0009,($0089B844).l                    ; 0089B810: $0039, $0909, $0089, $B844
+        ori.l   #$B9360089,a1                           ; 0089B818: $0089, $B936, $0089
+        cmp.b   (a0)+,d5                                ; 0089B81E: $BA18
+        ori.l   #$BAEA0089,a1                           ; 0089B820: $0089, $BAEA, $0089
         dc.w    $BBBC                    ; 0089B826: dc.w $BBBC
-        dc.w    $0089                    ; 0089B828: dc.w $0089
-        dc.w    $BC6E                    ; 0089B82A: dc.w $BC6E
-        dc.w    $0089                    ; 0089B82C: dc.w $0089
+        ori.l   #$BC6E0089,a1                           ; 0089B828: $0089, $BC6E, $0089
         dc.w    $BD20                    ; 0089B82E: dc.w $BD20
-        dc.w    $0089                    ; 0089B830: dc.w $0089
-        dc.w    $BDC2                    ; 0089B832: dc.w $BDC2
-        dc.w    $0089                    ; 0089B834: dc.w $0089
-        dc.w    $BE64                    ; 0089B836: dc.w $BE64
-        dc.w    $0089                    ; 0089B838: dc.w $0089
-        dc.w    $BF46                    ; 0089B83A: dc.w $BF46
-        dc.w    $0089                    ; 0089B83C: dc.w $0089
-        dc.w    $C038                    ; 0089B83E: dc.w $C038
-        dc.w    $0089                    ; 0089B840: dc.w $0089
-        dc.w    $C04A                    ; 0089B842: dc.w $C04A
-        dc.w    $000E                    ; 0089B844: dc.w $000E
-        dc.w    $F2C0                    ; 0089B846: dc.w $F2C0
-        dc.w    $1400                    ; 0089B848: dc.w $1400
+        ori.l   #$BDC20089,a1                           ; 0089B830: $0089, $BDC2, $0089
+        cmp.w   -(a4),d7                                ; 0089B836: $BE64
+        ori.l   #$BF460089,a1                           ; 0089B838: $0089, $BF46, $0089
+        and.b   ($0089).w,d0                            ; 0089B83E: $C038, $0089
+        and.w   a2,d0                                   ; 0089B842: $C04A
+        ori.b   #$00C0,a6                               ; 0089B844: $000E, $F2C0
+        move.b  d0,d2                                   ; 0089B848: $1400
         dc.w    $F128                    ; 0089B84A: dc.w $F128
-        dc.w    $0000                    ; 0089B84C: dc.w $0000
-        dc.w    $0000                    ; 0089B84E: dc.w $0000
-        dc.w    $0000                    ; 0089B850: dc.w $0000
-        dc.w    $0080                    ; 0089B852: dc.w $0080
-        dc.w    $0024                    ; 0089B854: dc.w $0024
-        dc.w    $F439                    ; 0089B856: dc.w $F439
-        dc.w    $1000                    ; 0089B858: dc.w $1000
-        dc.w    $0055                    ; 0089B85A: dc.w $0055
-        dc.w    $0000                    ; 0089B85C: dc.w $0000
-        dc.w    $0000                    ; 0089B85E: dc.w $0000
-        dc.w    $0000                    ; 0089B860: dc.w $0000
-        dc.w    $0080                    ; 0089B862: dc.w $0080
-        dc.w    $0024                    ; 0089B864: dc.w $0024
-        dc.w    $F2D1                    ; 0089B866: dc.w $F2D1
-        dc.w    $1D00                    ; 0089B868: dc.w $1D00
-        dc.w    $1AF4                    ; 0089B86A: dc.w $1AF4
-        dc.w    $0000                    ; 0089B86C: dc.w $0000
-        dc.w    $0000                    ; 0089B86E: dc.w $0000
-        dc.w    $0000                    ; 0089B870: dc.w $0000
-        dc.w    $0200                    ; 0089B872: dc.w $0200
-        dc.w    $0024                    ; 0089B874: dc.w $0024
+        ori.b   #$0000,d0                               ; 0089B84C: $0000, $0000
+        ori.b   #$0080,d0                               ; 0089B850: $0000, $0080
+        ori.b   #$0039,-(a4)                            ; 0089B854: $0024, $F439
+        move.b  d0,d0                                   ; 0089B858: $1000
+        ori.w   #$0000,(a5)                             ; 0089B85A: $0055, $0000
+        ori.b   #$0000,d0                               ; 0089B85E: $0000, $0000
+        ori.l   #$0024F2D1,d0                           ; 0089B862: $0080, $0024, $F2D1
+        move.b  d0,-(a6)                                ; 0089B868: $1D00
+        move.b  $00(a4,d0.w),(a5)+                      ; 0089B86A: $1AF4, $0000
+        ori.b   #$0000,d0                               ; 0089B86E: $0000, $0000
+        andi.b  #$0024,d0                               ; 0089B872: $0200, $0024
         dc.w    $F760                    ; 0089B876: dc.w $F760
-        dc.w    $1200                    ; 0089B878: dc.w $1200
-        dc.w    $2318                    ; 0089B87A: dc.w $2318
-        dc.w    $0100                    ; 0089B87C: dc.w $0100
-        dc.w    $FF00                    ; 0089B87E: dc.w $FF00
-        dc.w    $1000                    ; 0089B880: dc.w $1000
-        dc.w    $0100                    ; 0089B882: dc.w $0100
-        dc.w    $002C                    ; 0089B884: dc.w $002C
-        dc.w    $13B0                    ; 0089B886: dc.w $13B0
-        dc.w    $1800                    ; 0089B888: dc.w $1800
-        dc.w    $1F21                    ; 0089B88A: dc.w $1F21
-        dc.w    $0000                    ; 0089B88C: dc.w $0000
-        dc.w    $0000                    ; 0089B88E: dc.w $0000
-        dc.w    $0000                    ; 0089B890: dc.w $0000
-        dc.w    $0100                    ; 0089B892: dc.w $0100
-        dc.w    $0024                    ; 0089B894: dc.w $0024
-        dc.w    $1368                    ; 0089B896: dc.w $1368
-        dc.w    $139B                    ; 0089B898: dc.w $139B
-        dc.w    $13A0                    ; 0089B89A: dc.w $13A0
-        dc.w    $0100                    ; 0089B89C: dc.w $0100
-        dc.w    $1080                    ; 0089B89E: dc.w $1080
-        dc.w    $1000                    ; 0089B8A0: dc.w $1000
-        dc.w    $0100                    ; 0089B8A2: dc.w $0100
-        dc.w    $0024                    ; 0089B8A4: dc.w $0024
-        dc.w    $15C0                    ; 0089B8A6: dc.w $15C0
-        dc.w    $1200                    ; 0089B8A8: dc.w $1200
-        dc.w    $0BC0                    ; 0089B8AA: dc.w $0BC0
-        dc.w    $0000                    ; 0089B8AC: dc.w $0000
-        dc.w    $0000                    ; 0089B8AE: dc.w $0000
-        dc.w    $0000                    ; 0089B8B0: dc.w $0000
-        dc.w    $0000                    ; 0089B8B2: dc.w $0000
-        dc.w    $0024                    ; 0089B8B4: dc.w $0024
-        dc.w    $0CD0                    ; 0089B8B6: dc.w $0CD0
-        dc.w    $1800                    ; 0089B8B8: dc.w $1800
+        move.b  d0,d1                                   ; 0089B878: $1200
+        move.l  (a0)+,-(a1)                             ; 0089B87A: $2318
+        ori.b   #$0000,d0                               ; 0089B87C: $0100, $FF00
+        move.b  d0,d0                                   ; 0089B880: $1000
+        ori.b   #$002C,d0                               ; 0089B882: $0100, $002C
+        move.b  $00(a0,d1.l),$21(a1,d1.l)               ; 0089B886: $13B0, $1800, $1F21
+        ori.b   #$0000,d0                               ; 0089B88C: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B890: $0000, $0100
+        ori.b   #$0068,-(a4)                            ; 0089B894: $0024, $1368
+        move.b  (a3)+,$-60(a1,d1.w)                     ; 0089B898: $139B, $13A0
+        ori.b   #$0080,d0                               ; 0089B89C: $0100, $1080
+        move.b  d0,d0                                   ; 0089B8A0: $1000
+        ori.b   #$0024,d0                               ; 0089B8A2: $0100, $0024
+        move.b  d0,$1200(pc)                            ; 0089B8A6: $15C0, $1200
+        bset    d5,d0                                   ; 0089B8AA: $0BC0
+        ori.b   #$0000,d0                               ; 0089B8AC: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B8B0: $0000, $0000
+        ori.b   #$00D0,-(a4)                            ; 0089B8B4: $0024, $0CD0
+        move.b  d0,d4                                   ; 0089B8B8: $1800
         dc.w    $F920                    ; 0089B8BA: dc.w $F920
-        dc.w    $0000                    ; 0089B8BC: dc.w $0000
-        dc.w    $0000                    ; 0089B8BE: dc.w $0000
-        dc.w    $0000                    ; 0089B8C0: dc.w $0000
-        dc.w    $0100                    ; 0089B8C2: dc.w $0100
-        dc.w    $0024                    ; 0089B8C4: dc.w $0024
-        dc.w    $10F8                    ; 0089B8C6: dc.w $10F8
-        dc.w    $1000                    ; 0089B8C8: dc.w $1000
-        dc.w    $E5DD                    ; 0089B8CA: dc.w $E5DD
-        dc.w    $0000                    ; 0089B8CC: dc.w $0000
-        dc.w    $0000                    ; 0089B8CE: dc.w $0000
-        dc.w    $0000                    ; 0089B8D0: dc.w $0000
-        dc.w    $0080                    ; 0089B8D2: dc.w $0080
-        dc.w    $0024                    ; 0089B8D4: dc.w $0024
-        dc.w    $FE94                    ; 0089B8D6: dc.w $FE94
-        dc.w    $1800                    ; 0089B8D8: dc.w $1800
-        dc.w    $E603                    ; 0089B8DA: dc.w $E603
-        dc.w    $0000                    ; 0089B8DC: dc.w $0000
-        dc.w    $0000                    ; 0089B8DE: dc.w $0000
-        dc.w    $0000                    ; 0089B8E0: dc.w $0000
-        dc.w    $0000                    ; 0089B8E2: dc.w $0000
-        dc.w    $0024                    ; 0089B8E4: dc.w $0024
-        dc.w    $FE40                    ; 0089B8E6: dc.w $FE40
-        dc.w    $0FA3                    ; 0089B8E8: dc.w $0FA3
-        dc.w    $DD98                    ; 0089B8EA: dc.w $DD98
-        dc.w    $0000                    ; 0089B8EC: dc.w $0000
-        dc.w    $0000                    ; 0089B8EE: dc.w $0000
-        dc.w    $0000                    ; 0089B8F0: dc.w $0000
-        dc.w    $0000                    ; 0089B8F2: dc.w $0000
-        dc.w    $0024                    ; 0089B8F4: dc.w $0024
-        dc.w    $F498                    ; 0089B8F6: dc.w $F498
-        dc.w    $0D00                    ; 0089B8F8: dc.w $0D00
-        dc.w    $F900                    ; 0089B8FA: dc.w $F900
-        dc.w    $0000                    ; 0089B8FC: dc.w $0000
-        dc.w    $0000                    ; 0089B8FE: dc.w $0000
-        dc.w    $0000                    ; 0089B900: dc.w $0000
-        dc.w    $0000                    ; 0089B902: dc.w $0000
-        dc.w    $0024                    ; 0089B904: dc.w $0024
-        dc.w    $F868                    ; 0089B906: dc.w $F868
-        dc.w    $1800                    ; 0089B908: dc.w $1800
-        dc.w    $D5C8                    ; 0089B90A: dc.w $D5C8
-        dc.w    $0000                    ; 0089B90C: dc.w $0000
-        dc.w    $0000                    ; 0089B90E: dc.w $0000
-        dc.w    $0000                    ; 0089B910: dc.w $0000
-        dc.w    $0200                    ; 0089B912: dc.w $0200
-        dc.w    $0024                    ; 0089B914: dc.w $0024
-        dc.w    $F450                    ; 0089B916: dc.w $F450
-        dc.w    $0D9B                    ; 0089B918: dc.w $0D9B
-        dc.w    $D8A0                    ; 0089B91A: dc.w $D8A0
-        dc.w    $0000                    ; 0089B91C: dc.w $0000
-        dc.w    $0000                    ; 0089B91E: dc.w $0000
-        dc.w    $0000                    ; 0089B920: dc.w $0000
-        dc.w    $0000                    ; 0089B922: dc.w $0000
-        dc.w    $0024                    ; 0089B924: dc.w $0024
-        dc.w    $07B0                    ; 0089B926: dc.w $07B0
-        dc.w    $18E3                    ; 0089B928: dc.w $18E3
-        dc.w    $E0C0                    ; 0089B92A: dc.w $E0C0
-        dc.w    $0500                    ; 0089B92C: dc.w $0500
-        dc.w    $1000                    ; 0089B92E: dc.w $1000
-        dc.w    $2000                    ; 0089B930: dc.w $2000
-        dc.w    $0100                    ; 0089B932: dc.w $0100
-        dc.w    $0024                    ; 0089B934: dc.w $0024
-        dc.w    $000D                    ; 0089B936: dc.w $000D
-        dc.w    $F581                    ; 0089B938: dc.w $F581
-        dc.w    $1000                    ; 0089B93A: dc.w $1000
-        dc.w    $005D                    ; 0089B93C: dc.w $005D
-        dc.w    $0000                    ; 0089B93E: dc.w $0000
-        dc.w    $0000                    ; 0089B940: dc.w $0000
-        dc.w    $0000                    ; 0089B942: dc.w $0000
-        dc.w    $0080                    ; 0089B944: dc.w $0080
-        dc.w    $0024                    ; 0089B946: dc.w $0024
-        dc.w    $F5F9                    ; 0089B948: dc.w $F5F9
-        dc.w    $1D00                    ; 0089B94A: dc.w $1D00
+        ori.b   #$0000,d0                               ; 0089B8BC: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B8C0: $0000, $0100
+        ori.b   #$00F8,-(a4)                            ; 0089B8C4: $0024, $10F8
+        move.b  d0,d0                                   ; 0089B8C8: $1000
+        roxl    (a5)+                                   ; 0089B8CA: $E5DD
+        ori.b   #$0000,d0                               ; 0089B8CC: $0000, $0000
+        ori.b   #$0080,d0                               ; 0089B8D0: $0000, $0080
+        ori.b   #$0094,-(a4)                            ; 0089B8D4: $0024, $FE94
+        move.b  d0,d4                                   ; 0089B8D8: $1800
+        asr.b   #3,d3                                   ; 0089B8DA: $E603
+        ori.b   #$0000,d0                               ; 0089B8DC: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B8E0: $0000, $0000
+        ori.b   #$0040,-(a4)                            ; 0089B8E4: $0024, $FE40
+        bclr    d7,-(a3)                                ; 0089B8E8: $0FA3
+        add.l   d6,(a0)+                                ; 0089B8EA: $DD98
+        ori.b   #$0000,d0                               ; 0089B8EC: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B8F0: $0000, $0000
+        ori.b   #$0098,-(a4)                            ; 0089B8F4: $0024, $F498
+        cmpi.b  #$0000,d0                               ; 0089B8F8: $0D00, $F900
+        ori.b   #$0000,d0                               ; 0089B8FC: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B900: $0000, $0000
+        ori.b   #$0068,-(a4)                            ; 0089B904: $0024, $F868
+        move.b  d0,d4                                   ; 0089B908: $1800
+        adda.l  a0,a2                                   ; 0089B90A: $D5C8
+        ori.b   #$0000,d0                               ; 0089B90C: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B910: $0000, $0200
+        ori.b   #$0050,-(a4)                            ; 0089B914: $0024, $F450
+        cmpi.l  #$D8A00000,(a3)+                        ; 0089B918: $0D9B, $D8A0, $0000
+        ori.b   #$0000,d0                               ; 0089B91E: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089B922: $0000, $0024
+        addi.l  #$18E3E0C0,$00(a0,d0.w)                 ; 0089B926: $07B0, $18E3, $E0C0, $0500
+        move.b  d0,d0                                   ; 0089B92E: $1000
+        move.l  d0,d0                                   ; 0089B930: $2000
+        ori.b   #$0024,d0                               ; 0089B932: $0100, $0024
+        ori.b   #$0081,a5                               ; 0089B936: $000D, $F581
+        move.b  d0,d0                                   ; 0089B93A: $1000
+        ori.w   #$0000,(a5)+                            ; 0089B93C: $005D, $0000
+        ori.b   #$0000,d0                               ; 0089B940: $0000, $0000
+        ori.l   #$0024F5F9,d0                           ; 0089B944: $0080, $0024, $F5F9
+        move.b  d0,-(a6)                                ; 0089B94A: $1D00
         dc.w    $1BEC                    ; 0089B94C: dc.w $1BEC
-        dc.w    $0000                    ; 0089B94E: dc.w $0000
-        dc.w    $0000                    ; 0089B950: dc.w $0000
-        dc.w    $0000                    ; 0089B952: dc.w $0000
-        dc.w    $0010                    ; 0089B954: dc.w $0010
-        dc.w    $0024                    ; 0089B956: dc.w $0024
-        dc.w    $F6F0                    ; 0089B958: dc.w $F6F0
-        dc.w    $1200                    ; 0089B95A: dc.w $1200
-        dc.w    $2268                    ; 0089B95C: dc.w $2268
-        dc.w    $0000                    ; 0089B95E: dc.w $0000
-        dc.w    $0000                    ; 0089B960: dc.w $0000
-        dc.w    $0000                    ; 0089B962: dc.w $0000
-        dc.w    $0000                    ; 0089B964: dc.w $0000
-        dc.w    $0024                    ; 0089B966: dc.w $0024
-        dc.w    $1098                    ; 0089B968: dc.w $1098
-        dc.w    $1000                    ; 0089B96A: dc.w $1000
-        dc.w    $1C19                    ; 0089B96C: dc.w $1C19
-        dc.w    $0000                    ; 0089B96E: dc.w $0000
-        dc.w    $0000                    ; 0089B970: dc.w $0000
-        dc.w    $0000                    ; 0089B972: dc.w $0000
-        dc.w    $0000                    ; 0089B974: dc.w $0000
-        dc.w    $0024                    ; 0089B976: dc.w $0024
-        dc.w    $1538                    ; 0089B978: dc.w $1538
-        dc.w    $139B                    ; 0089B97A: dc.w $139B
-        dc.w    $1370                    ; 0089B97C: dc.w $1370
-        dc.w    $0000                    ; 0089B97E: dc.w $0000
-        dc.w    $0000                    ; 0089B980: dc.w $0000
-        dc.w    $0000                    ; 0089B982: dc.w $0000
-        dc.w    $0000                    ; 0089B984: dc.w $0000
-        dc.w    $0024                    ; 0089B986: dc.w $0024
-        dc.w    $1388                    ; 0089B988: dc.w $1388
-        dc.w    $10CB                    ; 0089B98A: dc.w $10CB
-        dc.w    $0C18                    ; 0089B98C: dc.w $0C18
-        dc.w    $0000                    ; 0089B98E: dc.w $0000
-        dc.w    $0000                    ; 0089B990: dc.w $0000
-        dc.w    $1000                    ; 0089B992: dc.w $1000
-        dc.w    $0000                    ; 0089B994: dc.w $0000
-        dc.w    $0024                    ; 0089B996: dc.w $0024
-        dc.w    $0F00                    ; 0089B998: dc.w $0F00
-        dc.w    $1B83                    ; 0089B99A: dc.w $1B83
-        dc.w    $F798                    ; 0089B99C: dc.w $F798
-        dc.w    $0000                    ; 0089B99E: dc.w $0000
-        dc.w    $0000                    ; 0089B9A0: dc.w $0000
-        dc.w    $0000                    ; 0089B9A2: dc.w $0000
-        dc.w    $0080                    ; 0089B9A4: dc.w $0080
-        dc.w    $0024                    ; 0089B9A6: dc.w $0024
-        dc.w    $1000                    ; 0089B9A8: dc.w $1000
-        dc.w    $1000                    ; 0089B9AA: dc.w $1000
-        dc.w    $E5DD                    ; 0089B9AC: dc.w $E5DD
-        dc.w    $0300                    ; 0089B9AE: dc.w $0300
-        dc.w    $0000                    ; 0089B9B0: dc.w $0000
-        dc.w    $2000                    ; 0089B9B2: dc.w $2000
-        dc.w    $0100                    ; 0089B9B4: dc.w $0100
-        dc.w    $002C                    ; 0089B9B6: dc.w $002C
-        dc.w    $0154                    ; 0089B9B8: dc.w $0154
-        dc.w    $1000                    ; 0089B9BA: dc.w $1000
-        dc.w    $E55B                    ; 0089B9BC: dc.w $E55B
-        dc.w    $0000                    ; 0089B9BE: dc.w $0000
-        dc.w    $0000                    ; 0089B9C0: dc.w $0000
-        dc.w    $0000                    ; 0089B9C2: dc.w $0000
-        dc.w    $0000                    ; 0089B9C4: dc.w $0000
-        dc.w    $0024                    ; 0089B9C6: dc.w $0024
-        dc.w    $FC58                    ; 0089B9C8: dc.w $FC58
-        dc.w    $0FA3                    ; 0089B9CA: dc.w $0FA3
-        dc.w    $DDB0                    ; 0089B9CC: dc.w $DDB0
-        dc.w    $0000                    ; 0089B9CE: dc.w $0000
-        dc.w    $0000                    ; 0089B9D0: dc.w $0000
-        dc.w    $0000                    ; 0089B9D2: dc.w $0000
-        dc.w    $0000                    ; 0089B9D4: dc.w $0000
-        dc.w    $0024                    ; 0089B9D6: dc.w $0024
+        ori.b   #$0000,d0                               ; 0089B94E: $0000, $0000
+        ori.b   #$0010,d0                               ; 0089B952: $0000, $0010
+        ori.b   #$00F0,-(a4)                            ; 0089B956: $0024, $F6F0
+        move.b  d0,d1                                   ; 0089B95A: $1200
+        movea.l $0000(a0),a1                            ; 0089B95C: $2268, $0000
+        ori.b   #$0000,d0                               ; 0089B960: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089B964: $0000, $0024
+        move.b  (a0)+,(a0)                              ; 0089B968: $1098
+        move.b  d0,d0                                   ; 0089B96A: $1000
+        move.b  (a1)+,d6                                ; 0089B96C: $1C19
+        ori.b   #$0000,d0                               ; 0089B96E: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B972: $0000, $0000
+        ori.b   #$0038,-(a4)                            ; 0089B976: $0024, $1538
+        move.b  (a3)+,$70(a1,d1.w)                      ; 0089B97A: $139B, $1370
+        ori.b   #$0000,d0                               ; 0089B97E: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B982: $0000, $0000
+        ori.b   #$0088,-(a4)                            ; 0089B986: $0024, $1388
+        move.b  a3,(a0)+                                ; 0089B98A: $10CB
+        cmpi.b  #$0000,(a0)+                            ; 0089B98C: $0C18, $0000
+        ori.b   #$0000,d0                               ; 0089B990: $0000, $1000
+        ori.b   #$0024,d0                               ; 0089B994: $0000, $0024
+        btst    d7,d0                                   ; 0089B998: $0F00
+        move.b  d3,$-68(a5,a7.w)                        ; 0089B99A: $1B83, $F798
+        ori.b   #$0000,d0                               ; 0089B99E: $0000, $0000
+        ori.b   #$0080,d0                               ; 0089B9A2: $0000, $0080
+        ori.b   #$0000,-(a4)                            ; 0089B9A6: $0024, $1000
+        move.b  d0,d0                                   ; 0089B9AA: $1000
+        roxl    (a5)+                                   ; 0089B9AC: $E5DD
+        andi.b  #$0000,d0                               ; 0089B9AE: $0300, $0000
+        move.l  d0,d0                                   ; 0089B9B2: $2000
+        ori.b   #$002C,d0                               ; 0089B9B4: $0100, $002C
+        ori.w   #$1000,(a4)                             ; 0089B9B8: $0154, $1000
+        rol.w   #2,d3                                   ; 0089B9BC: $E55B
+        ori.b   #$0000,d0                               ; 0089B9BE: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B9C2: $0000, $0000
+        ori.b   #$0058,-(a4)                            ; 0089B9C6: $0024, $FC58
+        bclr    d7,-(a3)                                ; 0089B9CA: $0FA3
+        add.l   d6,$00(a0,d0.w)                         ; 0089B9CC: $DDB0, $0000
+        ori.b   #$0000,d0                               ; 0089B9D0: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089B9D4: $0000, $0024
         dc.w    $F450                    ; 0089B9D8: dc.w $F450
-        dc.w    $0C00                    ; 0089B9DA: dc.w $0C00
-        dc.w    $E800                    ; 0089B9DC: dc.w $E800
-        dc.w    $0000                    ; 0089B9DE: dc.w $0000
-        dc.w    $0000                    ; 0089B9E0: dc.w $0000
-        dc.w    $0000                    ; 0089B9E2: dc.w $0000
-        dc.w    $0000                    ; 0089B9E4: dc.w $0000
-        dc.w    $0024                    ; 0089B9E6: dc.w $0024
-        dc.w    $FA70                    ; 0089B9E8: dc.w $FA70
+        cmpi.b  #$0000,d0                               ; 0089B9DA: $0C00, $E800
+        ori.b   #$0000,d0                               ; 0089B9DE: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089B9E2: $0000, $0000
+        ori.b   #$0070,-(a4)                            ; 0089B9E6: $0024, $FA70
         dc.w    $0E93                    ; 0089B9EA: dc.w $0E93
-        dc.w    $D230                    ; 0089B9EC: dc.w $D230
-        dc.w    $0100                    ; 0089B9EE: dc.w $0100
-        dc.w    $0100                    ; 0089B9F0: dc.w $0100
-        dc.w    $0B00                    ; 0089B9F2: dc.w $0B00
-        dc.w    $0100                    ; 0089B9F4: dc.w $0100
-        dc.w    $002C                    ; 0089B9F6: dc.w $002C
+        add.b   $00(a0,d0.w),d1                         ; 0089B9EC: $D230, $0100
+        ori.b   #$0000,d0                               ; 0089B9F0: $0100, $0B00
+        ori.b   #$002C,d0                               ; 0089B9F4: $0100, $002C
         dc.w    $F450                    ; 0089B9F8: dc.w $F450
-        dc.w    $0D9B                    ; 0089B9FA: dc.w $0D9B
-        dc.w    $D8A0                    ; 0089B9FC: dc.w $D8A0
-        dc.w    $0000                    ; 0089B9FE: dc.w $0000
-        dc.w    $0000                    ; 0089BA00: dc.w $0000
-        dc.w    $0000                    ; 0089BA02: dc.w $0000
-        dc.w    $0000                    ; 0089BA04: dc.w $0000
-        dc.w    $0024                    ; 0089BA06: dc.w $0024
-        dc.w    $07B0                    ; 0089BA08: dc.w $07B0
-        dc.w    $18E3                    ; 0089BA0A: dc.w $18E3
-        dc.w    $E0C0                    ; 0089BA0C: dc.w $E0C0
-        dc.w    $0000                    ; 0089BA0E: dc.w $0000
-        dc.w    $0000                    ; 0089BA10: dc.w $0000
-        dc.w    $0000                    ; 0089BA12: dc.w $0000
-        dc.w    $0000                    ; 0089BA14: dc.w $0000
-        dc.w    $0024                    ; 0089BA16: dc.w $0024
-        dc.w    $000C                    ; 0089BA18: dc.w $000C
-        dc.w    $F37A                    ; 0089BA1A: dc.w $F37A
-        dc.w    $2A00                    ; 0089BA1C: dc.w $2A00
-        dc.w    $0550                    ; 0089BA1E: dc.w $0550
-        dc.w    $0000                    ; 0089BA20: dc.w $0000
-        dc.w    $0000                    ; 0089BA22: dc.w $0000
-        dc.w    $0000                    ; 0089BA24: dc.w $0000
-        dc.w    $0100                    ; 0089BA26: dc.w $0100
-        dc.w    $0024                    ; 0089BA28: dc.w $0024
+        cmpi.l  #$D8A00000,(a3)+                        ; 0089B9FA: $0D9B, $D8A0, $0000
+        ori.b   #$0000,d0                               ; 0089BA00: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BA04: $0000, $0024
+        addi.l  #$18E3E0C0,$00(a0,d0.w)                 ; 0089BA08: $07B0, $18E3, $E0C0, $0000
+        ori.b   #$0000,d0                               ; 0089BA10: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BA14: $0000, $0024
+        ori.b   #$007A,a4                               ; 0089BA18: $000C, $F37A
+        move.l  d0,d5                                   ; 0089BA1C: $2A00
+        subi.w  #$0000,(a0)                             ; 0089BA1E: $0550, $0000
+        ori.b   #$0000,d0                               ; 0089BA22: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BA26: $0100, $0024
         dc.w    $F4AA                    ; 0089BA2A: dc.w $F4AA
-        dc.w    $0C80                    ; 0089BA2C: dc.w $0C80
-        dc.w    $1900                    ; 0089BA2E: dc.w $1900
-        dc.w    $0200                    ; 0089BA30: dc.w $0200
-        dc.w    $0180                    ; 0089BA32: dc.w $0180
-        dc.w    $1000                    ; 0089BA34: dc.w $1000
-        dc.w    $0080                    ; 0089BA36: dc.w $0080
-        dc.w    $8030                    ; 0089BA38: dc.w $8030
-        dc.w    $011A                    ; 0089BA3A: dc.w $011A
-        dc.w    $0000                    ; 0089BA3C: dc.w $0000
-        dc.w    $2760                    ; 0089BA3E: dc.w $2760
-        dc.w    $0040                    ; 0089BA40: dc.w $0040
-        dc.w    $FFC0                    ; 0089BA42: dc.w $FFC0
-        dc.w    $0900                    ; 0089BA44: dc.w $0900
-        dc.w    $0100                    ; 0089BA46: dc.w $0100
-        dc.w    $0030                    ; 0089BA48: dc.w $0030
+        cmpi.l  #$19000200,d0                           ; 0089BA2C: $0C80, $1900, $0200
+        ori.l   #$10000080,d0                           ; 0089BA32: $0180, $1000, $0080
+        or.b    $1A(a0,d0.w),d0                         ; 0089BA38: $8030, $011A
+        ori.b   #$0060,d0                               ; 0089BA3C: $0000, $2760
+        ori.w   #$FFC0,d0                               ; 0089BA40: $0040, $FFC0
+        btst    d4,d0                                   ; 0089BA44: $0900
+        ori.b   #$0030,d0                               ; 0089BA46: $0100, $0030
         dc.w    $F7D5                    ; 0089BA4A: dc.w $F7D5
-        dc.w    $2800                    ; 0089BA4C: dc.w $2800
-        dc.w    $2840                    ; 0089BA4E: dc.w $2840
-        dc.w    $0000                    ; 0089BA50: dc.w $0000
-        dc.w    $0000                    ; 0089BA52: dc.w $0000
-        dc.w    $0800                    ; 0089BA54: dc.w $0800
-        dc.w    $0100                    ; 0089BA56: dc.w $0100
-        dc.w    $0024                    ; 0089BA58: dc.w $0024
-        dc.w    $0A00                    ; 0089BA5A: dc.w $0A00
-        dc.w    $2A00                    ; 0089BA5C: dc.w $2A00
-        dc.w    $1C80                    ; 0089BA5E: dc.w $1C80
-        dc.w    $0000                    ; 0089BA60: dc.w $0000
-        dc.w    $0000                    ; 0089BA62: dc.w $0000
-        dc.w    $0000                    ; 0089BA64: dc.w $0000
-        dc.w    $0100                    ; 0089BA66: dc.w $0100
-        dc.w    $0024                    ; 0089BA68: dc.w $0024
-        dc.w    $08D2                    ; 0089BA6A: dc.w $08D2
-        dc.w    $27FC                    ; 0089BA6C: dc.w $27FC
-        dc.w    $0260                    ; 0089BA6E: dc.w $0260
-        dc.w    $0000                    ; 0089BA70: dc.w $0000
-        dc.w    $0000                    ; 0089BA72: dc.w $0000
-        dc.w    $0000                    ; 0089BA74: dc.w $0000
-        dc.w    $0080                    ; 0089BA76: dc.w $0080
-        dc.w    $0024                    ; 0089BA78: dc.w $0024
-        dc.w    $1352                    ; 0089BA7A: dc.w $1352
-        dc.w    $0100                    ; 0089BA7C: dc.w $0100
-        dc.w    $F6C0                    ; 0089BA7E: dc.w $F6C0
-        dc.w    $0080                    ; 0089BA80: dc.w $0080
-        dc.w    $0080                    ; 0089BA82: dc.w $0080
-        dc.w    $1000                    ; 0089BA84: dc.w $1000
-        dc.w    $0100                    ; 0089BA86: dc.w $0100
-        dc.w    $0030                    ; 0089BA88: dc.w $0030
+        move.l  d0,d4                                   ; 0089BA4C: $2800
+        movea.l d0,a4                                   ; 0089BA4E: $2840
+        ori.b   #$0000,d0                               ; 0089BA50: $0000, $0000
+        btst    #$100,d0                                ; 0089BA54: $0800, $0100
+        ori.b   #$0000,-(a4)                            ; 0089BA58: $0024, $0A00
+        move.l  d0,d5                                   ; 0089BA5C: $2A00
+        move.b  d0,(a6)                                 ; 0089BA5E: $1C80
+        ori.b   #$0000,d0                               ; 0089BA60: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BA64: $0000, $0100
+        ori.b   #$00D2,-(a4)                            ; 0089BA68: $0024, $08D2
+        move.l  #$02600000,$00(pc,d0.w)                 ; 0089BA6C: $27FC, $0260, $0000, $0000
+        ori.b   #$0080,d0                               ; 0089BA74: $0000, $0080
+        ori.b   #$0052,-(a4)                            ; 0089BA78: $0024, $1352
+        ori.b   #$00C0,d0                               ; 0089BA7C: $0100, $F6C0
+        ori.l   #$00801000,d0                           ; 0089BA80: $0080, $0080, $1000
+        ori.b   #$0030,d0                               ; 0089BA86: $0100, $0030
         dc.w    $0E00                    ; 0089BA8A: dc.w $0E00
-        dc.w    $1080                    ; 0089BA8C: dc.w $1080
-        dc.w    $EB78                    ; 0089BA8E: dc.w $EB78
-        dc.w    $0100                    ; 0089BA90: dc.w $0100
-        dc.w    $0010                    ; 0089BA92: dc.w $0010
-        dc.w    $1000                    ; 0089BA94: dc.w $1000
-        dc.w    $0100                    ; 0089BA96: dc.w $0100
-        dc.w    $0030                    ; 0089BA98: dc.w $0030
-        dc.w    $08E2                    ; 0089BA9A: dc.w $08E2
-        dc.w    $0E59                    ; 0089BA9C: dc.w $0E59
-        dc.w    $E298                    ; 0089BA9E: dc.w $E298
-        dc.w    $0000                    ; 0089BAA0: dc.w $0000
-        dc.w    $0000                    ; 0089BAA2: dc.w $0000
-        dc.w    $0000                    ; 0089BAA4: dc.w $0000
-        dc.w    $0100                    ; 0089BAA6: dc.w $0100
-        dc.w    $0024                    ; 0089BAA8: dc.w $0024
-        dc.w    $FBF2                    ; 0089BAAA: dc.w $FBF2
+        move.b  d0,(a0)                                 ; 0089BA8C: $1080
+        rol.w   d5,d0                                   ; 0089BA8E: $EB78
+        ori.b   #$0010,d0                               ; 0089BA90: $0100, $0010
+        move.b  d0,d0                                   ; 0089BA94: $1000
+        ori.b   #$0030,d0                               ; 0089BA96: $0100, $0030
+        bset    #$E59,-(a2)                             ; 0089BA9A: $08E2, $0E59
+        ror.l   #1,d0                                   ; 0089BA9E: $E298
+        ori.b   #$0000,d0                               ; 0089BAA0: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BAA4: $0000, $0100
+        ori.b   #$00F2,-(a4)                            ; 0089BAA8: $0024, $FBF2
         dc.w    $0E00                    ; 0089BAAC: dc.w $0E00
-        dc.w    $E848                    ; 0089BAAE: dc.w $E848
-        dc.w    $0100                    ; 0089BAB0: dc.w $0100
-        dc.w    $0000                    ; 0089BAB2: dc.w $0000
-        dc.w    $0C00                    ; 0089BAB4: dc.w $0C00
-        dc.w    $0100                    ; 0089BAB6: dc.w $0100
-        dc.w    $0030                    ; 0089BAB8: dc.w $0030
-        dc.w    $F282                    ; 0089BABA: dc.w $F282
-        dc.w    $1300                    ; 0089BABC: dc.w $1300
-        dc.w    $D9B8                    ; 0089BABE: dc.w $D9B8
-        dc.w    $0000                    ; 0089BAC0: dc.w $0000
-        dc.w    $0000                    ; 0089BAC2: dc.w $0000
-        dc.w    $0000                    ; 0089BAC4: dc.w $0000
-        dc.w    $0100                    ; 0089BAC6: dc.w $0100
-        dc.w    $0024                    ; 0089BAC8: dc.w $0024
-        dc.w    $EF62                    ; 0089BACA: dc.w $EF62
-        dc.w    $1B8B                    ; 0089BACC: dc.w $1B8B
-        dc.w    $E5A8                    ; 0089BACE: dc.w $E5A8
-        dc.w    $0000                    ; 0089BAD0: dc.w $0000
-        dc.w    $0000                    ; 0089BAD2: dc.w $0000
-        dc.w    $0000                    ; 0089BAD4: dc.w $0000
-        dc.w    $0080                    ; 0089BAD6: dc.w $0080
-        dc.w    $0024                    ; 0089BAD8: dc.w $0024
-        dc.w    $F60A                    ; 0089BADA: dc.w $F60A
-        dc.w    $1CD7                    ; 0089BADC: dc.w $1CD7
+        lsr.w   #4,d0                                   ; 0089BAAE: $E848
+        ori.b   #$0000,d0                               ; 0089BAB0: $0100, $0000
+        cmpi.b  #$0000,d0                               ; 0089BAB4: $0C00, $0100
+        ori.b   #$0082,$00(a0,d1.w)                     ; 0089BAB8: $0030, $F282, $1300
+        add.l   d4,($0000).w                            ; 0089BABE: $D9B8, $0000
+        ori.b   #$0000,d0                               ; 0089BAC2: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BAC6: $0100, $0024
+        asl.w   d7,d2                                   ; 0089BACA: $EF62
+        move.b  a3,$-58(a5,a6.w)                        ; 0089BACC: $1B8B, $E5A8
+        ori.b   #$0000,d0                               ; 0089BAD0: $0000, $0000
+        ori.b   #$0080,d0                               ; 0089BAD4: $0000, $0080
+        ori.b   #$000A,-(a4)                            ; 0089BAD8: $0024, $F60A
+        move.b  (a7),(a6)+                              ; 0089BADC: $1CD7
         dc.w    $F1A0                    ; 0089BADE: dc.w $F1A0
-        dc.w    $0000                    ; 0089BAE0: dc.w $0000
-        dc.w    $0000                    ; 0089BAE2: dc.w $0000
-        dc.w    $0000                    ; 0089BAE4: dc.w $0000
-        dc.w    $0100                    ; 0089BAE6: dc.w $0100
-        dc.w    $0024                    ; 0089BAE8: dc.w $0024
-        dc.w    $000C                    ; 0089BAEA: dc.w $000C
+        ori.b   #$0000,d0                               ; 0089BAE0: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BAE4: $0000, $0100
+        ori.b   #$000C,-(a4)                            ; 0089BAE8: $0024, $000C
         dc.w    $F37A                    ; 0089BAEC: dc.w $F37A
-        dc.w    $2A00                    ; 0089BAEE: dc.w $2A00
-        dc.w    $0550                    ; 0089BAF0: dc.w $0550
-        dc.w    $0100                    ; 0089BAF2: dc.w $0100
-        dc.w    $1000                    ; 0089BAF4: dc.w $1000
-        dc.w    $1000                    ; 0089BAF6: dc.w $1000
-        dc.w    $0100                    ; 0089BAF8: dc.w $0100
-        dc.w    $002C                    ; 0089BAFA: dc.w $002C
+        move.l  d0,d5                                   ; 0089BAEE: $2A00
+        subi.w  #$0100,(a0)                             ; 0089BAF0: $0550, $0100
+        move.b  d0,d0                                   ; 0089BAF4: $1000
+        move.b  d0,d0                                   ; 0089BAF6: $1000
+        ori.b   #$002C,d0                               ; 0089BAF8: $0100, $002C
         dc.w    $F452                    ; 0089BAFC: dc.w $F452
-        dc.w    $5000                    ; 0089BAFE: dc.w $5000
-        dc.w    $1890                    ; 0089BB00: dc.w $1890
-        dc.w    $3000                    ; 0089BB02: dc.w $3000
-        dc.w    $0000                    ; 0089BB04: dc.w $0000
-        dc.w    $0000                    ; 0089BB06: dc.w $0000
-        dc.w    $0011                    ; 0089BB08: dc.w $0011
-        dc.w    $8004                    ; 0089BB0A: dc.w $8004
-        dc.w    $01D2                    ; 0089BB0C: dc.w $01D2
-        dc.w    $1D00                    ; 0089BB0E: dc.w $1D00
-        dc.w    $26B8                    ; 0089BB10: dc.w $26B8
-        dc.w    $0000                    ; 0089BB12: dc.w $0000
-        dc.w    $0000                    ; 0089BB14: dc.w $0000
-        dc.w    $0000                    ; 0089BB16: dc.w $0000
-        dc.w    $0080                    ; 0089BB18: dc.w $0080
-        dc.w    $0024                    ; 0089BB1A: dc.w $0024
-        dc.w    $F6C5                    ; 0089BB1C: dc.w $F6C5
-        dc.w    $2B00                    ; 0089BB1E: dc.w $2B00
-        dc.w    $26F0                    ; 0089BB20: dc.w $26F0
-        dc.w    $1800                    ; 0089BB22: dc.w $1800
-        dc.w    $0000                    ; 0089BB24: dc.w $0000
-        dc.w    $0000                    ; 0089BB26: dc.w $0000
-        dc.w    $0030                    ; 0089BB28: dc.w $0030
-        dc.w    $8004                    ; 0089BB2A: dc.w $8004
-        dc.w    $0A00                    ; 0089BB2C: dc.w $0A00
-        dc.w    $0080                    ; 0089BB2E: dc.w $0080
-        dc.w    $1C80                    ; 0089BB30: dc.w $1C80
-        dc.w    $0100                    ; 0089BB32: dc.w $0100
-        dc.w    $0000                    ; 0089BB34: dc.w $0000
-        dc.w    $1000                    ; 0089BB36: dc.w $1000
-        dc.w    $0100                    ; 0089BB38: dc.w $0100
-        dc.w    $0030                    ; 0089BB3A: dc.w $0030
-        dc.w    $09CA                    ; 0089BB3C: dc.w $09CA
-        dc.w    $27FC                    ; 0089BB3E: dc.w $27FC
-        dc.w    $0578                    ; 0089BB40: dc.w $0578
-        dc.w    $0000                    ; 0089BB42: dc.w $0000
-        dc.w    $0000                    ; 0089BB44: dc.w $0000
-        dc.w    $0000                    ; 0089BB46: dc.w $0000
-        dc.w    $0000                    ; 0089BB48: dc.w $0000
-        dc.w    $0024                    ; 0089BB4A: dc.w $0024
-        dc.w    $0F92                    ; 0089BB4C: dc.w $0F92
-        dc.w    $1200                    ; 0089BB4E: dc.w $1200
+        addq.b  #8,d0                                   ; 0089BAFE: $5000
+        move.b  (a0),(a4)                               ; 0089BB00: $1890
+        move.w  d0,d0                                   ; 0089BB02: $3000
+        ori.b   #$0000,d0                               ; 0089BB04: $0000, $0000
+        ori.b   #$0004,(a1)                             ; 0089BB08: $0011, $8004
+        bset    d0,(a2)                                 ; 0089BB0C: $01D2
+        move.b  d0,-(a6)                                ; 0089BB0E: $1D00
+        move.l  ($0000).w,(a3)                          ; 0089BB10: $26B8, $0000
+        ori.b   #$0000,d0                               ; 0089BB14: $0000, $0000
+        ori.l   #$0024F6C5,d0                           ; 0089BB18: $0080, $0024, $F6C5
+        move.l  d0,-(a5)                                ; 0089BB1E: $2B00
+        move.l  $00(a0,d1.l),(a3)+                      ; 0089BB20: $26F0, $1800
+        ori.b   #$0000,d0                               ; 0089BB24: $0000, $0000
+        ori.b   #$0004,$00(a0,d0.l)                     ; 0089BB28: $0030, $8004, $0A00
+        ori.l   #$1C800100,d0                           ; 0089BB2E: $0080, $1C80, $0100
+        ori.b   #$0000,d0                               ; 0089BB34: $0000, $1000
+        ori.b   #$0030,d0                               ; 0089BB38: $0100, $0030
+        bset    d4,a2                                   ; 0089BB3C: $09CA
+        move.l  #$05780000,$00(pc,d0.w)                 ; 0089BB3E: $27FC, $0578, $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BB46: $0000, $0000
+        ori.b   #$0092,-(a4)                            ; 0089BB4A: $0024, $0F92
+        move.b  d0,d1                                   ; 0089BB4E: $1200
         dc.w    $F9A8                    ; 0089BB50: dc.w $F9A8
-        dc.w    $0000                    ; 0089BB52: dc.w $0000
-        dc.w    $0000                    ; 0089BB54: dc.w $0000
-        dc.w    $0000                    ; 0089BB56: dc.w $0000
-        dc.w    $0100                    ; 0089BB58: dc.w $0100
-        dc.w    $0024                    ; 0089BB5A: dc.w $0024
-        dc.w    $10A0                    ; 0089BB5C: dc.w $10A0
-        dc.w    $0000                    ; 0089BB5E: dc.w $0000
-        dc.w    $EAE8                    ; 0089BB60: dc.w $EAE8
-        dc.w    $0200                    ; 0089BB62: dc.w $0200
-        dc.w    $FFC0                    ; 0089BB64: dc.w $FFC0
-        dc.w    $1000                    ; 0089BB66: dc.w $1000
-        dc.w    $0100                    ; 0089BB68: dc.w $0100
-        dc.w    $0030                    ; 0089BB6A: dc.w $0030
-        dc.w    $0D32                    ; 0089BB6C: dc.w $0D32
-        dc.w    $0E59                    ; 0089BB6E: dc.w $0E59
-        dc.w    $E170                    ; 0089BB70: dc.w $E170
-        dc.w    $0000                    ; 0089BB72: dc.w $0000
-        dc.w    $0000                    ; 0089BB74: dc.w $0000
-        dc.w    $0000                    ; 0089BB76: dc.w $0000
-        dc.w    $0100                    ; 0089BB78: dc.w $0100
-        dc.w    $0024                    ; 0089BB7A: dc.w $0024
-        dc.w    $FBF2                    ; 0089BB7C: dc.w $FBF2
-        dc.w    $0800                    ; 0089BB7E: dc.w $0800
-        dc.w    $E848                    ; 0089BB80: dc.w $E848
-        dc.w    $0000                    ; 0089BB82: dc.w $0000
-        dc.w    $0000                    ; 0089BB84: dc.w $0000
-        dc.w    $0000                    ; 0089BB86: dc.w $0000
-        dc.w    $0100                    ; 0089BB88: dc.w $0100
-        dc.w    $0024                    ; 0089BB8A: dc.w $0024
-        dc.w    $F39A                    ; 0089BB8C: dc.w $F39A
-        dc.w    $1800                    ; 0089BB8E: dc.w $1800
-        dc.w    $DA38                    ; 0089BB90: dc.w $DA38
-        dc.w    $0000                    ; 0089BB92: dc.w $0000
-        dc.w    $0000                    ; 0089BB94: dc.w $0000
-        dc.w    $0000                    ; 0089BB96: dc.w $0000
-        dc.w    $0080                    ; 0089BB98: dc.w $0080
-        dc.w    $0024                    ; 0089BB9A: dc.w $0024
-        dc.w    $F11A                    ; 0089BB9C: dc.w $F11A
-        dc.w    $1B8B                    ; 0089BB9E: dc.w $1B8B
-        dc.w    $E6D0                    ; 0089BBA0: dc.w $E6D0
-        dc.w    $0100                    ; 0089BBA2: dc.w $0100
-        dc.w    $0000                    ; 0089BBA4: dc.w $0000
-        dc.w    $1000                    ; 0089BBA6: dc.w $1000
-        dc.w    $0100                    ; 0089BBA8: dc.w $0100
-        dc.w    $0030                    ; 0089BBAA: dc.w $0030
+        ori.b   #$0000,d0                               ; 0089BB52: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BB56: $0000, $0100
+        ori.b   #$00A0,-(a4)                            ; 0089BB5A: $0024, $10A0
+        ori.b   #$00E8,d0                               ; 0089BB5E: $0000, $EAE8
+        andi.b  #$00C0,d0                               ; 0089BB62: $0200, $FFC0
+        move.b  d0,d0                                   ; 0089BB66: $1000
+        ori.b   #$0030,d0                               ; 0089BB68: $0100, $0030
+        cmpi.b  #$0059,$70(a2,a6.w)                     ; 0089BB6C: $0D32, $0E59, $E170
+        ori.b   #$0000,d0                               ; 0089BB72: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BB76: $0000, $0100
+        ori.b   #$00F2,-(a4)                            ; 0089BB7A: $0024, $FBF2
+        btst    #$E848,d0                               ; 0089BB7E: $0800, $E848
+        ori.b   #$0000,d0                               ; 0089BB82: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BB86: $0000, $0100
+        ori.b   #$009A,-(a4)                            ; 0089BB8A: $0024, $F39A
+        move.b  d0,d4                                   ; 0089BB8E: $1800
+        add.b   ($0000).w,d5                            ; 0089BB90: $DA38, $0000
+        ori.b   #$0000,d0                               ; 0089BB94: $0000, $0000
+        ori.l   #$0024F11A,d0                           ; 0089BB98: $0080, $0024, $F11A
+        move.b  a3,$-30(a5,a6.w)                        ; 0089BB9E: $1B8B, $E6D0
+        ori.b   #$0000,d0                               ; 0089BBA2: $0100, $0000
+        move.b  d0,d0                                   ; 0089BBA6: $1000
+        ori.b   #$0030,d0                               ; 0089BBA8: $0100, $0030
         dc.w    $F5C2                    ; 0089BBAC: dc.w $F5C2
-        dc.w    $0F00                    ; 0089BBAE: dc.w $0F00
+        btst    d7,d0                                   ; 0089BBAE: $0F00
         dc.w    $F290                    ; 0089BBB0: dc.w $F290
-        dc.w    $0200                    ; 0089BBB2: dc.w $0200
-        dc.w    $0080                    ; 0089BBB4: dc.w $0080
-        dc.w    $1000                    ; 0089BBB6: dc.w $1000
-        dc.w    $0100                    ; 0089BBB8: dc.w $0100
-        dc.w    $0030                    ; 0089BBBA: dc.w $0030
-        dc.w    $000A                    ; 0089BBBC: dc.w $000A
-        dc.w    $EC48                    ; 0089BBBE: dc.w $EC48
-        dc.w    $0F00                    ; 0089BBC0: dc.w $0F00
+        andi.b  #$0080,d0                               ; 0089BBB2: $0200, $0080
+        move.b  d0,d0                                   ; 0089BBB6: $1000
+        ori.b   #$0030,d0                               ; 0089BBB8: $0100, $0030
+        ori.b   #$0048,a2                               ; 0089BBBC: $000A, $EC48
+        btst    d7,d0                                   ; 0089BBC0: $0F00
         dc.w    $F800                    ; 0089BBC2: dc.w $F800
-        dc.w    $0100                    ; 0089BBC4: dc.w $0100
-        dc.w    $0000                    ; 0089BBC6: dc.w $0000
+        ori.b   #$0000,d0                               ; 0089BBC4: $0100, $0000
         dc.w    $4000                    ; 0089BBC8: dc.w $4000
-        dc.w    $0100                    ; 0089BBCA: dc.w $0100
-        dc.w    $0030                    ; 0089BBCC: dc.w $0030
-        dc.w    $EDB0                    ; 0089BBCE: dc.w $EDB0
-        dc.w    $0080                    ; 0089BBD0: dc.w $0080
-        dc.w    $0AE0                    ; 0089BBD2: dc.w $0AE0
-        dc.w    $0000                    ; 0089BBD4: dc.w $0000
-        dc.w    $0080                    ; 0089BBD6: dc.w $0080
-        dc.w    $1000                    ; 0089BBD8: dc.w $1000
-        dc.w    $0100                    ; 0089BBDA: dc.w $0100
-        dc.w    $0030                    ; 0089BBDC: dc.w $0030
-        dc.w    $FB50                    ; 0089BBDE: dc.w $FB50
-        dc.w    $2000                    ; 0089BBE0: dc.w $2000
-        dc.w    $1990                    ; 0089BBE2: dc.w $1990
-        dc.w    $0000                    ; 0089BBE4: dc.w $0000
-        dc.w    $0000                    ; 0089BBE6: dc.w $0000
-        dc.w    $0000                    ; 0089BBE8: dc.w $0000
-        dc.w    $0100                    ; 0089BBEA: dc.w $0100
-        dc.w    $0024                    ; 0089BBEC: dc.w $0024
+        ori.b   #$0030,d0                               ; 0089BBCA: $0100, $0030
+        roxl.l  d6,d0                                   ; 0089BBCE: $EDB0
+        ori.l   #$0AE00000,d0                           ; 0089BBD0: $0080, $0AE0, $0000
+        ori.l   #$10000100,d0                           ; 0089BBD6: $0080, $1000, $0100
+        ori.b   #$0050,$00(a0,d2.w)                     ; 0089BBDC: $0030, $FB50, $2000
+        move.b  (a0),$00(a4,d0.w)                       ; 0089BBE2: $1990, $0000
+        ori.b   #$0000,d0                               ; 0089BBE6: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BBEA: $0100, $0024
         dc.w    $0AC0                    ; 0089BBEE: dc.w $0AC0
-        dc.w    $0540                    ; 0089BBF0: dc.w $0540
-        dc.w    $1090                    ; 0089BBF2: dc.w $1090
-        dc.w    $0000                    ; 0089BBF4: dc.w $0000
-        dc.w    $0000                    ; 0089BBF6: dc.w $0000
-        dc.w    $0000                    ; 0089BBF8: dc.w $0000
-        dc.w    $0020                    ; 0089BBFA: dc.w $0020
-        dc.w    $0024                    ; 0089BBFC: dc.w $0024
-        dc.w    $156C                    ; 0089BBFE: dc.w $156C
-        dc.w    $0700                    ; 0089BC00: dc.w $0700
-        dc.w    $1188                    ; 0089BC02: dc.w $1188
-        dc.w    $0000                    ; 0089BC04: dc.w $0000
-        dc.w    $0000                    ; 0089BC06: dc.w $0000
-        dc.w    $0000                    ; 0089BC08: dc.w $0000
-        dc.w    $0100                    ; 0089BC0A: dc.w $0100
-        dc.w    $0024                    ; 0089BC0C: dc.w $0024
-        dc.w    $25CC                    ; 0089BC0E: dc.w $25CC
-        dc.w    $0946                    ; 0089BC10: dc.w $0946
-        dc.w    $0700                    ; 0089BC12: dc.w $0700
-        dc.w    $0000                    ; 0089BC14: dc.w $0000
-        dc.w    $0000                    ; 0089BC16: dc.w $0000
-        dc.w    $0000                    ; 0089BC18: dc.w $0000
-        dc.w    $0100                    ; 0089BC1A: dc.w $0100
-        dc.w    $0024                    ; 0089BC1C: dc.w $0024
-        dc.w    $1780                    ; 0089BC1E: dc.w $1780
-        dc.w    $1040                    ; 0089BC20: dc.w $1040
-        dc.w    $EA80                    ; 0089BC22: dc.w $EA80
-        dc.w    $0080                    ; 0089BC24: dc.w $0080
-        dc.w    $0200                    ; 0089BC26: dc.w $0200
-        dc.w    $1800                    ; 0089BC28: dc.w $1800
-        dc.w    $0100                    ; 0089BC2A: dc.w $0100
-        dc.w    $0030                    ; 0089BC2C: dc.w $0030
-        dc.w    $0D20                    ; 0089BC2E: dc.w $0D20
-        dc.w    $1892                    ; 0089BC30: dc.w $1892
+        subi.w  #$1090,d0                               ; 0089BBF0: $0540, $1090
+        ori.b   #$0000,d0                               ; 0089BBF4: $0000, $0000
+        ori.b   #$0020,d0                               ; 0089BBF8: $0000, $0020
+        ori.b   #$006C,-(a4)                            ; 0089BBFC: $0024, $156C
+        addi.b  #$0088,d0                               ; 0089BC00: $0700, $1188
+        ori.b   #$0000,d0                               ; 0089BC04: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BC08: $0000, $0100
+        ori.b   #$00CC,-(a4)                            ; 0089BC0C: $0024, $25CC
+        bchg    d4,d6                                   ; 0089BC10: $0946
+        addi.b  #$0000,d0                               ; 0089BC12: $0700, $0000
+        ori.b   #$0000,d0                               ; 0089BC16: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BC1A: $0100, $0024
+        move.b  d0,$40(a3,d1.w)                         ; 0089BC1E: $1780, $1040
+        asr.l   #5,d0                                   ; 0089BC22: $EA80
+        ori.l   #$02001800,d0                           ; 0089BC24: $0080, $0200, $1800
+        ori.b   #$0030,d0                               ; 0089BC2A: $0100, $0030
+        cmpi.b  #$0092,-(a0)                            ; 0089BC2E: $0D20, $1892
         dc.w    $F858                    ; 0089BC32: dc.w $F858
-        dc.w    $0000                    ; 0089BC34: dc.w $0000
-        dc.w    $0000                    ; 0089BC36: dc.w $0000
-        dc.w    $0000                    ; 0089BC38: dc.w $0000
-        dc.w    $0080                    ; 0089BC3A: dc.w $0080
-        dc.w    $0024                    ; 0089BC3C: dc.w $0024
-        dc.w    $0212                    ; 0089BC3E: dc.w $0212
+        ori.b   #$0000,d0                               ; 0089BC34: $0000, $0000
+        ori.b   #$0080,d0                               ; 0089BC38: $0000, $0080
+        ori.b   #$0012,-(a4)                            ; 0089BC3C: $0024, $0212
         dc.w    $082C, $08CC, $0000    ; 0089BC40: BTST #2252,$0000(A4)
-        dc.w    $0000                    ; 0089BC46: dc.w $0000
-        dc.w    $0000                    ; 0089BC48: dc.w $0000
-        dc.w    $0080                    ; 0089BC4A: dc.w $0080
-        dc.w    $0024                    ; 0089BC4C: dc.w $0024
-        dc.w    $0D60                    ; 0089BC4E: dc.w $0D60
-        dc.w    $1892                    ; 0089BC50: dc.w $1892
-        dc.w    $DA00                    ; 0089BC52: dc.w $DA00
-        dc.w    $0000                    ; 0089BC54: dc.w $0000
-        dc.w    $0000                    ; 0089BC56: dc.w $0000
-        dc.w    $0000                    ; 0089BC58: dc.w $0000
-        dc.w    $0100                    ; 0089BC5A: dc.w $0100
-        dc.w    $0024                    ; 0089BC5C: dc.w $0024
-        dc.w    $FD08                    ; 0089BC5E: dc.w $FD08
-        dc.w    $0D80                    ; 0089BC60: dc.w $0D80
-        dc.w    $DB87                    ; 0089BC62: dc.w $DB87
-        dc.w    $0200                    ; 0089BC64: dc.w $0200
-        dc.w    $0080                    ; 0089BC66: dc.w $0080
-        dc.w    $1000                    ; 0089BC68: dc.w $1000
-        dc.w    $0100                    ; 0089BC6A: dc.w $0100
-        dc.w    $0030                    ; 0089BC6C: dc.w $0030
-        dc.w    $000A                    ; 0089BC6E: dc.w $000A
-        dc.w    $EA30                    ; 0089BC70: dc.w $EA30
-        dc.w    $1100                    ; 0089BC72: dc.w $1100
+        ori.b   #$0000,d0                               ; 0089BC46: $0000, $0000
+        ori.l   #$00240D60,d0                           ; 0089BC4A: $0080, $0024, $0D60
+        move.b  (a2),(a4)                               ; 0089BC50: $1892
+        add.b   d0,d5                                   ; 0089BC52: $DA00
+        ori.b   #$0000,d0                               ; 0089BC54: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BC58: $0000, $0100
+        ori.b   #$0008,-(a4)                            ; 0089BC5C: $0024, $FD08
+        cmpi.l  #$DB870200,d0                           ; 0089BC60: $0D80, $DB87, $0200
+        ori.l   #$10000100,d0                           ; 0089BC66: $0080, $1000, $0100
+        ori.b   #$000A,$30(a0,a6.l)                     ; 0089BC6C: $0030, $000A, $EA30
+        move.b  d0,-(a0)                                ; 0089BC72: $1100
         dc.w    $FB80                    ; 0089BC74: dc.w $FB80
-        dc.w    $0000                    ; 0089BC76: dc.w $0000
-        dc.w    $0000                    ; 0089BC78: dc.w $0000
-        dc.w    $0000                    ; 0089BC7A: dc.w $0000
-        dc.w    $0100                    ; 0089BC7C: dc.w $0100
-        dc.w    $0024                    ; 0089BC7E: dc.w $0024
-        dc.w    $EBA0                    ; 0089BC80: dc.w $EBA0
-        dc.w    $1644                    ; 0089BC82: dc.w $1644
-        dc.w    $0A28                    ; 0089BC84: dc.w $0A28
-        dc.w    $0000                    ; 0089BC86: dc.w $0000
-        dc.w    $0000                    ; 0089BC88: dc.w $0000
-        dc.w    $0000                    ; 0089BC8A: dc.w $0000
-        dc.w    $0080                    ; 0089BC8C: dc.w $0080
-        dc.w    $0024                    ; 0089BC8E: dc.w $0024
-        dc.w    $FA90                    ; 0089BC90: dc.w $FA90
-        dc.w    $1080                    ; 0089BC92: dc.w $1080
-        dc.w    $1C48                    ; 0089BC94: dc.w $1C48
-        dc.w    $0100                    ; 0089BC96: dc.w $0100
-        dc.w    $0080                    ; 0089BC98: dc.w $0080
-        dc.w    $1000                    ; 0089BC9A: dc.w $1000
-        dc.w    $0100                    ; 0089BC9C: dc.w $0100
-        dc.w    $0030                    ; 0089BC9E: dc.w $0030
+        ori.b   #$0000,d0                               ; 0089BC76: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BC7A: $0000, $0100
+        ori.b   #$00A0,-(a4)                            ; 0089BC7E: $0024, $EBA0
+        movea.b d4,a3                                   ; 0089BC82: $1644
+        eori.b  #$0000,$0000(a0)                        ; 0089BC84: $0A28, $0000, $0000
+        ori.b   #$0080,d0                               ; 0089BC8A: $0000, $0080
+        ori.b   #$0090,-(a4)                            ; 0089BC8E: $0024, $FA90
+        move.b  d0,(a0)                                 ; 0089BC92: $1080
+        movea.b a0,a6                                   ; 0089BC94: $1C48
+        ori.b   #$0080,d0                               ; 0089BC96: $0100, $0080
+        move.b  d0,d0                                   ; 0089BC9A: $1000
+        ori.b   #$0030,d0                               ; 0089BC9C: $0100, $0030
         dc.w    $0AC0                    ; 0089BCA0: dc.w $0AC0
-        dc.w    $0540                    ; 0089BCA2: dc.w $0540
-        dc.w    $11B0                    ; 0089BCA4: dc.w $11B0
-        dc.w    $0000                    ; 0089BCA6: dc.w $0000
-        dc.w    $0000                    ; 0089BCA8: dc.w $0000
-        dc.w    $0000                    ; 0089BCAA: dc.w $0000
-        dc.w    $0000                    ; 0089BCAC: dc.w $0000
-        dc.w    $0024                    ; 0089BCAE: dc.w $0024
-        dc.w    $150C                    ; 0089BCB0: dc.w $150C
-        dc.w    $0699                    ; 0089BCB2: dc.w $0699
-        dc.w    $1130                    ; 0089BCB4: dc.w $1130
-        dc.w    $0000                    ; 0089BCB6: dc.w $0000
-        dc.w    $0000                    ; 0089BCB8: dc.w $0000
-        dc.w    $0000                    ; 0089BCBA: dc.w $0000
-        dc.w    $0000                    ; 0089BCBC: dc.w $0000
-        dc.w    $0024                    ; 0089BCBE: dc.w $0024
-        dc.w    $275C                    ; 0089BCC0: dc.w $275C
-        dc.w    $0946                    ; 0089BCC2: dc.w $0946
-        dc.w    $09A0                    ; 0089BCC4: dc.w $09A0
-        dc.w    $0000                    ; 0089BCC6: dc.w $0000
-        dc.w    $0000                    ; 0089BCC8: dc.w $0000
-        dc.w    $0000                    ; 0089BCCA: dc.w $0000
-        dc.w    $0100                    ; 0089BCCC: dc.w $0100
-        dc.w    $0024                    ; 0089BCCE: dc.w $0024
-        dc.w    $1218                    ; 0089BCD0: dc.w $1218
-        dc.w    $3000                    ; 0089BCD2: dc.w $3000
-        dc.w    $E980                    ; 0089BCD4: dc.w $E980
-        dc.w    $0000                    ; 0089BCD6: dc.w $0000
-        dc.w    $0000                    ; 0089BCD8: dc.w $0000
-        dc.w    $0000                    ; 0089BCDA: dc.w $0000
-        dc.w    $0100                    ; 0089BCDC: dc.w $0100
-        dc.w    $0024                    ; 0089BCDE: dc.w $0024
-        dc.w    $0A40                    ; 0089BCE0: dc.w $0A40
-        dc.w    $3200                    ; 0089BCE2: dc.w $3200
+        subi.w  #$11B0,d0                               ; 0089BCA2: $0540, $11B0
+        ori.b   #$0000,d0                               ; 0089BCA6: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BCAA: $0000, $0000
+        ori.b   #$000C,-(a4)                            ; 0089BCAE: $0024, $150C
+        addi.l  #$11300000,(a1)+                        ; 0089BCB2: $0699, $1130, $0000
+        ori.b   #$0000,d0                               ; 0089BCB8: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BCBC: $0000, $0024
+        move.l  (a4)+,$0946(a3)                         ; 0089BCC0: $275C, $0946
+        bclr    d4,-(a0)                                ; 0089BCC4: $09A0
+        ori.b   #$0000,d0                               ; 0089BCC6: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BCCA: $0000, $0100
+        ori.b   #$0018,-(a4)                            ; 0089BCCE: $0024, $1218
+        move.w  d0,d0                                   ; 0089BCD2: $3000
+        asl.l   #4,d0                                   ; 0089BCD4: $E980
+        ori.b   #$0000,d0                               ; 0089BCD6: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BCDA: $0000, $0100
+        ori.b   #$0040,-(a4)                            ; 0089BCDE: $0024, $0A40
+        move.w  d0,d1                                   ; 0089BCE2: $3200
         dc.w    $F668                    ; 0089BCE4: dc.w $F668
-        dc.w    $0000                    ; 0089BCE6: dc.w $0000
-        dc.w    $0000                    ; 0089BCE8: dc.w $0000
-        dc.w    $0000                    ; 0089BCEA: dc.w $0000
-        dc.w    $0100                    ; 0089BCEC: dc.w $0100
-        dc.w    $0024                    ; 0089BCEE: dc.w $0024
-        dc.w    $02D2                    ; 0089BCF0: dc.w $02D2
-        dc.w    $0D00                    ; 0089BCF2: dc.w $0D00
-        dc.w    $071C                    ; 0089BCF4: dc.w $071C
-        dc.w    $0000                    ; 0089BCF6: dc.w $0000
-        dc.w    $0000                    ; 0089BCF8: dc.w $0000
-        dc.w    $0000                    ; 0089BCFA: dc.w $0000
-        dc.w    $0100                    ; 0089BCFC: dc.w $0100
-        dc.w    $0024                    ; 0089BCFE: dc.w $0024
-        dc.w    $0D60                    ; 0089BD00: dc.w $0D60
-        dc.w    $0100                    ; 0089BD02: dc.w $0100
-        dc.w    $DA00                    ; 0089BD04: dc.w $DA00
-        dc.w    $0100                    ; 0089BD06: dc.w $0100
-        dc.w    $0080                    ; 0089BD08: dc.w $0080
-        dc.w    $1000                    ; 0089BD0A: dc.w $1000
-        dc.w    $0100                    ; 0089BD0C: dc.w $0100
-        dc.w    $0030                    ; 0089BD0E: dc.w $0030
+        ori.b   #$0000,d0                               ; 0089BCE6: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BCEA: $0000, $0100
+        ori.b   #$00D2,-(a4)                            ; 0089BCEE: $0024, $02D2
+        cmpi.b  #$001C,d0                               ; 0089BCF2: $0D00, $071C
+        ori.b   #$0000,d0                               ; 0089BCF6: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BCFA: $0000, $0100
+        ori.b   #$0060,-(a4)                            ; 0089BCFE: $0024, $0D60
+        ori.b   #$0000,d0                               ; 0089BD02: $0100, $DA00
+        ori.b   #$0080,d0                               ; 0089BD06: $0100, $0080
+        move.b  d0,d0                                   ; 0089BD0A: $1000
+        ori.b   #$0030,d0                               ; 0089BD0C: $0100, $0030
         dc.w    $FD08                    ; 0089BD10: dc.w $FD08
-        dc.w    $0D80                    ; 0089BD12: dc.w $0D80
-        dc.w    $DB87                    ; 0089BD14: dc.w $DB87
-        dc.w    $0000                    ; 0089BD16: dc.w $0000
-        dc.w    $0000                    ; 0089BD18: dc.w $0000
-        dc.w    $0000                    ; 0089BD1A: dc.w $0000
-        dc.w    $0100                    ; 0089BD1C: dc.w $0100
-        dc.w    $0024                    ; 0089BD1E: dc.w $0024
-        dc.w    $0009                    ; 0089BD20: dc.w $0009
-        dc.w    $EA80                    ; 0089BD22: dc.w $EA80
-        dc.w    $3644                    ; 0089BD24: dc.w $3644
-        dc.w    $07F0                    ; 0089BD26: dc.w $07F0
-        dc.w    $2200                    ; 0089BD28: dc.w $2200
-        dc.w    $0000                    ; 0089BD2A: dc.w $0000
-        dc.w    $0000                    ; 0089BD2C: dc.w $0000
-        dc.w    $0080                    ; 0089BD2E: dc.w $0080
-        dc.w    $0024                    ; 0089BD30: dc.w $0024
-        dc.w    $ECF2                    ; 0089BD32: dc.w $ECF2
+        cmpi.l  #$DB870000,d0                           ; 0089BD12: $0D80, $DB87, $0000
+        ori.b   #$0000,d0                               ; 0089BD18: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BD1C: $0100, $0024
+        ori.b   #$0080,a1                               ; 0089BD20: $0009, $EA80
+        movea.w d4,a3                                   ; 0089BD24: $3644
+        bset    d3,$00(a0,d2.w)                         ; 0089BD26: $07F0, $2200
+        ori.b   #$0000,d0                               ; 0089BD2A: $0000, $0000
+        ori.l   #$0024ECF2,d0                           ; 0089BD2E: $0080, $0024, $ECF2
         dc.w    $0CBF                    ; 0089BD34: dc.w $0CBF
-        dc.w    $1009                    ; 0089BD36: dc.w $1009
-        dc.w    $0100                    ; 0089BD38: dc.w $0100
-        dc.w    $1080                    ; 0089BD3A: dc.w $1080
-        dc.w    $0900                    ; 0089BD3C: dc.w $0900
+        move.b  a1,d0                                   ; 0089BD36: $1009
+        ori.b   #$0080,d0                               ; 0089BD38: $0100, $1080
+        btst    d4,d0                                   ; 0089BD3C: $0900
         dc.w    $00C0                    ; 0089BD3E: dc.w $00C0
-        dc.w    $002C                    ; 0089BD40: dc.w $002C
-        dc.w    $EFBF                    ; 0089BD42: dc.w $EFBF
-        dc.w    $1000                    ; 0089BD44: dc.w $1000
-        dc.w    $2974                    ; 0089BD46: dc.w $2974
-        dc.w    $0000                    ; 0089BD48: dc.w $0000
-        dc.w    $0000                    ; 0089BD4A: dc.w $0000
-        dc.w    $0000                    ; 0089BD4C: dc.w $0000
-        dc.w    $0014                    ; 0089BD4E: dc.w $0014
-        dc.w    $0024                    ; 0089BD50: dc.w $0024
-        dc.w    $FC78                    ; 0089BD52: dc.w $FC78
-        dc.w    $3785                    ; 0089BD54: dc.w $3785
-        dc.w    $2088                    ; 0089BD56: dc.w $2088
-        dc.w    $0000                    ; 0089BD58: dc.w $0000
-        dc.w    $0000                    ; 0089BD5A: dc.w $0000
-        dc.w    $0000                    ; 0089BD5C: dc.w $0000
-        dc.w    $0100                    ; 0089BD5E: dc.w $0100
-        dc.w    $0024                    ; 0089BD60: dc.w $0024
-        dc.w    $0978                    ; 0089BD62: dc.w $0978
-        dc.w    $3540                    ; 0089BD64: dc.w $3540
-        dc.w    $1048                    ; 0089BD66: dc.w $1048
-        dc.w    $0000                    ; 0089BD68: dc.w $0000
-        dc.w    $0000                    ; 0089BD6A: dc.w $0000
-        dc.w    $0000                    ; 0089BD6C: dc.w $0000
-        dc.w    $0000                    ; 0089BD6E: dc.w $0000
-        dc.w    $0024                    ; 0089BD70: dc.w $0024
-        dc.w    $FDDE                    ; 0089BD72: dc.w $FDDE
-        dc.w    $0A92                    ; 0089BD74: dc.w $0A92
-        dc.w    $F498                    ; 0089BD76: dc.w $F498
-        dc.w    $0010                    ; 0089BD78: dc.w $0010
-        dc.w    $0C00                    ; 0089BD7A: dc.w $0C00
-        dc.w    $0900                    ; 0089BD7C: dc.w $0900
-        dc.w    $0100                    ; 0089BD7E: dc.w $0100
-        dc.w    $002C                    ; 0089BD80: dc.w $002C
-        dc.w    $0F5F                    ; 0089BD82: dc.w $0F5F
-        dc.w    $1000                    ; 0089BD84: dc.w $1000
-        dc.w    $E642                    ; 0089BD86: dc.w $E642
-        dc.w    $0000                    ; 0089BD88: dc.w $0000
-        dc.w    $0000                    ; 0089BD8A: dc.w $0000
-        dc.w    $0000                    ; 0089BD8C: dc.w $0000
-        dc.w    $0080                    ; 0089BD8E: dc.w $0080
-        dc.w    $0024                    ; 0089BD90: dc.w $0024
-        dc.w    $0B00                    ; 0089BD92: dc.w $0B00
-        dc.w    $3000                    ; 0089BD94: dc.w $3000
+        ori.b   #$00BF,$1000(a4)                        ; 0089BD40: $002C, $EFBF, $1000
+        move.l  $00(a4,d0.w),$0000(a4)                  ; 0089BD46: $2974, $0000, $0000
+        ori.b   #$0014,d0                               ; 0089BD4C: $0000, $0014
+        ori.b   #$0078,-(a4)                            ; 0089BD50: $0024, $FC78
+        move.w  d5,$-78(a3,d2.w)                        ; 0089BD54: $3785, $2088
+        ori.b   #$0000,d0                               ; 0089BD58: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BD5C: $0000, $0100
+        ori.b   #$0078,-(a4)                            ; 0089BD60: $0024, $0978
+        move.w  d0,$1048(a2)                            ; 0089BD64: $3540, $1048
+        ori.b   #$0000,d0                               ; 0089BD68: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BD6C: $0000, $0000
+        ori.b   #$00DE,-(a4)                            ; 0089BD70: $0024, $FDDE
+        eori.l  #$F4980010,(a2)                         ; 0089BD74: $0A92, $F498, $0010
+        cmpi.b  #$0000,d0                               ; 0089BD7A: $0C00, $0900
+        ori.b   #$002C,d0                               ; 0089BD7E: $0100, $002C
+        bchg    d7,(a7)+                                ; 0089BD82: $0F5F
+        move.b  d0,d0                                   ; 0089BD84: $1000
+        asr.w   #3,d2                                   ; 0089BD86: $E642
+        ori.b   #$0000,d0                               ; 0089BD88: $0000, $0000
+        ori.b   #$0080,d0                               ; 0089BD8C: $0000, $0080
+        ori.b   #$0000,-(a4)                            ; 0089BD90: $0024, $0B00
+        move.w  d0,d0                                   ; 0089BD94: $3000
         dc.w    $F528                    ; 0089BD96: dc.w $F528
-        dc.w    $0000                    ; 0089BD98: dc.w $0000
-        dc.w    $0000                    ; 0089BD9A: dc.w $0000
-        dc.w    $0000                    ; 0089BD9C: dc.w $0000
-        dc.w    $0000                    ; 0089BD9E: dc.w $0000
-        dc.w    $0024                    ; 0089BDA0: dc.w $0024
-        dc.w    $FC42                    ; 0089BDA2: dc.w $FC42
-        dc.w    $1000                    ; 0089BDA4: dc.w $1000
-        dc.w    $05CC                    ; 0089BDA6: dc.w $05CC
-        dc.w    $0000                    ; 0089BDA8: dc.w $0000
-        dc.w    $0000                    ; 0089BDAA: dc.w $0000
-        dc.w    $0000                    ; 0089BDAC: dc.w $0000
-        dc.w    $0100                    ; 0089BDAE: dc.w $0100
-        dc.w    $0024                    ; 0089BDB0: dc.w $0024
-        dc.w    $EC48                    ; 0089BDB2: dc.w $EC48
-        dc.w    $1600                    ; 0089BDB4: dc.w $1600
+        ori.b   #$0000,d0                               ; 0089BD98: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BD9C: $0000, $0000
+        ori.b   #$0042,-(a4)                            ; 0089BDA0: $0024, $FC42
+        move.b  d0,d0                                   ; 0089BDA4: $1000
+        bset    d2,a4                                   ; 0089BDA6: $05CC
+        ori.b   #$0000,d0                               ; 0089BDA8: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BDAC: $0000, $0100
+        ori.b   #$0048,-(a4)                            ; 0089BDB0: $0024, $EC48
+        move.b  d0,d3                                   ; 0089BDB4: $1600
         dc.w    $F800                    ; 0089BDB6: dc.w $F800
-        dc.w    $0000                    ; 0089BDB8: dc.w $0000
-        dc.w    $0000                    ; 0089BDBA: dc.w $0000
-        dc.w    $0000                    ; 0089BDBC: dc.w $0000
-        dc.w    $0100                    ; 0089BDBE: dc.w $0100
-        dc.w    $0024                    ; 0089BDC0: dc.w $0024
-        dc.w    $0009                    ; 0089BDC2: dc.w $0009
-        dc.w    $E860                    ; 0089BDC4: dc.w $E860
-        dc.w    $1000                    ; 0089BDC6: dc.w $1000
-        dc.w    $0548                    ; 0089BDC8: dc.w $0548
-        dc.w    $0000                    ; 0089BDCA: dc.w $0000
-        dc.w    $0000                    ; 0089BDCC: dc.w $0000
-        dc.w    $0000                    ; 0089BDCE: dc.w $0000
-        dc.w    $0100                    ; 0089BDD0: dc.w $0100
-        dc.w    $0024                    ; 0089BDD2: dc.w $0024
+        ori.b   #$0000,d0                               ; 0089BDB8: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BDBC: $0000, $0100
+        ori.b   #$0009,-(a4)                            ; 0089BDC0: $0024, $0009
+        asr.w   d4,d0                                   ; 0089BDC4: $E860
+        move.b  d0,d0                                   ; 0089BDC6: $1000
+        subi.w  #$0000,a0                               ; 0089BDC8: $0548, $0000
+        ori.b   #$0000,d0                               ; 0089BDCC: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BDD0: $0100, $0024
         dc.w    $ECF2                    ; 0089BDD4: dc.w $ECF2
         dc.w    $0CBF                    ; 0089BDD6: dc.w $0CBF
-        dc.w    $1009                    ; 0089BDD8: dc.w $1009
-        dc.w    $0100                    ; 0089BDDA: dc.w $0100
-        dc.w    $FF00                    ; 0089BDDC: dc.w $FF00
-        dc.w    $0900                    ; 0089BDDE: dc.w $0900
+        move.b  a1,d0                                   ; 0089BDD8: $1009
+        ori.b   #$0000,d0                               ; 0089BDDA: $0100, $FF00
+        btst    d4,d0                                   ; 0089BDDE: $0900
         dc.w    $00C0                    ; 0089BDE0: dc.w $00C0
-        dc.w    $002C                    ; 0089BDE2: dc.w $002C
-        dc.w    $F0F7                    ; 0089BDE4: dc.w $F0F7
-        dc.w    $1000                    ; 0089BDE6: dc.w $1000
-        dc.w    $2D74                    ; 0089BDE8: dc.w $2D74
-        dc.w    $0000                    ; 0089BDEA: dc.w $0000
-        dc.w    $0000                    ; 0089BDEC: dc.w $0000
-        dc.w    $0000                    ; 0089BDEE: dc.w $0000
-        dc.w    $0100                    ; 0089BDF0: dc.w $0100
-        dc.w    $0024                    ; 0089BDF2: dc.w $0024
-        dc.w    $FC78                    ; 0089BDF4: dc.w $FC78
-        dc.w    $1000                    ; 0089BDF6: dc.w $1000
-        dc.w    $2088                    ; 0089BDF8: dc.w $2088
-        dc.w    $0000                    ; 0089BDFA: dc.w $0000
-        dc.w    $0000                    ; 0089BDFC: dc.w $0000
-        dc.w    $0000                    ; 0089BDFE: dc.w $0000
-        dc.w    $0000                    ; 0089BE00: dc.w $0000
-        dc.w    $0024                    ; 0089BE02: dc.w $0024
-        dc.w    $0978                    ; 0089BE04: dc.w $0978
-        dc.w    $0A00                    ; 0089BE06: dc.w $0A00
-        dc.w    $1048                    ; 0089BE08: dc.w $1048
-        dc.w    $0000                    ; 0089BE0A: dc.w $0000
-        dc.w    $0000                    ; 0089BE0C: dc.w $0000
-        dc.w    $0000                    ; 0089BE0E: dc.w $0000
-        dc.w    $0080                    ; 0089BE10: dc.w $0080
-        dc.w    $0024                    ; 0089BE12: dc.w $0024
-        dc.w    $0182                    ; 0089BE14: dc.w $0182
-        dc.w    $382C                    ; 0089BE16: dc.w $382C
-        dc.w    $032C                    ; 0089BE18: dc.w $032C
-        dc.w    $0000                    ; 0089BE1A: dc.w $0000
-        dc.w    $0000                    ; 0089BE1C: dc.w $0000
-        dc.w    $0000                    ; 0089BE1E: dc.w $0000
-        dc.w    $0000                    ; 0089BE20: dc.w $0000
-        dc.w    $0024                    ; 0089BE22: dc.w $0024
-        dc.w    $F9D6                    ; 0089BE24: dc.w $F9D6
-        dc.w    $2000                    ; 0089BE26: dc.w $2000
+        ori.b   #$00F7,$1000(a4)                        ; 0089BDE2: $002C, $F0F7, $1000
+        move.l  $00(a4,d0.w),$0000(a6)                  ; 0089BDE8: $2D74, $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BDEE: $0000, $0100
+        ori.b   #$0078,-(a4)                            ; 0089BDF2: $0024, $FC78
+        move.b  d0,d0                                   ; 0089BDF6: $1000
+        move.l  a0,(a0)                                 ; 0089BDF8: $2088
+        ori.b   #$0000,d0                               ; 0089BDFA: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BDFE: $0000, $0000
+        ori.b   #$0078,-(a4)                            ; 0089BE02: $0024, $0978
+        eori.b  #$0048,d0                               ; 0089BE06: $0A00, $1048
+        ori.b   #$0000,d0                               ; 0089BE0A: $0000, $0000
+        ori.b   #$0080,d0                               ; 0089BE0E: $0000, $0080
+        ori.b   #$0082,-(a4)                            ; 0089BE12: $0024, $0182
+        move.w  $032C(a4),d4                            ; 0089BE16: $382C, $032C
+        ori.b   #$0000,d0                               ; 0089BE1A: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BE1E: $0000, $0000
+        ori.b   #$00D6,-(a4)                            ; 0089BE22: $0024, $F9D6
+        move.l  d0,d0                                   ; 0089BE26: $2000
         dc.w    $EFF8                    ; 0089BE28: dc.w $EFF8
-        dc.w    $0000                    ; 0089BE2A: dc.w $0000
-        dc.w    $0000                    ; 0089BE2C: dc.w $0000
-        dc.w    $0000                    ; 0089BE2E: dc.w $0000
-        dc.w    $0100                    ; 0089BE30: dc.w $0100
-        dc.w    $0024                    ; 0089BE32: dc.w $0024
-        dc.w    $1197                    ; 0089BE34: dc.w $1197
-        dc.w    $0F00                    ; 0089BE36: dc.w $0F00
-        dc.w    $E6E2                    ; 0089BE38: dc.w $E6E2
-        dc.w    $0000                    ; 0089BE3A: dc.w $0000
-        dc.w    $0000                    ; 0089BE3C: dc.w $0000
-        dc.w    $0000                    ; 0089BE3E: dc.w $0000
-        dc.w    $0100                    ; 0089BE40: dc.w $0100
-        dc.w    $0024                    ; 0089BE42: dc.w $0024
-        dc.w    $0748                    ; 0089BE44: dc.w $0748
-        dc.w    $3800                    ; 0089BE46: dc.w $3800
+        ori.b   #$0000,d0                               ; 0089BE2A: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BE2E: $0000, $0100
+        ori.b   #$0097,-(a4)                            ; 0089BE32: $0024, $1197
+        btst    d7,d0                                   ; 0089BE36: $0F00
+        ror     -(a2)                                   ; 0089BE38: $E6E2
+        ori.b   #$0000,d0                               ; 0089BE3A: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BE3E: $0000, $0100
+        ori.b   #$0048,-(a4)                            ; 0089BE42: $0024, $0748
+        move.w  d0,d4                                   ; 0089BE46: $3800
         dc.w    $F370                    ; 0089BE48: dc.w $F370
-        dc.w    $0000                    ; 0089BE4A: dc.w $0000
-        dc.w    $0000                    ; 0089BE4C: dc.w $0000
-        dc.w    $0000                    ; 0089BE4E: dc.w $0000
-        dc.w    $0200                    ; 0089BE50: dc.w $0200
-        dc.w    $0024                    ; 0089BE52: dc.w $0024
-        dc.w    $EC48                    ; 0089BE54: dc.w $EC48
-        dc.w    $3000                    ; 0089BE56: dc.w $3000
+        ori.b   #$0000,d0                               ; 0089BE4A: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BE4E: $0000, $0200
+        ori.b   #$0048,-(a4)                            ; 0089BE52: $0024, $EC48
+        move.w  d0,d0                                   ; 0089BE56: $3000
         dc.w    $F800                    ; 0089BE58: dc.w $F800
-        dc.w    $0100                    ; 0089BE5A: dc.w $0100
-        dc.w    $0400                    ; 0089BE5C: dc.w $0400
-        dc.w    $0800                    ; 0089BE5E: dc.w $0800
-        dc.w    $0100                    ; 0089BE60: dc.w $0100
-        dc.w    $002C                    ; 0089BE62: dc.w $002C
-        dc.w    $000D                    ; 0089BE64: dc.w $000D
-        dc.w    $E000                    ; 0089BE66: dc.w $E000
-        dc.w    $1600                    ; 0089BE68: dc.w $1600
+        ori.b   #$0000,d0                               ; 0089BE5A: $0100, $0400
+        btst    #$100,d0                                ; 0089BE5E: $0800, $0100
+        ori.b   #$000D,$-2000(a4)                       ; 0089BE62: $002C, $000D, $E000
+        move.b  d0,d3                                   ; 0089BE68: $1600
         dc.w    $F200                    ; 0089BE6A: dc.w $F200
-        dc.w    $0000                    ; 0089BE6C: dc.w $0000
-        dc.w    $0000                    ; 0089BE6E: dc.w $0000
-        dc.w    $0000                    ; 0089BE70: dc.w $0000
-        dc.w    $0100                    ; 0089BE72: dc.w $0100
-        dc.w    $0024                    ; 0089BE74: dc.w $0024
-        dc.w    $DF00                    ; 0089BE76: dc.w $DF00
-        dc.w    $0300                    ; 0089BE78: dc.w $0300
-        dc.w    $0600                    ; 0089BE7A: dc.w $0600
-        dc.w    $0000                    ; 0089BE7C: dc.w $0000
-        dc.w    $0000                    ; 0089BE7E: dc.w $0000
-        dc.w    $0000                    ; 0089BE80: dc.w $0000
-        dc.w    $0000                    ; 0089BE82: dc.w $0000
-        dc.w    $0024                    ; 0089BE84: dc.w $0024
-        dc.w    $CE78                    ; 0089BE86: dc.w $CE78
-        dc.w    $2000                    ; 0089BE88: dc.w $2000
-        dc.w    $1910                    ; 0089BE8A: dc.w $1910
-        dc.w    $0000                    ; 0089BE8C: dc.w $0000
-        dc.w    $0000                    ; 0089BE8E: dc.w $0000
-        dc.w    $0000                    ; 0089BE90: dc.w $0000
-        dc.w    $0080                    ; 0089BE92: dc.w $0080
-        dc.w    $0024                    ; 0089BE94: dc.w $0024
-        dc.w    $E400                    ; 0089BE96: dc.w $E400
-        dc.w    $3B00                    ; 0089BE98: dc.w $3B00
-        dc.w    $2C80                    ; 0089BE9A: dc.w $2C80
-        dc.w    $0000                    ; 0089BE9C: dc.w $0000
-        dc.w    $0000                    ; 0089BE9E: dc.w $0000
-        dc.w    $0000                    ; 0089BEA0: dc.w $0000
-        dc.w    $0100                    ; 0089BEA2: dc.w $0100
-        dc.w    $0024                    ; 0089BEA4: dc.w $0024
-        dc.w    $F292                    ; 0089BEA6: dc.w $F292
-        dc.w    $3B00                    ; 0089BEA8: dc.w $3B00
-        dc.w    $290C                    ; 0089BEAA: dc.w $290C
-        dc.w    $0000                    ; 0089BEAC: dc.w $0000
-        dc.w    $0000                    ; 0089BEAE: dc.w $0000
-        dc.w    $0000                    ; 0089BEB0: dc.w $0000
-        dc.w    $00E0                    ; 0089BEB2: dc.w $00E0
-        dc.w    $0024                    ; 0089BEB4: dc.w $0024
-        dc.w    $ECF0                    ; 0089BEB6: dc.w $ECF0
+        ori.b   #$0000,d0                               ; 0089BE6C: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BE70: $0000, $0100
+        ori.b   #$0000,-(a4)                            ; 0089BE74: $0024, $DF00
+        andi.b  #$0000,d0                               ; 0089BE78: $0300, $0600
+        ori.b   #$0000,d0                               ; 0089BE7C: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BE80: $0000, $0000
+        ori.b   #$0078,-(a4)                            ; 0089BE84: $0024, $CE78
+        move.l  d0,d0                                   ; 0089BE88: $2000
+        move.b  (a0),-(a4)                              ; 0089BE8A: $1910
+        ori.b   #$0000,d0                               ; 0089BE8C: $0000, $0000
+        ori.b   #$0080,d0                               ; 0089BE90: $0000, $0080
+        ori.b   #$0000,-(a4)                            ; 0089BE94: $0024, $E400
+        move.w  d0,-(a5)                                ; 0089BE98: $3B00
+        move.l  d0,(a6)                                 ; 0089BE9A: $2C80
+        ori.b   #$0000,d0                               ; 0089BE9C: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BEA0: $0000, $0100
+        ori.b   #$0092,-(a4)                            ; 0089BEA4: $0024, $F292
+        move.w  d0,-(a5)                                ; 0089BEA8: $3B00
+        move.l  a4,-(a4)                                ; 0089BEAA: $290C
+        ori.b   #$0000,d0                               ; 0089BEAC: $0000, $0000
+        ori.b   #$00E0,d0                               ; 0089BEB0: $0000, $00E0
+        ori.b   #$00F0,-(a4)                            ; 0089BEB4: $0024, $ECF0
         dc.w    $4000                    ; 0089BEB8: dc.w $4000
-        dc.w    $2193                    ; 0089BEBA: dc.w $2193
-        dc.w    $0000                    ; 0089BEBC: dc.w $0000
-        dc.w    $0000                    ; 0089BEBE: dc.w $0000
-        dc.w    $0000                    ; 0089BEC0: dc.w $0000
-        dc.w    $0000                    ; 0089BEC2: dc.w $0000
-        dc.w    $0024                    ; 0089BEC4: dc.w $0024
+        move.l  (a3),$00(a0,d0.w)                       ; 0089BEBA: $2193, $0000
+        ori.b   #$0000,d0                               ; 0089BEBE: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BEC2: $0000, $0024
         dc.w    $FB29                    ; 0089BEC6: dc.w $FB29
-        dc.w    $5946                    ; 0089BEC8: dc.w $5946
-        dc.w    $0B56                    ; 0089BECA: dc.w $0B56
-        dc.w    $0200                    ; 0089BECC: dc.w $0200
-        dc.w    $1080                    ; 0089BECE: dc.w $1080
-        dc.w    $0C00                    ; 0089BED0: dc.w $0C00
-        dc.w    $0100                    ; 0089BED2: dc.w $0100
-        dc.w    $002C                    ; 0089BED4: dc.w $002C
-        dc.w    $02F6                    ; 0089BED6: dc.w $02F6
-        dc.w    $5946                    ; 0089BED8: dc.w $5946
+        subq.w  #4,d6                                   ; 0089BEC8: $5946
+        eori.w  #$0200,(a6)                             ; 0089BECA: $0B56, $0200
+        move.b  d0,(a0)                                 ; 0089BECE: $1080
+        cmpi.b  #$0000,d0                               ; 0089BED0: $0C00, $0100
+        ori.b   #$00F6,$5946(a4)                        ; 0089BED4: $002C, $02F6, $5946
         dc.w    $013D                    ; 0089BEDA: dc.w $013D
         dc.w    $02F6                    ; 0089BEDC: dc.w $02F6
-        dc.w    $0100                    ; 0089BEDE: dc.w $0100
-        dc.w    $2000                    ; 0089BEE0: dc.w $2000
-        dc.w    $0100                    ; 0089BEE2: dc.w $0100
-        dc.w    $002C                    ; 0089BEE4: dc.w $002C
-        dc.w    $1B39                    ; 0089BEE6: dc.w $1B39
-        dc.w    $1200                    ; 0089BEE8: dc.w $1200
-        dc.w    $1148                    ; 0089BEEA: dc.w $1148
-        dc.w    $0000                    ; 0089BEEC: dc.w $0000
-        dc.w    $0000                    ; 0089BEEE: dc.w $0000
-        dc.w    $0000                    ; 0089BEF0: dc.w $0000
-        dc.w    $0200                    ; 0089BEF2: dc.w $0200
-        dc.w    $0024                    ; 0089BEF4: dc.w $0024
-        dc.w    $263B                    ; 0089BEF6: dc.w $263B
-        dc.w    $0500                    ; 0089BEF8: dc.w $0500
-        dc.w    $0DB9                    ; 0089BEFA: dc.w $0DB9
-        dc.w    $0000                    ; 0089BEFC: dc.w $0000
-        dc.w    $0000                    ; 0089BEFE: dc.w $0000
-        dc.w    $0000                    ; 0089BF00: dc.w $0000
-        dc.w    $0000                    ; 0089BF02: dc.w $0000
-        dc.w    $0024                    ; 0089BF04: dc.w $0024
-        dc.w    $17B5                    ; 0089BF06: dc.w $17B5
-        dc.w    $0800                    ; 0089BF08: dc.w $0800
-        dc.w    $F2D1                    ; 0089BF0A: dc.w $F2D1
-        dc.w    $0000                    ; 0089BF0C: dc.w $0000
-        dc.w    $0000                    ; 0089BF0E: dc.w $0000
-        dc.w    $0000                    ; 0089BF10: dc.w $0000
-        dc.w    $0000                    ; 0089BF12: dc.w $0000
-        dc.w    $0024                    ; 0089BF14: dc.w $0024
-        dc.w    $11B2                    ; 0089BF16: dc.w $11B2
-        dc.w    $1000                    ; 0089BF18: dc.w $1000
-        dc.w    $D842                    ; 0089BF1A: dc.w $D842
-        dc.w    $0000                    ; 0089BF1C: dc.w $0000
-        dc.w    $0000                    ; 0089BF1E: dc.w $0000
-        dc.w    $0000                    ; 0089BF20: dc.w $0000
-        dc.w    $0080                    ; 0089BF22: dc.w $0080
-        dc.w    $0024                    ; 0089BF24: dc.w $0024
-        dc.w    $FB48                    ; 0089BF26: dc.w $FB48
-        dc.w    $1000                    ; 0089BF28: dc.w $1000
-        dc.w    $DC93                    ; 0089BF2A: dc.w $DC93
-        dc.w    $0000                    ; 0089BF2C: dc.w $0000
-        dc.w    $0000                    ; 0089BF2E: dc.w $0000
-        dc.w    $0000                    ; 0089BF30: dc.w $0000
-        dc.w    $0100                    ; 0089BF32: dc.w $0100
-        dc.w    $0024                    ; 0089BF34: dc.w $0024
-        dc.w    $DFD3                    ; 0089BF36: dc.w $DFD3
-        dc.w    $1000                    ; 0089BF38: dc.w $1000
-        dc.w    $DE44                    ; 0089BF3A: dc.w $DE44
-        dc.w    $0000                    ; 0089BF3C: dc.w $0000
-        dc.w    $0000                    ; 0089BF3E: dc.w $0000
-        dc.w    $0000                    ; 0089BF40: dc.w $0000
-        dc.w    $0200                    ; 0089BF42: dc.w $0200
-        dc.w    $0024                    ; 0089BF44: dc.w $0024
-        dc.w    $000E                    ; 0089BF46: dc.w $000E
-        dc.w    $E300                    ; 0089BF48: dc.w $E300
-        dc.w    $3000                    ; 0089BF4A: dc.w $3000
+        ori.b   #$0000,d0                               ; 0089BEDE: $0100, $2000
+        ori.b   #$002C,d0                               ; 0089BEE2: $0100, $002C
+        move.b  ($12001148).l,-(a5)                     ; 0089BEE6: $1B39, $1200, $1148
+        ori.b   #$0000,d0                               ; 0089BEEC: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BEF0: $0000, $0200
+        ori.b   #$003B,-(a4)                            ; 0089BEF4: $0024, $263B
+        subi.b  #$00B9,d0                               ; 0089BEF8: $0500, $0DB9
+        ori.b   #$0000,d0                               ; 0089BEFC: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BF00: $0000, $0000
+        ori.b   #$00B5,-(a4)                            ; 0089BF04: $0024, $17B5
+        btst    #$F2D1,d0                               ; 0089BF08: $0800, $F2D1
+        ori.b   #$0000,d0                               ; 0089BF0C: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BF10: $0000, $0000
+        ori.b   #$00B2,-(a4)                            ; 0089BF14: $0024, $11B2
+        move.b  d0,d0                                   ; 0089BF18: $1000
+        add.w   d2,d4                                   ; 0089BF1A: $D842
+        ori.b   #$0000,d0                               ; 0089BF1C: $0000, $0000
+        ori.b   #$0080,d0                               ; 0089BF20: $0000, $0080
+        ori.b   #$0048,-(a4)                            ; 0089BF24: $0024, $FB48
+        move.b  d0,d0                                   ; 0089BF28: $1000
+        add.l   (a3),d6                                 ; 0089BF2A: $DC93
+        ori.b   #$0000,d0                               ; 0089BF2C: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BF30: $0000, $0100
+        ori.b   #$00D3,-(a4)                            ; 0089BF34: $0024, $DFD3
+        move.b  d0,d0                                   ; 0089BF38: $1000
+        add.w   d4,d7                                   ; 0089BF3A: $DE44
+        ori.b   #$0000,d0                               ; 0089BF3C: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BF40: $0000, $0200
+        ori.b   #$000E,-(a4)                            ; 0089BF44: $0024, $000E
+        asl.b   #1,d0                                   ; 0089BF48: $E300
+        move.w  d0,d0                                   ; 0089BF4A: $3000
         dc.w    $F300                    ; 0089BF4C: dc.w $F300
-        dc.w    $0000                    ; 0089BF4E: dc.w $0000
-        dc.w    $0000                    ; 0089BF50: dc.w $0000
-        dc.w    $0000                    ; 0089BF52: dc.w $0000
-        dc.w    $0000                    ; 0089BF54: dc.w $0000
-        dc.w    $0024                    ; 0089BF56: dc.w $0024
-        dc.w    $DF00                    ; 0089BF58: dc.w $DF00
-        dc.w    $0300                    ; 0089BF5A: dc.w $0300
-        dc.w    $0600                    ; 0089BF5C: dc.w $0600
-        dc.w    $0000                    ; 0089BF5E: dc.w $0000
-        dc.w    $0080                    ; 0089BF60: dc.w $0080
-        dc.w    $0000                    ; 0089BF62: dc.w $0000
-        dc.w    $0100                    ; 0089BF64: dc.w $0100
-        dc.w    $0028                    ; 0089BF66: dc.w $0028
-        dc.w    $D030                    ; 0089BF68: dc.w $D030
-        dc.w    $2000                    ; 0089BF6A: dc.w $2000
-        dc.w    $18F0                    ; 0089BF6C: dc.w $18F0
-        dc.w    $0000                    ; 0089BF6E: dc.w $0000
-        dc.w    $0000                    ; 0089BF70: dc.w $0000
-        dc.w    $0000                    ; 0089BF72: dc.w $0000
-        dc.w    $0000                    ; 0089BF74: dc.w $0000
-        dc.w    $0024                    ; 0089BF76: dc.w $0024
-        dc.w    $E400                    ; 0089BF78: dc.w $E400
-        dc.w    $3B00                    ; 0089BF7A: dc.w $3B00
-        dc.w    $2C80                    ; 0089BF7C: dc.w $2C80
-        dc.w    $0000                    ; 0089BF7E: dc.w $0000
-        dc.w    $0000                    ; 0089BF80: dc.w $0000
-        dc.w    $0000                    ; 0089BF82: dc.w $0000
-        dc.w    $0000                    ; 0089BF84: dc.w $0000
-        dc.w    $0004                    ; 0089BF86: dc.w $0004
-        dc.w    $F15A                    ; 0089BF88: dc.w $F15A
-        dc.w    $3C00                    ; 0089BF8A: dc.w $3C00
-        dc.w    $2854                    ; 0089BF8C: dc.w $2854
-        dc.w    $0000                    ; 0089BF8E: dc.w $0000
-        dc.w    $0000                    ; 0089BF90: dc.w $0000
-        dc.w    $0000                    ; 0089BF92: dc.w $0000
-        dc.w    $0100                    ; 0089BF94: dc.w $0100
-        dc.w    $0024                    ; 0089BF96: dc.w $0024
-        dc.w    $ED68                    ; 0089BF98: dc.w $ED68
-        dc.w    $4400                    ; 0089BF9A: dc.w $4400
-        dc.w    $1E93                    ; 0089BF9C: dc.w $1E93
-        dc.w    $0000                    ; 0089BF9E: dc.w $0000
-        dc.w    $0000                    ; 0089BFA0: dc.w $0000
-        dc.w    $0000                    ; 0089BFA2: dc.w $0000
-        dc.w    $0100                    ; 0089BFA4: dc.w $0100
-        dc.w    $0024                    ; 0089BFA6: dc.w $0024
-        dc.w    $FB29                    ; 0089BFA8: dc.w $FB29
-        dc.w    $5946                    ; 0089BFAA: dc.w $5946
-        dc.w    $0B56                    ; 0089BFAC: dc.w $0B56
-        dc.w    $0000                    ; 0089BFAE: dc.w $0000
-        dc.w    $0000                    ; 0089BFB0: dc.w $0000
-        dc.w    $0000                    ; 0089BFB2: dc.w $0000
-        dc.w    $0100                    ; 0089BFB4: dc.w $0100
-        dc.w    $0024                    ; 0089BFB6: dc.w $0024
+        ori.b   #$0000,d0                               ; 0089BF4E: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BF52: $0000, $0000
+        ori.b   #$0000,-(a4)                            ; 0089BF56: $0024, $DF00
+        andi.b  #$0000,d0                               ; 0089BF5A: $0300, $0600
+        ori.b   #$0080,d0                               ; 0089BF5E: $0000, $0080
+        ori.b   #$0000,d0                               ; 0089BF62: $0000, $0100
+        ori.b   #$0030,$2000(a0)                        ; 0089BF66: $0028, $D030, $2000
+        move.b  $00(a0,d0.w),(a4)+                      ; 0089BF6C: $18F0, $0000
+        ori.b   #$0000,d0                               ; 0089BF70: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BF74: $0000, $0024
+        asr.b   #2,d0                                   ; 0089BF78: $E400
+        move.w  d0,-(a5)                                ; 0089BF7A: $3B00
+        move.l  d0,(a6)                                 ; 0089BF7C: $2C80
+        ori.b   #$0000,d0                               ; 0089BF7E: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BF82: $0000, $0000
+        ori.b   #$005A,d4                               ; 0089BF86: $0004, $F15A
+        move.w  d0,d6                                   ; 0089BF8A: $3C00
+        movea.l (a4),a4                                 ; 0089BF8C: $2854
+        ori.b   #$0000,d0                               ; 0089BF8E: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BF92: $0000, $0100
+        ori.b   #$0068,-(a4)                            ; 0089BF96: $0024, $ED68
+        neg.b   d0                                      ; 0089BF9A: $4400
+        move.b  (a3),(a7)                               ; 0089BF9C: $1E93
+        ori.b   #$0000,d0                               ; 0089BF9E: $0000, $0000
+        ori.b   #$0000,d0                               ; 0089BFA2: $0000, $0100
+        ori.b   #$0029,-(a4)                            ; 0089BFA6: $0024, $FB29
+        subq.w  #4,d6                                   ; 0089BFAA: $5946
+        eori.w  #$0000,(a6)                             ; 0089BFAC: $0B56, $0000
+        ori.b   #$0000,d0                               ; 0089BFB0: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BFB4: $0100, $0024
         dc.w    $02F6                    ; 0089BFB8: dc.w $02F6
-        dc.w    $5946                    ; 0089BFBA: dc.w $5946
+        subq.w  #4,d6                                   ; 0089BFBA: $5946
         dc.w    $013D                    ; 0089BFBC: dc.w $013D
-        dc.w    $0010                    ; 0089BFBE: dc.w $0010
-        dc.w    $0100                    ; 0089BFC0: dc.w $0100
-        dc.w    $1000                    ; 0089BFC2: dc.w $1000
-        dc.w    $0180                    ; 0089BFC4: dc.w $0180
-        dc.w    $002C                    ; 0089BFC6: dc.w $002C
-        dc.w    $121F                    ; 0089BFC8: dc.w $121F
+        ori.b   #$0000,(a0)                             ; 0089BFBE: $0010, $0100
+        move.b  d0,d0                                   ; 0089BFC2: $1000
+        ori.l   #$002C121F,d0                           ; 0089BFC4: $0180, $002C, $121F
         dc.w    $4000                    ; 0089BFCA: dc.w $4000
-        dc.w    $0C54                    ; 0089BFCC: dc.w $0C54
-        dc.w    $0000                    ; 0089BFCE: dc.w $0000
-        dc.w    $0000                    ; 0089BFD0: dc.w $0000
-        dc.w    $0000                    ; 0089BFD2: dc.w $0000
-        dc.w    $0000                    ; 0089BFD4: dc.w $0000
-        dc.w    $0024                    ; 0089BFD6: dc.w $0024
+        cmpi.w  #$0000,(a4)                             ; 0089BFCC: $0C54, $0000
+        ori.b   #$0000,d0                               ; 0089BFD0: $0000, $0000
+        ori.b   #$0024,d0                               ; 0089BFD4: $0000, $0024
         dc.w    $1DD9                    ; 0089BFD8: dc.w $1DD9
-        dc.w    $1700                    ; 0089BFDA: dc.w $1700
-        dc.w    $0C30                    ; 0089BFDC: dc.w $0C30
-        dc.w    $0200                    ; 0089BFDE: dc.w $0200
-        dc.w    $1080                    ; 0089BFE0: dc.w $1080
-        dc.w    $1800                    ; 0089BFE2: dc.w $1800
-        dc.w    $0100                    ; 0089BFE4: dc.w $0100
-        dc.w    $002C                    ; 0089BFE6: dc.w $002C
-        dc.w    $263B                    ; 0089BFE8: dc.w $263B
-        dc.w    $0500                    ; 0089BFEA: dc.w $0500
-        dc.w    $0DB9                    ; 0089BFEC: dc.w $0DB9
-        dc.w    $0000                    ; 0089BFEE: dc.w $0000
-        dc.w    $0000                    ; 0089BFF0: dc.w $0000
-        dc.w    $0000                    ; 0089BFF2: dc.w $0000
-        dc.w    $0100                    ; 0089BFF4: dc.w $0100
-        dc.w    $0024                    ; 0089BFF6: dc.w $0024
-        dc.w    $10F4                    ; 0089BFF8: dc.w $10F4
-        dc.w    $0800                    ; 0089BFFA: dc.w $0800
-        dc.w    $F2FB                    ; 0089BFFC: dc.w $F2FB
+        move.b  d0,-(a3)                                ; 0089BFDA: $1700
+        cmpi.b  #$0000,$-80(a0,d1.w)                    ; 0089BFDC: $0C30, $0200, $1080
+        move.b  d0,d4                                   ; 0089BFE2: $1800
+        ori.b   #$002C,d0                               ; 0089BFE4: $0100, $002C
+        move.l  $00(pc,d0.w),d3                         ; 0089BFE8: $263B, $0500
+        cmpi.l  #$00000000,($00000100).l                ; 0089BFEC: $0DB9, $0000, $0000, $0000, $0100
+        ori.b   #$00F4,-(a4)                            ; 0089BFF6: $0024, $10F4
+        btst    #$F2FB,d0                               ; 0089BFFA: $0800, $F2FB
         dc.w    $0000                    ; 0089BFFE: dc.w $0000
 

@@ -5,2966 +5,2966 @@
         org     $27A000
 
 Code_27A000:
-        dc.w    $8080                    ; 00AFA000: dc.w $8080
-        dc.w    $8080                    ; 00AFA002: dc.w $8080
-        dc.w    $8080                    ; 00AFA004: dc.w $8080
-        dc.w    $8080                    ; 00AFA006: dc.w $8080
-        dc.w    $8080                    ; 00AFA008: dc.w $8080
-        dc.w    $8080                    ; 00AFA00A: dc.w $8080
-        dc.w    $8080                    ; 00AFA00C: dc.w $8080
-        dc.w    $8080                    ; 00AFA00E: dc.w $8080
-        dc.w    $8080                    ; 00AFA010: dc.w $8080
-        dc.w    $8080                    ; 00AFA012: dc.w $8080
-        dc.w    $8080                    ; 00AFA014: dc.w $8080
-        dc.w    $8080                    ; 00AFA016: dc.w $8080
-        dc.w    $8080                    ; 00AFA018: dc.w $8080
-        dc.w    $8080                    ; 00AFA01A: dc.w $8080
-        dc.w    $8080                    ; 00AFA01C: dc.w $8080
-        dc.w    $8080                    ; 00AFA01E: dc.w $8080
-        dc.w    $8080                    ; 00AFA020: dc.w $8080
-        dc.w    $8080                    ; 00AFA022: dc.w $8080
-        dc.w    $8080                    ; 00AFA024: dc.w $8080
-        dc.w    $8080                    ; 00AFA026: dc.w $8080
-        dc.w    $8080                    ; 00AFA028: dc.w $8080
-        dc.w    $8080                    ; 00AFA02A: dc.w $8080
-        dc.w    $8080                    ; 00AFA02C: dc.w $8080
-        dc.w    $8080                    ; 00AFA02E: dc.w $8080
-        dc.w    $8080                    ; 00AFA030: dc.w $8080
-        dc.w    $8080                    ; 00AFA032: dc.w $8080
-        dc.w    $8080                    ; 00AFA034: dc.w $8080
-        dc.w    $8080                    ; 00AFA036: dc.w $8080
-        dc.w    $8080                    ; 00AFA038: dc.w $8080
-        dc.w    $8080                    ; 00AFA03A: dc.w $8080
-        dc.w    $8080                    ; 00AFA03C: dc.w $8080
-        dc.w    $8080                    ; 00AFA03E: dc.w $8080
-        dc.w    $8080                    ; 00AFA040: dc.w $8080
-        dc.w    $8080                    ; 00AFA042: dc.w $8080
-        dc.w    $8080                    ; 00AFA044: dc.w $8080
-        dc.w    $8080                    ; 00AFA046: dc.w $8080
-        dc.w    $8080                    ; 00AFA048: dc.w $8080
-        dc.w    $8080                    ; 00AFA04A: dc.w $8080
-        dc.w    $8080                    ; 00AFA04C: dc.w $8080
-        dc.w    $8080                    ; 00AFA04E: dc.w $8080
-        dc.w    $8080                    ; 00AFA050: dc.w $8080
-        dc.w    $8080                    ; 00AFA052: dc.w $8080
-        dc.w    $8080                    ; 00AFA054: dc.w $8080
-        dc.w    $8080                    ; 00AFA056: dc.w $8080
-        dc.w    $8080                    ; 00AFA058: dc.w $8080
-        dc.w    $8080                    ; 00AFA05A: dc.w $8080
-        dc.w    $8080                    ; 00AFA05C: dc.w $8080
-        dc.w    $8080                    ; 00AFA05E: dc.w $8080
-        dc.w    $8080                    ; 00AFA060: dc.w $8080
-        dc.w    $8080                    ; 00AFA062: dc.w $8080
-        dc.w    $8080                    ; 00AFA064: dc.w $8080
-        dc.w    $8080                    ; 00AFA066: dc.w $8080
-        dc.w    $8080                    ; 00AFA068: dc.w $8080
-        dc.w    $8080                    ; 00AFA06A: dc.w $8080
-        dc.w    $8080                    ; 00AFA06C: dc.w $8080
-        dc.w    $8080                    ; 00AFA06E: dc.w $8080
-        dc.w    $8080                    ; 00AFA070: dc.w $8080
-        dc.w    $8080                    ; 00AFA072: dc.w $8080
-        dc.w    $8080                    ; 00AFA074: dc.w $8080
-        dc.w    $8080                    ; 00AFA076: dc.w $8080
-        dc.w    $8080                    ; 00AFA078: dc.w $8080
-        dc.w    $8080                    ; 00AFA07A: dc.w $8080
-        dc.w    $8080                    ; 00AFA07C: dc.w $8080
-        dc.w    $8080                    ; 00AFA07E: dc.w $8080
-        dc.w    $8080                    ; 00AFA080: dc.w $8080
-        dc.w    $8080                    ; 00AFA082: dc.w $8080
-        dc.w    $8080                    ; 00AFA084: dc.w $8080
-        dc.w    $8080                    ; 00AFA086: dc.w $8080
-        dc.w    $8080                    ; 00AFA088: dc.w $8080
-        dc.w    $8080                    ; 00AFA08A: dc.w $8080
-        dc.w    $8080                    ; 00AFA08C: dc.w $8080
-        dc.w    $8080                    ; 00AFA08E: dc.w $8080
-        dc.w    $8080                    ; 00AFA090: dc.w $8080
-        dc.w    $8080                    ; 00AFA092: dc.w $8080
-        dc.w    $8080                    ; 00AFA094: dc.w $8080
-        dc.w    $8080                    ; 00AFA096: dc.w $8080
-        dc.w    $8080                    ; 00AFA098: dc.w $8080
-        dc.w    $8080                    ; 00AFA09A: dc.w $8080
-        dc.w    $8080                    ; 00AFA09C: dc.w $8080
-        dc.w    $8080                    ; 00AFA09E: dc.w $8080
-        dc.w    $8080                    ; 00AFA0A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA0A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA0A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA0A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA0A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA0AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA0AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA0AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA0B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA0B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA0B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA0B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA0B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA0BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA0BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA0BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA0C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA0C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA0C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA0C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA0C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA0CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA0CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA0CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA0D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA0D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA0D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA0D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA0D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA0DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA0DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA0DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA0E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA0E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA0E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA0E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA0E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA0EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA0EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA0EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA0F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA0F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA0F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA0F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA0F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA0FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA0FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA0FE: dc.w $8080
-        dc.w    $8080                    ; 00AFA100: dc.w $8080
-        dc.w    $8080                    ; 00AFA102: dc.w $8080
-        dc.w    $8080                    ; 00AFA104: dc.w $8080
-        dc.w    $8080                    ; 00AFA106: dc.w $8080
-        dc.w    $8080                    ; 00AFA108: dc.w $8080
-        dc.w    $8080                    ; 00AFA10A: dc.w $8080
-        dc.w    $8080                    ; 00AFA10C: dc.w $8080
-        dc.w    $8080                    ; 00AFA10E: dc.w $8080
-        dc.w    $8080                    ; 00AFA110: dc.w $8080
-        dc.w    $8080                    ; 00AFA112: dc.w $8080
-        dc.w    $8080                    ; 00AFA114: dc.w $8080
-        dc.w    $8080                    ; 00AFA116: dc.w $8080
-        dc.w    $8080                    ; 00AFA118: dc.w $8080
-        dc.w    $8080                    ; 00AFA11A: dc.w $8080
-        dc.w    $8080                    ; 00AFA11C: dc.w $8080
-        dc.w    $8080                    ; 00AFA11E: dc.w $8080
-        dc.w    $8080                    ; 00AFA120: dc.w $8080
-        dc.w    $8080                    ; 00AFA122: dc.w $8080
-        dc.w    $8080                    ; 00AFA124: dc.w $8080
-        dc.w    $8080                    ; 00AFA126: dc.w $8080
-        dc.w    $8080                    ; 00AFA128: dc.w $8080
-        dc.w    $8080                    ; 00AFA12A: dc.w $8080
-        dc.w    $8080                    ; 00AFA12C: dc.w $8080
-        dc.w    $8080                    ; 00AFA12E: dc.w $8080
-        dc.w    $8080                    ; 00AFA130: dc.w $8080
-        dc.w    $8080                    ; 00AFA132: dc.w $8080
-        dc.w    $8080                    ; 00AFA134: dc.w $8080
-        dc.w    $8080                    ; 00AFA136: dc.w $8080
-        dc.w    $8080                    ; 00AFA138: dc.w $8080
-        dc.w    $8080                    ; 00AFA13A: dc.w $8080
-        dc.w    $8080                    ; 00AFA13C: dc.w $8080
-        dc.w    $8080                    ; 00AFA13E: dc.w $8080
-        dc.w    $8080                    ; 00AFA140: dc.w $8080
-        dc.w    $8080                    ; 00AFA142: dc.w $8080
-        dc.w    $8080                    ; 00AFA144: dc.w $8080
-        dc.w    $8080                    ; 00AFA146: dc.w $8080
-        dc.w    $8080                    ; 00AFA148: dc.w $8080
-        dc.w    $8080                    ; 00AFA14A: dc.w $8080
-        dc.w    $8080                    ; 00AFA14C: dc.w $8080
-        dc.w    $8080                    ; 00AFA14E: dc.w $8080
-        dc.w    $8080                    ; 00AFA150: dc.w $8080
-        dc.w    $8080                    ; 00AFA152: dc.w $8080
-        dc.w    $8080                    ; 00AFA154: dc.w $8080
-        dc.w    $8080                    ; 00AFA156: dc.w $8080
-        dc.w    $8080                    ; 00AFA158: dc.w $8080
-        dc.w    $8080                    ; 00AFA15A: dc.w $8080
-        dc.w    $8080                    ; 00AFA15C: dc.w $8080
-        dc.w    $8080                    ; 00AFA15E: dc.w $8080
-        dc.w    $8080                    ; 00AFA160: dc.w $8080
-        dc.w    $8080                    ; 00AFA162: dc.w $8080
-        dc.w    $8080                    ; 00AFA164: dc.w $8080
-        dc.w    $8080                    ; 00AFA166: dc.w $8080
-        dc.w    $8080                    ; 00AFA168: dc.w $8080
-        dc.w    $8080                    ; 00AFA16A: dc.w $8080
-        dc.w    $8080                    ; 00AFA16C: dc.w $8080
-        dc.w    $8080                    ; 00AFA16E: dc.w $8080
-        dc.w    $8080                    ; 00AFA170: dc.w $8080
-        dc.w    $8080                    ; 00AFA172: dc.w $8080
-        dc.w    $8080                    ; 00AFA174: dc.w $8080
-        dc.w    $8080                    ; 00AFA176: dc.w $8080
-        dc.w    $8080                    ; 00AFA178: dc.w $8080
-        dc.w    $8080                    ; 00AFA17A: dc.w $8080
-        dc.w    $8080                    ; 00AFA17C: dc.w $8080
-        dc.w    $8080                    ; 00AFA17E: dc.w $8080
-        dc.w    $8080                    ; 00AFA180: dc.w $8080
-        dc.w    $8080                    ; 00AFA182: dc.w $8080
-        dc.w    $8080                    ; 00AFA184: dc.w $8080
-        dc.w    $8080                    ; 00AFA186: dc.w $8080
-        dc.w    $8080                    ; 00AFA188: dc.w $8080
-        dc.w    $8080                    ; 00AFA18A: dc.w $8080
-        dc.w    $8080                    ; 00AFA18C: dc.w $8080
-        dc.w    $8080                    ; 00AFA18E: dc.w $8080
-        dc.w    $8080                    ; 00AFA190: dc.w $8080
-        dc.w    $8080                    ; 00AFA192: dc.w $8080
-        dc.w    $8080                    ; 00AFA194: dc.w $8080
-        dc.w    $8080                    ; 00AFA196: dc.w $8080
-        dc.w    $8080                    ; 00AFA198: dc.w $8080
-        dc.w    $8080                    ; 00AFA19A: dc.w $8080
-        dc.w    $8080                    ; 00AFA19C: dc.w $8080
-        dc.w    $8080                    ; 00AFA19E: dc.w $8080
-        dc.w    $8080                    ; 00AFA1A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA1A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA1A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA1A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA1A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA1AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA1AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA1AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA1B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA1B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA1B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA1B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA1B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA1BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA1BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA1BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA1C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA1C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA1C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA1C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA1C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA1CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA1CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA1CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA1D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA1D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA1D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA1D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA1D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA1DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA1DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA1DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA1E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA1E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA1E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA1E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA1E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA1EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA1EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA1EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA1F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA1F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA1F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA1F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA1F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA1FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA1FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA1FE: dc.w $8080
-        dc.w    $8080                    ; 00AFA200: dc.w $8080
-        dc.w    $8080                    ; 00AFA202: dc.w $8080
-        dc.w    $8080                    ; 00AFA204: dc.w $8080
-        dc.w    $8080                    ; 00AFA206: dc.w $8080
-        dc.w    $8080                    ; 00AFA208: dc.w $8080
-        dc.w    $8080                    ; 00AFA20A: dc.w $8080
-        dc.w    $8080                    ; 00AFA20C: dc.w $8080
-        dc.w    $8080                    ; 00AFA20E: dc.w $8080
-        dc.w    $8080                    ; 00AFA210: dc.w $8080
-        dc.w    $8080                    ; 00AFA212: dc.w $8080
-        dc.w    $8080                    ; 00AFA214: dc.w $8080
-        dc.w    $8080                    ; 00AFA216: dc.w $8080
-        dc.w    $8080                    ; 00AFA218: dc.w $8080
-        dc.w    $8080                    ; 00AFA21A: dc.w $8080
-        dc.w    $8080                    ; 00AFA21C: dc.w $8080
-        dc.w    $8080                    ; 00AFA21E: dc.w $8080
-        dc.w    $8080                    ; 00AFA220: dc.w $8080
-        dc.w    $8080                    ; 00AFA222: dc.w $8080
-        dc.w    $8080                    ; 00AFA224: dc.w $8080
-        dc.w    $8080                    ; 00AFA226: dc.w $8080
-        dc.w    $8080                    ; 00AFA228: dc.w $8080
-        dc.w    $8080                    ; 00AFA22A: dc.w $8080
-        dc.w    $8080                    ; 00AFA22C: dc.w $8080
-        dc.w    $8080                    ; 00AFA22E: dc.w $8080
-        dc.w    $8080                    ; 00AFA230: dc.w $8080
-        dc.w    $8080                    ; 00AFA232: dc.w $8080
-        dc.w    $8080                    ; 00AFA234: dc.w $8080
-        dc.w    $8080                    ; 00AFA236: dc.w $8080
-        dc.w    $8080                    ; 00AFA238: dc.w $8080
-        dc.w    $8080                    ; 00AFA23A: dc.w $8080
-        dc.w    $8080                    ; 00AFA23C: dc.w $8080
-        dc.w    $8080                    ; 00AFA23E: dc.w $8080
-        dc.w    $8080                    ; 00AFA240: dc.w $8080
-        dc.w    $8080                    ; 00AFA242: dc.w $8080
-        dc.w    $8080                    ; 00AFA244: dc.w $8080
-        dc.w    $8080                    ; 00AFA246: dc.w $8080
-        dc.w    $8080                    ; 00AFA248: dc.w $8080
-        dc.w    $8080                    ; 00AFA24A: dc.w $8080
-        dc.w    $8080                    ; 00AFA24C: dc.w $8080
-        dc.w    $8080                    ; 00AFA24E: dc.w $8080
-        dc.w    $8080                    ; 00AFA250: dc.w $8080
-        dc.w    $8080                    ; 00AFA252: dc.w $8080
-        dc.w    $8080                    ; 00AFA254: dc.w $8080
-        dc.w    $8080                    ; 00AFA256: dc.w $8080
-        dc.w    $8080                    ; 00AFA258: dc.w $8080
-        dc.w    $8080                    ; 00AFA25A: dc.w $8080
-        dc.w    $8080                    ; 00AFA25C: dc.w $8080
-        dc.w    $8080                    ; 00AFA25E: dc.w $8080
-        dc.w    $8080                    ; 00AFA260: dc.w $8080
-        dc.w    $8080                    ; 00AFA262: dc.w $8080
-        dc.w    $8080                    ; 00AFA264: dc.w $8080
-        dc.w    $8080                    ; 00AFA266: dc.w $8080
-        dc.w    $8080                    ; 00AFA268: dc.w $8080
-        dc.w    $8080                    ; 00AFA26A: dc.w $8080
-        dc.w    $8080                    ; 00AFA26C: dc.w $8080
-        dc.w    $8080                    ; 00AFA26E: dc.w $8080
-        dc.w    $8080                    ; 00AFA270: dc.w $8080
-        dc.w    $8080                    ; 00AFA272: dc.w $8080
-        dc.w    $8080                    ; 00AFA274: dc.w $8080
-        dc.w    $8080                    ; 00AFA276: dc.w $8080
-        dc.w    $8080                    ; 00AFA278: dc.w $8080
-        dc.w    $8080                    ; 00AFA27A: dc.w $8080
-        dc.w    $8080                    ; 00AFA27C: dc.w $8080
-        dc.w    $8080                    ; 00AFA27E: dc.w $8080
-        dc.w    $8080                    ; 00AFA280: dc.w $8080
-        dc.w    $8080                    ; 00AFA282: dc.w $8080
-        dc.w    $8080                    ; 00AFA284: dc.w $8080
-        dc.w    $8080                    ; 00AFA286: dc.w $8080
-        dc.w    $8080                    ; 00AFA288: dc.w $8080
-        dc.w    $8080                    ; 00AFA28A: dc.w $8080
-        dc.w    $8080                    ; 00AFA28C: dc.w $8080
-        dc.w    $8080                    ; 00AFA28E: dc.w $8080
-        dc.w    $8080                    ; 00AFA290: dc.w $8080
-        dc.w    $8080                    ; 00AFA292: dc.w $8080
-        dc.w    $8080                    ; 00AFA294: dc.w $8080
-        dc.w    $8080                    ; 00AFA296: dc.w $8080
-        dc.w    $8080                    ; 00AFA298: dc.w $8080
-        dc.w    $8080                    ; 00AFA29A: dc.w $8080
-        dc.w    $8080                    ; 00AFA29C: dc.w $8080
-        dc.w    $8080                    ; 00AFA29E: dc.w $8080
-        dc.w    $8080                    ; 00AFA2A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA2A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA2A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA2A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA2A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA2AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA2AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA2AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA2B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA2B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA2B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA2B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA2B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA2BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA2BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA2BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA2C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA2C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA2C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA2C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA2C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA2CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA2CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA2CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA2D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA2D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA2D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA2D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA2D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA2DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA2DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA2DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA2E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA2E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA2E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA2E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA2E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA2EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA2EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA2EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA2F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA2F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA2F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA2F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA2F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA2FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA2FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA2FE: dc.w $8080
-        dc.w    $8080                    ; 00AFA300: dc.w $8080
-        dc.w    $8080                    ; 00AFA302: dc.w $8080
-        dc.w    $8080                    ; 00AFA304: dc.w $8080
-        dc.w    $8080                    ; 00AFA306: dc.w $8080
-        dc.w    $8080                    ; 00AFA308: dc.w $8080
-        dc.w    $8080                    ; 00AFA30A: dc.w $8080
-        dc.w    $8080                    ; 00AFA30C: dc.w $8080
-        dc.w    $8080                    ; 00AFA30E: dc.w $8080
-        dc.w    $8080                    ; 00AFA310: dc.w $8080
-        dc.w    $8080                    ; 00AFA312: dc.w $8080
-        dc.w    $8080                    ; 00AFA314: dc.w $8080
-        dc.w    $8080                    ; 00AFA316: dc.w $8080
-        dc.w    $8080                    ; 00AFA318: dc.w $8080
-        dc.w    $8080                    ; 00AFA31A: dc.w $8080
-        dc.w    $8080                    ; 00AFA31C: dc.w $8080
-        dc.w    $8080                    ; 00AFA31E: dc.w $8080
-        dc.w    $8080                    ; 00AFA320: dc.w $8080
-        dc.w    $8080                    ; 00AFA322: dc.w $8080
-        dc.w    $8080                    ; 00AFA324: dc.w $8080
-        dc.w    $8080                    ; 00AFA326: dc.w $8080
-        dc.w    $8080                    ; 00AFA328: dc.w $8080
-        dc.w    $8080                    ; 00AFA32A: dc.w $8080
-        dc.w    $8080                    ; 00AFA32C: dc.w $8080
-        dc.w    $8080                    ; 00AFA32E: dc.w $8080
-        dc.w    $8080                    ; 00AFA330: dc.w $8080
-        dc.w    $8080                    ; 00AFA332: dc.w $8080
-        dc.w    $8080                    ; 00AFA334: dc.w $8080
-        dc.w    $8080                    ; 00AFA336: dc.w $8080
-        dc.w    $8080                    ; 00AFA338: dc.w $8080
-        dc.w    $8080                    ; 00AFA33A: dc.w $8080
-        dc.w    $8080                    ; 00AFA33C: dc.w $8080
-        dc.w    $8080                    ; 00AFA33E: dc.w $8080
-        dc.w    $8080                    ; 00AFA340: dc.w $8080
-        dc.w    $8080                    ; 00AFA342: dc.w $8080
-        dc.w    $8080                    ; 00AFA344: dc.w $8080
-        dc.w    $8080                    ; 00AFA346: dc.w $8080
-        dc.w    $8080                    ; 00AFA348: dc.w $8080
-        dc.w    $8080                    ; 00AFA34A: dc.w $8080
-        dc.w    $8080                    ; 00AFA34C: dc.w $8080
-        dc.w    $8080                    ; 00AFA34E: dc.w $8080
-        dc.w    $8080                    ; 00AFA350: dc.w $8080
-        dc.w    $8080                    ; 00AFA352: dc.w $8080
-        dc.w    $8080                    ; 00AFA354: dc.w $8080
-        dc.w    $8080                    ; 00AFA356: dc.w $8080
-        dc.w    $8080                    ; 00AFA358: dc.w $8080
-        dc.w    $8080                    ; 00AFA35A: dc.w $8080
-        dc.w    $8080                    ; 00AFA35C: dc.w $8080
-        dc.w    $8080                    ; 00AFA35E: dc.w $8080
-        dc.w    $8080                    ; 00AFA360: dc.w $8080
-        dc.w    $8080                    ; 00AFA362: dc.w $8080
-        dc.w    $8080                    ; 00AFA364: dc.w $8080
-        dc.w    $8080                    ; 00AFA366: dc.w $8080
-        dc.w    $8080                    ; 00AFA368: dc.w $8080
-        dc.w    $8080                    ; 00AFA36A: dc.w $8080
-        dc.w    $8080                    ; 00AFA36C: dc.w $8080
-        dc.w    $8080                    ; 00AFA36E: dc.w $8080
-        dc.w    $8080                    ; 00AFA370: dc.w $8080
-        dc.w    $8080                    ; 00AFA372: dc.w $8080
-        dc.w    $8080                    ; 00AFA374: dc.w $8080
-        dc.w    $8080                    ; 00AFA376: dc.w $8080
-        dc.w    $8080                    ; 00AFA378: dc.w $8080
-        dc.w    $8080                    ; 00AFA37A: dc.w $8080
-        dc.w    $8080                    ; 00AFA37C: dc.w $8080
-        dc.w    $8080                    ; 00AFA37E: dc.w $8080
-        dc.w    $8080                    ; 00AFA380: dc.w $8080
-        dc.w    $8080                    ; 00AFA382: dc.w $8080
-        dc.w    $8080                    ; 00AFA384: dc.w $8080
-        dc.w    $8080                    ; 00AFA386: dc.w $8080
-        dc.w    $8080                    ; 00AFA388: dc.w $8080
-        dc.w    $8080                    ; 00AFA38A: dc.w $8080
-        dc.w    $8080                    ; 00AFA38C: dc.w $8080
-        dc.w    $8080                    ; 00AFA38E: dc.w $8080
-        dc.w    $8080                    ; 00AFA390: dc.w $8080
-        dc.w    $8080                    ; 00AFA392: dc.w $8080
-        dc.w    $8080                    ; 00AFA394: dc.w $8080
-        dc.w    $8080                    ; 00AFA396: dc.w $8080
-        dc.w    $8080                    ; 00AFA398: dc.w $8080
-        dc.w    $8080                    ; 00AFA39A: dc.w $8080
-        dc.w    $8080                    ; 00AFA39C: dc.w $8080
-        dc.w    $8080                    ; 00AFA39E: dc.w $8080
-        dc.w    $8080                    ; 00AFA3A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA3A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA3A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA3A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA3A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA3AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA3AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA3AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA3B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA3B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA3B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA3B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA3B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA3BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA3BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA3BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA3C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA3C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA3C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA3C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA3C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA3CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA3CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA3CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA3D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA3D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA3D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA3D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA3D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA3DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA3DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA3DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA3E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA3E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA3E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA3E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA3E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA3EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA3EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA3EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA3F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA3F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA3F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA3F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA3F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA3FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA3FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA3FE: dc.w $8080
-        dc.w    $8080                    ; 00AFA400: dc.w $8080
-        dc.w    $8080                    ; 00AFA402: dc.w $8080
-        dc.w    $8080                    ; 00AFA404: dc.w $8080
-        dc.w    $8080                    ; 00AFA406: dc.w $8080
-        dc.w    $8080                    ; 00AFA408: dc.w $8080
-        dc.w    $8080                    ; 00AFA40A: dc.w $8080
-        dc.w    $8080                    ; 00AFA40C: dc.w $8080
-        dc.w    $8080                    ; 00AFA40E: dc.w $8080
-        dc.w    $8080                    ; 00AFA410: dc.w $8080
-        dc.w    $8080                    ; 00AFA412: dc.w $8080
-        dc.w    $8080                    ; 00AFA414: dc.w $8080
-        dc.w    $8080                    ; 00AFA416: dc.w $8080
-        dc.w    $8080                    ; 00AFA418: dc.w $8080
-        dc.w    $8080                    ; 00AFA41A: dc.w $8080
-        dc.w    $8080                    ; 00AFA41C: dc.w $8080
-        dc.w    $8080                    ; 00AFA41E: dc.w $8080
-        dc.w    $8080                    ; 00AFA420: dc.w $8080
-        dc.w    $8080                    ; 00AFA422: dc.w $8080
-        dc.w    $8080                    ; 00AFA424: dc.w $8080
-        dc.w    $8080                    ; 00AFA426: dc.w $8080
-        dc.w    $8080                    ; 00AFA428: dc.w $8080
-        dc.w    $8080                    ; 00AFA42A: dc.w $8080
-        dc.w    $8080                    ; 00AFA42C: dc.w $8080
-        dc.w    $8080                    ; 00AFA42E: dc.w $8080
-        dc.w    $8080                    ; 00AFA430: dc.w $8080
-        dc.w    $8080                    ; 00AFA432: dc.w $8080
-        dc.w    $8080                    ; 00AFA434: dc.w $8080
-        dc.w    $8080                    ; 00AFA436: dc.w $8080
-        dc.w    $8080                    ; 00AFA438: dc.w $8080
-        dc.w    $8080                    ; 00AFA43A: dc.w $8080
-        dc.w    $8080                    ; 00AFA43C: dc.w $8080
-        dc.w    $8080                    ; 00AFA43E: dc.w $8080
-        dc.w    $8080                    ; 00AFA440: dc.w $8080
-        dc.w    $8080                    ; 00AFA442: dc.w $8080
-        dc.w    $8080                    ; 00AFA444: dc.w $8080
-        dc.w    $8080                    ; 00AFA446: dc.w $8080
-        dc.w    $8080                    ; 00AFA448: dc.w $8080
-        dc.w    $8080                    ; 00AFA44A: dc.w $8080
-        dc.w    $8080                    ; 00AFA44C: dc.w $8080
-        dc.w    $8080                    ; 00AFA44E: dc.w $8080
-        dc.w    $8080                    ; 00AFA450: dc.w $8080
-        dc.w    $8080                    ; 00AFA452: dc.w $8080
-        dc.w    $8080                    ; 00AFA454: dc.w $8080
-        dc.w    $8080                    ; 00AFA456: dc.w $8080
-        dc.w    $8080                    ; 00AFA458: dc.w $8080
-        dc.w    $8080                    ; 00AFA45A: dc.w $8080
-        dc.w    $8080                    ; 00AFA45C: dc.w $8080
-        dc.w    $8080                    ; 00AFA45E: dc.w $8080
-        dc.w    $8080                    ; 00AFA460: dc.w $8080
-        dc.w    $8080                    ; 00AFA462: dc.w $8080
-        dc.w    $8080                    ; 00AFA464: dc.w $8080
-        dc.w    $8080                    ; 00AFA466: dc.w $8080
-        dc.w    $8080                    ; 00AFA468: dc.w $8080
-        dc.w    $8080                    ; 00AFA46A: dc.w $8080
-        dc.w    $8080                    ; 00AFA46C: dc.w $8080
-        dc.w    $8080                    ; 00AFA46E: dc.w $8080
-        dc.w    $8080                    ; 00AFA470: dc.w $8080
-        dc.w    $8080                    ; 00AFA472: dc.w $8080
-        dc.w    $8080                    ; 00AFA474: dc.w $8080
-        dc.w    $8080                    ; 00AFA476: dc.w $8080
-        dc.w    $8080                    ; 00AFA478: dc.w $8080
-        dc.w    $8080                    ; 00AFA47A: dc.w $8080
-        dc.w    $8080                    ; 00AFA47C: dc.w $8080
-        dc.w    $8080                    ; 00AFA47E: dc.w $8080
-        dc.w    $8080                    ; 00AFA480: dc.w $8080
-        dc.w    $8080                    ; 00AFA482: dc.w $8080
-        dc.w    $8080                    ; 00AFA484: dc.w $8080
-        dc.w    $8080                    ; 00AFA486: dc.w $8080
-        dc.w    $8080                    ; 00AFA488: dc.w $8080
-        dc.w    $8080                    ; 00AFA48A: dc.w $8080
-        dc.w    $8080                    ; 00AFA48C: dc.w $8080
-        dc.w    $8080                    ; 00AFA48E: dc.w $8080
-        dc.w    $8080                    ; 00AFA490: dc.w $8080
-        dc.w    $8080                    ; 00AFA492: dc.w $8080
-        dc.w    $8080                    ; 00AFA494: dc.w $8080
-        dc.w    $8080                    ; 00AFA496: dc.w $8080
-        dc.w    $8080                    ; 00AFA498: dc.w $8080
-        dc.w    $8080                    ; 00AFA49A: dc.w $8080
-        dc.w    $8080                    ; 00AFA49C: dc.w $8080
-        dc.w    $8080                    ; 00AFA49E: dc.w $8080
-        dc.w    $8080                    ; 00AFA4A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA4A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA4A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA4A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA4A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA4AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA4AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA4AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA4B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA4B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA4B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA4B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA4B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA4BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA4BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA4BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA4C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA4C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA4C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA4C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA4C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA4CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA4CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA4CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA4D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA4D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA4D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA4D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA4D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA4DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA4DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA4DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA4E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA4E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA4E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA4E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA4E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA4EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA4EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA4EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA4F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA4F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA4F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA4F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA4F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA4FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA4FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA4FE: dc.w $8080
-        dc.w    $8080                    ; 00AFA500: dc.w $8080
-        dc.w    $8080                    ; 00AFA502: dc.w $8080
-        dc.w    $8080                    ; 00AFA504: dc.w $8080
-        dc.w    $8080                    ; 00AFA506: dc.w $8080
-        dc.w    $8080                    ; 00AFA508: dc.w $8080
-        dc.w    $8080                    ; 00AFA50A: dc.w $8080
-        dc.w    $8080                    ; 00AFA50C: dc.w $8080
-        dc.w    $8080                    ; 00AFA50E: dc.w $8080
-        dc.w    $8080                    ; 00AFA510: dc.w $8080
-        dc.w    $8080                    ; 00AFA512: dc.w $8080
-        dc.w    $8080                    ; 00AFA514: dc.w $8080
-        dc.w    $8080                    ; 00AFA516: dc.w $8080
-        dc.w    $8080                    ; 00AFA518: dc.w $8080
-        dc.w    $8080                    ; 00AFA51A: dc.w $8080
-        dc.w    $8080                    ; 00AFA51C: dc.w $8080
-        dc.w    $8080                    ; 00AFA51E: dc.w $8080
-        dc.w    $8080                    ; 00AFA520: dc.w $8080
-        dc.w    $8080                    ; 00AFA522: dc.w $8080
-        dc.w    $8080                    ; 00AFA524: dc.w $8080
-        dc.w    $8080                    ; 00AFA526: dc.w $8080
-        dc.w    $8080                    ; 00AFA528: dc.w $8080
-        dc.w    $8080                    ; 00AFA52A: dc.w $8080
-        dc.w    $8080                    ; 00AFA52C: dc.w $8080
-        dc.w    $8080                    ; 00AFA52E: dc.w $8080
-        dc.w    $8080                    ; 00AFA530: dc.w $8080
-        dc.w    $8080                    ; 00AFA532: dc.w $8080
-        dc.w    $8080                    ; 00AFA534: dc.w $8080
-        dc.w    $8080                    ; 00AFA536: dc.w $8080
-        dc.w    $8080                    ; 00AFA538: dc.w $8080
-        dc.w    $8080                    ; 00AFA53A: dc.w $8080
-        dc.w    $8080                    ; 00AFA53C: dc.w $8080
-        dc.w    $8080                    ; 00AFA53E: dc.w $8080
-        dc.w    $8080                    ; 00AFA540: dc.w $8080
-        dc.w    $8080                    ; 00AFA542: dc.w $8080
-        dc.w    $8080                    ; 00AFA544: dc.w $8080
-        dc.w    $8080                    ; 00AFA546: dc.w $8080
-        dc.w    $8080                    ; 00AFA548: dc.w $8080
-        dc.w    $8080                    ; 00AFA54A: dc.w $8080
-        dc.w    $8080                    ; 00AFA54C: dc.w $8080
-        dc.w    $8080                    ; 00AFA54E: dc.w $8080
-        dc.w    $8080                    ; 00AFA550: dc.w $8080
-        dc.w    $8080                    ; 00AFA552: dc.w $8080
-        dc.w    $8080                    ; 00AFA554: dc.w $8080
-        dc.w    $8080                    ; 00AFA556: dc.w $8080
-        dc.w    $8080                    ; 00AFA558: dc.w $8080
-        dc.w    $8080                    ; 00AFA55A: dc.w $8080
-        dc.w    $8080                    ; 00AFA55C: dc.w $8080
-        dc.w    $8080                    ; 00AFA55E: dc.w $8080
-        dc.w    $8080                    ; 00AFA560: dc.w $8080
-        dc.w    $8080                    ; 00AFA562: dc.w $8080
-        dc.w    $8080                    ; 00AFA564: dc.w $8080
-        dc.w    $8080                    ; 00AFA566: dc.w $8080
-        dc.w    $8080                    ; 00AFA568: dc.w $8080
-        dc.w    $8080                    ; 00AFA56A: dc.w $8080
-        dc.w    $8080                    ; 00AFA56C: dc.w $8080
-        dc.w    $8080                    ; 00AFA56E: dc.w $8080
-        dc.w    $8080                    ; 00AFA570: dc.w $8080
-        dc.w    $8080                    ; 00AFA572: dc.w $8080
-        dc.w    $8080                    ; 00AFA574: dc.w $8080
-        dc.w    $8080                    ; 00AFA576: dc.w $8080
-        dc.w    $8080                    ; 00AFA578: dc.w $8080
-        dc.w    $8080                    ; 00AFA57A: dc.w $8080
-        dc.w    $8080                    ; 00AFA57C: dc.w $8080
-        dc.w    $8080                    ; 00AFA57E: dc.w $8080
-        dc.w    $8080                    ; 00AFA580: dc.w $8080
-        dc.w    $8080                    ; 00AFA582: dc.w $8080
-        dc.w    $8080                    ; 00AFA584: dc.w $8080
-        dc.w    $8080                    ; 00AFA586: dc.w $8080
-        dc.w    $8080                    ; 00AFA588: dc.w $8080
-        dc.w    $8080                    ; 00AFA58A: dc.w $8080
-        dc.w    $8080                    ; 00AFA58C: dc.w $8080
-        dc.w    $8080                    ; 00AFA58E: dc.w $8080
-        dc.w    $8080                    ; 00AFA590: dc.w $8080
-        dc.w    $8080                    ; 00AFA592: dc.w $8080
-        dc.w    $8080                    ; 00AFA594: dc.w $8080
-        dc.w    $8080                    ; 00AFA596: dc.w $8080
-        dc.w    $8080                    ; 00AFA598: dc.w $8080
-        dc.w    $8080                    ; 00AFA59A: dc.w $8080
-        dc.w    $8080                    ; 00AFA59C: dc.w $8080
-        dc.w    $8080                    ; 00AFA59E: dc.w $8080
-        dc.w    $8080                    ; 00AFA5A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA5A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA5A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA5A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA5A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA5AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA5AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA5AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA5B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA5B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA5B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA5B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA5B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA5BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA5BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA5BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA5C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA5C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA5C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA5C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA5C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA5CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA5CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA5CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA5D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA5D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA5D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA5D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA5D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA5DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA5DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA5DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA5E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA5E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA5E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA5E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA5E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA5EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA5EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA5EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA5F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA5F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA5F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA5F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA5F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA5FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA5FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA5FE: dc.w $8080
-        dc.w    $8080                    ; 00AFA600: dc.w $8080
-        dc.w    $8080                    ; 00AFA602: dc.w $8080
-        dc.w    $8080                    ; 00AFA604: dc.w $8080
-        dc.w    $8080                    ; 00AFA606: dc.w $8080
-        dc.w    $8080                    ; 00AFA608: dc.w $8080
-        dc.w    $8080                    ; 00AFA60A: dc.w $8080
-        dc.w    $8080                    ; 00AFA60C: dc.w $8080
-        dc.w    $8080                    ; 00AFA60E: dc.w $8080
-        dc.w    $8080                    ; 00AFA610: dc.w $8080
-        dc.w    $8080                    ; 00AFA612: dc.w $8080
-        dc.w    $8080                    ; 00AFA614: dc.w $8080
-        dc.w    $8080                    ; 00AFA616: dc.w $8080
-        dc.w    $8080                    ; 00AFA618: dc.w $8080
-        dc.w    $8080                    ; 00AFA61A: dc.w $8080
-        dc.w    $8080                    ; 00AFA61C: dc.w $8080
-        dc.w    $8080                    ; 00AFA61E: dc.w $8080
-        dc.w    $8080                    ; 00AFA620: dc.w $8080
-        dc.w    $8080                    ; 00AFA622: dc.w $8080
-        dc.w    $8080                    ; 00AFA624: dc.w $8080
-        dc.w    $8080                    ; 00AFA626: dc.w $8080
-        dc.w    $8080                    ; 00AFA628: dc.w $8080
-        dc.w    $8080                    ; 00AFA62A: dc.w $8080
-        dc.w    $8080                    ; 00AFA62C: dc.w $8080
-        dc.w    $8080                    ; 00AFA62E: dc.w $8080
-        dc.w    $8080                    ; 00AFA630: dc.w $8080
-        dc.w    $8080                    ; 00AFA632: dc.w $8080
-        dc.w    $8080                    ; 00AFA634: dc.w $8080
-        dc.w    $8080                    ; 00AFA636: dc.w $8080
-        dc.w    $8080                    ; 00AFA638: dc.w $8080
-        dc.w    $8080                    ; 00AFA63A: dc.w $8080
-        dc.w    $8080                    ; 00AFA63C: dc.w $8080
-        dc.w    $8080                    ; 00AFA63E: dc.w $8080
-        dc.w    $8080                    ; 00AFA640: dc.w $8080
-        dc.w    $8080                    ; 00AFA642: dc.w $8080
-        dc.w    $8080                    ; 00AFA644: dc.w $8080
-        dc.w    $8080                    ; 00AFA646: dc.w $8080
-        dc.w    $8080                    ; 00AFA648: dc.w $8080
-        dc.w    $8080                    ; 00AFA64A: dc.w $8080
-        dc.w    $8080                    ; 00AFA64C: dc.w $8080
-        dc.w    $8080                    ; 00AFA64E: dc.w $8080
-        dc.w    $8080                    ; 00AFA650: dc.w $8080
-        dc.w    $8080                    ; 00AFA652: dc.w $8080
-        dc.w    $8080                    ; 00AFA654: dc.w $8080
-        dc.w    $8080                    ; 00AFA656: dc.w $8080
-        dc.w    $8080                    ; 00AFA658: dc.w $8080
-        dc.w    $8080                    ; 00AFA65A: dc.w $8080
-        dc.w    $8080                    ; 00AFA65C: dc.w $8080
-        dc.w    $8080                    ; 00AFA65E: dc.w $8080
-        dc.w    $8080                    ; 00AFA660: dc.w $8080
-        dc.w    $8080                    ; 00AFA662: dc.w $8080
-        dc.w    $8080                    ; 00AFA664: dc.w $8080
-        dc.w    $8080                    ; 00AFA666: dc.w $8080
-        dc.w    $8080                    ; 00AFA668: dc.w $8080
-        dc.w    $8080                    ; 00AFA66A: dc.w $8080
-        dc.w    $8080                    ; 00AFA66C: dc.w $8080
-        dc.w    $8080                    ; 00AFA66E: dc.w $8080
-        dc.w    $8080                    ; 00AFA670: dc.w $8080
-        dc.w    $8080                    ; 00AFA672: dc.w $8080
-        dc.w    $8080                    ; 00AFA674: dc.w $8080
-        dc.w    $8080                    ; 00AFA676: dc.w $8080
-        dc.w    $8080                    ; 00AFA678: dc.w $8080
-        dc.w    $8080                    ; 00AFA67A: dc.w $8080
-        dc.w    $8080                    ; 00AFA67C: dc.w $8080
-        dc.w    $8080                    ; 00AFA67E: dc.w $8080
-        dc.w    $8080                    ; 00AFA680: dc.w $8080
-        dc.w    $8080                    ; 00AFA682: dc.w $8080
-        dc.w    $8080                    ; 00AFA684: dc.w $8080
-        dc.w    $8080                    ; 00AFA686: dc.w $8080
-        dc.w    $8080                    ; 00AFA688: dc.w $8080
-        dc.w    $8080                    ; 00AFA68A: dc.w $8080
-        dc.w    $8080                    ; 00AFA68C: dc.w $8080
-        dc.w    $8080                    ; 00AFA68E: dc.w $8080
-        dc.w    $8080                    ; 00AFA690: dc.w $8080
-        dc.w    $8080                    ; 00AFA692: dc.w $8080
-        dc.w    $8080                    ; 00AFA694: dc.w $8080
-        dc.w    $8080                    ; 00AFA696: dc.w $8080
-        dc.w    $8080                    ; 00AFA698: dc.w $8080
-        dc.w    $8080                    ; 00AFA69A: dc.w $8080
-        dc.w    $8080                    ; 00AFA69C: dc.w $8080
-        dc.w    $8080                    ; 00AFA69E: dc.w $8080
-        dc.w    $8080                    ; 00AFA6A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA6A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA6A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA6A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA6A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA6AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA6AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA6AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA6B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA6B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA6B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA6B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA6B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA6BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA6BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA6BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA6C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA6C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA6C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA6C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA6C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA6CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA6CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA6CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA6D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA6D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA6D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA6D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA6D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA6DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA6DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA6DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA6E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA6E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA6E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA6E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA6E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA6EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA6EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA6EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA6F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA6F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA6F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA6F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA6F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA6FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA6FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA6FE: dc.w $8080
-        dc.w    $8080                    ; 00AFA700: dc.w $8080
-        dc.w    $8080                    ; 00AFA702: dc.w $8080
-        dc.w    $8080                    ; 00AFA704: dc.w $8080
-        dc.w    $8080                    ; 00AFA706: dc.w $8080
-        dc.w    $8080                    ; 00AFA708: dc.w $8080
-        dc.w    $8080                    ; 00AFA70A: dc.w $8080
-        dc.w    $8080                    ; 00AFA70C: dc.w $8080
-        dc.w    $8080                    ; 00AFA70E: dc.w $8080
-        dc.w    $8080                    ; 00AFA710: dc.w $8080
-        dc.w    $8080                    ; 00AFA712: dc.w $8080
-        dc.w    $8080                    ; 00AFA714: dc.w $8080
-        dc.w    $8080                    ; 00AFA716: dc.w $8080
-        dc.w    $8080                    ; 00AFA718: dc.w $8080
-        dc.w    $8080                    ; 00AFA71A: dc.w $8080
-        dc.w    $8080                    ; 00AFA71C: dc.w $8080
-        dc.w    $8080                    ; 00AFA71E: dc.w $8080
-        dc.w    $8080                    ; 00AFA720: dc.w $8080
-        dc.w    $8080                    ; 00AFA722: dc.w $8080
-        dc.w    $8080                    ; 00AFA724: dc.w $8080
-        dc.w    $8080                    ; 00AFA726: dc.w $8080
-        dc.w    $8080                    ; 00AFA728: dc.w $8080
-        dc.w    $8080                    ; 00AFA72A: dc.w $8080
-        dc.w    $8080                    ; 00AFA72C: dc.w $8080
-        dc.w    $8080                    ; 00AFA72E: dc.w $8080
-        dc.w    $8080                    ; 00AFA730: dc.w $8080
-        dc.w    $8080                    ; 00AFA732: dc.w $8080
-        dc.w    $8080                    ; 00AFA734: dc.w $8080
-        dc.w    $8080                    ; 00AFA736: dc.w $8080
-        dc.w    $8080                    ; 00AFA738: dc.w $8080
-        dc.w    $8080                    ; 00AFA73A: dc.w $8080
-        dc.w    $8080                    ; 00AFA73C: dc.w $8080
-        dc.w    $8080                    ; 00AFA73E: dc.w $8080
-        dc.w    $8080                    ; 00AFA740: dc.w $8080
-        dc.w    $8080                    ; 00AFA742: dc.w $8080
-        dc.w    $8080                    ; 00AFA744: dc.w $8080
-        dc.w    $8080                    ; 00AFA746: dc.w $8080
-        dc.w    $8080                    ; 00AFA748: dc.w $8080
-        dc.w    $8080                    ; 00AFA74A: dc.w $8080
-        dc.w    $8080                    ; 00AFA74C: dc.w $8080
-        dc.w    $8080                    ; 00AFA74E: dc.w $8080
-        dc.w    $8080                    ; 00AFA750: dc.w $8080
-        dc.w    $8080                    ; 00AFA752: dc.w $8080
-        dc.w    $8080                    ; 00AFA754: dc.w $8080
-        dc.w    $8080                    ; 00AFA756: dc.w $8080
-        dc.w    $8080                    ; 00AFA758: dc.w $8080
-        dc.w    $8080                    ; 00AFA75A: dc.w $8080
-        dc.w    $8080                    ; 00AFA75C: dc.w $8080
-        dc.w    $8080                    ; 00AFA75E: dc.w $8080
-        dc.w    $8080                    ; 00AFA760: dc.w $8080
-        dc.w    $8080                    ; 00AFA762: dc.w $8080
-        dc.w    $8080                    ; 00AFA764: dc.w $8080
-        dc.w    $8080                    ; 00AFA766: dc.w $8080
-        dc.w    $8080                    ; 00AFA768: dc.w $8080
-        dc.w    $8080                    ; 00AFA76A: dc.w $8080
-        dc.w    $8080                    ; 00AFA76C: dc.w $8080
-        dc.w    $8080                    ; 00AFA76E: dc.w $8080
-        dc.w    $8080                    ; 00AFA770: dc.w $8080
-        dc.w    $8080                    ; 00AFA772: dc.w $8080
-        dc.w    $8080                    ; 00AFA774: dc.w $8080
-        dc.w    $8080                    ; 00AFA776: dc.w $8080
-        dc.w    $8080                    ; 00AFA778: dc.w $8080
-        dc.w    $8080                    ; 00AFA77A: dc.w $8080
-        dc.w    $8080                    ; 00AFA77C: dc.w $8080
-        dc.w    $8080                    ; 00AFA77E: dc.w $8080
-        dc.w    $8080                    ; 00AFA780: dc.w $8080
-        dc.w    $8080                    ; 00AFA782: dc.w $8080
-        dc.w    $8080                    ; 00AFA784: dc.w $8080
-        dc.w    $8080                    ; 00AFA786: dc.w $8080
-        dc.w    $8080                    ; 00AFA788: dc.w $8080
-        dc.w    $8080                    ; 00AFA78A: dc.w $8080
-        dc.w    $8080                    ; 00AFA78C: dc.w $8080
-        dc.w    $8080                    ; 00AFA78E: dc.w $8080
-        dc.w    $8080                    ; 00AFA790: dc.w $8080
-        dc.w    $8080                    ; 00AFA792: dc.w $8080
-        dc.w    $8080                    ; 00AFA794: dc.w $8080
-        dc.w    $8080                    ; 00AFA796: dc.w $8080
-        dc.w    $8080                    ; 00AFA798: dc.w $8080
-        dc.w    $8080                    ; 00AFA79A: dc.w $8080
-        dc.w    $8080                    ; 00AFA79C: dc.w $8080
-        dc.w    $8080                    ; 00AFA79E: dc.w $8080
-        dc.w    $8080                    ; 00AFA7A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA7A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA7A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA7A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA7A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA7AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA7AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA7AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA7B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA7B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA7B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA7B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA7B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA7BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA7BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA7BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA7C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA7C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA7C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA7C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA7C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA7CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA7CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA7CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA7D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA7D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA7D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA7D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA7D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA7DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA7DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA7DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA7E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA7E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA7E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA7E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA7E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA7EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA7EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA7EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA7F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA7F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA7F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA7F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA7F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA7FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA7FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA7FE: dc.w $8080
-        dc.w    $8080                    ; 00AFA800: dc.w $8080
-        dc.w    $8080                    ; 00AFA802: dc.w $8080
-        dc.w    $8080                    ; 00AFA804: dc.w $8080
-        dc.w    $8080                    ; 00AFA806: dc.w $8080
-        dc.w    $8080                    ; 00AFA808: dc.w $8080
-        dc.w    $8080                    ; 00AFA80A: dc.w $8080
-        dc.w    $8080                    ; 00AFA80C: dc.w $8080
-        dc.w    $8080                    ; 00AFA80E: dc.w $8080
-        dc.w    $8080                    ; 00AFA810: dc.w $8080
-        dc.w    $8080                    ; 00AFA812: dc.w $8080
-        dc.w    $8080                    ; 00AFA814: dc.w $8080
-        dc.w    $8080                    ; 00AFA816: dc.w $8080
-        dc.w    $8080                    ; 00AFA818: dc.w $8080
-        dc.w    $8080                    ; 00AFA81A: dc.w $8080
-        dc.w    $8080                    ; 00AFA81C: dc.w $8080
-        dc.w    $8080                    ; 00AFA81E: dc.w $8080
-        dc.w    $8080                    ; 00AFA820: dc.w $8080
-        dc.w    $8080                    ; 00AFA822: dc.w $8080
-        dc.w    $8080                    ; 00AFA824: dc.w $8080
-        dc.w    $8080                    ; 00AFA826: dc.w $8080
-        dc.w    $8080                    ; 00AFA828: dc.w $8080
-        dc.w    $8080                    ; 00AFA82A: dc.w $8080
-        dc.w    $8080                    ; 00AFA82C: dc.w $8080
-        dc.w    $8080                    ; 00AFA82E: dc.w $8080
-        dc.w    $8080                    ; 00AFA830: dc.w $8080
-        dc.w    $8080                    ; 00AFA832: dc.w $8080
-        dc.w    $8080                    ; 00AFA834: dc.w $8080
-        dc.w    $8080                    ; 00AFA836: dc.w $8080
-        dc.w    $8080                    ; 00AFA838: dc.w $8080
-        dc.w    $8080                    ; 00AFA83A: dc.w $8080
-        dc.w    $8080                    ; 00AFA83C: dc.w $8080
-        dc.w    $8080                    ; 00AFA83E: dc.w $8080
-        dc.w    $8080                    ; 00AFA840: dc.w $8080
-        dc.w    $8080                    ; 00AFA842: dc.w $8080
-        dc.w    $8080                    ; 00AFA844: dc.w $8080
-        dc.w    $8080                    ; 00AFA846: dc.w $8080
-        dc.w    $8080                    ; 00AFA848: dc.w $8080
-        dc.w    $8080                    ; 00AFA84A: dc.w $8080
-        dc.w    $8080                    ; 00AFA84C: dc.w $8080
-        dc.w    $8080                    ; 00AFA84E: dc.w $8080
-        dc.w    $8080                    ; 00AFA850: dc.w $8080
-        dc.w    $8080                    ; 00AFA852: dc.w $8080
-        dc.w    $8080                    ; 00AFA854: dc.w $8080
-        dc.w    $8080                    ; 00AFA856: dc.w $8080
-        dc.w    $8080                    ; 00AFA858: dc.w $8080
-        dc.w    $8080                    ; 00AFA85A: dc.w $8080
-        dc.w    $8080                    ; 00AFA85C: dc.w $8080
-        dc.w    $8080                    ; 00AFA85E: dc.w $8080
-        dc.w    $8080                    ; 00AFA860: dc.w $8080
-        dc.w    $8080                    ; 00AFA862: dc.w $8080
-        dc.w    $8080                    ; 00AFA864: dc.w $8080
-        dc.w    $8080                    ; 00AFA866: dc.w $8080
-        dc.w    $8080                    ; 00AFA868: dc.w $8080
-        dc.w    $8080                    ; 00AFA86A: dc.w $8080
-        dc.w    $8080                    ; 00AFA86C: dc.w $8080
-        dc.w    $8080                    ; 00AFA86E: dc.w $8080
-        dc.w    $8080                    ; 00AFA870: dc.w $8080
-        dc.w    $8080                    ; 00AFA872: dc.w $8080
-        dc.w    $8080                    ; 00AFA874: dc.w $8080
-        dc.w    $8080                    ; 00AFA876: dc.w $8080
-        dc.w    $8080                    ; 00AFA878: dc.w $8080
-        dc.w    $8080                    ; 00AFA87A: dc.w $8080
-        dc.w    $8080                    ; 00AFA87C: dc.w $8080
-        dc.w    $8080                    ; 00AFA87E: dc.w $8080
-        dc.w    $8080                    ; 00AFA880: dc.w $8080
-        dc.w    $8080                    ; 00AFA882: dc.w $8080
-        dc.w    $8080                    ; 00AFA884: dc.w $8080
-        dc.w    $8080                    ; 00AFA886: dc.w $8080
-        dc.w    $8080                    ; 00AFA888: dc.w $8080
-        dc.w    $8080                    ; 00AFA88A: dc.w $8080
-        dc.w    $8080                    ; 00AFA88C: dc.w $8080
-        dc.w    $8080                    ; 00AFA88E: dc.w $8080
-        dc.w    $8080                    ; 00AFA890: dc.w $8080
-        dc.w    $8080                    ; 00AFA892: dc.w $8080
-        dc.w    $8080                    ; 00AFA894: dc.w $8080
-        dc.w    $8080                    ; 00AFA896: dc.w $8080
-        dc.w    $8080                    ; 00AFA898: dc.w $8080
-        dc.w    $8080                    ; 00AFA89A: dc.w $8080
-        dc.w    $8080                    ; 00AFA89C: dc.w $8080
-        dc.w    $8080                    ; 00AFA89E: dc.w $8080
-        dc.w    $8080                    ; 00AFA8A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA8A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA8A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA8A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA8A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA8AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA8AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA8AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA8B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA8B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA8B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA8B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA8B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA8BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA8BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA8BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA8C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA8C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA8C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA8C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA8C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA8CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA8CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA8CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA8D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA8D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA8D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA8D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA8D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA8DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA8DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA8DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA8E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA8E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA8E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA8E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA8E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA8EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA8EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA8EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA8F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA8F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA8F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA8F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA8F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA8FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA8FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA8FE: dc.w $8080
-        dc.w    $8080                    ; 00AFA900: dc.w $8080
-        dc.w    $8080                    ; 00AFA902: dc.w $8080
-        dc.w    $8080                    ; 00AFA904: dc.w $8080
-        dc.w    $8080                    ; 00AFA906: dc.w $8080
-        dc.w    $8080                    ; 00AFA908: dc.w $8080
-        dc.w    $8080                    ; 00AFA90A: dc.w $8080
-        dc.w    $8080                    ; 00AFA90C: dc.w $8080
-        dc.w    $8080                    ; 00AFA90E: dc.w $8080
-        dc.w    $8080                    ; 00AFA910: dc.w $8080
-        dc.w    $8080                    ; 00AFA912: dc.w $8080
-        dc.w    $8080                    ; 00AFA914: dc.w $8080
-        dc.w    $8080                    ; 00AFA916: dc.w $8080
-        dc.w    $8080                    ; 00AFA918: dc.w $8080
-        dc.w    $8080                    ; 00AFA91A: dc.w $8080
-        dc.w    $8080                    ; 00AFA91C: dc.w $8080
-        dc.w    $8080                    ; 00AFA91E: dc.w $8080
-        dc.w    $8080                    ; 00AFA920: dc.w $8080
-        dc.w    $8080                    ; 00AFA922: dc.w $8080
-        dc.w    $8080                    ; 00AFA924: dc.w $8080
-        dc.w    $8080                    ; 00AFA926: dc.w $8080
-        dc.w    $8080                    ; 00AFA928: dc.w $8080
-        dc.w    $8080                    ; 00AFA92A: dc.w $8080
-        dc.w    $8080                    ; 00AFA92C: dc.w $8080
-        dc.w    $8080                    ; 00AFA92E: dc.w $8080
-        dc.w    $8080                    ; 00AFA930: dc.w $8080
-        dc.w    $8080                    ; 00AFA932: dc.w $8080
-        dc.w    $8080                    ; 00AFA934: dc.w $8080
-        dc.w    $8080                    ; 00AFA936: dc.w $8080
-        dc.w    $8080                    ; 00AFA938: dc.w $8080
-        dc.w    $8080                    ; 00AFA93A: dc.w $8080
-        dc.w    $8080                    ; 00AFA93C: dc.w $8080
-        dc.w    $8080                    ; 00AFA93E: dc.w $8080
-        dc.w    $8080                    ; 00AFA940: dc.w $8080
-        dc.w    $8080                    ; 00AFA942: dc.w $8080
-        dc.w    $8080                    ; 00AFA944: dc.w $8080
-        dc.w    $8080                    ; 00AFA946: dc.w $8080
-        dc.w    $8080                    ; 00AFA948: dc.w $8080
-        dc.w    $8080                    ; 00AFA94A: dc.w $8080
-        dc.w    $8080                    ; 00AFA94C: dc.w $8080
-        dc.w    $8080                    ; 00AFA94E: dc.w $8080
-        dc.w    $8080                    ; 00AFA950: dc.w $8080
-        dc.w    $8080                    ; 00AFA952: dc.w $8080
-        dc.w    $8080                    ; 00AFA954: dc.w $8080
-        dc.w    $8080                    ; 00AFA956: dc.w $8080
-        dc.w    $8080                    ; 00AFA958: dc.w $8080
-        dc.w    $8080                    ; 00AFA95A: dc.w $8080
-        dc.w    $8080                    ; 00AFA95C: dc.w $8080
-        dc.w    $8080                    ; 00AFA95E: dc.w $8080
-        dc.w    $8080                    ; 00AFA960: dc.w $8080
-        dc.w    $8080                    ; 00AFA962: dc.w $8080
-        dc.w    $8080                    ; 00AFA964: dc.w $8080
-        dc.w    $8080                    ; 00AFA966: dc.w $8080
-        dc.w    $8080                    ; 00AFA968: dc.w $8080
-        dc.w    $8080                    ; 00AFA96A: dc.w $8080
-        dc.w    $8080                    ; 00AFA96C: dc.w $8080
-        dc.w    $8080                    ; 00AFA96E: dc.w $8080
-        dc.w    $8080                    ; 00AFA970: dc.w $8080
-        dc.w    $8080                    ; 00AFA972: dc.w $8080
-        dc.w    $8080                    ; 00AFA974: dc.w $8080
-        dc.w    $8080                    ; 00AFA976: dc.w $8080
-        dc.w    $8080                    ; 00AFA978: dc.w $8080
-        dc.w    $8080                    ; 00AFA97A: dc.w $8080
-        dc.w    $8080                    ; 00AFA97C: dc.w $8080
-        dc.w    $8080                    ; 00AFA97E: dc.w $8080
-        dc.w    $8080                    ; 00AFA980: dc.w $8080
-        dc.w    $8080                    ; 00AFA982: dc.w $8080
-        dc.w    $8080                    ; 00AFA984: dc.w $8080
-        dc.w    $8080                    ; 00AFA986: dc.w $8080
-        dc.w    $8080                    ; 00AFA988: dc.w $8080
-        dc.w    $8080                    ; 00AFA98A: dc.w $8080
-        dc.w    $8080                    ; 00AFA98C: dc.w $8080
-        dc.w    $8080                    ; 00AFA98E: dc.w $8080
-        dc.w    $8080                    ; 00AFA990: dc.w $8080
-        dc.w    $8080                    ; 00AFA992: dc.w $8080
-        dc.w    $8080                    ; 00AFA994: dc.w $8080
-        dc.w    $8080                    ; 00AFA996: dc.w $8080
-        dc.w    $8080                    ; 00AFA998: dc.w $8080
-        dc.w    $8080                    ; 00AFA99A: dc.w $8080
-        dc.w    $8080                    ; 00AFA99C: dc.w $8080
-        dc.w    $8080                    ; 00AFA99E: dc.w $8080
-        dc.w    $8080                    ; 00AFA9A0: dc.w $8080
-        dc.w    $8080                    ; 00AFA9A2: dc.w $8080
-        dc.w    $8080                    ; 00AFA9A4: dc.w $8080
-        dc.w    $8080                    ; 00AFA9A6: dc.w $8080
-        dc.w    $8080                    ; 00AFA9A8: dc.w $8080
-        dc.w    $8080                    ; 00AFA9AA: dc.w $8080
-        dc.w    $8080                    ; 00AFA9AC: dc.w $8080
-        dc.w    $8080                    ; 00AFA9AE: dc.w $8080
-        dc.w    $8080                    ; 00AFA9B0: dc.w $8080
-        dc.w    $8080                    ; 00AFA9B2: dc.w $8080
-        dc.w    $8080                    ; 00AFA9B4: dc.w $8080
-        dc.w    $8080                    ; 00AFA9B6: dc.w $8080
-        dc.w    $8080                    ; 00AFA9B8: dc.w $8080
-        dc.w    $8080                    ; 00AFA9BA: dc.w $8080
-        dc.w    $8080                    ; 00AFA9BC: dc.w $8080
-        dc.w    $8080                    ; 00AFA9BE: dc.w $8080
-        dc.w    $8080                    ; 00AFA9C0: dc.w $8080
-        dc.w    $8080                    ; 00AFA9C2: dc.w $8080
-        dc.w    $8080                    ; 00AFA9C4: dc.w $8080
-        dc.w    $8080                    ; 00AFA9C6: dc.w $8080
-        dc.w    $8080                    ; 00AFA9C8: dc.w $8080
-        dc.w    $8080                    ; 00AFA9CA: dc.w $8080
-        dc.w    $8080                    ; 00AFA9CC: dc.w $8080
-        dc.w    $8080                    ; 00AFA9CE: dc.w $8080
-        dc.w    $8080                    ; 00AFA9D0: dc.w $8080
-        dc.w    $8080                    ; 00AFA9D2: dc.w $8080
-        dc.w    $8080                    ; 00AFA9D4: dc.w $8080
-        dc.w    $8080                    ; 00AFA9D6: dc.w $8080
-        dc.w    $8080                    ; 00AFA9D8: dc.w $8080
-        dc.w    $8080                    ; 00AFA9DA: dc.w $8080
-        dc.w    $8080                    ; 00AFA9DC: dc.w $8080
-        dc.w    $8080                    ; 00AFA9DE: dc.w $8080
-        dc.w    $8080                    ; 00AFA9E0: dc.w $8080
-        dc.w    $8080                    ; 00AFA9E2: dc.w $8080
-        dc.w    $8080                    ; 00AFA9E4: dc.w $8080
-        dc.w    $8080                    ; 00AFA9E6: dc.w $8080
-        dc.w    $8080                    ; 00AFA9E8: dc.w $8080
-        dc.w    $8080                    ; 00AFA9EA: dc.w $8080
-        dc.w    $8080                    ; 00AFA9EC: dc.w $8080
-        dc.w    $8080                    ; 00AFA9EE: dc.w $8080
-        dc.w    $8080                    ; 00AFA9F0: dc.w $8080
-        dc.w    $8080                    ; 00AFA9F2: dc.w $8080
-        dc.w    $8080                    ; 00AFA9F4: dc.w $8080
-        dc.w    $8080                    ; 00AFA9F6: dc.w $8080
-        dc.w    $8080                    ; 00AFA9F8: dc.w $8080
-        dc.w    $8080                    ; 00AFA9FA: dc.w $8080
-        dc.w    $8080                    ; 00AFA9FC: dc.w $8080
-        dc.w    $8080                    ; 00AFA9FE: dc.w $8080
-        dc.w    $8080                    ; 00AFAA00: dc.w $8080
-        dc.w    $8080                    ; 00AFAA02: dc.w $8080
-        dc.w    $8080                    ; 00AFAA04: dc.w $8080
-        dc.w    $8080                    ; 00AFAA06: dc.w $8080
-        dc.w    $8080                    ; 00AFAA08: dc.w $8080
-        dc.w    $8080                    ; 00AFAA0A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA0C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA0E: dc.w $8080
-        dc.w    $8080                    ; 00AFAA10: dc.w $8080
-        dc.w    $8080                    ; 00AFAA12: dc.w $8080
-        dc.w    $8080                    ; 00AFAA14: dc.w $8080
-        dc.w    $8080                    ; 00AFAA16: dc.w $8080
-        dc.w    $8080                    ; 00AFAA18: dc.w $8080
-        dc.w    $8080                    ; 00AFAA1A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA1C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA1E: dc.w $8080
-        dc.w    $8080                    ; 00AFAA20: dc.w $8080
-        dc.w    $8080                    ; 00AFAA22: dc.w $8080
-        dc.w    $8080                    ; 00AFAA24: dc.w $8080
-        dc.w    $8080                    ; 00AFAA26: dc.w $8080
-        dc.w    $8080                    ; 00AFAA28: dc.w $8080
-        dc.w    $8080                    ; 00AFAA2A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA2C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA2E: dc.w $8080
-        dc.w    $8080                    ; 00AFAA30: dc.w $8080
-        dc.w    $8080                    ; 00AFAA32: dc.w $8080
-        dc.w    $8080                    ; 00AFAA34: dc.w $8080
-        dc.w    $8080                    ; 00AFAA36: dc.w $8080
-        dc.w    $8080                    ; 00AFAA38: dc.w $8080
-        dc.w    $8080                    ; 00AFAA3A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA3C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA3E: dc.w $8080
-        dc.w    $8080                    ; 00AFAA40: dc.w $8080
-        dc.w    $8080                    ; 00AFAA42: dc.w $8080
-        dc.w    $8080                    ; 00AFAA44: dc.w $8080
-        dc.w    $8080                    ; 00AFAA46: dc.w $8080
-        dc.w    $8080                    ; 00AFAA48: dc.w $8080
-        dc.w    $8080                    ; 00AFAA4A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA4C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA4E: dc.w $8080
-        dc.w    $8080                    ; 00AFAA50: dc.w $8080
-        dc.w    $8080                    ; 00AFAA52: dc.w $8080
-        dc.w    $8080                    ; 00AFAA54: dc.w $8080
-        dc.w    $8080                    ; 00AFAA56: dc.w $8080
-        dc.w    $8080                    ; 00AFAA58: dc.w $8080
-        dc.w    $8080                    ; 00AFAA5A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA5C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA5E: dc.w $8080
-        dc.w    $8080                    ; 00AFAA60: dc.w $8080
-        dc.w    $8080                    ; 00AFAA62: dc.w $8080
-        dc.w    $8080                    ; 00AFAA64: dc.w $8080
-        dc.w    $8080                    ; 00AFAA66: dc.w $8080
-        dc.w    $8080                    ; 00AFAA68: dc.w $8080
-        dc.w    $8080                    ; 00AFAA6A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA6C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA6E: dc.w $8080
-        dc.w    $8080                    ; 00AFAA70: dc.w $8080
-        dc.w    $8080                    ; 00AFAA72: dc.w $8080
-        dc.w    $8080                    ; 00AFAA74: dc.w $8080
-        dc.w    $8080                    ; 00AFAA76: dc.w $8080
-        dc.w    $8080                    ; 00AFAA78: dc.w $8080
-        dc.w    $8080                    ; 00AFAA7A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA7C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA7E: dc.w $8080
-        dc.w    $8080                    ; 00AFAA80: dc.w $8080
-        dc.w    $8080                    ; 00AFAA82: dc.w $8080
-        dc.w    $8080                    ; 00AFAA84: dc.w $8080
-        dc.w    $8080                    ; 00AFAA86: dc.w $8080
-        dc.w    $8080                    ; 00AFAA88: dc.w $8080
-        dc.w    $8080                    ; 00AFAA8A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA8C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA8E: dc.w $8080
-        dc.w    $8080                    ; 00AFAA90: dc.w $8080
-        dc.w    $8080                    ; 00AFAA92: dc.w $8080
-        dc.w    $8080                    ; 00AFAA94: dc.w $8080
-        dc.w    $8080                    ; 00AFAA96: dc.w $8080
-        dc.w    $8080                    ; 00AFAA98: dc.w $8080
-        dc.w    $8080                    ; 00AFAA9A: dc.w $8080
-        dc.w    $8080                    ; 00AFAA9C: dc.w $8080
-        dc.w    $8080                    ; 00AFAA9E: dc.w $8080
-        dc.w    $8080                    ; 00AFAAA0: dc.w $8080
-        dc.w    $8080                    ; 00AFAAA2: dc.w $8080
-        dc.w    $8080                    ; 00AFAAA4: dc.w $8080
-        dc.w    $8080                    ; 00AFAAA6: dc.w $8080
-        dc.w    $8080                    ; 00AFAAA8: dc.w $8080
-        dc.w    $8080                    ; 00AFAAAA: dc.w $8080
-        dc.w    $8080                    ; 00AFAAAC: dc.w $8080
-        dc.w    $8080                    ; 00AFAAAE: dc.w $8080
-        dc.w    $8080                    ; 00AFAAB0: dc.w $8080
-        dc.w    $8080                    ; 00AFAAB2: dc.w $8080
-        dc.w    $8080                    ; 00AFAAB4: dc.w $8080
-        dc.w    $8080                    ; 00AFAAB6: dc.w $8080
-        dc.w    $8080                    ; 00AFAAB8: dc.w $8080
-        dc.w    $8080                    ; 00AFAABA: dc.w $8080
-        dc.w    $8080                    ; 00AFAABC: dc.w $8080
-        dc.w    $8080                    ; 00AFAABE: dc.w $8080
-        dc.w    $8080                    ; 00AFAAC0: dc.w $8080
-        dc.w    $8080                    ; 00AFAAC2: dc.w $8080
-        dc.w    $8080                    ; 00AFAAC4: dc.w $8080
-        dc.w    $8080                    ; 00AFAAC6: dc.w $8080
-        dc.w    $8080                    ; 00AFAAC8: dc.w $8080
-        dc.w    $8080                    ; 00AFAACA: dc.w $8080
-        dc.w    $8080                    ; 00AFAACC: dc.w $8080
-        dc.w    $8080                    ; 00AFAACE: dc.w $8080
-        dc.w    $8080                    ; 00AFAAD0: dc.w $8080
-        dc.w    $8080                    ; 00AFAAD2: dc.w $8080
-        dc.w    $8080                    ; 00AFAAD4: dc.w $8080
-        dc.w    $8080                    ; 00AFAAD6: dc.w $8080
-        dc.w    $8080                    ; 00AFAAD8: dc.w $8080
-        dc.w    $8080                    ; 00AFAADA: dc.w $8080
-        dc.w    $8080                    ; 00AFAADC: dc.w $8080
-        dc.w    $8080                    ; 00AFAADE: dc.w $8080
-        dc.w    $8080                    ; 00AFAAE0: dc.w $8080
-        dc.w    $8080                    ; 00AFAAE2: dc.w $8080
-        dc.w    $8080                    ; 00AFAAE4: dc.w $8080
-        dc.w    $8080                    ; 00AFAAE6: dc.w $8080
-        dc.w    $8080                    ; 00AFAAE8: dc.w $8080
-        dc.w    $8080                    ; 00AFAAEA: dc.w $8080
-        dc.w    $8080                    ; 00AFAAEC: dc.w $8080
-        dc.w    $8080                    ; 00AFAAEE: dc.w $8080
-        dc.w    $8080                    ; 00AFAAF0: dc.w $8080
-        dc.w    $8080                    ; 00AFAAF2: dc.w $8080
-        dc.w    $8080                    ; 00AFAAF4: dc.w $8080
-        dc.w    $8080                    ; 00AFAAF6: dc.w $8080
-        dc.w    $8080                    ; 00AFAAF8: dc.w $8080
-        dc.w    $8080                    ; 00AFAAFA: dc.w $8080
-        dc.w    $8080                    ; 00AFAAFC: dc.w $8080
-        dc.w    $8080                    ; 00AFAAFE: dc.w $8080
-        dc.w    $8080                    ; 00AFAB00: dc.w $8080
-        dc.w    $8080                    ; 00AFAB02: dc.w $8080
-        dc.w    $8080                    ; 00AFAB04: dc.w $8080
-        dc.w    $8080                    ; 00AFAB06: dc.w $8080
-        dc.w    $8080                    ; 00AFAB08: dc.w $8080
-        dc.w    $8080                    ; 00AFAB0A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB0C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB0E: dc.w $8080
-        dc.w    $8080                    ; 00AFAB10: dc.w $8080
-        dc.w    $8080                    ; 00AFAB12: dc.w $8080
-        dc.w    $8080                    ; 00AFAB14: dc.w $8080
-        dc.w    $8080                    ; 00AFAB16: dc.w $8080
-        dc.w    $8080                    ; 00AFAB18: dc.w $8080
-        dc.w    $8080                    ; 00AFAB1A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB1C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB1E: dc.w $8080
-        dc.w    $8080                    ; 00AFAB20: dc.w $8080
-        dc.w    $8080                    ; 00AFAB22: dc.w $8080
-        dc.w    $8080                    ; 00AFAB24: dc.w $8080
-        dc.w    $8080                    ; 00AFAB26: dc.w $8080
-        dc.w    $8080                    ; 00AFAB28: dc.w $8080
-        dc.w    $8080                    ; 00AFAB2A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB2C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB2E: dc.w $8080
-        dc.w    $8080                    ; 00AFAB30: dc.w $8080
-        dc.w    $8080                    ; 00AFAB32: dc.w $8080
-        dc.w    $8080                    ; 00AFAB34: dc.w $8080
-        dc.w    $8080                    ; 00AFAB36: dc.w $8080
-        dc.w    $8080                    ; 00AFAB38: dc.w $8080
-        dc.w    $8080                    ; 00AFAB3A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB3C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB3E: dc.w $8080
-        dc.w    $8080                    ; 00AFAB40: dc.w $8080
-        dc.w    $8080                    ; 00AFAB42: dc.w $8080
-        dc.w    $8080                    ; 00AFAB44: dc.w $8080
-        dc.w    $8080                    ; 00AFAB46: dc.w $8080
-        dc.w    $8080                    ; 00AFAB48: dc.w $8080
-        dc.w    $8080                    ; 00AFAB4A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB4C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB4E: dc.w $8080
-        dc.w    $8080                    ; 00AFAB50: dc.w $8080
-        dc.w    $8080                    ; 00AFAB52: dc.w $8080
-        dc.w    $8080                    ; 00AFAB54: dc.w $8080
-        dc.w    $8080                    ; 00AFAB56: dc.w $8080
-        dc.w    $8080                    ; 00AFAB58: dc.w $8080
-        dc.w    $8080                    ; 00AFAB5A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB5C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB5E: dc.w $8080
-        dc.w    $8080                    ; 00AFAB60: dc.w $8080
-        dc.w    $8080                    ; 00AFAB62: dc.w $8080
-        dc.w    $8080                    ; 00AFAB64: dc.w $8080
-        dc.w    $8080                    ; 00AFAB66: dc.w $8080
-        dc.w    $8080                    ; 00AFAB68: dc.w $8080
-        dc.w    $8080                    ; 00AFAB6A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB6C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB6E: dc.w $8080
-        dc.w    $8080                    ; 00AFAB70: dc.w $8080
-        dc.w    $8080                    ; 00AFAB72: dc.w $8080
-        dc.w    $8080                    ; 00AFAB74: dc.w $8080
-        dc.w    $8080                    ; 00AFAB76: dc.w $8080
-        dc.w    $8080                    ; 00AFAB78: dc.w $8080
-        dc.w    $8080                    ; 00AFAB7A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB7C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB7E: dc.w $8080
-        dc.w    $8080                    ; 00AFAB80: dc.w $8080
-        dc.w    $8080                    ; 00AFAB82: dc.w $8080
-        dc.w    $8080                    ; 00AFAB84: dc.w $8080
-        dc.w    $8080                    ; 00AFAB86: dc.w $8080
-        dc.w    $8080                    ; 00AFAB88: dc.w $8080
-        dc.w    $8080                    ; 00AFAB8A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB8C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB8E: dc.w $8080
-        dc.w    $8080                    ; 00AFAB90: dc.w $8080
-        dc.w    $8080                    ; 00AFAB92: dc.w $8080
-        dc.w    $8080                    ; 00AFAB94: dc.w $8080
-        dc.w    $8080                    ; 00AFAB96: dc.w $8080
-        dc.w    $8080                    ; 00AFAB98: dc.w $8080
-        dc.w    $8080                    ; 00AFAB9A: dc.w $8080
-        dc.w    $8080                    ; 00AFAB9C: dc.w $8080
-        dc.w    $8080                    ; 00AFAB9E: dc.w $8080
-        dc.w    $8080                    ; 00AFABA0: dc.w $8080
-        dc.w    $8080                    ; 00AFABA2: dc.w $8080
-        dc.w    $8080                    ; 00AFABA4: dc.w $8080
-        dc.w    $8080                    ; 00AFABA6: dc.w $8080
-        dc.w    $8080                    ; 00AFABA8: dc.w $8080
-        dc.w    $8080                    ; 00AFABAA: dc.w $8080
-        dc.w    $8080                    ; 00AFABAC: dc.w $8080
-        dc.w    $8080                    ; 00AFABAE: dc.w $8080
-        dc.w    $8080                    ; 00AFABB0: dc.w $8080
-        dc.w    $8080                    ; 00AFABB2: dc.w $8080
-        dc.w    $8080                    ; 00AFABB4: dc.w $8080
-        dc.w    $8080                    ; 00AFABB6: dc.w $8080
-        dc.w    $8080                    ; 00AFABB8: dc.w $8080
-        dc.w    $8080                    ; 00AFABBA: dc.w $8080
-        dc.w    $8080                    ; 00AFABBC: dc.w $8080
-        dc.w    $8080                    ; 00AFABBE: dc.w $8080
-        dc.w    $8080                    ; 00AFABC0: dc.w $8080
-        dc.w    $8080                    ; 00AFABC2: dc.w $8080
-        dc.w    $8080                    ; 00AFABC4: dc.w $8080
-        dc.w    $8080                    ; 00AFABC6: dc.w $8080
-        dc.w    $8080                    ; 00AFABC8: dc.w $8080
-        dc.w    $8080                    ; 00AFABCA: dc.w $8080
-        dc.w    $8080                    ; 00AFABCC: dc.w $8080
-        dc.w    $8080                    ; 00AFABCE: dc.w $8080
-        dc.w    $8080                    ; 00AFABD0: dc.w $8080
-        dc.w    $8080                    ; 00AFABD2: dc.w $8080
-        dc.w    $8080                    ; 00AFABD4: dc.w $8080
-        dc.w    $8080                    ; 00AFABD6: dc.w $8080
-        dc.w    $8080                    ; 00AFABD8: dc.w $8080
-        dc.w    $8080                    ; 00AFABDA: dc.w $8080
-        dc.w    $8080                    ; 00AFABDC: dc.w $8080
-        dc.w    $8080                    ; 00AFABDE: dc.w $8080
-        dc.w    $8080                    ; 00AFABE0: dc.w $8080
-        dc.w    $8080                    ; 00AFABE2: dc.w $8080
-        dc.w    $8080                    ; 00AFABE4: dc.w $8080
-        dc.w    $8080                    ; 00AFABE6: dc.w $8080
-        dc.w    $8080                    ; 00AFABE8: dc.w $8080
-        dc.w    $8080                    ; 00AFABEA: dc.w $8080
-        dc.w    $8080                    ; 00AFABEC: dc.w $8080
-        dc.w    $8080                    ; 00AFABEE: dc.w $8080
-        dc.w    $8080                    ; 00AFABF0: dc.w $8080
-        dc.w    $8080                    ; 00AFABF2: dc.w $8080
-        dc.w    $8080                    ; 00AFABF4: dc.w $8080
-        dc.w    $8080                    ; 00AFABF6: dc.w $8080
-        dc.w    $8080                    ; 00AFABF8: dc.w $8080
-        dc.w    $8080                    ; 00AFABFA: dc.w $8080
-        dc.w    $8080                    ; 00AFABFC: dc.w $8080
-        dc.w    $8080                    ; 00AFABFE: dc.w $8080
-        dc.w    $8080                    ; 00AFAC00: dc.w $8080
-        dc.w    $8080                    ; 00AFAC02: dc.w $8080
-        dc.w    $8080                    ; 00AFAC04: dc.w $8080
-        dc.w    $8080                    ; 00AFAC06: dc.w $8080
-        dc.w    $8080                    ; 00AFAC08: dc.w $8080
-        dc.w    $8080                    ; 00AFAC0A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC0C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC0E: dc.w $8080
-        dc.w    $8080                    ; 00AFAC10: dc.w $8080
-        dc.w    $8080                    ; 00AFAC12: dc.w $8080
-        dc.w    $8080                    ; 00AFAC14: dc.w $8080
-        dc.w    $8080                    ; 00AFAC16: dc.w $8080
-        dc.w    $8080                    ; 00AFAC18: dc.w $8080
-        dc.w    $8080                    ; 00AFAC1A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC1C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC1E: dc.w $8080
-        dc.w    $8080                    ; 00AFAC20: dc.w $8080
-        dc.w    $8080                    ; 00AFAC22: dc.w $8080
-        dc.w    $8080                    ; 00AFAC24: dc.w $8080
-        dc.w    $8080                    ; 00AFAC26: dc.w $8080
-        dc.w    $8080                    ; 00AFAC28: dc.w $8080
-        dc.w    $8080                    ; 00AFAC2A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC2C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC2E: dc.w $8080
-        dc.w    $8080                    ; 00AFAC30: dc.w $8080
-        dc.w    $8080                    ; 00AFAC32: dc.w $8080
-        dc.w    $8080                    ; 00AFAC34: dc.w $8080
-        dc.w    $8080                    ; 00AFAC36: dc.w $8080
-        dc.w    $8080                    ; 00AFAC38: dc.w $8080
-        dc.w    $8080                    ; 00AFAC3A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC3C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC3E: dc.w $8080
-        dc.w    $8080                    ; 00AFAC40: dc.w $8080
-        dc.w    $8080                    ; 00AFAC42: dc.w $8080
-        dc.w    $8080                    ; 00AFAC44: dc.w $8080
-        dc.w    $8080                    ; 00AFAC46: dc.w $8080
-        dc.w    $8080                    ; 00AFAC48: dc.w $8080
-        dc.w    $8080                    ; 00AFAC4A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC4C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC4E: dc.w $8080
-        dc.w    $8080                    ; 00AFAC50: dc.w $8080
-        dc.w    $8080                    ; 00AFAC52: dc.w $8080
-        dc.w    $8080                    ; 00AFAC54: dc.w $8080
-        dc.w    $8080                    ; 00AFAC56: dc.w $8080
-        dc.w    $8080                    ; 00AFAC58: dc.w $8080
-        dc.w    $8080                    ; 00AFAC5A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC5C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC5E: dc.w $8080
-        dc.w    $8080                    ; 00AFAC60: dc.w $8080
-        dc.w    $8080                    ; 00AFAC62: dc.w $8080
-        dc.w    $8080                    ; 00AFAC64: dc.w $8080
-        dc.w    $8080                    ; 00AFAC66: dc.w $8080
-        dc.w    $8080                    ; 00AFAC68: dc.w $8080
-        dc.w    $8080                    ; 00AFAC6A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC6C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC6E: dc.w $8080
-        dc.w    $8080                    ; 00AFAC70: dc.w $8080
-        dc.w    $8080                    ; 00AFAC72: dc.w $8080
-        dc.w    $8080                    ; 00AFAC74: dc.w $8080
-        dc.w    $8080                    ; 00AFAC76: dc.w $8080
-        dc.w    $8080                    ; 00AFAC78: dc.w $8080
-        dc.w    $8080                    ; 00AFAC7A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC7C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC7E: dc.w $8080
-        dc.w    $8080                    ; 00AFAC80: dc.w $8080
-        dc.w    $8080                    ; 00AFAC82: dc.w $8080
-        dc.w    $8080                    ; 00AFAC84: dc.w $8080
-        dc.w    $8080                    ; 00AFAC86: dc.w $8080
-        dc.w    $8080                    ; 00AFAC88: dc.w $8080
-        dc.w    $8080                    ; 00AFAC8A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC8C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC8E: dc.w $8080
-        dc.w    $8080                    ; 00AFAC90: dc.w $8080
-        dc.w    $8080                    ; 00AFAC92: dc.w $8080
-        dc.w    $8080                    ; 00AFAC94: dc.w $8080
-        dc.w    $8080                    ; 00AFAC96: dc.w $8080
-        dc.w    $8080                    ; 00AFAC98: dc.w $8080
-        dc.w    $8080                    ; 00AFAC9A: dc.w $8080
-        dc.w    $8080                    ; 00AFAC9C: dc.w $8080
-        dc.w    $8080                    ; 00AFAC9E: dc.w $8080
-        dc.w    $8080                    ; 00AFACA0: dc.w $8080
-        dc.w    $8080                    ; 00AFACA2: dc.w $8080
-        dc.w    $8080                    ; 00AFACA4: dc.w $8080
-        dc.w    $8080                    ; 00AFACA6: dc.w $8080
-        dc.w    $8080                    ; 00AFACA8: dc.w $8080
-        dc.w    $8080                    ; 00AFACAA: dc.w $8080
-        dc.w    $8080                    ; 00AFACAC: dc.w $8080
-        dc.w    $8080                    ; 00AFACAE: dc.w $8080
-        dc.w    $8080                    ; 00AFACB0: dc.w $8080
-        dc.w    $8080                    ; 00AFACB2: dc.w $8080
-        dc.w    $8080                    ; 00AFACB4: dc.w $8080
-        dc.w    $8080                    ; 00AFACB6: dc.w $8080
-        dc.w    $8080                    ; 00AFACB8: dc.w $8080
-        dc.w    $8080                    ; 00AFACBA: dc.w $8080
-        dc.w    $8080                    ; 00AFACBC: dc.w $8080
-        dc.w    $8080                    ; 00AFACBE: dc.w $8080
-        dc.w    $8080                    ; 00AFACC0: dc.w $8080
-        dc.w    $8080                    ; 00AFACC2: dc.w $8080
-        dc.w    $8080                    ; 00AFACC4: dc.w $8080
-        dc.w    $8080                    ; 00AFACC6: dc.w $8080
-        dc.w    $8080                    ; 00AFACC8: dc.w $8080
-        dc.w    $8080                    ; 00AFACCA: dc.w $8080
-        dc.w    $8080                    ; 00AFACCC: dc.w $8080
-        dc.w    $8080                    ; 00AFACCE: dc.w $8080
-        dc.w    $8080                    ; 00AFACD0: dc.w $8080
-        dc.w    $8080                    ; 00AFACD2: dc.w $8080
-        dc.w    $8080                    ; 00AFACD4: dc.w $8080
-        dc.w    $8080                    ; 00AFACD6: dc.w $8080
-        dc.w    $8080                    ; 00AFACD8: dc.w $8080
-        dc.w    $8080                    ; 00AFACDA: dc.w $8080
-        dc.w    $8080                    ; 00AFACDC: dc.w $8080
-        dc.w    $8080                    ; 00AFACDE: dc.w $8080
-        dc.w    $8080                    ; 00AFACE0: dc.w $8080
-        dc.w    $8080                    ; 00AFACE2: dc.w $8080
-        dc.w    $8080                    ; 00AFACE4: dc.w $8080
-        dc.w    $8080                    ; 00AFACE6: dc.w $8080
-        dc.w    $8080                    ; 00AFACE8: dc.w $8080
-        dc.w    $8080                    ; 00AFACEA: dc.w $8080
-        dc.w    $8080                    ; 00AFACEC: dc.w $8080
-        dc.w    $8080                    ; 00AFACEE: dc.w $8080
-        dc.w    $8080                    ; 00AFACF0: dc.w $8080
-        dc.w    $8080                    ; 00AFACF2: dc.w $8080
-        dc.w    $8080                    ; 00AFACF4: dc.w $8080
-        dc.w    $8080                    ; 00AFACF6: dc.w $8080
-        dc.w    $8080                    ; 00AFACF8: dc.w $8080
-        dc.w    $8080                    ; 00AFACFA: dc.w $8080
-        dc.w    $8080                    ; 00AFACFC: dc.w $8080
-        dc.w    $8080                    ; 00AFACFE: dc.w $8080
-        dc.w    $8080                    ; 00AFAD00: dc.w $8080
-        dc.w    $8080                    ; 00AFAD02: dc.w $8080
-        dc.w    $8080                    ; 00AFAD04: dc.w $8080
-        dc.w    $8080                    ; 00AFAD06: dc.w $8080
-        dc.w    $8080                    ; 00AFAD08: dc.w $8080
-        dc.w    $8080                    ; 00AFAD0A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD0C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD0E: dc.w $8080
-        dc.w    $8080                    ; 00AFAD10: dc.w $8080
-        dc.w    $8080                    ; 00AFAD12: dc.w $8080
-        dc.w    $8080                    ; 00AFAD14: dc.w $8080
-        dc.w    $8080                    ; 00AFAD16: dc.w $8080
-        dc.w    $8080                    ; 00AFAD18: dc.w $8080
-        dc.w    $8080                    ; 00AFAD1A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD1C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD1E: dc.w $8080
-        dc.w    $8080                    ; 00AFAD20: dc.w $8080
-        dc.w    $8080                    ; 00AFAD22: dc.w $8080
-        dc.w    $8080                    ; 00AFAD24: dc.w $8080
-        dc.w    $8080                    ; 00AFAD26: dc.w $8080
-        dc.w    $8080                    ; 00AFAD28: dc.w $8080
-        dc.w    $8080                    ; 00AFAD2A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD2C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD2E: dc.w $8080
-        dc.w    $8080                    ; 00AFAD30: dc.w $8080
-        dc.w    $8080                    ; 00AFAD32: dc.w $8080
-        dc.w    $8080                    ; 00AFAD34: dc.w $8080
-        dc.w    $8080                    ; 00AFAD36: dc.w $8080
-        dc.w    $8080                    ; 00AFAD38: dc.w $8080
-        dc.w    $8080                    ; 00AFAD3A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD3C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD3E: dc.w $8080
-        dc.w    $8080                    ; 00AFAD40: dc.w $8080
-        dc.w    $8080                    ; 00AFAD42: dc.w $8080
-        dc.w    $8080                    ; 00AFAD44: dc.w $8080
-        dc.w    $8080                    ; 00AFAD46: dc.w $8080
-        dc.w    $8080                    ; 00AFAD48: dc.w $8080
-        dc.w    $8080                    ; 00AFAD4A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD4C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD4E: dc.w $8080
-        dc.w    $8080                    ; 00AFAD50: dc.w $8080
-        dc.w    $8080                    ; 00AFAD52: dc.w $8080
-        dc.w    $8080                    ; 00AFAD54: dc.w $8080
-        dc.w    $8080                    ; 00AFAD56: dc.w $8080
-        dc.w    $8080                    ; 00AFAD58: dc.w $8080
-        dc.w    $8080                    ; 00AFAD5A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD5C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD5E: dc.w $8080
-        dc.w    $8080                    ; 00AFAD60: dc.w $8080
-        dc.w    $8080                    ; 00AFAD62: dc.w $8080
-        dc.w    $8080                    ; 00AFAD64: dc.w $8080
-        dc.w    $8080                    ; 00AFAD66: dc.w $8080
-        dc.w    $8080                    ; 00AFAD68: dc.w $8080
-        dc.w    $8080                    ; 00AFAD6A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD6C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD6E: dc.w $8080
-        dc.w    $8080                    ; 00AFAD70: dc.w $8080
-        dc.w    $8080                    ; 00AFAD72: dc.w $8080
-        dc.w    $8080                    ; 00AFAD74: dc.w $8080
-        dc.w    $8080                    ; 00AFAD76: dc.w $8080
-        dc.w    $8080                    ; 00AFAD78: dc.w $8080
-        dc.w    $8080                    ; 00AFAD7A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD7C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD7E: dc.w $8080
-        dc.w    $8080                    ; 00AFAD80: dc.w $8080
-        dc.w    $8080                    ; 00AFAD82: dc.w $8080
-        dc.w    $8080                    ; 00AFAD84: dc.w $8080
-        dc.w    $8080                    ; 00AFAD86: dc.w $8080
-        dc.w    $8080                    ; 00AFAD88: dc.w $8080
-        dc.w    $8080                    ; 00AFAD8A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD8C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD8E: dc.w $8080
-        dc.w    $8080                    ; 00AFAD90: dc.w $8080
-        dc.w    $8080                    ; 00AFAD92: dc.w $8080
-        dc.w    $8080                    ; 00AFAD94: dc.w $8080
-        dc.w    $8080                    ; 00AFAD96: dc.w $8080
-        dc.w    $8080                    ; 00AFAD98: dc.w $8080
-        dc.w    $8080                    ; 00AFAD9A: dc.w $8080
-        dc.w    $8080                    ; 00AFAD9C: dc.w $8080
-        dc.w    $8080                    ; 00AFAD9E: dc.w $8080
-        dc.w    $8080                    ; 00AFADA0: dc.w $8080
-        dc.w    $8080                    ; 00AFADA2: dc.w $8080
-        dc.w    $8080                    ; 00AFADA4: dc.w $8080
-        dc.w    $8080                    ; 00AFADA6: dc.w $8080
-        dc.w    $8080                    ; 00AFADA8: dc.w $8080
-        dc.w    $8080                    ; 00AFADAA: dc.w $8080
-        dc.w    $8080                    ; 00AFADAC: dc.w $8080
-        dc.w    $8080                    ; 00AFADAE: dc.w $8080
-        dc.w    $8080                    ; 00AFADB0: dc.w $8080
-        dc.w    $8080                    ; 00AFADB2: dc.w $8080
-        dc.w    $8080                    ; 00AFADB4: dc.w $8080
-        dc.w    $8080                    ; 00AFADB6: dc.w $8080
-        dc.w    $8080                    ; 00AFADB8: dc.w $8080
-        dc.w    $8080                    ; 00AFADBA: dc.w $8080
-        dc.w    $8080                    ; 00AFADBC: dc.w $8080
-        dc.w    $8080                    ; 00AFADBE: dc.w $8080
-        dc.w    $8080                    ; 00AFADC0: dc.w $8080
-        dc.w    $8080                    ; 00AFADC2: dc.w $8080
-        dc.w    $8080                    ; 00AFADC4: dc.w $8080
-        dc.w    $8080                    ; 00AFADC6: dc.w $8080
-        dc.w    $8080                    ; 00AFADC8: dc.w $8080
-        dc.w    $8080                    ; 00AFADCA: dc.w $8080
-        dc.w    $8080                    ; 00AFADCC: dc.w $8080
-        dc.w    $8080                    ; 00AFADCE: dc.w $8080
-        dc.w    $8080                    ; 00AFADD0: dc.w $8080
-        dc.w    $8080                    ; 00AFADD2: dc.w $8080
-        dc.w    $8080                    ; 00AFADD4: dc.w $8080
-        dc.w    $8080                    ; 00AFADD6: dc.w $8080
-        dc.w    $8080                    ; 00AFADD8: dc.w $8080
-        dc.w    $8080                    ; 00AFADDA: dc.w $8080
-        dc.w    $8080                    ; 00AFADDC: dc.w $8080
-        dc.w    $8080                    ; 00AFADDE: dc.w $8080
-        dc.w    $8080                    ; 00AFADE0: dc.w $8080
-        dc.w    $8080                    ; 00AFADE2: dc.w $8080
-        dc.w    $8080                    ; 00AFADE4: dc.w $8080
-        dc.w    $8080                    ; 00AFADE6: dc.w $8080
-        dc.w    $8080                    ; 00AFADE8: dc.w $8080
-        dc.w    $8080                    ; 00AFADEA: dc.w $8080
-        dc.w    $8080                    ; 00AFADEC: dc.w $8080
-        dc.w    $8080                    ; 00AFADEE: dc.w $8080
-        dc.w    $8080                    ; 00AFADF0: dc.w $8080
-        dc.w    $8080                    ; 00AFADF2: dc.w $8080
-        dc.w    $8080                    ; 00AFADF4: dc.w $8080
-        dc.w    $8080                    ; 00AFADF6: dc.w $8080
-        dc.w    $8080                    ; 00AFADF8: dc.w $8080
-        dc.w    $8080                    ; 00AFADFA: dc.w $8080
-        dc.w    $8080                    ; 00AFADFC: dc.w $8080
-        dc.w    $8080                    ; 00AFADFE: dc.w $8080
-        dc.w    $8080                    ; 00AFAE00: dc.w $8080
-        dc.w    $8080                    ; 00AFAE02: dc.w $8080
-        dc.w    $8080                    ; 00AFAE04: dc.w $8080
-        dc.w    $8080                    ; 00AFAE06: dc.w $8080
-        dc.w    $8080                    ; 00AFAE08: dc.w $8080
-        dc.w    $8080                    ; 00AFAE0A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE0C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE0E: dc.w $8080
-        dc.w    $8080                    ; 00AFAE10: dc.w $8080
-        dc.w    $8080                    ; 00AFAE12: dc.w $8080
-        dc.w    $8080                    ; 00AFAE14: dc.w $8080
-        dc.w    $8080                    ; 00AFAE16: dc.w $8080
-        dc.w    $8080                    ; 00AFAE18: dc.w $8080
-        dc.w    $8080                    ; 00AFAE1A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE1C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE1E: dc.w $8080
-        dc.w    $8080                    ; 00AFAE20: dc.w $8080
-        dc.w    $8080                    ; 00AFAE22: dc.w $8080
-        dc.w    $8080                    ; 00AFAE24: dc.w $8080
-        dc.w    $8080                    ; 00AFAE26: dc.w $8080
-        dc.w    $8080                    ; 00AFAE28: dc.w $8080
-        dc.w    $8080                    ; 00AFAE2A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE2C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE2E: dc.w $8080
-        dc.w    $8080                    ; 00AFAE30: dc.w $8080
-        dc.w    $8080                    ; 00AFAE32: dc.w $8080
-        dc.w    $8080                    ; 00AFAE34: dc.w $8080
-        dc.w    $8080                    ; 00AFAE36: dc.w $8080
-        dc.w    $8080                    ; 00AFAE38: dc.w $8080
-        dc.w    $8080                    ; 00AFAE3A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE3C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE3E: dc.w $8080
-        dc.w    $8080                    ; 00AFAE40: dc.w $8080
-        dc.w    $8080                    ; 00AFAE42: dc.w $8080
-        dc.w    $8080                    ; 00AFAE44: dc.w $8080
-        dc.w    $8080                    ; 00AFAE46: dc.w $8080
-        dc.w    $8080                    ; 00AFAE48: dc.w $8080
-        dc.w    $8080                    ; 00AFAE4A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE4C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE4E: dc.w $8080
-        dc.w    $8080                    ; 00AFAE50: dc.w $8080
-        dc.w    $8080                    ; 00AFAE52: dc.w $8080
-        dc.w    $8080                    ; 00AFAE54: dc.w $8080
-        dc.w    $8080                    ; 00AFAE56: dc.w $8080
-        dc.w    $8080                    ; 00AFAE58: dc.w $8080
-        dc.w    $8080                    ; 00AFAE5A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE5C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE5E: dc.w $8080
-        dc.w    $8080                    ; 00AFAE60: dc.w $8080
-        dc.w    $8080                    ; 00AFAE62: dc.w $8080
-        dc.w    $8080                    ; 00AFAE64: dc.w $8080
-        dc.w    $8080                    ; 00AFAE66: dc.w $8080
-        dc.w    $8080                    ; 00AFAE68: dc.w $8080
-        dc.w    $8080                    ; 00AFAE6A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE6C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE6E: dc.w $8080
-        dc.w    $8080                    ; 00AFAE70: dc.w $8080
-        dc.w    $8080                    ; 00AFAE72: dc.w $8080
-        dc.w    $8080                    ; 00AFAE74: dc.w $8080
-        dc.w    $8080                    ; 00AFAE76: dc.w $8080
-        dc.w    $8080                    ; 00AFAE78: dc.w $8080
-        dc.w    $8080                    ; 00AFAE7A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE7C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE7E: dc.w $8080
-        dc.w    $8080                    ; 00AFAE80: dc.w $8080
-        dc.w    $8080                    ; 00AFAE82: dc.w $8080
-        dc.w    $8080                    ; 00AFAE84: dc.w $8080
-        dc.w    $8080                    ; 00AFAE86: dc.w $8080
-        dc.w    $8080                    ; 00AFAE88: dc.w $8080
-        dc.w    $8080                    ; 00AFAE8A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE8C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE8E: dc.w $8080
-        dc.w    $8080                    ; 00AFAE90: dc.w $8080
-        dc.w    $8080                    ; 00AFAE92: dc.w $8080
-        dc.w    $8080                    ; 00AFAE94: dc.w $8080
-        dc.w    $8080                    ; 00AFAE96: dc.w $8080
-        dc.w    $8080                    ; 00AFAE98: dc.w $8080
-        dc.w    $8080                    ; 00AFAE9A: dc.w $8080
-        dc.w    $8080                    ; 00AFAE9C: dc.w $8080
-        dc.w    $8080                    ; 00AFAE9E: dc.w $8080
-        dc.w    $8080                    ; 00AFAEA0: dc.w $8080
-        dc.w    $8080                    ; 00AFAEA2: dc.w $8080
-        dc.w    $8080                    ; 00AFAEA4: dc.w $8080
-        dc.w    $8080                    ; 00AFAEA6: dc.w $8080
-        dc.w    $8080                    ; 00AFAEA8: dc.w $8080
-        dc.w    $8080                    ; 00AFAEAA: dc.w $8080
-        dc.w    $8080                    ; 00AFAEAC: dc.w $8080
-        dc.w    $8080                    ; 00AFAEAE: dc.w $8080
-        dc.w    $8080                    ; 00AFAEB0: dc.w $8080
-        dc.w    $8080                    ; 00AFAEB2: dc.w $8080
-        dc.w    $8080                    ; 00AFAEB4: dc.w $8080
-        dc.w    $8080                    ; 00AFAEB6: dc.w $8080
-        dc.w    $8080                    ; 00AFAEB8: dc.w $8080
-        dc.w    $8080                    ; 00AFAEBA: dc.w $8080
-        dc.w    $8080                    ; 00AFAEBC: dc.w $8080
-        dc.w    $8080                    ; 00AFAEBE: dc.w $8080
-        dc.w    $8080                    ; 00AFAEC0: dc.w $8080
-        dc.w    $8080                    ; 00AFAEC2: dc.w $8080
-        dc.w    $8080                    ; 00AFAEC4: dc.w $8080
-        dc.w    $8080                    ; 00AFAEC6: dc.w $8080
-        dc.w    $8080                    ; 00AFAEC8: dc.w $8080
-        dc.w    $8080                    ; 00AFAECA: dc.w $8080
-        dc.w    $8080                    ; 00AFAECC: dc.w $8080
-        dc.w    $8080                    ; 00AFAECE: dc.w $8080
-        dc.w    $8080                    ; 00AFAED0: dc.w $8080
-        dc.w    $8080                    ; 00AFAED2: dc.w $8080
-        dc.w    $8080                    ; 00AFAED4: dc.w $8080
-        dc.w    $8080                    ; 00AFAED6: dc.w $8080
-        dc.w    $8080                    ; 00AFAED8: dc.w $8080
-        dc.w    $8080                    ; 00AFAEDA: dc.w $8080
-        dc.w    $8080                    ; 00AFAEDC: dc.w $8080
-        dc.w    $8080                    ; 00AFAEDE: dc.w $8080
-        dc.w    $8080                    ; 00AFAEE0: dc.w $8080
-        dc.w    $8080                    ; 00AFAEE2: dc.w $8080
-        dc.w    $8080                    ; 00AFAEE4: dc.w $8080
-        dc.w    $8080                    ; 00AFAEE6: dc.w $8080
-        dc.w    $8080                    ; 00AFAEE8: dc.w $8080
-        dc.w    $8080                    ; 00AFAEEA: dc.w $8080
-        dc.w    $8080                    ; 00AFAEEC: dc.w $8080
-        dc.w    $8080                    ; 00AFAEEE: dc.w $8080
-        dc.w    $8080                    ; 00AFAEF0: dc.w $8080
-        dc.w    $8080                    ; 00AFAEF2: dc.w $8080
-        dc.w    $8080                    ; 00AFAEF4: dc.w $8080
-        dc.w    $8080                    ; 00AFAEF6: dc.w $8080
-        dc.w    $8080                    ; 00AFAEF8: dc.w $8080
-        dc.w    $8080                    ; 00AFAEFA: dc.w $8080
-        dc.w    $8080                    ; 00AFAEFC: dc.w $8080
-        dc.w    $8080                    ; 00AFAEFE: dc.w $8080
-        dc.w    $8080                    ; 00AFAF00: dc.w $8080
-        dc.w    $8080                    ; 00AFAF02: dc.w $8080
-        dc.w    $8080                    ; 00AFAF04: dc.w $8080
-        dc.w    $8080                    ; 00AFAF06: dc.w $8080
-        dc.w    $8080                    ; 00AFAF08: dc.w $8080
-        dc.w    $8080                    ; 00AFAF0A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF0C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF0E: dc.w $8080
-        dc.w    $8080                    ; 00AFAF10: dc.w $8080
-        dc.w    $8080                    ; 00AFAF12: dc.w $8080
-        dc.w    $8080                    ; 00AFAF14: dc.w $8080
-        dc.w    $8080                    ; 00AFAF16: dc.w $8080
-        dc.w    $8080                    ; 00AFAF18: dc.w $8080
-        dc.w    $8080                    ; 00AFAF1A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF1C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF1E: dc.w $8080
-        dc.w    $8080                    ; 00AFAF20: dc.w $8080
-        dc.w    $8080                    ; 00AFAF22: dc.w $8080
-        dc.w    $8080                    ; 00AFAF24: dc.w $8080
-        dc.w    $8080                    ; 00AFAF26: dc.w $8080
-        dc.w    $8080                    ; 00AFAF28: dc.w $8080
-        dc.w    $8080                    ; 00AFAF2A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF2C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF2E: dc.w $8080
-        dc.w    $8080                    ; 00AFAF30: dc.w $8080
-        dc.w    $8080                    ; 00AFAF32: dc.w $8080
-        dc.w    $8080                    ; 00AFAF34: dc.w $8080
-        dc.w    $8080                    ; 00AFAF36: dc.w $8080
-        dc.w    $8080                    ; 00AFAF38: dc.w $8080
-        dc.w    $8080                    ; 00AFAF3A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF3C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF3E: dc.w $8080
-        dc.w    $8080                    ; 00AFAF40: dc.w $8080
-        dc.w    $8080                    ; 00AFAF42: dc.w $8080
-        dc.w    $8080                    ; 00AFAF44: dc.w $8080
-        dc.w    $8080                    ; 00AFAF46: dc.w $8080
-        dc.w    $8080                    ; 00AFAF48: dc.w $8080
-        dc.w    $8080                    ; 00AFAF4A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF4C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF4E: dc.w $8080
-        dc.w    $8080                    ; 00AFAF50: dc.w $8080
-        dc.w    $8080                    ; 00AFAF52: dc.w $8080
-        dc.w    $8080                    ; 00AFAF54: dc.w $8080
-        dc.w    $8080                    ; 00AFAF56: dc.w $8080
-        dc.w    $8080                    ; 00AFAF58: dc.w $8080
-        dc.w    $8080                    ; 00AFAF5A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF5C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF5E: dc.w $8080
-        dc.w    $8080                    ; 00AFAF60: dc.w $8080
-        dc.w    $8080                    ; 00AFAF62: dc.w $8080
-        dc.w    $8080                    ; 00AFAF64: dc.w $8080
-        dc.w    $8080                    ; 00AFAF66: dc.w $8080
-        dc.w    $8080                    ; 00AFAF68: dc.w $8080
-        dc.w    $8080                    ; 00AFAF6A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF6C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF6E: dc.w $8080
-        dc.w    $8080                    ; 00AFAF70: dc.w $8080
-        dc.w    $8080                    ; 00AFAF72: dc.w $8080
-        dc.w    $8080                    ; 00AFAF74: dc.w $8080
-        dc.w    $8080                    ; 00AFAF76: dc.w $8080
-        dc.w    $8080                    ; 00AFAF78: dc.w $8080
-        dc.w    $8080                    ; 00AFAF7A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF7C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF7E: dc.w $8080
-        dc.w    $8080                    ; 00AFAF80: dc.w $8080
-        dc.w    $8080                    ; 00AFAF82: dc.w $8080
-        dc.w    $8080                    ; 00AFAF84: dc.w $8080
-        dc.w    $8080                    ; 00AFAF86: dc.w $8080
-        dc.w    $8080                    ; 00AFAF88: dc.w $8080
-        dc.w    $8080                    ; 00AFAF8A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF8C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF8E: dc.w $8080
-        dc.w    $8080                    ; 00AFAF90: dc.w $8080
-        dc.w    $8080                    ; 00AFAF92: dc.w $8080
-        dc.w    $8080                    ; 00AFAF94: dc.w $8080
-        dc.w    $8080                    ; 00AFAF96: dc.w $8080
-        dc.w    $8080                    ; 00AFAF98: dc.w $8080
-        dc.w    $8080                    ; 00AFAF9A: dc.w $8080
-        dc.w    $8080                    ; 00AFAF9C: dc.w $8080
-        dc.w    $8080                    ; 00AFAF9E: dc.w $8080
-        dc.w    $8080                    ; 00AFAFA0: dc.w $8080
-        dc.w    $8080                    ; 00AFAFA2: dc.w $8080
-        dc.w    $8080                    ; 00AFAFA4: dc.w $8080
-        dc.w    $8080                    ; 00AFAFA6: dc.w $8080
-        dc.w    $8080                    ; 00AFAFA8: dc.w $8080
-        dc.w    $8080                    ; 00AFAFAA: dc.w $8080
-        dc.w    $8080                    ; 00AFAFAC: dc.w $8080
-        dc.w    $8080                    ; 00AFAFAE: dc.w $8080
-        dc.w    $8080                    ; 00AFAFB0: dc.w $8080
-        dc.w    $8080                    ; 00AFAFB2: dc.w $8080
-        dc.w    $8080                    ; 00AFAFB4: dc.w $8080
-        dc.w    $8080                    ; 00AFAFB6: dc.w $8080
-        dc.w    $8080                    ; 00AFAFB8: dc.w $8080
-        dc.w    $8080                    ; 00AFAFBA: dc.w $8080
-        dc.w    $8080                    ; 00AFAFBC: dc.w $8080
-        dc.w    $8080                    ; 00AFAFBE: dc.w $8080
-        dc.w    $8080                    ; 00AFAFC0: dc.w $8080
-        dc.w    $8080                    ; 00AFAFC2: dc.w $8080
-        dc.w    $8080                    ; 00AFAFC4: dc.w $8080
-        dc.w    $8080                    ; 00AFAFC6: dc.w $8080
-        dc.w    $8080                    ; 00AFAFC8: dc.w $8080
-        dc.w    $8080                    ; 00AFAFCA: dc.w $8080
-        dc.w    $8080                    ; 00AFAFCC: dc.w $8080
-        dc.w    $8080                    ; 00AFAFCE: dc.w $8080
-        dc.w    $8080                    ; 00AFAFD0: dc.w $8080
-        dc.w    $8080                    ; 00AFAFD2: dc.w $8080
-        dc.w    $8080                    ; 00AFAFD4: dc.w $8080
-        dc.w    $8080                    ; 00AFAFD6: dc.w $8080
-        dc.w    $8080                    ; 00AFAFD8: dc.w $8080
-        dc.w    $8080                    ; 00AFAFDA: dc.w $8080
-        dc.w    $8080                    ; 00AFAFDC: dc.w $8080
-        dc.w    $8080                    ; 00AFAFDE: dc.w $8080
-        dc.w    $8080                    ; 00AFAFE0: dc.w $8080
-        dc.w    $8080                    ; 00AFAFE2: dc.w $8080
-        dc.w    $8080                    ; 00AFAFE4: dc.w $8080
-        dc.w    $8080                    ; 00AFAFE6: dc.w $8080
-        dc.w    $8080                    ; 00AFAFE8: dc.w $8080
-        dc.w    $8080                    ; 00AFAFEA: dc.w $8080
-        dc.w    $8080                    ; 00AFAFEC: dc.w $8080
-        dc.w    $8080                    ; 00AFAFEE: dc.w $8080
-        dc.w    $8080                    ; 00AFAFF0: dc.w $8080
-        dc.w    $8080                    ; 00AFAFF2: dc.w $8080
-        dc.w    $8080                    ; 00AFAFF4: dc.w $8080
-        dc.w    $8080                    ; 00AFAFF6: dc.w $8080
-        dc.w    $8080                    ; 00AFAFF8: dc.w $8080
-        dc.w    $8080                    ; 00AFAFFA: dc.w $8080
-        dc.w    $8080                    ; 00AFAFFC: dc.w $8080
-        dc.w    $8080                    ; 00AFAFFE: dc.w $8080
-        dc.w    $8080                    ; 00AFB000: dc.w $8080
-        dc.w    $8080                    ; 00AFB002: dc.w $8080
-        dc.w    $8080                    ; 00AFB004: dc.w $8080
-        dc.w    $8080                    ; 00AFB006: dc.w $8080
-        dc.w    $8080                    ; 00AFB008: dc.w $8080
-        dc.w    $8080                    ; 00AFB00A: dc.w $8080
-        dc.w    $8080                    ; 00AFB00C: dc.w $8080
-        dc.w    $8080                    ; 00AFB00E: dc.w $8080
-        dc.w    $8080                    ; 00AFB010: dc.w $8080
-        dc.w    $8080                    ; 00AFB012: dc.w $8080
-        dc.w    $8080                    ; 00AFB014: dc.w $8080
-        dc.w    $8080                    ; 00AFB016: dc.w $8080
-        dc.w    $8080                    ; 00AFB018: dc.w $8080
-        dc.w    $8080                    ; 00AFB01A: dc.w $8080
-        dc.w    $8080                    ; 00AFB01C: dc.w $8080
-        dc.w    $8080                    ; 00AFB01E: dc.w $8080
-        dc.w    $8080                    ; 00AFB020: dc.w $8080
-        dc.w    $8080                    ; 00AFB022: dc.w $8080
-        dc.w    $8080                    ; 00AFB024: dc.w $8080
-        dc.w    $8080                    ; 00AFB026: dc.w $8080
-        dc.w    $8080                    ; 00AFB028: dc.w $8080
-        dc.w    $8080                    ; 00AFB02A: dc.w $8080
-        dc.w    $8080                    ; 00AFB02C: dc.w $8080
-        dc.w    $8080                    ; 00AFB02E: dc.w $8080
-        dc.w    $8080                    ; 00AFB030: dc.w $8080
-        dc.w    $8080                    ; 00AFB032: dc.w $8080
-        dc.w    $8080                    ; 00AFB034: dc.w $8080
-        dc.w    $8080                    ; 00AFB036: dc.w $8080
-        dc.w    $8080                    ; 00AFB038: dc.w $8080
-        dc.w    $8080                    ; 00AFB03A: dc.w $8080
-        dc.w    $8080                    ; 00AFB03C: dc.w $8080
-        dc.w    $8080                    ; 00AFB03E: dc.w $8080
-        dc.w    $8080                    ; 00AFB040: dc.w $8080
-        dc.w    $8080                    ; 00AFB042: dc.w $8080
-        dc.w    $8080                    ; 00AFB044: dc.w $8080
-        dc.w    $8080                    ; 00AFB046: dc.w $8080
-        dc.w    $8080                    ; 00AFB048: dc.w $8080
-        dc.w    $8080                    ; 00AFB04A: dc.w $8080
-        dc.w    $8080                    ; 00AFB04C: dc.w $8080
-        dc.w    $8080                    ; 00AFB04E: dc.w $8080
-        dc.w    $8080                    ; 00AFB050: dc.w $8080
-        dc.w    $8080                    ; 00AFB052: dc.w $8080
-        dc.w    $8080                    ; 00AFB054: dc.w $8080
-        dc.w    $8080                    ; 00AFB056: dc.w $8080
-        dc.w    $8080                    ; 00AFB058: dc.w $8080
-        dc.w    $8080                    ; 00AFB05A: dc.w $8080
-        dc.w    $8080                    ; 00AFB05C: dc.w $8080
-        dc.w    $8080                    ; 00AFB05E: dc.w $8080
-        dc.w    $8080                    ; 00AFB060: dc.w $8080
-        dc.w    $8080                    ; 00AFB062: dc.w $8080
-        dc.w    $8080                    ; 00AFB064: dc.w $8080
-        dc.w    $8080                    ; 00AFB066: dc.w $8080
-        dc.w    $8080                    ; 00AFB068: dc.w $8080
-        dc.w    $8080                    ; 00AFB06A: dc.w $8080
-        dc.w    $8080                    ; 00AFB06C: dc.w $8080
-        dc.w    $8080                    ; 00AFB06E: dc.w $8080
-        dc.w    $8080                    ; 00AFB070: dc.w $8080
-        dc.w    $8080                    ; 00AFB072: dc.w $8080
-        dc.w    $8080                    ; 00AFB074: dc.w $8080
-        dc.w    $8080                    ; 00AFB076: dc.w $8080
-        dc.w    $8080                    ; 00AFB078: dc.w $8080
-        dc.w    $8080                    ; 00AFB07A: dc.w $8080
-        dc.w    $8080                    ; 00AFB07C: dc.w $8080
-        dc.w    $8080                    ; 00AFB07E: dc.w $8080
-        dc.w    $8080                    ; 00AFB080: dc.w $8080
-        dc.w    $8080                    ; 00AFB082: dc.w $8080
-        dc.w    $8080                    ; 00AFB084: dc.w $8080
-        dc.w    $8080                    ; 00AFB086: dc.w $8080
-        dc.w    $8080                    ; 00AFB088: dc.w $8080
-        dc.w    $8080                    ; 00AFB08A: dc.w $8080
-        dc.w    $8080                    ; 00AFB08C: dc.w $8080
-        dc.w    $8080                    ; 00AFB08E: dc.w $8080
-        dc.w    $8080                    ; 00AFB090: dc.w $8080
-        dc.w    $8080                    ; 00AFB092: dc.w $8080
-        dc.w    $8080                    ; 00AFB094: dc.w $8080
-        dc.w    $8080                    ; 00AFB096: dc.w $8080
-        dc.w    $8080                    ; 00AFB098: dc.w $8080
-        dc.w    $8080                    ; 00AFB09A: dc.w $8080
-        dc.w    $8080                    ; 00AFB09C: dc.w $8080
-        dc.w    $8080                    ; 00AFB09E: dc.w $8080
-        dc.w    $8080                    ; 00AFB0A0: dc.w $8080
-        dc.w    $8080                    ; 00AFB0A2: dc.w $8080
-        dc.w    $8080                    ; 00AFB0A4: dc.w $8080
-        dc.w    $8080                    ; 00AFB0A6: dc.w $8080
-        dc.w    $8080                    ; 00AFB0A8: dc.w $8080
-        dc.w    $8080                    ; 00AFB0AA: dc.w $8080
-        dc.w    $8080                    ; 00AFB0AC: dc.w $8080
-        dc.w    $8080                    ; 00AFB0AE: dc.w $8080
-        dc.w    $8080                    ; 00AFB0B0: dc.w $8080
-        dc.w    $8080                    ; 00AFB0B2: dc.w $8080
-        dc.w    $8080                    ; 00AFB0B4: dc.w $8080
-        dc.w    $8080                    ; 00AFB0B6: dc.w $8080
-        dc.w    $8080                    ; 00AFB0B8: dc.w $8080
-        dc.w    $8080                    ; 00AFB0BA: dc.w $8080
-        dc.w    $8080                    ; 00AFB0BC: dc.w $8080
-        dc.w    $8080                    ; 00AFB0BE: dc.w $8080
-        dc.w    $8080                    ; 00AFB0C0: dc.w $8080
-        dc.w    $8080                    ; 00AFB0C2: dc.w $8080
-        dc.w    $8080                    ; 00AFB0C4: dc.w $8080
-        dc.w    $8080                    ; 00AFB0C6: dc.w $8080
-        dc.w    $8080                    ; 00AFB0C8: dc.w $8080
-        dc.w    $8080                    ; 00AFB0CA: dc.w $8080
-        dc.w    $8080                    ; 00AFB0CC: dc.w $8080
-        dc.w    $8080                    ; 00AFB0CE: dc.w $8080
-        dc.w    $8080                    ; 00AFB0D0: dc.w $8080
-        dc.w    $8080                    ; 00AFB0D2: dc.w $8080
-        dc.w    $8080                    ; 00AFB0D4: dc.w $8080
-        dc.w    $8080                    ; 00AFB0D6: dc.w $8080
-        dc.w    $8080                    ; 00AFB0D8: dc.w $8080
-        dc.w    $8080                    ; 00AFB0DA: dc.w $8080
-        dc.w    $8080                    ; 00AFB0DC: dc.w $8080
-        dc.w    $8080                    ; 00AFB0DE: dc.w $8080
-        dc.w    $8080                    ; 00AFB0E0: dc.w $8080
-        dc.w    $8080                    ; 00AFB0E2: dc.w $8080
-        dc.w    $8080                    ; 00AFB0E4: dc.w $8080
-        dc.w    $8080                    ; 00AFB0E6: dc.w $8080
-        dc.w    $8080                    ; 00AFB0E8: dc.w $8080
-        dc.w    $8080                    ; 00AFB0EA: dc.w $8080
-        dc.w    $8080                    ; 00AFB0EC: dc.w $8080
-        dc.w    $8080                    ; 00AFB0EE: dc.w $8080
-        dc.w    $8080                    ; 00AFB0F0: dc.w $8080
-        dc.w    $8080                    ; 00AFB0F2: dc.w $8080
-        dc.w    $8080                    ; 00AFB0F4: dc.w $8080
-        dc.w    $8080                    ; 00AFB0F6: dc.w $8080
-        dc.w    $8080                    ; 00AFB0F8: dc.w $8080
-        dc.w    $8080                    ; 00AFB0FA: dc.w $8080
-        dc.w    $8080                    ; 00AFB0FC: dc.w $8080
-        dc.w    $8080                    ; 00AFB0FE: dc.w $8080
-        dc.w    $8080                    ; 00AFB100: dc.w $8080
-        dc.w    $8080                    ; 00AFB102: dc.w $8080
-        dc.w    $8080                    ; 00AFB104: dc.w $8080
-        dc.w    $8080                    ; 00AFB106: dc.w $8080
-        dc.w    $8080                    ; 00AFB108: dc.w $8080
-        dc.w    $8080                    ; 00AFB10A: dc.w $8080
-        dc.w    $8080                    ; 00AFB10C: dc.w $8080
-        dc.w    $8080                    ; 00AFB10E: dc.w $8080
-        dc.w    $8080                    ; 00AFB110: dc.w $8080
-        dc.w    $8080                    ; 00AFB112: dc.w $8080
-        dc.w    $8080                    ; 00AFB114: dc.w $8080
-        dc.w    $8080                    ; 00AFB116: dc.w $8080
-        dc.w    $8080                    ; 00AFB118: dc.w $8080
-        dc.w    $8080                    ; 00AFB11A: dc.w $8080
-        dc.w    $8080                    ; 00AFB11C: dc.w $8080
-        dc.w    $8080                    ; 00AFB11E: dc.w $8080
-        dc.w    $8080                    ; 00AFB120: dc.w $8080
-        dc.w    $8080                    ; 00AFB122: dc.w $8080
-        dc.w    $8080                    ; 00AFB124: dc.w $8080
-        dc.w    $8080                    ; 00AFB126: dc.w $8080
-        dc.w    $8080                    ; 00AFB128: dc.w $8080
-        dc.w    $8080                    ; 00AFB12A: dc.w $8080
-        dc.w    $8080                    ; 00AFB12C: dc.w $8080
-        dc.w    $8080                    ; 00AFB12E: dc.w $8080
-        dc.w    $8080                    ; 00AFB130: dc.w $8080
-        dc.w    $8080                    ; 00AFB132: dc.w $8080
-        dc.w    $8080                    ; 00AFB134: dc.w $8080
-        dc.w    $8080                    ; 00AFB136: dc.w $8080
-        dc.w    $8080                    ; 00AFB138: dc.w $8080
-        dc.w    $8080                    ; 00AFB13A: dc.w $8080
-        dc.w    $8080                    ; 00AFB13C: dc.w $8080
-        dc.w    $8080                    ; 00AFB13E: dc.w $8080
-        dc.w    $8080                    ; 00AFB140: dc.w $8080
-        dc.w    $8080                    ; 00AFB142: dc.w $8080
-        dc.w    $8080                    ; 00AFB144: dc.w $8080
-        dc.w    $8080                    ; 00AFB146: dc.w $8080
-        dc.w    $8080                    ; 00AFB148: dc.w $8080
-        dc.w    $8080                    ; 00AFB14A: dc.w $8080
-        dc.w    $8080                    ; 00AFB14C: dc.w $8080
-        dc.w    $8080                    ; 00AFB14E: dc.w $8080
-        dc.w    $8080                    ; 00AFB150: dc.w $8080
-        dc.w    $8080                    ; 00AFB152: dc.w $8080
-        dc.w    $8080                    ; 00AFB154: dc.w $8080
-        dc.w    $8080                    ; 00AFB156: dc.w $8080
-        dc.w    $8080                    ; 00AFB158: dc.w $8080
-        dc.w    $8080                    ; 00AFB15A: dc.w $8080
-        dc.w    $8080                    ; 00AFB15C: dc.w $8080
-        dc.w    $8080                    ; 00AFB15E: dc.w $8080
-        dc.w    $8080                    ; 00AFB160: dc.w $8080
-        dc.w    $8080                    ; 00AFB162: dc.w $8080
-        dc.w    $8080                    ; 00AFB164: dc.w $8080
-        dc.w    $8080                    ; 00AFB166: dc.w $8080
-        dc.w    $8080                    ; 00AFB168: dc.w $8080
-        dc.w    $8080                    ; 00AFB16A: dc.w $8080
-        dc.w    $8080                    ; 00AFB16C: dc.w $8080
-        dc.w    $8080                    ; 00AFB16E: dc.w $8080
-        dc.w    $8080                    ; 00AFB170: dc.w $8080
-        dc.w    $8080                    ; 00AFB172: dc.w $8080
-        dc.w    $8080                    ; 00AFB174: dc.w $8080
-        dc.w    $8080                    ; 00AFB176: dc.w $8080
-        dc.w    $8080                    ; 00AFB178: dc.w $8080
-        dc.w    $8080                    ; 00AFB17A: dc.w $8080
-        dc.w    $8080                    ; 00AFB17C: dc.w $8080
-        dc.w    $8080                    ; 00AFB17E: dc.w $8080
-        dc.w    $8080                    ; 00AFB180: dc.w $8080
-        dc.w    $8080                    ; 00AFB182: dc.w $8080
-        dc.w    $8080                    ; 00AFB184: dc.w $8080
-        dc.w    $8080                    ; 00AFB186: dc.w $8080
-        dc.w    $8080                    ; 00AFB188: dc.w $8080
-        dc.w    $8080                    ; 00AFB18A: dc.w $8080
-        dc.w    $8080                    ; 00AFB18C: dc.w $8080
-        dc.w    $8080                    ; 00AFB18E: dc.w $8080
-        dc.w    $8080                    ; 00AFB190: dc.w $8080
-        dc.w    $8080                    ; 00AFB192: dc.w $8080
-        dc.w    $8080                    ; 00AFB194: dc.w $8080
-        dc.w    $8080                    ; 00AFB196: dc.w $8080
-        dc.w    $8080                    ; 00AFB198: dc.w $8080
-        dc.w    $8080                    ; 00AFB19A: dc.w $8080
-        dc.w    $8080                    ; 00AFB19C: dc.w $8080
-        dc.w    $8080                    ; 00AFB19E: dc.w $8080
-        dc.w    $8080                    ; 00AFB1A0: dc.w $8080
-        dc.w    $8080                    ; 00AFB1A2: dc.w $8080
-        dc.w    $8080                    ; 00AFB1A4: dc.w $8080
-        dc.w    $8080                    ; 00AFB1A6: dc.w $8080
-        dc.w    $8080                    ; 00AFB1A8: dc.w $8080
-        dc.w    $8080                    ; 00AFB1AA: dc.w $8080
-        dc.w    $8080                    ; 00AFB1AC: dc.w $8080
-        dc.w    $8080                    ; 00AFB1AE: dc.w $8080
-        dc.w    $8080                    ; 00AFB1B0: dc.w $8080
-        dc.w    $8080                    ; 00AFB1B2: dc.w $8080
-        dc.w    $8080                    ; 00AFB1B4: dc.w $8080
-        dc.w    $8080                    ; 00AFB1B6: dc.w $8080
-        dc.w    $8080                    ; 00AFB1B8: dc.w $8080
-        dc.w    $8080                    ; 00AFB1BA: dc.w $8080
-        dc.w    $8080                    ; 00AFB1BC: dc.w $8080
-        dc.w    $8080                    ; 00AFB1BE: dc.w $8080
-        dc.w    $8080                    ; 00AFB1C0: dc.w $8080
-        dc.w    $8080                    ; 00AFB1C2: dc.w $8080
-        dc.w    $8080                    ; 00AFB1C4: dc.w $8080
-        dc.w    $8080                    ; 00AFB1C6: dc.w $8080
-        dc.w    $8080                    ; 00AFB1C8: dc.w $8080
-        dc.w    $8080                    ; 00AFB1CA: dc.w $8080
-        dc.w    $8080                    ; 00AFB1CC: dc.w $8080
-        dc.w    $8080                    ; 00AFB1CE: dc.w $8080
-        dc.w    $8080                    ; 00AFB1D0: dc.w $8080
-        dc.w    $8080                    ; 00AFB1D2: dc.w $8080
-        dc.w    $8080                    ; 00AFB1D4: dc.w $8080
-        dc.w    $8080                    ; 00AFB1D6: dc.w $8080
-        dc.w    $8080                    ; 00AFB1D8: dc.w $8080
-        dc.w    $8080                    ; 00AFB1DA: dc.w $8080
-        dc.w    $8080                    ; 00AFB1DC: dc.w $8080
-        dc.w    $8080                    ; 00AFB1DE: dc.w $8080
-        dc.w    $8080                    ; 00AFB1E0: dc.w $8080
-        dc.w    $8080                    ; 00AFB1E2: dc.w $8080
-        dc.w    $8080                    ; 00AFB1E4: dc.w $8080
-        dc.w    $8080                    ; 00AFB1E6: dc.w $8080
-        dc.w    $8080                    ; 00AFB1E8: dc.w $8080
-        dc.w    $8080                    ; 00AFB1EA: dc.w $8080
-        dc.w    $8080                    ; 00AFB1EC: dc.w $8080
-        dc.w    $8080                    ; 00AFB1EE: dc.w $8080
-        dc.w    $8080                    ; 00AFB1F0: dc.w $8080
-        dc.w    $8080                    ; 00AFB1F2: dc.w $8080
-        dc.w    $8080                    ; 00AFB1F4: dc.w $8080
-        dc.w    $8080                    ; 00AFB1F6: dc.w $8080
-        dc.w    $8080                    ; 00AFB1F8: dc.w $8080
-        dc.w    $8080                    ; 00AFB1FA: dc.w $8080
-        dc.w    $8080                    ; 00AFB1FC: dc.w $8080
-        dc.w    $8080                    ; 00AFB1FE: dc.w $8080
-        dc.w    $8080                    ; 00AFB200: dc.w $8080
-        dc.w    $8080                    ; 00AFB202: dc.w $8080
-        dc.w    $8080                    ; 00AFB204: dc.w $8080
-        dc.w    $8080                    ; 00AFB206: dc.w $8080
-        dc.w    $8080                    ; 00AFB208: dc.w $8080
-        dc.w    $8080                    ; 00AFB20A: dc.w $8080
-        dc.w    $8080                    ; 00AFB20C: dc.w $8080
-        dc.w    $8080                    ; 00AFB20E: dc.w $8080
-        dc.w    $8080                    ; 00AFB210: dc.w $8080
-        dc.w    $8080                    ; 00AFB212: dc.w $8080
-        dc.w    $8080                    ; 00AFB214: dc.w $8080
-        dc.w    $8080                    ; 00AFB216: dc.w $8080
-        dc.w    $8080                    ; 00AFB218: dc.w $8080
-        dc.w    $8080                    ; 00AFB21A: dc.w $8080
-        dc.w    $8080                    ; 00AFB21C: dc.w $8080
-        dc.w    $8080                    ; 00AFB21E: dc.w $8080
-        dc.w    $8080                    ; 00AFB220: dc.w $8080
-        dc.w    $8080                    ; 00AFB222: dc.w $8080
-        dc.w    $8080                    ; 00AFB224: dc.w $8080
-        dc.w    $8080                    ; 00AFB226: dc.w $8080
-        dc.w    $8080                    ; 00AFB228: dc.w $8080
-        dc.w    $8080                    ; 00AFB22A: dc.w $8080
-        dc.w    $8080                    ; 00AFB22C: dc.w $8080
-        dc.w    $8080                    ; 00AFB22E: dc.w $8080
-        dc.w    $8080                    ; 00AFB230: dc.w $8080
-        dc.w    $8080                    ; 00AFB232: dc.w $8080
-        dc.w    $8080                    ; 00AFB234: dc.w $8080
-        dc.w    $8080                    ; 00AFB236: dc.w $8080
-        dc.w    $8080                    ; 00AFB238: dc.w $8080
-        dc.w    $8080                    ; 00AFB23A: dc.w $8080
-        dc.w    $8080                    ; 00AFB23C: dc.w $8080
-        dc.w    $8080                    ; 00AFB23E: dc.w $8080
-        dc.w    $8080                    ; 00AFB240: dc.w $8080
-        dc.w    $8080                    ; 00AFB242: dc.w $8080
-        dc.w    $8080                    ; 00AFB244: dc.w $8080
-        dc.w    $8080                    ; 00AFB246: dc.w $8080
-        dc.w    $8080                    ; 00AFB248: dc.w $8080
-        dc.w    $8080                    ; 00AFB24A: dc.w $8080
-        dc.w    $8080                    ; 00AFB24C: dc.w $8080
-        dc.w    $8080                    ; 00AFB24E: dc.w $8080
-        dc.w    $8080                    ; 00AFB250: dc.w $8080
-        dc.w    $8080                    ; 00AFB252: dc.w $8080
-        dc.w    $8080                    ; 00AFB254: dc.w $8080
-        dc.w    $8080                    ; 00AFB256: dc.w $8080
-        dc.w    $8080                    ; 00AFB258: dc.w $8080
-        dc.w    $8080                    ; 00AFB25A: dc.w $8080
-        dc.w    $8080                    ; 00AFB25C: dc.w $8080
-        dc.w    $8080                    ; 00AFB25E: dc.w $8080
-        dc.w    $8080                    ; 00AFB260: dc.w $8080
-        dc.w    $8080                    ; 00AFB262: dc.w $8080
-        dc.w    $8080                    ; 00AFB264: dc.w $8080
-        dc.w    $8080                    ; 00AFB266: dc.w $8080
-        dc.w    $8080                    ; 00AFB268: dc.w $8080
-        dc.w    $8080                    ; 00AFB26A: dc.w $8080
-        dc.w    $8080                    ; 00AFB26C: dc.w $8080
-        dc.w    $8080                    ; 00AFB26E: dc.w $8080
-        dc.w    $8080                    ; 00AFB270: dc.w $8080
-        dc.w    $8080                    ; 00AFB272: dc.w $8080
-        dc.w    $8080                    ; 00AFB274: dc.w $8080
-        dc.w    $8080                    ; 00AFB276: dc.w $8080
-        dc.w    $8080                    ; 00AFB278: dc.w $8080
-        dc.w    $8080                    ; 00AFB27A: dc.w $8080
-        dc.w    $8080                    ; 00AFB27C: dc.w $8080
-        dc.w    $8080                    ; 00AFB27E: dc.w $8080
-        dc.w    $8080                    ; 00AFB280: dc.w $8080
-        dc.w    $8080                    ; 00AFB282: dc.w $8080
-        dc.w    $8080                    ; 00AFB284: dc.w $8080
-        dc.w    $8080                    ; 00AFB286: dc.w $8080
-        dc.w    $8080                    ; 00AFB288: dc.w $8080
-        dc.w    $8080                    ; 00AFB28A: dc.w $8080
-        dc.w    $8080                    ; 00AFB28C: dc.w $8080
-        dc.w    $8080                    ; 00AFB28E: dc.w $8080
-        dc.w    $8080                    ; 00AFB290: dc.w $8080
-        dc.w    $8080                    ; 00AFB292: dc.w $8080
-        dc.w    $8080                    ; 00AFB294: dc.w $8080
-        dc.w    $8080                    ; 00AFB296: dc.w $8080
-        dc.w    $8080                    ; 00AFB298: dc.w $8080
-        dc.w    $8080                    ; 00AFB29A: dc.w $8080
-        dc.w    $8080                    ; 00AFB29C: dc.w $8080
-        dc.w    $8080                    ; 00AFB29E: dc.w $8080
-        dc.w    $8080                    ; 00AFB2A0: dc.w $8080
-        dc.w    $8080                    ; 00AFB2A2: dc.w $8080
-        dc.w    $8080                    ; 00AFB2A4: dc.w $8080
-        dc.w    $8080                    ; 00AFB2A6: dc.w $8080
-        dc.w    $8080                    ; 00AFB2A8: dc.w $8080
-        dc.w    $8080                    ; 00AFB2AA: dc.w $8080
-        dc.w    $8080                    ; 00AFB2AC: dc.w $8080
-        dc.w    $8080                    ; 00AFB2AE: dc.w $8080
-        dc.w    $8080                    ; 00AFB2B0: dc.w $8080
-        dc.w    $8080                    ; 00AFB2B2: dc.w $8080
-        dc.w    $8080                    ; 00AFB2B4: dc.w $8080
-        dc.w    $8080                    ; 00AFB2B6: dc.w $8080
-        dc.w    $8080                    ; 00AFB2B8: dc.w $8080
-        dc.w    $8080                    ; 00AFB2BA: dc.w $8080
-        dc.w    $8080                    ; 00AFB2BC: dc.w $8080
-        dc.w    $8080                    ; 00AFB2BE: dc.w $8080
-        dc.w    $8080                    ; 00AFB2C0: dc.w $8080
-        dc.w    $8080                    ; 00AFB2C2: dc.w $8080
-        dc.w    $8080                    ; 00AFB2C4: dc.w $8080
-        dc.w    $8080                    ; 00AFB2C6: dc.w $8080
-        dc.w    $8080                    ; 00AFB2C8: dc.w $8080
-        dc.w    $8080                    ; 00AFB2CA: dc.w $8080
-        dc.w    $8080                    ; 00AFB2CC: dc.w $8080
-        dc.w    $8080                    ; 00AFB2CE: dc.w $8080
-        dc.w    $8080                    ; 00AFB2D0: dc.w $8080
-        dc.w    $8080                    ; 00AFB2D2: dc.w $8080
-        dc.w    $8080                    ; 00AFB2D4: dc.w $8080
-        dc.w    $8080                    ; 00AFB2D6: dc.w $8080
-        dc.w    $8080                    ; 00AFB2D8: dc.w $8080
-        dc.w    $8080                    ; 00AFB2DA: dc.w $8080
-        dc.w    $8080                    ; 00AFB2DC: dc.w $8080
-        dc.w    $8080                    ; 00AFB2DE: dc.w $8080
-        dc.w    $8080                    ; 00AFB2E0: dc.w $8080
-        dc.w    $8080                    ; 00AFB2E2: dc.w $8080
-        dc.w    $8080                    ; 00AFB2E4: dc.w $8080
-        dc.w    $8080                    ; 00AFB2E6: dc.w $8080
-        dc.w    $8080                    ; 00AFB2E8: dc.w $8080
-        dc.w    $8080                    ; 00AFB2EA: dc.w $8080
-        dc.w    $8080                    ; 00AFB2EC: dc.w $8080
-        dc.w    $8080                    ; 00AFB2EE: dc.w $8080
-        dc.w    $8080                    ; 00AFB2F0: dc.w $8080
-        dc.w    $8080                    ; 00AFB2F2: dc.w $8080
-        dc.w    $8080                    ; 00AFB2F4: dc.w $8080
-        dc.w    $8080                    ; 00AFB2F6: dc.w $8080
-        dc.w    $8080                    ; 00AFB2F8: dc.w $8080
-        dc.w    $8080                    ; 00AFB2FA: dc.w $8080
-        dc.w    $8080                    ; 00AFB2FC: dc.w $8080
-        dc.w    $8080                    ; 00AFB2FE: dc.w $8080
-        dc.w    $8080                    ; 00AFB300: dc.w $8080
-        dc.w    $8080                    ; 00AFB302: dc.w $8080
-        dc.w    $8080                    ; 00AFB304: dc.w $8080
-        dc.w    $8080                    ; 00AFB306: dc.w $8080
-        dc.w    $8080                    ; 00AFB308: dc.w $8080
-        dc.w    $8080                    ; 00AFB30A: dc.w $8080
-        dc.w    $8080                    ; 00AFB30C: dc.w $8080
-        dc.w    $8080                    ; 00AFB30E: dc.w $8080
-        dc.w    $8080                    ; 00AFB310: dc.w $8080
-        dc.w    $8080                    ; 00AFB312: dc.w $8080
-        dc.w    $8080                    ; 00AFB314: dc.w $8080
-        dc.w    $8080                    ; 00AFB316: dc.w $8080
-        dc.w    $8080                    ; 00AFB318: dc.w $8080
-        dc.w    $8080                    ; 00AFB31A: dc.w $8080
-        dc.w    $8080                    ; 00AFB31C: dc.w $8080
-        dc.w    $8080                    ; 00AFB31E: dc.w $8080
-        dc.w    $8080                    ; 00AFB320: dc.w $8080
-        dc.w    $8080                    ; 00AFB322: dc.w $8080
-        dc.w    $8080                    ; 00AFB324: dc.w $8080
-        dc.w    $8080                    ; 00AFB326: dc.w $8080
-        dc.w    $8080                    ; 00AFB328: dc.w $8080
-        dc.w    $8080                    ; 00AFB32A: dc.w $8080
-        dc.w    $8080                    ; 00AFB32C: dc.w $8080
-        dc.w    $8080                    ; 00AFB32E: dc.w $8080
-        dc.w    $8080                    ; 00AFB330: dc.w $8080
-        dc.w    $8080                    ; 00AFB332: dc.w $8080
-        dc.w    $8080                    ; 00AFB334: dc.w $8080
-        dc.w    $8080                    ; 00AFB336: dc.w $8080
-        dc.w    $8080                    ; 00AFB338: dc.w $8080
-        dc.w    $8080                    ; 00AFB33A: dc.w $8080
-        dc.w    $8080                    ; 00AFB33C: dc.w $8080
-        dc.w    $8080                    ; 00AFB33E: dc.w $8080
-        dc.w    $8080                    ; 00AFB340: dc.w $8080
-        dc.w    $8080                    ; 00AFB342: dc.w $8080
-        dc.w    $8080                    ; 00AFB344: dc.w $8080
-        dc.w    $8080                    ; 00AFB346: dc.w $8080
-        dc.w    $8080                    ; 00AFB348: dc.w $8080
-        dc.w    $8080                    ; 00AFB34A: dc.w $8080
-        dc.w    $8080                    ; 00AFB34C: dc.w $8080
-        dc.w    $8080                    ; 00AFB34E: dc.w $8080
-        dc.w    $8080                    ; 00AFB350: dc.w $8080
-        dc.w    $8080                    ; 00AFB352: dc.w $8080
-        dc.w    $8080                    ; 00AFB354: dc.w $8080
-        dc.w    $8080                    ; 00AFB356: dc.w $8080
-        dc.w    $8080                    ; 00AFB358: dc.w $8080
-        dc.w    $8080                    ; 00AFB35A: dc.w $8080
-        dc.w    $8080                    ; 00AFB35C: dc.w $8080
-        dc.w    $8080                    ; 00AFB35E: dc.w $8080
-        dc.w    $8080                    ; 00AFB360: dc.w $8080
-        dc.w    $8080                    ; 00AFB362: dc.w $8080
-        dc.w    $8080                    ; 00AFB364: dc.w $8080
-        dc.w    $8080                    ; 00AFB366: dc.w $8080
-        dc.w    $8080                    ; 00AFB368: dc.w $8080
-        dc.w    $8080                    ; 00AFB36A: dc.w $8080
-        dc.w    $8080                    ; 00AFB36C: dc.w $8080
-        dc.w    $8080                    ; 00AFB36E: dc.w $8080
-        dc.w    $8080                    ; 00AFB370: dc.w $8080
-        dc.w    $8080                    ; 00AFB372: dc.w $8080
-        dc.w    $8080                    ; 00AFB374: dc.w $8080
-        dc.w    $8080                    ; 00AFB376: dc.w $8080
-        dc.w    $8080                    ; 00AFB378: dc.w $8080
-        dc.w    $8080                    ; 00AFB37A: dc.w $8080
-        dc.w    $8080                    ; 00AFB37C: dc.w $8080
-        dc.w    $8080                    ; 00AFB37E: dc.w $8080
-        dc.w    $8080                    ; 00AFB380: dc.w $8080
-        dc.w    $8080                    ; 00AFB382: dc.w $8080
-        dc.w    $8080                    ; 00AFB384: dc.w $8080
-        dc.w    $8080                    ; 00AFB386: dc.w $8080
-        dc.w    $8080                    ; 00AFB388: dc.w $8080
-        dc.w    $8080                    ; 00AFB38A: dc.w $8080
-        dc.w    $8080                    ; 00AFB38C: dc.w $8080
-        dc.w    $8080                    ; 00AFB38E: dc.w $8080
-        dc.w    $8080                    ; 00AFB390: dc.w $8080
-        dc.w    $8080                    ; 00AFB392: dc.w $8080
-        dc.w    $8080                    ; 00AFB394: dc.w $8080
-        dc.w    $8080                    ; 00AFB396: dc.w $8080
-        dc.w    $8080                    ; 00AFB398: dc.w $8080
-        dc.w    $8080                    ; 00AFB39A: dc.w $8080
-        dc.w    $8080                    ; 00AFB39C: dc.w $8080
-        dc.w    $8080                    ; 00AFB39E: dc.w $8080
-        dc.w    $8080                    ; 00AFB3A0: dc.w $8080
-        dc.w    $8080                    ; 00AFB3A2: dc.w $8080
-        dc.w    $8080                    ; 00AFB3A4: dc.w $8080
-        dc.w    $8080                    ; 00AFB3A6: dc.w $8080
-        dc.w    $8080                    ; 00AFB3A8: dc.w $8080
-        dc.w    $8080                    ; 00AFB3AA: dc.w $8080
-        dc.w    $8080                    ; 00AFB3AC: dc.w $8080
-        dc.w    $8080                    ; 00AFB3AE: dc.w $8080
-        dc.w    $8080                    ; 00AFB3B0: dc.w $8080
-        dc.w    $8080                    ; 00AFB3B2: dc.w $8080
-        dc.w    $8080                    ; 00AFB3B4: dc.w $8080
-        dc.w    $8080                    ; 00AFB3B6: dc.w $8080
-        dc.w    $8080                    ; 00AFB3B8: dc.w $8080
-        dc.w    $8080                    ; 00AFB3BA: dc.w $8080
-        dc.w    $8080                    ; 00AFB3BC: dc.w $8080
-        dc.w    $8080                    ; 00AFB3BE: dc.w $8080
-        dc.w    $8080                    ; 00AFB3C0: dc.w $8080
-        dc.w    $8080                    ; 00AFB3C2: dc.w $8080
-        dc.w    $8080                    ; 00AFB3C4: dc.w $8080
-        dc.w    $8080                    ; 00AFB3C6: dc.w $8080
-        dc.w    $8080                    ; 00AFB3C8: dc.w $8080
-        dc.w    $8080                    ; 00AFB3CA: dc.w $8080
-        dc.w    $8080                    ; 00AFB3CC: dc.w $8080
-        dc.w    $8080                    ; 00AFB3CE: dc.w $8080
-        dc.w    $8080                    ; 00AFB3D0: dc.w $8080
-        dc.w    $8080                    ; 00AFB3D2: dc.w $8080
-        dc.w    $8080                    ; 00AFB3D4: dc.w $8080
-        dc.w    $8080                    ; 00AFB3D6: dc.w $8080
-        dc.w    $8080                    ; 00AFB3D8: dc.w $8080
-        dc.w    $8080                    ; 00AFB3DA: dc.w $8080
-        dc.w    $8080                    ; 00AFB3DC: dc.w $8080
-        dc.w    $8080                    ; 00AFB3DE: dc.w $8080
-        dc.w    $8080                    ; 00AFB3E0: dc.w $8080
-        dc.w    $8080                    ; 00AFB3E2: dc.w $8080
-        dc.w    $8080                    ; 00AFB3E4: dc.w $8080
-        dc.w    $8080                    ; 00AFB3E6: dc.w $8080
-        dc.w    $8080                    ; 00AFB3E8: dc.w $8080
-        dc.w    $8080                    ; 00AFB3EA: dc.w $8080
-        dc.w    $8080                    ; 00AFB3EC: dc.w $8080
-        dc.w    $8080                    ; 00AFB3EE: dc.w $8080
-        dc.w    $8080                    ; 00AFB3F0: dc.w $8080
-        dc.w    $8080                    ; 00AFB3F2: dc.w $8080
-        dc.w    $8080                    ; 00AFB3F4: dc.w $8080
-        dc.w    $8080                    ; 00AFB3F6: dc.w $8080
-        dc.w    $8080                    ; 00AFB3F8: dc.w $8080
-        dc.w    $8080                    ; 00AFB3FA: dc.w $8080
-        dc.w    $8080                    ; 00AFB3FC: dc.w $8080
-        dc.w    $8080                    ; 00AFB3FE: dc.w $8080
-        dc.w    $8080                    ; 00AFB400: dc.w $8080
-        dc.w    $8080                    ; 00AFB402: dc.w $8080
-        dc.w    $8080                    ; 00AFB404: dc.w $8080
-        dc.w    $8080                    ; 00AFB406: dc.w $8080
-        dc.w    $8080                    ; 00AFB408: dc.w $8080
-        dc.w    $8080                    ; 00AFB40A: dc.w $8080
-        dc.w    $8080                    ; 00AFB40C: dc.w $8080
-        dc.w    $8080                    ; 00AFB40E: dc.w $8080
-        dc.w    $8080                    ; 00AFB410: dc.w $8080
-        dc.w    $8080                    ; 00AFB412: dc.w $8080
-        dc.w    $8080                    ; 00AFB414: dc.w $8080
-        dc.w    $8080                    ; 00AFB416: dc.w $8080
-        dc.w    $8080                    ; 00AFB418: dc.w $8080
-        dc.w    $8080                    ; 00AFB41A: dc.w $8080
-        dc.w    $8080                    ; 00AFB41C: dc.w $8080
-        dc.w    $8080                    ; 00AFB41E: dc.w $8080
-        dc.w    $8080                    ; 00AFB420: dc.w $8080
-        dc.w    $8080                    ; 00AFB422: dc.w $8080
-        dc.w    $8080                    ; 00AFB424: dc.w $8080
-        dc.w    $8080                    ; 00AFB426: dc.w $8080
-        dc.w    $8080                    ; 00AFB428: dc.w $8080
-        dc.w    $8080                    ; 00AFB42A: dc.w $8080
-        dc.w    $8080                    ; 00AFB42C: dc.w $8080
-        dc.w    $8080                    ; 00AFB42E: dc.w $8080
-        dc.w    $8080                    ; 00AFB430: dc.w $8080
-        dc.w    $8080                    ; 00AFB432: dc.w $8080
-        dc.w    $8080                    ; 00AFB434: dc.w $8080
-        dc.w    $8080                    ; 00AFB436: dc.w $8080
-        dc.w    $8080                    ; 00AFB438: dc.w $8080
-        dc.w    $8080                    ; 00AFB43A: dc.w $8080
-        dc.w    $8080                    ; 00AFB43C: dc.w $8080
-        dc.w    $8080                    ; 00AFB43E: dc.w $8080
-        dc.w    $8080                    ; 00AFB440: dc.w $8080
-        dc.w    $8080                    ; 00AFB442: dc.w $8080
-        dc.w    $8080                    ; 00AFB444: dc.w $8080
-        dc.w    $8080                    ; 00AFB446: dc.w $8080
-        dc.w    $8080                    ; 00AFB448: dc.w $8080
-        dc.w    $8080                    ; 00AFB44A: dc.w $8080
-        dc.w    $8080                    ; 00AFB44C: dc.w $8080
-        dc.w    $8080                    ; 00AFB44E: dc.w $8080
-        dc.w    $8080                    ; 00AFB450: dc.w $8080
-        dc.w    $8080                    ; 00AFB452: dc.w $8080
-        dc.w    $8080                    ; 00AFB454: dc.w $8080
-        dc.w    $8080                    ; 00AFB456: dc.w $8080
-        dc.w    $8080                    ; 00AFB458: dc.w $8080
-        dc.w    $8080                    ; 00AFB45A: dc.w $8080
-        dc.w    $8080                    ; 00AFB45C: dc.w $8080
-        dc.w    $8080                    ; 00AFB45E: dc.w $8080
-        dc.w    $8080                    ; 00AFB460: dc.w $8080
-        dc.w    $8080                    ; 00AFB462: dc.w $8080
-        dc.w    $8080                    ; 00AFB464: dc.w $8080
-        dc.w    $8080                    ; 00AFB466: dc.w $8080
-        dc.w    $8080                    ; 00AFB468: dc.w $8080
-        dc.w    $8080                    ; 00AFB46A: dc.w $8080
-        dc.w    $8080                    ; 00AFB46C: dc.w $8080
-        dc.w    $8080                    ; 00AFB46E: dc.w $8080
-        dc.w    $8080                    ; 00AFB470: dc.w $8080
-        dc.w    $8080                    ; 00AFB472: dc.w $8080
-        dc.w    $8080                    ; 00AFB474: dc.w $8080
-        dc.w    $8080                    ; 00AFB476: dc.w $8080
-        dc.w    $8080                    ; 00AFB478: dc.w $8080
-        dc.w    $8080                    ; 00AFB47A: dc.w $8080
-        dc.w    $8080                    ; 00AFB47C: dc.w $8080
-        dc.w    $8080                    ; 00AFB47E: dc.w $8080
-        dc.w    $8080                    ; 00AFB480: dc.w $8080
-        dc.w    $8080                    ; 00AFB482: dc.w $8080
-        dc.w    $8080                    ; 00AFB484: dc.w $8080
-        dc.w    $8080                    ; 00AFB486: dc.w $8080
-        dc.w    $8080                    ; 00AFB488: dc.w $8080
-        dc.w    $8080                    ; 00AFB48A: dc.w $8080
-        dc.w    $8080                    ; 00AFB48C: dc.w $8080
-        dc.w    $8080                    ; 00AFB48E: dc.w $8080
-        dc.w    $8080                    ; 00AFB490: dc.w $8080
-        dc.w    $8080                    ; 00AFB492: dc.w $8080
-        dc.w    $8080                    ; 00AFB494: dc.w $8080
-        dc.w    $8080                    ; 00AFB496: dc.w $8080
-        dc.w    $8080                    ; 00AFB498: dc.w $8080
-        dc.w    $8080                    ; 00AFB49A: dc.w $8080
-        dc.w    $8080                    ; 00AFB49C: dc.w $8080
-        dc.w    $8080                    ; 00AFB49E: dc.w $8080
-        dc.w    $8080                    ; 00AFB4A0: dc.w $8080
-        dc.w    $8080                    ; 00AFB4A2: dc.w $8080
-        dc.w    $8080                    ; 00AFB4A4: dc.w $8080
-        dc.w    $8080                    ; 00AFB4A6: dc.w $8080
-        dc.w    $8080                    ; 00AFB4A8: dc.w $8080
-        dc.w    $8080                    ; 00AFB4AA: dc.w $8080
-        dc.w    $8080                    ; 00AFB4AC: dc.w $8080
-        dc.w    $8080                    ; 00AFB4AE: dc.w $8080
-        dc.w    $8080                    ; 00AFB4B0: dc.w $8080
-        dc.w    $8080                    ; 00AFB4B2: dc.w $8080
-        dc.w    $8080                    ; 00AFB4B4: dc.w $8080
-        dc.w    $8080                    ; 00AFB4B6: dc.w $8080
-        dc.w    $8080                    ; 00AFB4B8: dc.w $8080
-        dc.w    $8080                    ; 00AFB4BA: dc.w $8080
-        dc.w    $8080                    ; 00AFB4BC: dc.w $8080
-        dc.w    $8080                    ; 00AFB4BE: dc.w $8080
-        dc.w    $8080                    ; 00AFB4C0: dc.w $8080
-        dc.w    $8080                    ; 00AFB4C2: dc.w $8080
-        dc.w    $8080                    ; 00AFB4C4: dc.w $8080
-        dc.w    $8080                    ; 00AFB4C6: dc.w $8080
-        dc.w    $8080                    ; 00AFB4C8: dc.w $8080
-        dc.w    $8080                    ; 00AFB4CA: dc.w $8080
-        dc.w    $8080                    ; 00AFB4CC: dc.w $8080
-        dc.w    $8080                    ; 00AFB4CE: dc.w $8080
-        dc.w    $8080                    ; 00AFB4D0: dc.w $8080
-        dc.w    $8080                    ; 00AFB4D2: dc.w $8080
-        dc.w    $8080                    ; 00AFB4D4: dc.w $8080
-        dc.w    $8080                    ; 00AFB4D6: dc.w $8080
-        dc.w    $8080                    ; 00AFB4D8: dc.w $8080
-        dc.w    $8080                    ; 00AFB4DA: dc.w $8080
-        dc.w    $8080                    ; 00AFB4DC: dc.w $8080
-        dc.w    $8080                    ; 00AFB4DE: dc.w $8080
-        dc.w    $8080                    ; 00AFB4E0: dc.w $8080
-        dc.w    $8080                    ; 00AFB4E2: dc.w $8080
-        dc.w    $8080                    ; 00AFB4E4: dc.w $8080
-        dc.w    $8080                    ; 00AFB4E6: dc.w $8080
-        dc.w    $8080                    ; 00AFB4E8: dc.w $8080
-        dc.w    $8080                    ; 00AFB4EA: dc.w $8080
-        dc.w    $8080                    ; 00AFB4EC: dc.w $8080
-        dc.w    $8080                    ; 00AFB4EE: dc.w $8080
-        dc.w    $8080                    ; 00AFB4F0: dc.w $8080
-        dc.w    $8080                    ; 00AFB4F2: dc.w $8080
-        dc.w    $8080                    ; 00AFB4F4: dc.w $8080
-        dc.w    $8080                    ; 00AFB4F6: dc.w $8080
-        dc.w    $8080                    ; 00AFB4F8: dc.w $8080
-        dc.w    $8080                    ; 00AFB4FA: dc.w $8080
-        dc.w    $8080                    ; 00AFB4FC: dc.w $8080
-        dc.w    $8080                    ; 00AFB4FE: dc.w $8080
-        dc.w    $8080                    ; 00AFB500: dc.w $8080
-        dc.w    $8080                    ; 00AFB502: dc.w $8080
-        dc.w    $8080                    ; 00AFB504: dc.w $8080
-        dc.w    $8080                    ; 00AFB506: dc.w $8080
-        dc.w    $8080                    ; 00AFB508: dc.w $8080
-        dc.w    $8080                    ; 00AFB50A: dc.w $8080
-        dc.w    $8080                    ; 00AFB50C: dc.w $8080
-        dc.w    $8080                    ; 00AFB50E: dc.w $8080
-        dc.w    $8080                    ; 00AFB510: dc.w $8080
-        dc.w    $8080                    ; 00AFB512: dc.w $8080
-        dc.w    $8080                    ; 00AFB514: dc.w $8080
-        dc.w    $8080                    ; 00AFB516: dc.w $8080
-        dc.w    $8080                    ; 00AFB518: dc.w $8080
-        dc.w    $8080                    ; 00AFB51A: dc.w $8080
-        dc.w    $8080                    ; 00AFB51C: dc.w $8080
-        dc.w    $8080                    ; 00AFB51E: dc.w $8080
-        dc.w    $8080                    ; 00AFB520: dc.w $8080
-        dc.w    $8080                    ; 00AFB522: dc.w $8080
-        dc.w    $8080                    ; 00AFB524: dc.w $8080
-        dc.w    $8080                    ; 00AFB526: dc.w $8080
-        dc.w    $8080                    ; 00AFB528: dc.w $8080
-        dc.w    $8080                    ; 00AFB52A: dc.w $8080
-        dc.w    $8080                    ; 00AFB52C: dc.w $8080
-        dc.w    $8080                    ; 00AFB52E: dc.w $8080
-        dc.w    $8080                    ; 00AFB530: dc.w $8080
-        dc.w    $8080                    ; 00AFB532: dc.w $8080
-        dc.w    $8080                    ; 00AFB534: dc.w $8080
-        dc.w    $8080                    ; 00AFB536: dc.w $8080
-        dc.w    $8080                    ; 00AFB538: dc.w $8080
-        dc.w    $8080                    ; 00AFB53A: dc.w $8080
-        dc.w    $8080                    ; 00AFB53C: dc.w $8080
-        dc.w    $8080                    ; 00AFB53E: dc.w $8080
-        dc.w    $8080                    ; 00AFB540: dc.w $8080
-        dc.w    $8080                    ; 00AFB542: dc.w $8080
-        dc.w    $8080                    ; 00AFB544: dc.w $8080
-        dc.w    $8080                    ; 00AFB546: dc.w $8080
-        dc.w    $8080                    ; 00AFB548: dc.w $8080
-        dc.w    $8080                    ; 00AFB54A: dc.w $8080
-        dc.w    $8080                    ; 00AFB54C: dc.w $8080
-        dc.w    $8080                    ; 00AFB54E: dc.w $8080
-        dc.w    $8080                    ; 00AFB550: dc.w $8080
-        dc.w    $8080                    ; 00AFB552: dc.w $8080
-        dc.w    $8080                    ; 00AFB554: dc.w $8080
-        dc.w    $8080                    ; 00AFB556: dc.w $8080
-        dc.w    $8080                    ; 00AFB558: dc.w $8080
-        dc.w    $8080                    ; 00AFB55A: dc.w $8080
-        dc.w    $8080                    ; 00AFB55C: dc.w $8080
-        dc.w    $8080                    ; 00AFB55E: dc.w $8080
-        dc.w    $8080                    ; 00AFB560: dc.w $8080
-        dc.w    $8080                    ; 00AFB562: dc.w $8080
-        dc.w    $8080                    ; 00AFB564: dc.w $8080
-        dc.w    $8080                    ; 00AFB566: dc.w $8080
-        dc.w    $8080                    ; 00AFB568: dc.w $8080
-        dc.w    $8080                    ; 00AFB56A: dc.w $8080
-        dc.w    $8080                    ; 00AFB56C: dc.w $8080
-        dc.w    $8080                    ; 00AFB56E: dc.w $8080
-        dc.w    $8080                    ; 00AFB570: dc.w $8080
-        dc.w    $8080                    ; 00AFB572: dc.w $8080
-        dc.w    $8080                    ; 00AFB574: dc.w $8080
-        dc.w    $8080                    ; 00AFB576: dc.w $8080
-        dc.w    $8080                    ; 00AFB578: dc.w $8080
-        dc.w    $8080                    ; 00AFB57A: dc.w $8080
-        dc.w    $8080                    ; 00AFB57C: dc.w $8080
-        dc.w    $8080                    ; 00AFB57E: dc.w $8080
-        dc.w    $8080                    ; 00AFB580: dc.w $8080
-        dc.w    $8080                    ; 00AFB582: dc.w $8080
-        dc.w    $8080                    ; 00AFB584: dc.w $8080
-        dc.w    $8080                    ; 00AFB586: dc.w $8080
-        dc.w    $8080                    ; 00AFB588: dc.w $8080
-        dc.w    $8080                    ; 00AFB58A: dc.w $8080
-        dc.w    $8080                    ; 00AFB58C: dc.w $8080
-        dc.w    $8080                    ; 00AFB58E: dc.w $8080
-        dc.w    $8080                    ; 00AFB590: dc.w $8080
-        dc.w    $8080                    ; 00AFB592: dc.w $8080
-        dc.w    $8080                    ; 00AFB594: dc.w $8080
-        dc.w    $8080                    ; 00AFB596: dc.w $8080
-        dc.w    $8080                    ; 00AFB598: dc.w $8080
-        dc.w    $8080                    ; 00AFB59A: dc.w $8080
-        dc.w    $8080                    ; 00AFB59C: dc.w $8080
-        dc.w    $8080                    ; 00AFB59E: dc.w $8080
-        dc.w    $8080                    ; 00AFB5A0: dc.w $8080
-        dc.w    $8080                    ; 00AFB5A2: dc.w $8080
-        dc.w    $8080                    ; 00AFB5A4: dc.w $8080
-        dc.w    $8080                    ; 00AFB5A6: dc.w $8080
-        dc.w    $8080                    ; 00AFB5A8: dc.w $8080
-        dc.w    $8080                    ; 00AFB5AA: dc.w $8080
-        dc.w    $8080                    ; 00AFB5AC: dc.w $8080
-        dc.w    $8080                    ; 00AFB5AE: dc.w $8080
-        dc.w    $8080                    ; 00AFB5B0: dc.w $8080
-        dc.w    $8080                    ; 00AFB5B2: dc.w $8080
-        dc.w    $8080                    ; 00AFB5B4: dc.w $8080
-        dc.w    $8080                    ; 00AFB5B6: dc.w $8080
-        dc.w    $8080                    ; 00AFB5B8: dc.w $8080
-        dc.w    $8080                    ; 00AFB5BA: dc.w $8080
-        dc.w    $8080                    ; 00AFB5BC: dc.w $8080
-        dc.w    $8080                    ; 00AFB5BE: dc.w $8080
-        dc.w    $8080                    ; 00AFB5C0: dc.w $8080
-        dc.w    $8080                    ; 00AFB5C2: dc.w $8080
-        dc.w    $8080                    ; 00AFB5C4: dc.w $8080
-        dc.w    $8080                    ; 00AFB5C6: dc.w $8080
-        dc.w    $8080                    ; 00AFB5C8: dc.w $8080
-        dc.w    $8080                    ; 00AFB5CA: dc.w $8080
-        dc.w    $8080                    ; 00AFB5CC: dc.w $8080
-        dc.w    $8080                    ; 00AFB5CE: dc.w $8080
-        dc.w    $8080                    ; 00AFB5D0: dc.w $8080
-        dc.w    $8080                    ; 00AFB5D2: dc.w $8080
-        dc.w    $8080                    ; 00AFB5D4: dc.w $8080
-        dc.w    $8080                    ; 00AFB5D6: dc.w $8080
-        dc.w    $8080                    ; 00AFB5D8: dc.w $8080
-        dc.w    $8080                    ; 00AFB5DA: dc.w $8080
-        dc.w    $8080                    ; 00AFB5DC: dc.w $8080
-        dc.w    $8080                    ; 00AFB5DE: dc.w $8080
-        dc.w    $8080                    ; 00AFB5E0: dc.w $8080
-        dc.w    $8080                    ; 00AFB5E2: dc.w $8080
-        dc.w    $8080                    ; 00AFB5E4: dc.w $8080
-        dc.w    $8080                    ; 00AFB5E6: dc.w $8080
-        dc.w    $8080                    ; 00AFB5E8: dc.w $8080
-        dc.w    $8080                    ; 00AFB5EA: dc.w $8080
-        dc.w    $8080                    ; 00AFB5EC: dc.w $8080
-        dc.w    $8080                    ; 00AFB5EE: dc.w $8080
-        dc.w    $8080                    ; 00AFB5F0: dc.w $8080
-        dc.w    $8080                    ; 00AFB5F2: dc.w $8080
-        dc.w    $8080                    ; 00AFB5F4: dc.w $8080
-        dc.w    $8080                    ; 00AFB5F6: dc.w $8080
-        dc.w    $8080                    ; 00AFB5F8: dc.w $8080
-        dc.w    $8080                    ; 00AFB5FA: dc.w $8080
-        dc.w    $8080                    ; 00AFB5FC: dc.w $8080
-        dc.w    $8080                    ; 00AFB5FE: dc.w $8080
-        dc.w    $8080                    ; 00AFB600: dc.w $8080
-        dc.w    $8080                    ; 00AFB602: dc.w $8080
-        dc.w    $8080                    ; 00AFB604: dc.w $8080
-        dc.w    $8080                    ; 00AFB606: dc.w $8080
-        dc.w    $8080                    ; 00AFB608: dc.w $8080
-        dc.w    $8080                    ; 00AFB60A: dc.w $8080
-        dc.w    $8080                    ; 00AFB60C: dc.w $8080
-        dc.w    $8080                    ; 00AFB60E: dc.w $8080
-        dc.w    $8080                    ; 00AFB610: dc.w $8080
-        dc.w    $8080                    ; 00AFB612: dc.w $8080
-        dc.w    $8080                    ; 00AFB614: dc.w $8080
-        dc.w    $8080                    ; 00AFB616: dc.w $8080
-        dc.w    $8080                    ; 00AFB618: dc.w $8080
-        dc.w    $8080                    ; 00AFB61A: dc.w $8080
-        dc.w    $8080                    ; 00AFB61C: dc.w $8080
-        dc.w    $8080                    ; 00AFB61E: dc.w $8080
-        dc.w    $8080                    ; 00AFB620: dc.w $8080
-        dc.w    $8080                    ; 00AFB622: dc.w $8080
-        dc.w    $8080                    ; 00AFB624: dc.w $8080
-        dc.w    $8080                    ; 00AFB626: dc.w $8080
-        dc.w    $8080                    ; 00AFB628: dc.w $8080
-        dc.w    $8080                    ; 00AFB62A: dc.w $8080
-        dc.w    $8080                    ; 00AFB62C: dc.w $8080
-        dc.w    $8080                    ; 00AFB62E: dc.w $8080
-        dc.w    $8080                    ; 00AFB630: dc.w $8080
-        dc.w    $8080                    ; 00AFB632: dc.w $8080
-        dc.w    $8080                    ; 00AFB634: dc.w $8080
-        dc.w    $8080                    ; 00AFB636: dc.w $8080
-        dc.w    $8080                    ; 00AFB638: dc.w $8080
-        dc.w    $8080                    ; 00AFB63A: dc.w $8080
-        dc.w    $8080                    ; 00AFB63C: dc.w $8080
-        dc.w    $8080                    ; 00AFB63E: dc.w $8080
-        dc.w    $8080                    ; 00AFB640: dc.w $8080
-        dc.w    $8080                    ; 00AFB642: dc.w $8080
-        dc.w    $8080                    ; 00AFB644: dc.w $8080
-        dc.w    $8080                    ; 00AFB646: dc.w $8080
-        dc.w    $8080                    ; 00AFB648: dc.w $8080
-        dc.w    $8080                    ; 00AFB64A: dc.w $8080
-        dc.w    $8080                    ; 00AFB64C: dc.w $8080
-        dc.w    $8080                    ; 00AFB64E: dc.w $8080
-        dc.w    $8080                    ; 00AFB650: dc.w $8080
-        dc.w    $8080                    ; 00AFB652: dc.w $8080
-        dc.w    $8080                    ; 00AFB654: dc.w $8080
-        dc.w    $8080                    ; 00AFB656: dc.w $8080
-        dc.w    $8080                    ; 00AFB658: dc.w $8080
-        dc.w    $8080                    ; 00AFB65A: dc.w $8080
-        dc.w    $8080                    ; 00AFB65C: dc.w $8080
-        dc.w    $8080                    ; 00AFB65E: dc.w $8080
-        dc.w    $8080                    ; 00AFB660: dc.w $8080
-        dc.w    $8080                    ; 00AFB662: dc.w $8080
-        dc.w    $8080                    ; 00AFB664: dc.w $8080
-        dc.w    $8080                    ; 00AFB666: dc.w $8080
-        dc.w    $8080                    ; 00AFB668: dc.w $8080
-        dc.w    $8080                    ; 00AFB66A: dc.w $8080
-        dc.w    $8080                    ; 00AFB66C: dc.w $8080
-        dc.w    $8080                    ; 00AFB66E: dc.w $8080
-        dc.w    $8080                    ; 00AFB670: dc.w $8080
-        dc.w    $8080                    ; 00AFB672: dc.w $8080
-        dc.w    $8080                    ; 00AFB674: dc.w $8080
-        dc.w    $8080                    ; 00AFB676: dc.w $8080
-        dc.w    $8080                    ; 00AFB678: dc.w $8080
-        dc.w    $8080                    ; 00AFB67A: dc.w $8080
-        dc.w    $8080                    ; 00AFB67C: dc.w $8080
-        dc.w    $8080                    ; 00AFB67E: dc.w $8080
-        dc.w    $8080                    ; 00AFB680: dc.w $8080
-        dc.w    $8080                    ; 00AFB682: dc.w $8080
-        dc.w    $8080                    ; 00AFB684: dc.w $8080
-        dc.w    $8080                    ; 00AFB686: dc.w $8080
-        dc.w    $8080                    ; 00AFB688: dc.w $8080
-        dc.w    $8080                    ; 00AFB68A: dc.w $8080
-        dc.w    $8080                    ; 00AFB68C: dc.w $8080
-        dc.w    $8080                    ; 00AFB68E: dc.w $8080
-        dc.w    $8080                    ; 00AFB690: dc.w $8080
-        dc.w    $8080                    ; 00AFB692: dc.w $8080
-        dc.w    $8080                    ; 00AFB694: dc.w $8080
-        dc.w    $8080                    ; 00AFB696: dc.w $8080
-        dc.w    $8080                    ; 00AFB698: dc.w $8080
-        dc.w    $8080                    ; 00AFB69A: dc.w $8080
-        dc.w    $8080                    ; 00AFB69C: dc.w $8080
-        dc.w    $8080                    ; 00AFB69E: dc.w $8080
-        dc.w    $8080                    ; 00AFB6A0: dc.w $8080
-        dc.w    $8080                    ; 00AFB6A2: dc.w $8080
-        dc.w    $8080                    ; 00AFB6A4: dc.w $8080
-        dc.w    $8080                    ; 00AFB6A6: dc.w $8080
-        dc.w    $8080                    ; 00AFB6A8: dc.w $8080
-        dc.w    $8080                    ; 00AFB6AA: dc.w $8080
-        dc.w    $8080                    ; 00AFB6AC: dc.w $8080
-        dc.w    $8080                    ; 00AFB6AE: dc.w $8080
-        dc.w    $8080                    ; 00AFB6B0: dc.w $8080
-        dc.w    $8080                    ; 00AFB6B2: dc.w $8080
-        dc.w    $8080                    ; 00AFB6B4: dc.w $8080
-        dc.w    $8080                    ; 00AFB6B6: dc.w $8080
-        dc.w    $8080                    ; 00AFB6B8: dc.w $8080
-        dc.w    $8080                    ; 00AFB6BA: dc.w $8080
-        dc.w    $8080                    ; 00AFB6BC: dc.w $8080
-        dc.w    $8080                    ; 00AFB6BE: dc.w $8080
-        dc.w    $8080                    ; 00AFB6C0: dc.w $8080
-        dc.w    $8080                    ; 00AFB6C2: dc.w $8080
-        dc.w    $8080                    ; 00AFB6C4: dc.w $8080
-        dc.w    $8080                    ; 00AFB6C6: dc.w $8080
-        dc.w    $8080                    ; 00AFB6C8: dc.w $8080
-        dc.w    $8080                    ; 00AFB6CA: dc.w $8080
-        dc.w    $8080                    ; 00AFB6CC: dc.w $8080
-        dc.w    $8080                    ; 00AFB6CE: dc.w $8080
-        dc.w    $8080                    ; 00AFB6D0: dc.w $8080
-        dc.w    $8080                    ; 00AFB6D2: dc.w $8080
-        dc.w    $8080                    ; 00AFB6D4: dc.w $8080
-        dc.w    $8080                    ; 00AFB6D6: dc.w $8080
-        dc.w    $8080                    ; 00AFB6D8: dc.w $8080
-        dc.w    $8080                    ; 00AFB6DA: dc.w $8080
-        dc.w    $8080                    ; 00AFB6DC: dc.w $8080
-        dc.w    $8080                    ; 00AFB6DE: dc.w $8080
-        dc.w    $8080                    ; 00AFB6E0: dc.w $8080
-        dc.w    $8080                    ; 00AFB6E2: dc.w $8080
-        dc.w    $8080                    ; 00AFB6E4: dc.w $8080
-        dc.w    $8080                    ; 00AFB6E6: dc.w $8080
-        dc.w    $8080                    ; 00AFB6E8: dc.w $8080
-        dc.w    $8080                    ; 00AFB6EA: dc.w $8080
-        dc.w    $8080                    ; 00AFB6EC: dc.w $8080
-        dc.w    $8080                    ; 00AFB6EE: dc.w $8080
-        dc.w    $8080                    ; 00AFB6F0: dc.w $8080
-        dc.w    $8080                    ; 00AFB6F2: dc.w $8080
-        dc.w    $8080                    ; 00AFB6F4: dc.w $8080
-        dc.w    $8080                    ; 00AFB6F6: dc.w $8080
-        dc.w    $8080                    ; 00AFB6F8: dc.w $8080
-        dc.w    $8080                    ; 00AFB6FA: dc.w $8080
-        dc.w    $8080                    ; 00AFB6FC: dc.w $8080
-        dc.w    $8080                    ; 00AFB6FE: dc.w $8080
-        dc.w    $8080                    ; 00AFB700: dc.w $8080
-        dc.w    $8080                    ; 00AFB702: dc.w $8080
-        dc.w    $8080                    ; 00AFB704: dc.w $8080
-        dc.w    $8080                    ; 00AFB706: dc.w $8080
-        dc.w    $8080                    ; 00AFB708: dc.w $8080
-        dc.w    $8080                    ; 00AFB70A: dc.w $8080
-        dc.w    $8080                    ; 00AFB70C: dc.w $8080
-        dc.w    $8080                    ; 00AFB70E: dc.w $8080
-        dc.w    $8080                    ; 00AFB710: dc.w $8080
-        dc.w    $8080                    ; 00AFB712: dc.w $8080
-        dc.w    $8080                    ; 00AFB714: dc.w $8080
-        dc.w    $8080                    ; 00AFB716: dc.w $8080
-        dc.w    $8080                    ; 00AFB718: dc.w $8080
-        dc.w    $8080                    ; 00AFB71A: dc.w $8080
-        dc.w    $8080                    ; 00AFB71C: dc.w $8080
-        dc.w    $8080                    ; 00AFB71E: dc.w $8080
+        or.l    d0,d0                                   ; 00AFA000: $8080
+        or.l    d0,d0                                   ; 00AFA002: $8080
+        or.l    d0,d0                                   ; 00AFA004: $8080
+        or.l    d0,d0                                   ; 00AFA006: $8080
+        or.l    d0,d0                                   ; 00AFA008: $8080
+        or.l    d0,d0                                   ; 00AFA00A: $8080
+        or.l    d0,d0                                   ; 00AFA00C: $8080
+        or.l    d0,d0                                   ; 00AFA00E: $8080
+        or.l    d0,d0                                   ; 00AFA010: $8080
+        or.l    d0,d0                                   ; 00AFA012: $8080
+        or.l    d0,d0                                   ; 00AFA014: $8080
+        or.l    d0,d0                                   ; 00AFA016: $8080
+        or.l    d0,d0                                   ; 00AFA018: $8080
+        or.l    d0,d0                                   ; 00AFA01A: $8080
+        or.l    d0,d0                                   ; 00AFA01C: $8080
+        or.l    d0,d0                                   ; 00AFA01E: $8080
+        or.l    d0,d0                                   ; 00AFA020: $8080
+        or.l    d0,d0                                   ; 00AFA022: $8080
+        or.l    d0,d0                                   ; 00AFA024: $8080
+        or.l    d0,d0                                   ; 00AFA026: $8080
+        or.l    d0,d0                                   ; 00AFA028: $8080
+        or.l    d0,d0                                   ; 00AFA02A: $8080
+        or.l    d0,d0                                   ; 00AFA02C: $8080
+        or.l    d0,d0                                   ; 00AFA02E: $8080
+        or.l    d0,d0                                   ; 00AFA030: $8080
+        or.l    d0,d0                                   ; 00AFA032: $8080
+        or.l    d0,d0                                   ; 00AFA034: $8080
+        or.l    d0,d0                                   ; 00AFA036: $8080
+        or.l    d0,d0                                   ; 00AFA038: $8080
+        or.l    d0,d0                                   ; 00AFA03A: $8080
+        or.l    d0,d0                                   ; 00AFA03C: $8080
+        or.l    d0,d0                                   ; 00AFA03E: $8080
+        or.l    d0,d0                                   ; 00AFA040: $8080
+        or.l    d0,d0                                   ; 00AFA042: $8080
+        or.l    d0,d0                                   ; 00AFA044: $8080
+        or.l    d0,d0                                   ; 00AFA046: $8080
+        or.l    d0,d0                                   ; 00AFA048: $8080
+        or.l    d0,d0                                   ; 00AFA04A: $8080
+        or.l    d0,d0                                   ; 00AFA04C: $8080
+        or.l    d0,d0                                   ; 00AFA04E: $8080
+        or.l    d0,d0                                   ; 00AFA050: $8080
+        or.l    d0,d0                                   ; 00AFA052: $8080
+        or.l    d0,d0                                   ; 00AFA054: $8080
+        or.l    d0,d0                                   ; 00AFA056: $8080
+        or.l    d0,d0                                   ; 00AFA058: $8080
+        or.l    d0,d0                                   ; 00AFA05A: $8080
+        or.l    d0,d0                                   ; 00AFA05C: $8080
+        or.l    d0,d0                                   ; 00AFA05E: $8080
+        or.l    d0,d0                                   ; 00AFA060: $8080
+        or.l    d0,d0                                   ; 00AFA062: $8080
+        or.l    d0,d0                                   ; 00AFA064: $8080
+        or.l    d0,d0                                   ; 00AFA066: $8080
+        or.l    d0,d0                                   ; 00AFA068: $8080
+        or.l    d0,d0                                   ; 00AFA06A: $8080
+        or.l    d0,d0                                   ; 00AFA06C: $8080
+        or.l    d0,d0                                   ; 00AFA06E: $8080
+        or.l    d0,d0                                   ; 00AFA070: $8080
+        or.l    d0,d0                                   ; 00AFA072: $8080
+        or.l    d0,d0                                   ; 00AFA074: $8080
+        or.l    d0,d0                                   ; 00AFA076: $8080
+        or.l    d0,d0                                   ; 00AFA078: $8080
+        or.l    d0,d0                                   ; 00AFA07A: $8080
+        or.l    d0,d0                                   ; 00AFA07C: $8080
+        or.l    d0,d0                                   ; 00AFA07E: $8080
+        or.l    d0,d0                                   ; 00AFA080: $8080
+        or.l    d0,d0                                   ; 00AFA082: $8080
+        or.l    d0,d0                                   ; 00AFA084: $8080
+        or.l    d0,d0                                   ; 00AFA086: $8080
+        or.l    d0,d0                                   ; 00AFA088: $8080
+        or.l    d0,d0                                   ; 00AFA08A: $8080
+        or.l    d0,d0                                   ; 00AFA08C: $8080
+        or.l    d0,d0                                   ; 00AFA08E: $8080
+        or.l    d0,d0                                   ; 00AFA090: $8080
+        or.l    d0,d0                                   ; 00AFA092: $8080
+        or.l    d0,d0                                   ; 00AFA094: $8080
+        or.l    d0,d0                                   ; 00AFA096: $8080
+        or.l    d0,d0                                   ; 00AFA098: $8080
+        or.l    d0,d0                                   ; 00AFA09A: $8080
+        or.l    d0,d0                                   ; 00AFA09C: $8080
+        or.l    d0,d0                                   ; 00AFA09E: $8080
+        or.l    d0,d0                                   ; 00AFA0A0: $8080
+        or.l    d0,d0                                   ; 00AFA0A2: $8080
+        or.l    d0,d0                                   ; 00AFA0A4: $8080
+        or.l    d0,d0                                   ; 00AFA0A6: $8080
+        or.l    d0,d0                                   ; 00AFA0A8: $8080
+        or.l    d0,d0                                   ; 00AFA0AA: $8080
+        or.l    d0,d0                                   ; 00AFA0AC: $8080
+        or.l    d0,d0                                   ; 00AFA0AE: $8080
+        or.l    d0,d0                                   ; 00AFA0B0: $8080
+        or.l    d0,d0                                   ; 00AFA0B2: $8080
+        or.l    d0,d0                                   ; 00AFA0B4: $8080
+        or.l    d0,d0                                   ; 00AFA0B6: $8080
+        or.l    d0,d0                                   ; 00AFA0B8: $8080
+        or.l    d0,d0                                   ; 00AFA0BA: $8080
+        or.l    d0,d0                                   ; 00AFA0BC: $8080
+        or.l    d0,d0                                   ; 00AFA0BE: $8080
+        or.l    d0,d0                                   ; 00AFA0C0: $8080
+        or.l    d0,d0                                   ; 00AFA0C2: $8080
+        or.l    d0,d0                                   ; 00AFA0C4: $8080
+        or.l    d0,d0                                   ; 00AFA0C6: $8080
+        or.l    d0,d0                                   ; 00AFA0C8: $8080
+        or.l    d0,d0                                   ; 00AFA0CA: $8080
+        or.l    d0,d0                                   ; 00AFA0CC: $8080
+        or.l    d0,d0                                   ; 00AFA0CE: $8080
+        or.l    d0,d0                                   ; 00AFA0D0: $8080
+        or.l    d0,d0                                   ; 00AFA0D2: $8080
+        or.l    d0,d0                                   ; 00AFA0D4: $8080
+        or.l    d0,d0                                   ; 00AFA0D6: $8080
+        or.l    d0,d0                                   ; 00AFA0D8: $8080
+        or.l    d0,d0                                   ; 00AFA0DA: $8080
+        or.l    d0,d0                                   ; 00AFA0DC: $8080
+        or.l    d0,d0                                   ; 00AFA0DE: $8080
+        or.l    d0,d0                                   ; 00AFA0E0: $8080
+        or.l    d0,d0                                   ; 00AFA0E2: $8080
+        or.l    d0,d0                                   ; 00AFA0E4: $8080
+        or.l    d0,d0                                   ; 00AFA0E6: $8080
+        or.l    d0,d0                                   ; 00AFA0E8: $8080
+        or.l    d0,d0                                   ; 00AFA0EA: $8080
+        or.l    d0,d0                                   ; 00AFA0EC: $8080
+        or.l    d0,d0                                   ; 00AFA0EE: $8080
+        or.l    d0,d0                                   ; 00AFA0F0: $8080
+        or.l    d0,d0                                   ; 00AFA0F2: $8080
+        or.l    d0,d0                                   ; 00AFA0F4: $8080
+        or.l    d0,d0                                   ; 00AFA0F6: $8080
+        or.l    d0,d0                                   ; 00AFA0F8: $8080
+        or.l    d0,d0                                   ; 00AFA0FA: $8080
+        or.l    d0,d0                                   ; 00AFA0FC: $8080
+        or.l    d0,d0                                   ; 00AFA0FE: $8080
+        or.l    d0,d0                                   ; 00AFA100: $8080
+        or.l    d0,d0                                   ; 00AFA102: $8080
+        or.l    d0,d0                                   ; 00AFA104: $8080
+        or.l    d0,d0                                   ; 00AFA106: $8080
+        or.l    d0,d0                                   ; 00AFA108: $8080
+        or.l    d0,d0                                   ; 00AFA10A: $8080
+        or.l    d0,d0                                   ; 00AFA10C: $8080
+        or.l    d0,d0                                   ; 00AFA10E: $8080
+        or.l    d0,d0                                   ; 00AFA110: $8080
+        or.l    d0,d0                                   ; 00AFA112: $8080
+        or.l    d0,d0                                   ; 00AFA114: $8080
+        or.l    d0,d0                                   ; 00AFA116: $8080
+        or.l    d0,d0                                   ; 00AFA118: $8080
+        or.l    d0,d0                                   ; 00AFA11A: $8080
+        or.l    d0,d0                                   ; 00AFA11C: $8080
+        or.l    d0,d0                                   ; 00AFA11E: $8080
+        or.l    d0,d0                                   ; 00AFA120: $8080
+        or.l    d0,d0                                   ; 00AFA122: $8080
+        or.l    d0,d0                                   ; 00AFA124: $8080
+        or.l    d0,d0                                   ; 00AFA126: $8080
+        or.l    d0,d0                                   ; 00AFA128: $8080
+        or.l    d0,d0                                   ; 00AFA12A: $8080
+        or.l    d0,d0                                   ; 00AFA12C: $8080
+        or.l    d0,d0                                   ; 00AFA12E: $8080
+        or.l    d0,d0                                   ; 00AFA130: $8080
+        or.l    d0,d0                                   ; 00AFA132: $8080
+        or.l    d0,d0                                   ; 00AFA134: $8080
+        or.l    d0,d0                                   ; 00AFA136: $8080
+        or.l    d0,d0                                   ; 00AFA138: $8080
+        or.l    d0,d0                                   ; 00AFA13A: $8080
+        or.l    d0,d0                                   ; 00AFA13C: $8080
+        or.l    d0,d0                                   ; 00AFA13E: $8080
+        or.l    d0,d0                                   ; 00AFA140: $8080
+        or.l    d0,d0                                   ; 00AFA142: $8080
+        or.l    d0,d0                                   ; 00AFA144: $8080
+        or.l    d0,d0                                   ; 00AFA146: $8080
+        or.l    d0,d0                                   ; 00AFA148: $8080
+        or.l    d0,d0                                   ; 00AFA14A: $8080
+        or.l    d0,d0                                   ; 00AFA14C: $8080
+        or.l    d0,d0                                   ; 00AFA14E: $8080
+        or.l    d0,d0                                   ; 00AFA150: $8080
+        or.l    d0,d0                                   ; 00AFA152: $8080
+        or.l    d0,d0                                   ; 00AFA154: $8080
+        or.l    d0,d0                                   ; 00AFA156: $8080
+        or.l    d0,d0                                   ; 00AFA158: $8080
+        or.l    d0,d0                                   ; 00AFA15A: $8080
+        or.l    d0,d0                                   ; 00AFA15C: $8080
+        or.l    d0,d0                                   ; 00AFA15E: $8080
+        or.l    d0,d0                                   ; 00AFA160: $8080
+        or.l    d0,d0                                   ; 00AFA162: $8080
+        or.l    d0,d0                                   ; 00AFA164: $8080
+        or.l    d0,d0                                   ; 00AFA166: $8080
+        or.l    d0,d0                                   ; 00AFA168: $8080
+        or.l    d0,d0                                   ; 00AFA16A: $8080
+        or.l    d0,d0                                   ; 00AFA16C: $8080
+        or.l    d0,d0                                   ; 00AFA16E: $8080
+        or.l    d0,d0                                   ; 00AFA170: $8080
+        or.l    d0,d0                                   ; 00AFA172: $8080
+        or.l    d0,d0                                   ; 00AFA174: $8080
+        or.l    d0,d0                                   ; 00AFA176: $8080
+        or.l    d0,d0                                   ; 00AFA178: $8080
+        or.l    d0,d0                                   ; 00AFA17A: $8080
+        or.l    d0,d0                                   ; 00AFA17C: $8080
+        or.l    d0,d0                                   ; 00AFA17E: $8080
+        or.l    d0,d0                                   ; 00AFA180: $8080
+        or.l    d0,d0                                   ; 00AFA182: $8080
+        or.l    d0,d0                                   ; 00AFA184: $8080
+        or.l    d0,d0                                   ; 00AFA186: $8080
+        or.l    d0,d0                                   ; 00AFA188: $8080
+        or.l    d0,d0                                   ; 00AFA18A: $8080
+        or.l    d0,d0                                   ; 00AFA18C: $8080
+        or.l    d0,d0                                   ; 00AFA18E: $8080
+        or.l    d0,d0                                   ; 00AFA190: $8080
+        or.l    d0,d0                                   ; 00AFA192: $8080
+        or.l    d0,d0                                   ; 00AFA194: $8080
+        or.l    d0,d0                                   ; 00AFA196: $8080
+        or.l    d0,d0                                   ; 00AFA198: $8080
+        or.l    d0,d0                                   ; 00AFA19A: $8080
+        or.l    d0,d0                                   ; 00AFA19C: $8080
+        or.l    d0,d0                                   ; 00AFA19E: $8080
+        or.l    d0,d0                                   ; 00AFA1A0: $8080
+        or.l    d0,d0                                   ; 00AFA1A2: $8080
+        or.l    d0,d0                                   ; 00AFA1A4: $8080
+        or.l    d0,d0                                   ; 00AFA1A6: $8080
+        or.l    d0,d0                                   ; 00AFA1A8: $8080
+        or.l    d0,d0                                   ; 00AFA1AA: $8080
+        or.l    d0,d0                                   ; 00AFA1AC: $8080
+        or.l    d0,d0                                   ; 00AFA1AE: $8080
+        or.l    d0,d0                                   ; 00AFA1B0: $8080
+        or.l    d0,d0                                   ; 00AFA1B2: $8080
+        or.l    d0,d0                                   ; 00AFA1B4: $8080
+        or.l    d0,d0                                   ; 00AFA1B6: $8080
+        or.l    d0,d0                                   ; 00AFA1B8: $8080
+        or.l    d0,d0                                   ; 00AFA1BA: $8080
+        or.l    d0,d0                                   ; 00AFA1BC: $8080
+        or.l    d0,d0                                   ; 00AFA1BE: $8080
+        or.l    d0,d0                                   ; 00AFA1C0: $8080
+        or.l    d0,d0                                   ; 00AFA1C2: $8080
+        or.l    d0,d0                                   ; 00AFA1C4: $8080
+        or.l    d0,d0                                   ; 00AFA1C6: $8080
+        or.l    d0,d0                                   ; 00AFA1C8: $8080
+        or.l    d0,d0                                   ; 00AFA1CA: $8080
+        or.l    d0,d0                                   ; 00AFA1CC: $8080
+        or.l    d0,d0                                   ; 00AFA1CE: $8080
+        or.l    d0,d0                                   ; 00AFA1D0: $8080
+        or.l    d0,d0                                   ; 00AFA1D2: $8080
+        or.l    d0,d0                                   ; 00AFA1D4: $8080
+        or.l    d0,d0                                   ; 00AFA1D6: $8080
+        or.l    d0,d0                                   ; 00AFA1D8: $8080
+        or.l    d0,d0                                   ; 00AFA1DA: $8080
+        or.l    d0,d0                                   ; 00AFA1DC: $8080
+        or.l    d0,d0                                   ; 00AFA1DE: $8080
+        or.l    d0,d0                                   ; 00AFA1E0: $8080
+        or.l    d0,d0                                   ; 00AFA1E2: $8080
+        or.l    d0,d0                                   ; 00AFA1E4: $8080
+        or.l    d0,d0                                   ; 00AFA1E6: $8080
+        or.l    d0,d0                                   ; 00AFA1E8: $8080
+        or.l    d0,d0                                   ; 00AFA1EA: $8080
+        or.l    d0,d0                                   ; 00AFA1EC: $8080
+        or.l    d0,d0                                   ; 00AFA1EE: $8080
+        or.l    d0,d0                                   ; 00AFA1F0: $8080
+        or.l    d0,d0                                   ; 00AFA1F2: $8080
+        or.l    d0,d0                                   ; 00AFA1F4: $8080
+        or.l    d0,d0                                   ; 00AFA1F6: $8080
+        or.l    d0,d0                                   ; 00AFA1F8: $8080
+        or.l    d0,d0                                   ; 00AFA1FA: $8080
+        or.l    d0,d0                                   ; 00AFA1FC: $8080
+        or.l    d0,d0                                   ; 00AFA1FE: $8080
+        or.l    d0,d0                                   ; 00AFA200: $8080
+        or.l    d0,d0                                   ; 00AFA202: $8080
+        or.l    d0,d0                                   ; 00AFA204: $8080
+        or.l    d0,d0                                   ; 00AFA206: $8080
+        or.l    d0,d0                                   ; 00AFA208: $8080
+        or.l    d0,d0                                   ; 00AFA20A: $8080
+        or.l    d0,d0                                   ; 00AFA20C: $8080
+        or.l    d0,d0                                   ; 00AFA20E: $8080
+        or.l    d0,d0                                   ; 00AFA210: $8080
+        or.l    d0,d0                                   ; 00AFA212: $8080
+        or.l    d0,d0                                   ; 00AFA214: $8080
+        or.l    d0,d0                                   ; 00AFA216: $8080
+        or.l    d0,d0                                   ; 00AFA218: $8080
+        or.l    d0,d0                                   ; 00AFA21A: $8080
+        or.l    d0,d0                                   ; 00AFA21C: $8080
+        or.l    d0,d0                                   ; 00AFA21E: $8080
+        or.l    d0,d0                                   ; 00AFA220: $8080
+        or.l    d0,d0                                   ; 00AFA222: $8080
+        or.l    d0,d0                                   ; 00AFA224: $8080
+        or.l    d0,d0                                   ; 00AFA226: $8080
+        or.l    d0,d0                                   ; 00AFA228: $8080
+        or.l    d0,d0                                   ; 00AFA22A: $8080
+        or.l    d0,d0                                   ; 00AFA22C: $8080
+        or.l    d0,d0                                   ; 00AFA22E: $8080
+        or.l    d0,d0                                   ; 00AFA230: $8080
+        or.l    d0,d0                                   ; 00AFA232: $8080
+        or.l    d0,d0                                   ; 00AFA234: $8080
+        or.l    d0,d0                                   ; 00AFA236: $8080
+        or.l    d0,d0                                   ; 00AFA238: $8080
+        or.l    d0,d0                                   ; 00AFA23A: $8080
+        or.l    d0,d0                                   ; 00AFA23C: $8080
+        or.l    d0,d0                                   ; 00AFA23E: $8080
+        or.l    d0,d0                                   ; 00AFA240: $8080
+        or.l    d0,d0                                   ; 00AFA242: $8080
+        or.l    d0,d0                                   ; 00AFA244: $8080
+        or.l    d0,d0                                   ; 00AFA246: $8080
+        or.l    d0,d0                                   ; 00AFA248: $8080
+        or.l    d0,d0                                   ; 00AFA24A: $8080
+        or.l    d0,d0                                   ; 00AFA24C: $8080
+        or.l    d0,d0                                   ; 00AFA24E: $8080
+        or.l    d0,d0                                   ; 00AFA250: $8080
+        or.l    d0,d0                                   ; 00AFA252: $8080
+        or.l    d0,d0                                   ; 00AFA254: $8080
+        or.l    d0,d0                                   ; 00AFA256: $8080
+        or.l    d0,d0                                   ; 00AFA258: $8080
+        or.l    d0,d0                                   ; 00AFA25A: $8080
+        or.l    d0,d0                                   ; 00AFA25C: $8080
+        or.l    d0,d0                                   ; 00AFA25E: $8080
+        or.l    d0,d0                                   ; 00AFA260: $8080
+        or.l    d0,d0                                   ; 00AFA262: $8080
+        or.l    d0,d0                                   ; 00AFA264: $8080
+        or.l    d0,d0                                   ; 00AFA266: $8080
+        or.l    d0,d0                                   ; 00AFA268: $8080
+        or.l    d0,d0                                   ; 00AFA26A: $8080
+        or.l    d0,d0                                   ; 00AFA26C: $8080
+        or.l    d0,d0                                   ; 00AFA26E: $8080
+        or.l    d0,d0                                   ; 00AFA270: $8080
+        or.l    d0,d0                                   ; 00AFA272: $8080
+        or.l    d0,d0                                   ; 00AFA274: $8080
+        or.l    d0,d0                                   ; 00AFA276: $8080
+        or.l    d0,d0                                   ; 00AFA278: $8080
+        or.l    d0,d0                                   ; 00AFA27A: $8080
+        or.l    d0,d0                                   ; 00AFA27C: $8080
+        or.l    d0,d0                                   ; 00AFA27E: $8080
+        or.l    d0,d0                                   ; 00AFA280: $8080
+        or.l    d0,d0                                   ; 00AFA282: $8080
+        or.l    d0,d0                                   ; 00AFA284: $8080
+        or.l    d0,d0                                   ; 00AFA286: $8080
+        or.l    d0,d0                                   ; 00AFA288: $8080
+        or.l    d0,d0                                   ; 00AFA28A: $8080
+        or.l    d0,d0                                   ; 00AFA28C: $8080
+        or.l    d0,d0                                   ; 00AFA28E: $8080
+        or.l    d0,d0                                   ; 00AFA290: $8080
+        or.l    d0,d0                                   ; 00AFA292: $8080
+        or.l    d0,d0                                   ; 00AFA294: $8080
+        or.l    d0,d0                                   ; 00AFA296: $8080
+        or.l    d0,d0                                   ; 00AFA298: $8080
+        or.l    d0,d0                                   ; 00AFA29A: $8080
+        or.l    d0,d0                                   ; 00AFA29C: $8080
+        or.l    d0,d0                                   ; 00AFA29E: $8080
+        or.l    d0,d0                                   ; 00AFA2A0: $8080
+        or.l    d0,d0                                   ; 00AFA2A2: $8080
+        or.l    d0,d0                                   ; 00AFA2A4: $8080
+        or.l    d0,d0                                   ; 00AFA2A6: $8080
+        or.l    d0,d0                                   ; 00AFA2A8: $8080
+        or.l    d0,d0                                   ; 00AFA2AA: $8080
+        or.l    d0,d0                                   ; 00AFA2AC: $8080
+        or.l    d0,d0                                   ; 00AFA2AE: $8080
+        or.l    d0,d0                                   ; 00AFA2B0: $8080
+        or.l    d0,d0                                   ; 00AFA2B2: $8080
+        or.l    d0,d0                                   ; 00AFA2B4: $8080
+        or.l    d0,d0                                   ; 00AFA2B6: $8080
+        or.l    d0,d0                                   ; 00AFA2B8: $8080
+        or.l    d0,d0                                   ; 00AFA2BA: $8080
+        or.l    d0,d0                                   ; 00AFA2BC: $8080
+        or.l    d0,d0                                   ; 00AFA2BE: $8080
+        or.l    d0,d0                                   ; 00AFA2C0: $8080
+        or.l    d0,d0                                   ; 00AFA2C2: $8080
+        or.l    d0,d0                                   ; 00AFA2C4: $8080
+        or.l    d0,d0                                   ; 00AFA2C6: $8080
+        or.l    d0,d0                                   ; 00AFA2C8: $8080
+        or.l    d0,d0                                   ; 00AFA2CA: $8080
+        or.l    d0,d0                                   ; 00AFA2CC: $8080
+        or.l    d0,d0                                   ; 00AFA2CE: $8080
+        or.l    d0,d0                                   ; 00AFA2D0: $8080
+        or.l    d0,d0                                   ; 00AFA2D2: $8080
+        or.l    d0,d0                                   ; 00AFA2D4: $8080
+        or.l    d0,d0                                   ; 00AFA2D6: $8080
+        or.l    d0,d0                                   ; 00AFA2D8: $8080
+        or.l    d0,d0                                   ; 00AFA2DA: $8080
+        or.l    d0,d0                                   ; 00AFA2DC: $8080
+        or.l    d0,d0                                   ; 00AFA2DE: $8080
+        or.l    d0,d0                                   ; 00AFA2E0: $8080
+        or.l    d0,d0                                   ; 00AFA2E2: $8080
+        or.l    d0,d0                                   ; 00AFA2E4: $8080
+        or.l    d0,d0                                   ; 00AFA2E6: $8080
+        or.l    d0,d0                                   ; 00AFA2E8: $8080
+        or.l    d0,d0                                   ; 00AFA2EA: $8080
+        or.l    d0,d0                                   ; 00AFA2EC: $8080
+        or.l    d0,d0                                   ; 00AFA2EE: $8080
+        or.l    d0,d0                                   ; 00AFA2F0: $8080
+        or.l    d0,d0                                   ; 00AFA2F2: $8080
+        or.l    d0,d0                                   ; 00AFA2F4: $8080
+        or.l    d0,d0                                   ; 00AFA2F6: $8080
+        or.l    d0,d0                                   ; 00AFA2F8: $8080
+        or.l    d0,d0                                   ; 00AFA2FA: $8080
+        or.l    d0,d0                                   ; 00AFA2FC: $8080
+        or.l    d0,d0                                   ; 00AFA2FE: $8080
+        or.l    d0,d0                                   ; 00AFA300: $8080
+        or.l    d0,d0                                   ; 00AFA302: $8080
+        or.l    d0,d0                                   ; 00AFA304: $8080
+        or.l    d0,d0                                   ; 00AFA306: $8080
+        or.l    d0,d0                                   ; 00AFA308: $8080
+        or.l    d0,d0                                   ; 00AFA30A: $8080
+        or.l    d0,d0                                   ; 00AFA30C: $8080
+        or.l    d0,d0                                   ; 00AFA30E: $8080
+        or.l    d0,d0                                   ; 00AFA310: $8080
+        or.l    d0,d0                                   ; 00AFA312: $8080
+        or.l    d0,d0                                   ; 00AFA314: $8080
+        or.l    d0,d0                                   ; 00AFA316: $8080
+        or.l    d0,d0                                   ; 00AFA318: $8080
+        or.l    d0,d0                                   ; 00AFA31A: $8080
+        or.l    d0,d0                                   ; 00AFA31C: $8080
+        or.l    d0,d0                                   ; 00AFA31E: $8080
+        or.l    d0,d0                                   ; 00AFA320: $8080
+        or.l    d0,d0                                   ; 00AFA322: $8080
+        or.l    d0,d0                                   ; 00AFA324: $8080
+        or.l    d0,d0                                   ; 00AFA326: $8080
+        or.l    d0,d0                                   ; 00AFA328: $8080
+        or.l    d0,d0                                   ; 00AFA32A: $8080
+        or.l    d0,d0                                   ; 00AFA32C: $8080
+        or.l    d0,d0                                   ; 00AFA32E: $8080
+        or.l    d0,d0                                   ; 00AFA330: $8080
+        or.l    d0,d0                                   ; 00AFA332: $8080
+        or.l    d0,d0                                   ; 00AFA334: $8080
+        or.l    d0,d0                                   ; 00AFA336: $8080
+        or.l    d0,d0                                   ; 00AFA338: $8080
+        or.l    d0,d0                                   ; 00AFA33A: $8080
+        or.l    d0,d0                                   ; 00AFA33C: $8080
+        or.l    d0,d0                                   ; 00AFA33E: $8080
+        or.l    d0,d0                                   ; 00AFA340: $8080
+        or.l    d0,d0                                   ; 00AFA342: $8080
+        or.l    d0,d0                                   ; 00AFA344: $8080
+        or.l    d0,d0                                   ; 00AFA346: $8080
+        or.l    d0,d0                                   ; 00AFA348: $8080
+        or.l    d0,d0                                   ; 00AFA34A: $8080
+        or.l    d0,d0                                   ; 00AFA34C: $8080
+        or.l    d0,d0                                   ; 00AFA34E: $8080
+        or.l    d0,d0                                   ; 00AFA350: $8080
+        or.l    d0,d0                                   ; 00AFA352: $8080
+        or.l    d0,d0                                   ; 00AFA354: $8080
+        or.l    d0,d0                                   ; 00AFA356: $8080
+        or.l    d0,d0                                   ; 00AFA358: $8080
+        or.l    d0,d0                                   ; 00AFA35A: $8080
+        or.l    d0,d0                                   ; 00AFA35C: $8080
+        or.l    d0,d0                                   ; 00AFA35E: $8080
+        or.l    d0,d0                                   ; 00AFA360: $8080
+        or.l    d0,d0                                   ; 00AFA362: $8080
+        or.l    d0,d0                                   ; 00AFA364: $8080
+        or.l    d0,d0                                   ; 00AFA366: $8080
+        or.l    d0,d0                                   ; 00AFA368: $8080
+        or.l    d0,d0                                   ; 00AFA36A: $8080
+        or.l    d0,d0                                   ; 00AFA36C: $8080
+        or.l    d0,d0                                   ; 00AFA36E: $8080
+        or.l    d0,d0                                   ; 00AFA370: $8080
+        or.l    d0,d0                                   ; 00AFA372: $8080
+        or.l    d0,d0                                   ; 00AFA374: $8080
+        or.l    d0,d0                                   ; 00AFA376: $8080
+        or.l    d0,d0                                   ; 00AFA378: $8080
+        or.l    d0,d0                                   ; 00AFA37A: $8080
+        or.l    d0,d0                                   ; 00AFA37C: $8080
+        or.l    d0,d0                                   ; 00AFA37E: $8080
+        or.l    d0,d0                                   ; 00AFA380: $8080
+        or.l    d0,d0                                   ; 00AFA382: $8080
+        or.l    d0,d0                                   ; 00AFA384: $8080
+        or.l    d0,d0                                   ; 00AFA386: $8080
+        or.l    d0,d0                                   ; 00AFA388: $8080
+        or.l    d0,d0                                   ; 00AFA38A: $8080
+        or.l    d0,d0                                   ; 00AFA38C: $8080
+        or.l    d0,d0                                   ; 00AFA38E: $8080
+        or.l    d0,d0                                   ; 00AFA390: $8080
+        or.l    d0,d0                                   ; 00AFA392: $8080
+        or.l    d0,d0                                   ; 00AFA394: $8080
+        or.l    d0,d0                                   ; 00AFA396: $8080
+        or.l    d0,d0                                   ; 00AFA398: $8080
+        or.l    d0,d0                                   ; 00AFA39A: $8080
+        or.l    d0,d0                                   ; 00AFA39C: $8080
+        or.l    d0,d0                                   ; 00AFA39E: $8080
+        or.l    d0,d0                                   ; 00AFA3A0: $8080
+        or.l    d0,d0                                   ; 00AFA3A2: $8080
+        or.l    d0,d0                                   ; 00AFA3A4: $8080
+        or.l    d0,d0                                   ; 00AFA3A6: $8080
+        or.l    d0,d0                                   ; 00AFA3A8: $8080
+        or.l    d0,d0                                   ; 00AFA3AA: $8080
+        or.l    d0,d0                                   ; 00AFA3AC: $8080
+        or.l    d0,d0                                   ; 00AFA3AE: $8080
+        or.l    d0,d0                                   ; 00AFA3B0: $8080
+        or.l    d0,d0                                   ; 00AFA3B2: $8080
+        or.l    d0,d0                                   ; 00AFA3B4: $8080
+        or.l    d0,d0                                   ; 00AFA3B6: $8080
+        or.l    d0,d0                                   ; 00AFA3B8: $8080
+        or.l    d0,d0                                   ; 00AFA3BA: $8080
+        or.l    d0,d0                                   ; 00AFA3BC: $8080
+        or.l    d0,d0                                   ; 00AFA3BE: $8080
+        or.l    d0,d0                                   ; 00AFA3C0: $8080
+        or.l    d0,d0                                   ; 00AFA3C2: $8080
+        or.l    d0,d0                                   ; 00AFA3C4: $8080
+        or.l    d0,d0                                   ; 00AFA3C6: $8080
+        or.l    d0,d0                                   ; 00AFA3C8: $8080
+        or.l    d0,d0                                   ; 00AFA3CA: $8080
+        or.l    d0,d0                                   ; 00AFA3CC: $8080
+        or.l    d0,d0                                   ; 00AFA3CE: $8080
+        or.l    d0,d0                                   ; 00AFA3D0: $8080
+        or.l    d0,d0                                   ; 00AFA3D2: $8080
+        or.l    d0,d0                                   ; 00AFA3D4: $8080
+        or.l    d0,d0                                   ; 00AFA3D6: $8080
+        or.l    d0,d0                                   ; 00AFA3D8: $8080
+        or.l    d0,d0                                   ; 00AFA3DA: $8080
+        or.l    d0,d0                                   ; 00AFA3DC: $8080
+        or.l    d0,d0                                   ; 00AFA3DE: $8080
+        or.l    d0,d0                                   ; 00AFA3E0: $8080
+        or.l    d0,d0                                   ; 00AFA3E2: $8080
+        or.l    d0,d0                                   ; 00AFA3E4: $8080
+        or.l    d0,d0                                   ; 00AFA3E6: $8080
+        or.l    d0,d0                                   ; 00AFA3E8: $8080
+        or.l    d0,d0                                   ; 00AFA3EA: $8080
+        or.l    d0,d0                                   ; 00AFA3EC: $8080
+        or.l    d0,d0                                   ; 00AFA3EE: $8080
+        or.l    d0,d0                                   ; 00AFA3F0: $8080
+        or.l    d0,d0                                   ; 00AFA3F2: $8080
+        or.l    d0,d0                                   ; 00AFA3F4: $8080
+        or.l    d0,d0                                   ; 00AFA3F6: $8080
+        or.l    d0,d0                                   ; 00AFA3F8: $8080
+        or.l    d0,d0                                   ; 00AFA3FA: $8080
+        or.l    d0,d0                                   ; 00AFA3FC: $8080
+        or.l    d0,d0                                   ; 00AFA3FE: $8080
+        or.l    d0,d0                                   ; 00AFA400: $8080
+        or.l    d0,d0                                   ; 00AFA402: $8080
+        or.l    d0,d0                                   ; 00AFA404: $8080
+        or.l    d0,d0                                   ; 00AFA406: $8080
+        or.l    d0,d0                                   ; 00AFA408: $8080
+        or.l    d0,d0                                   ; 00AFA40A: $8080
+        or.l    d0,d0                                   ; 00AFA40C: $8080
+        or.l    d0,d0                                   ; 00AFA40E: $8080
+        or.l    d0,d0                                   ; 00AFA410: $8080
+        or.l    d0,d0                                   ; 00AFA412: $8080
+        or.l    d0,d0                                   ; 00AFA414: $8080
+        or.l    d0,d0                                   ; 00AFA416: $8080
+        or.l    d0,d0                                   ; 00AFA418: $8080
+        or.l    d0,d0                                   ; 00AFA41A: $8080
+        or.l    d0,d0                                   ; 00AFA41C: $8080
+        or.l    d0,d0                                   ; 00AFA41E: $8080
+        or.l    d0,d0                                   ; 00AFA420: $8080
+        or.l    d0,d0                                   ; 00AFA422: $8080
+        or.l    d0,d0                                   ; 00AFA424: $8080
+        or.l    d0,d0                                   ; 00AFA426: $8080
+        or.l    d0,d0                                   ; 00AFA428: $8080
+        or.l    d0,d0                                   ; 00AFA42A: $8080
+        or.l    d0,d0                                   ; 00AFA42C: $8080
+        or.l    d0,d0                                   ; 00AFA42E: $8080
+        or.l    d0,d0                                   ; 00AFA430: $8080
+        or.l    d0,d0                                   ; 00AFA432: $8080
+        or.l    d0,d0                                   ; 00AFA434: $8080
+        or.l    d0,d0                                   ; 00AFA436: $8080
+        or.l    d0,d0                                   ; 00AFA438: $8080
+        or.l    d0,d0                                   ; 00AFA43A: $8080
+        or.l    d0,d0                                   ; 00AFA43C: $8080
+        or.l    d0,d0                                   ; 00AFA43E: $8080
+        or.l    d0,d0                                   ; 00AFA440: $8080
+        or.l    d0,d0                                   ; 00AFA442: $8080
+        or.l    d0,d0                                   ; 00AFA444: $8080
+        or.l    d0,d0                                   ; 00AFA446: $8080
+        or.l    d0,d0                                   ; 00AFA448: $8080
+        or.l    d0,d0                                   ; 00AFA44A: $8080
+        or.l    d0,d0                                   ; 00AFA44C: $8080
+        or.l    d0,d0                                   ; 00AFA44E: $8080
+        or.l    d0,d0                                   ; 00AFA450: $8080
+        or.l    d0,d0                                   ; 00AFA452: $8080
+        or.l    d0,d0                                   ; 00AFA454: $8080
+        or.l    d0,d0                                   ; 00AFA456: $8080
+        or.l    d0,d0                                   ; 00AFA458: $8080
+        or.l    d0,d0                                   ; 00AFA45A: $8080
+        or.l    d0,d0                                   ; 00AFA45C: $8080
+        or.l    d0,d0                                   ; 00AFA45E: $8080
+        or.l    d0,d0                                   ; 00AFA460: $8080
+        or.l    d0,d0                                   ; 00AFA462: $8080
+        or.l    d0,d0                                   ; 00AFA464: $8080
+        or.l    d0,d0                                   ; 00AFA466: $8080
+        or.l    d0,d0                                   ; 00AFA468: $8080
+        or.l    d0,d0                                   ; 00AFA46A: $8080
+        or.l    d0,d0                                   ; 00AFA46C: $8080
+        or.l    d0,d0                                   ; 00AFA46E: $8080
+        or.l    d0,d0                                   ; 00AFA470: $8080
+        or.l    d0,d0                                   ; 00AFA472: $8080
+        or.l    d0,d0                                   ; 00AFA474: $8080
+        or.l    d0,d0                                   ; 00AFA476: $8080
+        or.l    d0,d0                                   ; 00AFA478: $8080
+        or.l    d0,d0                                   ; 00AFA47A: $8080
+        or.l    d0,d0                                   ; 00AFA47C: $8080
+        or.l    d0,d0                                   ; 00AFA47E: $8080
+        or.l    d0,d0                                   ; 00AFA480: $8080
+        or.l    d0,d0                                   ; 00AFA482: $8080
+        or.l    d0,d0                                   ; 00AFA484: $8080
+        or.l    d0,d0                                   ; 00AFA486: $8080
+        or.l    d0,d0                                   ; 00AFA488: $8080
+        or.l    d0,d0                                   ; 00AFA48A: $8080
+        or.l    d0,d0                                   ; 00AFA48C: $8080
+        or.l    d0,d0                                   ; 00AFA48E: $8080
+        or.l    d0,d0                                   ; 00AFA490: $8080
+        or.l    d0,d0                                   ; 00AFA492: $8080
+        or.l    d0,d0                                   ; 00AFA494: $8080
+        or.l    d0,d0                                   ; 00AFA496: $8080
+        or.l    d0,d0                                   ; 00AFA498: $8080
+        or.l    d0,d0                                   ; 00AFA49A: $8080
+        or.l    d0,d0                                   ; 00AFA49C: $8080
+        or.l    d0,d0                                   ; 00AFA49E: $8080
+        or.l    d0,d0                                   ; 00AFA4A0: $8080
+        or.l    d0,d0                                   ; 00AFA4A2: $8080
+        or.l    d0,d0                                   ; 00AFA4A4: $8080
+        or.l    d0,d0                                   ; 00AFA4A6: $8080
+        or.l    d0,d0                                   ; 00AFA4A8: $8080
+        or.l    d0,d0                                   ; 00AFA4AA: $8080
+        or.l    d0,d0                                   ; 00AFA4AC: $8080
+        or.l    d0,d0                                   ; 00AFA4AE: $8080
+        or.l    d0,d0                                   ; 00AFA4B0: $8080
+        or.l    d0,d0                                   ; 00AFA4B2: $8080
+        or.l    d0,d0                                   ; 00AFA4B4: $8080
+        or.l    d0,d0                                   ; 00AFA4B6: $8080
+        or.l    d0,d0                                   ; 00AFA4B8: $8080
+        or.l    d0,d0                                   ; 00AFA4BA: $8080
+        or.l    d0,d0                                   ; 00AFA4BC: $8080
+        or.l    d0,d0                                   ; 00AFA4BE: $8080
+        or.l    d0,d0                                   ; 00AFA4C0: $8080
+        or.l    d0,d0                                   ; 00AFA4C2: $8080
+        or.l    d0,d0                                   ; 00AFA4C4: $8080
+        or.l    d0,d0                                   ; 00AFA4C6: $8080
+        or.l    d0,d0                                   ; 00AFA4C8: $8080
+        or.l    d0,d0                                   ; 00AFA4CA: $8080
+        or.l    d0,d0                                   ; 00AFA4CC: $8080
+        or.l    d0,d0                                   ; 00AFA4CE: $8080
+        or.l    d0,d0                                   ; 00AFA4D0: $8080
+        or.l    d0,d0                                   ; 00AFA4D2: $8080
+        or.l    d0,d0                                   ; 00AFA4D4: $8080
+        or.l    d0,d0                                   ; 00AFA4D6: $8080
+        or.l    d0,d0                                   ; 00AFA4D8: $8080
+        or.l    d0,d0                                   ; 00AFA4DA: $8080
+        or.l    d0,d0                                   ; 00AFA4DC: $8080
+        or.l    d0,d0                                   ; 00AFA4DE: $8080
+        or.l    d0,d0                                   ; 00AFA4E0: $8080
+        or.l    d0,d0                                   ; 00AFA4E2: $8080
+        or.l    d0,d0                                   ; 00AFA4E4: $8080
+        or.l    d0,d0                                   ; 00AFA4E6: $8080
+        or.l    d0,d0                                   ; 00AFA4E8: $8080
+        or.l    d0,d0                                   ; 00AFA4EA: $8080
+        or.l    d0,d0                                   ; 00AFA4EC: $8080
+        or.l    d0,d0                                   ; 00AFA4EE: $8080
+        or.l    d0,d0                                   ; 00AFA4F0: $8080
+        or.l    d0,d0                                   ; 00AFA4F2: $8080
+        or.l    d0,d0                                   ; 00AFA4F4: $8080
+        or.l    d0,d0                                   ; 00AFA4F6: $8080
+        or.l    d0,d0                                   ; 00AFA4F8: $8080
+        or.l    d0,d0                                   ; 00AFA4FA: $8080
+        or.l    d0,d0                                   ; 00AFA4FC: $8080
+        or.l    d0,d0                                   ; 00AFA4FE: $8080
+        or.l    d0,d0                                   ; 00AFA500: $8080
+        or.l    d0,d0                                   ; 00AFA502: $8080
+        or.l    d0,d0                                   ; 00AFA504: $8080
+        or.l    d0,d0                                   ; 00AFA506: $8080
+        or.l    d0,d0                                   ; 00AFA508: $8080
+        or.l    d0,d0                                   ; 00AFA50A: $8080
+        or.l    d0,d0                                   ; 00AFA50C: $8080
+        or.l    d0,d0                                   ; 00AFA50E: $8080
+        or.l    d0,d0                                   ; 00AFA510: $8080
+        or.l    d0,d0                                   ; 00AFA512: $8080
+        or.l    d0,d0                                   ; 00AFA514: $8080
+        or.l    d0,d0                                   ; 00AFA516: $8080
+        or.l    d0,d0                                   ; 00AFA518: $8080
+        or.l    d0,d0                                   ; 00AFA51A: $8080
+        or.l    d0,d0                                   ; 00AFA51C: $8080
+        or.l    d0,d0                                   ; 00AFA51E: $8080
+        or.l    d0,d0                                   ; 00AFA520: $8080
+        or.l    d0,d0                                   ; 00AFA522: $8080
+        or.l    d0,d0                                   ; 00AFA524: $8080
+        or.l    d0,d0                                   ; 00AFA526: $8080
+        or.l    d0,d0                                   ; 00AFA528: $8080
+        or.l    d0,d0                                   ; 00AFA52A: $8080
+        or.l    d0,d0                                   ; 00AFA52C: $8080
+        or.l    d0,d0                                   ; 00AFA52E: $8080
+        or.l    d0,d0                                   ; 00AFA530: $8080
+        or.l    d0,d0                                   ; 00AFA532: $8080
+        or.l    d0,d0                                   ; 00AFA534: $8080
+        or.l    d0,d0                                   ; 00AFA536: $8080
+        or.l    d0,d0                                   ; 00AFA538: $8080
+        or.l    d0,d0                                   ; 00AFA53A: $8080
+        or.l    d0,d0                                   ; 00AFA53C: $8080
+        or.l    d0,d0                                   ; 00AFA53E: $8080
+        or.l    d0,d0                                   ; 00AFA540: $8080
+        or.l    d0,d0                                   ; 00AFA542: $8080
+        or.l    d0,d0                                   ; 00AFA544: $8080
+        or.l    d0,d0                                   ; 00AFA546: $8080
+        or.l    d0,d0                                   ; 00AFA548: $8080
+        or.l    d0,d0                                   ; 00AFA54A: $8080
+        or.l    d0,d0                                   ; 00AFA54C: $8080
+        or.l    d0,d0                                   ; 00AFA54E: $8080
+        or.l    d0,d0                                   ; 00AFA550: $8080
+        or.l    d0,d0                                   ; 00AFA552: $8080
+        or.l    d0,d0                                   ; 00AFA554: $8080
+        or.l    d0,d0                                   ; 00AFA556: $8080
+        or.l    d0,d0                                   ; 00AFA558: $8080
+        or.l    d0,d0                                   ; 00AFA55A: $8080
+        or.l    d0,d0                                   ; 00AFA55C: $8080
+        or.l    d0,d0                                   ; 00AFA55E: $8080
+        or.l    d0,d0                                   ; 00AFA560: $8080
+        or.l    d0,d0                                   ; 00AFA562: $8080
+        or.l    d0,d0                                   ; 00AFA564: $8080
+        or.l    d0,d0                                   ; 00AFA566: $8080
+        or.l    d0,d0                                   ; 00AFA568: $8080
+        or.l    d0,d0                                   ; 00AFA56A: $8080
+        or.l    d0,d0                                   ; 00AFA56C: $8080
+        or.l    d0,d0                                   ; 00AFA56E: $8080
+        or.l    d0,d0                                   ; 00AFA570: $8080
+        or.l    d0,d0                                   ; 00AFA572: $8080
+        or.l    d0,d0                                   ; 00AFA574: $8080
+        or.l    d0,d0                                   ; 00AFA576: $8080
+        or.l    d0,d0                                   ; 00AFA578: $8080
+        or.l    d0,d0                                   ; 00AFA57A: $8080
+        or.l    d0,d0                                   ; 00AFA57C: $8080
+        or.l    d0,d0                                   ; 00AFA57E: $8080
+        or.l    d0,d0                                   ; 00AFA580: $8080
+        or.l    d0,d0                                   ; 00AFA582: $8080
+        or.l    d0,d0                                   ; 00AFA584: $8080
+        or.l    d0,d0                                   ; 00AFA586: $8080
+        or.l    d0,d0                                   ; 00AFA588: $8080
+        or.l    d0,d0                                   ; 00AFA58A: $8080
+        or.l    d0,d0                                   ; 00AFA58C: $8080
+        or.l    d0,d0                                   ; 00AFA58E: $8080
+        or.l    d0,d0                                   ; 00AFA590: $8080
+        or.l    d0,d0                                   ; 00AFA592: $8080
+        or.l    d0,d0                                   ; 00AFA594: $8080
+        or.l    d0,d0                                   ; 00AFA596: $8080
+        or.l    d0,d0                                   ; 00AFA598: $8080
+        or.l    d0,d0                                   ; 00AFA59A: $8080
+        or.l    d0,d0                                   ; 00AFA59C: $8080
+        or.l    d0,d0                                   ; 00AFA59E: $8080
+        or.l    d0,d0                                   ; 00AFA5A0: $8080
+        or.l    d0,d0                                   ; 00AFA5A2: $8080
+        or.l    d0,d0                                   ; 00AFA5A4: $8080
+        or.l    d0,d0                                   ; 00AFA5A6: $8080
+        or.l    d0,d0                                   ; 00AFA5A8: $8080
+        or.l    d0,d0                                   ; 00AFA5AA: $8080
+        or.l    d0,d0                                   ; 00AFA5AC: $8080
+        or.l    d0,d0                                   ; 00AFA5AE: $8080
+        or.l    d0,d0                                   ; 00AFA5B0: $8080
+        or.l    d0,d0                                   ; 00AFA5B2: $8080
+        or.l    d0,d0                                   ; 00AFA5B4: $8080
+        or.l    d0,d0                                   ; 00AFA5B6: $8080
+        or.l    d0,d0                                   ; 00AFA5B8: $8080
+        or.l    d0,d0                                   ; 00AFA5BA: $8080
+        or.l    d0,d0                                   ; 00AFA5BC: $8080
+        or.l    d0,d0                                   ; 00AFA5BE: $8080
+        or.l    d0,d0                                   ; 00AFA5C0: $8080
+        or.l    d0,d0                                   ; 00AFA5C2: $8080
+        or.l    d0,d0                                   ; 00AFA5C4: $8080
+        or.l    d0,d0                                   ; 00AFA5C6: $8080
+        or.l    d0,d0                                   ; 00AFA5C8: $8080
+        or.l    d0,d0                                   ; 00AFA5CA: $8080
+        or.l    d0,d0                                   ; 00AFA5CC: $8080
+        or.l    d0,d0                                   ; 00AFA5CE: $8080
+        or.l    d0,d0                                   ; 00AFA5D0: $8080
+        or.l    d0,d0                                   ; 00AFA5D2: $8080
+        or.l    d0,d0                                   ; 00AFA5D4: $8080
+        or.l    d0,d0                                   ; 00AFA5D6: $8080
+        or.l    d0,d0                                   ; 00AFA5D8: $8080
+        or.l    d0,d0                                   ; 00AFA5DA: $8080
+        or.l    d0,d0                                   ; 00AFA5DC: $8080
+        or.l    d0,d0                                   ; 00AFA5DE: $8080
+        or.l    d0,d0                                   ; 00AFA5E0: $8080
+        or.l    d0,d0                                   ; 00AFA5E2: $8080
+        or.l    d0,d0                                   ; 00AFA5E4: $8080
+        or.l    d0,d0                                   ; 00AFA5E6: $8080
+        or.l    d0,d0                                   ; 00AFA5E8: $8080
+        or.l    d0,d0                                   ; 00AFA5EA: $8080
+        or.l    d0,d0                                   ; 00AFA5EC: $8080
+        or.l    d0,d0                                   ; 00AFA5EE: $8080
+        or.l    d0,d0                                   ; 00AFA5F0: $8080
+        or.l    d0,d0                                   ; 00AFA5F2: $8080
+        or.l    d0,d0                                   ; 00AFA5F4: $8080
+        or.l    d0,d0                                   ; 00AFA5F6: $8080
+        or.l    d0,d0                                   ; 00AFA5F8: $8080
+        or.l    d0,d0                                   ; 00AFA5FA: $8080
+        or.l    d0,d0                                   ; 00AFA5FC: $8080
+        or.l    d0,d0                                   ; 00AFA5FE: $8080
+        or.l    d0,d0                                   ; 00AFA600: $8080
+        or.l    d0,d0                                   ; 00AFA602: $8080
+        or.l    d0,d0                                   ; 00AFA604: $8080
+        or.l    d0,d0                                   ; 00AFA606: $8080
+        or.l    d0,d0                                   ; 00AFA608: $8080
+        or.l    d0,d0                                   ; 00AFA60A: $8080
+        or.l    d0,d0                                   ; 00AFA60C: $8080
+        or.l    d0,d0                                   ; 00AFA60E: $8080
+        or.l    d0,d0                                   ; 00AFA610: $8080
+        or.l    d0,d0                                   ; 00AFA612: $8080
+        or.l    d0,d0                                   ; 00AFA614: $8080
+        or.l    d0,d0                                   ; 00AFA616: $8080
+        or.l    d0,d0                                   ; 00AFA618: $8080
+        or.l    d0,d0                                   ; 00AFA61A: $8080
+        or.l    d0,d0                                   ; 00AFA61C: $8080
+        or.l    d0,d0                                   ; 00AFA61E: $8080
+        or.l    d0,d0                                   ; 00AFA620: $8080
+        or.l    d0,d0                                   ; 00AFA622: $8080
+        or.l    d0,d0                                   ; 00AFA624: $8080
+        or.l    d0,d0                                   ; 00AFA626: $8080
+        or.l    d0,d0                                   ; 00AFA628: $8080
+        or.l    d0,d0                                   ; 00AFA62A: $8080
+        or.l    d0,d0                                   ; 00AFA62C: $8080
+        or.l    d0,d0                                   ; 00AFA62E: $8080
+        or.l    d0,d0                                   ; 00AFA630: $8080
+        or.l    d0,d0                                   ; 00AFA632: $8080
+        or.l    d0,d0                                   ; 00AFA634: $8080
+        or.l    d0,d0                                   ; 00AFA636: $8080
+        or.l    d0,d0                                   ; 00AFA638: $8080
+        or.l    d0,d0                                   ; 00AFA63A: $8080
+        or.l    d0,d0                                   ; 00AFA63C: $8080
+        or.l    d0,d0                                   ; 00AFA63E: $8080
+        or.l    d0,d0                                   ; 00AFA640: $8080
+        or.l    d0,d0                                   ; 00AFA642: $8080
+        or.l    d0,d0                                   ; 00AFA644: $8080
+        or.l    d0,d0                                   ; 00AFA646: $8080
+        or.l    d0,d0                                   ; 00AFA648: $8080
+        or.l    d0,d0                                   ; 00AFA64A: $8080
+        or.l    d0,d0                                   ; 00AFA64C: $8080
+        or.l    d0,d0                                   ; 00AFA64E: $8080
+        or.l    d0,d0                                   ; 00AFA650: $8080
+        or.l    d0,d0                                   ; 00AFA652: $8080
+        or.l    d0,d0                                   ; 00AFA654: $8080
+        or.l    d0,d0                                   ; 00AFA656: $8080
+        or.l    d0,d0                                   ; 00AFA658: $8080
+        or.l    d0,d0                                   ; 00AFA65A: $8080
+        or.l    d0,d0                                   ; 00AFA65C: $8080
+        or.l    d0,d0                                   ; 00AFA65E: $8080
+        or.l    d0,d0                                   ; 00AFA660: $8080
+        or.l    d0,d0                                   ; 00AFA662: $8080
+        or.l    d0,d0                                   ; 00AFA664: $8080
+        or.l    d0,d0                                   ; 00AFA666: $8080
+        or.l    d0,d0                                   ; 00AFA668: $8080
+        or.l    d0,d0                                   ; 00AFA66A: $8080
+        or.l    d0,d0                                   ; 00AFA66C: $8080
+        or.l    d0,d0                                   ; 00AFA66E: $8080
+        or.l    d0,d0                                   ; 00AFA670: $8080
+        or.l    d0,d0                                   ; 00AFA672: $8080
+        or.l    d0,d0                                   ; 00AFA674: $8080
+        or.l    d0,d0                                   ; 00AFA676: $8080
+        or.l    d0,d0                                   ; 00AFA678: $8080
+        or.l    d0,d0                                   ; 00AFA67A: $8080
+        or.l    d0,d0                                   ; 00AFA67C: $8080
+        or.l    d0,d0                                   ; 00AFA67E: $8080
+        or.l    d0,d0                                   ; 00AFA680: $8080
+        or.l    d0,d0                                   ; 00AFA682: $8080
+        or.l    d0,d0                                   ; 00AFA684: $8080
+        or.l    d0,d0                                   ; 00AFA686: $8080
+        or.l    d0,d0                                   ; 00AFA688: $8080
+        or.l    d0,d0                                   ; 00AFA68A: $8080
+        or.l    d0,d0                                   ; 00AFA68C: $8080
+        or.l    d0,d0                                   ; 00AFA68E: $8080
+        or.l    d0,d0                                   ; 00AFA690: $8080
+        or.l    d0,d0                                   ; 00AFA692: $8080
+        or.l    d0,d0                                   ; 00AFA694: $8080
+        or.l    d0,d0                                   ; 00AFA696: $8080
+        or.l    d0,d0                                   ; 00AFA698: $8080
+        or.l    d0,d0                                   ; 00AFA69A: $8080
+        or.l    d0,d0                                   ; 00AFA69C: $8080
+        or.l    d0,d0                                   ; 00AFA69E: $8080
+        or.l    d0,d0                                   ; 00AFA6A0: $8080
+        or.l    d0,d0                                   ; 00AFA6A2: $8080
+        or.l    d0,d0                                   ; 00AFA6A4: $8080
+        or.l    d0,d0                                   ; 00AFA6A6: $8080
+        or.l    d0,d0                                   ; 00AFA6A8: $8080
+        or.l    d0,d0                                   ; 00AFA6AA: $8080
+        or.l    d0,d0                                   ; 00AFA6AC: $8080
+        or.l    d0,d0                                   ; 00AFA6AE: $8080
+        or.l    d0,d0                                   ; 00AFA6B0: $8080
+        or.l    d0,d0                                   ; 00AFA6B2: $8080
+        or.l    d0,d0                                   ; 00AFA6B4: $8080
+        or.l    d0,d0                                   ; 00AFA6B6: $8080
+        or.l    d0,d0                                   ; 00AFA6B8: $8080
+        or.l    d0,d0                                   ; 00AFA6BA: $8080
+        or.l    d0,d0                                   ; 00AFA6BC: $8080
+        or.l    d0,d0                                   ; 00AFA6BE: $8080
+        or.l    d0,d0                                   ; 00AFA6C0: $8080
+        or.l    d0,d0                                   ; 00AFA6C2: $8080
+        or.l    d0,d0                                   ; 00AFA6C4: $8080
+        or.l    d0,d0                                   ; 00AFA6C6: $8080
+        or.l    d0,d0                                   ; 00AFA6C8: $8080
+        or.l    d0,d0                                   ; 00AFA6CA: $8080
+        or.l    d0,d0                                   ; 00AFA6CC: $8080
+        or.l    d0,d0                                   ; 00AFA6CE: $8080
+        or.l    d0,d0                                   ; 00AFA6D0: $8080
+        or.l    d0,d0                                   ; 00AFA6D2: $8080
+        or.l    d0,d0                                   ; 00AFA6D4: $8080
+        or.l    d0,d0                                   ; 00AFA6D6: $8080
+        or.l    d0,d0                                   ; 00AFA6D8: $8080
+        or.l    d0,d0                                   ; 00AFA6DA: $8080
+        or.l    d0,d0                                   ; 00AFA6DC: $8080
+        or.l    d0,d0                                   ; 00AFA6DE: $8080
+        or.l    d0,d0                                   ; 00AFA6E0: $8080
+        or.l    d0,d0                                   ; 00AFA6E2: $8080
+        or.l    d0,d0                                   ; 00AFA6E4: $8080
+        or.l    d0,d0                                   ; 00AFA6E6: $8080
+        or.l    d0,d0                                   ; 00AFA6E8: $8080
+        or.l    d0,d0                                   ; 00AFA6EA: $8080
+        or.l    d0,d0                                   ; 00AFA6EC: $8080
+        or.l    d0,d0                                   ; 00AFA6EE: $8080
+        or.l    d0,d0                                   ; 00AFA6F0: $8080
+        or.l    d0,d0                                   ; 00AFA6F2: $8080
+        or.l    d0,d0                                   ; 00AFA6F4: $8080
+        or.l    d0,d0                                   ; 00AFA6F6: $8080
+        or.l    d0,d0                                   ; 00AFA6F8: $8080
+        or.l    d0,d0                                   ; 00AFA6FA: $8080
+        or.l    d0,d0                                   ; 00AFA6FC: $8080
+        or.l    d0,d0                                   ; 00AFA6FE: $8080
+        or.l    d0,d0                                   ; 00AFA700: $8080
+        or.l    d0,d0                                   ; 00AFA702: $8080
+        or.l    d0,d0                                   ; 00AFA704: $8080
+        or.l    d0,d0                                   ; 00AFA706: $8080
+        or.l    d0,d0                                   ; 00AFA708: $8080
+        or.l    d0,d0                                   ; 00AFA70A: $8080
+        or.l    d0,d0                                   ; 00AFA70C: $8080
+        or.l    d0,d0                                   ; 00AFA70E: $8080
+        or.l    d0,d0                                   ; 00AFA710: $8080
+        or.l    d0,d0                                   ; 00AFA712: $8080
+        or.l    d0,d0                                   ; 00AFA714: $8080
+        or.l    d0,d0                                   ; 00AFA716: $8080
+        or.l    d0,d0                                   ; 00AFA718: $8080
+        or.l    d0,d0                                   ; 00AFA71A: $8080
+        or.l    d0,d0                                   ; 00AFA71C: $8080
+        or.l    d0,d0                                   ; 00AFA71E: $8080
+        or.l    d0,d0                                   ; 00AFA720: $8080
+        or.l    d0,d0                                   ; 00AFA722: $8080
+        or.l    d0,d0                                   ; 00AFA724: $8080
+        or.l    d0,d0                                   ; 00AFA726: $8080
+        or.l    d0,d0                                   ; 00AFA728: $8080
+        or.l    d0,d0                                   ; 00AFA72A: $8080
+        or.l    d0,d0                                   ; 00AFA72C: $8080
+        or.l    d0,d0                                   ; 00AFA72E: $8080
+        or.l    d0,d0                                   ; 00AFA730: $8080
+        or.l    d0,d0                                   ; 00AFA732: $8080
+        or.l    d0,d0                                   ; 00AFA734: $8080
+        or.l    d0,d0                                   ; 00AFA736: $8080
+        or.l    d0,d0                                   ; 00AFA738: $8080
+        or.l    d0,d0                                   ; 00AFA73A: $8080
+        or.l    d0,d0                                   ; 00AFA73C: $8080
+        or.l    d0,d0                                   ; 00AFA73E: $8080
+        or.l    d0,d0                                   ; 00AFA740: $8080
+        or.l    d0,d0                                   ; 00AFA742: $8080
+        or.l    d0,d0                                   ; 00AFA744: $8080
+        or.l    d0,d0                                   ; 00AFA746: $8080
+        or.l    d0,d0                                   ; 00AFA748: $8080
+        or.l    d0,d0                                   ; 00AFA74A: $8080
+        or.l    d0,d0                                   ; 00AFA74C: $8080
+        or.l    d0,d0                                   ; 00AFA74E: $8080
+        or.l    d0,d0                                   ; 00AFA750: $8080
+        or.l    d0,d0                                   ; 00AFA752: $8080
+        or.l    d0,d0                                   ; 00AFA754: $8080
+        or.l    d0,d0                                   ; 00AFA756: $8080
+        or.l    d0,d0                                   ; 00AFA758: $8080
+        or.l    d0,d0                                   ; 00AFA75A: $8080
+        or.l    d0,d0                                   ; 00AFA75C: $8080
+        or.l    d0,d0                                   ; 00AFA75E: $8080
+        or.l    d0,d0                                   ; 00AFA760: $8080
+        or.l    d0,d0                                   ; 00AFA762: $8080
+        or.l    d0,d0                                   ; 00AFA764: $8080
+        or.l    d0,d0                                   ; 00AFA766: $8080
+        or.l    d0,d0                                   ; 00AFA768: $8080
+        or.l    d0,d0                                   ; 00AFA76A: $8080
+        or.l    d0,d0                                   ; 00AFA76C: $8080
+        or.l    d0,d0                                   ; 00AFA76E: $8080
+        or.l    d0,d0                                   ; 00AFA770: $8080
+        or.l    d0,d0                                   ; 00AFA772: $8080
+        or.l    d0,d0                                   ; 00AFA774: $8080
+        or.l    d0,d0                                   ; 00AFA776: $8080
+        or.l    d0,d0                                   ; 00AFA778: $8080
+        or.l    d0,d0                                   ; 00AFA77A: $8080
+        or.l    d0,d0                                   ; 00AFA77C: $8080
+        or.l    d0,d0                                   ; 00AFA77E: $8080
+        or.l    d0,d0                                   ; 00AFA780: $8080
+        or.l    d0,d0                                   ; 00AFA782: $8080
+        or.l    d0,d0                                   ; 00AFA784: $8080
+        or.l    d0,d0                                   ; 00AFA786: $8080
+        or.l    d0,d0                                   ; 00AFA788: $8080
+        or.l    d0,d0                                   ; 00AFA78A: $8080
+        or.l    d0,d0                                   ; 00AFA78C: $8080
+        or.l    d0,d0                                   ; 00AFA78E: $8080
+        or.l    d0,d0                                   ; 00AFA790: $8080
+        or.l    d0,d0                                   ; 00AFA792: $8080
+        or.l    d0,d0                                   ; 00AFA794: $8080
+        or.l    d0,d0                                   ; 00AFA796: $8080
+        or.l    d0,d0                                   ; 00AFA798: $8080
+        or.l    d0,d0                                   ; 00AFA79A: $8080
+        or.l    d0,d0                                   ; 00AFA79C: $8080
+        or.l    d0,d0                                   ; 00AFA79E: $8080
+        or.l    d0,d0                                   ; 00AFA7A0: $8080
+        or.l    d0,d0                                   ; 00AFA7A2: $8080
+        or.l    d0,d0                                   ; 00AFA7A4: $8080
+        or.l    d0,d0                                   ; 00AFA7A6: $8080
+        or.l    d0,d0                                   ; 00AFA7A8: $8080
+        or.l    d0,d0                                   ; 00AFA7AA: $8080
+        or.l    d0,d0                                   ; 00AFA7AC: $8080
+        or.l    d0,d0                                   ; 00AFA7AE: $8080
+        or.l    d0,d0                                   ; 00AFA7B0: $8080
+        or.l    d0,d0                                   ; 00AFA7B2: $8080
+        or.l    d0,d0                                   ; 00AFA7B4: $8080
+        or.l    d0,d0                                   ; 00AFA7B6: $8080
+        or.l    d0,d0                                   ; 00AFA7B8: $8080
+        or.l    d0,d0                                   ; 00AFA7BA: $8080
+        or.l    d0,d0                                   ; 00AFA7BC: $8080
+        or.l    d0,d0                                   ; 00AFA7BE: $8080
+        or.l    d0,d0                                   ; 00AFA7C0: $8080
+        or.l    d0,d0                                   ; 00AFA7C2: $8080
+        or.l    d0,d0                                   ; 00AFA7C4: $8080
+        or.l    d0,d0                                   ; 00AFA7C6: $8080
+        or.l    d0,d0                                   ; 00AFA7C8: $8080
+        or.l    d0,d0                                   ; 00AFA7CA: $8080
+        or.l    d0,d0                                   ; 00AFA7CC: $8080
+        or.l    d0,d0                                   ; 00AFA7CE: $8080
+        or.l    d0,d0                                   ; 00AFA7D0: $8080
+        or.l    d0,d0                                   ; 00AFA7D2: $8080
+        or.l    d0,d0                                   ; 00AFA7D4: $8080
+        or.l    d0,d0                                   ; 00AFA7D6: $8080
+        or.l    d0,d0                                   ; 00AFA7D8: $8080
+        or.l    d0,d0                                   ; 00AFA7DA: $8080
+        or.l    d0,d0                                   ; 00AFA7DC: $8080
+        or.l    d0,d0                                   ; 00AFA7DE: $8080
+        or.l    d0,d0                                   ; 00AFA7E0: $8080
+        or.l    d0,d0                                   ; 00AFA7E2: $8080
+        or.l    d0,d0                                   ; 00AFA7E4: $8080
+        or.l    d0,d0                                   ; 00AFA7E6: $8080
+        or.l    d0,d0                                   ; 00AFA7E8: $8080
+        or.l    d0,d0                                   ; 00AFA7EA: $8080
+        or.l    d0,d0                                   ; 00AFA7EC: $8080
+        or.l    d0,d0                                   ; 00AFA7EE: $8080
+        or.l    d0,d0                                   ; 00AFA7F0: $8080
+        or.l    d0,d0                                   ; 00AFA7F2: $8080
+        or.l    d0,d0                                   ; 00AFA7F4: $8080
+        or.l    d0,d0                                   ; 00AFA7F6: $8080
+        or.l    d0,d0                                   ; 00AFA7F8: $8080
+        or.l    d0,d0                                   ; 00AFA7FA: $8080
+        or.l    d0,d0                                   ; 00AFA7FC: $8080
+        or.l    d0,d0                                   ; 00AFA7FE: $8080
+        or.l    d0,d0                                   ; 00AFA800: $8080
+        or.l    d0,d0                                   ; 00AFA802: $8080
+        or.l    d0,d0                                   ; 00AFA804: $8080
+        or.l    d0,d0                                   ; 00AFA806: $8080
+        or.l    d0,d0                                   ; 00AFA808: $8080
+        or.l    d0,d0                                   ; 00AFA80A: $8080
+        or.l    d0,d0                                   ; 00AFA80C: $8080
+        or.l    d0,d0                                   ; 00AFA80E: $8080
+        or.l    d0,d0                                   ; 00AFA810: $8080
+        or.l    d0,d0                                   ; 00AFA812: $8080
+        or.l    d0,d0                                   ; 00AFA814: $8080
+        or.l    d0,d0                                   ; 00AFA816: $8080
+        or.l    d0,d0                                   ; 00AFA818: $8080
+        or.l    d0,d0                                   ; 00AFA81A: $8080
+        or.l    d0,d0                                   ; 00AFA81C: $8080
+        or.l    d0,d0                                   ; 00AFA81E: $8080
+        or.l    d0,d0                                   ; 00AFA820: $8080
+        or.l    d0,d0                                   ; 00AFA822: $8080
+        or.l    d0,d0                                   ; 00AFA824: $8080
+        or.l    d0,d0                                   ; 00AFA826: $8080
+        or.l    d0,d0                                   ; 00AFA828: $8080
+        or.l    d0,d0                                   ; 00AFA82A: $8080
+        or.l    d0,d0                                   ; 00AFA82C: $8080
+        or.l    d0,d0                                   ; 00AFA82E: $8080
+        or.l    d0,d0                                   ; 00AFA830: $8080
+        or.l    d0,d0                                   ; 00AFA832: $8080
+        or.l    d0,d0                                   ; 00AFA834: $8080
+        or.l    d0,d0                                   ; 00AFA836: $8080
+        or.l    d0,d0                                   ; 00AFA838: $8080
+        or.l    d0,d0                                   ; 00AFA83A: $8080
+        or.l    d0,d0                                   ; 00AFA83C: $8080
+        or.l    d0,d0                                   ; 00AFA83E: $8080
+        or.l    d0,d0                                   ; 00AFA840: $8080
+        or.l    d0,d0                                   ; 00AFA842: $8080
+        or.l    d0,d0                                   ; 00AFA844: $8080
+        or.l    d0,d0                                   ; 00AFA846: $8080
+        or.l    d0,d0                                   ; 00AFA848: $8080
+        or.l    d0,d0                                   ; 00AFA84A: $8080
+        or.l    d0,d0                                   ; 00AFA84C: $8080
+        or.l    d0,d0                                   ; 00AFA84E: $8080
+        or.l    d0,d0                                   ; 00AFA850: $8080
+        or.l    d0,d0                                   ; 00AFA852: $8080
+        or.l    d0,d0                                   ; 00AFA854: $8080
+        or.l    d0,d0                                   ; 00AFA856: $8080
+        or.l    d0,d0                                   ; 00AFA858: $8080
+        or.l    d0,d0                                   ; 00AFA85A: $8080
+        or.l    d0,d0                                   ; 00AFA85C: $8080
+        or.l    d0,d0                                   ; 00AFA85E: $8080
+        or.l    d0,d0                                   ; 00AFA860: $8080
+        or.l    d0,d0                                   ; 00AFA862: $8080
+        or.l    d0,d0                                   ; 00AFA864: $8080
+        or.l    d0,d0                                   ; 00AFA866: $8080
+        or.l    d0,d0                                   ; 00AFA868: $8080
+        or.l    d0,d0                                   ; 00AFA86A: $8080
+        or.l    d0,d0                                   ; 00AFA86C: $8080
+        or.l    d0,d0                                   ; 00AFA86E: $8080
+        or.l    d0,d0                                   ; 00AFA870: $8080
+        or.l    d0,d0                                   ; 00AFA872: $8080
+        or.l    d0,d0                                   ; 00AFA874: $8080
+        or.l    d0,d0                                   ; 00AFA876: $8080
+        or.l    d0,d0                                   ; 00AFA878: $8080
+        or.l    d0,d0                                   ; 00AFA87A: $8080
+        or.l    d0,d0                                   ; 00AFA87C: $8080
+        or.l    d0,d0                                   ; 00AFA87E: $8080
+        or.l    d0,d0                                   ; 00AFA880: $8080
+        or.l    d0,d0                                   ; 00AFA882: $8080
+        or.l    d0,d0                                   ; 00AFA884: $8080
+        or.l    d0,d0                                   ; 00AFA886: $8080
+        or.l    d0,d0                                   ; 00AFA888: $8080
+        or.l    d0,d0                                   ; 00AFA88A: $8080
+        or.l    d0,d0                                   ; 00AFA88C: $8080
+        or.l    d0,d0                                   ; 00AFA88E: $8080
+        or.l    d0,d0                                   ; 00AFA890: $8080
+        or.l    d0,d0                                   ; 00AFA892: $8080
+        or.l    d0,d0                                   ; 00AFA894: $8080
+        or.l    d0,d0                                   ; 00AFA896: $8080
+        or.l    d0,d0                                   ; 00AFA898: $8080
+        or.l    d0,d0                                   ; 00AFA89A: $8080
+        or.l    d0,d0                                   ; 00AFA89C: $8080
+        or.l    d0,d0                                   ; 00AFA89E: $8080
+        or.l    d0,d0                                   ; 00AFA8A0: $8080
+        or.l    d0,d0                                   ; 00AFA8A2: $8080
+        or.l    d0,d0                                   ; 00AFA8A4: $8080
+        or.l    d0,d0                                   ; 00AFA8A6: $8080
+        or.l    d0,d0                                   ; 00AFA8A8: $8080
+        or.l    d0,d0                                   ; 00AFA8AA: $8080
+        or.l    d0,d0                                   ; 00AFA8AC: $8080
+        or.l    d0,d0                                   ; 00AFA8AE: $8080
+        or.l    d0,d0                                   ; 00AFA8B0: $8080
+        or.l    d0,d0                                   ; 00AFA8B2: $8080
+        or.l    d0,d0                                   ; 00AFA8B4: $8080
+        or.l    d0,d0                                   ; 00AFA8B6: $8080
+        or.l    d0,d0                                   ; 00AFA8B8: $8080
+        or.l    d0,d0                                   ; 00AFA8BA: $8080
+        or.l    d0,d0                                   ; 00AFA8BC: $8080
+        or.l    d0,d0                                   ; 00AFA8BE: $8080
+        or.l    d0,d0                                   ; 00AFA8C0: $8080
+        or.l    d0,d0                                   ; 00AFA8C2: $8080
+        or.l    d0,d0                                   ; 00AFA8C4: $8080
+        or.l    d0,d0                                   ; 00AFA8C6: $8080
+        or.l    d0,d0                                   ; 00AFA8C8: $8080
+        or.l    d0,d0                                   ; 00AFA8CA: $8080
+        or.l    d0,d0                                   ; 00AFA8CC: $8080
+        or.l    d0,d0                                   ; 00AFA8CE: $8080
+        or.l    d0,d0                                   ; 00AFA8D0: $8080
+        or.l    d0,d0                                   ; 00AFA8D2: $8080
+        or.l    d0,d0                                   ; 00AFA8D4: $8080
+        or.l    d0,d0                                   ; 00AFA8D6: $8080
+        or.l    d0,d0                                   ; 00AFA8D8: $8080
+        or.l    d0,d0                                   ; 00AFA8DA: $8080
+        or.l    d0,d0                                   ; 00AFA8DC: $8080
+        or.l    d0,d0                                   ; 00AFA8DE: $8080
+        or.l    d0,d0                                   ; 00AFA8E0: $8080
+        or.l    d0,d0                                   ; 00AFA8E2: $8080
+        or.l    d0,d0                                   ; 00AFA8E4: $8080
+        or.l    d0,d0                                   ; 00AFA8E6: $8080
+        or.l    d0,d0                                   ; 00AFA8E8: $8080
+        or.l    d0,d0                                   ; 00AFA8EA: $8080
+        or.l    d0,d0                                   ; 00AFA8EC: $8080
+        or.l    d0,d0                                   ; 00AFA8EE: $8080
+        or.l    d0,d0                                   ; 00AFA8F0: $8080
+        or.l    d0,d0                                   ; 00AFA8F2: $8080
+        or.l    d0,d0                                   ; 00AFA8F4: $8080
+        or.l    d0,d0                                   ; 00AFA8F6: $8080
+        or.l    d0,d0                                   ; 00AFA8F8: $8080
+        or.l    d0,d0                                   ; 00AFA8FA: $8080
+        or.l    d0,d0                                   ; 00AFA8FC: $8080
+        or.l    d0,d0                                   ; 00AFA8FE: $8080
+        or.l    d0,d0                                   ; 00AFA900: $8080
+        or.l    d0,d0                                   ; 00AFA902: $8080
+        or.l    d0,d0                                   ; 00AFA904: $8080
+        or.l    d0,d0                                   ; 00AFA906: $8080
+        or.l    d0,d0                                   ; 00AFA908: $8080
+        or.l    d0,d0                                   ; 00AFA90A: $8080
+        or.l    d0,d0                                   ; 00AFA90C: $8080
+        or.l    d0,d0                                   ; 00AFA90E: $8080
+        or.l    d0,d0                                   ; 00AFA910: $8080
+        or.l    d0,d0                                   ; 00AFA912: $8080
+        or.l    d0,d0                                   ; 00AFA914: $8080
+        or.l    d0,d0                                   ; 00AFA916: $8080
+        or.l    d0,d0                                   ; 00AFA918: $8080
+        or.l    d0,d0                                   ; 00AFA91A: $8080
+        or.l    d0,d0                                   ; 00AFA91C: $8080
+        or.l    d0,d0                                   ; 00AFA91E: $8080
+        or.l    d0,d0                                   ; 00AFA920: $8080
+        or.l    d0,d0                                   ; 00AFA922: $8080
+        or.l    d0,d0                                   ; 00AFA924: $8080
+        or.l    d0,d0                                   ; 00AFA926: $8080
+        or.l    d0,d0                                   ; 00AFA928: $8080
+        or.l    d0,d0                                   ; 00AFA92A: $8080
+        or.l    d0,d0                                   ; 00AFA92C: $8080
+        or.l    d0,d0                                   ; 00AFA92E: $8080
+        or.l    d0,d0                                   ; 00AFA930: $8080
+        or.l    d0,d0                                   ; 00AFA932: $8080
+        or.l    d0,d0                                   ; 00AFA934: $8080
+        or.l    d0,d0                                   ; 00AFA936: $8080
+        or.l    d0,d0                                   ; 00AFA938: $8080
+        or.l    d0,d0                                   ; 00AFA93A: $8080
+        or.l    d0,d0                                   ; 00AFA93C: $8080
+        or.l    d0,d0                                   ; 00AFA93E: $8080
+        or.l    d0,d0                                   ; 00AFA940: $8080
+        or.l    d0,d0                                   ; 00AFA942: $8080
+        or.l    d0,d0                                   ; 00AFA944: $8080
+        or.l    d0,d0                                   ; 00AFA946: $8080
+        or.l    d0,d0                                   ; 00AFA948: $8080
+        or.l    d0,d0                                   ; 00AFA94A: $8080
+        or.l    d0,d0                                   ; 00AFA94C: $8080
+        or.l    d0,d0                                   ; 00AFA94E: $8080
+        or.l    d0,d0                                   ; 00AFA950: $8080
+        or.l    d0,d0                                   ; 00AFA952: $8080
+        or.l    d0,d0                                   ; 00AFA954: $8080
+        or.l    d0,d0                                   ; 00AFA956: $8080
+        or.l    d0,d0                                   ; 00AFA958: $8080
+        or.l    d0,d0                                   ; 00AFA95A: $8080
+        or.l    d0,d0                                   ; 00AFA95C: $8080
+        or.l    d0,d0                                   ; 00AFA95E: $8080
+        or.l    d0,d0                                   ; 00AFA960: $8080
+        or.l    d0,d0                                   ; 00AFA962: $8080
+        or.l    d0,d0                                   ; 00AFA964: $8080
+        or.l    d0,d0                                   ; 00AFA966: $8080
+        or.l    d0,d0                                   ; 00AFA968: $8080
+        or.l    d0,d0                                   ; 00AFA96A: $8080
+        or.l    d0,d0                                   ; 00AFA96C: $8080
+        or.l    d0,d0                                   ; 00AFA96E: $8080
+        or.l    d0,d0                                   ; 00AFA970: $8080
+        or.l    d0,d0                                   ; 00AFA972: $8080
+        or.l    d0,d0                                   ; 00AFA974: $8080
+        or.l    d0,d0                                   ; 00AFA976: $8080
+        or.l    d0,d0                                   ; 00AFA978: $8080
+        or.l    d0,d0                                   ; 00AFA97A: $8080
+        or.l    d0,d0                                   ; 00AFA97C: $8080
+        or.l    d0,d0                                   ; 00AFA97E: $8080
+        or.l    d0,d0                                   ; 00AFA980: $8080
+        or.l    d0,d0                                   ; 00AFA982: $8080
+        or.l    d0,d0                                   ; 00AFA984: $8080
+        or.l    d0,d0                                   ; 00AFA986: $8080
+        or.l    d0,d0                                   ; 00AFA988: $8080
+        or.l    d0,d0                                   ; 00AFA98A: $8080
+        or.l    d0,d0                                   ; 00AFA98C: $8080
+        or.l    d0,d0                                   ; 00AFA98E: $8080
+        or.l    d0,d0                                   ; 00AFA990: $8080
+        or.l    d0,d0                                   ; 00AFA992: $8080
+        or.l    d0,d0                                   ; 00AFA994: $8080
+        or.l    d0,d0                                   ; 00AFA996: $8080
+        or.l    d0,d0                                   ; 00AFA998: $8080
+        or.l    d0,d0                                   ; 00AFA99A: $8080
+        or.l    d0,d0                                   ; 00AFA99C: $8080
+        or.l    d0,d0                                   ; 00AFA99E: $8080
+        or.l    d0,d0                                   ; 00AFA9A0: $8080
+        or.l    d0,d0                                   ; 00AFA9A2: $8080
+        or.l    d0,d0                                   ; 00AFA9A4: $8080
+        or.l    d0,d0                                   ; 00AFA9A6: $8080
+        or.l    d0,d0                                   ; 00AFA9A8: $8080
+        or.l    d0,d0                                   ; 00AFA9AA: $8080
+        or.l    d0,d0                                   ; 00AFA9AC: $8080
+        or.l    d0,d0                                   ; 00AFA9AE: $8080
+        or.l    d0,d0                                   ; 00AFA9B0: $8080
+        or.l    d0,d0                                   ; 00AFA9B2: $8080
+        or.l    d0,d0                                   ; 00AFA9B4: $8080
+        or.l    d0,d0                                   ; 00AFA9B6: $8080
+        or.l    d0,d0                                   ; 00AFA9B8: $8080
+        or.l    d0,d0                                   ; 00AFA9BA: $8080
+        or.l    d0,d0                                   ; 00AFA9BC: $8080
+        or.l    d0,d0                                   ; 00AFA9BE: $8080
+        or.l    d0,d0                                   ; 00AFA9C0: $8080
+        or.l    d0,d0                                   ; 00AFA9C2: $8080
+        or.l    d0,d0                                   ; 00AFA9C4: $8080
+        or.l    d0,d0                                   ; 00AFA9C6: $8080
+        or.l    d0,d0                                   ; 00AFA9C8: $8080
+        or.l    d0,d0                                   ; 00AFA9CA: $8080
+        or.l    d0,d0                                   ; 00AFA9CC: $8080
+        or.l    d0,d0                                   ; 00AFA9CE: $8080
+        or.l    d0,d0                                   ; 00AFA9D0: $8080
+        or.l    d0,d0                                   ; 00AFA9D2: $8080
+        or.l    d0,d0                                   ; 00AFA9D4: $8080
+        or.l    d0,d0                                   ; 00AFA9D6: $8080
+        or.l    d0,d0                                   ; 00AFA9D8: $8080
+        or.l    d0,d0                                   ; 00AFA9DA: $8080
+        or.l    d0,d0                                   ; 00AFA9DC: $8080
+        or.l    d0,d0                                   ; 00AFA9DE: $8080
+        or.l    d0,d0                                   ; 00AFA9E0: $8080
+        or.l    d0,d0                                   ; 00AFA9E2: $8080
+        or.l    d0,d0                                   ; 00AFA9E4: $8080
+        or.l    d0,d0                                   ; 00AFA9E6: $8080
+        or.l    d0,d0                                   ; 00AFA9E8: $8080
+        or.l    d0,d0                                   ; 00AFA9EA: $8080
+        or.l    d0,d0                                   ; 00AFA9EC: $8080
+        or.l    d0,d0                                   ; 00AFA9EE: $8080
+        or.l    d0,d0                                   ; 00AFA9F0: $8080
+        or.l    d0,d0                                   ; 00AFA9F2: $8080
+        or.l    d0,d0                                   ; 00AFA9F4: $8080
+        or.l    d0,d0                                   ; 00AFA9F6: $8080
+        or.l    d0,d0                                   ; 00AFA9F8: $8080
+        or.l    d0,d0                                   ; 00AFA9FA: $8080
+        or.l    d0,d0                                   ; 00AFA9FC: $8080
+        or.l    d0,d0                                   ; 00AFA9FE: $8080
+        or.l    d0,d0                                   ; 00AFAA00: $8080
+        or.l    d0,d0                                   ; 00AFAA02: $8080
+        or.l    d0,d0                                   ; 00AFAA04: $8080
+        or.l    d0,d0                                   ; 00AFAA06: $8080
+        or.l    d0,d0                                   ; 00AFAA08: $8080
+        or.l    d0,d0                                   ; 00AFAA0A: $8080
+        or.l    d0,d0                                   ; 00AFAA0C: $8080
+        or.l    d0,d0                                   ; 00AFAA0E: $8080
+        or.l    d0,d0                                   ; 00AFAA10: $8080
+        or.l    d0,d0                                   ; 00AFAA12: $8080
+        or.l    d0,d0                                   ; 00AFAA14: $8080
+        or.l    d0,d0                                   ; 00AFAA16: $8080
+        or.l    d0,d0                                   ; 00AFAA18: $8080
+        or.l    d0,d0                                   ; 00AFAA1A: $8080
+        or.l    d0,d0                                   ; 00AFAA1C: $8080
+        or.l    d0,d0                                   ; 00AFAA1E: $8080
+        or.l    d0,d0                                   ; 00AFAA20: $8080
+        or.l    d0,d0                                   ; 00AFAA22: $8080
+        or.l    d0,d0                                   ; 00AFAA24: $8080
+        or.l    d0,d0                                   ; 00AFAA26: $8080
+        or.l    d0,d0                                   ; 00AFAA28: $8080
+        or.l    d0,d0                                   ; 00AFAA2A: $8080
+        or.l    d0,d0                                   ; 00AFAA2C: $8080
+        or.l    d0,d0                                   ; 00AFAA2E: $8080
+        or.l    d0,d0                                   ; 00AFAA30: $8080
+        or.l    d0,d0                                   ; 00AFAA32: $8080
+        or.l    d0,d0                                   ; 00AFAA34: $8080
+        or.l    d0,d0                                   ; 00AFAA36: $8080
+        or.l    d0,d0                                   ; 00AFAA38: $8080
+        or.l    d0,d0                                   ; 00AFAA3A: $8080
+        or.l    d0,d0                                   ; 00AFAA3C: $8080
+        or.l    d0,d0                                   ; 00AFAA3E: $8080
+        or.l    d0,d0                                   ; 00AFAA40: $8080
+        or.l    d0,d0                                   ; 00AFAA42: $8080
+        or.l    d0,d0                                   ; 00AFAA44: $8080
+        or.l    d0,d0                                   ; 00AFAA46: $8080
+        or.l    d0,d0                                   ; 00AFAA48: $8080
+        or.l    d0,d0                                   ; 00AFAA4A: $8080
+        or.l    d0,d0                                   ; 00AFAA4C: $8080
+        or.l    d0,d0                                   ; 00AFAA4E: $8080
+        or.l    d0,d0                                   ; 00AFAA50: $8080
+        or.l    d0,d0                                   ; 00AFAA52: $8080
+        or.l    d0,d0                                   ; 00AFAA54: $8080
+        or.l    d0,d0                                   ; 00AFAA56: $8080
+        or.l    d0,d0                                   ; 00AFAA58: $8080
+        or.l    d0,d0                                   ; 00AFAA5A: $8080
+        or.l    d0,d0                                   ; 00AFAA5C: $8080
+        or.l    d0,d0                                   ; 00AFAA5E: $8080
+        or.l    d0,d0                                   ; 00AFAA60: $8080
+        or.l    d0,d0                                   ; 00AFAA62: $8080
+        or.l    d0,d0                                   ; 00AFAA64: $8080
+        or.l    d0,d0                                   ; 00AFAA66: $8080
+        or.l    d0,d0                                   ; 00AFAA68: $8080
+        or.l    d0,d0                                   ; 00AFAA6A: $8080
+        or.l    d0,d0                                   ; 00AFAA6C: $8080
+        or.l    d0,d0                                   ; 00AFAA6E: $8080
+        or.l    d0,d0                                   ; 00AFAA70: $8080
+        or.l    d0,d0                                   ; 00AFAA72: $8080
+        or.l    d0,d0                                   ; 00AFAA74: $8080
+        or.l    d0,d0                                   ; 00AFAA76: $8080
+        or.l    d0,d0                                   ; 00AFAA78: $8080
+        or.l    d0,d0                                   ; 00AFAA7A: $8080
+        or.l    d0,d0                                   ; 00AFAA7C: $8080
+        or.l    d0,d0                                   ; 00AFAA7E: $8080
+        or.l    d0,d0                                   ; 00AFAA80: $8080
+        or.l    d0,d0                                   ; 00AFAA82: $8080
+        or.l    d0,d0                                   ; 00AFAA84: $8080
+        or.l    d0,d0                                   ; 00AFAA86: $8080
+        or.l    d0,d0                                   ; 00AFAA88: $8080
+        or.l    d0,d0                                   ; 00AFAA8A: $8080
+        or.l    d0,d0                                   ; 00AFAA8C: $8080
+        or.l    d0,d0                                   ; 00AFAA8E: $8080
+        or.l    d0,d0                                   ; 00AFAA90: $8080
+        or.l    d0,d0                                   ; 00AFAA92: $8080
+        or.l    d0,d0                                   ; 00AFAA94: $8080
+        or.l    d0,d0                                   ; 00AFAA96: $8080
+        or.l    d0,d0                                   ; 00AFAA98: $8080
+        or.l    d0,d0                                   ; 00AFAA9A: $8080
+        or.l    d0,d0                                   ; 00AFAA9C: $8080
+        or.l    d0,d0                                   ; 00AFAA9E: $8080
+        or.l    d0,d0                                   ; 00AFAAA0: $8080
+        or.l    d0,d0                                   ; 00AFAAA2: $8080
+        or.l    d0,d0                                   ; 00AFAAA4: $8080
+        or.l    d0,d0                                   ; 00AFAAA6: $8080
+        or.l    d0,d0                                   ; 00AFAAA8: $8080
+        or.l    d0,d0                                   ; 00AFAAAA: $8080
+        or.l    d0,d0                                   ; 00AFAAAC: $8080
+        or.l    d0,d0                                   ; 00AFAAAE: $8080
+        or.l    d0,d0                                   ; 00AFAAB0: $8080
+        or.l    d0,d0                                   ; 00AFAAB2: $8080
+        or.l    d0,d0                                   ; 00AFAAB4: $8080
+        or.l    d0,d0                                   ; 00AFAAB6: $8080
+        or.l    d0,d0                                   ; 00AFAAB8: $8080
+        or.l    d0,d0                                   ; 00AFAABA: $8080
+        or.l    d0,d0                                   ; 00AFAABC: $8080
+        or.l    d0,d0                                   ; 00AFAABE: $8080
+        or.l    d0,d0                                   ; 00AFAAC0: $8080
+        or.l    d0,d0                                   ; 00AFAAC2: $8080
+        or.l    d0,d0                                   ; 00AFAAC4: $8080
+        or.l    d0,d0                                   ; 00AFAAC6: $8080
+        or.l    d0,d0                                   ; 00AFAAC8: $8080
+        or.l    d0,d0                                   ; 00AFAACA: $8080
+        or.l    d0,d0                                   ; 00AFAACC: $8080
+        or.l    d0,d0                                   ; 00AFAACE: $8080
+        or.l    d0,d0                                   ; 00AFAAD0: $8080
+        or.l    d0,d0                                   ; 00AFAAD2: $8080
+        or.l    d0,d0                                   ; 00AFAAD4: $8080
+        or.l    d0,d0                                   ; 00AFAAD6: $8080
+        or.l    d0,d0                                   ; 00AFAAD8: $8080
+        or.l    d0,d0                                   ; 00AFAADA: $8080
+        or.l    d0,d0                                   ; 00AFAADC: $8080
+        or.l    d0,d0                                   ; 00AFAADE: $8080
+        or.l    d0,d0                                   ; 00AFAAE0: $8080
+        or.l    d0,d0                                   ; 00AFAAE2: $8080
+        or.l    d0,d0                                   ; 00AFAAE4: $8080
+        or.l    d0,d0                                   ; 00AFAAE6: $8080
+        or.l    d0,d0                                   ; 00AFAAE8: $8080
+        or.l    d0,d0                                   ; 00AFAAEA: $8080
+        or.l    d0,d0                                   ; 00AFAAEC: $8080
+        or.l    d0,d0                                   ; 00AFAAEE: $8080
+        or.l    d0,d0                                   ; 00AFAAF0: $8080
+        or.l    d0,d0                                   ; 00AFAAF2: $8080
+        or.l    d0,d0                                   ; 00AFAAF4: $8080
+        or.l    d0,d0                                   ; 00AFAAF6: $8080
+        or.l    d0,d0                                   ; 00AFAAF8: $8080
+        or.l    d0,d0                                   ; 00AFAAFA: $8080
+        or.l    d0,d0                                   ; 00AFAAFC: $8080
+        or.l    d0,d0                                   ; 00AFAAFE: $8080
+        or.l    d0,d0                                   ; 00AFAB00: $8080
+        or.l    d0,d0                                   ; 00AFAB02: $8080
+        or.l    d0,d0                                   ; 00AFAB04: $8080
+        or.l    d0,d0                                   ; 00AFAB06: $8080
+        or.l    d0,d0                                   ; 00AFAB08: $8080
+        or.l    d0,d0                                   ; 00AFAB0A: $8080
+        or.l    d0,d0                                   ; 00AFAB0C: $8080
+        or.l    d0,d0                                   ; 00AFAB0E: $8080
+        or.l    d0,d0                                   ; 00AFAB10: $8080
+        or.l    d0,d0                                   ; 00AFAB12: $8080
+        or.l    d0,d0                                   ; 00AFAB14: $8080
+        or.l    d0,d0                                   ; 00AFAB16: $8080
+        or.l    d0,d0                                   ; 00AFAB18: $8080
+        or.l    d0,d0                                   ; 00AFAB1A: $8080
+        or.l    d0,d0                                   ; 00AFAB1C: $8080
+        or.l    d0,d0                                   ; 00AFAB1E: $8080
+        or.l    d0,d0                                   ; 00AFAB20: $8080
+        or.l    d0,d0                                   ; 00AFAB22: $8080
+        or.l    d0,d0                                   ; 00AFAB24: $8080
+        or.l    d0,d0                                   ; 00AFAB26: $8080
+        or.l    d0,d0                                   ; 00AFAB28: $8080
+        or.l    d0,d0                                   ; 00AFAB2A: $8080
+        or.l    d0,d0                                   ; 00AFAB2C: $8080
+        or.l    d0,d0                                   ; 00AFAB2E: $8080
+        or.l    d0,d0                                   ; 00AFAB30: $8080
+        or.l    d0,d0                                   ; 00AFAB32: $8080
+        or.l    d0,d0                                   ; 00AFAB34: $8080
+        or.l    d0,d0                                   ; 00AFAB36: $8080
+        or.l    d0,d0                                   ; 00AFAB38: $8080
+        or.l    d0,d0                                   ; 00AFAB3A: $8080
+        or.l    d0,d0                                   ; 00AFAB3C: $8080
+        or.l    d0,d0                                   ; 00AFAB3E: $8080
+        or.l    d0,d0                                   ; 00AFAB40: $8080
+        or.l    d0,d0                                   ; 00AFAB42: $8080
+        or.l    d0,d0                                   ; 00AFAB44: $8080
+        or.l    d0,d0                                   ; 00AFAB46: $8080
+        or.l    d0,d0                                   ; 00AFAB48: $8080
+        or.l    d0,d0                                   ; 00AFAB4A: $8080
+        or.l    d0,d0                                   ; 00AFAB4C: $8080
+        or.l    d0,d0                                   ; 00AFAB4E: $8080
+        or.l    d0,d0                                   ; 00AFAB50: $8080
+        or.l    d0,d0                                   ; 00AFAB52: $8080
+        or.l    d0,d0                                   ; 00AFAB54: $8080
+        or.l    d0,d0                                   ; 00AFAB56: $8080
+        or.l    d0,d0                                   ; 00AFAB58: $8080
+        or.l    d0,d0                                   ; 00AFAB5A: $8080
+        or.l    d0,d0                                   ; 00AFAB5C: $8080
+        or.l    d0,d0                                   ; 00AFAB5E: $8080
+        or.l    d0,d0                                   ; 00AFAB60: $8080
+        or.l    d0,d0                                   ; 00AFAB62: $8080
+        or.l    d0,d0                                   ; 00AFAB64: $8080
+        or.l    d0,d0                                   ; 00AFAB66: $8080
+        or.l    d0,d0                                   ; 00AFAB68: $8080
+        or.l    d0,d0                                   ; 00AFAB6A: $8080
+        or.l    d0,d0                                   ; 00AFAB6C: $8080
+        or.l    d0,d0                                   ; 00AFAB6E: $8080
+        or.l    d0,d0                                   ; 00AFAB70: $8080
+        or.l    d0,d0                                   ; 00AFAB72: $8080
+        or.l    d0,d0                                   ; 00AFAB74: $8080
+        or.l    d0,d0                                   ; 00AFAB76: $8080
+        or.l    d0,d0                                   ; 00AFAB78: $8080
+        or.l    d0,d0                                   ; 00AFAB7A: $8080
+        or.l    d0,d0                                   ; 00AFAB7C: $8080
+        or.l    d0,d0                                   ; 00AFAB7E: $8080
+        or.l    d0,d0                                   ; 00AFAB80: $8080
+        or.l    d0,d0                                   ; 00AFAB82: $8080
+        or.l    d0,d0                                   ; 00AFAB84: $8080
+        or.l    d0,d0                                   ; 00AFAB86: $8080
+        or.l    d0,d0                                   ; 00AFAB88: $8080
+        or.l    d0,d0                                   ; 00AFAB8A: $8080
+        or.l    d0,d0                                   ; 00AFAB8C: $8080
+        or.l    d0,d0                                   ; 00AFAB8E: $8080
+        or.l    d0,d0                                   ; 00AFAB90: $8080
+        or.l    d0,d0                                   ; 00AFAB92: $8080
+        or.l    d0,d0                                   ; 00AFAB94: $8080
+        or.l    d0,d0                                   ; 00AFAB96: $8080
+        or.l    d0,d0                                   ; 00AFAB98: $8080
+        or.l    d0,d0                                   ; 00AFAB9A: $8080
+        or.l    d0,d0                                   ; 00AFAB9C: $8080
+        or.l    d0,d0                                   ; 00AFAB9E: $8080
+        or.l    d0,d0                                   ; 00AFABA0: $8080
+        or.l    d0,d0                                   ; 00AFABA2: $8080
+        or.l    d0,d0                                   ; 00AFABA4: $8080
+        or.l    d0,d0                                   ; 00AFABA6: $8080
+        or.l    d0,d0                                   ; 00AFABA8: $8080
+        or.l    d0,d0                                   ; 00AFABAA: $8080
+        or.l    d0,d0                                   ; 00AFABAC: $8080
+        or.l    d0,d0                                   ; 00AFABAE: $8080
+        or.l    d0,d0                                   ; 00AFABB0: $8080
+        or.l    d0,d0                                   ; 00AFABB2: $8080
+        or.l    d0,d0                                   ; 00AFABB4: $8080
+        or.l    d0,d0                                   ; 00AFABB6: $8080
+        or.l    d0,d0                                   ; 00AFABB8: $8080
+        or.l    d0,d0                                   ; 00AFABBA: $8080
+        or.l    d0,d0                                   ; 00AFABBC: $8080
+        or.l    d0,d0                                   ; 00AFABBE: $8080
+        or.l    d0,d0                                   ; 00AFABC0: $8080
+        or.l    d0,d0                                   ; 00AFABC2: $8080
+        or.l    d0,d0                                   ; 00AFABC4: $8080
+        or.l    d0,d0                                   ; 00AFABC6: $8080
+        or.l    d0,d0                                   ; 00AFABC8: $8080
+        or.l    d0,d0                                   ; 00AFABCA: $8080
+        or.l    d0,d0                                   ; 00AFABCC: $8080
+        or.l    d0,d0                                   ; 00AFABCE: $8080
+        or.l    d0,d0                                   ; 00AFABD0: $8080
+        or.l    d0,d0                                   ; 00AFABD2: $8080
+        or.l    d0,d0                                   ; 00AFABD4: $8080
+        or.l    d0,d0                                   ; 00AFABD6: $8080
+        or.l    d0,d0                                   ; 00AFABD8: $8080
+        or.l    d0,d0                                   ; 00AFABDA: $8080
+        or.l    d0,d0                                   ; 00AFABDC: $8080
+        or.l    d0,d0                                   ; 00AFABDE: $8080
+        or.l    d0,d0                                   ; 00AFABE0: $8080
+        or.l    d0,d0                                   ; 00AFABE2: $8080
+        or.l    d0,d0                                   ; 00AFABE4: $8080
+        or.l    d0,d0                                   ; 00AFABE6: $8080
+        or.l    d0,d0                                   ; 00AFABE8: $8080
+        or.l    d0,d0                                   ; 00AFABEA: $8080
+        or.l    d0,d0                                   ; 00AFABEC: $8080
+        or.l    d0,d0                                   ; 00AFABEE: $8080
+        or.l    d0,d0                                   ; 00AFABF0: $8080
+        or.l    d0,d0                                   ; 00AFABF2: $8080
+        or.l    d0,d0                                   ; 00AFABF4: $8080
+        or.l    d0,d0                                   ; 00AFABF6: $8080
+        or.l    d0,d0                                   ; 00AFABF8: $8080
+        or.l    d0,d0                                   ; 00AFABFA: $8080
+        or.l    d0,d0                                   ; 00AFABFC: $8080
+        or.l    d0,d0                                   ; 00AFABFE: $8080
+        or.l    d0,d0                                   ; 00AFAC00: $8080
+        or.l    d0,d0                                   ; 00AFAC02: $8080
+        or.l    d0,d0                                   ; 00AFAC04: $8080
+        or.l    d0,d0                                   ; 00AFAC06: $8080
+        or.l    d0,d0                                   ; 00AFAC08: $8080
+        or.l    d0,d0                                   ; 00AFAC0A: $8080
+        or.l    d0,d0                                   ; 00AFAC0C: $8080
+        or.l    d0,d0                                   ; 00AFAC0E: $8080
+        or.l    d0,d0                                   ; 00AFAC10: $8080
+        or.l    d0,d0                                   ; 00AFAC12: $8080
+        or.l    d0,d0                                   ; 00AFAC14: $8080
+        or.l    d0,d0                                   ; 00AFAC16: $8080
+        or.l    d0,d0                                   ; 00AFAC18: $8080
+        or.l    d0,d0                                   ; 00AFAC1A: $8080
+        or.l    d0,d0                                   ; 00AFAC1C: $8080
+        or.l    d0,d0                                   ; 00AFAC1E: $8080
+        or.l    d0,d0                                   ; 00AFAC20: $8080
+        or.l    d0,d0                                   ; 00AFAC22: $8080
+        or.l    d0,d0                                   ; 00AFAC24: $8080
+        or.l    d0,d0                                   ; 00AFAC26: $8080
+        or.l    d0,d0                                   ; 00AFAC28: $8080
+        or.l    d0,d0                                   ; 00AFAC2A: $8080
+        or.l    d0,d0                                   ; 00AFAC2C: $8080
+        or.l    d0,d0                                   ; 00AFAC2E: $8080
+        or.l    d0,d0                                   ; 00AFAC30: $8080
+        or.l    d0,d0                                   ; 00AFAC32: $8080
+        or.l    d0,d0                                   ; 00AFAC34: $8080
+        or.l    d0,d0                                   ; 00AFAC36: $8080
+        or.l    d0,d0                                   ; 00AFAC38: $8080
+        or.l    d0,d0                                   ; 00AFAC3A: $8080
+        or.l    d0,d0                                   ; 00AFAC3C: $8080
+        or.l    d0,d0                                   ; 00AFAC3E: $8080
+        or.l    d0,d0                                   ; 00AFAC40: $8080
+        or.l    d0,d0                                   ; 00AFAC42: $8080
+        or.l    d0,d0                                   ; 00AFAC44: $8080
+        or.l    d0,d0                                   ; 00AFAC46: $8080
+        or.l    d0,d0                                   ; 00AFAC48: $8080
+        or.l    d0,d0                                   ; 00AFAC4A: $8080
+        or.l    d0,d0                                   ; 00AFAC4C: $8080
+        or.l    d0,d0                                   ; 00AFAC4E: $8080
+        or.l    d0,d0                                   ; 00AFAC50: $8080
+        or.l    d0,d0                                   ; 00AFAC52: $8080
+        or.l    d0,d0                                   ; 00AFAC54: $8080
+        or.l    d0,d0                                   ; 00AFAC56: $8080
+        or.l    d0,d0                                   ; 00AFAC58: $8080
+        or.l    d0,d0                                   ; 00AFAC5A: $8080
+        or.l    d0,d0                                   ; 00AFAC5C: $8080
+        or.l    d0,d0                                   ; 00AFAC5E: $8080
+        or.l    d0,d0                                   ; 00AFAC60: $8080
+        or.l    d0,d0                                   ; 00AFAC62: $8080
+        or.l    d0,d0                                   ; 00AFAC64: $8080
+        or.l    d0,d0                                   ; 00AFAC66: $8080
+        or.l    d0,d0                                   ; 00AFAC68: $8080
+        or.l    d0,d0                                   ; 00AFAC6A: $8080
+        or.l    d0,d0                                   ; 00AFAC6C: $8080
+        or.l    d0,d0                                   ; 00AFAC6E: $8080
+        or.l    d0,d0                                   ; 00AFAC70: $8080
+        or.l    d0,d0                                   ; 00AFAC72: $8080
+        or.l    d0,d0                                   ; 00AFAC74: $8080
+        or.l    d0,d0                                   ; 00AFAC76: $8080
+        or.l    d0,d0                                   ; 00AFAC78: $8080
+        or.l    d0,d0                                   ; 00AFAC7A: $8080
+        or.l    d0,d0                                   ; 00AFAC7C: $8080
+        or.l    d0,d0                                   ; 00AFAC7E: $8080
+        or.l    d0,d0                                   ; 00AFAC80: $8080
+        or.l    d0,d0                                   ; 00AFAC82: $8080
+        or.l    d0,d0                                   ; 00AFAC84: $8080
+        or.l    d0,d0                                   ; 00AFAC86: $8080
+        or.l    d0,d0                                   ; 00AFAC88: $8080
+        or.l    d0,d0                                   ; 00AFAC8A: $8080
+        or.l    d0,d0                                   ; 00AFAC8C: $8080
+        or.l    d0,d0                                   ; 00AFAC8E: $8080
+        or.l    d0,d0                                   ; 00AFAC90: $8080
+        or.l    d0,d0                                   ; 00AFAC92: $8080
+        or.l    d0,d0                                   ; 00AFAC94: $8080
+        or.l    d0,d0                                   ; 00AFAC96: $8080
+        or.l    d0,d0                                   ; 00AFAC98: $8080
+        or.l    d0,d0                                   ; 00AFAC9A: $8080
+        or.l    d0,d0                                   ; 00AFAC9C: $8080
+        or.l    d0,d0                                   ; 00AFAC9E: $8080
+        or.l    d0,d0                                   ; 00AFACA0: $8080
+        or.l    d0,d0                                   ; 00AFACA2: $8080
+        or.l    d0,d0                                   ; 00AFACA4: $8080
+        or.l    d0,d0                                   ; 00AFACA6: $8080
+        or.l    d0,d0                                   ; 00AFACA8: $8080
+        or.l    d0,d0                                   ; 00AFACAA: $8080
+        or.l    d0,d0                                   ; 00AFACAC: $8080
+        or.l    d0,d0                                   ; 00AFACAE: $8080
+        or.l    d0,d0                                   ; 00AFACB0: $8080
+        or.l    d0,d0                                   ; 00AFACB2: $8080
+        or.l    d0,d0                                   ; 00AFACB4: $8080
+        or.l    d0,d0                                   ; 00AFACB6: $8080
+        or.l    d0,d0                                   ; 00AFACB8: $8080
+        or.l    d0,d0                                   ; 00AFACBA: $8080
+        or.l    d0,d0                                   ; 00AFACBC: $8080
+        or.l    d0,d0                                   ; 00AFACBE: $8080
+        or.l    d0,d0                                   ; 00AFACC0: $8080
+        or.l    d0,d0                                   ; 00AFACC2: $8080
+        or.l    d0,d0                                   ; 00AFACC4: $8080
+        or.l    d0,d0                                   ; 00AFACC6: $8080
+        or.l    d0,d0                                   ; 00AFACC8: $8080
+        or.l    d0,d0                                   ; 00AFACCA: $8080
+        or.l    d0,d0                                   ; 00AFACCC: $8080
+        or.l    d0,d0                                   ; 00AFACCE: $8080
+        or.l    d0,d0                                   ; 00AFACD0: $8080
+        or.l    d0,d0                                   ; 00AFACD2: $8080
+        or.l    d0,d0                                   ; 00AFACD4: $8080
+        or.l    d0,d0                                   ; 00AFACD6: $8080
+        or.l    d0,d0                                   ; 00AFACD8: $8080
+        or.l    d0,d0                                   ; 00AFACDA: $8080
+        or.l    d0,d0                                   ; 00AFACDC: $8080
+        or.l    d0,d0                                   ; 00AFACDE: $8080
+        or.l    d0,d0                                   ; 00AFACE0: $8080
+        or.l    d0,d0                                   ; 00AFACE2: $8080
+        or.l    d0,d0                                   ; 00AFACE4: $8080
+        or.l    d0,d0                                   ; 00AFACE6: $8080
+        or.l    d0,d0                                   ; 00AFACE8: $8080
+        or.l    d0,d0                                   ; 00AFACEA: $8080
+        or.l    d0,d0                                   ; 00AFACEC: $8080
+        or.l    d0,d0                                   ; 00AFACEE: $8080
+        or.l    d0,d0                                   ; 00AFACF0: $8080
+        or.l    d0,d0                                   ; 00AFACF2: $8080
+        or.l    d0,d0                                   ; 00AFACF4: $8080
+        or.l    d0,d0                                   ; 00AFACF6: $8080
+        or.l    d0,d0                                   ; 00AFACF8: $8080
+        or.l    d0,d0                                   ; 00AFACFA: $8080
+        or.l    d0,d0                                   ; 00AFACFC: $8080
+        or.l    d0,d0                                   ; 00AFACFE: $8080
+        or.l    d0,d0                                   ; 00AFAD00: $8080
+        or.l    d0,d0                                   ; 00AFAD02: $8080
+        or.l    d0,d0                                   ; 00AFAD04: $8080
+        or.l    d0,d0                                   ; 00AFAD06: $8080
+        or.l    d0,d0                                   ; 00AFAD08: $8080
+        or.l    d0,d0                                   ; 00AFAD0A: $8080
+        or.l    d0,d0                                   ; 00AFAD0C: $8080
+        or.l    d0,d0                                   ; 00AFAD0E: $8080
+        or.l    d0,d0                                   ; 00AFAD10: $8080
+        or.l    d0,d0                                   ; 00AFAD12: $8080
+        or.l    d0,d0                                   ; 00AFAD14: $8080
+        or.l    d0,d0                                   ; 00AFAD16: $8080
+        or.l    d0,d0                                   ; 00AFAD18: $8080
+        or.l    d0,d0                                   ; 00AFAD1A: $8080
+        or.l    d0,d0                                   ; 00AFAD1C: $8080
+        or.l    d0,d0                                   ; 00AFAD1E: $8080
+        or.l    d0,d0                                   ; 00AFAD20: $8080
+        or.l    d0,d0                                   ; 00AFAD22: $8080
+        or.l    d0,d0                                   ; 00AFAD24: $8080
+        or.l    d0,d0                                   ; 00AFAD26: $8080
+        or.l    d0,d0                                   ; 00AFAD28: $8080
+        or.l    d0,d0                                   ; 00AFAD2A: $8080
+        or.l    d0,d0                                   ; 00AFAD2C: $8080
+        or.l    d0,d0                                   ; 00AFAD2E: $8080
+        or.l    d0,d0                                   ; 00AFAD30: $8080
+        or.l    d0,d0                                   ; 00AFAD32: $8080
+        or.l    d0,d0                                   ; 00AFAD34: $8080
+        or.l    d0,d0                                   ; 00AFAD36: $8080
+        or.l    d0,d0                                   ; 00AFAD38: $8080
+        or.l    d0,d0                                   ; 00AFAD3A: $8080
+        or.l    d0,d0                                   ; 00AFAD3C: $8080
+        or.l    d0,d0                                   ; 00AFAD3E: $8080
+        or.l    d0,d0                                   ; 00AFAD40: $8080
+        or.l    d0,d0                                   ; 00AFAD42: $8080
+        or.l    d0,d0                                   ; 00AFAD44: $8080
+        or.l    d0,d0                                   ; 00AFAD46: $8080
+        or.l    d0,d0                                   ; 00AFAD48: $8080
+        or.l    d0,d0                                   ; 00AFAD4A: $8080
+        or.l    d0,d0                                   ; 00AFAD4C: $8080
+        or.l    d0,d0                                   ; 00AFAD4E: $8080
+        or.l    d0,d0                                   ; 00AFAD50: $8080
+        or.l    d0,d0                                   ; 00AFAD52: $8080
+        or.l    d0,d0                                   ; 00AFAD54: $8080
+        or.l    d0,d0                                   ; 00AFAD56: $8080
+        or.l    d0,d0                                   ; 00AFAD58: $8080
+        or.l    d0,d0                                   ; 00AFAD5A: $8080
+        or.l    d0,d0                                   ; 00AFAD5C: $8080
+        or.l    d0,d0                                   ; 00AFAD5E: $8080
+        or.l    d0,d0                                   ; 00AFAD60: $8080
+        or.l    d0,d0                                   ; 00AFAD62: $8080
+        or.l    d0,d0                                   ; 00AFAD64: $8080
+        or.l    d0,d0                                   ; 00AFAD66: $8080
+        or.l    d0,d0                                   ; 00AFAD68: $8080
+        or.l    d0,d0                                   ; 00AFAD6A: $8080
+        or.l    d0,d0                                   ; 00AFAD6C: $8080
+        or.l    d0,d0                                   ; 00AFAD6E: $8080
+        or.l    d0,d0                                   ; 00AFAD70: $8080
+        or.l    d0,d0                                   ; 00AFAD72: $8080
+        or.l    d0,d0                                   ; 00AFAD74: $8080
+        or.l    d0,d0                                   ; 00AFAD76: $8080
+        or.l    d0,d0                                   ; 00AFAD78: $8080
+        or.l    d0,d0                                   ; 00AFAD7A: $8080
+        or.l    d0,d0                                   ; 00AFAD7C: $8080
+        or.l    d0,d0                                   ; 00AFAD7E: $8080
+        or.l    d0,d0                                   ; 00AFAD80: $8080
+        or.l    d0,d0                                   ; 00AFAD82: $8080
+        or.l    d0,d0                                   ; 00AFAD84: $8080
+        or.l    d0,d0                                   ; 00AFAD86: $8080
+        or.l    d0,d0                                   ; 00AFAD88: $8080
+        or.l    d0,d0                                   ; 00AFAD8A: $8080
+        or.l    d0,d0                                   ; 00AFAD8C: $8080
+        or.l    d0,d0                                   ; 00AFAD8E: $8080
+        or.l    d0,d0                                   ; 00AFAD90: $8080
+        or.l    d0,d0                                   ; 00AFAD92: $8080
+        or.l    d0,d0                                   ; 00AFAD94: $8080
+        or.l    d0,d0                                   ; 00AFAD96: $8080
+        or.l    d0,d0                                   ; 00AFAD98: $8080
+        or.l    d0,d0                                   ; 00AFAD9A: $8080
+        or.l    d0,d0                                   ; 00AFAD9C: $8080
+        or.l    d0,d0                                   ; 00AFAD9E: $8080
+        or.l    d0,d0                                   ; 00AFADA0: $8080
+        or.l    d0,d0                                   ; 00AFADA2: $8080
+        or.l    d0,d0                                   ; 00AFADA4: $8080
+        or.l    d0,d0                                   ; 00AFADA6: $8080
+        or.l    d0,d0                                   ; 00AFADA8: $8080
+        or.l    d0,d0                                   ; 00AFADAA: $8080
+        or.l    d0,d0                                   ; 00AFADAC: $8080
+        or.l    d0,d0                                   ; 00AFADAE: $8080
+        or.l    d0,d0                                   ; 00AFADB0: $8080
+        or.l    d0,d0                                   ; 00AFADB2: $8080
+        or.l    d0,d0                                   ; 00AFADB4: $8080
+        or.l    d0,d0                                   ; 00AFADB6: $8080
+        or.l    d0,d0                                   ; 00AFADB8: $8080
+        or.l    d0,d0                                   ; 00AFADBA: $8080
+        or.l    d0,d0                                   ; 00AFADBC: $8080
+        or.l    d0,d0                                   ; 00AFADBE: $8080
+        or.l    d0,d0                                   ; 00AFADC0: $8080
+        or.l    d0,d0                                   ; 00AFADC2: $8080
+        or.l    d0,d0                                   ; 00AFADC4: $8080
+        or.l    d0,d0                                   ; 00AFADC6: $8080
+        or.l    d0,d0                                   ; 00AFADC8: $8080
+        or.l    d0,d0                                   ; 00AFADCA: $8080
+        or.l    d0,d0                                   ; 00AFADCC: $8080
+        or.l    d0,d0                                   ; 00AFADCE: $8080
+        or.l    d0,d0                                   ; 00AFADD0: $8080
+        or.l    d0,d0                                   ; 00AFADD2: $8080
+        or.l    d0,d0                                   ; 00AFADD4: $8080
+        or.l    d0,d0                                   ; 00AFADD6: $8080
+        or.l    d0,d0                                   ; 00AFADD8: $8080
+        or.l    d0,d0                                   ; 00AFADDA: $8080
+        or.l    d0,d0                                   ; 00AFADDC: $8080
+        or.l    d0,d0                                   ; 00AFADDE: $8080
+        or.l    d0,d0                                   ; 00AFADE0: $8080
+        or.l    d0,d0                                   ; 00AFADE2: $8080
+        or.l    d0,d0                                   ; 00AFADE4: $8080
+        or.l    d0,d0                                   ; 00AFADE6: $8080
+        or.l    d0,d0                                   ; 00AFADE8: $8080
+        or.l    d0,d0                                   ; 00AFADEA: $8080
+        or.l    d0,d0                                   ; 00AFADEC: $8080
+        or.l    d0,d0                                   ; 00AFADEE: $8080
+        or.l    d0,d0                                   ; 00AFADF0: $8080
+        or.l    d0,d0                                   ; 00AFADF2: $8080
+        or.l    d0,d0                                   ; 00AFADF4: $8080
+        or.l    d0,d0                                   ; 00AFADF6: $8080
+        or.l    d0,d0                                   ; 00AFADF8: $8080
+        or.l    d0,d0                                   ; 00AFADFA: $8080
+        or.l    d0,d0                                   ; 00AFADFC: $8080
+        or.l    d0,d0                                   ; 00AFADFE: $8080
+        or.l    d0,d0                                   ; 00AFAE00: $8080
+        or.l    d0,d0                                   ; 00AFAE02: $8080
+        or.l    d0,d0                                   ; 00AFAE04: $8080
+        or.l    d0,d0                                   ; 00AFAE06: $8080
+        or.l    d0,d0                                   ; 00AFAE08: $8080
+        or.l    d0,d0                                   ; 00AFAE0A: $8080
+        or.l    d0,d0                                   ; 00AFAE0C: $8080
+        or.l    d0,d0                                   ; 00AFAE0E: $8080
+        or.l    d0,d0                                   ; 00AFAE10: $8080
+        or.l    d0,d0                                   ; 00AFAE12: $8080
+        or.l    d0,d0                                   ; 00AFAE14: $8080
+        or.l    d0,d0                                   ; 00AFAE16: $8080
+        or.l    d0,d0                                   ; 00AFAE18: $8080
+        or.l    d0,d0                                   ; 00AFAE1A: $8080
+        or.l    d0,d0                                   ; 00AFAE1C: $8080
+        or.l    d0,d0                                   ; 00AFAE1E: $8080
+        or.l    d0,d0                                   ; 00AFAE20: $8080
+        or.l    d0,d0                                   ; 00AFAE22: $8080
+        or.l    d0,d0                                   ; 00AFAE24: $8080
+        or.l    d0,d0                                   ; 00AFAE26: $8080
+        or.l    d0,d0                                   ; 00AFAE28: $8080
+        or.l    d0,d0                                   ; 00AFAE2A: $8080
+        or.l    d0,d0                                   ; 00AFAE2C: $8080
+        or.l    d0,d0                                   ; 00AFAE2E: $8080
+        or.l    d0,d0                                   ; 00AFAE30: $8080
+        or.l    d0,d0                                   ; 00AFAE32: $8080
+        or.l    d0,d0                                   ; 00AFAE34: $8080
+        or.l    d0,d0                                   ; 00AFAE36: $8080
+        or.l    d0,d0                                   ; 00AFAE38: $8080
+        or.l    d0,d0                                   ; 00AFAE3A: $8080
+        or.l    d0,d0                                   ; 00AFAE3C: $8080
+        or.l    d0,d0                                   ; 00AFAE3E: $8080
+        or.l    d0,d0                                   ; 00AFAE40: $8080
+        or.l    d0,d0                                   ; 00AFAE42: $8080
+        or.l    d0,d0                                   ; 00AFAE44: $8080
+        or.l    d0,d0                                   ; 00AFAE46: $8080
+        or.l    d0,d0                                   ; 00AFAE48: $8080
+        or.l    d0,d0                                   ; 00AFAE4A: $8080
+        or.l    d0,d0                                   ; 00AFAE4C: $8080
+        or.l    d0,d0                                   ; 00AFAE4E: $8080
+        or.l    d0,d0                                   ; 00AFAE50: $8080
+        or.l    d0,d0                                   ; 00AFAE52: $8080
+        or.l    d0,d0                                   ; 00AFAE54: $8080
+        or.l    d0,d0                                   ; 00AFAE56: $8080
+        or.l    d0,d0                                   ; 00AFAE58: $8080
+        or.l    d0,d0                                   ; 00AFAE5A: $8080
+        or.l    d0,d0                                   ; 00AFAE5C: $8080
+        or.l    d0,d0                                   ; 00AFAE5E: $8080
+        or.l    d0,d0                                   ; 00AFAE60: $8080
+        or.l    d0,d0                                   ; 00AFAE62: $8080
+        or.l    d0,d0                                   ; 00AFAE64: $8080
+        or.l    d0,d0                                   ; 00AFAE66: $8080
+        or.l    d0,d0                                   ; 00AFAE68: $8080
+        or.l    d0,d0                                   ; 00AFAE6A: $8080
+        or.l    d0,d0                                   ; 00AFAE6C: $8080
+        or.l    d0,d0                                   ; 00AFAE6E: $8080
+        or.l    d0,d0                                   ; 00AFAE70: $8080
+        or.l    d0,d0                                   ; 00AFAE72: $8080
+        or.l    d0,d0                                   ; 00AFAE74: $8080
+        or.l    d0,d0                                   ; 00AFAE76: $8080
+        or.l    d0,d0                                   ; 00AFAE78: $8080
+        or.l    d0,d0                                   ; 00AFAE7A: $8080
+        or.l    d0,d0                                   ; 00AFAE7C: $8080
+        or.l    d0,d0                                   ; 00AFAE7E: $8080
+        or.l    d0,d0                                   ; 00AFAE80: $8080
+        or.l    d0,d0                                   ; 00AFAE82: $8080
+        or.l    d0,d0                                   ; 00AFAE84: $8080
+        or.l    d0,d0                                   ; 00AFAE86: $8080
+        or.l    d0,d0                                   ; 00AFAE88: $8080
+        or.l    d0,d0                                   ; 00AFAE8A: $8080
+        or.l    d0,d0                                   ; 00AFAE8C: $8080
+        or.l    d0,d0                                   ; 00AFAE8E: $8080
+        or.l    d0,d0                                   ; 00AFAE90: $8080
+        or.l    d0,d0                                   ; 00AFAE92: $8080
+        or.l    d0,d0                                   ; 00AFAE94: $8080
+        or.l    d0,d0                                   ; 00AFAE96: $8080
+        or.l    d0,d0                                   ; 00AFAE98: $8080
+        or.l    d0,d0                                   ; 00AFAE9A: $8080
+        or.l    d0,d0                                   ; 00AFAE9C: $8080
+        or.l    d0,d0                                   ; 00AFAE9E: $8080
+        or.l    d0,d0                                   ; 00AFAEA0: $8080
+        or.l    d0,d0                                   ; 00AFAEA2: $8080
+        or.l    d0,d0                                   ; 00AFAEA4: $8080
+        or.l    d0,d0                                   ; 00AFAEA6: $8080
+        or.l    d0,d0                                   ; 00AFAEA8: $8080
+        or.l    d0,d0                                   ; 00AFAEAA: $8080
+        or.l    d0,d0                                   ; 00AFAEAC: $8080
+        or.l    d0,d0                                   ; 00AFAEAE: $8080
+        or.l    d0,d0                                   ; 00AFAEB0: $8080
+        or.l    d0,d0                                   ; 00AFAEB2: $8080
+        or.l    d0,d0                                   ; 00AFAEB4: $8080
+        or.l    d0,d0                                   ; 00AFAEB6: $8080
+        or.l    d0,d0                                   ; 00AFAEB8: $8080
+        or.l    d0,d0                                   ; 00AFAEBA: $8080
+        or.l    d0,d0                                   ; 00AFAEBC: $8080
+        or.l    d0,d0                                   ; 00AFAEBE: $8080
+        or.l    d0,d0                                   ; 00AFAEC0: $8080
+        or.l    d0,d0                                   ; 00AFAEC2: $8080
+        or.l    d0,d0                                   ; 00AFAEC4: $8080
+        or.l    d0,d0                                   ; 00AFAEC6: $8080
+        or.l    d0,d0                                   ; 00AFAEC8: $8080
+        or.l    d0,d0                                   ; 00AFAECA: $8080
+        or.l    d0,d0                                   ; 00AFAECC: $8080
+        or.l    d0,d0                                   ; 00AFAECE: $8080
+        or.l    d0,d0                                   ; 00AFAED0: $8080
+        or.l    d0,d0                                   ; 00AFAED2: $8080
+        or.l    d0,d0                                   ; 00AFAED4: $8080
+        or.l    d0,d0                                   ; 00AFAED6: $8080
+        or.l    d0,d0                                   ; 00AFAED8: $8080
+        or.l    d0,d0                                   ; 00AFAEDA: $8080
+        or.l    d0,d0                                   ; 00AFAEDC: $8080
+        or.l    d0,d0                                   ; 00AFAEDE: $8080
+        or.l    d0,d0                                   ; 00AFAEE0: $8080
+        or.l    d0,d0                                   ; 00AFAEE2: $8080
+        or.l    d0,d0                                   ; 00AFAEE4: $8080
+        or.l    d0,d0                                   ; 00AFAEE6: $8080
+        or.l    d0,d0                                   ; 00AFAEE8: $8080
+        or.l    d0,d0                                   ; 00AFAEEA: $8080
+        or.l    d0,d0                                   ; 00AFAEEC: $8080
+        or.l    d0,d0                                   ; 00AFAEEE: $8080
+        or.l    d0,d0                                   ; 00AFAEF0: $8080
+        or.l    d0,d0                                   ; 00AFAEF2: $8080
+        or.l    d0,d0                                   ; 00AFAEF4: $8080
+        or.l    d0,d0                                   ; 00AFAEF6: $8080
+        or.l    d0,d0                                   ; 00AFAEF8: $8080
+        or.l    d0,d0                                   ; 00AFAEFA: $8080
+        or.l    d0,d0                                   ; 00AFAEFC: $8080
+        or.l    d0,d0                                   ; 00AFAEFE: $8080
+        or.l    d0,d0                                   ; 00AFAF00: $8080
+        or.l    d0,d0                                   ; 00AFAF02: $8080
+        or.l    d0,d0                                   ; 00AFAF04: $8080
+        or.l    d0,d0                                   ; 00AFAF06: $8080
+        or.l    d0,d0                                   ; 00AFAF08: $8080
+        or.l    d0,d0                                   ; 00AFAF0A: $8080
+        or.l    d0,d0                                   ; 00AFAF0C: $8080
+        or.l    d0,d0                                   ; 00AFAF0E: $8080
+        or.l    d0,d0                                   ; 00AFAF10: $8080
+        or.l    d0,d0                                   ; 00AFAF12: $8080
+        or.l    d0,d0                                   ; 00AFAF14: $8080
+        or.l    d0,d0                                   ; 00AFAF16: $8080
+        or.l    d0,d0                                   ; 00AFAF18: $8080
+        or.l    d0,d0                                   ; 00AFAF1A: $8080
+        or.l    d0,d0                                   ; 00AFAF1C: $8080
+        or.l    d0,d0                                   ; 00AFAF1E: $8080
+        or.l    d0,d0                                   ; 00AFAF20: $8080
+        or.l    d0,d0                                   ; 00AFAF22: $8080
+        or.l    d0,d0                                   ; 00AFAF24: $8080
+        or.l    d0,d0                                   ; 00AFAF26: $8080
+        or.l    d0,d0                                   ; 00AFAF28: $8080
+        or.l    d0,d0                                   ; 00AFAF2A: $8080
+        or.l    d0,d0                                   ; 00AFAF2C: $8080
+        or.l    d0,d0                                   ; 00AFAF2E: $8080
+        or.l    d0,d0                                   ; 00AFAF30: $8080
+        or.l    d0,d0                                   ; 00AFAF32: $8080
+        or.l    d0,d0                                   ; 00AFAF34: $8080
+        or.l    d0,d0                                   ; 00AFAF36: $8080
+        or.l    d0,d0                                   ; 00AFAF38: $8080
+        or.l    d0,d0                                   ; 00AFAF3A: $8080
+        or.l    d0,d0                                   ; 00AFAF3C: $8080
+        or.l    d0,d0                                   ; 00AFAF3E: $8080
+        or.l    d0,d0                                   ; 00AFAF40: $8080
+        or.l    d0,d0                                   ; 00AFAF42: $8080
+        or.l    d0,d0                                   ; 00AFAF44: $8080
+        or.l    d0,d0                                   ; 00AFAF46: $8080
+        or.l    d0,d0                                   ; 00AFAF48: $8080
+        or.l    d0,d0                                   ; 00AFAF4A: $8080
+        or.l    d0,d0                                   ; 00AFAF4C: $8080
+        or.l    d0,d0                                   ; 00AFAF4E: $8080
+        or.l    d0,d0                                   ; 00AFAF50: $8080
+        or.l    d0,d0                                   ; 00AFAF52: $8080
+        or.l    d0,d0                                   ; 00AFAF54: $8080
+        or.l    d0,d0                                   ; 00AFAF56: $8080
+        or.l    d0,d0                                   ; 00AFAF58: $8080
+        or.l    d0,d0                                   ; 00AFAF5A: $8080
+        or.l    d0,d0                                   ; 00AFAF5C: $8080
+        or.l    d0,d0                                   ; 00AFAF5E: $8080
+        or.l    d0,d0                                   ; 00AFAF60: $8080
+        or.l    d0,d0                                   ; 00AFAF62: $8080
+        or.l    d0,d0                                   ; 00AFAF64: $8080
+        or.l    d0,d0                                   ; 00AFAF66: $8080
+        or.l    d0,d0                                   ; 00AFAF68: $8080
+        or.l    d0,d0                                   ; 00AFAF6A: $8080
+        or.l    d0,d0                                   ; 00AFAF6C: $8080
+        or.l    d0,d0                                   ; 00AFAF6E: $8080
+        or.l    d0,d0                                   ; 00AFAF70: $8080
+        or.l    d0,d0                                   ; 00AFAF72: $8080
+        or.l    d0,d0                                   ; 00AFAF74: $8080
+        or.l    d0,d0                                   ; 00AFAF76: $8080
+        or.l    d0,d0                                   ; 00AFAF78: $8080
+        or.l    d0,d0                                   ; 00AFAF7A: $8080
+        or.l    d0,d0                                   ; 00AFAF7C: $8080
+        or.l    d0,d0                                   ; 00AFAF7E: $8080
+        or.l    d0,d0                                   ; 00AFAF80: $8080
+        or.l    d0,d0                                   ; 00AFAF82: $8080
+        or.l    d0,d0                                   ; 00AFAF84: $8080
+        or.l    d0,d0                                   ; 00AFAF86: $8080
+        or.l    d0,d0                                   ; 00AFAF88: $8080
+        or.l    d0,d0                                   ; 00AFAF8A: $8080
+        or.l    d0,d0                                   ; 00AFAF8C: $8080
+        or.l    d0,d0                                   ; 00AFAF8E: $8080
+        or.l    d0,d0                                   ; 00AFAF90: $8080
+        or.l    d0,d0                                   ; 00AFAF92: $8080
+        or.l    d0,d0                                   ; 00AFAF94: $8080
+        or.l    d0,d0                                   ; 00AFAF96: $8080
+        or.l    d0,d0                                   ; 00AFAF98: $8080
+        or.l    d0,d0                                   ; 00AFAF9A: $8080
+        or.l    d0,d0                                   ; 00AFAF9C: $8080
+        or.l    d0,d0                                   ; 00AFAF9E: $8080
+        or.l    d0,d0                                   ; 00AFAFA0: $8080
+        or.l    d0,d0                                   ; 00AFAFA2: $8080
+        or.l    d0,d0                                   ; 00AFAFA4: $8080
+        or.l    d0,d0                                   ; 00AFAFA6: $8080
+        or.l    d0,d0                                   ; 00AFAFA8: $8080
+        or.l    d0,d0                                   ; 00AFAFAA: $8080
+        or.l    d0,d0                                   ; 00AFAFAC: $8080
+        or.l    d0,d0                                   ; 00AFAFAE: $8080
+        or.l    d0,d0                                   ; 00AFAFB0: $8080
+        or.l    d0,d0                                   ; 00AFAFB2: $8080
+        or.l    d0,d0                                   ; 00AFAFB4: $8080
+        or.l    d0,d0                                   ; 00AFAFB6: $8080
+        or.l    d0,d0                                   ; 00AFAFB8: $8080
+        or.l    d0,d0                                   ; 00AFAFBA: $8080
+        or.l    d0,d0                                   ; 00AFAFBC: $8080
+        or.l    d0,d0                                   ; 00AFAFBE: $8080
+        or.l    d0,d0                                   ; 00AFAFC0: $8080
+        or.l    d0,d0                                   ; 00AFAFC2: $8080
+        or.l    d0,d0                                   ; 00AFAFC4: $8080
+        or.l    d0,d0                                   ; 00AFAFC6: $8080
+        or.l    d0,d0                                   ; 00AFAFC8: $8080
+        or.l    d0,d0                                   ; 00AFAFCA: $8080
+        or.l    d0,d0                                   ; 00AFAFCC: $8080
+        or.l    d0,d0                                   ; 00AFAFCE: $8080
+        or.l    d0,d0                                   ; 00AFAFD0: $8080
+        or.l    d0,d0                                   ; 00AFAFD2: $8080
+        or.l    d0,d0                                   ; 00AFAFD4: $8080
+        or.l    d0,d0                                   ; 00AFAFD6: $8080
+        or.l    d0,d0                                   ; 00AFAFD8: $8080
+        or.l    d0,d0                                   ; 00AFAFDA: $8080
+        or.l    d0,d0                                   ; 00AFAFDC: $8080
+        or.l    d0,d0                                   ; 00AFAFDE: $8080
+        or.l    d0,d0                                   ; 00AFAFE0: $8080
+        or.l    d0,d0                                   ; 00AFAFE2: $8080
+        or.l    d0,d0                                   ; 00AFAFE4: $8080
+        or.l    d0,d0                                   ; 00AFAFE6: $8080
+        or.l    d0,d0                                   ; 00AFAFE8: $8080
+        or.l    d0,d0                                   ; 00AFAFEA: $8080
+        or.l    d0,d0                                   ; 00AFAFEC: $8080
+        or.l    d0,d0                                   ; 00AFAFEE: $8080
+        or.l    d0,d0                                   ; 00AFAFF0: $8080
+        or.l    d0,d0                                   ; 00AFAFF2: $8080
+        or.l    d0,d0                                   ; 00AFAFF4: $8080
+        or.l    d0,d0                                   ; 00AFAFF6: $8080
+        or.l    d0,d0                                   ; 00AFAFF8: $8080
+        or.l    d0,d0                                   ; 00AFAFFA: $8080
+        or.l    d0,d0                                   ; 00AFAFFC: $8080
+        or.l    d0,d0                                   ; 00AFAFFE: $8080
+        or.l    d0,d0                                   ; 00AFB000: $8080
+        or.l    d0,d0                                   ; 00AFB002: $8080
+        or.l    d0,d0                                   ; 00AFB004: $8080
+        or.l    d0,d0                                   ; 00AFB006: $8080
+        or.l    d0,d0                                   ; 00AFB008: $8080
+        or.l    d0,d0                                   ; 00AFB00A: $8080
+        or.l    d0,d0                                   ; 00AFB00C: $8080
+        or.l    d0,d0                                   ; 00AFB00E: $8080
+        or.l    d0,d0                                   ; 00AFB010: $8080
+        or.l    d0,d0                                   ; 00AFB012: $8080
+        or.l    d0,d0                                   ; 00AFB014: $8080
+        or.l    d0,d0                                   ; 00AFB016: $8080
+        or.l    d0,d0                                   ; 00AFB018: $8080
+        or.l    d0,d0                                   ; 00AFB01A: $8080
+        or.l    d0,d0                                   ; 00AFB01C: $8080
+        or.l    d0,d0                                   ; 00AFB01E: $8080
+        or.l    d0,d0                                   ; 00AFB020: $8080
+        or.l    d0,d0                                   ; 00AFB022: $8080
+        or.l    d0,d0                                   ; 00AFB024: $8080
+        or.l    d0,d0                                   ; 00AFB026: $8080
+        or.l    d0,d0                                   ; 00AFB028: $8080
+        or.l    d0,d0                                   ; 00AFB02A: $8080
+        or.l    d0,d0                                   ; 00AFB02C: $8080
+        or.l    d0,d0                                   ; 00AFB02E: $8080
+        or.l    d0,d0                                   ; 00AFB030: $8080
+        or.l    d0,d0                                   ; 00AFB032: $8080
+        or.l    d0,d0                                   ; 00AFB034: $8080
+        or.l    d0,d0                                   ; 00AFB036: $8080
+        or.l    d0,d0                                   ; 00AFB038: $8080
+        or.l    d0,d0                                   ; 00AFB03A: $8080
+        or.l    d0,d0                                   ; 00AFB03C: $8080
+        or.l    d0,d0                                   ; 00AFB03E: $8080
+        or.l    d0,d0                                   ; 00AFB040: $8080
+        or.l    d0,d0                                   ; 00AFB042: $8080
+        or.l    d0,d0                                   ; 00AFB044: $8080
+        or.l    d0,d0                                   ; 00AFB046: $8080
+        or.l    d0,d0                                   ; 00AFB048: $8080
+        or.l    d0,d0                                   ; 00AFB04A: $8080
+        or.l    d0,d0                                   ; 00AFB04C: $8080
+        or.l    d0,d0                                   ; 00AFB04E: $8080
+        or.l    d0,d0                                   ; 00AFB050: $8080
+        or.l    d0,d0                                   ; 00AFB052: $8080
+        or.l    d0,d0                                   ; 00AFB054: $8080
+        or.l    d0,d0                                   ; 00AFB056: $8080
+        or.l    d0,d0                                   ; 00AFB058: $8080
+        or.l    d0,d0                                   ; 00AFB05A: $8080
+        or.l    d0,d0                                   ; 00AFB05C: $8080
+        or.l    d0,d0                                   ; 00AFB05E: $8080
+        or.l    d0,d0                                   ; 00AFB060: $8080
+        or.l    d0,d0                                   ; 00AFB062: $8080
+        or.l    d0,d0                                   ; 00AFB064: $8080
+        or.l    d0,d0                                   ; 00AFB066: $8080
+        or.l    d0,d0                                   ; 00AFB068: $8080
+        or.l    d0,d0                                   ; 00AFB06A: $8080
+        or.l    d0,d0                                   ; 00AFB06C: $8080
+        or.l    d0,d0                                   ; 00AFB06E: $8080
+        or.l    d0,d0                                   ; 00AFB070: $8080
+        or.l    d0,d0                                   ; 00AFB072: $8080
+        or.l    d0,d0                                   ; 00AFB074: $8080
+        or.l    d0,d0                                   ; 00AFB076: $8080
+        or.l    d0,d0                                   ; 00AFB078: $8080
+        or.l    d0,d0                                   ; 00AFB07A: $8080
+        or.l    d0,d0                                   ; 00AFB07C: $8080
+        or.l    d0,d0                                   ; 00AFB07E: $8080
+        or.l    d0,d0                                   ; 00AFB080: $8080
+        or.l    d0,d0                                   ; 00AFB082: $8080
+        or.l    d0,d0                                   ; 00AFB084: $8080
+        or.l    d0,d0                                   ; 00AFB086: $8080
+        or.l    d0,d0                                   ; 00AFB088: $8080
+        or.l    d0,d0                                   ; 00AFB08A: $8080
+        or.l    d0,d0                                   ; 00AFB08C: $8080
+        or.l    d0,d0                                   ; 00AFB08E: $8080
+        or.l    d0,d0                                   ; 00AFB090: $8080
+        or.l    d0,d0                                   ; 00AFB092: $8080
+        or.l    d0,d0                                   ; 00AFB094: $8080
+        or.l    d0,d0                                   ; 00AFB096: $8080
+        or.l    d0,d0                                   ; 00AFB098: $8080
+        or.l    d0,d0                                   ; 00AFB09A: $8080
+        or.l    d0,d0                                   ; 00AFB09C: $8080
+        or.l    d0,d0                                   ; 00AFB09E: $8080
+        or.l    d0,d0                                   ; 00AFB0A0: $8080
+        or.l    d0,d0                                   ; 00AFB0A2: $8080
+        or.l    d0,d0                                   ; 00AFB0A4: $8080
+        or.l    d0,d0                                   ; 00AFB0A6: $8080
+        or.l    d0,d0                                   ; 00AFB0A8: $8080
+        or.l    d0,d0                                   ; 00AFB0AA: $8080
+        or.l    d0,d0                                   ; 00AFB0AC: $8080
+        or.l    d0,d0                                   ; 00AFB0AE: $8080
+        or.l    d0,d0                                   ; 00AFB0B0: $8080
+        or.l    d0,d0                                   ; 00AFB0B2: $8080
+        or.l    d0,d0                                   ; 00AFB0B4: $8080
+        or.l    d0,d0                                   ; 00AFB0B6: $8080
+        or.l    d0,d0                                   ; 00AFB0B8: $8080
+        or.l    d0,d0                                   ; 00AFB0BA: $8080
+        or.l    d0,d0                                   ; 00AFB0BC: $8080
+        or.l    d0,d0                                   ; 00AFB0BE: $8080
+        or.l    d0,d0                                   ; 00AFB0C0: $8080
+        or.l    d0,d0                                   ; 00AFB0C2: $8080
+        or.l    d0,d0                                   ; 00AFB0C4: $8080
+        or.l    d0,d0                                   ; 00AFB0C6: $8080
+        or.l    d0,d0                                   ; 00AFB0C8: $8080
+        or.l    d0,d0                                   ; 00AFB0CA: $8080
+        or.l    d0,d0                                   ; 00AFB0CC: $8080
+        or.l    d0,d0                                   ; 00AFB0CE: $8080
+        or.l    d0,d0                                   ; 00AFB0D0: $8080
+        or.l    d0,d0                                   ; 00AFB0D2: $8080
+        or.l    d0,d0                                   ; 00AFB0D4: $8080
+        or.l    d0,d0                                   ; 00AFB0D6: $8080
+        or.l    d0,d0                                   ; 00AFB0D8: $8080
+        or.l    d0,d0                                   ; 00AFB0DA: $8080
+        or.l    d0,d0                                   ; 00AFB0DC: $8080
+        or.l    d0,d0                                   ; 00AFB0DE: $8080
+        or.l    d0,d0                                   ; 00AFB0E0: $8080
+        or.l    d0,d0                                   ; 00AFB0E2: $8080
+        or.l    d0,d0                                   ; 00AFB0E4: $8080
+        or.l    d0,d0                                   ; 00AFB0E6: $8080
+        or.l    d0,d0                                   ; 00AFB0E8: $8080
+        or.l    d0,d0                                   ; 00AFB0EA: $8080
+        or.l    d0,d0                                   ; 00AFB0EC: $8080
+        or.l    d0,d0                                   ; 00AFB0EE: $8080
+        or.l    d0,d0                                   ; 00AFB0F0: $8080
+        or.l    d0,d0                                   ; 00AFB0F2: $8080
+        or.l    d0,d0                                   ; 00AFB0F4: $8080
+        or.l    d0,d0                                   ; 00AFB0F6: $8080
+        or.l    d0,d0                                   ; 00AFB0F8: $8080
+        or.l    d0,d0                                   ; 00AFB0FA: $8080
+        or.l    d0,d0                                   ; 00AFB0FC: $8080
+        or.l    d0,d0                                   ; 00AFB0FE: $8080
+        or.l    d0,d0                                   ; 00AFB100: $8080
+        or.l    d0,d0                                   ; 00AFB102: $8080
+        or.l    d0,d0                                   ; 00AFB104: $8080
+        or.l    d0,d0                                   ; 00AFB106: $8080
+        or.l    d0,d0                                   ; 00AFB108: $8080
+        or.l    d0,d0                                   ; 00AFB10A: $8080
+        or.l    d0,d0                                   ; 00AFB10C: $8080
+        or.l    d0,d0                                   ; 00AFB10E: $8080
+        or.l    d0,d0                                   ; 00AFB110: $8080
+        or.l    d0,d0                                   ; 00AFB112: $8080
+        or.l    d0,d0                                   ; 00AFB114: $8080
+        or.l    d0,d0                                   ; 00AFB116: $8080
+        or.l    d0,d0                                   ; 00AFB118: $8080
+        or.l    d0,d0                                   ; 00AFB11A: $8080
+        or.l    d0,d0                                   ; 00AFB11C: $8080
+        or.l    d0,d0                                   ; 00AFB11E: $8080
+        or.l    d0,d0                                   ; 00AFB120: $8080
+        or.l    d0,d0                                   ; 00AFB122: $8080
+        or.l    d0,d0                                   ; 00AFB124: $8080
+        or.l    d0,d0                                   ; 00AFB126: $8080
+        or.l    d0,d0                                   ; 00AFB128: $8080
+        or.l    d0,d0                                   ; 00AFB12A: $8080
+        or.l    d0,d0                                   ; 00AFB12C: $8080
+        or.l    d0,d0                                   ; 00AFB12E: $8080
+        or.l    d0,d0                                   ; 00AFB130: $8080
+        or.l    d0,d0                                   ; 00AFB132: $8080
+        or.l    d0,d0                                   ; 00AFB134: $8080
+        or.l    d0,d0                                   ; 00AFB136: $8080
+        or.l    d0,d0                                   ; 00AFB138: $8080
+        or.l    d0,d0                                   ; 00AFB13A: $8080
+        or.l    d0,d0                                   ; 00AFB13C: $8080
+        or.l    d0,d0                                   ; 00AFB13E: $8080
+        or.l    d0,d0                                   ; 00AFB140: $8080
+        or.l    d0,d0                                   ; 00AFB142: $8080
+        or.l    d0,d0                                   ; 00AFB144: $8080
+        or.l    d0,d0                                   ; 00AFB146: $8080
+        or.l    d0,d0                                   ; 00AFB148: $8080
+        or.l    d0,d0                                   ; 00AFB14A: $8080
+        or.l    d0,d0                                   ; 00AFB14C: $8080
+        or.l    d0,d0                                   ; 00AFB14E: $8080
+        or.l    d0,d0                                   ; 00AFB150: $8080
+        or.l    d0,d0                                   ; 00AFB152: $8080
+        or.l    d0,d0                                   ; 00AFB154: $8080
+        or.l    d0,d0                                   ; 00AFB156: $8080
+        or.l    d0,d0                                   ; 00AFB158: $8080
+        or.l    d0,d0                                   ; 00AFB15A: $8080
+        or.l    d0,d0                                   ; 00AFB15C: $8080
+        or.l    d0,d0                                   ; 00AFB15E: $8080
+        or.l    d0,d0                                   ; 00AFB160: $8080
+        or.l    d0,d0                                   ; 00AFB162: $8080
+        or.l    d0,d0                                   ; 00AFB164: $8080
+        or.l    d0,d0                                   ; 00AFB166: $8080
+        or.l    d0,d0                                   ; 00AFB168: $8080
+        or.l    d0,d0                                   ; 00AFB16A: $8080
+        or.l    d0,d0                                   ; 00AFB16C: $8080
+        or.l    d0,d0                                   ; 00AFB16E: $8080
+        or.l    d0,d0                                   ; 00AFB170: $8080
+        or.l    d0,d0                                   ; 00AFB172: $8080
+        or.l    d0,d0                                   ; 00AFB174: $8080
+        or.l    d0,d0                                   ; 00AFB176: $8080
+        or.l    d0,d0                                   ; 00AFB178: $8080
+        or.l    d0,d0                                   ; 00AFB17A: $8080
+        or.l    d0,d0                                   ; 00AFB17C: $8080
+        or.l    d0,d0                                   ; 00AFB17E: $8080
+        or.l    d0,d0                                   ; 00AFB180: $8080
+        or.l    d0,d0                                   ; 00AFB182: $8080
+        or.l    d0,d0                                   ; 00AFB184: $8080
+        or.l    d0,d0                                   ; 00AFB186: $8080
+        or.l    d0,d0                                   ; 00AFB188: $8080
+        or.l    d0,d0                                   ; 00AFB18A: $8080
+        or.l    d0,d0                                   ; 00AFB18C: $8080
+        or.l    d0,d0                                   ; 00AFB18E: $8080
+        or.l    d0,d0                                   ; 00AFB190: $8080
+        or.l    d0,d0                                   ; 00AFB192: $8080
+        or.l    d0,d0                                   ; 00AFB194: $8080
+        or.l    d0,d0                                   ; 00AFB196: $8080
+        or.l    d0,d0                                   ; 00AFB198: $8080
+        or.l    d0,d0                                   ; 00AFB19A: $8080
+        or.l    d0,d0                                   ; 00AFB19C: $8080
+        or.l    d0,d0                                   ; 00AFB19E: $8080
+        or.l    d0,d0                                   ; 00AFB1A0: $8080
+        or.l    d0,d0                                   ; 00AFB1A2: $8080
+        or.l    d0,d0                                   ; 00AFB1A4: $8080
+        or.l    d0,d0                                   ; 00AFB1A6: $8080
+        or.l    d0,d0                                   ; 00AFB1A8: $8080
+        or.l    d0,d0                                   ; 00AFB1AA: $8080
+        or.l    d0,d0                                   ; 00AFB1AC: $8080
+        or.l    d0,d0                                   ; 00AFB1AE: $8080
+        or.l    d0,d0                                   ; 00AFB1B0: $8080
+        or.l    d0,d0                                   ; 00AFB1B2: $8080
+        or.l    d0,d0                                   ; 00AFB1B4: $8080
+        or.l    d0,d0                                   ; 00AFB1B6: $8080
+        or.l    d0,d0                                   ; 00AFB1B8: $8080
+        or.l    d0,d0                                   ; 00AFB1BA: $8080
+        or.l    d0,d0                                   ; 00AFB1BC: $8080
+        or.l    d0,d0                                   ; 00AFB1BE: $8080
+        or.l    d0,d0                                   ; 00AFB1C0: $8080
+        or.l    d0,d0                                   ; 00AFB1C2: $8080
+        or.l    d0,d0                                   ; 00AFB1C4: $8080
+        or.l    d0,d0                                   ; 00AFB1C6: $8080
+        or.l    d0,d0                                   ; 00AFB1C8: $8080
+        or.l    d0,d0                                   ; 00AFB1CA: $8080
+        or.l    d0,d0                                   ; 00AFB1CC: $8080
+        or.l    d0,d0                                   ; 00AFB1CE: $8080
+        or.l    d0,d0                                   ; 00AFB1D0: $8080
+        or.l    d0,d0                                   ; 00AFB1D2: $8080
+        or.l    d0,d0                                   ; 00AFB1D4: $8080
+        or.l    d0,d0                                   ; 00AFB1D6: $8080
+        or.l    d0,d0                                   ; 00AFB1D8: $8080
+        or.l    d0,d0                                   ; 00AFB1DA: $8080
+        or.l    d0,d0                                   ; 00AFB1DC: $8080
+        or.l    d0,d0                                   ; 00AFB1DE: $8080
+        or.l    d0,d0                                   ; 00AFB1E0: $8080
+        or.l    d0,d0                                   ; 00AFB1E2: $8080
+        or.l    d0,d0                                   ; 00AFB1E4: $8080
+        or.l    d0,d0                                   ; 00AFB1E6: $8080
+        or.l    d0,d0                                   ; 00AFB1E8: $8080
+        or.l    d0,d0                                   ; 00AFB1EA: $8080
+        or.l    d0,d0                                   ; 00AFB1EC: $8080
+        or.l    d0,d0                                   ; 00AFB1EE: $8080
+        or.l    d0,d0                                   ; 00AFB1F0: $8080
+        or.l    d0,d0                                   ; 00AFB1F2: $8080
+        or.l    d0,d0                                   ; 00AFB1F4: $8080
+        or.l    d0,d0                                   ; 00AFB1F6: $8080
+        or.l    d0,d0                                   ; 00AFB1F8: $8080
+        or.l    d0,d0                                   ; 00AFB1FA: $8080
+        or.l    d0,d0                                   ; 00AFB1FC: $8080
+        or.l    d0,d0                                   ; 00AFB1FE: $8080
+        or.l    d0,d0                                   ; 00AFB200: $8080
+        or.l    d0,d0                                   ; 00AFB202: $8080
+        or.l    d0,d0                                   ; 00AFB204: $8080
+        or.l    d0,d0                                   ; 00AFB206: $8080
+        or.l    d0,d0                                   ; 00AFB208: $8080
+        or.l    d0,d0                                   ; 00AFB20A: $8080
+        or.l    d0,d0                                   ; 00AFB20C: $8080
+        or.l    d0,d0                                   ; 00AFB20E: $8080
+        or.l    d0,d0                                   ; 00AFB210: $8080
+        or.l    d0,d0                                   ; 00AFB212: $8080
+        or.l    d0,d0                                   ; 00AFB214: $8080
+        or.l    d0,d0                                   ; 00AFB216: $8080
+        or.l    d0,d0                                   ; 00AFB218: $8080
+        or.l    d0,d0                                   ; 00AFB21A: $8080
+        or.l    d0,d0                                   ; 00AFB21C: $8080
+        or.l    d0,d0                                   ; 00AFB21E: $8080
+        or.l    d0,d0                                   ; 00AFB220: $8080
+        or.l    d0,d0                                   ; 00AFB222: $8080
+        or.l    d0,d0                                   ; 00AFB224: $8080
+        or.l    d0,d0                                   ; 00AFB226: $8080
+        or.l    d0,d0                                   ; 00AFB228: $8080
+        or.l    d0,d0                                   ; 00AFB22A: $8080
+        or.l    d0,d0                                   ; 00AFB22C: $8080
+        or.l    d0,d0                                   ; 00AFB22E: $8080
+        or.l    d0,d0                                   ; 00AFB230: $8080
+        or.l    d0,d0                                   ; 00AFB232: $8080
+        or.l    d0,d0                                   ; 00AFB234: $8080
+        or.l    d0,d0                                   ; 00AFB236: $8080
+        or.l    d0,d0                                   ; 00AFB238: $8080
+        or.l    d0,d0                                   ; 00AFB23A: $8080
+        or.l    d0,d0                                   ; 00AFB23C: $8080
+        or.l    d0,d0                                   ; 00AFB23E: $8080
+        or.l    d0,d0                                   ; 00AFB240: $8080
+        or.l    d0,d0                                   ; 00AFB242: $8080
+        or.l    d0,d0                                   ; 00AFB244: $8080
+        or.l    d0,d0                                   ; 00AFB246: $8080
+        or.l    d0,d0                                   ; 00AFB248: $8080
+        or.l    d0,d0                                   ; 00AFB24A: $8080
+        or.l    d0,d0                                   ; 00AFB24C: $8080
+        or.l    d0,d0                                   ; 00AFB24E: $8080
+        or.l    d0,d0                                   ; 00AFB250: $8080
+        or.l    d0,d0                                   ; 00AFB252: $8080
+        or.l    d0,d0                                   ; 00AFB254: $8080
+        or.l    d0,d0                                   ; 00AFB256: $8080
+        or.l    d0,d0                                   ; 00AFB258: $8080
+        or.l    d0,d0                                   ; 00AFB25A: $8080
+        or.l    d0,d0                                   ; 00AFB25C: $8080
+        or.l    d0,d0                                   ; 00AFB25E: $8080
+        or.l    d0,d0                                   ; 00AFB260: $8080
+        or.l    d0,d0                                   ; 00AFB262: $8080
+        or.l    d0,d0                                   ; 00AFB264: $8080
+        or.l    d0,d0                                   ; 00AFB266: $8080
+        or.l    d0,d0                                   ; 00AFB268: $8080
+        or.l    d0,d0                                   ; 00AFB26A: $8080
+        or.l    d0,d0                                   ; 00AFB26C: $8080
+        or.l    d0,d0                                   ; 00AFB26E: $8080
+        or.l    d0,d0                                   ; 00AFB270: $8080
+        or.l    d0,d0                                   ; 00AFB272: $8080
+        or.l    d0,d0                                   ; 00AFB274: $8080
+        or.l    d0,d0                                   ; 00AFB276: $8080
+        or.l    d0,d0                                   ; 00AFB278: $8080
+        or.l    d0,d0                                   ; 00AFB27A: $8080
+        or.l    d0,d0                                   ; 00AFB27C: $8080
+        or.l    d0,d0                                   ; 00AFB27E: $8080
+        or.l    d0,d0                                   ; 00AFB280: $8080
+        or.l    d0,d0                                   ; 00AFB282: $8080
+        or.l    d0,d0                                   ; 00AFB284: $8080
+        or.l    d0,d0                                   ; 00AFB286: $8080
+        or.l    d0,d0                                   ; 00AFB288: $8080
+        or.l    d0,d0                                   ; 00AFB28A: $8080
+        or.l    d0,d0                                   ; 00AFB28C: $8080
+        or.l    d0,d0                                   ; 00AFB28E: $8080
+        or.l    d0,d0                                   ; 00AFB290: $8080
+        or.l    d0,d0                                   ; 00AFB292: $8080
+        or.l    d0,d0                                   ; 00AFB294: $8080
+        or.l    d0,d0                                   ; 00AFB296: $8080
+        or.l    d0,d0                                   ; 00AFB298: $8080
+        or.l    d0,d0                                   ; 00AFB29A: $8080
+        or.l    d0,d0                                   ; 00AFB29C: $8080
+        or.l    d0,d0                                   ; 00AFB29E: $8080
+        or.l    d0,d0                                   ; 00AFB2A0: $8080
+        or.l    d0,d0                                   ; 00AFB2A2: $8080
+        or.l    d0,d0                                   ; 00AFB2A4: $8080
+        or.l    d0,d0                                   ; 00AFB2A6: $8080
+        or.l    d0,d0                                   ; 00AFB2A8: $8080
+        or.l    d0,d0                                   ; 00AFB2AA: $8080
+        or.l    d0,d0                                   ; 00AFB2AC: $8080
+        or.l    d0,d0                                   ; 00AFB2AE: $8080
+        or.l    d0,d0                                   ; 00AFB2B0: $8080
+        or.l    d0,d0                                   ; 00AFB2B2: $8080
+        or.l    d0,d0                                   ; 00AFB2B4: $8080
+        or.l    d0,d0                                   ; 00AFB2B6: $8080
+        or.l    d0,d0                                   ; 00AFB2B8: $8080
+        or.l    d0,d0                                   ; 00AFB2BA: $8080
+        or.l    d0,d0                                   ; 00AFB2BC: $8080
+        or.l    d0,d0                                   ; 00AFB2BE: $8080
+        or.l    d0,d0                                   ; 00AFB2C0: $8080
+        or.l    d0,d0                                   ; 00AFB2C2: $8080
+        or.l    d0,d0                                   ; 00AFB2C4: $8080
+        or.l    d0,d0                                   ; 00AFB2C6: $8080
+        or.l    d0,d0                                   ; 00AFB2C8: $8080
+        or.l    d0,d0                                   ; 00AFB2CA: $8080
+        or.l    d0,d0                                   ; 00AFB2CC: $8080
+        or.l    d0,d0                                   ; 00AFB2CE: $8080
+        or.l    d0,d0                                   ; 00AFB2D0: $8080
+        or.l    d0,d0                                   ; 00AFB2D2: $8080
+        or.l    d0,d0                                   ; 00AFB2D4: $8080
+        or.l    d0,d0                                   ; 00AFB2D6: $8080
+        or.l    d0,d0                                   ; 00AFB2D8: $8080
+        or.l    d0,d0                                   ; 00AFB2DA: $8080
+        or.l    d0,d0                                   ; 00AFB2DC: $8080
+        or.l    d0,d0                                   ; 00AFB2DE: $8080
+        or.l    d0,d0                                   ; 00AFB2E0: $8080
+        or.l    d0,d0                                   ; 00AFB2E2: $8080
+        or.l    d0,d0                                   ; 00AFB2E4: $8080
+        or.l    d0,d0                                   ; 00AFB2E6: $8080
+        or.l    d0,d0                                   ; 00AFB2E8: $8080
+        or.l    d0,d0                                   ; 00AFB2EA: $8080
+        or.l    d0,d0                                   ; 00AFB2EC: $8080
+        or.l    d0,d0                                   ; 00AFB2EE: $8080
+        or.l    d0,d0                                   ; 00AFB2F0: $8080
+        or.l    d0,d0                                   ; 00AFB2F2: $8080
+        or.l    d0,d0                                   ; 00AFB2F4: $8080
+        or.l    d0,d0                                   ; 00AFB2F6: $8080
+        or.l    d0,d0                                   ; 00AFB2F8: $8080
+        or.l    d0,d0                                   ; 00AFB2FA: $8080
+        or.l    d0,d0                                   ; 00AFB2FC: $8080
+        or.l    d0,d0                                   ; 00AFB2FE: $8080
+        or.l    d0,d0                                   ; 00AFB300: $8080
+        or.l    d0,d0                                   ; 00AFB302: $8080
+        or.l    d0,d0                                   ; 00AFB304: $8080
+        or.l    d0,d0                                   ; 00AFB306: $8080
+        or.l    d0,d0                                   ; 00AFB308: $8080
+        or.l    d0,d0                                   ; 00AFB30A: $8080
+        or.l    d0,d0                                   ; 00AFB30C: $8080
+        or.l    d0,d0                                   ; 00AFB30E: $8080
+        or.l    d0,d0                                   ; 00AFB310: $8080
+        or.l    d0,d0                                   ; 00AFB312: $8080
+        or.l    d0,d0                                   ; 00AFB314: $8080
+        or.l    d0,d0                                   ; 00AFB316: $8080
+        or.l    d0,d0                                   ; 00AFB318: $8080
+        or.l    d0,d0                                   ; 00AFB31A: $8080
+        or.l    d0,d0                                   ; 00AFB31C: $8080
+        or.l    d0,d0                                   ; 00AFB31E: $8080
+        or.l    d0,d0                                   ; 00AFB320: $8080
+        or.l    d0,d0                                   ; 00AFB322: $8080
+        or.l    d0,d0                                   ; 00AFB324: $8080
+        or.l    d0,d0                                   ; 00AFB326: $8080
+        or.l    d0,d0                                   ; 00AFB328: $8080
+        or.l    d0,d0                                   ; 00AFB32A: $8080
+        or.l    d0,d0                                   ; 00AFB32C: $8080
+        or.l    d0,d0                                   ; 00AFB32E: $8080
+        or.l    d0,d0                                   ; 00AFB330: $8080
+        or.l    d0,d0                                   ; 00AFB332: $8080
+        or.l    d0,d0                                   ; 00AFB334: $8080
+        or.l    d0,d0                                   ; 00AFB336: $8080
+        or.l    d0,d0                                   ; 00AFB338: $8080
+        or.l    d0,d0                                   ; 00AFB33A: $8080
+        or.l    d0,d0                                   ; 00AFB33C: $8080
+        or.l    d0,d0                                   ; 00AFB33E: $8080
+        or.l    d0,d0                                   ; 00AFB340: $8080
+        or.l    d0,d0                                   ; 00AFB342: $8080
+        or.l    d0,d0                                   ; 00AFB344: $8080
+        or.l    d0,d0                                   ; 00AFB346: $8080
+        or.l    d0,d0                                   ; 00AFB348: $8080
+        or.l    d0,d0                                   ; 00AFB34A: $8080
+        or.l    d0,d0                                   ; 00AFB34C: $8080
+        or.l    d0,d0                                   ; 00AFB34E: $8080
+        or.l    d0,d0                                   ; 00AFB350: $8080
+        or.l    d0,d0                                   ; 00AFB352: $8080
+        or.l    d0,d0                                   ; 00AFB354: $8080
+        or.l    d0,d0                                   ; 00AFB356: $8080
+        or.l    d0,d0                                   ; 00AFB358: $8080
+        or.l    d0,d0                                   ; 00AFB35A: $8080
+        or.l    d0,d0                                   ; 00AFB35C: $8080
+        or.l    d0,d0                                   ; 00AFB35E: $8080
+        or.l    d0,d0                                   ; 00AFB360: $8080
+        or.l    d0,d0                                   ; 00AFB362: $8080
+        or.l    d0,d0                                   ; 00AFB364: $8080
+        or.l    d0,d0                                   ; 00AFB366: $8080
+        or.l    d0,d0                                   ; 00AFB368: $8080
+        or.l    d0,d0                                   ; 00AFB36A: $8080
+        or.l    d0,d0                                   ; 00AFB36C: $8080
+        or.l    d0,d0                                   ; 00AFB36E: $8080
+        or.l    d0,d0                                   ; 00AFB370: $8080
+        or.l    d0,d0                                   ; 00AFB372: $8080
+        or.l    d0,d0                                   ; 00AFB374: $8080
+        or.l    d0,d0                                   ; 00AFB376: $8080
+        or.l    d0,d0                                   ; 00AFB378: $8080
+        or.l    d0,d0                                   ; 00AFB37A: $8080
+        or.l    d0,d0                                   ; 00AFB37C: $8080
+        or.l    d0,d0                                   ; 00AFB37E: $8080
+        or.l    d0,d0                                   ; 00AFB380: $8080
+        or.l    d0,d0                                   ; 00AFB382: $8080
+        or.l    d0,d0                                   ; 00AFB384: $8080
+        or.l    d0,d0                                   ; 00AFB386: $8080
+        or.l    d0,d0                                   ; 00AFB388: $8080
+        or.l    d0,d0                                   ; 00AFB38A: $8080
+        or.l    d0,d0                                   ; 00AFB38C: $8080
+        or.l    d0,d0                                   ; 00AFB38E: $8080
+        or.l    d0,d0                                   ; 00AFB390: $8080
+        or.l    d0,d0                                   ; 00AFB392: $8080
+        or.l    d0,d0                                   ; 00AFB394: $8080
+        or.l    d0,d0                                   ; 00AFB396: $8080
+        or.l    d0,d0                                   ; 00AFB398: $8080
+        or.l    d0,d0                                   ; 00AFB39A: $8080
+        or.l    d0,d0                                   ; 00AFB39C: $8080
+        or.l    d0,d0                                   ; 00AFB39E: $8080
+        or.l    d0,d0                                   ; 00AFB3A0: $8080
+        or.l    d0,d0                                   ; 00AFB3A2: $8080
+        or.l    d0,d0                                   ; 00AFB3A4: $8080
+        or.l    d0,d0                                   ; 00AFB3A6: $8080
+        or.l    d0,d0                                   ; 00AFB3A8: $8080
+        or.l    d0,d0                                   ; 00AFB3AA: $8080
+        or.l    d0,d0                                   ; 00AFB3AC: $8080
+        or.l    d0,d0                                   ; 00AFB3AE: $8080
+        or.l    d0,d0                                   ; 00AFB3B0: $8080
+        or.l    d0,d0                                   ; 00AFB3B2: $8080
+        or.l    d0,d0                                   ; 00AFB3B4: $8080
+        or.l    d0,d0                                   ; 00AFB3B6: $8080
+        or.l    d0,d0                                   ; 00AFB3B8: $8080
+        or.l    d0,d0                                   ; 00AFB3BA: $8080
+        or.l    d0,d0                                   ; 00AFB3BC: $8080
+        or.l    d0,d0                                   ; 00AFB3BE: $8080
+        or.l    d0,d0                                   ; 00AFB3C0: $8080
+        or.l    d0,d0                                   ; 00AFB3C2: $8080
+        or.l    d0,d0                                   ; 00AFB3C4: $8080
+        or.l    d0,d0                                   ; 00AFB3C6: $8080
+        or.l    d0,d0                                   ; 00AFB3C8: $8080
+        or.l    d0,d0                                   ; 00AFB3CA: $8080
+        or.l    d0,d0                                   ; 00AFB3CC: $8080
+        or.l    d0,d0                                   ; 00AFB3CE: $8080
+        or.l    d0,d0                                   ; 00AFB3D0: $8080
+        or.l    d0,d0                                   ; 00AFB3D2: $8080
+        or.l    d0,d0                                   ; 00AFB3D4: $8080
+        or.l    d0,d0                                   ; 00AFB3D6: $8080
+        or.l    d0,d0                                   ; 00AFB3D8: $8080
+        or.l    d0,d0                                   ; 00AFB3DA: $8080
+        or.l    d0,d0                                   ; 00AFB3DC: $8080
+        or.l    d0,d0                                   ; 00AFB3DE: $8080
+        or.l    d0,d0                                   ; 00AFB3E0: $8080
+        or.l    d0,d0                                   ; 00AFB3E2: $8080
+        or.l    d0,d0                                   ; 00AFB3E4: $8080
+        or.l    d0,d0                                   ; 00AFB3E6: $8080
+        or.l    d0,d0                                   ; 00AFB3E8: $8080
+        or.l    d0,d0                                   ; 00AFB3EA: $8080
+        or.l    d0,d0                                   ; 00AFB3EC: $8080
+        or.l    d0,d0                                   ; 00AFB3EE: $8080
+        or.l    d0,d0                                   ; 00AFB3F0: $8080
+        or.l    d0,d0                                   ; 00AFB3F2: $8080
+        or.l    d0,d0                                   ; 00AFB3F4: $8080
+        or.l    d0,d0                                   ; 00AFB3F6: $8080
+        or.l    d0,d0                                   ; 00AFB3F8: $8080
+        or.l    d0,d0                                   ; 00AFB3FA: $8080
+        or.l    d0,d0                                   ; 00AFB3FC: $8080
+        or.l    d0,d0                                   ; 00AFB3FE: $8080
+        or.l    d0,d0                                   ; 00AFB400: $8080
+        or.l    d0,d0                                   ; 00AFB402: $8080
+        or.l    d0,d0                                   ; 00AFB404: $8080
+        or.l    d0,d0                                   ; 00AFB406: $8080
+        or.l    d0,d0                                   ; 00AFB408: $8080
+        or.l    d0,d0                                   ; 00AFB40A: $8080
+        or.l    d0,d0                                   ; 00AFB40C: $8080
+        or.l    d0,d0                                   ; 00AFB40E: $8080
+        or.l    d0,d0                                   ; 00AFB410: $8080
+        or.l    d0,d0                                   ; 00AFB412: $8080
+        or.l    d0,d0                                   ; 00AFB414: $8080
+        or.l    d0,d0                                   ; 00AFB416: $8080
+        or.l    d0,d0                                   ; 00AFB418: $8080
+        or.l    d0,d0                                   ; 00AFB41A: $8080
+        or.l    d0,d0                                   ; 00AFB41C: $8080
+        or.l    d0,d0                                   ; 00AFB41E: $8080
+        or.l    d0,d0                                   ; 00AFB420: $8080
+        or.l    d0,d0                                   ; 00AFB422: $8080
+        or.l    d0,d0                                   ; 00AFB424: $8080
+        or.l    d0,d0                                   ; 00AFB426: $8080
+        or.l    d0,d0                                   ; 00AFB428: $8080
+        or.l    d0,d0                                   ; 00AFB42A: $8080
+        or.l    d0,d0                                   ; 00AFB42C: $8080
+        or.l    d0,d0                                   ; 00AFB42E: $8080
+        or.l    d0,d0                                   ; 00AFB430: $8080
+        or.l    d0,d0                                   ; 00AFB432: $8080
+        or.l    d0,d0                                   ; 00AFB434: $8080
+        or.l    d0,d0                                   ; 00AFB436: $8080
+        or.l    d0,d0                                   ; 00AFB438: $8080
+        or.l    d0,d0                                   ; 00AFB43A: $8080
+        or.l    d0,d0                                   ; 00AFB43C: $8080
+        or.l    d0,d0                                   ; 00AFB43E: $8080
+        or.l    d0,d0                                   ; 00AFB440: $8080
+        or.l    d0,d0                                   ; 00AFB442: $8080
+        or.l    d0,d0                                   ; 00AFB444: $8080
+        or.l    d0,d0                                   ; 00AFB446: $8080
+        or.l    d0,d0                                   ; 00AFB448: $8080
+        or.l    d0,d0                                   ; 00AFB44A: $8080
+        or.l    d0,d0                                   ; 00AFB44C: $8080
+        or.l    d0,d0                                   ; 00AFB44E: $8080
+        or.l    d0,d0                                   ; 00AFB450: $8080
+        or.l    d0,d0                                   ; 00AFB452: $8080
+        or.l    d0,d0                                   ; 00AFB454: $8080
+        or.l    d0,d0                                   ; 00AFB456: $8080
+        or.l    d0,d0                                   ; 00AFB458: $8080
+        or.l    d0,d0                                   ; 00AFB45A: $8080
+        or.l    d0,d0                                   ; 00AFB45C: $8080
+        or.l    d0,d0                                   ; 00AFB45E: $8080
+        or.l    d0,d0                                   ; 00AFB460: $8080
+        or.l    d0,d0                                   ; 00AFB462: $8080
+        or.l    d0,d0                                   ; 00AFB464: $8080
+        or.l    d0,d0                                   ; 00AFB466: $8080
+        or.l    d0,d0                                   ; 00AFB468: $8080
+        or.l    d0,d0                                   ; 00AFB46A: $8080
+        or.l    d0,d0                                   ; 00AFB46C: $8080
+        or.l    d0,d0                                   ; 00AFB46E: $8080
+        or.l    d0,d0                                   ; 00AFB470: $8080
+        or.l    d0,d0                                   ; 00AFB472: $8080
+        or.l    d0,d0                                   ; 00AFB474: $8080
+        or.l    d0,d0                                   ; 00AFB476: $8080
+        or.l    d0,d0                                   ; 00AFB478: $8080
+        or.l    d0,d0                                   ; 00AFB47A: $8080
+        or.l    d0,d0                                   ; 00AFB47C: $8080
+        or.l    d0,d0                                   ; 00AFB47E: $8080
+        or.l    d0,d0                                   ; 00AFB480: $8080
+        or.l    d0,d0                                   ; 00AFB482: $8080
+        or.l    d0,d0                                   ; 00AFB484: $8080
+        or.l    d0,d0                                   ; 00AFB486: $8080
+        or.l    d0,d0                                   ; 00AFB488: $8080
+        or.l    d0,d0                                   ; 00AFB48A: $8080
+        or.l    d0,d0                                   ; 00AFB48C: $8080
+        or.l    d0,d0                                   ; 00AFB48E: $8080
+        or.l    d0,d0                                   ; 00AFB490: $8080
+        or.l    d0,d0                                   ; 00AFB492: $8080
+        or.l    d0,d0                                   ; 00AFB494: $8080
+        or.l    d0,d0                                   ; 00AFB496: $8080
+        or.l    d0,d0                                   ; 00AFB498: $8080
+        or.l    d0,d0                                   ; 00AFB49A: $8080
+        or.l    d0,d0                                   ; 00AFB49C: $8080
+        or.l    d0,d0                                   ; 00AFB49E: $8080
+        or.l    d0,d0                                   ; 00AFB4A0: $8080
+        or.l    d0,d0                                   ; 00AFB4A2: $8080
+        or.l    d0,d0                                   ; 00AFB4A4: $8080
+        or.l    d0,d0                                   ; 00AFB4A6: $8080
+        or.l    d0,d0                                   ; 00AFB4A8: $8080
+        or.l    d0,d0                                   ; 00AFB4AA: $8080
+        or.l    d0,d0                                   ; 00AFB4AC: $8080
+        or.l    d0,d0                                   ; 00AFB4AE: $8080
+        or.l    d0,d0                                   ; 00AFB4B0: $8080
+        or.l    d0,d0                                   ; 00AFB4B2: $8080
+        or.l    d0,d0                                   ; 00AFB4B4: $8080
+        or.l    d0,d0                                   ; 00AFB4B6: $8080
+        or.l    d0,d0                                   ; 00AFB4B8: $8080
+        or.l    d0,d0                                   ; 00AFB4BA: $8080
+        or.l    d0,d0                                   ; 00AFB4BC: $8080
+        or.l    d0,d0                                   ; 00AFB4BE: $8080
+        or.l    d0,d0                                   ; 00AFB4C0: $8080
+        or.l    d0,d0                                   ; 00AFB4C2: $8080
+        or.l    d0,d0                                   ; 00AFB4C4: $8080
+        or.l    d0,d0                                   ; 00AFB4C6: $8080
+        or.l    d0,d0                                   ; 00AFB4C8: $8080
+        or.l    d0,d0                                   ; 00AFB4CA: $8080
+        or.l    d0,d0                                   ; 00AFB4CC: $8080
+        or.l    d0,d0                                   ; 00AFB4CE: $8080
+        or.l    d0,d0                                   ; 00AFB4D0: $8080
+        or.l    d0,d0                                   ; 00AFB4D2: $8080
+        or.l    d0,d0                                   ; 00AFB4D4: $8080
+        or.l    d0,d0                                   ; 00AFB4D6: $8080
+        or.l    d0,d0                                   ; 00AFB4D8: $8080
+        or.l    d0,d0                                   ; 00AFB4DA: $8080
+        or.l    d0,d0                                   ; 00AFB4DC: $8080
+        or.l    d0,d0                                   ; 00AFB4DE: $8080
+        or.l    d0,d0                                   ; 00AFB4E0: $8080
+        or.l    d0,d0                                   ; 00AFB4E2: $8080
+        or.l    d0,d0                                   ; 00AFB4E4: $8080
+        or.l    d0,d0                                   ; 00AFB4E6: $8080
+        or.l    d0,d0                                   ; 00AFB4E8: $8080
+        or.l    d0,d0                                   ; 00AFB4EA: $8080
+        or.l    d0,d0                                   ; 00AFB4EC: $8080
+        or.l    d0,d0                                   ; 00AFB4EE: $8080
+        or.l    d0,d0                                   ; 00AFB4F0: $8080
+        or.l    d0,d0                                   ; 00AFB4F2: $8080
+        or.l    d0,d0                                   ; 00AFB4F4: $8080
+        or.l    d0,d0                                   ; 00AFB4F6: $8080
+        or.l    d0,d0                                   ; 00AFB4F8: $8080
+        or.l    d0,d0                                   ; 00AFB4FA: $8080
+        or.l    d0,d0                                   ; 00AFB4FC: $8080
+        or.l    d0,d0                                   ; 00AFB4FE: $8080
+        or.l    d0,d0                                   ; 00AFB500: $8080
+        or.l    d0,d0                                   ; 00AFB502: $8080
+        or.l    d0,d0                                   ; 00AFB504: $8080
+        or.l    d0,d0                                   ; 00AFB506: $8080
+        or.l    d0,d0                                   ; 00AFB508: $8080
+        or.l    d0,d0                                   ; 00AFB50A: $8080
+        or.l    d0,d0                                   ; 00AFB50C: $8080
+        or.l    d0,d0                                   ; 00AFB50E: $8080
+        or.l    d0,d0                                   ; 00AFB510: $8080
+        or.l    d0,d0                                   ; 00AFB512: $8080
+        or.l    d0,d0                                   ; 00AFB514: $8080
+        or.l    d0,d0                                   ; 00AFB516: $8080
+        or.l    d0,d0                                   ; 00AFB518: $8080
+        or.l    d0,d0                                   ; 00AFB51A: $8080
+        or.l    d0,d0                                   ; 00AFB51C: $8080
+        or.l    d0,d0                                   ; 00AFB51E: $8080
+        or.l    d0,d0                                   ; 00AFB520: $8080
+        or.l    d0,d0                                   ; 00AFB522: $8080
+        or.l    d0,d0                                   ; 00AFB524: $8080
+        or.l    d0,d0                                   ; 00AFB526: $8080
+        or.l    d0,d0                                   ; 00AFB528: $8080
+        or.l    d0,d0                                   ; 00AFB52A: $8080
+        or.l    d0,d0                                   ; 00AFB52C: $8080
+        or.l    d0,d0                                   ; 00AFB52E: $8080
+        or.l    d0,d0                                   ; 00AFB530: $8080
+        or.l    d0,d0                                   ; 00AFB532: $8080
+        or.l    d0,d0                                   ; 00AFB534: $8080
+        or.l    d0,d0                                   ; 00AFB536: $8080
+        or.l    d0,d0                                   ; 00AFB538: $8080
+        or.l    d0,d0                                   ; 00AFB53A: $8080
+        or.l    d0,d0                                   ; 00AFB53C: $8080
+        or.l    d0,d0                                   ; 00AFB53E: $8080
+        or.l    d0,d0                                   ; 00AFB540: $8080
+        or.l    d0,d0                                   ; 00AFB542: $8080
+        or.l    d0,d0                                   ; 00AFB544: $8080
+        or.l    d0,d0                                   ; 00AFB546: $8080
+        or.l    d0,d0                                   ; 00AFB548: $8080
+        or.l    d0,d0                                   ; 00AFB54A: $8080
+        or.l    d0,d0                                   ; 00AFB54C: $8080
+        or.l    d0,d0                                   ; 00AFB54E: $8080
+        or.l    d0,d0                                   ; 00AFB550: $8080
+        or.l    d0,d0                                   ; 00AFB552: $8080
+        or.l    d0,d0                                   ; 00AFB554: $8080
+        or.l    d0,d0                                   ; 00AFB556: $8080
+        or.l    d0,d0                                   ; 00AFB558: $8080
+        or.l    d0,d0                                   ; 00AFB55A: $8080
+        or.l    d0,d0                                   ; 00AFB55C: $8080
+        or.l    d0,d0                                   ; 00AFB55E: $8080
+        or.l    d0,d0                                   ; 00AFB560: $8080
+        or.l    d0,d0                                   ; 00AFB562: $8080
+        or.l    d0,d0                                   ; 00AFB564: $8080
+        or.l    d0,d0                                   ; 00AFB566: $8080
+        or.l    d0,d0                                   ; 00AFB568: $8080
+        or.l    d0,d0                                   ; 00AFB56A: $8080
+        or.l    d0,d0                                   ; 00AFB56C: $8080
+        or.l    d0,d0                                   ; 00AFB56E: $8080
+        or.l    d0,d0                                   ; 00AFB570: $8080
+        or.l    d0,d0                                   ; 00AFB572: $8080
+        or.l    d0,d0                                   ; 00AFB574: $8080
+        or.l    d0,d0                                   ; 00AFB576: $8080
+        or.l    d0,d0                                   ; 00AFB578: $8080
+        or.l    d0,d0                                   ; 00AFB57A: $8080
+        or.l    d0,d0                                   ; 00AFB57C: $8080
+        or.l    d0,d0                                   ; 00AFB57E: $8080
+        or.l    d0,d0                                   ; 00AFB580: $8080
+        or.l    d0,d0                                   ; 00AFB582: $8080
+        or.l    d0,d0                                   ; 00AFB584: $8080
+        or.l    d0,d0                                   ; 00AFB586: $8080
+        or.l    d0,d0                                   ; 00AFB588: $8080
+        or.l    d0,d0                                   ; 00AFB58A: $8080
+        or.l    d0,d0                                   ; 00AFB58C: $8080
+        or.l    d0,d0                                   ; 00AFB58E: $8080
+        or.l    d0,d0                                   ; 00AFB590: $8080
+        or.l    d0,d0                                   ; 00AFB592: $8080
+        or.l    d0,d0                                   ; 00AFB594: $8080
+        or.l    d0,d0                                   ; 00AFB596: $8080
+        or.l    d0,d0                                   ; 00AFB598: $8080
+        or.l    d0,d0                                   ; 00AFB59A: $8080
+        or.l    d0,d0                                   ; 00AFB59C: $8080
+        or.l    d0,d0                                   ; 00AFB59E: $8080
+        or.l    d0,d0                                   ; 00AFB5A0: $8080
+        or.l    d0,d0                                   ; 00AFB5A2: $8080
+        or.l    d0,d0                                   ; 00AFB5A4: $8080
+        or.l    d0,d0                                   ; 00AFB5A6: $8080
+        or.l    d0,d0                                   ; 00AFB5A8: $8080
+        or.l    d0,d0                                   ; 00AFB5AA: $8080
+        or.l    d0,d0                                   ; 00AFB5AC: $8080
+        or.l    d0,d0                                   ; 00AFB5AE: $8080
+        or.l    d0,d0                                   ; 00AFB5B0: $8080
+        or.l    d0,d0                                   ; 00AFB5B2: $8080
+        or.l    d0,d0                                   ; 00AFB5B4: $8080
+        or.l    d0,d0                                   ; 00AFB5B6: $8080
+        or.l    d0,d0                                   ; 00AFB5B8: $8080
+        or.l    d0,d0                                   ; 00AFB5BA: $8080
+        or.l    d0,d0                                   ; 00AFB5BC: $8080
+        or.l    d0,d0                                   ; 00AFB5BE: $8080
+        or.l    d0,d0                                   ; 00AFB5C0: $8080
+        or.l    d0,d0                                   ; 00AFB5C2: $8080
+        or.l    d0,d0                                   ; 00AFB5C4: $8080
+        or.l    d0,d0                                   ; 00AFB5C6: $8080
+        or.l    d0,d0                                   ; 00AFB5C8: $8080
+        or.l    d0,d0                                   ; 00AFB5CA: $8080
+        or.l    d0,d0                                   ; 00AFB5CC: $8080
+        or.l    d0,d0                                   ; 00AFB5CE: $8080
+        or.l    d0,d0                                   ; 00AFB5D0: $8080
+        or.l    d0,d0                                   ; 00AFB5D2: $8080
+        or.l    d0,d0                                   ; 00AFB5D4: $8080
+        or.l    d0,d0                                   ; 00AFB5D6: $8080
+        or.l    d0,d0                                   ; 00AFB5D8: $8080
+        or.l    d0,d0                                   ; 00AFB5DA: $8080
+        or.l    d0,d0                                   ; 00AFB5DC: $8080
+        or.l    d0,d0                                   ; 00AFB5DE: $8080
+        or.l    d0,d0                                   ; 00AFB5E0: $8080
+        or.l    d0,d0                                   ; 00AFB5E2: $8080
+        or.l    d0,d0                                   ; 00AFB5E4: $8080
+        or.l    d0,d0                                   ; 00AFB5E6: $8080
+        or.l    d0,d0                                   ; 00AFB5E8: $8080
+        or.l    d0,d0                                   ; 00AFB5EA: $8080
+        or.l    d0,d0                                   ; 00AFB5EC: $8080
+        or.l    d0,d0                                   ; 00AFB5EE: $8080
+        or.l    d0,d0                                   ; 00AFB5F0: $8080
+        or.l    d0,d0                                   ; 00AFB5F2: $8080
+        or.l    d0,d0                                   ; 00AFB5F4: $8080
+        or.l    d0,d0                                   ; 00AFB5F6: $8080
+        or.l    d0,d0                                   ; 00AFB5F8: $8080
+        or.l    d0,d0                                   ; 00AFB5FA: $8080
+        or.l    d0,d0                                   ; 00AFB5FC: $8080
+        or.l    d0,d0                                   ; 00AFB5FE: $8080
+        or.l    d0,d0                                   ; 00AFB600: $8080
+        or.l    d0,d0                                   ; 00AFB602: $8080
+        or.l    d0,d0                                   ; 00AFB604: $8080
+        or.l    d0,d0                                   ; 00AFB606: $8080
+        or.l    d0,d0                                   ; 00AFB608: $8080
+        or.l    d0,d0                                   ; 00AFB60A: $8080
+        or.l    d0,d0                                   ; 00AFB60C: $8080
+        or.l    d0,d0                                   ; 00AFB60E: $8080
+        or.l    d0,d0                                   ; 00AFB610: $8080
+        or.l    d0,d0                                   ; 00AFB612: $8080
+        or.l    d0,d0                                   ; 00AFB614: $8080
+        or.l    d0,d0                                   ; 00AFB616: $8080
+        or.l    d0,d0                                   ; 00AFB618: $8080
+        or.l    d0,d0                                   ; 00AFB61A: $8080
+        or.l    d0,d0                                   ; 00AFB61C: $8080
+        or.l    d0,d0                                   ; 00AFB61E: $8080
+        or.l    d0,d0                                   ; 00AFB620: $8080
+        or.l    d0,d0                                   ; 00AFB622: $8080
+        or.l    d0,d0                                   ; 00AFB624: $8080
+        or.l    d0,d0                                   ; 00AFB626: $8080
+        or.l    d0,d0                                   ; 00AFB628: $8080
+        or.l    d0,d0                                   ; 00AFB62A: $8080
+        or.l    d0,d0                                   ; 00AFB62C: $8080
+        or.l    d0,d0                                   ; 00AFB62E: $8080
+        or.l    d0,d0                                   ; 00AFB630: $8080
+        or.l    d0,d0                                   ; 00AFB632: $8080
+        or.l    d0,d0                                   ; 00AFB634: $8080
+        or.l    d0,d0                                   ; 00AFB636: $8080
+        or.l    d0,d0                                   ; 00AFB638: $8080
+        or.l    d0,d0                                   ; 00AFB63A: $8080
+        or.l    d0,d0                                   ; 00AFB63C: $8080
+        or.l    d0,d0                                   ; 00AFB63E: $8080
+        or.l    d0,d0                                   ; 00AFB640: $8080
+        or.l    d0,d0                                   ; 00AFB642: $8080
+        or.l    d0,d0                                   ; 00AFB644: $8080
+        or.l    d0,d0                                   ; 00AFB646: $8080
+        or.l    d0,d0                                   ; 00AFB648: $8080
+        or.l    d0,d0                                   ; 00AFB64A: $8080
+        or.l    d0,d0                                   ; 00AFB64C: $8080
+        or.l    d0,d0                                   ; 00AFB64E: $8080
+        or.l    d0,d0                                   ; 00AFB650: $8080
+        or.l    d0,d0                                   ; 00AFB652: $8080
+        or.l    d0,d0                                   ; 00AFB654: $8080
+        or.l    d0,d0                                   ; 00AFB656: $8080
+        or.l    d0,d0                                   ; 00AFB658: $8080
+        or.l    d0,d0                                   ; 00AFB65A: $8080
+        or.l    d0,d0                                   ; 00AFB65C: $8080
+        or.l    d0,d0                                   ; 00AFB65E: $8080
+        or.l    d0,d0                                   ; 00AFB660: $8080
+        or.l    d0,d0                                   ; 00AFB662: $8080
+        or.l    d0,d0                                   ; 00AFB664: $8080
+        or.l    d0,d0                                   ; 00AFB666: $8080
+        or.l    d0,d0                                   ; 00AFB668: $8080
+        or.l    d0,d0                                   ; 00AFB66A: $8080
+        or.l    d0,d0                                   ; 00AFB66C: $8080
+        or.l    d0,d0                                   ; 00AFB66E: $8080
+        or.l    d0,d0                                   ; 00AFB670: $8080
+        or.l    d0,d0                                   ; 00AFB672: $8080
+        or.l    d0,d0                                   ; 00AFB674: $8080
+        or.l    d0,d0                                   ; 00AFB676: $8080
+        or.l    d0,d0                                   ; 00AFB678: $8080
+        or.l    d0,d0                                   ; 00AFB67A: $8080
+        or.l    d0,d0                                   ; 00AFB67C: $8080
+        or.l    d0,d0                                   ; 00AFB67E: $8080
+        or.l    d0,d0                                   ; 00AFB680: $8080
+        or.l    d0,d0                                   ; 00AFB682: $8080
+        or.l    d0,d0                                   ; 00AFB684: $8080
+        or.l    d0,d0                                   ; 00AFB686: $8080
+        or.l    d0,d0                                   ; 00AFB688: $8080
+        or.l    d0,d0                                   ; 00AFB68A: $8080
+        or.l    d0,d0                                   ; 00AFB68C: $8080
+        or.l    d0,d0                                   ; 00AFB68E: $8080
+        or.l    d0,d0                                   ; 00AFB690: $8080
+        or.l    d0,d0                                   ; 00AFB692: $8080
+        or.l    d0,d0                                   ; 00AFB694: $8080
+        or.l    d0,d0                                   ; 00AFB696: $8080
+        or.l    d0,d0                                   ; 00AFB698: $8080
+        or.l    d0,d0                                   ; 00AFB69A: $8080
+        or.l    d0,d0                                   ; 00AFB69C: $8080
+        or.l    d0,d0                                   ; 00AFB69E: $8080
+        or.l    d0,d0                                   ; 00AFB6A0: $8080
+        or.l    d0,d0                                   ; 00AFB6A2: $8080
+        or.l    d0,d0                                   ; 00AFB6A4: $8080
+        or.l    d0,d0                                   ; 00AFB6A6: $8080
+        or.l    d0,d0                                   ; 00AFB6A8: $8080
+        or.l    d0,d0                                   ; 00AFB6AA: $8080
+        or.l    d0,d0                                   ; 00AFB6AC: $8080
+        or.l    d0,d0                                   ; 00AFB6AE: $8080
+        or.l    d0,d0                                   ; 00AFB6B0: $8080
+        or.l    d0,d0                                   ; 00AFB6B2: $8080
+        or.l    d0,d0                                   ; 00AFB6B4: $8080
+        or.l    d0,d0                                   ; 00AFB6B6: $8080
+        or.l    d0,d0                                   ; 00AFB6B8: $8080
+        or.l    d0,d0                                   ; 00AFB6BA: $8080
+        or.l    d0,d0                                   ; 00AFB6BC: $8080
+        or.l    d0,d0                                   ; 00AFB6BE: $8080
+        or.l    d0,d0                                   ; 00AFB6C0: $8080
+        or.l    d0,d0                                   ; 00AFB6C2: $8080
+        or.l    d0,d0                                   ; 00AFB6C4: $8080
+        or.l    d0,d0                                   ; 00AFB6C6: $8080
+        or.l    d0,d0                                   ; 00AFB6C8: $8080
+        or.l    d0,d0                                   ; 00AFB6CA: $8080
+        or.l    d0,d0                                   ; 00AFB6CC: $8080
+        or.l    d0,d0                                   ; 00AFB6CE: $8080
+        or.l    d0,d0                                   ; 00AFB6D0: $8080
+        or.l    d0,d0                                   ; 00AFB6D2: $8080
+        or.l    d0,d0                                   ; 00AFB6D4: $8080
+        or.l    d0,d0                                   ; 00AFB6D6: $8080
+        or.l    d0,d0                                   ; 00AFB6D8: $8080
+        or.l    d0,d0                                   ; 00AFB6DA: $8080
+        or.l    d0,d0                                   ; 00AFB6DC: $8080
+        or.l    d0,d0                                   ; 00AFB6DE: $8080
+        or.l    d0,d0                                   ; 00AFB6E0: $8080
+        or.l    d0,d0                                   ; 00AFB6E2: $8080
+        or.l    d0,d0                                   ; 00AFB6E4: $8080
+        or.l    d0,d0                                   ; 00AFB6E6: $8080
+        or.l    d0,d0                                   ; 00AFB6E8: $8080
+        or.l    d0,d0                                   ; 00AFB6EA: $8080
+        or.l    d0,d0                                   ; 00AFB6EC: $8080
+        or.l    d0,d0                                   ; 00AFB6EE: $8080
+        or.l    d0,d0                                   ; 00AFB6F0: $8080
+        or.l    d0,d0                                   ; 00AFB6F2: $8080
+        or.l    d0,d0                                   ; 00AFB6F4: $8080
+        or.l    d0,d0                                   ; 00AFB6F6: $8080
+        or.l    d0,d0                                   ; 00AFB6F8: $8080
+        or.l    d0,d0                                   ; 00AFB6FA: $8080
+        or.l    d0,d0                                   ; 00AFB6FC: $8080
+        or.l    d0,d0                                   ; 00AFB6FE: $8080
+        or.l    d0,d0                                   ; 00AFB700: $8080
+        or.l    d0,d0                                   ; 00AFB702: $8080
+        or.l    d0,d0                                   ; 00AFB704: $8080
+        or.l    d0,d0                                   ; 00AFB706: $8080
+        or.l    d0,d0                                   ; 00AFB708: $8080
+        or.l    d0,d0                                   ; 00AFB70A: $8080
+        or.l    d0,d0                                   ; 00AFB70C: $8080
+        or.l    d0,d0                                   ; 00AFB70E: $8080
+        or.l    d0,d0                                   ; 00AFB710: $8080
+        or.l    d0,d0                                   ; 00AFB712: $8080
+        or.l    d0,d0                                   ; 00AFB714: $8080
+        or.l    d0,d0                                   ; 00AFB716: $8080
+        or.l    d0,d0                                   ; 00AFB718: $8080
+        or.l    d0,d0                                   ; 00AFB71A: $8080
+        or.l    d0,d0                                   ; 00AFB71C: $8080
+        or.l    d0,d0                                   ; 00AFB71E: $8080
         dc.w    $FFFF                    ; 00AFB720: dc.w $FFFF
         dc.w    $FFFF                    ; 00AFB722: dc.w $FFFF
         dc.w    $FFFF                    ; 00AFB724: dc.w $FFFF
