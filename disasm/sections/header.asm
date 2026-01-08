@@ -1,110 +1,266 @@
 ; ============================================================================
-; ROM Header ($000000 - $0001FF)
+; ROM Header and Vector Table ($000000-$0001FF)
 ; ============================================================================
-; Standard Sega 32X ROM header with exception vectors and console info.
-; ============================================================================
-
-; ============================================================================
-; 32X System Register Addresses
-; ============================================================================
-MARS_SYS_INTCTL         equ $A15100     ; Adapter Control Register
-MARS_SYS_INTMASK        equ $A15102     ; Interrupt Control Register
-MARS_SYS_H_INT          equ $A15104     ; H Interrupt Vector
-MARS_SYS_DREQ_CTRL      equ $A15106     ; DREQ Control Register
-MARS_SYS_DREQ_SRC       equ $A15108     ; DREQ Source Address
-MARS_SYS_DREQ_DST       equ $A1510C     ; DREQ Destination Address
-MARS_SYS_DREQ_LEN       equ $A15110     ; DREQ Length
-MARS_SYS_FIFO           equ $A15112     ; FIFO Register
-MARS_SYS_COMM_PORT      equ $A15120     ; Communication Port (8 words)
-MARS_PWM_CTRL           equ $A15130     ; PWM Control
-MARS_PWM_CYCLE          equ $A15132     ; PWM Cycle
-MARS_PWM_LDATA          equ $A15134     ; PWM L Channel Data
-MARS_PWM_RDATA          equ $A15136     ; PWM R Channel Data
-MARS_PWM_MONO           equ $A15138     ; PWM Mono Data
-
-; VDP Registers
-MARS_VDP_MODE           equ $A15180     ; Bitmap Mode Register
-MARS_VDP_SHIFT          equ $A15182     ; Screen Shift Control
-MARS_VDP_FILLEN         equ $A15184     ; Auto Fill Length
-MARS_VDP_FILLADR        equ $A15186     ; Auto Fill Start Address
-MARS_VDP_FILLDATA       equ $A15188     ; Auto Fill Data
-MARS_VDP_FBCTL          equ $A1518A     ; Frame Buffer Control
-
-; Mega Drive I/O
-MD_IO_VERSION           equ $A10001     ; Version register
-MD_IO_DATA1             equ $A10003     ; Controller port 1 data
-MD_IO_DATA2             equ $A10005     ; Controller port 2 data
-MD_IO_CTRL1             equ $A10009     ; Controller port 1 control
-MD_IO_CTRL2             equ $A1000B     ; Controller port 2 control
-
-; Memory Locations
-ROM_BASE                equ $000000     ; ROM start (mapped to $880000)
-ROM_SIZE                equ $300000     ; 3MB
-WORK_RAM                equ $FF0000     ; 64KB Work RAM
-WORK_RAM_END            equ $FFFFFF
-
-; SH2 Memory (from SH2 perspective, cache-through addresses)
-SH2_SDRAM               equ $2200000    ; 2 Mbit SDRAM
-SH2_FRAME_BUFFER        equ $2400000    ; Frame Buffer
-SH2_OVERWRITE           equ $2402000    ; Overwrite Image
-
-; ============================================================================
-; Exception Vector Table ($000000 - $0000FF)
+; Contains 68000 exception vectors and SEGA standard header.
+; Pure dc.w for byte-perfect ROM rebuild.
 ; ============================================================================
 
         org     $000000
 
-; Initial Stack Pointer and Program Counter
-InitialSP:      dc.l    $01000000       ; Initial Stack Pointer
-InitialPC:      dc.l    $000003F0       ; Initial Program Counter (relocated)
-
-; Exception Vectors ($008 - $0FF) - 62 vectors total
-; Vectors 2-11: Exception handlers
-    dc.l    $00880832       ; 02: Bus Error
-    dc.l    $00880832       ; 03: Address Error
-    dc.l    $00880832       ; 04: Illegal Instruction
-    dc.l    $00880832       ; 05: Divide by Zero
-    dc.l    $00880832       ; 06: CHK Exception
-    dc.l    $00880832       ; 07: TRAPV Exception
-    dc.l    $00880832       ; 08: Privilege Violation
-    dc.l    $00880832       ; 09: Trace
-    dc.l    $00880832       ; 10: Line 1010 Emulator
-    dc.l    $00880832       ; 11: Line 1111 Emulator
-; Vectors 12-23: Reserved (zeros)
-    dcb.l   12, $00000000   ; 12-23: Reserved
-; Vectors 24-31: Interrupts
-    dc.l    $00880832       ; 24: Spurious Interrupt
-    dc.l    $00880832       ; 25: Level 1 IRQ (External)
-    dc.l    $00880832       ; 26: Level 2 IRQ
-    dc.l    $00880832       ; 27: Level 3 IRQ
-    dc.l    $0088170A       ; 28: Level 4 IRQ (H-INT)
-    dc.l    $00880832       ; 29: Level 5 IRQ
-    dc.l    $00881684       ; 30: Level 6 IRQ (V-INT)
-    dc.l    $00880832       ; 31: Level 7 IRQ (NMI)
-; Vectors 32-47: TRAP #0-15
-    dcb.l   16, $00880832   ; 32-47: TRAP #0-15
-; Vectors 48-63: Reserved (zeros)
-    dcb.l   16, $00000000   ; 48-63: Reserved
-
-; ============================================================================
-; Sega Header ($000100 - $0001FF)
-; ============================================================================
-
-ConsoleID:      dc.b    'SEGA 32X U      '          ; Console name
-Copyright:      dc.b    '(C)SEGA 1994.SEP'          ; Copyright
-DomesticName:   dc.b    'V.R.DX                                          '
-OverseasName:   dc.b    'V.R.DX                                          '
-SerialNumber:   dc.b    'GM MK-84601-00'            ; Serial number
-                dc.w    $1E4D                       ; Checksum
-IOSupport:      dc.b    'J6              '          ; I/O Support (Joypad 6-button)
-ROMStart:       dc.l    $00000000                   ; ROM Start
-ROMEnd:         dc.l    $002FFFFF                   ; ROM End (3MB)
-RAMStart:       dc.l    $00FF0000                   ; RAM Start
-RAMEnd:         dc.l    $00FFFFFF                   ; RAM End
-; Backup RAM, Modem, and Notes - all spaces (no backup RAM, no modem)
-                dcb.b   64, $20                     ; 64 spaces ($1B0-$1EF)
-Region:         dc.b    'U               '          ; Region (USA)
-
-; ============================================================================
-; End of Header Section
-; ============================================================================
+header:
+        dc.w    $0100        ; $0000: Initial SSP (high)
+        dc.w    $0000        ; $0002: Initial SSP (low)
+        dc.w    $0000        ; $0004: Initial PC (high)
+        dc.w    $03F0        ; $0006: Initial PC (low) - Reset vector
+        dc.w    $0088        ; $0008
+        dc.w    $0832        ; $000A
+        dc.w    $0088        ; $000C
+        dc.w    $0832        ; $000E
+        dc.w    $0088        ; $0010
+        dc.w    $0832        ; $0012
+        dc.w    $0088        ; $0014
+        dc.w    $0832        ; $0016
+        dc.w    $0088        ; $0018
+        dc.w    $0832        ; $001A
+        dc.w    $0088        ; $001C
+        dc.w    $0832        ; $001E
+        dc.w    $0088        ; $0020
+        dc.w    $0832        ; $0022
+        dc.w    $0088        ; $0024
+        dc.w    $0832        ; $0026
+        dc.w    $0088        ; $0028
+        dc.w    $0832        ; $002A
+        dc.w    $0088        ; $002C
+        dc.w    $0832        ; $002E
+        dc.w    $0000        ; $0030
+        dc.w    $0000        ; $0032
+        dc.w    $0000        ; $0034
+        dc.w    $0000        ; $0036
+        dc.w    $0000        ; $0038
+        dc.w    $0000        ; $003A
+        dc.w    $0000        ; $003C
+        dc.w    $0000        ; $003E
+        dc.w    $0000        ; $0040
+        dc.w    $0000        ; $0042
+        dc.w    $0000        ; $0044
+        dc.w    $0000        ; $0046
+        dc.w    $0000        ; $0048
+        dc.w    $0000        ; $004A
+        dc.w    $0000        ; $004C
+        dc.w    $0000        ; $004E
+        dc.w    $0000        ; $0050
+        dc.w    $0000        ; $0052
+        dc.w    $0000        ; $0054
+        dc.w    $0000        ; $0056
+        dc.w    $0000        ; $0058
+        dc.w    $0000        ; $005A
+        dc.w    $0000        ; $005C
+        dc.w    $0000        ; $005E
+        dc.w    $0088        ; $0060
+        dc.w    $0832        ; $0062
+        dc.w    $0088        ; $0064
+        dc.w    $0832        ; $0066
+        dc.w    $0088        ; $0068
+        dc.w    $0832        ; $006A
+        dc.w    $0088        ; $006C
+        dc.w    $0832        ; $006E
+        dc.w    $0088        ; $0070
+        dc.w    $170A        ; $0072
+        dc.w    $0088        ; $0074
+        dc.w    $0832        ; $0076
+        dc.w    $0088        ; $0078: IRQ6/VBlank vector (high)
+        dc.w    $1684        ; $007A: IRQ6/VBlank vector (low)
+        dc.w    $0088        ; $007C
+        dc.w    $0832        ; $007E
+        dc.w    $0088        ; $0080
+        dc.w    $0832        ; $0082
+        dc.w    $0088        ; $0084
+        dc.w    $0832        ; $0086
+        dc.w    $0088        ; $0088
+        dc.w    $0832        ; $008A
+        dc.w    $0088        ; $008C
+        dc.w    $0832        ; $008E
+        dc.w    $0088        ; $0090
+        dc.w    $0832        ; $0092
+        dc.w    $0088        ; $0094
+        dc.w    $0832        ; $0096
+        dc.w    $0088        ; $0098
+        dc.w    $0832        ; $009A
+        dc.w    $0088        ; $009C
+        dc.w    $0832        ; $009E
+        dc.w    $0088        ; $00A0
+        dc.w    $0832        ; $00A2
+        dc.w    $0088        ; $00A4
+        dc.w    $0832        ; $00A6
+        dc.w    $0088        ; $00A8
+        dc.w    $0832        ; $00AA
+        dc.w    $0088        ; $00AC
+        dc.w    $0832        ; $00AE
+        dc.w    $0088        ; $00B0
+        dc.w    $0832        ; $00B2
+        dc.w    $0088        ; $00B4
+        dc.w    $0832        ; $00B6
+        dc.w    $0088        ; $00B8
+        dc.w    $0832        ; $00BA
+        dc.w    $0088        ; $00BC
+        dc.w    $0832        ; $00BE
+        dc.w    $0000        ; $00C0
+        dc.w    $0000        ; $00C2
+        dc.w    $0000        ; $00C4
+        dc.w    $0000        ; $00C6
+        dc.w    $0000        ; $00C8
+        dc.w    $0000        ; $00CA
+        dc.w    $0000        ; $00CC
+        dc.w    $0000        ; $00CE
+        dc.w    $0000        ; $00D0
+        dc.w    $0000        ; $00D2
+        dc.w    $0000        ; $00D4
+        dc.w    $0000        ; $00D6
+        dc.w    $0000        ; $00D8
+        dc.w    $0000        ; $00DA
+        dc.w    $0000        ; $00DC
+        dc.w    $0000        ; $00DE
+        dc.w    $0000        ; $00E0
+        dc.w    $0000        ; $00E2
+        dc.w    $0000        ; $00E4
+        dc.w    $0000        ; $00E6
+        dc.w    $0000        ; $00E8
+        dc.w    $0000        ; $00EA
+        dc.w    $0000        ; $00EC
+        dc.w    $0000        ; $00EE
+        dc.w    $0000        ; $00F0
+        dc.w    $0000        ; $00F2
+        dc.w    $0000        ; $00F4
+        dc.w    $0000        ; $00F6
+        dc.w    $0000        ; $00F8
+        dc.w    $0000        ; $00FA
+        dc.w    $0000        ; $00FC
+        dc.w    $0000        ; $00FE
+        dc.w    $5345        ; $0100
+        dc.w    $4741        ; $0102
+        dc.w    $2033        ; $0104
+        dc.w    $3258        ; $0106
+        dc.w    $2055        ; $0108
+        dc.w    $2020        ; $010A
+        dc.w    $2020        ; $010C
+        dc.w    $2020        ; $010E
+        dc.w    $2843        ; $0110
+        dc.w    $2953        ; $0112
+        dc.w    $4547        ; $0114
+        dc.w    $4120        ; $0116
+        dc.w    $3139        ; $0118
+        dc.w    $3934        ; $011A
+        dc.w    $2E53        ; $011C
+        dc.w    $4550        ; $011E
+        dc.w    $562E        ; $0120
+        dc.w    $522E        ; $0122
+        dc.w    $4458        ; $0124
+        dc.w    $2020        ; $0126
+        dc.w    $2020        ; $0128
+        dc.w    $2020        ; $012A
+        dc.w    $2020        ; $012C
+        dc.w    $2020        ; $012E
+        dc.w    $2020        ; $0130
+        dc.w    $2020        ; $0132
+        dc.w    $2020        ; $0134
+        dc.w    $2020        ; $0136
+        dc.w    $2020        ; $0138
+        dc.w    $2020        ; $013A
+        dc.w    $2020        ; $013C
+        dc.w    $2020        ; $013E
+        dc.w    $2020        ; $0140
+        dc.w    $2020        ; $0142
+        dc.w    $2020        ; $0144
+        dc.w    $2020        ; $0146
+        dc.w    $2020        ; $0148
+        dc.w    $2020        ; $014A
+        dc.w    $2020        ; $014C
+        dc.w    $2020        ; $014E
+        dc.w    $562E        ; $0150
+        dc.w    $522E        ; $0152
+        dc.w    $4458        ; $0154
+        dc.w    $2020        ; $0156
+        dc.w    $2020        ; $0158
+        dc.w    $2020        ; $015A
+        dc.w    $2020        ; $015C
+        dc.w    $2020        ; $015E
+        dc.w    $2020        ; $0160
+        dc.w    $2020        ; $0162
+        dc.w    $2020        ; $0164
+        dc.w    $2020        ; $0166
+        dc.w    $2020        ; $0168
+        dc.w    $2020        ; $016A
+        dc.w    $2020        ; $016C
+        dc.w    $2020        ; $016E
+        dc.w    $2020        ; $0170
+        dc.w    $2020        ; $0172
+        dc.w    $2020        ; $0174
+        dc.w    $2020        ; $0176
+        dc.w    $2020        ; $0178
+        dc.w    $2020        ; $017A
+        dc.w    $2020        ; $017C
+        dc.w    $2020        ; $017E
+        dc.w    $474D        ; $0180
+        dc.w    $204D        ; $0182
+        dc.w    $4B2D        ; $0184
+        dc.w    $3834        ; $0186
+        dc.w    $3630        ; $0188
+        dc.w    $312D        ; $018A
+        dc.w    $3030        ; $018C
+        dc.w    $1E4D        ; $018E
+        dc.w    $4A36        ; $0190
+        dc.w    $2020        ; $0192
+        dc.w    $2020        ; $0194
+        dc.w    $2020        ; $0196
+        dc.w    $2020        ; $0198
+        dc.w    $2020        ; $019A
+        dc.w    $2020        ; $019C
+        dc.w    $2020        ; $019E
+        dc.w    $0000        ; $01A0
+        dc.w    $0000        ; $01A2
+        dc.w    $002F        ; $01A4
+        dc.w    $FFFF        ; $01A6
+        dc.w    $00FF        ; $01A8
+        dc.w    $0000        ; $01AA
+        dc.w    $00FF        ; $01AC
+        dc.w    $FFFF        ; $01AE
+        dc.w    $2020        ; $01B0
+        dc.w    $2020        ; $01B2
+        dc.w    $2020        ; $01B4
+        dc.w    $2020        ; $01B6
+        dc.w    $2020        ; $01B8
+        dc.w    $2020        ; $01BA
+        dc.w    $2020        ; $01BC
+        dc.w    $2020        ; $01BE
+        dc.w    $2020        ; $01C0
+        dc.w    $2020        ; $01C2
+        dc.w    $2020        ; $01C4
+        dc.w    $2020        ; $01C6
+        dc.w    $2020        ; $01C8
+        dc.w    $2020        ; $01CA
+        dc.w    $2020        ; $01CC
+        dc.w    $2020        ; $01CE
+        dc.w    $2020        ; $01D0
+        dc.w    $2020        ; $01D2
+        dc.w    $2020        ; $01D4
+        dc.w    $2020        ; $01D6
+        dc.w    $2020        ; $01D8
+        dc.w    $2020        ; $01DA
+        dc.w    $2020        ; $01DC
+        dc.w    $2020        ; $01DE
+        dc.w    $2020        ; $01E0
+        dc.w    $2020        ; $01E2
+        dc.w    $2020        ; $01E4
+        dc.w    $2020        ; $01E6
+        dc.w    $2020        ; $01E8
+        dc.w    $2020        ; $01EA
+        dc.w    $2020        ; $01EC
+        dc.w    $2020        ; $01EE
+        dc.w    $5520        ; $01F0
+        dc.w    $2020        ; $01F2
+        dc.w    $2020        ; $01F4
+        dc.w    $2020        ; $01F6
+        dc.w    $2020        ; $01F8
+        dc.w    $2020        ; $01FA
+        dc.w    $2020        ; $01FC
+        dc.w    $2020        ; $01FE

@@ -416,12 +416,21 @@ def inject_labels(section_file):
     injected = 0
 
     for i, line in enumerate(lines):
-        # Look for address comments: ; 00XXXXXX:
-        match = re.search(r';\s*([0-9A-Fa-f]{8}):', line)
-        if match:
-            cpu_addr = int(match.group(1), 16)
-            file_offset = cpu_addr - 0x880000
+        file_offset = None
 
+        # Try new format: ; $XXXXXX (6-digit file offset)
+        match = re.search(r';\s*\$([0-9A-Fa-f]{6})\b', line)
+        if match:
+            file_offset = int(match.group(1), 16)
+
+        # Try old format: ; 00XXXXXX: (8-digit CPU address)
+        if file_offset is None:
+            match = re.search(r';\s*([0-9A-Fa-f]{8}):', line)
+            if match:
+                cpu_addr = int(match.group(1), 16)
+                file_offset = cpu_addr - 0x880000
+
+        if file_offset is not None:
             # Check if this address needs a label
             if file_offset in FUNCTION_DATABASE:
                 label, desc = FUNCTION_DATABASE[file_offset]
