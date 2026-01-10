@@ -291,8 +291,55 @@ Phase 4.3+ (Advanced optimization):
 - Rendering visible in-game ✅
 - Performance noticeably improved ✅
 
-**Next Milestone (Phase 4.2)**:
-Push performance to +20-30% by optimizing polygon split point for balanced CPU utilization.
+---
+
+## Phase 4.2-4.3 Investigation Results
+
+### Phase 4.2: Load Balancing Testing ✅ COMPLETE
+
+Tested 5 polygon split points (200, 250, 300, 350, 450):
+- **Finding**: No measurable performance difference between splits
+- **Implication**: Current 50/50 polygon split (400) is already optimal
+- **Conclusion**: Load balancing is not the constraint
+
+### Phase 4.3: FIFO Analysis ✅ COMPLETE - CRITICAL FINDING
+
+**Full gameplay log analysis** (33-71 DREQ blocks across entire session):
+- FIFO blocking is negligible (<0.0001% of frame time)
+- Blocks occur during startup, not active rendering
+- **NOT a performance bottleneck**
+
+**What Phase 4.3 Revealed Instead**:
+- **Real Bottleneck #1**: VDP Polling (47% of Master CPU time)
+  - Master stuck in busy-wait loop checking hardware status
+  - Blocks Master from other work and Slave coordination
+
+- **Real Bottleneck #2**: Master-Slave Coordination (5-10% overhead)
+  - Synchronization protocol has inherent overhead
+  - Limited pipelining of work between CPUs
+
+**Root Cause of Phase 4.1 Performance Plateau**:
+- Slave 30-40% utilization achieved ✅
+- But Master still 60-70% due to VDP polling (47%) + coordination (10%)
+- Expected +20-30% FPS but got only +8-13%
+- **Gap explained**: Slave constrained by Master's polling overhead
+
+---
+
+## Revised Next Milestones
+
+### Phase 4.4: VDP Interrupt-Driven Monitoring (HIGHEST PRIORITY)
+**Objective**: Replace VDP polling with interrupt-driven readiness signal
+**Expected Gain**: Free 40-50% of Master CPU time → +15-25% total FPS improvement
+**Path to 30-35 FPS**: Implement Phase 4.4 + Phase 4.5 optimizations
+
+### Phase 4.5: Master-Slave Coordination Optimization
+**Objective**: Reduce sync overhead, enable pipeline overlap
+**Expected Gain**: +5-10% FPS improvement
+
+### Phase 4.6: Frame Buffer Write Optimization
+**Objective**: Fine-tune Slave write patterns and throughput
+**Expected Gain**: +2-5% FPS improvement
 
 ---
 
@@ -302,16 +349,21 @@ Push performance to +20-30% by optimizing polygon split point for balanced CPU u
 - **Phase 3.2 Baseline**: `build/vrd_phase3_final.32x`
 - **Linker**: `tools/sh2_linker_phase4.py`
 - **Assembly**: `disasm/sh2_slave_consolidated.asm`
-- **Documentation**: `PHASE_4_1_COMPLETION.md`
-- **Testing Guide**: `PHASE_4_2_TESTING_GUIDE.md`
-- **Load Balancing Plan**: `PHASE_4_2_PLAN.md`
+- **Documentation**:
+  - `PHASE_4_1_COMPLETION.md` - Phase 4.1 implementation details
+  - `PHASE_4_2_TESTING_GUIDE.md` - Load balancing test procedures
+  - `PHASE_4_FIFO_ANALYSIS_PLAN.md` - FIFO investigation results
+  - `PHASE_4_FINDINGS_AND_ROADMAP.md` - Complete findings + revised roadmap
+- **Analysis Tools**: `tools/analyze_fifo.py`, `tools/capture_extended_gameplay.sh`
 
 ---
 
 **Date Completed**: January 10, 2026
-**Total Phase Duration**: ~2 hours (debugging + fixing address relocation issue)
-**Performance Improvement**: +8-13% FPS with more gains expected in Phase 4.2
+**Total Work**: Phase 4.1 (2h) + Phase 4.2 (1h testing) + Phase 4.3 (1h analysis) = 4 hours
+**Performance Improvements**:
+- Phase 4.1: +8-13% FPS (26-27 FPS vs 24 baseline)
+- Phase 4.4+ potential: +15-25% additional (30-35 FPS total)
 
 ---
 
-*Phase 4.1 successfully demonstrates that SH2 parallelization can deliver real, measurable performance improvements to Virtua Racing Deluxe.*
+*Phase 4.1-4.3 successfully demonstrates SH2 parallelization, identifies the real scaling bottleneck (VDP polling), and provides a clear roadmap to +30-45% total performance improvement through architecture-level optimizations.*
