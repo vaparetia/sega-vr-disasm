@@ -2664,28 +2664,18 @@ func_15EA:
 
 ; --- V-blank main timing + state machine ---
 V_INT_Handler:
-        dc.w    $4A78        ; $001684
-        dc.w    $C87A        ; $001686
-        dc.w    $6726        ; $001688
-        dc.w    $46FC        ; $00168A
-        dc.w    $2700        ; $00168C
-        dc.w    $48E7        ; $00168E
-        dc.w    $FFFE        ; $001690
-        dc.w    $3038        ; $001692
-        dc.w    $C87A        ; $001694
-        dc.w    $31FC        ; $001696
-        dc.w    $0000        ; $001698
-        dc.w    $C87A        ; $00169A
-        dc.w    $227B        ; $00169C
-        dc.w    $0014        ; $00169E
-        dc.w    $4E91        ; $0016A0
-        dc.w    $52B8        ; $0016A2
-        dc.w    $C964        ; $0016A4
-        dc.w    $4CDF        ; $0016A6
-        dc.w    $7FFF        ; $0016A8
-        dc.w    $46FC        ; $0016AA
-        dc.w    $2300        ; $0016AC
-        dc.w    $4E73        ; $0016AE
+        TST.W $C87A.W        ; $001684
+        BEQ $008816B0        ; $001688
+        MOVE.W #$2700,SR        ; $00168A
+        MOVEM.L D1/D2/D3/D4/D5/D6/D7/A0/A1/A2/A3/A4/A5/A6/A7,-(A7)        ; $00168E
+        MOVE.W $C87A.W,D0        ; $001692
+        MOVE.W #$0000,$C87A.W        ; $001696
+        MOVEA.L <EA:3B>,A1        ; $00169C
+        BTST #145,(A4)        ; $00169E
+        SUBQ.L #1,$C964.W        ; $0016A2
+        MOVEM.L D0/D1/D2/D3/D4/D5/D6/D7/A0/A1/A2/A3/A4/A5/A6,(A7)+        ; $0016A6
+        MOVE.W #$2300,SR        ; $0016AA
+        RTE        ; $0016AE
         dc.w    $4E73        ; $0016B0
 
 ; --- V-INT jump table (16 entries) ---
