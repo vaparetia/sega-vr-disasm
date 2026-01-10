@@ -393,6 +393,6 @@ The 3D engine uses well-structured data layouts optimized for SH2 architecture:
 
 ## References
 
-- [3D_PIPELINE_ARCHITECTURE.md](3D_PIPELINE_ARCHITECTURE.md) - Pipeline overview
-- [3D_FUNCTION_REFERENCE.md](3D_FUNCTION_REFERENCE.md) - Functions using these structures
+- [SH2_3D_PIPELINE_ARCHITECTURE.md](SH2_3D_PIPELINE_ARCHITECTURE.md) - Pipeline overview
+- [SH2_3D_FUNCTION_REFERENCE.md](SH2_3D_FUNCTION_REFERENCE.md) - Functions using these structures
 - [OPTIMIZATION_OPPORTUNITIES.md](OPTIMIZATION_OPPORTUNITIES.md) - Structure-related optimizations

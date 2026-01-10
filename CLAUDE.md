@@ -74,7 +74,7 @@ blastem build/vr_rebuild.32x    # Linux (recommended)
 | [README_PRIORITY_8.md](analysis/README_PRIORITY_8.md) | Master index for Priority 8 investigation |
 | [68K_PRIORITY_9_DEEP_DIVE_REPORT.md](analysis/PRIORITY_9_DEEP_DIVE_REPORT.md) | Priority 9 analysis and architectural insights |
 | [func_065_FINAL_VERDICT.md](analysis/func_065_FINAL_VERDICT.md) | FIFO optimization analysis conclusion |
-| [3D_PIPELINE_ARCHITECTURE.md](analysis/3D_PIPELINE_ARCHITECTURE.md) | SH2 3D rendering engine architecture |
+| [SH2_3D_PIPELINE_ARCHITECTURE.md](analysis/SH2_3D_PIPELINE_ARCHITECTURE.md) | SH2 3D rendering engine architecture |
 | [BOTTLENECK_ANALYSIS.md](analysis/BOTTLENECK_ANALYSIS.md) | Performance bottleneck identification and ranking |
 
 ### Archived Session Logs (`_archive`)

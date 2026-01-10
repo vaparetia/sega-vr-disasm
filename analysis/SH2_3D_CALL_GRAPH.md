@@ -419,7 +419,7 @@ The call graph reveals a well-structured 3D engine with clear separation of conc
 
 ## References
 
-- [3D_PIPELINE_ARCHITECTURE.md](3D_PIPELINE_ARCHITECTURE.md) - Pipeline stages using these functions
-- [3D_FUNCTION_REFERENCE.md](3D_FUNCTION_REFERENCE.md) - Detailed function descriptions
+- [SH2_3D_PIPELINE_ARCHITECTURE.md](SH2_3D_PIPELINE_ARCHITECTURE.md) - Pipeline stages using these functions
+- [SH2_3D_FUNCTION_REFERENCE.md](SH2_3D_FUNCTION_REFERENCE.md) - Detailed function descriptions
 - [OPTIMIZATION_OPPORTUNITIES.md](OPTIMIZATION_OPPORTUNITIES.md) - How to optimize hot paths
 - Complete call graph: `disasm/sh2_3d_engine_callgraph.txt`

@@ -589,8 +589,8 @@ func_XXX:
 
 ## References
 
-- [3D_PIPELINE_ARCHITECTURE.md](3D_PIPELINE_ARCHITECTURE.md) - How these functions fit in the pipeline
-- [3D_CALL_GRAPH.md](3D_CALL_GRAPH.md) - Function relationships
+- [SH2_3D_PIPELINE_ARCHITECTURE.md](SH2_3D_PIPELINE_ARCHITECTURE.md) - How these functions fit in the pipeline
+- [SH2_3D_CALL_GRAPH.md](SH2_3D_CALL_GRAPH.md) - Function relationships
 - [SH2_3D_ENGINE_DATA_STRUCTURES.md](SH2_3D_ENGINE_DATA_STRUCTURES.md) - Data structures used by functions
 - [OPTIMIZATION_OPPORTUNITIES.md](OPTIMIZATION_OPPORTUNITIES.md) - How to optimize specific functions
 - Complete disassembly: `disasm/sh2_3d_engine.asm`

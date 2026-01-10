@@ -385,8 +385,8 @@ This optimization is a **textbook example** of effective inlining:
 
 ## References
 
-- [3D_PIPELINE_ARCHITECTURE.md](3D_PIPELINE_ARCHITECTURE.md) - Pipeline context
-- [3D_CALL_GRAPH.md](3D_CALL_GRAPH.md) - Call frequency analysis
+- [SH2_3D_PIPELINE_ARCHITECTURE.md](SH2_3D_PIPELINE_ARCHITECTURE.md) - Pipeline context
+- [SH2_3D_CALL_GRAPH.md](SH2_3D_CALL_GRAPH.md) - Call frequency analysis
 - [OPTIMIZATION_OPPORTUNITIES.md](OPTIMIZATION_OPPORTUNITIES.md) - Original recommendation
 - [disasm/sh2_3d_engine_annotated.asm](../disasm/sh2_3d_engine_annotated.asm) - Annotated source
 

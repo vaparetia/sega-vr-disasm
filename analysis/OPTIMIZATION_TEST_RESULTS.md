@@ -22,10 +22,10 @@
 ### Files Created 📁
 
 **Documentation**:
-1. [analysis/3D_PIPELINE_ARCHITECTURE.md](analysis/3D_PIPELINE_ARCHITECTURE.md) - Complete pipeline analysis
+1. [analysis/SH2_3D_PIPELINE_ARCHITECTURE.md](analysis/SH2_3D_PIPELINE_ARCHITECTURE.md) - Complete pipeline analysis
 2. [analysis/SH2_3D_ENGINE_DATA_STRUCTURES.md](analysis/SH2_3D_ENGINE_DATA_STRUCTURES.md) - Memory layouts (14 structures)
-3. [analysis/3D_CALL_GRAPH.md](analysis/3D_CALL_GRAPH.md) - Function relationships
-4. [analysis/3D_FUNCTION_REFERENCE.md](analysis/3D_FUNCTION_REFERENCE.md) - All 109 functions documented
+3. [analysis/SH2_3D_CALL_GRAPH.md](analysis/SH2_3D_CALL_GRAPH.md) - Function relationships
+4. [analysis/SH2_3D_FUNCTION_REFERENCE.md](analysis/SH2_3D_FUNCTION_REFERENCE.md) - All 109 functions documented
 5. [analysis/OPTIMIZATION_OPPORTUNITIES.md](analysis/OPTIMIZATION_OPPORTUNITIES.md) - 8 optimization opportunities
 6. [analysis/OPTIMIZATION_PATCH_func16.md](analysis/OPTIMIZATION_PATCH_func16.md) - Implementation guide
 7. [analysis/DEEP_DIVE_func65.md](analysis/DEEP_DIVE_func65.md) - Second hotspot analysis
@@ -270,7 +270,7 @@ caller:
 ## 📚 References
 
 - **Original Analysis**: [OPTIMIZATION_PATCH_func16.md](analysis/OPTIMIZATION_PATCH_func16.md)
-- **Pipeline Architecture**: [3D_PIPELINE_ARCHITECTURE.md](analysis/3D_PIPELINE_ARCHITECTURE.md)
+- **Pipeline Architecture**: [SH2_3D_PIPELINE_ARCHITECTURE.md](analysis/SH2_3D_PIPELINE_ARCHITECTURE.md)
 - **Hardware Specs**: [docs/32x-hardware-manual.md](docs/32x-hardware-manual.md)
 - **SH2 CPU Manual**: See Hitachi SH7095 documentation
 

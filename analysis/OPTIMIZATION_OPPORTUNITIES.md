@@ -617,8 +617,8 @@ Before implementing optimizations, profile on actual hardware to validate assump
 
 ## References
 
-- [3D_PIPELINE_ARCHITECTURE.md](3D_PIPELINE_ARCHITECTURE.md) - Understanding the pipeline stages
-- [3D_CALL_GRAPH.md](3D_CALL_GRAPH.md) - Function call relationships and hotspots
+- [SH2_3D_PIPELINE_ARCHITECTURE.md](SH2_3D_PIPELINE_ARCHITECTURE.md) - Understanding the pipeline stages
+- [SH2_3D_CALL_GRAPH.md](SH2_3D_CALL_GRAPH.md) - Function call relationships and hotspots
 - [SH2_3D_ENGINE_DATA_STRUCTURES.md](SH2_3D_ENGINE_DATA_STRUCTURES.md) - Memory layouts and access patterns
 - [docs/32x-hardware-manual.md](/docs/32x-hardware-manual.md) - Hardware specs for optimization
 - [docs/32x-technical-info.md](/docs/32x-technical-info.md) - Hardware bugs and limitations
