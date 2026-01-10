@@ -13,15 +13,16 @@ def parse_picodrive_log(filename):
 
     with open(filename, 'r') as f:
         for line in f:
-            # Match: HH:MM:SSS: message
-            match = re.match(r'(\d+):(\d+):(\d+): (.+)', line)
+            # Match: HH:MM: message (format from Picodrive output)
+            match = re.match(r'(\d+):(\d+): (.+)', line)
             if not match:
                 continue
 
-            hours, minutes, seconds = map(int, match.groups()[:3])
-            message = match.group(4)
+            time_high, time_low = map(int, match.groups()[:2])
+            message = match.group(3)
 
-            timestamp = hours * 3600 + minutes * 60 + int(seconds) / 1000
+            # Construct timestamp from the time values
+            timestamp = time_high + time_low / 1000.0
 
             if 'DREQ FIFO w16 without 68S' in message:
                 fifo_blocks.append(timestamp)
@@ -64,6 +65,35 @@ def analyze_fifo_blocks(fifo_blocks, timestamps):
     print(f"\nClusters: {len(clusters)}")
     print(f"Avg blocks/cluster: {total_blocks / len(clusters):.1f}")
     print(f"Max cluster size: {max(len(c) for c in clusters)}")
+
+    # Distribution by time window (1-second buckets)
+    print(f"\n=== BLOCKING DISTRIBUTION (by second) ===")
+    bucket_size = 1.0
+    bucket_count = int(time_window / bucket_size) + 1
+    buckets = [0] * bucket_count
+
+    for timestamp in timestamps:
+        bucket_idx = int((timestamp - timestamps[0]) / bucket_size)
+        if 0 <= bucket_idx < bucket_count:
+            buckets[bucket_idx] += 1
+
+    # Show buckets with activity
+    active_buckets = [(i, count) for i, count in enumerate(buckets) if count > 0]
+    if active_buckets:
+        print(f"Blocks concentrated in {len(active_buckets)} of {bucket_count} time windows")
+        if len(active_buckets) <= 20:
+            for bucket_idx, count in active_buckets:
+                start_time = timestamps[0] + bucket_idx * bucket_size
+                print(f"  {start_time:7.1f}s: {count:3d} blocks")
+        else:
+            print("First 10 active windows:")
+            for bucket_idx, count in active_buckets[:10]:
+                start_time = timestamps[0] + bucket_idx * bucket_size
+                print(f"  {start_time:7.1f}s: {count:3d} blocks")
+            print("Last 10 active windows:")
+            for bucket_idx, count in active_buckets[-10:]:
+                start_time = timestamps[0] + bucket_idx * bucket_size
+                print(f"  {start_time:7.1f}s: {count:3d} blocks")
 
     # Estimate impact
     stall_cycles_per_block = 10  # Conservative estimate
