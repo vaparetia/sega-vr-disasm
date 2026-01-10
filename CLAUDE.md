@@ -44,7 +44,7 @@ blastem build/vr_rebuild.32x    # Linux (recommended)
 
 ## Documentation
 
-All detailed documentation is in `/docs`:
+### Reference Material (`/docs`)
 
 | Document | Contents |
 |----------|----------|
@@ -55,6 +55,31 @@ All detailed documentation is in `/docs`:
 | [32x-sram-cartridge-manual.md](docs/32x-sram-cartridge-manual.md) | SRAM dev cartridge (837-11068) |
 | [32x-eprom-cartridge-manual.md](docs/32x-eprom-cartridge-manual.md) | EPROM dev cartridge (837-11070) |
 | [sound-driver-v3.md](docs/sound-driver-v3.md) | Sound Driver V3.00 system calls |
+
+### Active Implementation (`root level`)
+
+| Document | Contents |
+|----------|----------|
+| [OPTIMIZATION_PLAN.md](OPTIMIZATION_PLAN.md) | Strategic optimization roadmap with 4 tracks to reach 60 FPS |
+| [PHASE_2_FINDINGS.md](PHASE_2_FINDINGS.md) | Master-Slave sync protocol design and findings |
+| [PHASE_2_QUICK_START.md](PHASE_2_QUICK_START.md) | Quick reference for Phase 2 test ROM creation |
+| [PROFILING_QUICKSTART.md](PROFILING_QUICKSTART.md) | Setup guide for GDB-based profiling |
+| [ANNOTATION_FRAMEWORK.md](ANNOTATION_FRAMEWORK.md) | Framework for code annotation and documentation |
+
+### Technical Analysis (`/analysis`)
+
+| Document | Contents |
+|----------|----------|
+| [68K_PRIORITY_8_PHASE6_PROFILING_REPORT.md](analysis/68K_PRIORITY_8_PHASE6_PROFILING_REPORT.md) | Complete Priority 8 analysis with profiling results |
+| [README_PRIORITY_8.md](analysis/README_PRIORITY_8.md) | Master index for Priority 8 investigation |
+| [68K_PRIORITY_9_DEEP_DIVE_REPORT.md](analysis/PRIORITY_9_DEEP_DIVE_REPORT.md) | Priority 9 analysis and architectural insights |
+| [func_065_FINAL_VERDICT.md](analysis/func_065_FINAL_VERDICT.md) | FIFO optimization analysis conclusion |
+| [3D_PIPELINE_ARCHITECTURE.md](analysis/3D_PIPELINE_ARCHITECTURE.md) | SH2 3D rendering engine architecture |
+| [BOTTLENECK_ANALYSIS.md](analysis/BOTTLENECK_ANALYSIS.md) | Performance bottleneck identification and ranking |
+
+### Archived Session Logs (`_archive`)
+
+Historical session summaries are archived in `_archive/` for git history preservation.
 
 ## Quick Reference
 
