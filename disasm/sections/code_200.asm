@@ -315,130 +315,115 @@ EntryPoint:
 
 ; --- Code copied to work RAM ---
 RAM_InitCode:
-        dc.w    $1B7C        ; $0004C0
-        dc.w    $0001        ; $0004C2
-        dc.w    $5101        ; $0004C4
-        dc.w    $41F9        ; $0004C6
-        dc.w    $0000        ; $0004C8
-        dc.w    $06BC        ; $0004CA
-        dc.w    $D1FC        ; $0004CC
-        dc.w    $0088        ; $0004CE
-        dc.w    $0000        ; $0004D0
-        dc.w    $4ED0        ; $0004D2
+        MOVE.B #$0001,$5101(A5)        ; $0004C0
+        LEA $000006BC,A0        ; $0004C6
+        ADDA.L #$00880000,A0        ; $0004CC
+        JMP (A0)        ; $0004D2
 
 ; --- VDP register init data (19 bytes) ---
 VDP_InitTable:
-        dc.w    $0404        ; $0004D4
-        dc.w    $303C        ; $0004D6
-        dc.w    $076C        ; $0004D8
-        dc.w    $0000        ; $0004DA
-        dc.w    $0000        ; $0004DC
-        dc.w    $FF00        ; $0004DE
-        dc.w    $8137        ; $0004E0
-        dc.w    $0002        ; $0004E2
-        dc.w    $0100        ; $0004E4
-        dc.w    $0000        ; $0004E6
+        BTST #60,D4        ; $0004D4
+        BCHG D3,$0000(A4)        ; $0004D8
+        BTST #0,D0        ; $0004DC
+        OR.B D0,<EA:37>        ; $0004E0
+        BTST #0,D2        ; $0004E2
+        BTST #1,D0        ; $0004E6
 
 ; --- Z80 boot code + PSG silence ---
 Z80_InitData:
-        dc.w    $AF01        ; $0004E8
-        dc.w    $D91F        ; $0004EA
-        dc.w    $1127        ; $0004EC
-        dc.w    $0021        ; $0004EE
-        dc.w    $2600        ; $0004F0
-        dc.w    $F977        ; $0004F2
-        dc.w    $EDB0        ; $0004F4
-        dc.w    $DDE1        ; $0004F6
-        dc.w    $FDE1        ; $0004F8
-        dc.w    $ED47        ; $0004FA
-        dc.w    $ED4F        ; $0004FC
-        dc.w    $D1E1        ; $0004FE
-        dc.w    $F108        ; $000500
-        dc.w    $D9C1        ; $000502
-        dc.w    $D1E1        ; $000504
-        dc.w    $F1F9        ; $000506
-        dc.w    $F3ED        ; $000508
-        dc.w    $5636        ; $00050A
-        dc.w    $E9E9        ; $00050C
-        dc.w    $9FBF        ; $00050E
-        dc.w    $DFFF        ; $000510
+        DC.W $AF01 ; Unknown        ; $0004E8
+        ADD D4,(A7)+        ; $0004EA
+        MOVE.B -(A7),-(A0)        ; $0004EC
+        BTST #0,-(A1)        ; $0004EE
+        DC.W $F977 ; Unknown        ; $0004F2
+        ROXL.L D6,D0        ; $0004F4
+        ADDA.L -(A1),A6        ; $0004F6
+        DC.W $FDE1 ; Unknown        ; $0004F8
+        ASL.W #6,D7        ; $0004FA
+        LSL.W #6,D7        ; $0004FC
+        ADDA.L -(A1),A0        ; $0004FE
+        DC.W $F108 ; Unknown        ; $000500
+        ADDA.L D1,A4        ; $000502
+        ADDA.L -(A1),A0        ; $000504
+        DC.W $F1F9 ; Unknown        ; $000506
+        DC.W $F3ED ; Unknown        ; $000508
+        SUBQ.B #3,<EA:36>        ; $00050A
+        LSL D4,D1        ; $00050C
+        SUB D7,<EA:3F>        ; $00050E
+        ADDA.L <EA:3F>,A7        ; $000510
 
 ; --- MARS security strings ---
 SecurityStrings:
-        dc.w    $4D41        ; $000512
-        dc.w    $5253        ; $000514
-        dc.w    $2049        ; $000516
-        dc.w    $6E69        ; $000518
-        dc.w    $7469        ; $00051A
-        dc.w    $616C        ; $00051C
-        dc.w    $2026        ; $00051E
-        dc.w    $2053        ; $000520
-        dc.w    $6563        ; $000522
-        dc.w    $7572        ; $000524
-        dc.w    $6974        ; $000526
-        dc.w    $7920        ; $000528
-        dc.w    $5072        ; $00052A
-        dc.w    $6F67        ; $00052C
-        dc.w    $7261        ; $00052E
-        dc.w    $6D20        ; $000530
-        dc.w    $2020        ; $000532
-        dc.w    $2020        ; $000534
-        dc.w    $2020        ; $000536
-        dc.w    $2020        ; $000538
-        dc.w    $2043        ; $00053A
-        dc.w    $6172        ; $00053C
-        dc.w    $7472        ; $00053E
-        dc.w    $6964        ; $000540
-        dc.w    $6765        ; $000542
-        dc.w    $2056        ; $000544
-        dc.w    $6572        ; $000546
-        dc.w    $7369        ; $000548
-        dc.w    $6F6E        ; $00054A
-        dc.w    $2020        ; $00054C
-        dc.w    $2020        ; $00054E
-        dc.w    $436F        ; $000550
-        dc.w    $7079        ; $000552
-        dc.w    $7269        ; $000554
-        dc.w    $6768        ; $000556
-        dc.w    $7420        ; $000558
-        dc.w    $5345        ; $00055A
-        dc.w    $4741        ; $00055C
-        dc.w    $2045        ; $00055E
-        dc.w    $4E54        ; $000560
-        dc.w    $4552        ; $000562
-        dc.w    $5052        ; $000564
-        dc.w    $4953        ; $000566
-        dc.w    $4553        ; $000568
-        dc.w    $2C4C        ; $00056A
-        dc.w    $5444        ; $00056C
-        dc.w    $2E20        ; $00056E
-        dc.w    $3139        ; $000570
-        dc.w    $3934        ; $000572
-        dc.w    $2020        ; $000574
-        dc.w    $2020        ; $000576
-        dc.w    $2020        ; $000578
-        dc.w    $2020        ; $00057A
-        dc.w    $2020        ; $00057C
-        dc.w    $2020        ; $00057E
-        dc.w    $2020        ; $000580
-        dc.w    $2020        ; $000582
-        dc.w    $2020        ; $000584
-        dc.w    $2020        ; $000586
-        dc.w    $2020        ; $000588
-        dc.w    $2020        ; $00058A
-        dc.w    $2020        ; $00058C
-        dc.w    $2020        ; $00058E
-        dc.w    $2020        ; $000590
-        dc.w    $2020        ; $000592
-        dc.w    $2020        ; $000594
-        dc.w    $524F        ; $000596
-        dc.w    $4D20        ; $000598
-        dc.w    $5665        ; $00059A
-        dc.w    $7273        ; $00059C
-        dc.w    $696F        ; $00059E
-        dc.w    $6E20        ; $0005A0
-        dc.w    $312E        ; $0005A2
-        dc.w    $3000        ; $0005A4
+        DC.W $4D41 ; Unknown        ; $000512
+        SUBQ.W #1,(A3)        ; $000514
+        MOVEA.L A1,A0        ; $000516
+        BGT $00880583        ; $000518
+        MOVEQ #$69,D2        ; $00051A
+        BSR $0088058A        ; $00051C
+        MOVE.L -(A6),D0        ; $00051E
+        MOVEA.L (A3),A0        ; $000520
+        BCS $00880587        ; $000522
+        DC.W $7572 ; Unknown        ; $000524
+        BVS $0088059C        ; $000526
+        DC.W $7920 ; Unknown        ; $000528
+        SUBQ.W #8,<EA:32>        ; $00052A
+        BLE $00880595        ; $00052C
+        MOVEQ #$61,D1        ; $00052E
+        BLT $00880552        ; $000530
+        MOVE.L -(A0),D0        ; $000532
+        MOVE.L -(A0),D0        ; $000534
+        MOVE.L -(A0),D0        ; $000536
+        MOVE.L -(A0),D0        ; $000538
+        MOVEA.L D3,A0        ; $00053A
+        BSR $008805B0        ; $00053C
+        MOVEQ #$72,D2        ; $00053E
+        BVS $008805A6        ; $000540
+        BEQ $008805A9        ; $000542
+        MOVEA.L (A6),A0        ; $000544
+        BCS $008805BA        ; $000546
+        DC.W $7369 ; Unknown        ; $000548
+        BLE $008805BA        ; $00054A
+        MOVE.L -(A0),D0        ; $00054C
+        MOVE.L -(A0),D0        ; $00054E
+        DC.W $436F ; Unknown        ; $000550
+        MOVEQ #$79,D0        ; $000552
+        MOVEQ #$69,D1        ; $000554
+        BEQ $008805C0        ; $000556
+        MOVEQ #$20,D2        ; $000558
+        DC.W $5345 ; Unknown        ; $00055A
+        DC.W $4741 ; Unknown        ; $00055C
+        MOVEA.L D5,A0        ; $00055E
+        LINK A4,#$4552        ; $000560
+        SUBQ.W #8,(A2)        ; $000564
+        DC.W $4953 ; Unknown        ; $000566
+        DC.W $4553 ; Unknown        ; $000568
+        MOVEA.L A4,A6        ; $00056A
+        SUBQ.W #2,D4        ; $00056C
+        MOVE.L -(A0),D7        ; $00056E
+        MOVE.W $39342020,-(A0)        ; $000570
+        MOVE.L -(A0),D0        ; $000576
+        MOVE.L -(A0),D0        ; $000578
+        MOVE.L -(A0),D0        ; $00057A
+        MOVE.L -(A0),D0        ; $00057C
+        MOVE.L -(A0),D0        ; $00057E
+        MOVE.L -(A0),D0        ; $000580
+        MOVE.L -(A0),D0        ; $000582
+        MOVE.L -(A0),D0        ; $000584
+        MOVE.L -(A0),D0        ; $000586
+        MOVE.L -(A0),D0        ; $000588
+        MOVE.L -(A0),D0        ; $00058A
+        MOVE.L -(A0),D0        ; $00058C
+        MOVE.L -(A0),D0        ; $00058E
+        MOVE.L -(A0),D0        ; $000590
+        MOVE.L -(A0),D0        ; $000592
+        MOVE.L -(A0),D0        ; $000594
+        SUBQ.W #1,A7        ; $000596
+        DC.W $4D20 ; Unknown        ; $000598
+        SUBQ.W #3,-(A5)        ; $00059A
+        MOVEQ #$73,D1        ; $00059C
+        BVS $0088060F        ; $00059E
+        BGT $008805C2        ; $0005A0
+        MOVE.W $3000(A6),-(A0)        ; $0005A2
 
 ; --- VDP register init function ---
 InitVDPRegs:
@@ -653,9 +638,9 @@ ErrorPath2:
 
 ; --- Infinite loop crash handler ---
 DefaultExceptionHandler:
-        dc.w    $4E71        ; $000832
-        dc.w    $4E71        ; $000834
-        dc.w    $60F2        ; $000836
+        NOP        ; $000832
+        NOP        ; $000834
+        BRA $0088082A        ; $000836
 
 ; --- 32X adapter init - ADEN/REN ---
 MARSAdapterInit:
@@ -1983,23 +1968,19 @@ LZ77Decoder:
 
 ; --- Indexed table access (12 calls) ---
 TableLookup:
-        dc.w    $7403        ; $0014BE
-        dc.w    $7200        ; $0014C0
-        dc.w    $1200        ; $0014C2
-        dc.w    $6712        ; $0014C4
-        dc.w    $E749        ; $0014C6
-        dc.w    $41FA        ; $0014C8
-        dc.w    $0016        ; $0014CA
-        dc.w    $2AB0        ; $0014CC
-        dc.w    $10F8        ; $0014CE
-        dc.w    $2070        ; $0014D0
-        dc.w    $10FC        ; $0014D2
-        dc.w    $4EBA        ; $0014D4
-        dc.w    $FC1E        ; $0014D6
-        dc.w    $E098        ; $0014D8
-        dc.w    $51CA        ; $0014DA
-        dc.w    $FFE4        ; $0014DC
-        dc.w    $4E75        ; $0014DE
+        MOVEQ #$03,D2        ; $0014BE
+        MOVEQ #$00,D1        ; $0014C0
+        MOVE.B D0,D1        ; $0014C2
+        BEQ $008814D8        ; $0014C4
+        LSL.W #3,D1        ; $0014C6
+        LEA $008814E0(PC),A0        ; $0014C8
+        MOVE.L <EA:30>,(A5)        ; $0014CC
+        MOVE.B $2070.W,(A0)+        ; $0014CE
+        MOVE.B #$4EBA,(A0)+        ; $0014D2
+        DC.W $FC1E ; Unknown        ; $0014D6
+        ROR.L #8,D0        ; $0014D8
+        DBRA D2,$008814C0        ; $0014DA
+        RTS        ; $0014DE
         dc.w    $4000        ; $0014E0
         dc.w    $0000        ; $0014E2
         dc.w    $0000        ; $0014E4
@@ -3070,23 +3051,17 @@ VINTState15Handler:
 
 ; --- Clear input RAM (11 calls) ---
 ClearInputState:
-        dc.w    $7000        ; $00204A
-        dc.w    $31C0        ; $00204C
-        dc.w    $C8A4        ; $00204E
-        dc.w    $11C0        ; $002050
-        dc.w    $C822        ; $002052
-        dc.w    $11C0        ; $002054
-        dc.w    $C823        ; $002056
-        dc.w    $31C0        ; $002058
-        dc.w    $C8A2        ; $00205A
-        dc.w    $4E75        ; $00205C
+        MOVEQ #$00,D0        ; $00204A
+        MOVE.W D0,$C8A4.W        ; $00204C
+        MOVE.B D0,$C822.W        ; $002050
+        MOVE.B D0,$C823.W        ; $002054
+        MOVE.W D0,$C8A2.W        ; $002058
+        RTS        ; $00205C
 
 ; --- Set input state flag (16 calls) ---
 SetInputFlag:
-        dc.w    $11FC        ; $00205E
-        dc.w    $00F0        ; $002060
-        dc.w    $C822        ; $002062
-        dc.w    $4E75        ; $002064
+        MOVE.B #$00F0,$C822.W        ; $00205E
+        RTS        ; $002064
 
 ; --- Input system initialization ---
 InitInputSystem:
