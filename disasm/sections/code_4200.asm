@@ -1052,15 +1052,11 @@ FastCopy16:
 
 ; --- Sync with V-INT (21 calls) ---
 WaitForVBlank:
-        dc.w    $31FC        ; $004998
-        dc.w    $0004        ; $00499A
-        dc.w    $C87A        ; $00499C
-        dc.w    $46FC        ; $00499E
-        dc.w    $2300        ; $0049A0
-        dc.w    $4A78        ; $0049A2
-        dc.w    $C87A        ; $0049A4
-        dc.w    $66FA        ; $0049A6
-        dc.w    $4E75        ; $0049A8
+        MOVE.W #$0004,$C87A.W        ; $004998
+        MOVE.W #$2300,SR        ; $00499E
+        TST.W $C87A.W        ; $0049A2
+        BNE $008849A2        ; $0049A6
+        RTS        ; $0049A8
 
 ; --- Init display buffers (21 calls) ---
 SetDisplayParams:
