@@ -170,7 +170,7 @@ FUNCTION_DATABASE = {
 
     # Subroutine call chains
     0x60D4: ("HardwareStateCtrl", "Hardware state controller"),
-    0x60FD: ("SubroutineCallChain", "Subroutine call chain (14+ calls)"),
+    0x60FE: ("SubroutineCallChain", "Subroutine call chain (14+ calls)"),
     0x617A: ("ConditionalHandler1", "Conditional handler 1"),
     0x6292: ("PortConfigHandler", "Port configuration handler"),
     0x633A: ("ConfigHandlerVariant", "Configuration handler variant"),
