@@ -25,7 +25,10 @@
 
         include "sections/mars_defs.asm"
 
-        include "sections_raw/header.asm"
+; ============================================================================
+; Modular sections (annotated code replacing raw sections)
+; ============================================================================
+        include "modules/68k/boot/rom_header.asm"    ; $000-$1FF (replaces header.asm)
         include "sections_raw/code_00200.asm"
         include "sections_raw/code_02200.asm"
         include "sections_raw/code_04200.asm"
