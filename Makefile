@@ -23,8 +23,12 @@ ASMFLAGS = -Fbin -m68000 -no-opt -spaces -quiet
 
 # Source files
 M68K_SRC = $(DISASM_DIR)/vrd.asm
+M68K_SRC_RAW = $(DISASM_DIR)/vrd_raw.asm
+M68K_SRC_MODULAR = $(DISASM_DIR)/vrd_modular.asm
+OUTPUT_ROM_RAW = $(BUILD_DIR)/vr_rebuild_raw.32x
+OUTPUT_ROM_MODULAR = $(BUILD_DIR)/vr_rebuild_modular.32x
 
-.PHONY: all clean disasm compare tools test
+.PHONY: all clean disasm compare tools test modular compare-modular raw compare-raw
 
 # ============================================================================
 # Main targets
@@ -32,12 +36,30 @@ M68K_SRC = $(DISASM_DIR)/vrd.asm
 
 all: dirs $(OUTPUT_ROM)
 
+raw: dirs $(OUTPUT_ROM_RAW)
+
+modular: dirs $(OUTPUT_ROM_MODULAR)
+
 dirs:
 	@mkdir -p $(BUILD_DIR)
 
-# Build the ROM
+# Build the ROM from original sections/
 $(OUTPUT_ROM): $(M68K_SRC)
-	@echo "==> Assembling 68000 code..."
+	@echo "==> Assembling 68000 code (from sections/)..."
+	$(ASM) $(ASMFLAGS) -o $@ $<
+	@echo "==> Build complete: $@"
+	@ls -lh $@
+
+# Build the ROM from raw DC.W sections (guaranteed correct)
+$(OUTPUT_ROM_RAW): $(M68K_SRC_RAW)
+	@echo "==> Assembling 68000 code (from sections_raw/)..."
+	$(ASM) $(ASMFLAGS) -o $@ $<
+	@echo "==> Build complete: $@"
+	@ls -lh $@
+
+# Build the ROM from modular structure
+$(OUTPUT_ROM_MODULAR): $(M68K_SRC_MODULAR)
+	@echo "==> Assembling 68000 code (from modules/)..."
 	$(ASM) $(ASMFLAGS) -o $@ $<
 	@echo "==> Build complete: $@"
 	@ls -lh $@
@@ -60,9 +82,9 @@ disasm-sh2:
 # Verification targets
 # ============================================================================
 
-# Compare rebuilt ROM with original
+# Compare rebuilt ROM with original (from sections/)
 compare: $(OUTPUT_ROM)
-	@echo "==> Comparing ROM files..."
+	@echo "==> Comparing ROM files (sections/ build)..."
 	@if [ ! -f "$(ORIGINAL_ROM)" ]; then \
 		echo "ERROR: Original ROM not found: $(ORIGINAL_ROM)"; \
 		exit 1; \
@@ -83,6 +105,75 @@ compare: $(OUTPUT_ROM)
 		fi; \
 	else \
 		echo "✗ Size mismatch!"; \
+	fi
+
+# Compare raw ROM build with original
+compare-raw: $(OUTPUT_ROM_RAW)
+	@echo "==> Comparing ROM files (raw sections build)..."
+	@if [ ! -f "$(ORIGINAL_ROM)" ]; then \
+		echo "ERROR: Original ROM not found: $(ORIGINAL_ROM)"; \
+		exit 1; \
+	fi
+	@ORIG_SIZE=$$(stat -c%s "$(ORIGINAL_ROM)"); \
+	BUILD_SIZE=$$(stat -c%s "$(OUTPUT_ROM_RAW)"); \
+	echo "Original ROM size: $$ORIG_SIZE bytes"; \
+	echo "Raw build ROM size:  $$BUILD_SIZE bytes"; \
+	if [ $$ORIG_SIZE -eq $$BUILD_SIZE ]; then \
+		echo "✓ Sizes match!"; \
+		echo "==> Comparing bytes..."; \
+		cmp -l "$(ORIGINAL_ROM)" "$(OUTPUT_ROM_RAW)" | head -20; \
+		DIFF_COUNT=$$(cmp -l "$(ORIGINAL_ROM)" "$(OUTPUT_ROM_RAW)" | wc -l); \
+		if [ $$DIFF_COUNT -eq 0 ]; then \
+			echo "✓✓✓ PERFECT MATCH! ROMs are identical! ✓✓✓"; \
+		else \
+			echo "⚠ Found $$DIFF_COUNT differing bytes"; \
+		fi; \
+	else \
+		echo "✗ Size mismatch!"; \
+	fi
+
+# Compare modular ROM build with original
+compare-modular: $(OUTPUT_ROM_MODULAR)
+	@echo "==> Comparing ROM files (modules/ build)..."
+	@if [ ! -f "$(ORIGINAL_ROM)" ]; then \
+		echo "ERROR: Original ROM not found: $(ORIGINAL_ROM)"; \
+		exit 1; \
+	fi
+	@ORIG_SIZE=$$(stat -c%s "$(ORIGINAL_ROM)"); \
+	BUILD_SIZE=$$(stat -c%s "$(OUTPUT_ROM_MODULAR)"); \
+	echo "Original ROM size: $$ORIG_SIZE bytes"; \
+	echo "Modular build ROM size:  $$BUILD_SIZE bytes"; \
+	if [ $$ORIG_SIZE -eq $$BUILD_SIZE ]; then \
+		echo "✓ Sizes match!"; \
+		echo "==> Comparing bytes..."; \
+		cmp -l "$(ORIGINAL_ROM)" "$(OUTPUT_ROM_MODULAR)" | head -20; \
+		DIFF_COUNT=$$(cmp -l "$(ORIGINAL_ROM)" "$(OUTPUT_ROM_MODULAR)" | wc -l); \
+		if [ $$DIFF_COUNT -eq 0 ]; then \
+			echo "✓✓✓ PERFECT MATCH! ROMs are identical! ✓✓✓"; \
+		else \
+			echo "⚠ Found $$DIFF_COUNT differing bytes"; \
+		fi; \
+	else \
+		echo "✗ Size mismatch!"; \
+	fi
+
+# Compare both builds against each other
+compare-both: $(OUTPUT_ROM) $(OUTPUT_ROM_MODULAR)
+	@echo "==> Comparing sections/ vs modules/ builds..."
+	@SECTIONS_SIZE=$$(stat -c%s "$(OUTPUT_ROM)"); \
+	MODULAR_SIZE=$$(stat -c%s "$(OUTPUT_ROM_MODULAR)"); \
+	echo "sections/ build size: $$SECTIONS_SIZE bytes"; \
+	echo "modules/ build size:  $$MODULAR_SIZE bytes"; \
+	if [ $$SECTIONS_SIZE -eq $$MODULAR_SIZE ]; then \
+		echo "✓ Sizes match!"; \
+		DIFF_COUNT=$$(cmp -l "$(OUTPUT_ROM)" "$(OUTPUT_ROM_MODULAR)" | wc -l); \
+		if [ $$DIFF_COUNT -eq 0 ]; then \
+			echo "✓✓✓ PERFECT MATCH! Both builds are identical! ✓✓✓"; \
+		else \
+			echo "⚠ Found $$DIFF_COUNT differing bytes between builds"; \
+		fi; \
+	else \
+		echo "✗ Size mismatch between builds!"; \
 	fi
 
 # Quick hex dump comparison
@@ -141,16 +232,27 @@ clean-all: clean
 help:
 	@echo "Virtua Racing Deluxe (32X) - Build System"
 	@echo ""
-	@echo "Targets:"
-	@echo "  all           - Build the ROM (default)"
-	@echo "  clean         - Remove build files"
-	@echo "  clean-all     - Remove all generated files including tools"
-	@echo "  compare       - Compare rebuilt ROM with original"
-	@echo "  hexdump       - Show hex dump comparison"
-	@echo "  disasm        - Disassemble ROM sections"
-	@echo "  disasm-m68k   - Disassemble 68000 code"
-	@echo "  disasm-sh2    - Disassemble SH2 code"
-	@echo "  analyze       - Analyze ROM structure"
-	@echo "  find-sections - Find code sections"
-	@echo "  tools         - Build assembler tools"
+	@echo "Build Targets:"
+	@echo "  all            - Build the ROM from sections/ (original disasm)"
+	@echo "  raw            - Build the ROM from sections_raw/ (guaranteed correct)"
+	@echo "  modular        - Build the ROM from modules/ (refactored structure)"
+	@echo ""
+	@echo "Verification:"
+	@echo "  compare        - Compare sections/ build with original"
+	@echo "  compare-raw    - Compare sections_raw/ build with original"
+	@echo "  compare-modular- Compare modules/ build with original"
+	@echo "  compare-both   - Compare sections/ vs modules/ builds"
+	@echo "  hexdump        - Show hex dump comparison"
+	@echo ""
+	@echo "Analysis:"
+	@echo "  disasm         - Disassemble ROM sections"
+	@echo "  disasm-m68k    - Disassemble 68000 code"
+	@echo "  disasm-sh2     - Disassemble SH2 code"
+	@echo "  analyze        - Analyze ROM structure"
+	@echo "  find-sections  - Find code sections"
+	@echo ""
+	@echo "Maintenance:"
+	@echo "  clean          - Remove build files"
+	@echo "  clean-all      - Remove all generated files including tools"
+	@echo "  tools          - Build assembler tools"
 	@echo ""
