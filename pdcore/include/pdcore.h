@@ -129,8 +129,17 @@ typedef struct {
  * ============================================================================
  */
 
-/* Handler function called when breakpoint is hit */
-typedef void (*pd_breakpoint_handler_t)(
+/* Action to take after breakpoint handler executes */
+typedef enum {
+    PD_BP_HALT = 0,      /* Halt execution (default) */
+    PD_BP_CONTINUE = 1,  /* Continue execution */
+    PD_BP_DISABLE = 2,   /* Disable this breakpoint and continue */
+} pd_breakpoint_action_t;
+
+/* Handler function called when breakpoint is hit
+ * Returns: Action to take (halt, continue, or disable breakpoint)
+ */
+typedef pd_breakpoint_action_t (*pd_breakpoint_handler_t)(
     pd_t *emu,               /* Emulator instance */
     pd_cpu_t cpu,            /* Which CPU hit breakpoint */
     uint32_t pc,             /* Program counter at breakpoint */

@@ -13,6 +13,86 @@
 #include <string.h>
 #include <stdio.h>
 
+/* PicoDrive SH2 structure definition
+ * Full structure from third_party/picodrive/cpu/sh2/sh2.h
+ * This must match exactly for proper field access
+ */
+#ifndef PDCORE_SH2_DEFINED
+#define PDCORE_SH2_DEFINED
+
+#define ALIGNED(n) __attribute__((aligned(n)))
+
+typedef struct SH2_ {
+    uint32_t r[16] ALIGNED(32);   /* General purpose registers */
+    uint32_t pc;                  /* Program counter */
+    uint32_t ppc;
+    uint32_t pr;
+    uint32_t sr;
+    uint32_t gbr, vbr;
+    uint32_t mach, macl;
+
+    /* Memory maps */
+    const void *read8_map;
+    const void *read16_map;
+    const void *read32_map;
+    const void **write8_tab;
+    const void **write16_tab;
+    const void **write32_tab;
+
+    /* DRC stuff */
+    int drc_tmp;
+    int irq_cycles;
+    void *p_bios;
+    void *p_da;
+    void *p_sdram;
+    void *p_rom;
+    void *p_dram;
+    void *p_drcblk_da;
+    void *p_drcblk_ram;
+    unsigned int pdb_io_csum[2];
+
+    unsigned int state;
+    uint32_t poll_addr;
+    unsigned int poll_cycles;
+    int poll_cnt;
+    int no_polling;
+
+    /* DRC branch cache */
+    int rts_cache_idx;
+    struct { uint32_t pc; void *code; } rts_cache[16];
+    struct { uint32_t pc; void *code; } branch_cache[128];
+
+    /* Interpreter stuff */
+    int icount;
+    unsigned int ea;
+    unsigned int delay;
+    unsigned int test_irq;
+
+    int pending_level;
+    int pending_irl;
+    int pending_int_irq;
+    int pending_int_vector;
+    int (*irq_callback)(struct SH2_ *sh2, int level);
+    int is_slave;
+
+    unsigned int cycles_timeslice;
+    struct SH2_ *other_sh2;
+    int (*run)(struct SH2_ *, int);
+
+    /* 68k reference cycles */
+    unsigned int m68krcycles_done;
+    unsigned int mult_m68k_to_sh2;
+    unsigned int mult_sh2_to_m68k;
+
+    uint8_t data_array[0x1000];
+    uint32_t peri_regs[0x200/4];
+
+    /* Debug hooks (pdcore debugger support - NULL when no debugger attached) */
+    int (*debug_check_breakpoint)(struct SH2_ *sh2);
+    void *debug_context;
+} SH2;
+#endif
+
 
 /* ============================================================================
  * HELPER MACROS
@@ -587,6 +667,123 @@ void *pd_mem_snapshot(pd_t *emu, pd_bus_t bus, uint32_t address, size_t size)
  * ============================================================================
  */
 
+/* Forward declaration of global emulator instance
+ * We need this to map from SH2* back to pd_t in the callback
+ */
+static pd_t *g_pdcore_emu = NULL;
+
+/**
+ * Breakpoint dispatcher callback
+ * Called from SH2 execution loop on every instruction
+ * Returns: 1 to halt execution, 0 to continue
+ */
+static int pdcore_breakpoint_dispatcher(SH2 *sh2)
+{
+    pdcore_breakpoint_array_t *arr;
+    pdcore_breakpoint_t *bp;
+    uint32_t pc;
+    pd_cpu_t cpu;
+    pd_t *emu = g_pdcore_emu;
+
+    if (!emu || !sh2) return 0;
+
+    /* Determine which CPU this is */
+    cpu = sh2->is_slave ? PD_CPU_SLAVE : PD_CPU_MASTER;
+
+    /* Get breakpoint array for this CPU */
+    if (cpu == PD_CPU_MASTER) {
+        arr = (pdcore_breakpoint_array_t *)emu->bp_array_master;
+    } else {
+        arr = (pdcore_breakpoint_array_t *)emu->bp_array_slave;
+    }
+
+    if (!arr) return 0;
+
+    /* Get current PC */
+    pc = sh2->pc;
+
+    /* Look up breakpoint at this address */
+    bp = pdcore_bp_find(arr, pc);
+    if (!bp || !bp->active) {
+        return 0;  /* No breakpoint or inactive - continue execution */
+    }
+
+    /* Breakpoint hit! Call user's handler */
+    if (bp->handler) {
+        pd_breakpoint_action_t action = bp->handler(emu, cpu, pc, bp->user_data);
+
+        /* Check what the handler wants us to do */
+        if (action == PD_BP_HALT) {
+            emu->halt_requested = 1;
+            return 1;  /* Stop execution */
+        } else if (action == PD_BP_CONTINUE) {
+            return 0;  /* Continue execution */
+        } else if (action == PD_BP_DISABLE) {
+            /* Disable this breakpoint and continue */
+            bp->active = 0;
+            return 0;
+        }
+    }
+
+    /* Default: halt on breakpoint */
+    emu->halt_requested = 1;
+    return 1;
+}
+
+/**
+ * Attach breakpoint callback to SH2
+ * Only attaches if not already attached
+ */
+static void pdcore_attach_breakpoint_callback(pd_t *emu, pd_cpu_t cpu)
+{
+    SH2 *sh2;
+
+    if (!emu) return;
+
+    /* Get SH2 instance */
+    if (cpu == PD_CPU_MASTER) {
+        sh2 = pdcore_get_sh2_master();
+    } else if (cpu == PD_CPU_SLAVE) {
+        sh2 = pdcore_get_sh2_slave();
+    } else {
+        return;
+    }
+
+    if (!sh2) return;
+
+    /* Install callback if not already installed */
+    if (sh2->debug_check_breakpoint == NULL) {
+        sh2->debug_check_breakpoint = pdcore_breakpoint_dispatcher;
+        sh2->debug_context = emu;
+        g_pdcore_emu = emu;  /* Store global reference for dispatcher */
+    }
+}
+
+/**
+ * Detach breakpoint callback from SH2
+ */
+static void pdcore_detach_breakpoint_callback(pd_t *emu, pd_cpu_t cpu)
+{
+    SH2 *sh2;
+
+    if (!emu) return;
+
+    /* Get SH2 instance */
+    if (cpu == PD_CPU_MASTER) {
+        sh2 = pdcore_get_sh2_master();
+    } else if (cpu == PD_CPU_SLAVE) {
+        sh2 = pdcore_get_sh2_slave();
+    } else {
+        return;
+    }
+
+    if (!sh2) return;
+
+    /* Detach callback */
+    sh2->debug_check_breakpoint = NULL;
+    sh2->debug_context = NULL;
+}
+
 /**
  * Add execution breakpoint
  */
@@ -614,7 +811,8 @@ int pd_bp_exec_add(pd_t *emu, pd_cpu_t cpu, uint32_t address,
         return bp_id;
     }
 
-    /* TODO: Attach callback to SH2 if not already attached */
+    /* Attach callback to SH2 (if not already attached) */
+    pdcore_attach_breakpoint_callback(emu, cpu);
 
     return bp_id;
 }
@@ -648,8 +846,12 @@ int pd_bp_exec_clear(pd_t *emu, pd_cpu_t cpu)
 
     if (cpu == PD_CPU_MASTER) {
         pdcore_bp_clear((pdcore_breakpoint_array_t *)emu->bp_array_master);
+        /* Detach callback when no breakpoints remain */
+        pdcore_detach_breakpoint_callback(emu, PD_CPU_MASTER);
     } else if (cpu == PD_CPU_SLAVE) {
         pdcore_bp_clear((pdcore_breakpoint_array_t *)emu->bp_array_slave);
+        /* Detach callback when no breakpoints remain */
+        pdcore_detach_breakpoint_callback(emu, PD_CPU_SLAVE);
     } else {
         return PD_ERR_INVALID_PARAM;
     }
