@@ -28,9 +28,19 @@
 ; ============================================================================
 ; Modular sections (annotated code replacing raw sections)
 ; ============================================================================
-        include "modules/68k/boot/rom_header.asm"    ; $000-$1FF (replaces header.asm)
-        include "sections_raw/code_00200.asm"
-        include "sections_raw/code_02200.asm"
+
+; --- ROM Header and Boot ($000-$21FF) ---
+        include "modules/68k/boot/rom_header.asm"      ; $000-$1FF   Vector table, SEGA header
+        include "modules/68k/boot/init_sequence.asm"   ; $200-$1683  MARS security, main init
+        include "modules/68k/main-loop/vint_handler.asm" ; $1684-$17ED V-INT handler, state machine
+        include "modules/68k/input/controller_read.asm"  ; $17EE-$21FF Controller input handling
+
+; --- Input and Display ($2200-$41FF) ---
+        include "modules/68k/input/input_processing.asm"   ; $2200-$27F7  Input processing
+        include "modules/68k/display/vdp_operations.asm"   ; $27F8-$2877  VDP operations
+        include "modules/68k/input/button_handling.asm"    ; $2878-$41FF  Button handling
+
+; --- Remaining sections (raw data, to be annotated) ---
         include "sections_raw/code_04200.asm"
         include "sections_raw/code_06200.asm"
         include "sections_raw/code_08200.asm"
