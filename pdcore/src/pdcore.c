@@ -549,24 +549,30 @@ void pd_clear_error(pd_t *emu)
  */
 
 /**
- * PicoDrive accessor stubs
- * These will be implemented in Phase 2 when we hook into PicoDrive
+ * PicoDrive accessor functions
+ * These bridge to PicoDrive's internal state via pdcore_bridge.c
  */
+
+// Forward declarations of bridge functions (implemented in PicoDrive source)
+// Note: We can't use the same names due to forward declaration conflicts,
+// so the bridge uses different internal names
+extern void *picodrive_get_pico32x_state(void);
+extern void *picodrive_get_sh2_master(void);
+extern void *picodrive_get_sh2_slave(void);
+extern void *picodrive_get_pico_state(void);
 
 Genesis_State *pdcore_get_genesis_state(void)
 {
-    /* TODO: Return global Genesis_State from PicoDrive */
-    return NULL;
+    // Note: In PicoDrive, the "genesis state" is the Pico32x structure
+    return (Genesis_State *)picodrive_get_pico32x_state();
 }
 
 SH2 *pdcore_get_sh2_master(void)
 {
-    /* TODO: Return master SH2 from Genesis_State */
-    return NULL;
+    return (SH2 *)picodrive_get_sh2_master();
 }
 
 SH2 *pdcore_get_sh2_slave(void)
 {
-    /* TODO: Return slave SH2 from Genesis_State */
-    return NULL;
+    return (SH2 *)picodrive_get_sh2_slave();
 }
