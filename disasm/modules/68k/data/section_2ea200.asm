@@ -4,7 +4,10 @@
 ; Address: $2EA200-$2EC1FF (8192 bytes)
 ; ============================================================================
 ;
-; TODO: Add function annotations and documentation
+; Data Type: 68K Code (Misclassified)
+; Classification: CODE
+; Contains 68K executable code (misclassified)
+;
 ;
 ; ============================================================================
 

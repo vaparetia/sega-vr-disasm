@@ -4,7 +4,10 @@
 ; Address: $2E2200-$2E41FF (8192 bytes)
 ; ============================================================================
 ;
-; TODO: Add function annotations and documentation
+; Data Type: Fill Pattern
+; Classification: FILL
+; Fill pattern or padding data
+;
 ;
 ; ============================================================================
 

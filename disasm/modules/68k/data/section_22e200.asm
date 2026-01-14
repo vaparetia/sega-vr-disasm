@@ -4,7 +4,10 @@
 ; Address: $22E200-$2301FF (8192 bytes)
 ; ============================================================================
 ;
-; TODO: Add function annotations and documentation
+; Data Type: Trigonometric Table
+; Classification: LUT_TRIG
+; Trigonometric or periodic lookup table
+;
 ;
 ; ============================================================================
 

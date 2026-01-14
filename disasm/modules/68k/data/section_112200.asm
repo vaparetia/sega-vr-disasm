@@ -4,7 +4,10 @@
 ; Address: $112200-$1141FF (8192 bytes)
 ; ============================================================================
 ;
-; TODO: Add function annotations and documentation
+; Data Type: Color Palette
+; Classification: PALETTE
+; RGB555 color palette data (100% RGB555)
+;
 ;
 ; ============================================================================
 

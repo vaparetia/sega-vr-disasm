@@ -4,7 +4,10 @@
 ; Address: $13A200-$13C1FF (8192 bytes)
 ; ============================================================================
 ;
-; TODO: Add function annotations and documentation
+; Data Type: Lookup Table
+; Classification: LUT_SORTED
+; Sorted lookup table
+;
 ;
 ; ============================================================================
 

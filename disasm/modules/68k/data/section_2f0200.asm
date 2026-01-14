@@ -4,7 +4,10 @@
 ; Address: $2F0200-$2F21FF (8192 bytes)
 ; ============================================================================
 ;
-; TODO: Add function annotations and documentation
+; Data Type: 3D Geometry
+; Classification: GEOMETRY
+; 3D geometry data (vertices/polygons)
+;
 ;
 ; ============================================================================
 
