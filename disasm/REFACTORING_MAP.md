@@ -15,8 +15,10 @@ This document maps the current address-based section files to the new feature-ba
 | sections/ | Working | Fixed 2,901 invalid mnemonics, builds successfully |
 | modules/shared/definitions.asm | ✅ Integrated | Hardware register definitions (all platforms) |
 | modules/68k/boot/rom_header.asm | ✅ Integrated | Exception vectors + ROM header ($000000-$0001FF) |
-| modules/68k/memory/fill_copy_operations.asm | ⏸️ Extracted | Memory utils ($004836-$004996), integration deferred |
-| vrd_modular.asm | ✅ Building | Hybrid: 2 modules + sections/, 3,145,728 bytes, 68,305 byte diff |
+| modules/68k/memory/fill_copy_operations.asm | ⏸️ Extracted | Memory utils ($004836-$004996) from code_4200.asm |
+| modules/68k/display/vdp_operations.asm | ⏸️ Extracted | VDP ops ($0027F8-$002982) from code_2200.asm |
+| modules/68k/display/sync_functions.asm | ⏸️ Extracted | V-INT sync ($004998-$0049C6) from code_4200.asm |
+| vrd_modular.asm | ✅ Building | Hybrid: 2 integrated + 3 extracted, 3,145,728 bytes |
 | Build System | ✅ | Both `make all` and `make modular` work |
 
 **Build Verification:**
@@ -447,9 +449,12 @@ wc -l sections/code_4200.asm
 
 ## Phase 2a Findings
 
-**Discovery:** Section files are not cleanly organized by subsystem:
-- `code_4200.asm` contains Memory Utils ($004836-$004996), Display ($004998+), and Input
-- `code_2200.asm` contains both Memory/VDP ops (mixed)
+**Discovery:** Section files are organized by ADDRESS, not by SUBSYSTEM:
+- `code_2200.asm` contains VDP ops + Memory ops + Data tables (all mixed)
+- `code_4200.asm` contains Memory Utils + Display + Input + Initialization (all mixed)
+- `code_6200.asm` contains Game State Handlers + Config + Display (all mixed)
+- `code_8200.asm` contains Sound + HW Registers + 3D Coord Calc (all mixed)
+- **ALL sections are address-based ($8KB chunks), not feature-based!**
 
 **Integration Strategy for Mixed Sections:**
 1. Extract all subsystems from a mixed section file first
@@ -457,13 +462,21 @@ wc -l sections/code_4200.asm
 3. Update vrd_modular.asm to include modules + partial section
 4. Verify build after each major subsystem extraction
 
-**Module Files Created (Phase 2a):**
+**Module Files Created (Phase 2):**
 - `modules/shared/definitions.asm` - Integrated ✅
 - `modules/68k/boot/rom_header.asm` - Integrated ✅
-- `modules/68k/memory/fill_copy_operations.asm` - Extracted, awaiting integration ⏸️
+- `modules/68k/memory/fill_copy_operations.asm` - Extracted (241 lines) ⏸️
+- `modules/68k/display/vdp_operations.asm` - Extracted (154 lines) ⏸️
+- `modules/68k/display/sync_functions.asm` - Extracted (42 lines) ⏸️
+
+**Total Extraction Progress:**
+- 2 modules integrated into vrd_modular.asm
+- 3 modules extracted, awaiting integration
+- ~437 lines of code refactored from sections/ to modules/
 
 ---
 
-**Last Updated:** 2026-01-17 (Phase 2a session)
-**Status:** Phase 2a In Progress - 2/3 modules integrated
+**Last Updated:** 2026-01-17 (Phase 2 extraction session)
+**Status:** Phase 2 Extraction Complete - 5 modules created (2 integrated, 3 extracted)
 **Working Build:** ✅ 3,145,728 bytes (make modular verified)
+**Next Phase:** Integration - Create partial section files and integrate extracted modules
