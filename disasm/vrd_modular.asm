@@ -14,9 +14,14 @@
 ; Build: make modular
 ; Verify: make compare (should show PERFECT MATCH with original ROM)
 ;
-; Current Status: Phase 2a - Foundation module extraction
+; Current Status: Phase 3 - Module Integration
 ;   - ✅ Shared definitions migrated to modules/shared/
-;   - Currently includes from sections/ (will migrate to modules/ in later phases)
+;   - ✅ ROM header extracted to modules/68k/boot/
+;   - ✅ VDP operations extracted to modules/68k/display/
+;   - ✅ Memory utilities extracted to modules/68k/memory/
+;   - ✅ Display sync extracted to modules/68k/display/
+;   - ✅ Partial section files created (code_2200_partial, code_4200_partial)
+;   - Currently: Hybrid build (modules + sections)
 ;
 ; ============================================================================
 
@@ -26,8 +31,16 @@
 ; Boot & Initialization
         include "modules/68k/boot/rom_header.asm"
         include "sections/code_200.asm"
-        include "sections/code_2200.asm"
-        include "sections/code_4200.asm"
+
+; Display System - VDP Operations ($0027F8-$002982)
+        include "modules/68k/display/vdp_operations.asm"
+        include "sections/code_2200_partial.asm"
+
+; Memory & Display Utilities ($004836-$0049C6)
+        include "modules/68k/memory/fill_copy_operations.asm"
+        include "modules/68k/display/sync_functions.asm"
+        include "sections/code_4200_partial.asm"
+
         include "sections/code_6200.asm"
         include "sections/code_8200.asm"
         include "sections/code_a200.asm"
