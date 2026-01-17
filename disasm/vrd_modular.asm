@@ -23,7 +23,8 @@
 ; Include shared hardware definitions (must be before any org directives)
         include "modules/shared/definitions.asm"
 
-        include "sections/header.asm"
+; Boot & Initialization
+        include "modules/68k/boot/rom_header.asm"
         include "sections/code_200.asm"
         include "sections/code_2200.asm"
         include "sections/code_4200.asm"
