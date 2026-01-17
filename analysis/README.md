@@ -144,6 +144,12 @@ Detailed architecture documentation for critical game subsystems.
   - Frame counter at $C964.L
   - State dispatch via jump table
   - Interrupt priority management
+- **VINT_STATE_HANDLERS.md** - Complete analysis of all 16 V-INT state handlers
+  - VDP synchronization patterns
+  - Frame buffer management (states 6, 9, 13, 14)
+  - Palette copy operations
+  - 68K ↔ SH2 communication via COMM registers
+  - Performance characteristics and cycle estimates
 - **CONTROLLER_INPUT_ARCHITECTURE.md** - 3-button controller protocol ($00185E)
   - Z-Bus arbitration
   - TH line timing with NOPs
@@ -151,7 +157,21 @@ Detailed architecture documentation for critical game subsystems.
 - **68K_SH2_COMMUNICATION.md** - CPU communication patterns (COMM registers)
 - **SH2_3D_PIPELINE_ARCHITECTURE.md** - 3D rendering engine (SH2)
 
-**Status:** ✅ V-INT and controller systems fully documented (2026-01-17)
+**Status:** ✅ V-INT, state handlers, and controller systems fully documented (2026-01-17)
+
+---
+
+### Code Conversion Documentation - **NEW: 68K Mnemonics Implementation**
+
+**Key Documents:**
+- **CODE_CONVERSION_SUMMARY.md** - Complete conversion summary
+  - 84 code modules converted with proper mnemonics
+  - 65 misclassified data sections corrected
+  - 50+ instruction types supported
+  - Byte-perfect ROM builds maintained
+  - Before/after readability comparison
+
+**Status:** ✅ All 68K code converted with proper assembly mnemonics (2026-01-17)
 
 ---
 
@@ -162,13 +182,14 @@ Detailed architecture documentation for critical game subsystems.
 | Debugger Design | 10 | ✅ Complete |
 | 68K Analysis | 28 | ✅ Phase 6 Complete |
 | SH2 Analysis | 9 | ✅ Phase 4 Complete |
-| System Architecture (NEW) | 4 | ✅ 2 Documented |
+| System Architecture (NEW) | 5 | ✅ 3 Documented |
+| Code Conversion (NEW) | 1 | ✅ Complete |
 | Optimization | 9 | ✅ Identified Paths |
 | Profiling | 5 | ✅ Methodology Ready |
 | Phase Reports | 6 | ✅ Current |
 | Architecture | 7 | ✅ Complete |
 | Graphics/VDP | 1 | ✅ Complete |
-| **Total** | **~82** | **✅ Ready** |
+| **Total** | **~85** | **✅ Ready** |
 
 ---
 
@@ -176,11 +197,14 @@ Detailed architecture documentation for critical game subsystems.
 
 ### ✅ Completed Research
 - 68K reverse-engineering (28 documents, comprehensive function inventory)
+- **68K code conversion (84 modules, all code with proper mnemonics)**
 - SH2 3D rendering pipeline (9 documents, full architecture)
 - Performance bottleneck identification (VDP polling = 47% overhead)
 - Memory layout and ROM structure
 - Frame buffer format documentation
 - Master/Slave synchronization patterns
+- **V-INT state handler analysis (all 16 states documented)**
+- **Controller input architecture (3-button protocol documented)**
 
 ### ✅ Latest Addition: pdcore Debugger Design
 - Complete C API specification (18 functions, MVP-1)
