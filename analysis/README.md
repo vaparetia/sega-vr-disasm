@@ -154,10 +154,44 @@ Detailed architecture documentation for critical game subsystems.
   - Z-Bus arbitration
   - TH line timing with NOPs
   - Button remapping and delta detection
+- **GAME_LOGIC_INITIALIZATION.md** - Game initialization and mode system ($006200-$008200)
+  - 8 initialization states with jump table dispatch
+  - State 0: Minimal init (9 calls), State 1: Full init (31 calls)
+  - Display modes 4/5 with buffer management and VDP configuration
+  - Memory regions: $C800-$C978 game state, $9000/$9F00 object bases
+  - 480 JSR calls across 238 functions - highly modular architecture
+- **GAME_LOGIC_TIMERS_DISPLAY.md** - Timer management and display formatting ($008200-$008B9C)
+  - 8 independent countdown timers (power-ups, effects, animations)
+  - Race time display and lap time formatting (MM:SS.MS)
+  - Result comparison system (best time table at $FDAA)
+  - VDP memory writes to $00FF68F0/$00FF68F8 for on-screen display
+  - 97 functions, 21 JSR calls - real-time game state updates
+- **GAME_LOGIC_AI_PHYSICS.md** - AI opponent behavior and vehicle physics ($00A200-$00C200)
+  - Lookup tables: speed/acceleration, sine/cosine (120 lines of data)
+  - AI opponent selection with track position validation
+  - Collision avoidance: Manhattan distance, lateral steering, speed throttling
+  - Drafting/slipstream mechanics with proximity-based boost
+  - Trigonometric position updates (sin/cos for X/Y velocity)
+  - 2,609 lines, 229 functions, 48 JSR calls - most complex game logic module
+- **GAME_LOGIC_SEQUENCER.md** - Scene sequencer and state manager ($00C200-$00D1D4)
+  - Hierarchical state machines: sequence ($C87E), sub-sequence ($C8C4), transition ($C8F4)
+  - Timeline-based event system with frame-accurate triggers
+  - 32X synchronization: COMM handshake, RV control, adapter setup
+  - Data loading: ROM→RAM transfers for scenes, tracks, palettes
+  - Countdown system: 5-second camera zoom from frame 995→1296
+  - 999 lines, 60 functions, 87 JSR calls - master game orchestrator
+- **GAME_LOGIC_GRAPHICS_MENUS.md** - Graphics, menus & UI rendering ($00E200-$010200)
+  - Menu system: track selection, options, results, attract mode
+  - 4 state machine dispatchers sharing $C87E state variable
+  - SH2 communication protocol: 8 command codes ($03, $21, $22, $25, $27, $2A, $2D, $2F)
+  - Split-screen/2-player support with dual rendering paths
+  - Text/digit rendering for time display (MM:SS.MS format)
+  - Input handling for menu navigation (D-pad, buttons, wrapping)
+  - 2,267 lines, 190 functions, 115 JSR calls - complete UI system
 - **68K_SH2_COMMUNICATION.md** - CPU communication patterns (COMM registers)
 - **SH2_3D_PIPELINE_ARCHITECTURE.md** - 3D rendering engine (SH2)
 
-**Status:** ✅ V-INT, state handlers, and controller systems fully documented (2026-01-17)
+**Status:** ✅ V-INT, state handlers, controller, initialization, timers, AI/physics, sequencer, and graphics/menus fully documented (2026-01-17)
 
 ---
 
@@ -182,14 +216,14 @@ Detailed architecture documentation for critical game subsystems.
 | Debugger Design | 10 | ✅ Complete |
 | 68K Analysis | 28 | ✅ Phase 6 Complete |
 | SH2 Analysis | 9 | ✅ Phase 4 Complete |
-| System Architecture (NEW) | 5 | ✅ 3 Documented |
+| System Architecture (NEW) | 10 | ✅ 8 Documented |
 | Code Conversion (NEW) | 1 | ✅ Complete |
 | Optimization | 9 | ✅ Identified Paths |
 | Profiling | 5 | ✅ Methodology Ready |
 | Phase Reports | 6 | ✅ Current |
 | Architecture | 7 | ✅ Complete |
 | Graphics/VDP | 1 | ✅ Complete |
-| **Total** | **~85** | **✅ Ready** |
+| **Total** | **~86** | **✅ Ready** |
 
 ---
 
@@ -205,6 +239,11 @@ Detailed architecture documentation for critical game subsystems.
 - Master/Slave synchronization patterns
 - **V-INT state handler analysis (all 16 states documented)**
 - **Controller input architecture (3-button protocol documented)**
+- **Game initialization architecture (8 states, 480 JSR calls, 238 functions documented)**
+- **Game timer and display system (8 timers, race time display, result comparison)**
+- **AI opponent behavior and physics (collision avoidance, drafting, trigonometric motion)**
+- **Scene sequencer and state manager (hierarchical FSMs, 32X sync, timeline events)**
+- **Graphics, menus & UI rendering (4 state machines, 8 SH2 commands, split-screen support)**
 
 ### ✅ Latest Addition: pdcore Debugger Design
 - Complete C API specification (18 functions, MVP-1)
