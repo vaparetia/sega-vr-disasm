@@ -196,10 +196,18 @@ Detailed architecture documentation for critical game subsystems.
   - Split-screen simultaneous entry (P1/P2 mirrored buffers)
   - ASCII table at $010974 (27 words packed with character pairs)
   - 2,251 lines, 201 functions, 178 JSR calls - full name entry system
+- **GAME_LOGIC_REMAINING_MODULES.md** - Race display, camera & utilities ($012200-$018200)
+  - **game_12200.asm**: Race start camera transitions, viewport control, zoom/scroll engine
+  - Smooth camera animations via scroll offset ($A026) and animation counter ($A02A)
+  - SH2 command $2C for camera/viewport setup
+  - Track-specific camera adjustments based on race mode
+  - 2,256 lines, 207 functions, 142 JSR calls - camera control system
+  - **game_14200.asm**: Utility functions and data processing helpers (2,098 lines, 31 functions)
+  - **game_16200.asm**: Pure data section - sprite/graphics data tables (8KB, non-executable)
 - **68K_SH2_COMMUNICATION.md** - CPU communication patterns (COMM registers)
 - **SH2_3D_PIPELINE_ARCHITECTURE.md** - 3D rendering engine (SH2)
 
-**Status:** ✅ V-INT, state handlers, controller, initialization, timers, AI/physics, sequencer, graphics/menus, and name entry fully documented (2026-01-17)
+**Status:** ✅ All core game subsystems fully documented: V-INT, state handlers, controller, initialization, timers, AI/physics, sequencer, graphics/menus, name entry, and race camera/display (2026-01-17)
 
 ---
 
@@ -224,14 +232,14 @@ Detailed architecture documentation for critical game subsystems.
 | Debugger Design | 10 | ✅ Complete |
 | 68K Analysis | 28 | ✅ Phase 6 Complete |
 | SH2 Analysis | 9 | ✅ Phase 4 Complete |
-| System Architecture (NEW) | 11 | ✅ 9 Documented |
+| System Architecture (NEW) | 12 | ✅ 10 Documented |
 | Code Conversion (NEW) | 1 | ✅ Complete |
 | Optimization | 9 | ✅ Identified Paths |
 | Profiling | 5 | ✅ Methodology Ready |
 | Phase Reports | 6 | ✅ Current |
 | Architecture | 7 | ✅ Complete |
 | Graphics/VDP | 1 | ✅ Complete |
-| **Total** | **~87** | **✅ Ready** |
+| **Total** | **~88** | **✅ Ready** |
 
 ---
 
@@ -253,6 +261,7 @@ Detailed architecture documentation for critical game subsystems.
 - **Scene sequencer and state manager (hierarchical FSMs, 32X sync, timeline events)**
 - **Graphics, menus & UI rendering (4 state machines, 8 SH2 commands, split-screen support)**
 - **Name entry system (52-char grid keyboard, 3-char buffers, uppercase/lowercase toggle)**
+- **Race start camera & viewport system (smooth zoom/scroll, track-specific positioning, SH2 sync)**
 
 ### ✅ Latest Addition: pdcore Debugger Design
 - Complete C API specification (18 functions, MVP-1)
