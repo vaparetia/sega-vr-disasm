@@ -64,6 +64,7 @@ vint_state_fb_palette    EQU $001E94
 vint_state_fb_dma        EQU $001F4A
 vint_state_cleanup       EQU $002010
 func_00203A              EQU $00203A
+pre_dispatch_common      EQU $002080
 func_0020C6              EQU $0020C6
 func_0021CA              EQU $0021CA
 func_002294              EQU $002294
@@ -322,6 +323,7 @@ func_00BDD6              EQU $00BDD6
 func_00BDFE              EQU $00BDFE
 func_00BFD4              EQU $00BFD4
 func_00C01E              EQU $00C01E
+master_sequencer         EQU $00C200
 func_00C416              EQU $00C416
 func_00C5AE              EQU $00C5AE
 func_00C618              EQU $00C618
@@ -343,12 +345,18 @@ sh2_wait_response        EQU $00E342
 sh2_send_cmd             EQU $00E35A
 func_00E3B4              EQU $00E3B4
 func_00E406              EQU $00E406
+text_render              EQU $00E466
 func_00E4A0              EQU $00E4A0
 func_00E4BC              EQU $00E4BC
 dma_transfer             EQU $00E52C
+track_select_menu        EQU $00E90C
+menu_input_handler       EQU $00EA0E
 func_00EEF2              EQU $00EEF2
 func_00EF32              EQU $00EF32
+options_menu             EQU $00F41C
 func_00F88C              EQU $00F88C
+results_screen           EQU $01012E
+attract_mode             EQU $01014E
 func_0105DE              EQU $0105DE
 func_010606              EQU $010606
 func_01063A              EQU $01063A
@@ -356,7 +364,11 @@ func_010656              EQU $010656
 func_010674              EQU $010674
 func_01071C              EQU $01071C
 func_010796              EQU $010796
+name_input_handler       EQU $010838
 func_01084C              EQU $01084C
+name_entry_main          EQU $011122
+name_entry_alt           EQU $011144
+name_entry_sub           EQU $01116C
 func_0117F4              EQU $0117F4
 func_011862              EQU $011862
 func_0118D4              EQU $0118D4
@@ -371,6 +383,7 @@ func_011A98              EQU $011A98
 func_011B08              EQU $011B08
 func_011B6A              EQU $011B6A
 func_011C7E              EQU $011C7E
+name_confirm             EQU $012062
 func_01250C              EQU $01250C
 func_012534              EQU $012534
 func_01259C              EQU $01259C

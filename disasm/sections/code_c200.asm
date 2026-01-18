@@ -1803,7 +1803,7 @@ loc_00DD3C:
         BEQ.W  loc_00DD8C                       ; $00DD82
         LEA     $0088DECA,A2                    ; $00DD86
 loc_00DD8C:
-        JSR     $00E466(PC)                     ; $00DD8C
+        JSR     $00E466(PC)                     ; $00DD8C [text_render]
         LEA     $240348E8,A1                    ; $00DD90
         LEA     $FA48.W,A2                      ; $00DD96
         MOVEQ   #$00,D0                         ; $00DD9A
@@ -1827,7 +1827,7 @@ loc_00DD8C:
         BEQ.W  loc_00DDD0                       ; $00DDC6
         LEA     $0088DECA,A2                    ; $00DDCA
 loc_00DDD0:
-        JSR     $00E466(PC)                     ; $00DDD0
+        JSR     $00E466(PC)                     ; $00DDD0 [text_render]
         MOVEQ   #$00,D0                         ; $00DDD4
         MOVE.B  $A019.W,D0                      ; $00DDD6
         LEA     $0088DE98,A1                    ; $00DDDA

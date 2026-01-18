@@ -721,7 +721,7 @@ loc_004C22:
         BNE.S  loc_004C5E                       ; $004C56
         MOVE.B  $00(A1,D0.W),$C8A5.W            ; $004C58
 loc_004C5E:
-        JSR     $002080(PC)                     ; $004C5E [func_002080]
+        JSR     $002080(PC)                     ; $004C5E [pre_dispatch_common]
         JSR     loc_004998(PC)                  ; $004C62
         JSR     $0021EE(PC)                     ; $004C66
         MOVE.L  #$00884CBC,$00FF0002            ; $004C6A
@@ -730,7 +730,7 @@ loc_004C5E:
         RTS                                     ; $004C88
 loc_004C8A:
         MOVE.B  #$009A,$C8A5.W                  ; $004C8A
-        JSR     $002080(PC)                     ; $004C90 [func_002080]
+        JSR     $002080(PC)                     ; $004C90 [pre_dispatch_common]
         JSR     loc_004998(PC)                  ; $004C94
         MOVE.L  #$00885618,$00FF0002            ; $004C98
         MOVE.L  #$00000000,$00FF5FF8            ; $004CA2

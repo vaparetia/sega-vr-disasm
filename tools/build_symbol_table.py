@@ -123,6 +123,25 @@ KNOWN_FUNCTIONS = {
     0x00A470: "collision_avoidance",    # Steering/braking adjustments
     0x00A666: "physics_integration",    # 3D position calculations
 
+    # Master Sequencer (from analysis/GAME_LOGIC_SEQUENCER.md)
+    0x00C200: "master_sequencer",         # Scene flow controller
+    0x002080: "pre_dispatch_common",      # Common pre-dispatch function
+
+    # Menu System (from analysis/GAME_LOGIC_GRAPHICS_MENUS.md)
+    0x00E90C: "track_select_menu",        # Track selection dispatcher
+    0x00F41C: "options_menu",             # Options/difficulty menu
+    0x01012E: "results_screen",           # Results/statistics screen
+    0x01014E: "attract_mode",             # Replay/attract mode
+    0x00E466: "text_render",              # Text/digit rendering
+    0x00EA0E: "menu_input_handler",       # Menu navigation input
+
+    # Name Entry (from analysis/GAME_LOGIC_NAME_ENTRY.md)
+    0x011122: "name_entry_main",          # Name entry dispatcher
+    0x011144: "name_entry_alt",           # Alternate entry mode
+    0x01116C: "name_entry_sub",           # Sub-state handler
+    0x012062: "name_confirm",             # Name confirmation
+    0x010838: "name_input_handler",       # Grid navigation input
+
     # Game logic (frequent callers)
     0x009802: "game_update",
     0x00B684: "object_update",

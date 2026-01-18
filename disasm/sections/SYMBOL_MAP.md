@@ -47,6 +47,7 @@
 | $001F4A | vint_state_fb_dma | 0 |
 | $002010 | vint_state_cleanup | 0 |
 | $00203A | func_00203A | 1 |
+| $002080 | pre_dispatch_common | 2 |
 | $0020C6 | func_0020C6 | 5 |
 | $0021CA | func_0021CA | 9 |
 | $002294 | func_002294 | 0 |
@@ -305,6 +306,7 @@
 | $00BDFE | func_00BDFE | 0 |
 | $00BFD4 | func_00BFD4 | 0 |
 | $00C01E | func_00C01E | 0 |
+| $00C200 | master_sequencer | 0 |
 | $00C416 | func_00C416 | 1 |
 | $00C5AE | func_00C5AE | 1 |
 | $00C618 | func_00C618 | 0 |
@@ -326,12 +328,18 @@
 | $00E35A | sh2_send_cmd | 73 |
 | $00E3B4 | func_00E3B4 | 21 |
 | $00E406 | func_00E406 | 0 |
+| $00E466 | text_render | 2 |
 | $00E4A0 | func_00E4A0 | 0 |
 | $00E4BC | func_00E4BC | 0 |
 | $00E52C | dma_transfer | 16 |
+| $00E90C | track_select_menu | 0 |
+| $00EA0E | menu_input_handler | 0 |
 | $00EEF2 | func_00EEF2 | 0 |
 | $00EF32 | func_00EF32 | 0 |
+| $00F41C | options_menu | 0 |
 | $00F88C | func_00F88C | 0 |
+| $01012E | results_screen | 0 |
+| $01014E | attract_mode | 0 |
 | $0105DE | func_0105DE | 0 |
 | $010606 | func_010606 | 0 |
 | $01063A | func_01063A | 0 |
@@ -339,7 +347,11 @@
 | $010674 | func_010674 | 0 |
 | $01071C | func_01071C | 0 |
 | $010796 | func_010796 | 0 |
+| $010838 | name_input_handler | 0 |
 | $01084C | func_01084C | 0 |
+| $011122 | name_entry_main | 0 |
+| $011144 | name_entry_alt | 0 |
+| $01116C | name_entry_sub | 0 |
 | $0117F4 | func_0117F4 | 0 |
 | $011862 | func_011862 | 0 |
 | $0118D4 | func_0118D4 | 3 |
@@ -354,6 +366,7 @@
 | $011B08 | func_011B08 | 1 |
 | $011B6A | func_011B6A | 0 |
 | $011C7E | func_011C7E | 0 |
+| $012062 | name_confirm | 0 |
 | $01250C | func_01250C | 0 |
 | $012534 | func_012534 | 0 |
 | $01259C | func_01259C | 0 |
