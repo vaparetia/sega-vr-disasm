@@ -40,7 +40,7 @@ loc_00623E:
         JSR     loc_007624(PC)                  ; $00627A
         JSR     loc_00734E(PC)                  ; $00627E
         MOVE.B  $C304.W,$C30C.W                 ; $006282
-        JSR     $00886C88                       ; $006288
+        JSR     sprite_check_init                       ; $006288
         JMP     $0049AA(PC)                     ; $00628E [SetDisplayParams]
         MOVEQ   #$00,D0                         ; $006292
         MOVE.W  D0,$0044(A0)                    ; $006294

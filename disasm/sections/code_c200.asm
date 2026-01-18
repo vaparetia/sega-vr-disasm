@@ -67,7 +67,7 @@ loc_00C2C0:
         MOVE.W  #$FF00,$C86C.W                  ; $00C338
         BTST    #0,$C81C.W                      ; $00C33E
         BNE.S  loc_00C34C                       ; $00C344
-        JSR     $008888BE                       ; $00C346
+        JSR     camera_toggle_check                       ; $00C346
 loc_00C34C:
         MOVE.W  (A7)+,$C86C.W                   ; $00C34C
         JSR     func_0058C8                       ; $00C350
@@ -76,7 +76,7 @@ loc_00C34C:
         MOVE.W  #$0010,$00FF0008                ; $00C35E
         RTS                                     ; $00C366
         JSR     func_0021CA                       ; $00C368
-        JSR     $008825B0                       ; $00C36E
+        JSR     vdp_tilemap_init                       ; $00C36E
         JSR     $00BA18(PC)                     ; $00C374
         JSR     func_005908                       ; $00C378
         ADDQ.B  #1,$C886.W                      ; $00C37E
@@ -97,7 +97,7 @@ loc_00C34C:
         MOVE.B  D1,$C973.W                      ; $00C3C0
         MOVE.W  A0,$C8C0.W                      ; $00C3C4
         JSR     func_00593C                       ; $00C3C8
-        JSR     $008824CA                       ; $00C3CE
+        JSR     vdp_screen_init                       ; $00C3CE
         JSR     $00B6DA(PC)                     ; $00C3D4 [sprite_update]
         JSR     $00B684(PC)                     ; $00C3D8 [object_update]
         ADDQ.B  #1,$C886.W                      ; $00C3DC
@@ -148,8 +148,8 @@ loc_00C44A:
         ADDQ.B  #4,$C8C4.W                      ; $00C496
         MOVE.W  #$0010,$00FF0008                ; $00C49A
         RTS                                     ; $00C4A2
-        JSR     $0088BA18                       ; $00C4A4
-        JSR     $00886DC8                       ; $00C4AA
+        JSR     input_dispatch                       ; $00C4A4
+        JSR     object_table_batch                       ; $00C4AA
         ADDQ.B  #1,$C886.W                      ; $00C4B0
         ADDQ.B  #4,$C8C4.W                      ; $00C4B4
         MOVE.W  #$0010,$00FF0008                ; $00C4B8
@@ -166,8 +166,8 @@ loc_00C44A:
         ANDI.B  #$0003,D1                       ; $00C4E8
         MOVE.B  D1,$C973.W                      ; $00C4EC
         MOVE.W  A0,$C8C0.W                      ; $00C4F0
-        JSR     $00886DF0                       ; $00C4F4
-        JSR     $008824CA                       ; $00C4FA
+        JSR     object_table_alt                       ; $00C4F4
+        JSR     vdp_screen_init                       ; $00C4FA
         ADDQ.B  #1,$C886.W                      ; $00C500
         ADDQ.B  #4,$C8C4.W                      ; $00C504
         MOVE.W  #$0044,$00FF0008                ; $00C508
@@ -248,7 +248,7 @@ loc_00C62A:
 loc_00C63E:
         CMPI.W  #$04D9,$C080.W                  ; $00C63E
         BNE.S  loc_00C64C                       ; $00C644
-        JSR     $00882066                       ; $00C646
+        JSR     sound_state_init                       ; $00C646
 loc_00C64C:
         CMPI.W  #$0510,$C080.W                  ; $00C64C
         BLT.S  loc_00C660                       ; $00C652

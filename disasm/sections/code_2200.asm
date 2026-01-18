@@ -1310,7 +1310,7 @@ loc_003250:
         MOVE.W  $00(A3,D0.W),D0                 ; $0032F0
         MOVE.W  D0,(A2)+                        ; $0032F4
         MOVE.W  A2,$C076.W                      ; $0032F6
-        JSR     $0088B2E4                       ; $0032FA
+        JSR     checkpoint_lookup                       ; $0032FA
         JSR     func_00B422                       ; $003300
         SUBQ.L  #4,A2                           ; $003306
         MOVE.L  (A2),D0                         ; $003308
@@ -2398,4 +2398,4 @@ loc_0041E2:
         BNE.S  loc_0041FC                       ; $0041F6
         JSR     $00B1B8(PC)                     ; $0041F8
 loc_0041FC:
-        JSR     $0088CA20                       ; $0041FC
+        JSR     sprite_buffer_init                       ; $0041FC

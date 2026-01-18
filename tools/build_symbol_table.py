@@ -326,6 +326,304 @@ KNOWN_FUNCTIONS = {
     0x030B50: "fm_key_off_all",           # Turn off all FM keys
     0x030BE0: "fm_channel_clear",         # Clear FM channel data
     0x030F0E: "fm_instrument_select",     # Select FM instrument/patch
+
+    # Functions only called via absolute addresses (not PC-relative)
+    0x000FBE: "copy_init_data",           # Copy init data to Work RAM
+    0x002066: "sound_state_init",         # Initialize sound state vars
+    0x0024CA: "vdp_screen_init",          # VDP screen initialization
+    0x0025B0: "vdp_tilemap_init",         # VDP tilemap setup
+    0x00266C: "adapter_regs_copy",        # Copy data to 32X adapter regs
+    0x00268C: "adapter_state_init",       # Initialize 32X adapter state
+    0x004CBC: "game_state_dispatch",      # Game state jump table dispatcher
+    0x006C88: "sprite_check_init",        # Sprite system check/init
+    0x006DC8: "object_table_batch",       # Batch object table lookups
+    0x006DF0: "object_table_alt",         # Alt object table processing
+    0x0088BE: "camera_toggle_check",      # Camera mode toggle check
+    0x00A80A: "player_data_load",         # Load player data from table
+    0x00B2E4: "checkpoint_lookup",        # Checkpoint position lookup
+    0x00BA18: "input_dispatch",           # Input handler dispatcher
+    0x00C7E8: "race_init_common",         # Common race initialization
+    0x00C85C: "object_buffer_clear",      # Clear object buffer $FF6000
+    0x00CA20: "sprite_buffer_init",       # Initialize sprite buffers
+    0x00CA9A: "race_start_setup",         # Race start state setup
+    0x00CC88: "race_state_init",          # Initialize race state vars
+    0x00CD4C: "opponent_data_load",       # Load opponent car data
+    0x00CDD2: "track_data_load",          # Load track segment data
+    0x00CE02: "track_segment_init",       # Initialize track segment
+    0x00CE76: "track_object_init",        # Initialize track objects
+    0x00CEC2: "track_bounds_init",        # Initialize track boundaries
+    0x00CECC: "track_params_init",        # Initialize track parameters
+    0x00CF0C: "track_surface_init",       # Initialize track surface
+    0x00CFAE: "track_scenery_init",       # Initialize track scenery
+    0x00CFD6: "track_ai_init",            # Initialize track AI paths
+    0x00D054: "track_camera_init",        # Initialize track camera
+    0x00D08A: "track_weather_init",       # Initialize track weather
+    0x00D0F6: "track_lighting_init",      # Initialize track lighting
+    0x00D450: "race_countdown_init",      # Initialize race countdown
+    0x014262: "menu_graphics_load",       # Load menu graphics
+    0x030004: "sh2_sdram_init",           # SH2 SDRAM initialization
+
+    # Jump table targets - Boot/Init ($000xxx-$001xxx)
+    0x0005CE: "vdp_reg_batch_init",       # VDP register batch initialization from ROM table
+    0x000694: "palette_ram_clear",        # 32X adapter palette/CRAM clear at $A15200
+    0x000DD2: "fm_sound_init_seq",        # FM/sound init with DMA and Z80 bus
+    0x001140: "gfx_bit_extract",          # Graphics bit extraction/table lookup
+    0x0011E4: "gfx_cmd_parser",           # Graphics command parser ($FF-terminated)
+    0x0011EE: "gfx_data_processor",       # Graphics tile data processor
+    0x0012F4: "gfx_bitplane_assemble",    # Bit plane assembly for graphics
+    0x00136E: "gfx_tile_mask_gen",        # Tile mask generation
+
+    # Jump table targets - Controller/Input ($0017xx)
+    0x0017D6: "controller_mode_a",        # Controller port mode A handler
+    0x0017E4: "controller_mode_b",        # Controller port mode B handler
+    0x0018C8: "zbus_release_wait",        # Z-bus release and wait
+
+    # Jump table targets - Sound/FM ($002xxx)
+    0x001992: "sound_vint_update",        # Sound update in V-INT context
+    0x002294: "sfx_priority_check",       # Sound effect priority comparison
+    0x0022AA: "sfx_channel_alloc",        # Sound effect channel allocation
+    0x0022D6: "sfx_volume_fade",          # Sound effect volume fade
+    0x0022EC: "sfx_pan_update",           # Sound effect pan update
+    0x002314: "sfx_pitch_update",         # Sound effect pitch update
+    0x0023C2: "sfx_envelope_update",      # Sound effect envelope update
+    0x0023DC: "sfx_loop_check",           # Sound effect loop check
+    0x00240C: "sfx_release",              # Sound effect release
+    0x002426: "sfx_stop",                 # Sound effect stop
+    0x002452: "sfx_restart",              # Sound effect restart
+
+    # Jump table targets - Object/Transform ($002xxx)
+    0x002A72: "obj_matrix_transform",     # Object matrix transformation
+    0x002AAA: "obj_scale_update",         # Object scale update
+    0x002AC4: "obj_rotation_apply",       # Apply rotation to object
+    0x002ADE: "obj_perspective_calc",     # Object perspective calculation
+
+    # Jump table targets - VDP/Display ($002Exx-$003xxx)
+    0x002DF4: "vdp_plane_a_setup",        # VDP plane A setup
+    0x002E14: "vdp_plane_b_setup",        # VDP plane B setup
+    0x002E5E: "vdp_scroll_table_init",    # VDP scroll table initialization
+    0x002E7E: "vdp_sprite_table_init",    # VDP sprite table initialization
+    0x002EEE: "vdp_dma_queue_add",        # Add to VDP DMA queue
+
+    # Jump table targets - State handlers ($003xxx)
+    0x003250: "state_sh2_comm_idle",      # SH2 communication idle state
+    0x0033E4: "state_sh2_comm_busy",      # SH2 communication busy state
+    0x0034D2: "state_sh2_data_xfer",      # SH2 data transfer state
+    0x00359C: "state_palette_load",       # Palette loading state
+    0x0036C8: "state_vram_copy",          # VRAM copy state
+    0x003866: "state_dma_complete",       # DMA complete state
+    0x00397C: "state_buffer_swap",        # Buffer swap state
+    0x003A3E: "state_render_prep",        # Render preparation state
+    0x003AB2: "state_object_sort",        # Object sorting state
+    0x003C1A: "state_collision_check",    # Collision checking state
+    0x003CCE: "state_player_update",      # Player update state
+    0x003D22: "state_camera_update",      # Camera update state
+
+    # Jump table targets - Game states ($004xxx)
+    0x004280: "game_state_intro",         # Game intro state
+    0x004384: "game_state_title",         # Title screen state
+    0x004556: "game_state_menu",          # Menu state
+    0x00461A: "game_state_loading",       # Loading state
+    0x004C8A: "game_state_race_prep",     # Race preparation state
+
+    # Jump table targets - Sprite/Object system ($005xxx-$006xxx)
+    0x00581A: "sprite_anim_frame",        # Sprite animation frame select
+    0x005822: "sprite_anim_loop",         # Sprite animation loop handler
+    0x0058EA: "sprite_bounds_clip",       # Sprite boundary clipping
+    0x005926: "sprite_priority_set",      # Sprite priority assignment
+    0x006C26: "object_spawn_init",        # Object spawn initialization
+    0x006D00: "object_type_car",          # Object type: car handler
+    0x006D34: "object_type_prop",         # Object type: prop handler
+    0x006D38: "object_type_effect",       # Object type: effect handler
+    0x006D3E: "object_type_track",        # Object type: track marker
+    0x006D44: "object_type_ui",           # Object type: UI element
+    0x006D4A: "object_type_particle",     # Object type: particle
+    0x006D50: "object_type_shadow",       # Object type: shadow
+    0x006D6E: "object_type_checkpoint",   # Object type: checkpoint
+    0x006D8C: "object_type_opponent",     # Object type: opponent car
+
+    # Jump table targets - Rendering ($007xxx)
+    0x007280: "render_car_body",          # Render car body
+    0x0074AC: "render_car_wheels",        # Render car wheels
+    0x007612: "render_track_segment",     # Render track segment
+    0x007636: "render_track_objects",     # Render track objects
+    0x007AD6: "render_sky_horizon",       # Render sky/horizon
+    0x007BE4: "render_particle_batch",    # Render particle batch
+    0x007C56: "render_shadow_batch",      # Render shadow batch
+    0x007CF0: "render_ui_element",        # Render UI element
+    0x007D56: "render_speedometer",       # Render speedometer
+    0x007D82: "render_lap_counter",       # Render lap counter
+    0x007E0C: "render_position_display",  # Render position display
+    0x007EB2: "render_time_display",      # Render time display
+    0x007F64: "render_minimap",           # Render minimap
+    0x007FDA: "render_checkpoint_marker", # Render checkpoint marker
+    0x007FEE: "render_split_time",        # Render split time
+    0x008004: "render_final_time",        # Render final time
+
+    # Jump table targets - Camera/View ($008xxx)
+    0x008054: "camera_mode_chase",        # Camera mode: chase
+    0x0080AE: "camera_mode_cockpit",      # Camera mode: cockpit
+    0x0080D6: "camera_mode_replay",       # Camera mode: replay
+    0x008246: "camera_shake_update",      # Camera shake update
+    0x008280: "camera_zoom_update",       # Camera zoom update
+    0x0082E0: "camera_pan_update",        # Camera pan update
+    0x008368: "camera_target_track",      # Camera target tracking
+    0x00837A: "camera_clamp_bounds",      # Camera bounds clamping
+    0x00838A: "camera_interpolate",       # Camera interpolation
+    0x0083C6: "camera_snap_to_player",    # Camera snap to player
+    0x0083E4: "camera_smooth_follow",     # Camera smooth follow
+
+    # Jump table targets - Timer/Score ($008xxx)
+    0x00850A: "timer_lap_record",         # Record lap time
+    0x008522: "timer_split_check",        # Check split time
+    0x008600: "score_position_update",    # Update race position
+    0x008646: "score_points_calc",        # Calculate points
+    0x008662: "score_bonus_apply",        # Apply bonus points
+
+    # Jump table targets - Race state ($008xxx-$009xxx)
+    0x00896E: "race_start_countdown",     # Race start countdown
+    0x008D38: "race_lap_complete",        # Lap completion handler
+    0x00909C: "race_finish_handler",      # Race finish handler
+    0x009300: "race_results_calc",        # Race results calculation
+    0x009B82: "race_restart_init",        # Race restart initialization
+
+    # Jump table targets - Physics/AI ($00Axxx)
+    0x00A6F8: "ai_waypoint_check",        # AI waypoint checking
+    0x00A7B0: "ai_speed_adjust",          # AI speed adjustment
+    0x00A7C4: "ai_lane_change",           # AI lane change decision
+    0x00A7CA: "ai_brake_check",           # AI braking check
+    0x00AD14: "physics_gravity_apply",    # Apply gravity
+    0x00AD84: "physics_friction_calc",    # Calculate friction
+    0x00ADAC: "physics_collision_resp",   # Collision response
+    0x00ADC0: "physics_bounce_calc",      # Bounce calculation
+
+    # Jump table targets - Animation ($00Axxx-$00Bxxx)
+    0x00AFC2: "anim_car_idle",            # Car idle animation
+    0x00AFEA: "anim_car_turn",            # Car turning animation
+    0x00AFFE: "anim_car_brake",           # Car braking animation
+    0x00B06A: "anim_wheel_spin",          # Wheel spin animation
+    0x00B15E: "anim_exhaust_puff",        # Exhaust puff animation
+    0x00B2FC: "anim_skid_mark",           # Skid mark animation
+    0x00B598: "anim_dust_cloud",          # Dust cloud animation
+    0x00B5AE: "anim_spark_effect",        # Spark effect animation
+    0x00B604: "anim_smoke_trail",         # Smoke trail animation
+
+    # Jump table targets - V-INT state handlers ($00B7xx)
+    0x00B7E6: "vint_sprite_dma",          # V-INT sprite DMA handler
+    0x00B7EE: "vint_palette_update",      # V-INT palette update handler
+    0x00B990: "vint_scroll_update",       # V-INT scroll update handler
+
+    # Jump table targets - Scene/Menu ($00Bxxx-$00Cxxx)
+    0x00BCCA: "scene_fade_in",            # Scene fade in
+    0x00BD00: "scene_fade_out",           # Scene fade out
+    0x00BD2A: "scene_crossfade",          # Scene crossfade
+    0x00BD9E: "scene_wipe_left",          # Scene wipe left
+    0x00BDFE: "scene_wipe_right",         # Scene wipe right
+    0x00BFD4: "menu_cursor_update",       # Menu cursor update
+    0x00C01E: "menu_selection_confirm",   # Menu selection confirm
+    0x00C618: "menu_back_handler",        # Menu back handler
+
+    # Jump table targets - Display/Graphics ($00Dxxx-$00Exxx)
+    0x00DCAC: "display_clear_rect",       # Clear display rectangle
+    0x00DCBE: "display_fill_rect",        # Fill display rectangle
+    0x00E118: "graphics_tile_draw",       # Draw graphics tile
+    0x00E406: "graphics_sprite_draw",     # Draw sprite
+    0x00E4A0: "graphics_text_draw",       # Draw text
+    0x00E4BC: "graphics_number_draw",     # Draw number
+
+    # Jump table targets - Menu screens ($00Exxxx-$010xxx)
+    0x00EEF2: "menu_track_preview",       # Track preview screen
+    0x00EF32: "menu_car_select",          # Car selection screen
+    0x00F88C: "menu_options_screen",      # Options screen
+    0x0105DE: "results_time_display",     # Results time display
+    0x010606: "results_position_show",    # Results position show
+    0x01063A: "results_points_show",      # Results points show
+    0x010656: "results_total_calc",       # Results total calculation
+    0x010674: "results_ranking_update",   # Results ranking update
+    0x01071C: "results_save_prompt",      # Results save prompt
+    0x010796: "results_continue_prompt",  # Results continue prompt
+    0x01084C: "name_entry_char_select",   # Name entry character select
+
+    # Jump table targets - Name entry ($011xxx)
+    0x0117F4: "name_grid_draw",           # Name grid drawing
+    0x011862: "name_cursor_move",         # Name cursor movement
+    0x011908: "name_char_input",          # Name character input
+    0x011924: "name_backspace",           # Name backspace
+    0x01197E: "name_confirm_check",       # Name confirm check
+    0x01199A: "name_clear_all",           # Name clear all
+    0x0119B8: "name_default_set",         # Name set default
+    0x011A5C: "name_save_check",          # Name save check
+    0x011B6A: "name_entry_complete",      # Name entry complete
+    0x011C7E: "name_entry_cancel",        # Name entry cancel
+
+    # Jump table targets - Track/Race ($012xxx)
+    0x01250C: "track_segment_draw",       # Track segment drawing
+    0x012534: "track_scenery_draw",       # Track scenery drawing
+    0x01259C: "track_bounds_draw",        # Track bounds drawing
+    0x0125D0: "track_surface_draw",       # Track surface drawing
+    0x0125EC: "track_marking_draw",       # Track marking drawing
+    0x01260A: "track_shadow_draw",        # Track shadow drawing
+    0x012618: "track_horizon_draw",       # Track horizon drawing
+    0x0126A6: "track_distance_fog",       # Track distance fog
+    0x012F0A: "race_grid_position",       # Race grid position
+    0x012FE4: "race_countdown_draw",      # Race countdown drawing
+    0x0135C4: "race_lap_marker",          # Race lap marker
+    0x013824: "race_checkpoint_marker",   # Race checkpoint marker
+    0x013F80: "race_finish_line",         # Race finish line
+    0x013FE0: "race_results_screen",      # Race results screen
+    0x01418E: "race_replay_start",        # Race replay start
+
+    # Jump table targets - FM sound driver ($030xxx)
+    0x03023A: "fm_note_off_handler",      # FM note off handler
+    0x030256: "fm_delay_decrement",       # FM delay counter decrement
+    0x03025E: "fm_pattern_next",          # FM load next pattern data
+    0x03027A: "fm_vibrato_update",        # FM vibrato/pitch bend update
+    0x030358: "fm_cmd_loop_reset",        # FM command $80: loop reset
+    0x0305BA: "fm_cmd_detune",            # FM command $81: detune
+    0x03061C: "fm_cmd_note_end",          # FM command $83: note end
+    0x030A5C: "fm_operator_write",        # FM operator register write
+    0x030A86: "fm_algorithm_set",         # FM algorithm set
+    0x030B90: "fm_feedback_set",          # FM feedback set
+    0x030BF6: "fm_detune_mult_set",       # FM detune/multiply set
+    0x030CF4: "fm_total_level_set",       # FM total level set
+    0x030DEE: "fm_attack_rate_set",       # FM attack rate set
+    0x030ECE: "fm_decay_rate_set",        # FM decay rate set
+    0x030F82: "fm_sustain_set",           # FM sustain level set
+    0x030F90: "fm_release_set",           # FM release rate set
+    0x030FA2: "fm_key_scale_set",         # FM key scaling set
+    0x030FC8: "fm_lfo_set",               # FM LFO parameters set
+    0x031166: "fm_pan_set",               # FM stereo pan set
+    0x03117C: "fm_ams_pms_set",           # FM AMS/PMS set
+    0x031188: "fm_channel_on",            # FM channel key on
+    0x0311A8: "fm_channel_off",           # FM channel key off
+    0x0311B8: "fm_freq_set_ch1",          # FM frequency set channel 1
+    0x0311D8: "fm_freq_set_ch2",          # FM frequency set channel 2
+    0x0311E2: "fm_freq_set_ch3",          # FM frequency set channel 3
+    0x0311E8: "fm_freq_set_ch4",          # FM frequency set channel 4
+    0x03120C: "fm_freq_set_ch5",          # FM frequency set channel 5
+    0x031228: "fm_freq_set_ch6",          # FM frequency set channel 6
+    0x031240: "fm_note_table_lookup",     # FM note frequency table lookup
+    0x03124A: "fm_octave_calc",           # FM octave calculation
+    0x0312A6: "fm_volume_table_lookup",   # FM volume table lookup
+    0x0312AC: "fm_envelope_calc",         # FM envelope calculation
+    0x0312B4: "fm_velocity_scale",        # FM velocity scaling
+    0x031406: "dac_sample_play",          # DAC sample playback
+    0x031418: "dac_sample_stop",          # DAC sample stop
+    0x0314DC: "dac_volume_set",           # DAC volume set
+    0x0314F6: "dac_pan_set",              # DAC pan set
+    0x0314FC: "dac_rate_set",             # DAC sample rate set
+    0x031502: "dac_loop_set",             # DAC loop set
+    0x03150E: "dac_address_set",          # DAC address set
+    0x031528: "dac_length_set",           # DAC length set
+    0x03154E: "pcm_channel_init",         # PCM channel initialization
+    0x031554: "pcm_sample_load",          # PCM sample load
+    0x03155C: "pcm_playback_start",       # PCM playback start
+    0x031564: "pcm_playback_stop",        # PCM playback stop
+    0x03156C: "pcm_volume_set",           # PCM volume set
+    0x031574: "pcm_pan_set",              # PCM pan set
+    0x0315F4: "music_tempo_set",          # Music tempo set
+    0x031650: "music_pattern_jump",       # Music pattern jump
+    0x031666: "music_loop_start",         # Music loop start
+    0x031680: "music_loop_end",           # Music loop end
 }
 
 

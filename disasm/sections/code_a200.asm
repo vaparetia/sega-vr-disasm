@@ -2604,5 +2604,5 @@ loc_00C1C4:
         MOVEQ   #$00,D1                         ; $00C1EA
         JSR     $00CE56(PC)                     ; $00C1EC
         JSR     $00CD4C(PC)                     ; $00C1F0
-        JSR     $0088A80A                       ; $00C1F4
+        JSR     player_data_load                       ; $00C1F4
         JSR     func_00A144                       ; $00C1FA

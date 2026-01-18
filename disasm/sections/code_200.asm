@@ -758,8 +758,8 @@ loc_000B94:
         JSR     loc_00203A(PC)                  ; $000C20
         JSR     loc_000D68(PC)                  ; $000C24
         JSR     loc_000DC4(PC)                  ; $000C28
-        JSR     $0088C85C                       ; $000C2C
-        JSR     $00880FBE                       ; $000C32
+        JSR     object_buffer_clear                       ; $000C2C
+        JSR     copy_init_data                       ; $000C32
         MOVE.L  #$00894262,$00FF0002            ; $000C38
         JMP     $00FF0000                       ; $000C42
 loc_000C48:
@@ -838,7 +838,7 @@ loc_000D2C:
         SNE     $EF05.W                         ; $000D40
         BTST    #6,D0                           ; $000D44
         SNE     $EF06.W                         ; $000D48
-        JSR     $0088C7E8                       ; $000D4C
+        JSR     race_init_common                       ; $000D4C
         JSR     loc_0018D8(PC)                  ; $000D52
         JSR     loc_00170C(PC)                  ; $000D56
         MOVE.B  #$0001,$FDA9.W                  ; $000D5A
@@ -856,7 +856,7 @@ loc_000D84:
         JSR     loc_001048(PC)                  ; $000D84
         MOVE.W  #$0083,$00A15100                ; $000D88
         ANDI.B  #$00FC,$00A15181                ; $000D90
-        JSR     $0088266C                       ; $000D98
+        JSR     adapter_regs_copy                       ; $000D98
         JSR     func_0026C8                       ; $000D9E
         LEA     $008BA020,A2                    ; $000DA4
         JMP     func_00284C                       ; $000DAA
@@ -994,7 +994,7 @@ loc_000F6E:
         NOP                                     ; $000F8E
         NOP                                     ; $000F90
 loc_000F92:
-        JSR     $00894262                       ; $000F92
+        JSR     menu_graphics_load                       ; $000F92
         MOVE.W  #$0004,$C87A.W                  ; $000F98
         NOT    #$2300                           ; $000F9E
 loc_000FA2:
@@ -1002,7 +1002,7 @@ loc_000FA2:
         BNE.S  loc_000FA2                       ; $000FA6
         BRA.S  loc_000F92                       ; $000FA8
 loc_000FAA:
-        JSR     $00884CBC                       ; $000FAA
+        JSR     game_state_dispatch                       ; $000FAA
         BSET    #0,$C805.W                      ; $000FB0
 loc_000FB6:
         TST.B  $C805.W                          ; $000FB6
@@ -2365,7 +2365,7 @@ loc_002038:
         RTS                                     ; $002038
 loc_00203A:
         MOVEM.L -(A7),D1/D2/D3/D4/D5/D6/D7/A0/A1/A2/A3/A4/A5/A6/A7; $00203A
-        JSR     $008B0004                       ; $00203E
+        JSR     sh2_sdram_init                       ; $00203E
         MOVEM.L D0/D1/D2/D3/D4/D5/D6/D7/A0/A1/A2/A3/A4/A5/A6,(A7)+; $002044
         RTS                                     ; $002048
         MOVEQ   #$00,D0                         ; $00204A

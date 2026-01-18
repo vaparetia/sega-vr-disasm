@@ -660,32 +660,32 @@ loc_004B2E:
         BEQ.S  loc_004B40                       ; $004B34
         MOVE.L  #$0403131C,$00FF69B4            ; $004B36
 loc_004B40:
-        JSR     $0088D054                       ; $004B40
-        JSR     $0088CA9A                       ; $004B46
+        JSR     track_camera_init                       ; $004B40
+        JSR     race_start_setup                       ; $004B46
         MOVE.B  #$0005,$C310.W                  ; $004B4C
-        JSR     $0088CC88                       ; $004B52
+        JSR     race_state_init                       ; $004B52
         MOVEQ   #$18,D0                         ; $004B58
         MOVEQ   #-$01,D1                        ; $004B5A
         TST.W  $C89C.W                          ; $004B5C
         BEQ.S  loc_004B64                       ; $004B60
         MOVEQ   #$00,D1                         ; $004B62
 loc_004B64:
-        JSR     $0088CDD2                       ; $004B64
-        JSR     $0088CD4C                       ; $004B6A
+        JSR     track_data_load                       ; $004B64
+        JSR     opponent_data_load                       ; $004B6A
         JSR     $00A80A(PC)                     ; $004B70
         JSR     $00A144(PC)                     ; $004B74 [func_00A144]
         LEA     $9000.W,A0                      ; $004B78
         JSR     $00A1FC(PC)                     ; $004B7C [func_00A1FC]
         JSR     $00C974(PC)                     ; $004B80
-        JSR     $0088CF0C                       ; $004B84
+        JSR     track_surface_init                       ; $004B84
         JSR     func_00CC06                       ; $004B8A
-        JSR     $0088CFAE                       ; $004B90
+        JSR     track_scenery_init                       ; $004B90
         MOVE.W  #$0000,$C87E.W                  ; $004B96
         MOVE.W  #$C9A0,$C8C0.W                  ; $004B9C
         MOVE.B  #$0002,$C80A.W                  ; $004BA2
         BTST    #3,$C80E.W                      ; $004BA8
         BEQ.S  loc_004BB6                       ; $004BAE
-        JSR     $0088D0F6                       ; $004BB0
+        JSR     track_lighting_init                       ; $004BB0
 loc_004BB6:
         JSR     loc_0058C8(PC)                  ; $004BB6
         JSR     loc_005908(PC)                  ; $004BBA
@@ -840,22 +840,22 @@ loc_004E6C:
         BEQ.S  loc_004E76                       ; $004E70
         JSR     $00CA80(PC)                     ; $004E72
 loc_004E76:
-        JSR     $0088D450                       ; $004E76
-        JSR     $0088D08A                       ; $004E7C
+        JSR     race_countdown_init                       ; $004E76
+        JSR     track_weather_init                       ; $004E7C
         JSR     $00CB3E(PC)                     ; $004E82
         JSR     $00CC88(PC)                     ; $004E86
         LEA     $9F00.W,A0                      ; $004E8A
         JSR     $00CC92(PC)                     ; $004E8E
         MOVEQ   #$30,D0                         ; $004E92
-        JSR     $0088CE02                       ; $004E94
+        JSR     track_segment_init                       ; $004E94
         MOVE.B  $FEB0.W,$C30F.W                 ; $004E9A
         JSR     $00A144(PC)                     ; $004EA0 [func_00A144]
         LEA     $9F00.W,A0                      ; $004EA4
         JSR     $00A1FC(PC)                     ; $004EA8 [func_00A1FC]
         JSR     $00C8F2(PC)                     ; $004EAC
-        JSR     $0088CFD6                       ; $004EB0
-        JSR     $0088CE76                       ; $004EB6
-        JSR     $0088CECC                       ; $004EBC
+        JSR     track_ai_init                       ; $004EB0
+        JSR     track_object_init                       ; $004EB6
+        JSR     track_params_init                       ; $004EBC
         MOVE.B  #$0000,$C314.W                  ; $004EC2
         BTST    #1,$C818.W                      ; $004EC8
         BEQ.S  loc_004ED6                       ; $004ECE
@@ -877,7 +877,7 @@ loc_004F00:
         JSR     $00A144(PC)                     ; $004F06 [func_00A144]
         LEA     $9000.W,A0                      ; $004F0A
         JSR     $00A1FC(PC)                     ; $004F0E [func_00A1FC]
-        JSR     $0088CEC2                       ; $004F12
+        JSR     track_bounds_init                       ; $004F12
         MOVE.W  #$0000,$C87E.W                  ; $004F18
         BSET    #4,$C80E.W                      ; $004F1E
         JSR     $00640E(PC)                     ; $004F24 [init_state_4]
@@ -1033,8 +1033,8 @@ loc_0051D4:
         BEQ.S  loc_0051F0                       ; $0051EA
         JSR     $00CA4C(PC)                     ; $0051EC
 loc_0051F0:
-        JSR     $0088D450                       ; $0051F0
-        JSR     $0088D054                       ; $0051F6
+        JSR     race_countdown_init                       ; $0051F0
+        JSR     track_camera_init                       ; $0051F6
         JSR     $00CAA0(PC)                     ; $0051FC
         MOVE.B  $C81A.W,$C310.W                 ; $005200
         JSR     $00CC88(PC)                     ; $005206
