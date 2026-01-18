@@ -42,6 +42,7 @@ retroarch/
 # Third-party source clones (for analysis only)
 /tmp/
 blastem/
+third_party/
 
 # PDFs and proprietary documentation
 *.pdf
