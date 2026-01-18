@@ -31,9 +31,33 @@ HARDWARE_SYMBOLS = {
 
 # Manual function annotations from analysis
 KNOWN_FUNCTIONS = {
-    # Boot/Init
+    # Boot/Init (from analysis/VINT_HANDLER_ARCHITECTURE.md)
     0x000200: "entry_point",
     0x000838: "adapter_init",
+
+    # V-INT Handler (from analysis/VINT_HANDLER_ARCHITECTURE.md)
+    0x001684: "vint_handler",           # V-INT entry point
+    0x0016B0: "vint_early_exit",        # RTE when no state change
+    0x00170A: "vint_return",            # RTE instruction
+    0x00170C: "controller_port_init",   # Initialize controller ports
+
+    # V-INT State Handlers (from analysis/VINT_STATE_HANDLERS.md)
+    0x0019FE: "vint_state_common",      # States 0,1,2,8 - VDP sync + RAM
+    0x001A6E: "vint_state_minimal",     # State 4 - Quick VDP read
+    0x001A72: "vint_state_vdp_sync",    # State 5 - Full VDP sync
+    0x001C66: "vint_state_fb_toggle",   # State 6 - Frame buffer toggle
+    0x001ACA: "vint_state_sprite_cfg",  # State 7 - Sprite config
+    0x001E42: "vint_state_fb_setup",    # State 9 - Frame buffer setup
+    0x001B14: "vint_state_vdp_config",  # State 10 - VDP config
+    0x001A64: "vint_state_transition",  # State 11 - Set next state
+    0x001BA8: "vint_state_complex",     # State 12 - Complex VDP ops
+    0x001E94: "vint_state_fb_palette",  # State 13 - FB + palette
+    0x001F4A: "vint_state_fb_dma",      # State 14 - FB DMA
+    0x002010: "vint_state_cleanup",     # State 15 - Clear SH2 flags
+
+    # Controller Input (from analysis/CONTROLLER_INPUT_ARCHITECTURE.md)
+    0x0017EE: "button_remap",           # Button remapping function
+    0x00185E: "zbus_request",           # Z-Bus request
 
     # SH2 Communication (from code analysis)
     0x00E316: "sh2_send_cmd_wait",      # Waits for ready, sends command
@@ -67,6 +91,12 @@ KNOWN_FUNCTIONS = {
     0x0049AA: "SetDisplayParams",
     0x0036DE: "clear_buffer",
     0x0037B6: "memory_copy",
+
+    # Sound (from modules/68k/sound/)
+    0x00D1D4: "sound_init",             # FM chip initialization
+    0x0014BE: "fm_write",               # FM register write
+    0x0015EA: "sound_dma_setup",        # Sound DMA setup
+    0x00155E: "sound_dma_transfer",     # Sound DMA transfer
 
     # Game logic (frequent callers)
     0x009802: "game_update",

@@ -1035,7 +1035,7 @@ loc_00D230:
         MOVE.W  $C8A0.W,D0                      ; $00D26E
         LEA     $0188(PC),A0                    ; $00D272
         MOVE.L  $00(A0,D0.W),D0                 ; $00D276
-        JSR     $008815EA                       ; $00D27A
+        JSR     sound_dma_setup                       ; $00D27A
         MOVE.W  #$0100,$00A11100                ; $00D280
 loc_00D288:
         BTST    #0,$00A11100                    ; $00D288
@@ -1055,7 +1055,7 @@ loc_00D288:
         LSL.W  #2,D1                            ; $00D2CA
         LEA     $0146(PC),A0                    ; $00D2CC
         MOVE.L  $00(A0,D1.W),D1                 ; $00D2D0
-        JSR     $0088155E                       ; $00D2D4
+        JSR     sound_dma_transfer                       ; $00D2D4
         MOVE.W  #$8B00,(A5)                     ; $00D2DA
         MOVEQ   #$00,D0                         ; $00D2DE
         MOVEQ   #-$08,D1                        ; $00D2E0

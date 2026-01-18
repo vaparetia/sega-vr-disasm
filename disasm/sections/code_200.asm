@@ -31,9 +31,9 @@
         JMP     func_000832                       ; $000290
         JMP     func_000832                       ; $000296
         JMP     func_000832                       ; $00029C
-        JMP     $0088170A                       ; $0002A2
+        JMP     vint_return                       ; $0002A2
         JMP     func_000832                       ; $0002A8
-        JMP     $00881684                       ; $0002AE
+        JMP     vint_handler                       ; $0002AE
         JMP     func_000832                       ; $0002B4
         JMP     func_000832                       ; $0002BA
         JMP     func_000832                       ; $0002C0
@@ -878,7 +878,7 @@ loc_000DD2:
         MOVEQ   #$04,D0                         ; $000DD2
         JSR     func_0014BE                       ; $000DD4
         MOVEQ   #$0A,D1                         ; $000DDA
-        JSR     $0088155E                       ; $000DDC
+        JSR     sound_dma_transfer                       ; $000DDC
         MOVE.W  #$0100,$00A11100                ; $000DE2
 loc_000DEA:
         BTST    #0,$00A11100                    ; $000DEA
