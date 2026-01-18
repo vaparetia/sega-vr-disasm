@@ -30,7 +30,7 @@ make analyze      # Analyze ROM structure
 ## Testing ROMs
 
 ```bash
-blastem build/vr_rebuild.32x    # Linux (recommended)
+picodrive build/vr_rebuild.32x  # Linux (recommended)
 ./Gens_KMod_v0.7.3/gens.exe     # Windows
 ```
 

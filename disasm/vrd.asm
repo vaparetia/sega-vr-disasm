@@ -1,21 +1,7 @@
 ; ============================================================================
 ; Virtua Racing Deluxe (USA) - Sega 32X
-; Complete Disassembly - Master Assembly File
+; Clean Disassembly - Pure DC.W (guaranteed byte-accurate)
 ; ============================================================================
-;
-; Product: V.R.DX
-; Serial: GM MK-84601-00
-; Copyright: (C)SEGA 1994.SEP
-; ROM Size: 3MB (3,145,728 bytes)
-;
-; Build: make all
-; Verify: make compare (should show PERFECT MATCH)
-;
-; ============================================================================
-
-; Include shared hardware definitions (must be before any org directives)
-        include "modules/shared/definitions.asm"
-
         include "sections/header.asm"
         include "sections/code_200.asm"
         include "sections/code_2200.asm"

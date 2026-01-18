@@ -1,10 +1,10 @@
 ; ============================================================================
 ; Code Section ($0DC200-$0DE1FF)
+; Generated from ROM bytes - guaranteed accurate
 ; ============================================================================
 
         org     $0DC200
 
-code_dc200:
         dc.w    $FFFF        ; $0DC200
         dc.w    $FFFF        ; $0DC202
         dc.w    $FFFF        ; $0DC204
