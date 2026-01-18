@@ -363,7 +363,7 @@ loc_00E6D6:
         JSR     loc_00E22C(PC)                  ; $00E714
         LEA     $00FF1000,A0                    ; $00E718
         JSR     loc_00E2F0(PC)                  ; $00E71E
-        JSR     $00E1BC(PC)                     ; $00E722 [func_00E1BC]
+        JSR     $00E1BC(PC)                     ; $00E722 [sh2_palette_load]
         DC.W    $08B9,$0007,$00A1,$5181; $00E726 BCLR    #7,$00A15181
         LEA     $00FF6E00,A0                    ; $00E72E
         LEA     $008BA220,A1                    ; $00E734
@@ -1162,7 +1162,7 @@ loc_00F202:
         JSR     loc_00E22C(PC)                  ; $00F25E
         LEA     $00FF1000,A0                    ; $00F262
         JSR     loc_00E2F0(PC)                  ; $00F268
-        JSR     $00E1BC(PC)                     ; $00F26C [func_00E1BC]
+        JSR     $00E1BC(PC)                     ; $00F26C [sh2_palette_load]
         DC.W    $08B9,$0007,$00A1,$5181; $00F270 BCLR    #7,$00A15181
         LEA     $00FF6E00,A0                    ; $00F278
         ADDA.L  #$00000160,A0                   ; $00F27E
@@ -2067,7 +2067,7 @@ loc_00FEAA:
         JSR     loc_00E22C(PC)                  ; $00FECA
         LEA     $00FF1000,A0                    ; $00FECE
         JSR     loc_00E2F0(PC)                  ; $00FED4
-        JSR     $00E1BC(PC)                     ; $00FED8 [func_00E1BC]
+        JSR     $00E1BC(PC)                     ; $00FED8 [sh2_palette_load]
         DC.W    $08B9,$0007,$00A1,$5181; $00FEDC BCLR    #7,$00A15181
         LEA     $00FF6E00,A0                    ; $00FEE4
         ADDA.L  #$00000160,A0                   ; $00FEEA

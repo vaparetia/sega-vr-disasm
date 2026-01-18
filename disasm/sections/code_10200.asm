@@ -613,7 +613,7 @@ loc_010A6E:
         JSR     $00E22C(PC)                     ; $010A8E [sh2_graphics_cmd]
         LEA     $00FF1000,A0                    ; $010A92
         JSR     $00E2F0(PC)                     ; $010A98 [sh2_load_data]
-        JSR     $00E1BC(PC)                     ; $010A9C [func_00E1BC]
+        JSR     $00E1BC(PC)                     ; $010A9C [sh2_palette_load]
         DC.W    $08B9,$0007,$00A1,$5181; $010AA0 BCLR    #7,$00A15181
         LEA     $00FF6E00,A0                    ; $010AA8
         ADDA.L  #$00000160,A0                   ; $010AAE
@@ -1939,7 +1939,7 @@ loc_011DCA:
         JSR     $00E22C(PC)                     ; $011DEA [sh2_graphics_cmd]
         LEA     $00FF1000,A0                    ; $011DEE
         JSR     $00E2F0(PC)                     ; $011DF4 [sh2_load_data]
-        JSR     $00E1BC(PC)                     ; $011DF8 [func_00E1BC]
+        JSR     $00E1BC(PC)                     ; $011DF8 [sh2_palette_load]
         DC.W    $08B9,$0007,$00A1,$5181; $011DFC BCLR    #7,$00A15181
         LEA     $00FF6E00,A0                    ; $011E04
         ADDQ.L  #2,A0                           ; $011E0A

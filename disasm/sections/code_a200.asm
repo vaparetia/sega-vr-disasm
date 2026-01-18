@@ -432,14 +432,14 @@ loc_00A6A2:
         MOVE.W  $0040(A0),D0                    ; $00A6C6
         MOVE.W  D0,$003C(A0)                    ; $00A6CA
         NEG.W  D0                               ; $00A6CE
-        JSR     $008F52(PC)                     ; $00A6D0 [func_008F52]
+        JSR     $008F52(PC)                     ; $00A6D0 [state_dispatch_vdp]
         MULS    $0006(A0),D0                    ; $00A6D4
         ASR.L  #8,D0                            ; $00A6D8
         ASR.W  #4,D0                            ; $00A6DA
         ADD.W  D0,$0030(A0)                     ; $00A6DC
         MOVE.W  $0040(A0),D0                    ; $00A6E0
         NEG.W  D0                               ; $00A6E4
-        JSR     $008F4E(PC)                     ; $00A6E6 [func_008F4E]
+        JSR     $008F4E(PC)                     ; $00A6E6 [state_dispatch_prep]
         MULS    $0006(A0),D0                    ; $00A6EA
         ASR.L  #8,D0                            ; $00A6EE
         ASR.W  #4,D0                            ; $00A6F0
@@ -844,7 +844,7 @@ loc_00AB62:
         CMPI.W  #$0014,$C026.W                  ; $00AB9C
         BNE.S  loc_00ABAE                       ; $00ABA2
         MOVE.W  #$0000,$008A(A0)                ; $00ABA4
-        JSR     $00A1FC(PC)                     ; $00ABAA [func_00A1FC]
+        JSR     $00A1FC(PC)                     ; $00ABAA [race_state_read]
 loc_00ABAE:
         SUBQ.W  #1,$00B0(A0)                    ; $00ABAE
         BNE.S  loc_00ABCA                       ; $00ABB2
@@ -2594,7 +2594,7 @@ loc_00C0EE:
 loc_00C1C4:
         MOVEQ   #$00,D0                         ; $00C1C4
         JSR     $00CC74(PC)                     ; $00C1C6 [func_00CC74]
-        JSR     $00C870(PC)                     ; $00C1CA [func_00C870]
+        JSR     $00C870(PC)                     ; $00C1CA [scene_transition]
         JSR     $00C9F0(PC)                     ; $00C1CE
         JSR     $00D00C(PC)                     ; $00C1D2
         MOVE.B  #$0005,$C310.W                  ; $00C1D6
@@ -2603,6 +2603,6 @@ loc_00C1C4:
         JSR     $00CC92(PC)                     ; $00C1E6
         MOVEQ   #$00,D1                         ; $00C1EA
         JSR     $00CE56(PC)                     ; $00C1EC
-        JSR     $00CD4C(PC)                     ; $00C1F0
+        JSR     $00CD4C(PC)                     ; $00C1F0 [opponent_data_load]
         JSR     player_data_load                       ; $00C1F4
         JSR     func_00A144                       ; $00C1FA

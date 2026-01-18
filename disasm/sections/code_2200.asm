@@ -59,7 +59,7 @@ loc_002294:
 loc_002298:
         CMP.W  (A1),D1                          ; $002298
         BNE.S  loc_0022A6                       ; $00229A
-        JSR     $00496E(PC)                     ; $00229C [func_00496E]
+        JSR     $00496E(PC)                     ; $00229C [random_number_gen]
         ANDI.W  #$000F,D0                       ; $0022A0
         SUB.W  D0,D1                            ; $0022A4
 loc_0022A6:
@@ -89,7 +89,7 @@ loc_0022D6:
 loc_0022DA:
         CMP.W  (A1),D1                          ; $0022DA
         BNE.S  loc_0022E8                       ; $0022DC
-        JSR     $00496E(PC)                     ; $0022DE [func_00496E]
+        JSR     $00496E(PC)                     ; $0022DE [random_number_gen]
         ANDI.W  #$000F,D0                       ; $0022E2
         SUB.W  D0,D1                            ; $0022E6
 loc_0022E8:
@@ -117,7 +117,7 @@ loc_002314:
 loc_002318:
         CMP.W  (A1),D1                          ; $002318
         BNE.S  loc_002326                       ; $00231A
-        JSR     $00496E(PC)                     ; $00231C [func_00496E]
+        JSR     $00496E(PC)                     ; $00231C [random_number_gen]
         ANDI.W  #$000F,D0                       ; $002320
         SUB.W  D0,D1                            ; $002324
 loc_002326:
@@ -172,7 +172,7 @@ loc_0023C2:
 loc_0023C6:
         CMP.W  (A1),D1                          ; $0023C6
         BNE.S  loc_0023D4                       ; $0023C8
-        JSR     $00496E(PC)                     ; $0023CA [func_00496E]
+        JSR     $00496E(PC)                     ; $0023CA [random_number_gen]
         ANDI.W  #$000F,D0                       ; $0023CE
         SUB.W  D0,D1                            ; $0023D2
 loc_0023D4:
@@ -204,7 +204,7 @@ loc_00240C:
 loc_002410:
         CMP.W  (A1),D1                          ; $002410
         BNE.S  loc_00241E                       ; $002412
-        JSR     $00496E(PC)                     ; $002414 [func_00496E]
+        JSR     $00496E(PC)                     ; $002414 [random_number_gen]
         ANDI.W  #$000F,D0                       ; $002418
         SUB.W  D0,D1                            ; $00241C
 loc_00241E:
@@ -234,7 +234,7 @@ loc_002452:
 loc_002456:
         CMP.W  (A1),D1                          ; $002456
         BNE.S  loc_002464                       ; $002458
-        JSR     $00496E(PC)                     ; $00245A [func_00496E]
+        JSR     $00496E(PC)                     ; $00245A [random_number_gen]
         ANDI.W  #$000F,D0                       ; $00245E
         SUB.W  D0,D1                            ; $002462
 loc_002464:
@@ -1405,7 +1405,7 @@ loc_003412:
         MOVE.W  $00(A3,D0.W),D0                 ; $003462
         MOVE.W  D0,(A2)+                        ; $003466
         MOVE.W  A2,$C076.W                      ; $003468
-        JSR     $00B2E4(PC)                     ; $00346C
+        JSR     $00B2E4(PC)                     ; $00346C [checkpoint_lookup]
         SUBQ.L  #4,A2                           ; $003470
         MOVE.L  (A2),D0                         ; $003472
         CMP.L  $C254.W,D0                       ; $003474
@@ -1522,7 +1522,7 @@ loc_0035CC:
         MOVE.W  $00(A3,D0.W),D0                 ; $003628
         MOVE.W  D0,(A2)+                        ; $00362C
         MOVE.W  A2,$C076.W                      ; $00362E
-        JSR     $00B2E4(PC)                     ; $003632
+        JSR     $00B2E4(PC)                     ; $003632 [checkpoint_lookup]
         JSR     $00B40E(PC)                     ; $003636
         SUBQ.L  #4,A2                           ; $00363A
         MOVE.L  (A2),D0                         ; $00363C
@@ -1712,7 +1712,7 @@ loc_003866:
         MOVE.W  $C8E2.W,D0                      ; $00389C
         LSL.W  #8,D0                            ; $0038A0
         MOVEM.L -(A7),D6/A6                     ; $0038A2
-        JSR     $008F52(PC)                     ; $0038A6 [func_008F52]
+        JSR     $008F52(PC)                     ; $0038A6 [state_dispatch_vdp]
         MOVEM.L D1/A1,(A7)+                     ; $0038AA
         ASL.W  #2,D0                            ; $0038AE
         MOVE.W  D0,$0020(A2)                    ; $0038B0

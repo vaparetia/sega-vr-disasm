@@ -5,7 +5,7 @@
         org     $00C200
 
         LEA     $9000.W,A0                      ; $00C200
-        JSR     $00A1FC(PC)                     ; $00C204 [func_00A1FC]
+        JSR     $00A1FC(PC)                     ; $00C204 [race_state_read]
         JSR     loc_00C974(PC)                  ; $00C208
         JSR     loc_00CF0C(PC)                  ; $00C20C
         JSR     loc_00CC06(PC)                  ; $00C210
@@ -17,9 +17,9 @@
         MOVE.W  #$C9A0,$C8C0.W                  ; $00C230
         MOVE.B  #$0002,$C80A.W                  ; $00C236
         JSR     loc_00C6DA(PC)                  ; $00C23C
-        JSR     $0058C8(PC)                     ; $00C240 [func_0058C8]
-        JSR     $005908(PC)                     ; $00C244 [func_005908]
-        JSR     $00593C(PC)                     ; $00C248 [func_00593C]
+        JSR     $0058C8(PC)                     ; $00C240 [sprite_input_check]
+        JSR     $005908(PC)                     ; $00C244 [sprite_update_check]
+        JSR     $00593C(PC)                     ; $00C248 [sprite_state_process]
         ANDI.B  #$00FC,$00A15181                ; $00C24C
         ORI.B  #$0001,$00A15181                 ; $00C254
         MOVE.W  #$8083,$00A15100                ; $00C25C
@@ -77,7 +77,7 @@ loc_00C34C:
         RTS                                     ; $00C366
         JSR     func_0021CA                       ; $00C368
         JSR     vdp_tilemap_init                       ; $00C36E
-        JSR     $00BA18(PC)                     ; $00C374
+        JSR     $00BA18(PC)                     ; $00C374 [input_dispatch]
         JSR     func_005908                       ; $00C378
         ADDQ.B  #1,$C886.W                      ; $00C37E
         ADDQ.W  #4,$C87E.W                      ; $00C382
@@ -310,7 +310,7 @@ loc_00C6DA:
         MOVE.W  #$0540,$C056.W                  ; $00C746
         MOVE.W  #$0000,$C896.W                  ; $00C74C
         JSR     $006F5C(PC)                     ; $00C752
-        JSR     $0088BE(PC)                     ; $00C756
+        JSR     $0088BE(PC)                     ; $00C756 [camera_toggle_check]
         MOVE.W  #$00C0,$C0C8.W                  ; $00C75A
         MOVE.W  #$07D0,$C8D4.W                  ; $00C760
         MOVE.W  #$0600,$C8D6.W                  ; $00C766
@@ -806,15 +806,15 @@ loc_00CF0C:
         MOVEQ   #$0E,D7                         ; $00CF10
 loc_00CF12:
         MOVE.W  D7,-(A7)                        ; $00CF12
-        JSR     $007AB6(PC)                     ; $00CF14 [func_007AB6]
-        JSR     $007AB6(PC)                     ; $00CF18 [func_007AB6]
-        JSR     $007AB6(PC)                     ; $00CF1C [func_007AB6]
-        JSR     $007AB6(PC)                     ; $00CF20 [func_007AB6]
-        JSR     $007AB6(PC)                     ; $00CF24 [func_007AB6]
-        JSR     $007AB6(PC)                     ; $00CF28 [func_007AB6]
-        JSR     $007AB6(PC)                     ; $00CF2C [func_007AB6]
-        JSR     $007AB6(PC)                     ; $00CF30 [func_007AB6]
-        JSR     $007AB6(PC)                     ; $00CF34 [func_007AB6]
+        JSR     $007AB6(PC)                     ; $00CF14 [obj_heading_update]
+        JSR     $007AB6(PC)                     ; $00CF18 [obj_heading_update]
+        JSR     $007AB6(PC)                     ; $00CF1C [obj_heading_update]
+        JSR     $007AB6(PC)                     ; $00CF20 [obj_heading_update]
+        JSR     $007AB6(PC)                     ; $00CF24 [obj_heading_update]
+        JSR     $007AB6(PC)                     ; $00CF28 [obj_heading_update]
+        JSR     $007AB6(PC)                     ; $00CF2C [obj_heading_update]
+        JSR     $007AB6(PC)                     ; $00CF30 [obj_heading_update]
+        JSR     $007AB6(PC)                     ; $00CF34 [obj_heading_update]
         LEA     $0093AC2C,A1                    ; $00CF38
         MOVE.W  $00C8(A0),D0                    ; $00CF3E
         SUB.W  $0032(A0),D0                     ; $00CF42
@@ -948,7 +948,7 @@ loc_00D06A:
         LEA     $00FF68D8,A3                    ; $00D126
         MOVEQ   #$04,D7                         ; $00D12C
 loc_00D12E:
-        JSR     $00B43C(PC)                     ; $00D12E [func_00B43C]
+        JSR     $00B43C(PC)                     ; $00D12E [word_to_bcd]
         LEA     $0004(A1),A1                    ; $00D132
         LEA     $0010(A3),A3                    ; $00D136
         DBRA    D7,loc_00D12E                   ; $00D13A
@@ -965,8 +965,8 @@ loc_00D14A:
         LEA     $00(A1,D1.W),A1                 ; $00D15A
         MOVE.B  #$0001,$0001(A1)                ; $00D15E
         MOVE.L  A1,$C960.W                      ; $00D164
-        JSR     $006C46(PC)                     ; $00D168 [func_006C46]
-        JSR     $0088BE(PC)                     ; $00D16C
+        JSR     $006C46(PC)                     ; $00D168 [sprite_table_init]
+        JSR     $0088BE(PC)                     ; $00D16C [camera_toggle_check]
         MOVE.W  #$00C0,$C0C8.W                  ; $00D170
         MOVE.W  #$07D0,$C8D4.W                  ; $00D176
         MOVE.W  #$0600,$C8D6.W                  ; $00D17C
