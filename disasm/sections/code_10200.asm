@@ -610,9 +610,9 @@ loc_010A6E:
         MOVE.W  #$0026,D3                       ; $010A80
         MOVE.W  #$001A,D4                       ; $010A84
         LEA     $00FF1000,A0                    ; $010A88
-        JSR     $00E22C(PC)                     ; $010A8E [func_00E22C]
+        JSR     $00E22C(PC)                     ; $010A8E [sh2_graphics_cmd]
         LEA     $00FF1000,A0                    ; $010A92
-        JSR     $00E2F0(PC)                     ; $010A98 [func_00E2F0]
+        JSR     $00E2F0(PC)                     ; $010A98 [sh2_load_data]
         JSR     $00E1BC(PC)                     ; $010A9C [func_00E1BC]
         DC.W    $08B9,$0007,$00A1,$5181; $010AA0 BCLR    #7,$00A15181
         LEA     $00FF6E00,A0                    ; $010AA8
@@ -1936,9 +1936,9 @@ loc_011DCA:
         MOVE.W  #$0026,D3                       ; $011DDC
         MOVE.W  #$001A,D4                       ; $011DE0
         LEA     $00FF1000,A0                    ; $011DE4
-        JSR     $00E22C(PC)                     ; $011DEA [func_00E22C]
+        JSR     $00E22C(PC)                     ; $011DEA [sh2_graphics_cmd]
         LEA     $00FF1000,A0                    ; $011DEE
-        JSR     $00E2F0(PC)                     ; $011DF4 [func_00E2F0]
+        JSR     $00E2F0(PC)                     ; $011DF4 [sh2_load_data]
         JSR     $00E1BC(PC)                     ; $011DF8 [func_00E1BC]
         DC.W    $08B9,$0007,$00A1,$5181; $011DFC BCLR    #7,$00A15181
         LEA     $00FF6E00,A0                    ; $011E04
@@ -2181,7 +2181,7 @@ loc_012108:
 loc_01210C:
         TST.B  $00A15120                        ; $01210C
         BNE.S  loc_01210C                       ; $012112
-        JSR     $00E3B4(PC)                     ; $012114 [func_00E3B4]
+        JSR     $00E3B4(PC)                     ; $012114 [sh2_cmd_27]
         MOVEQ   #$00,D0                         ; $012118
         TST.B  $A01A.W                          ; $01211A
         BEQ.S  loc_01212A                       ; $01211E
@@ -2203,7 +2203,7 @@ loc_012132:
 loc_01214C:
         TST.B  $00A15120                        ; $01214C
         BNE.S  loc_01214C                       ; $012152
-        JSR     $00E3B4(PC)                     ; $012154 [func_00E3B4]
+        JSR     $00E3B4(PC)                     ; $012154 [sh2_cmd_27]
 loc_012158:
         TST.B  $00A15120                        ; $012158
         BNE.S  loc_012158                       ; $01215E

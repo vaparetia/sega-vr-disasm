@@ -1272,9 +1272,9 @@ loc_00D60C:
         MOVE.W  #$0026,D3                       ; $00D650
         MOVE.W  #$001A,D4                       ; $00D654
         LEA     $00FF1000,A0                    ; $00D658
-        JSR     $00E22C(PC)                     ; $00D65E [func_00E22C]
+        JSR     $00E22C(PC)                     ; $00D65E [sh2_graphics_cmd]
         LEA     $00FF1000,A0                    ; $00D662
-        JSR     $00E2F0(PC)                     ; $00D668 [func_00E2F0]
+        JSR     $00E2F0(PC)                     ; $00D668 [sh2_load_data]
         BRA.W  loc_00D6D6                       ; $00D66C
 loc_00D670:
         LEA     $000E8E10,A0                    ; $00D670
@@ -1289,16 +1289,16 @@ loc_00D670:
         MOVE.W  #$0026,D3                       ; $00D69C
         MOVE.W  #$0016,D4                       ; $00D6A0
         LEA     $00FF1000,A0                    ; $00D6A4
-        JSR     $00E22C(PC)                     ; $00D6AA [func_00E22C]
+        JSR     $00E22C(PC)                     ; $00D6AA [sh2_graphics_cmd]
         MOVE.W  #$0002,D0                       ; $00D6AE
         MOVE.W  #$0001,D1                       ; $00D6B2
         MOVE.W  #$0017,D2                       ; $00D6B6
         MOVE.W  #$0026,D3                       ; $00D6BA
         MOVE.W  #$0004,D4                       ; $00D6BE
         LEA     $00FF1000,A0                    ; $00D6C2
-        JSR     $00E22C(PC)                     ; $00D6C8 [func_00E22C]
+        JSR     $00E22C(PC)                     ; $00D6C8 [sh2_graphics_cmd]
         LEA     $00FF1000,A0                    ; $00D6CC
-        JSR     $00E2F0(PC)                     ; $00D6D2 [func_00E2F0]
+        JSR     $00E2F0(PC)                     ; $00D6D2 [sh2_load_data]
 loc_00D6D6:
         CLR.B  $A027.W                          ; $00D6D6
         MOVEQ   #$00,D0                         ; $00D6DA
@@ -2062,7 +2062,7 @@ loc_00E12A:
         MOVE.W  $04(A1,D0.W),D0                 ; $00E13C
         MOVE.W  #$0030,D1                       ; $00E140
         MOVE.W  #$0010,D2                       ; $00E144
-        JSR     $00E3B4(PC)                     ; $00E148 [func_00E3B4]
+        JSR     $00E3B4(PC)                     ; $00E148 [sh2_cmd_27]
         MOVEQ   #$00,D0                         ; $00E14C
         TST.B  $A027.W                          ; $00E14E
         BEQ.S  loc_00E15A                       ; $00E152
@@ -2092,7 +2092,7 @@ loc_00E15E:
 loc_00E190:
         TST.B  $00A15120                        ; $00E190
         BNE.S  loc_00E190                       ; $00E196
-        JSR     $00E3B4(PC)                     ; $00E198 [func_00E3B4]
+        JSR     $00E3B4(PC)                     ; $00E198 [sh2_cmd_27]
         RTS                                     ; $00E19C
         SUBI.B  #$4010,D1                       ; $00E19E
         ORI.B  #$0401,$4049(PC)                 ; $00E1A2

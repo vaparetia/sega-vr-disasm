@@ -148,6 +148,22 @@ KNOWN_FUNCTIONS = {
     0x01231C: "camera_scroll_update",     # Update camera scroll position
     0x012A40: "race_camera_dispatcher",   # Camera state machine
 
+    # Frequently called utilities (from code analysis)
+    0x0070AA: "angle_to_sine",            # Trig table lookup, 29 calls
+    0x0080CC: "load_object_params",       # Object table lookup, 27 calls
+    0x00247C: "unpack_tiles_vdp",         # Nibble expand to VDP, 24 calls
+    0x008170: "object_frame_timer",       # Frame countdown handler, 22 calls
+    0x00E3B4: "sh2_cmd_27",               # SH2 command $27 submit, 21 calls
+    0x006F98: "calc_steering",            # Steering/velocity calc, 19 calls
+    0x00179E: "poll_controllers",         # Controller read + mode check, 12 calls
+    0x007F50: "obj_velocity_x",           # X velocity update, 18 calls
+    0x007E7A: "obj_velocity_y",           # Y velocity update, 18 calls
+    0x007CD8: "obj_position_x",           # X position update, 18 calls
+    0x007C4E: "obj_position_y",           # Y position update, 18 calls
+    0x00E22C: "sh2_graphics_cmd",         # Graphics command to SH2, 14 calls
+    0x00E2F0: "sh2_load_data",            # Data load via SH2, 10 calls
+    0x00E2E4: "sh2_copy_routine",         # SH2 memory copy, 7 calls
+
     # Game logic (frequent callers)
     0x009802: "game_update",
     0x00B684: "object_update",
@@ -164,6 +180,41 @@ KNOWN_FUNCTIONS = {
     0x00764E: "render_prep",
     0x00714A: "transform_calc",
     0x00B09E: "animation_update",
+
+    # Additional utilities (from code analysis)
+    0x00B770: "select_sprite_buffer",     # Sprite buffer select, 11 calls
+    0x003F86: "clear_display_vars",       # Clear viewport params, 11 calls
+    0x007F04: "obj_bounds_check",         # Object boundary check, 11 calls
+    0x007816: "obj_collision_test",       # Object collision test, 11 calls
+    0x0075FE: "obj_distance_calc",        # Distance calculation, 11 calls
+    0x00E1BC: "sh2_palette_load",         # Load palette via SH2, 9 calls
+    0x00C870: "scene_transition",         # Scene state transition, 5 calls
+
+    # FM Sound chip functions ($030xxx range)
+    0x030CD8: "fm_write_port0",           # FM chip register write, 9 calls
+    0x030CBA: "fm_write_wrapper",         # FM write with bus release, 8 calls
+    0x030CA2: "fm_conditional_write",     # Conditional FM write, 7 calls
+    0x030C8A: "fm_init_channel",          # FM channel init, 5 calls
+    0x030FB2: "fm_set_volume",            # FM volume control, 5 calls
+
+    # Coordinate/position calculations
+    0x0071A6: "obj_screen_coord",         # Object screen position, 9 calls
+    0x0073E8: "tile_position_calc",       # Tile buffer position, 9 calls
+    0x00734E: "alt_screen_coord",         # Alternate coord (SH2), 7 calls
+    0x00748C: "angle_normalize",          # Angle normalization, 8 calls
+    0x0074A4: "sprite_list_process",      # Sprite list iterator, 6 calls
+
+    # Jump table dispatchers
+    0x008F52: "state_dispatch_vdp",       # VDP state dispatcher, 9 calls
+    0x008F4E: "state_dispatch_prep",      # State dispatch setup, 9 calls
+
+    # Misc high-call functions
+    0x0020C6: "sound_flag_handler",       # Sound flag handling, 5 calls
+    0x007624: "obj_angle_calc",           # Object angle calculation, 7 calls
+    0x007534: "velocity_apply",           # Velocity application, 6 calls
+    0x00A1FC: "race_state_read",          # Race state from $C8CA, 10 calls
+    0x00AC3E: "effect_countdown",         # Effect timer at $C8AE, 11 calls
+    0x00A8F8: "obj_state_return",         # Object state return, 5 calls
 }
 
 

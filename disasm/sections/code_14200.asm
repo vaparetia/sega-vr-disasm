@@ -19,7 +19,7 @@
 loc_014222:
         TST.B  $00A15120                        ; $014222
         BNE.S  loc_014222                       ; $014228
-        JSR     $00E3B4(PC)                     ; $01422A [func_00E3B4]
+        JSR     $00E3B4(PC)                     ; $01422A [sh2_cmd_27]
         SUB.W  D4,D3                            ; $01422E
         BCS.W  loc_014260                       ; $014230
         ADDQ.W  #1,D4                           ; $014234
@@ -35,7 +35,7 @@ loc_014236:
 loc_01424E:
         TST.B  $00A15120                        ; $01424E
         BNE.S  loc_01424E                       ; $014254
-        JSR     $00E3B4(PC)                     ; $014256 [func_00E3B4]
+        JSR     $00E3B4(PC)                     ; $014256 [sh2_cmd_27]
         ADDQ.W  #1,D4                           ; $01425A
         DBRA    D3,loc_014236                   ; $01425C
 loc_014260:
