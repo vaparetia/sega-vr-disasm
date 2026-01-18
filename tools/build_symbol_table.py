@@ -98,11 +98,35 @@ KNOWN_FUNCTIONS = {
     0x0015EA: "sound_dma_setup",        # Sound DMA setup
     0x00155E: "sound_dma_transfer",     # Sound DMA transfer
 
+    # Game Initialization (from analysis/GAME_LOGIC_INITIALIZATION.md)
+    0x006200: "game_logic_entry",       # Main entry with jump table
+    0x00625A: "init_state_0",           # Minimal init + main loop
+    0x006292: "init_state_1",           # Full system initialization
+    0x00633A: "init_state_2",           # Partial initialization
+    0x006394: "init_state_3",           # Alternate partial init
+    0x00640E: "init_state_4",           # Display mode initialization
+    0x006496: "init_state_5",           # Alternate display mode
+    0x0065BC: "init_state_6",           # Extended initialization
+
+    # Timers/Display (from analysis/GAME_LOGIC_TIMERS_DISPLAY.md)
+    0x008200: "state_mgmt_entry",       # State management entry
+    0x00825C: "time_compare_display",   # Time comparison display
+    0x00839A: "num_to_decimal",         # Number to decimal conversion
+    0x0082FA: "result_comparison",      # Race result comparison
+    0x008548: "timer_countdown",        # 8 independent game timers
+
+    # AI/Physics (from analysis/GAME_LOGIC_AI_PHYSICS.md)
+    0x00A200: "physics_lookup_tables",  # Speed/acceleration tables
+    0x00A350: "effect_timer_mgmt",      # Effect timers management
+    0x00A3BA: "speed_calculation",      # Table-based speed lookup
+    0x00A434: "ai_opponent_select",     # AI opponent targeting
+    0x00A470: "collision_avoidance",    # Steering/braking adjustments
+    0x00A666: "physics_integration",    # 3D position calculations
+
     # Game logic (frequent callers)
     0x009802: "game_update",
     0x00B684: "object_update",
     0x009B54: "physics_calc",
-    0x00A350: "collision_check",
     0x00B6DA: "sprite_update",
     0x009182: "input_process",
     0x00961E: "state_machine",
@@ -111,7 +135,6 @@ KNOWN_FUNCTIONS = {
     0x00E52C: "dma_transfer",
     0x009CCE: "math_routine",
     0x0059EC: "table_lookup",
-    0x00A434: "score_update",
     0x0094FA: "sound_trigger",
     0x00764E: "render_prep",
     0x00714A: "transform_calc",

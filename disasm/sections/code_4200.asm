@@ -880,8 +880,8 @@ loc_004F00:
         JSR     $0088CEC2                       ; $004F12
         MOVE.W  #$0000,$C87E.W                  ; $004F18
         BSET    #4,$C80E.W                      ; $004F1E
-        JSR     $00640E(PC)                     ; $004F24
-        JSR     $006496(PC)                     ; $004F28
+        JSR     $00640E(PC)                     ; $004F24 [init_state_4]
+        JSR     $006496(PC)                     ; $004F28 [init_state_5]
         ANDI.B  #$00FC,$00A15181                ; $004F2C
         ORI.B  #$0001,$00A15181                 ; $004F34
         MOVE.W  #$8083,$00A15100                ; $004F3C
@@ -955,12 +955,12 @@ loc_004FE8:
         JSR     $00B0DE(PC)                     ; $005080
         JSR     $00B128(PC)                     ; $005084
         JSR     $00B136(PC)                     ; $005088
-        JSR     $00640E(PC)                     ; $00508C
+        JSR     $00640E(PC)                     ; $00508C [init_state_4]
         ADDQ.W  #4,$C87E.W                      ; $005090
         MOVE.W  #$001C,$00FF0008                ; $005094
         RTS                                     ; $00509C
         JSR     $0021A4(PC)                     ; $00509E
-        JSR     $006496(PC)                     ; $0050A2
+        JSR     $006496(PC)                     ; $0050A2 [init_state_5]
         JSR     $00B09E(PC)                     ; $0050A6 [animation_update]
         JSR     $00B094(PC)                     ; $0050AA
         JSR     $00B0DE(PC)                     ; $0050AE
@@ -1541,9 +1541,9 @@ loc_0059A8:
 loc_0059EC:
         MOVE.W  D7,-(A7)                        ; $0059EC
         JSR     $009B12(PC)                     ; $0059EE [movement_calc]
-        JSR     $00A3BA(PC)                     ; $0059F2
+        JSR     $00A3BA(PC)                     ; $0059F2 [speed_calculation]
         JSR     $00A3EA(PC)                     ; $0059F6
-        JSR     $00A470(PC)                     ; $0059FA
+        JSR     $00A470(PC)                     ; $0059FA [collision_avoidance]
         MOVE.W  $0054(A0),D0                    ; $0059FE
         ANDI.W  #$0009,D0                       ; $005A02
         BEQ.S  loc_005A1C                       ; $005A06
@@ -1553,7 +1553,7 @@ loc_0059EC:
         BLE.S  loc_005A1C                       ; $005A14
         ORI.W  #$1000,$0002(A0)                 ; $005A16
 loc_005A1C:
-        JSR     $00A350(PC)                     ; $005A1C [collision_check]
+        JSR     $00A350(PC)                     ; $005A1C [effect_timer_mgmt]
         TST.W  $0004(A0)                        ; $005A20
         BEQ.S  loc_005A32                       ; $005A24
         SUBI.W  #$2000,$00BC(A0)                ; $005A26
@@ -1609,10 +1609,10 @@ loc_005AAE:
         MOVE.W  D0,$004A(A0)                    ; $005AC4
         JSR     $0085C4(PC)                     ; $005AC8
         JSR     $00859A(PC)                     ; $005ACC [vdp_write]
-        JSR     $00A350(PC)                     ; $005AD0 [collision_check]
+        JSR     $00A350(PC)                     ; $005AD0 [effect_timer_mgmt]
         JSR     $008170(PC)                     ; $005AD4 [func_008170]
         JSR     $0080CC(PC)                     ; $005AD8 [func_0080CC]
-        JSR     $008548(PC)                     ; $005ADC [vdp_operation]
+        JSR     $008548(PC)                     ; $005ADC [timer_countdown]
         JSR     $0094FA(PC)                     ; $005AE0 [sound_trigger]
         JSR     $009312(PC)                     ; $005AE4 [timer_update]
         JSR     $009B12(PC)                     ; $005AE8 [movement_calc]
@@ -1623,7 +1623,7 @@ loc_005AAE:
         JSR     $007E7A(PC)                     ; $005AFC [func_007E7A]
         JSR     $006F98(PC)                     ; $005B00 [func_006F98]
         JSR     $007CD8(PC)                     ; $005B04 [func_007CD8]
-        JSR     $00A434(PC)                     ; $005B08 [score_update]
+        JSR     $00A434(PC)                     ; $005B08 [ai_opponent_select]
         JSR     $0070AA(PC)                     ; $005B0C [func_0070AA]
 loc_005B10:
         JSR     $007F04(PC)                     ; $005B10 [func_007F04]
@@ -1650,10 +1650,10 @@ loc_005B10:
         MOVE.B  $C304.W,$C30C.W                 ; $005B64
         JMP     $006C08(PC)                     ; $005B6A
         JSR     $00B77C(PC)                     ; $005B6E [func_00B77C]
-        JSR     $00A350(PC)                     ; $005B72 [collision_check]
+        JSR     $00A350(PC)                     ; $005B72 [effect_timer_mgmt]
         JSR     $008170(PC)                     ; $005B76 [func_008170]
         JSR     $0080CC(PC)                     ; $005B7A [func_0080CC]
-        JSR     $008548(PC)                     ; $005B7E [vdp_operation]
+        JSR     $008548(PC)                     ; $005B7E [timer_countdown]
         JSR     $00961E(PC)                     ; $005B82 [state_machine]
         JSR     $007816(PC)                     ; $005B86 [func_007816]
         JSR     $00764E(PC)                     ; $005B8A [render_prep]
@@ -1686,10 +1686,10 @@ loc_005B10:
         MOVE.W  D0,$004A(A0)                    ; $005BFA
         JSR     loc_0049EE(PC)                  ; $005BFE
         JSR     $00859A(PC)                     ; $005C02 [vdp_write]
-        JSR     $00A350(PC)                     ; $005C06 [collision_check]
+        JSR     $00A350(PC)                     ; $005C06 [effect_timer_mgmt]
         JSR     $008170(PC)                     ; $005C0A [func_008170]
         JSR     $0080CC(PC)                     ; $005C0E [func_0080CC]
-        JSR     $008548(PC)                     ; $005C12 [vdp_operation]
+        JSR     $008548(PC)                     ; $005C12 [timer_countdown]
         JSR     $0094FA(PC)                     ; $005C16 [sound_trigger]
         CMPI.W  #$0004,$C26C.W                  ; $005C1A
         BEQ.S  loc_005C26                       ; $005C20
@@ -1714,15 +1714,15 @@ loc_005C56:
         MOVE.W  D0,$0046(A0)                    ; $005C64
         MOVE.W  D0,$004A(A0)                    ; $005C68
         JSR     $00859A(PC)                     ; $005C6C [vdp_write]
-        JSR     $00A350(PC)                     ; $005C70 [collision_check]
+        JSR     $00A350(PC)                     ; $005C70 [effect_timer_mgmt]
         JSR     $008170(PC)                     ; $005C74 [func_008170]
         JSR     $0080CC(PC)                     ; $005C78 [func_0080CC]
-        JSR     $008548(PC)                     ; $005C7C [vdp_operation]
+        JSR     $008548(PC)                     ; $005C7C [timer_countdown]
         JSR     $009802(PC)                     ; $005C80 [game_update]
         JSR     $007E7A(PC)                     ; $005C84 [func_007E7A]
         JSR     $006F98(PC)                     ; $005C88 [func_006F98]
         JSR     $007CD8(PC)                     ; $005C8C [func_007CD8]
-        JSR     $00A434(PC)                     ; $005C90 [score_update]
+        JSR     $00A434(PC)                     ; $005C90 [ai_opponent_select]
         JSR     $0070AA(PC)                     ; $005C94 [func_0070AA]
         JSR     $007F04(PC)                     ; $005C98 [func_007F04]
         JSR     $009E6E(PC)                     ; $005C9C [func_009E6E]
@@ -1760,7 +1760,7 @@ loc_005D00:
         MOVE.W  D0,$0046(A0)                    ; $005D14
         MOVE.W  D0,$004A(A0)                    ; $005D18
         JSR     $0080CC(PC)                     ; $005D1C [func_0080CC]
-        JSR     $008548(PC)                     ; $005D20 [vdp_operation]
+        JSR     $008548(PC)                     ; $005D20 [timer_countdown]
         JSR     $009802(PC)                     ; $005D24 [game_update]
         JSR     $007E7A(PC)                     ; $005D28 [func_007E7A]
         JSR     $006F98(PC)                     ; $005D2C [func_006F98]
@@ -1841,10 +1841,10 @@ loc_005DC6:
         JSR     $00B77C(PC)                     ; $005E4E [func_00B77C]
         MOVE.W  #$0002,$0092(A0)                ; $005E52
         JSR     $00859A(PC)                     ; $005E58 [vdp_write]
-        JSR     $00A350(PC)                     ; $005E5C [collision_check]
+        JSR     $00A350(PC)                     ; $005E5C [effect_timer_mgmt]
         JSR     $008170(PC)                     ; $005E60 [func_008170]
         JSR     $0080CC(PC)                     ; $005E64 [func_0080CC]
-        JSR     $008548(PC)                     ; $005E68 [vdp_operation]
+        JSR     $008548(PC)                     ; $005E68 [timer_countdown]
         JSR     $0094FA(PC)                     ; $005E6C [sound_trigger]
         JSR     $009312(PC)                     ; $005E70 [timer_update]
         JSR     $009B12(PC)                     ; $005E74 [movement_calc]
@@ -1855,7 +1855,7 @@ loc_005DC6:
         JSR     $007E7A(PC)                     ; $005E88 [func_007E7A]
         JSR     $006F98(PC)                     ; $005E8C [func_006F98]
         JSR     $007CD8(PC)                     ; $005E90 [func_007CD8]
-        JSR     $00A434(PC)                     ; $005E94 [score_update]
+        JSR     $00A434(PC)                     ; $005E94 [ai_opponent_select]
         JSR     $0070AA(PC)                     ; $005E98 [func_0070AA]
         JSR     $007F04(PC)                     ; $005E9C [func_007F04]
         JSR     $007C4E(PC)                     ; $005EA0 [func_007C4E]
@@ -1883,10 +1883,10 @@ loc_005DC6:
         MOVE.W  D0,$004A(A0)                    ; $005EF4
         JSR     $0085C4(PC)                     ; $005EF8
         JSR     $00859A(PC)                     ; $005EFC [vdp_write]
-        JSR     $00A350(PC)                     ; $005F00 [collision_check]
+        JSR     $00A350(PC)                     ; $005F00 [effect_timer_mgmt]
         JSR     $008170(PC)                     ; $005F04 [func_008170]
         JSR     $0080CC(PC)                     ; $005F08 [func_0080CC]
-        JSR     $008548(PC)                     ; $005F0C [vdp_operation]
+        JSR     $008548(PC)                     ; $005F0C [timer_countdown]
         JSR     $0094FA(PC)                     ; $005F10 [sound_trigger]
         JSR     $009312(PC)                     ; $005F14 [timer_update]
         JSR     $009B12(PC)                     ; $005F18 [movement_calc]
@@ -1897,7 +1897,7 @@ loc_005DC6:
         JSR     $007E7A(PC)                     ; $005F2C [func_007E7A]
         JSR     $006F98(PC)                     ; $005F30 [func_006F98]
         JSR     $007CD8(PC)                     ; $005F34 [func_007CD8]
-        JSR     $00A434(PC)                     ; $005F38 [score_update]
+        JSR     $00A434(PC)                     ; $005F38 [ai_opponent_select]
         JSR     $0070AA(PC)                     ; $005F3C [func_0070AA]
         JSR     $007F04(PC)                     ; $005F40 [func_007F04]
         JSR     $009E6E(PC)                     ; $005F44 [func_009E6E]
@@ -1921,10 +1921,10 @@ loc_005DC6:
         JSR     $009064(PC)                     ; $005F8C [func_009064]
         MOVE.B  $C304.W,$C30C.W                 ; $005F90
         JMP     $006C08(PC)                     ; $005F96
-        JSR     $00A350(PC)                     ; $005F9A [collision_check]
+        JSR     $00A350(PC)                     ; $005F9A [effect_timer_mgmt]
         JSR     $008170(PC)                     ; $005F9E [func_008170]
         JSR     $0080CC(PC)                     ; $005FA2 [func_0080CC]
-        JSR     $008548(PC)                     ; $005FA6 [vdp_operation]
+        JSR     $008548(PC)                     ; $005FA6 [timer_countdown]
         JSR     $00961E(PC)                     ; $005FAA [state_machine]
         JSR     $007816(PC)                     ; $005FAE [func_007816]
         JSR     $00764E(PC)                     ; $005FB2 [render_prep]
@@ -1956,10 +1956,10 @@ loc_005DC6:
         MOVE.W  D0,$004A(A0)                    ; $00601E
         JSR     loc_0049EE(PC)                  ; $006022
         JSR     $00859A(PC)                     ; $006026 [vdp_write]
-        JSR     $00A350(PC)                     ; $00602A [collision_check]
+        JSR     $00A350(PC)                     ; $00602A [effect_timer_mgmt]
         JSR     $008170(PC)                     ; $00602E [func_008170]
         JSR     $0080CC(PC)                     ; $006032 [func_0080CC]
-        JSR     $008548(PC)                     ; $006036 [vdp_operation]
+        JSR     $008548(PC)                     ; $006036 [timer_countdown]
         JSR     $0094FA(PC)                     ; $00603A [sound_trigger]
         CMPI.W  #$0004,$C26C.W                  ; $00603E
         BEQ.S  loc_00604A                       ; $006044
@@ -2004,15 +2004,15 @@ loc_00607A:
         MOVE.W  D0,$0046(A0)                    ; $0060DA
         MOVE.W  D0,$004A(A0)                    ; $0060DE
         JSR     $00859A(PC)                     ; $0060E2 [vdp_write]
-        JSR     $00A350(PC)                     ; $0060E6 [collision_check]
+        JSR     $00A350(PC)                     ; $0060E6 [effect_timer_mgmt]
         JSR     $008170(PC)                     ; $0060EA [func_008170]
         JSR     $0080CC(PC)                     ; $0060EE [func_0080CC]
-        JSR     $008548(PC)                     ; $0060F2 [vdp_operation]
+        JSR     $008548(PC)                     ; $0060F2 [timer_countdown]
         JSR     $009802(PC)                     ; $0060F6 [game_update]
         JSR     $007E7A(PC)                     ; $0060FA [func_007E7A]
         JSR     $006F98(PC)                     ; $0060FE [func_006F98]
         JSR     $007CD8(PC)                     ; $006102 [func_007CD8]
-        JSR     $00A434(PC)                     ; $006106 [score_update]
+        JSR     $00A434(PC)                     ; $006106 [ai_opponent_select]
         JSR     $0070AA(PC)                     ; $00610A [func_0070AA]
         JSR     $007F04(PC)                     ; $00610E [func_007F04]
         JSR     $009E6E(PC)                     ; $006112 [func_009E6E]
@@ -2051,7 +2051,7 @@ loc_00616E:
         MOVE.W  D0,$0046(A0)                    ; $006190
         MOVE.W  D0,$004A(A0)                    ; $006194
         JSR     $0080CC(PC)                     ; $006198 [func_0080CC]
-        JSR     $008548(PC)                     ; $00619C [vdp_operation]
+        JSR     $008548(PC)                     ; $00619C [timer_countdown]
         JSR     $009802(PC)                     ; $0061A0 [game_update]
         JSR     $007E7A(PC)                     ; $0061A4 [func_007E7A]
         JSR     $006F98(PC)                     ; $0061A8 [func_006F98]
