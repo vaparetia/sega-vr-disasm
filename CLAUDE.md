@@ -70,12 +70,15 @@ picodrive build/vr_rebuild.32x  # Linux (recommended)
 
 | Document | Contents |
 |----------|----------|
-| [68K_PRIORITY_8_PHASE6_PROFILING_REPORT.md](analysis/68K_PRIORITY_8_PHASE6_PROFILING_REPORT.md) | Complete Priority 8 analysis with profiling results |
-| [README_PRIORITY_8.md](analysis/README_PRIORITY_8.md) | Master index for Priority 8 investigation |
-| [68K_PRIORITY_9_DEEP_DIVE_REPORT.md](analysis/PRIORITY_9_DEEP_DIVE_REPORT.md) | Priority 9 analysis and architectural insights |
-| [func_065_FINAL_VERDICT.md](analysis/func_065_FINAL_VERDICT.md) | FIFO optimization analysis conclusion |
+| [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) | **Key insight** - Blocking synchronization model causes ~20 FPS ceiling |
+| [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) | Comprehensive reference for 503+ named 68K functions |
+| [68K_SH2_CROSS_REFERENCE.md](analysis/68K_SH2_CROSS_REFERENCE.md) | Communication protocol between 68K and SH2 processors |
+| [DATA_STRUCTURES.md](analysis/DATA_STRUCTURES.md) | Memory maps, object tables, rendering context structures |
+| [STATE_MACHINES.md](analysis/STATE_MACHINES.md) | V-INT handler and game state machine documentation |
 | [SH2_3D_PIPELINE_ARCHITECTURE.md](analysis/SH2_3D_PIPELINE_ARCHITECTURE.md) | SH2 3D rendering engine architecture |
 | [BOTTLENECK_ANALYSIS.md](analysis/BOTTLENECK_ANALYSIS.md) | Performance bottleneck identification and ranking |
+| [68K_PRIORITY_8_PHASE6_PROFILING_REPORT.md](analysis/68K_PRIORITY_8_PHASE6_PROFILING_REPORT.md) | Complete Priority 8 analysis with profiling results |
+| [68K_PRIORITY_9_DEEP_DIVE_REPORT.md](analysis/PRIORITY_9_DEEP_DIVE_REPORT.md) | Priority 9 analysis and architectural insights |
 
 ### Archived Session Logs (`_archive`)
 
