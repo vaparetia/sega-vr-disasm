@@ -489,8 +489,61 @@ wc -l sections/code_4200.asm
 
 ---
 
-**Last Updated:** 2026-01-17 (Clean rebuild - sections regenerated from ROM)
+---
+
+## Lessons Learned (2026-01-18)
+
+### What Worked
+
+1. **Pure DC.W Approach**
+   - Regenerating sections as pure `DC.W` statements guarantees byte-accurate builds
+   - Eliminates instruction decoding bugs from disassemblers
+   - `tools/rom_to_dcw.py` is the definitive tool for accurate assembly generation
+
+2. **Symbol Tables as Documentation**
+   - 503 68K functions named in `tools/build_symbol_table.py`
+   - 107 SH2 functions named in `tools/build_sh2_symbol_table.py`
+   - Symbols serve as reference without modifying build source
+
+3. **Modular Analysis Without Modular Build**
+   - Module files in `modules/68k/` document code structure
+   - Analysis docs in `analysis/` explain behavior
+   - Build uses sections/ for byte-accurate output
+
+### What Didn't Work
+
+1. **Module Integration (Phase 3-4)**
+   - `org` directive interactions caused address misalignment
+   - Partial sections + modules produced ~11K byte differences
+   - Input module extraction had +0xE8 offset errors
+
+2. **Disassembled Mnemonics**
+   - 99K+ lines had invalid instructions (`<EA:3F>`, `ORI.L #...,A0`)
+   - Disassembler bugs corrupted code sections over time
+   - Manual fixes were endless; regeneration was the solution
+
+### Recommended Approach
+
+```
+For Analysis:      Use modules/ and analysis/ docs
+For Building:      Use sections/ with pure DC.W
+For Modification:  Edit DC.W values directly (calculate opcodes)
+For New Features:  Add at end of ROM, update vectors
+```
+
+### Documentation Status
+
+| Document | Status |
+|----------|--------|
+| [DATA_STRUCTURES.md](../analysis/DATA_STRUCTURES.md) | Complete |
+| [STATE_MACHINES.md](../analysis/STATE_MACHINES.md) | Complete |
+| [68K_SH2_CROSS_REFERENCE.md](../analysis/68K_SH2_CROSS_REFERENCE.md) | Complete |
+| [SH2_SYMBOL_MAP.md](SH2_SYMBOL_MAP.md) | 107 symbols |
+| Symbol Table | 503 68K functions |
+
+---
+
+**Last Updated:** 2026-01-18 (Lessons learned added)
 **Status:** ✅ WORKING - byte-accurate rebuild
 **Working Build:** `make all` produces exact 3,145,728 byte match with original
 **Tool Created:** `tools/rom_to_dcw.py` for accurate ROM-to-assembly conversion
-**Next Steps:** Add mnemonic comments to DC.W statements for readability (optional)

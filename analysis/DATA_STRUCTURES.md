@@ -1,0 +1,342 @@
+# Virtua Racing Deluxe - Data Structure Reference
+
+This document consolidates all known data structures used by the 68K and SH2 CPUs.
+
+---
+
+## Memory Map Overview
+
+### 68K Address Space
+
+| Range | Size | Description |
+|-------|------|-------------|
+| $000000-$3FFFFF | 4MB | ROM (cartridge) |
+| $840000-$87FFFF | 256KB | 32X Frame Buffers (2×128KB) |
+| $900000-$9FFFFF | 1MB | 32X Cartridge ROM (banked) |
+| $A00000-$A0FFFF | 64KB | Z80 Sound RAM |
+| $A10000-$A1001F | 32B | Genesis I/O ports |
+| $A15000-$A152FF | 768B | 32X System Registers |
+| $C00000-$C0001F | 32B | VDP Registers |
+| $FF0000-$FFFFFF | 64KB | 68K Work RAM |
+
+### Work RAM Layout ($FF0000-$FFFFFF)
+
+```
+$FF0000-$FF5FFF: General work area (24KB)
+$FF6000-$FF6FFF: Display/VDP state (4KB)
+  $FF6950: Object flags
+  $FF6960: Display state flag
+  $FF68F0: Status code
+  $FF68F8: Time display buffer (8 bytes)
+
+$FF9000-$FF9FFF: Object tables (4KB)
+  $FF9100: Object Table 1 (6 entries, hardware loop)
+  $FF9700: Object Table 2 (8 entries, hardware loop)
+  $FF9F00: Object Table 3 (1 entry, hardware loop)
+
+$FFC000-$FFCFFF: Control state (4KB)
+  $FFC0xx: System control parameters
+  $FFC8xx: Game state machine indices
+```
+
+---
+
+## State Machine Variables ($FFC000-$FFC9FF)
+
+See [STATE_MACHINES.md](STATE_MACHINES.md) for complete documentation.
+
+| Address | Name | Range | Purpose |
+|---------|------|-------|---------|
+| $FFC048 | camera_state | 0-N | Camera mode |
+| $FFC050 | scroll_state | 0-N | Scroll position |
+| $FFC07C | input_state | 0-N | Controller state |
+| $FFC082 | menu_state | 0-N | Menu navigation |
+| $FFC084 | menu_substate | 0-N | Sub-menu state |
+| $FFC0A2 | gfx_mode | 0-N | Graphics mode |
+| $FFC0FA | timer_state | 0-N | Timer/countdown |
+| $FFC87E | game_state | 0-60 | Main game state (×4) |
+| $FFC89C | sh2_comm_state | 0-N | SH2 communication |
+| $FFC89E | sh2_comm_sub | 0-N | Comm sub-state |
+| $FFC8A0 | race_state | 0-N | Race phase |
+| $FFC8AA | scene_state | 0-N | Scene transitions |
+| $FFC8C8 | vint_state | 0-N | V-INT processing |
+| $FFC8CC | race_substate | 0-N | Race sub-phase |
+| $FFC964 | frame_counter | 0-∞ | Frame count |
+| $FFC972 | anim_state | 0-N | Animation state |
+
+---
+
+## Object Table Structure
+
+### Object Table 1 ($FF9100) - 6 Entries
+
+Used by `func_6D9C` hardware loop. Likely main game objects (player car, etc.)
+
+```
+Offset  Size  Field
+------  ----  -----
+$00     2     flags/type
+$02     2     x_position (screen)
+$04     2     y_position (screen)
+$06     2     z_depth
+$08     2     sprite_index
+$0A     2     animation_frame
+$0C     4     world_x (fixed-point)
+$10     4     world_y (fixed-point)
+$14     4     world_z (fixed-point)
+$18     2     velocity
+$1A     2     direction
+$1C     4     [unknown]
+------
+Total: ~32 bytes per entry (estimated)
+```
+
+### Object Table 2 ($FF9700) - 8 Entries
+
+Used by `func_6DC8` hardware loop. Secondary objects (opponent cars, items).
+
+### Object Table 3 ($FF9F00) - 1 Entry
+
+Used by `func_DF0` single-iteration loop. Special object (camera target, etc.)
+
+---
+
+## 32X Frame Buffer Format
+
+### Memory Layout ($840000-$87FFFF)
+
+```
+$840000-$85FFFF: Frame Buffer 0 (128KB)
+$860000-$87FFFF: Frame Buffer 1 (128KB)
+
+Each frame buffer:
+$xx0000-$xx01FF: Line Table (256 × 16-bit offsets)
+$xx0200-$xxFFFF: Pixel Data
+```
+
+### Line Table Entry
+
+```
+Bits 15-0: Offset from frame buffer base to start of scanline
+           Allows non-contiguous scanline storage for scrolling
+```
+
+### Pixel Format (Packed Pixel Mode)
+
+```
+Each byte = 1 pixel (8-bit palette index)
+Resolution: 320×224 = 71,680 bytes
+```
+
+### Palette Format ($A15200)
+
+```
+256 entries × 16-bit each
+Bit 15:    Priority (1 = high priority over Genesis plane)
+Bits 14-10: Blue (0-31)
+Bits 9-5:   Green (0-31)
+Bits 4-0:   Red (0-31)
+```
+
+---
+
+## SH2 Rendering Context (56 bytes)
+
+Base: R14 register
+
+```
+Offset  Size  Field               Notes
+------  ----  -----               -----
+$00     4     callback_ptr        Subroutine address
+$04     4     display_list_ptr    Current display list
+$08     4     vertex_buffer_ptr   Output vertex buffer
+$0C     4     work_buffer_ptr     Temporary calculations
+$10     4     frame_buffer_ptr    Target frame buffer
+$14     4     depth_buffer_ptr    Z-buffer (if used)
+$18     4     matrix_ptr          Current transform matrix
+$1C     4     light_vector_ptr    Lighting direction
+$20     4     polygon_count       Number of polygons
+$24     4     vertex_count        Number of vertices
+$28     4     render_flags        Mode flags
+$2C     4     clip_planes         Near/far clip values
+$30     4     screen_width        Viewport width
+$34     4     screen_height       Viewport height
+```
+
+---
+
+## Transformation Matrix (64 bytes)
+
+4×4 matrix in 16.16 fixed-point format.
+
+```
+        | M00  M01  M02  M03 |
+Matrix =| M10  M11  M12  M13 |
+        | M20  M21  M22  M23 |
+        | M30  M31  M32  M33 |
+
+Offset  Field    Usage
+------  -----    -----
+$00     M00      Scale X / Rotation
+$04     M01      Rotation
+$08     M02      Rotation
+$0C     M03      Translation X
+$10     M10      Rotation
+$14     M11      Scale Y / Rotation
+$18     M12      Rotation
+$1C     M13      Translation Y
+$20     M20      Rotation
+$24     M21      Rotation
+$28     M22      Scale Z / Rotation
+$2C     M23      Translation Z
+$30     M30      Perspective
+$34     M31      Perspective
+$38     M32      Perspective
+$3C     M33      W (usually 1.0)
+```
+
+---
+
+## Polygon Descriptor (20 bytes)
+
+```
+Offset  Size  Field
+------  ----  -----
+$00     2     flags           (bit 0: active, bits 1-3: type)
+$02     2     vertex_count    (3 or 4)
+$04     2     vertex_idx[0]   Index into vertex buffer
+$06     2     vertex_idx[1]
+$08     2     vertex_idx[2]
+$0A     2     vertex_idx[3]   (quads only)
+$0C     4     color           ARGB or palette index
+$10     4     texture_id      Texture reference
+```
+
+### Polygon Types
+
+| Type | Value | Description |
+|------|-------|-------------|
+| Flat Triangle | 0 | Single color, 3 vertices |
+| Gouraud Triangle | 1 | Vertex colors, 3 vertices |
+| Flat Quad | 2 | Single color, 4 vertices |
+| Gouraud Quad | 3 | Vertex colors, 4 vertices |
+| Textured Triangle | 4 | UV mapped, 3 vertices |
+| Textured Quad | 5 | UV mapped, 4 vertices |
+
+---
+
+## Vertex Structure (32 bytes)
+
+### Input Vertex (model space)
+
+```
+Offset  Size  Field
+------  ----  -----
+$00     4     x           16.16 fixed-point
+$04     4     y           16.16 fixed-point
+$08     4     z           16.16 fixed-point
+$0C     4     w           1.0 (homogeneous)
+$10     4     nx          Normal X (for lighting)
+$14     4     ny          Normal Y
+$18     4     nz          Normal Z
+$1C     4     color       Vertex color (Gouraud)
+```
+
+### Output Vertex (screen space, 52 bytes)
+
+```
+Offset  Size  Field
+------  ----  -----
+$00     4     screen_x    Screen X (16.16)
+$04     4     screen_y    Screen Y (16.16)
+$08     4     depth       Z-depth for sorting
+$0C     4     w_recip     1/W for perspective
+$10     4     color       Computed vertex color
+$14-$34 32    [extended]  UV coords, flags, etc.
+```
+
+---
+
+## Track Data Format (Estimated)
+
+Based on code analysis, track data likely includes:
+
+### Track Header
+
+```
+Offset  Size  Field
+------  ----  -----
+$00     4     track_id
+$04     4     segment_count
+$08     4     waypoint_ptr
+$0C     4     geometry_ptr
+$10     4     texture_ptr
+$14     4     palette_ptr
+$18     4     object_ptr      (trackside objects)
+$1C     4     collision_ptr
+```
+
+### Track Segment
+
+```
+Offset  Size  Field
+------  ----  -----
+$00     4     start_distance
+$04     4     length
+$08     2     curvature       (signed: - = left, + = right)
+$0A     2     elevation       (signed: - = down, + = up)
+$0C     2     width
+$0E     2     surface_type
+$10     4     next_segment_ptr
+```
+
+---
+
+## 68K-SH2 Communication Protocol
+
+### COMM Registers ($A15120-$A1512F)
+
+```
+$A15120: COMM0 (68K → Master SH2)
+$A15122: COMM1 (68K → Master SH2)
+$A15124: COMM2 (68K → Slave SH2)
+$A15126: COMM3 (68K → Slave SH2)
+$A15128: COMM4 (Master SH2 → 68K)
+$A1512A: COMM5 (Master SH2 → 68K)
+$A1512C: COMM6 (Slave SH2 → 68K)
+$A1512E: COMM7 (Slave SH2 → 68K)
+```
+
+### Protocol Flow
+
+```
+1. 68K writes command to COMM0/COMM1
+2. 68K sets COMM flag (or waits for SH2)
+3. Master SH2 reads COMM0/COMM1
+4. Master SH2 processes command
+5. Master SH2 writes response to COMM4/COMM5
+6. 68K reads response
+```
+
+### Known Commands
+
+| COMM0 | COMM1 | Description |
+|-------|-------|-------------|
+| $0001 | addr  | Render frame at display list address |
+| $0002 | flags | Set render mode flags |
+| $0003 | - | Frame sync |
+| $FFFF | - | Reset/initialize |
+
+---
+
+## Related Documentation
+
+- [STATE_MACHINES.md](STATE_MACHINES.md) - State machine details
+- [SH2_SYMBOL_MAP.md](../disasm/SH2_SYMBOL_MAP.md) - SH2 function symbols
+- [MEMORY_MAP.md](architecture/MEMORY_MAP.md) - Complete memory map
+- [32X_FRAME_BUFFER_FORMAT.md](graphics-vdp/32X_FRAME_BUFFER_FORMAT.md) - VDP details
+
+---
+
+*Generated: January 2026*
+*Status: Reference document - some structures estimated from code analysis*
