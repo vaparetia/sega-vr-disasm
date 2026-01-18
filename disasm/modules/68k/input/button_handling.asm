@@ -1,67 +1,10 @@
-; Generated assembly for $002878-$004200
+; Input/Controller System - Button Handling [$002984-$0041FC]
 ; Branch targets: 156
 ; Labels: 146
 ; Format: DC.W with decoded mnemonics as comments
 
-        org     $002878
+        org     $002984
 
-        DC.W    $4A38,$C821         ; $002878 TST.B  $C821.W
-        DC.W    $6710               ; $00287C BEQ.S  loc_00288E
-        DC.W    $43F9,$00FF,$6E00   ; $00287E LEA     $00FF6E00,A1
-        DC.W    $45F9,$00A1,$5200   ; $002884 LEA     $00A15200,A2
-        DC.W    $4EFA,$2046         ; $00288A JMP     $0048D2(PC)
-loc_00288E:
-        DC.W    $4E75               ; $00288E RTS
-loc_002890:
-        DC.W    $0839,$0000,$00A1,$5123; $002890 BTST    #0,$00A15123
-        DC.W    $67F6               ; $002898 BEQ.S  loc_002890
-        DC.W    $08B9,$0000,$00A1,$5123; $00289A BCLR    #0,$00A15123
-        DC.W    $31FC,$0000,$C8A8   ; $0028A2 MOVE.W  #$0000,$C8A8.W
-        DC.W    $13F8,$C8A9,$00A1,$5121; $0028A8 MOVE.B  $C8A9.W,$00A15121
-        DC.W    $13F8,$C8A8,$00A1,$5120; $0028B0 MOVE.B  $C8A8.W,$00A15120
-        DC.W    $13FC,$0000,$00A1,$5123; $0028B8 MOVE.B  #$0000,$00A15123
-        DC.W    $4E75               ; $0028C0 RTS
-        DC.W    $33FC,$0500,$00A1,$5110; $0028C2 MOVE.W  #$0500,$00A15110
-        DC.W    $13FC,$0004,$00A1,$5107; $0028CA MOVE.B  #$0004,$00A15107
-        DC.W    $13F8,$C8A9,$00A1,$5121; $0028D2 MOVE.B  $C8A9.W,$00A15121
-        DC.W    $13F8,$C8A8,$00A1,$5120; $0028DA MOVE.B  $C8A8.W,$00A15120
-loc_0028E2:
-        DC.W    $0839,$0001,$00A1,$5123; $0028E2 BTST    #1,$00A15123
-        DC.W    $67F6               ; $0028EA BEQ.S  loc_0028E2
-        DC.W    $08B9,$0001,$00A1,$5123; $0028EC BCLR    #1,$00A15123
-        DC.W    $43F9,$00FF,$6000   ; $0028F4 LEA     $00FF6000,A1
-        DC.W    $45F9,$00A1,$5112   ; $0028FA LEA     $00A15112,A2
-        DC.W    $4EB9,$0089,$88EC   ; $002900 JSR     $008988EC
-        DC.W    $4EB9,$0089,$88EC   ; $002906 JSR     $008988EC
-        DC.W    $4EB9,$0089,$88EC   ; $00290C JSR     $008988EC
-        DC.W    $4EB9,$0089,$88EC   ; $002912 JSR     $008988EC
-        DC.W    $4EB9,$0089,$88EC   ; $002918 JSR     $008988EC
-        DC.W    $4EB9,$0089,$88EC   ; $00291E JSR     $008988EC
-        DC.W    $4EB9,$0089,$88EC   ; $002924 JSR     $008988EC
-        DC.W    $4EB9,$0089,$88EC   ; $00292A JSR     $008988EC
-        DC.W    $4EB9,$0089,$88EC   ; $002930 JSR     $008988EC
-        DC.W    $4EF9,$0089,$88EC   ; $002936 JMP     $008988EC
-        DC.W    $49F9,$00A1,$5100   ; $00293C LEA     $00A15100,A4
-        DC.W    $18BC,$0000         ; $002942 MOVE.B  #$0000,(A4)
-        DC.W    $45F9,$00A1,$5186   ; $002946 LEA     $00A15186,A2
-        DC.W    $47F9,$00A1,$5188   ; $00294C LEA     $00A15188,A3
-        DC.W    $3E3C,$00BF         ; $002952 MOVE.W  #$00BF,D7
-        DC.W    $7000               ; $002956 MOVEQ   #$00,D0
-        DC.W    $323C,$3000         ; $002958 MOVE.W  #$3000,D1
-        DC.W    $343C,$0100         ; $00295C MOVE.W  #$0100,D2
-        DC.W    $397C,$009F,$0084   ; $002960 MOVE.W  #$009F,$0084(A4)
-loc_002966:
-        DC.W    $3481               ; $002966 MOVE.W  D1,(A2)
-        DC.W    $3680               ; $002968 MOVE.W  D0,(A3)
-        DC.W    $706F               ; $00296A MOVEQ   #$6F,D0
-        DC.W    $81FC,$0378         ; $00296C DIVS    #$0378,D0
-loc_002970:
-        DC.W    $082C,$0001,$008B   ; $002970 BTST    #1,$008B(A4)
-        DC.W    $66F8               ; $002976 BNE.S  loc_002970
-        DC.W    $D242               ; $002978 ADD.W  D2,D1
-        DC.W    $51CF,$FFEA         ; $00297A DBRA    D7,loc_002966
-        DC.W    $18BC,$0080         ; $00297E MOVE.B  #$0080,(A4)
-        DC.W    $4E75               ; $002982 RTS
         DC.W    $41F8,$9000         ; $002984 LEA     $9000.W,A0
         DC.W    $43F9,$00FF,$6100   ; $002988 LEA     $00FF6100,A1
         DC.W    $4A78,$C04C         ; $00298E TST.W  $C04C.W

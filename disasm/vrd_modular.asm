@@ -28,18 +28,30 @@
 ; Include shared hardware definitions (must be before any org directives)
         include "modules/shared/definitions.asm"
 
-; Boot & Initialization
+; === BOOT & INIT ($000000-$0017EC) ===
         include "modules/68k/boot/rom_header.asm"
-        include "sections/code_200.asm"
+        include "sections/code_200_partial.asm"
 
-; Display System - VDP Operations ($0027F8-$002982)
+; === INPUT SYSTEM - CONTROLLER READ ($0017EE-$002200) ===
+        include "modules/68k/input/controller_read.asm"
+
+; === INPUT SYSTEM - INPUT PROCESSING ($002200-$0027F6) ===
+        include "modules/68k/input/input_processing.asm"
+
+; === DISPLAY SYSTEM - VDP OPERATIONS ($0027F8-$002982) ===
         include "modules/68k/display/vdp_operations.asm"
-        include "sections/code_2200_partial.asm"
 
-; Memory & Display Utilities ($004836-$0049C6)
+; === INPUT SYSTEM - BUTTON HANDLING ($002984-$0041FC) ===
+        include "modules/68k/input/button_handling.asm"
+
+; === MEMORY UTILITIES ($004836-$004996) ===
         include "modules/68k/memory/fill_copy_operations.asm"
+
+; === DISPLAY SYNC ($004998-$0049C6) ===
         include "modules/68k/display/sync_functions.asm"
-        include "sections/code_4200_partial.asm"
+
+; === INPUT SYSTEM - STATE MACHINE ($0049C8-$006200) ===
+        include "modules/68k/input/state_machine.asm"
 
         include "sections/code_6200.asm"
         include "sections/code_8200.asm"
