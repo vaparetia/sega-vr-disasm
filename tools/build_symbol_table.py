@@ -254,6 +254,16 @@ KNOWN_FUNCTIONS = {
     0x008032: "race_position_check",      # Race position delta check, 5 calls
     0x00A144: "game_state_handler",       # Game state handler, 5 calls
     0x011A98: "name_entry_check",         # Name entry state check, 5 calls
+
+    # Functions with 3-4 calls
+    0x007A40: "obj_type_dispatch",        # Object type jump table, 4 calls
+    0x0075E0: "vector_dot_conditional",   # Conditional dot product, 4 calls
+    0x0075C8: "vector_dot_product",       # Vector dot product calc, 3 calls
+    0x002890: "sh2_comm_sync",            # SH2 COMM register sync, 3 calls
+    0x0049EE: "reset_scroll_vars",        # Clear scroll variables, 3 calls
+    0x007EA4: "player_target_verify",     # Player target comparison, 3 calls
+    0x011942: "name_digit_render",        # Name entry digit render, 3 calls
+    0x0118D4: "time_digit_render",        # Time display digit render, 3 calls
 }
 
 

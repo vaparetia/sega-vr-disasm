@@ -83,7 +83,7 @@ func_0027DA              EQU $0027DA
 VDPFill                  EQU $0027F8
 VDPPrep                  EQU $00281E
 PaletteRAMCopy           EQU $002878
-func_002890              EQU $002890
+sh2_comm_sync            EQU $002890
 VDPSyncSH2               EQU $0028C2
 palette_update           EQU $002984
 func_002A72              EQU $002A72
@@ -145,7 +145,7 @@ FastCopy16               EQU $004922
 random_number_gen        EQU $00496E
 WaitForVBlank            EQU $004998
 SetDisplayParams         EQU $0049AA
-func_0049EE              EQU $0049EE
+reset_scroll_vars        EQU $0049EE
 func_004C8A              EQU $004C8A
 func_00581A              EQU $00581A
 func_005822              EQU $005822
@@ -189,8 +189,8 @@ angle_normalize          EQU $00748C
 sprite_list_process      EQU $0074A4
 func_0074AC              EQU $0074AC
 velocity_apply           EQU $007534
-func_0075C8              EQU $0075C8
-func_0075E0              EQU $0075E0
+vector_dot_product       EQU $0075C8
+vector_dot_conditional   EQU $0075E0
 obj_distance_calc        EQU $0075FE
 func_007612              EQU $007612
 obj_angle_calc           EQU $007624
@@ -200,7 +200,7 @@ func_0076A2              EQU $0076A2
 func_007700              EQU $007700
 obj_collision_test       EQU $007816
 obj_frame_calc           EQU $00789C
-func_007A40              EQU $007A40
+obj_type_dispatch        EQU $007A40
 obj_heading_update       EQU $007AB6
 func_007AD6              EQU $007AD6
 func_007BAC              EQU $007BAC
@@ -213,7 +213,7 @@ func_007D56              EQU $007D56
 func_007D82              EQU $007D82
 func_007E0C              EQU $007E0C
 obj_velocity_y           EQU $007E7A
-func_007EA4              EQU $007EA4
+player_target_verify     EQU $007EA4
 func_007EB2              EQU $007EB2
 func_007EFC              EQU $007EFC
 obj_bounds_check         EQU $007F04
@@ -371,10 +371,10 @@ name_entry_alt           EQU $011144
 name_entry_sub           EQU $01116C
 func_0117F4              EQU $0117F4
 func_011862              EQU $011862
-func_0118D4              EQU $0118D4
+time_digit_render        EQU $0118D4
 func_011908              EQU $011908
 func_011924              EQU $011924
-func_011942              EQU $011942
+name_digit_render        EQU $011942
 func_01197E              EQU $01197E
 func_01199A              EQU $01199A
 func_0119B8              EQU $0119B8

@@ -66,7 +66,7 @@
 | $0027F8 | VDPFill | 0 |
 | $00281E | VDPPrep | 4 |
 | $002878 | PaletteRAMCopy | 1 |
-| $002890 | func_002890 | 3 |
+| $002890 | sh2_comm_sync | 3 |
 | $0028C2 | VDPSyncSH2 | 0 |
 | $002984 | palette_update | 7 |
 | $002A72 | func_002A72 | 0 |
@@ -128,7 +128,7 @@
 | $00496E | random_number_gen | 6 |
 | $004998 | WaitForVBlank | 3 |
 | $0049AA | SetDisplayParams | 7 |
-| $0049EE | func_0049EE | 3 |
+| $0049EE | reset_scroll_vars | 3 |
 | $004C8A | func_004C8A | 0 |
 | $00581A | func_00581A | 0 |
 | $005822 | func_005822 | 0 |
@@ -172,8 +172,8 @@
 | $0074A4 | sprite_list_process | 6 |
 | $0074AC | func_0074AC | 0 |
 | $007534 | velocity_apply | 6 |
-| $0075C8 | func_0075C8 | 3 |
-| $0075E0 | func_0075E0 | 4 |
+| $0075C8 | vector_dot_product | 3 |
+| $0075E0 | vector_dot_conditional | 4 |
 | $0075FE | obj_distance_calc | 11 |
 | $007612 | func_007612 | 0 |
 | $007624 | obj_angle_calc | 7 |
@@ -183,7 +183,7 @@
 | $007700 | func_007700 | 1 |
 | $007816 | obj_collision_test | 11 |
 | $00789C | obj_frame_calc | 6 |
-| $007A40 | func_007A40 | 4 |
+| $007A40 | obj_type_dispatch | 4 |
 | $007AB6 | obj_heading_update | 10 |
 | $007AD6 | func_007AD6 | 0 |
 | $007BAC | func_007BAC | 1 |
@@ -196,7 +196,7 @@
 | $007D82 | func_007D82 | 0 |
 | $007E0C | func_007E0C | 0 |
 | $007E7A | obj_velocity_y | 18 |
-| $007EA4 | func_007EA4 | 3 |
+| $007EA4 | player_target_verify | 3 |
 | $007EB2 | func_007EB2 | 0 |
 | $007EFC | func_007EFC | 1 |
 | $007F04 | obj_bounds_check | 11 |
@@ -354,10 +354,10 @@
 | $01116C | name_entry_sub | 0 |
 | $0117F4 | func_0117F4 | 0 |
 | $011862 | func_011862 | 0 |
-| $0118D4 | func_0118D4 | 3 |
+| $0118D4 | time_digit_render | 3 |
 | $011908 | func_011908 | 0 |
 | $011924 | func_011924 | 0 |
-| $011942 | func_011942 | 3 |
+| $011942 | name_digit_render | 3 |
 | $01197E | func_01197E | 0 |
 | $01199A | func_01199A | 0 |
 | $0119B8 | func_0119B8 | 0 |
