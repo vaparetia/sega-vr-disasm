@@ -41,7 +41,7 @@ loc_00623E:
         JSR     loc_00734E(PC)                  ; $00627E
         MOVE.B  $C304.W,$C30C.W                 ; $006282
         JSR     $00886C88                       ; $006288
-        JMP     $0049AA(PC)                     ; $00628E [func_0049AA]
+        JMP     $0049AA(PC)                     ; $00628E [SetDisplayParams]
         MOVEQ   #$00,D0                         ; $006292
         MOVE.W  D0,$0044(A0)                    ; $006294
         MOVE.W  D0,$0046(A0)                    ; $006298
@@ -692,7 +692,7 @@ loc_006C6C:
         MOVE.W  (A1),D7                         ; $006C6E
         MOVE.W  (A1)+,(A2)+                     ; $006C70
 loc_006C72:
-        JSR     $004922(PC)                     ; $006C72 [func_004922]
+        JSR     $004922(PC)                     ; $006C72 [FastCopy16]
         DBRA    D7,loc_006C72                   ; $006C76
         DBRA    D6,loc_006C6C                   ; $006C7A
         MOVE.L  A2,(A4)+                        ; $006C7E
@@ -924,7 +924,7 @@ loc_006F80:
         MOVE.W  (A1),D7                         ; $006F82
         MOVE.W  (A1)+,(A2)+                     ; $006F84
 loc_006F86:
-        JSR     $004922(PC)                     ; $006F86 [func_004922]
+        JSR     $004922(PC)                     ; $006F86 [FastCopy16]
         DBRA    D7,loc_006F86                   ; $006F8A
         DBRA    D6,loc_006F80                   ; $006F8E
         MOVE.L  A2,(A4)+                        ; $006F92

@@ -40,9 +40,33 @@ KNOWN_FUNCTIONS = {
     0x00E35A: "sh2_send_cmd",           # Sends command to SH2
     0x00E342: "sh2_wait_response",      # Waits for SH2 response
 
-    # VDP/Display
+    # VDP/Display (from modules/68k/display/)
+    0x0027F8: "VDPFill",
+    0x00281E: "VDPPrep",
+    0x002878: "PaletteRAMCopy",
+    0x0028C2: "VDPSyncSH2",
     0x008548: "vdp_operation",
     0x00859A: "vdp_write",
+
+    # Memory operations (from modules/68k/memory/)
+    0x004836: "QuadMemoryFill",
+    0x00483A: "MemoryFillWaterfall1",
+    0x00483E: "MemoryFillWaterfall2",
+    0x004842: "MemoryFill60A1",
+    0x004846: "MemoryFill60A4",
+    0x004856: "UnrolledFill96",
+    0x00485E: "UnrolledFill112",
+    0x0048B8: "UnrolledFill32",
+    0x0048CA: "TripleMemoryFill",
+    0x0048CE: "MemoryFillWaterfall3",
+    0x0048D2: "MemoryFillWaterfall4",
+    0x0048FE: "UnrolledFill60",
+    0x004920: "FastCopy20",
+    0x004922: "FastCopy16",
+    0x004998: "WaitForVBlank",
+    0x0049AA: "SetDisplayParams",
+    0x0036DE: "clear_buffer",
+    0x0037B6: "memory_copy",
 
     # Game logic (frequent callers)
     0x009802: "game_update",
@@ -56,11 +80,9 @@ KNOWN_FUNCTIONS = {
     0x009312: "timer_update",
     0x00E52C: "dma_transfer",
     0x009CCE: "math_routine",
-    0x0037B6: "memory_copy",
     0x0059EC: "table_lookup",
     0x00A434: "score_update",
     0x0094FA: "sound_trigger",
-    0x0036DE: "clear_buffer",
     0x00764E: "render_prep",
     0x00714A: "transform_calc",
     0x00B09E: "animation_update",

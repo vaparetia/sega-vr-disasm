@@ -537,7 +537,7 @@ loc_00286A:
         BEQ.S  loc_00288E                       ; $00287C
         LEA     $00FF6E00,A1                    ; $00287E
         LEA     $00A15200,A2                    ; $002884
-        JMP     $0048D2(PC)                     ; $00288A [func_0048D2]
+        JMP     $0048D2(PC)                     ; $00288A [MemoryFillWaterfall4]
 loc_00288E:
         RTS                                     ; $00288E
 loc_002890:

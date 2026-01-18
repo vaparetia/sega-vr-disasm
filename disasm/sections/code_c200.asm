@@ -61,7 +61,7 @@ loc_00C2C0:
         AND.L  D1,(A0)                          ; $00C31E
         ORI.L  #$C3FC0088,A0                    ; $00C320
         AND.W  (A6)+,D2                         ; $00C326
-        JSR     $008828C2                       ; $00C328
+        JSR     VDPSyncSH2                       ; $00C328
         JSR     func_0021CA                       ; $00C32E
         MOVE.W  $C86C.W,-(A7)                   ; $00C334
         MOVE.W  #$FF00,$C86C.W                  ; $00C338
@@ -290,12 +290,12 @@ loc_00C6DA:
         JSR     $0048EA(PC)                     ; $00C6E4
         LEA     $008BAFC4,A1                    ; $00C6E8
         LEA     $B400.W,A2                      ; $00C6EE
-        JSR     $0048D2(PC)                     ; $00C6F2 [func_0048D2]
+        JSR     $0048D2(PC)                     ; $00C6F2 [MemoryFillWaterfall4]
         LEA     $008BA220,A1                    ; $00C6F6
         MOVE.W  $C8A0.W,D0                      ; $00C6FC
         MOVEA.L $00(A1,D0.W),A1                 ; $00C700
         LEA     $00FF6E00,A2                    ; $00C704
-        JSR     $0048D2(PC)                     ; $00C70A [func_0048D2]
+        JSR     $0048D2(PC)                     ; $00C70A [MemoryFillWaterfall4]
         LEA     $008BAE38,A1                    ; $00C70E
         MOVE.W  $C8CC.W,D0                      ; $00C714
         MOVEA.L $00(A1,D0.W),A1                 ; $00C718
@@ -349,7 +349,7 @@ loc_00C794:
         LEA     $0089B6AC,A1                    ; $00C7F8
         LEA     $FA48.W,A2                      ; $00C7FE
         JSR     $0048EA(PC)                     ; $00C802
-        JSR     $004922(PC)                     ; $00C806 [func_004922]
+        JSR     $004922(PC)                     ; $00C806 [FastCopy16]
         LEA     $0089B73C,A1                    ; $00C80A
         LEA     $FDAA.W,A2                      ; $00C810
         MOVEQ   #$35,D7                         ; $00C814
@@ -373,8 +373,8 @@ loc_00C816:
 loc_00C85C:
         MOVEQ   #$00,D1                         ; $00C85C
         LEA     $00FF6000,A1                    ; $00C85E
-        JSR     $00884836                       ; $00C864
-        JMP     $0088483E                       ; $00C86A
+        JSR     QuadMemoryFill                       ; $00C864
+        JMP     MemoryFillWaterfall2                       ; $00C86A
         BSR.S  loc_00C85C                       ; $00C870
         MOVE.W  $C8CC.W,D0                      ; $00C872
         LEA     $00895488,A1                    ; $00C876
@@ -436,7 +436,7 @@ loc_00C962:
         MOVE.W  $C8CC.W,D0                      ; $00C962
         MOVEA.L $00(A1,D0.W),A1                 ; $00C966
         LEA     $C710.W,A2                      ; $00C96A
-        JMP     $008848FE                       ; $00C96E
+        JMP     UnrolledFill60                       ; $00C96E
 loc_00C974:
         BSR.S  loc_00C95C                       ; $00C974
         LEA     $00FF6114,A1                    ; $00C976
@@ -701,13 +701,13 @@ loc_00CD6A:
         MOVE.L  $C260.W,-(A7)                   ; $00CD92
         LEA     $C000.W,A1                      ; $00CD96
         MOVEQ   #$00,D1                         ; $00CD9A
-        JSR     $0088483A                       ; $00CD9C
+        JSR     MemoryFillWaterfall1                       ; $00CD9C
         MOVE.L  (A7)+,$C260.W                   ; $00CDA2
         LEA     $9000.W,A1                      ; $00CDA6
         MOVEQ   #$00,D1                         ; $00CDAA
         MOVEQ   #$0F,D7                         ; $00CDAC
 loc_00CDAE:
-        JSR     $00884842                       ; $00CDAE
+        JSR     MemoryFill60A1                       ; $00CDAE
         DBRA    D7,loc_00CDAE                   ; $00CDB4
         MOVEQ   #$00,D1                         ; $00CDB8
         MOVE.B  D1,$C30E.W                      ; $00CDBA
@@ -764,9 +764,9 @@ loc_00CE62:
         RTS                                     ; $00CE74
         MOVEQ   #$00,D1                         ; $00CE76
         LEA     $A800.W,A1                      ; $00CE78
-        JSR     $00884842                       ; $00CE7C
-        JSR     $00884846                       ; $00CE82
-        JSR     $00884856                       ; $00CE88
+        JSR     MemoryFill60A1                       ; $00CE7C
+        JSR     MemoryFill60A4                       ; $00CE82
+        JSR     UnrolledFill96                       ; $00CE88
         MOVE.B  D1,$C81D.W                      ; $00CE8E
         MOVE.B  D1,$C81F.W                      ; $00CE92
         MOVE.B  D1,$C820.W                      ; $00CE96
@@ -1065,12 +1065,12 @@ loc_00D288:
         MOVEQ   #$00,D1                         ; $00D2EA
         LEA     $00FF1400,A1                    ; $00D2EC
         LEA     $00FF1000,A2                    ; $00D2F2
-        JSR     $008848CA                       ; $00D2F8
-        JSR     $008848CE                       ; $00D2FE
+        JSR     TripleMemoryFill                       ; $00D2F8
+        JSR     MemoryFillWaterfall3                       ; $00D2FE
         JSR     func_0048D2                       ; $00D304
         LEA     $00FF1200,A1                    ; $00D30A
-        JSR     $008848CA                       ; $00D310
-        JSR     $008848CE                       ; $00D316
+        JSR     TripleMemoryFill                       ; $00D310
+        JSR     MemoryFillWaterfall3                       ; $00D316
         JSR     func_0048D2                       ; $00D31C
         MOVE.W  #$8B03,(A5)                     ; $00D322
         BSR.W  loc_00D43A                       ; $00D326
@@ -1097,7 +1097,7 @@ loc_00D332:
         MOVEQ   #$1B,D7                         ; $00D380
         LEA     $00FF1A50,A1                    ; $00D382
 loc_00D388:
-        JSR     $0088485E                       ; $00D388
+        JSR     UnrolledFill112                       ; $00D388
         ADDA.L  D2,A1                           ; $00D38E
         DBRA    D7,loc_00D388                   ; $00D390
         MOVE.W  #$0100,$00A11100                ; $00D394
@@ -1138,12 +1138,12 @@ loc_00D3DA:
         ORI.B  #$0007,D0                        ; $00D428
         MOVE.L  #$40000000,(A5)                 ; $00D42C
         MOVEQ   #$00,D1                         ; $00D432
-        JMP     $008848B8                       ; $00D434
+        JMP     UnrolledFill32                       ; $00D434
 loc_00D43A:
         LEA     $8000.W,A1                      ; $00D43A
         MOVEQ   #$00,D1                         ; $00D43E
-        JSR     $0088483E                       ; $00D440
-        JMP     $00884842                       ; $00D446
+        JSR     MemoryFillWaterfall2                       ; $00D440
+        JMP     MemoryFill60A1                       ; $00D446
         BTST    D2,A2                           ; $00D44C
         BTST    D7,(A4)                         ; $00D44E
         MOVEQ   #$00,D0                         ; $00D450

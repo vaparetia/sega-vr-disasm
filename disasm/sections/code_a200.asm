@@ -1624,7 +1624,7 @@ loc_00B4C6:
         MOVE.L  $C254.W,$EEFC.W                 ; $00B4CA
         LEA     $C200.W,A1                      ; $00B4D0
         LEA     $EEE0.W,A2                      ; $00B4D4
-        JMP     $004920(PC)                     ; $00B4D8 [func_004920]
+        JMP     $004920(PC)                     ; $00B4D8 [FastCopy20]
         MOVE.W  $C050.W,D0                      ; $00B4DC
         BPL.S  loc_00B4E4                       ; $00B4E0
         MOVEQ   #$00,D0                         ; $00B4E2
@@ -1801,7 +1801,7 @@ loc_00B6CE:
         BNE.S  loc_00B720                       ; $00B708
         MOVEQ   #$00,D1                         ; $00B70A
         LEA     $8480.W,A1                      ; $00B70C
-        JSR     $004846(PC)                     ; $00B710
+        JSR     $004846(PC)                     ; $00B710 [MemoryFill60A4]
         MOVE.B  #$0000,$C825.W                  ; $00B714
         BCLR    #7,$C80E.W                      ; $00B71A
 loc_00B720:

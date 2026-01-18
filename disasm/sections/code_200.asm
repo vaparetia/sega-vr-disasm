@@ -2160,7 +2160,7 @@ loc_001C8C:
 loc_001CDA:
         BTST    #7,$00A1518A                    ; $001CDA
         BEQ.S  loc_001CDA                       ; $001CE2
-        JSR     $002878(PC)                     ; $001CE4
+        JSR     $002878(PC)                     ; $001CE4 [PaletteRAMCopy]
         BCHG    #0,$C80C.W                      ; $001CE8
         BNE.S  loc_001CFA                       ; $001CEE
         BSET    #0,$00A1518B                    ; $001CF0
