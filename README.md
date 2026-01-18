@@ -1,8 +1,16 @@
-# Virtua Racing Deluxe (32X) - Complete Disassembly Project
+# Virtua Racing Deluxe (32X) - Complete Disassembly & Analysis
 
-**Status: ✅ COMPLETE - Perfect byte-for-byte ROM match achieved!**
+**Status: ✅ COMPLETE - Byte-perfect ROM rebuild with full code analysis**
 
-This project contains a complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X. The ROM can be rebuilt from source and produces a **100% identical** binary to the original.
+A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **100% byte-identical** binary.
+
+## Key Features
+
+- **Byte-perfect rebuild** - `make all && make compare` produces identical ROM
+- **Dual disassembly formats** - Buildable DC.W + readable mnemonics with labels
+- **503+ named 68K functions** - Categorized by subsystem
+- **107 named SH2 functions** - 3D engine fully mapped
+- **Architectural analysis** - Root cause of ~20 FPS ceiling identified
 
 ## Quick Start
 
@@ -10,165 +18,141 @@ This project contains a complete, buildable disassembly of Virtua Racing Deluxe 
 # Build the ROM
 make all
 
-# Verify it matches the original
-md5sum "Virtua Racing Deluxe (USA).32x" build/vr_rebuild.32x
-# Both should be: 72b1ad0f949f68da7d0a6339ecd51a3f
-```
+# Verify byte-perfect match
+make compare
+# Output: ✓✓✓ PERFECT MATCH! ROMs are identical! ✓✓✓
 
-## What's Included
-
-### ✅ Complete Build System
-- **Makefile** with all necessary build targets
-- **vasm assembler** (M68K) built from source
-- Custom disassemblers for 68000 and SH2
-- ROM analysis and verification tools
-
-### ✅ Source Files
-- **[disasm/m68k_header.asm](disasm/m68k_header.asm)** - Fully disassembled header (512 bytes)
-  - Initial vectors, exception table, Sega header
-  - All fields documented and labeled
-- **disasm/rom_data_remainder.bin** - Binary blob for remainder
-- **build/vr_rebuild.32x** - Output ROM (after running `make`)
-
-### ✅ Documentation
-- **[PROGRESS.md](PROGRESS.md)** - Complete project progress report
-- **[CLAUDE.md](CLAUDE.md)** - Guide for future AI sessions
-- **[docs/](docs/)** - Complete 32X hardware documentation
-  - 32X Hardware Manual (1000+ pages)
-  - Technical bug list (22 documented bugs)
-  - Development cartridge manuals
-  - Sound driver documentation
-- **[analysis/ROM_STRUCTURE.md](analysis/ROM_STRUCTURE.md)** - ROM layout analysis
-
-### ✅ Tools
-- **[tools/m68k_disasm.py](tools/m68k_disasm.py)** - 68000 disassembler (45+ opcodes)
-- **[tools/sh2_disasm.py](tools/sh2_disasm.py)** - SH2 disassembler
-- **[tools/analyze_rom.py](tools/analyze_rom.py)** - ROM analyzer
-- **[tools/find_code_sections.py](tools/find_code_sections.py)** - Code scanner
-- **tools/vasmm68k_mot** - Motorola 68000 assembler
-
-## Build Commands
-
-```bash
-make all          # Build the complete 3MB ROM
-make compare      # Compare with original (shows MD5)
-make disasm       # Disassemble specific sections
-make analyze      # Analyze ROM structure
-make clean        # Remove build artifacts
-make clean-all    # Remove everything including tools
-make tools        # Rebuild vasm assembler
-```
-
-## Verification
-
-The rebuilt ROM is **byte-for-byte identical** to the original:
-
-```
-MD5 (Original):  72b1ad0f949f68da7d0a6339ecd51a3f
-MD5 (Rebuilt):   72b1ad0f949f68da7d0a6339ecd51a3f ✅
-
-Size: 3,145,728 bytes (3.0 MB) ✅
+# Test in emulator
+picodrive build/vr_rebuild.32x
 ```
 
 ## Project Structure
 
 ```
 32x-playground/
-├── README.md                   # This file
-├── PROGRESS.md                 # Detailed progress report
-├── CLAUDE.md                   # AI assistant guide
-├── Makefile                    # Build system
-├── Virtua Racing Deluxe.32x    # Original ROM (not included)
+├── disasm/
+│   ├── vrd.asm                    # Main build file
+│   ├── sections/                  # Pure DC.W (buildable)
+│   ├── sections-mnemonic/         # Readable mnemonics (reference)
+│   ├── modules/68k/               # Annotated code modules
+│   ├── sh2_symbols.inc            # 107 SH2 function symbols
+│   └── SH2_SYMBOL_MAP.md          # SH2 symbol reference
 │
-├── disasm/                     # Disassembled source files
-│   ├── m68k_header.asm         # Header (fully disassembled)
-│   └── rom_data_remainder.bin  # Binary blob
+├── analysis/                      # Reverse engineering docs
+│   ├── ARCHITECTURAL_BOTTLENECK_ANALYSIS.md  # Key insight
+│   ├── 68K_FUNCTION_REFERENCE.md  # 503+ functions
+│   ├── 68K_SH2_CROSS_REFERENCE.md # Communication protocol
+│   ├── DATA_STRUCTURES.md         # Memory layouts
+│   ├── STATE_MACHINES.md          # V-INT & game states
+│   └── ...                        # 100+ analysis docs
 │
-├── docs/                       # Documentation
-│   ├── 32x-hardware-manual.md
-│   ├── 32x-technical-info.md
+├── docs/                          # Hardware manuals & guides
+│   ├── 32x-hardware-manual.md     # Complete HW reference
+│   ├── development-guide.md       # CPU coordination guide
 │   └── ...
 │
-├── analysis/                   # ROM analysis
-│   └── ROM_STRUCTURE.md
+├── tools/                         # Python analysis tools
+│   ├── build_symbol_table.py      # 68K symbol generator
+│   ├── build_sh2_symbol_table.py  # SH2 symbol generator
+│   ├── m68k_disasm.py             # 68K disassembler
+│   ├── sh2_disasm.py              # SH2 disassembler
+│   └── generate_call_graph.py     # Call graph generator
 │
-├── tools/                      # Disassemblers and tools
-│   ├── m68k_disasm.py
-│   ├── sh2_disasm.py
-│   ├── analyze_rom.py
-│   ├── find_code_sections.py
-│   └── vasmm68k_mot           # (built by make tools)
-│
-└── build/                      # Build output
-    └── vr_rebuild.32x          # Rebuilt ROM
+└── build/
+    └── vr_rebuild.32x             # Output ROM (3.0 MB)
+```
+
+## Key Architectural Insight
+
+The game runs at ~20 FPS due to a **blocking synchronization model**, not hardware limitations:
+
+```
+68K: sh2_graphics_cmd → sh2_send_cmd_wait (BLOCKS) → sh2_wait_response
+                                ↑
+                        Global serialization barrier
+```
+
+- Frame production is serialized through blocking waits
+- Second SH2 is underutilized (no parallel work distribution)
+- ~20 FPS ceiling is architectural, not computational
+
+See [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) for full details.
+
+## Disassembly Formats
+
+Two complementary formats for different use cases:
+
+### 1. Buildable (sections/)
+```asm
+dc.w    $4EBA        ; $01020A
+dc.w    $E14E        ; $01020C
+dc.w    $207C        ; $01020E
+```
+Pure DC.W - guaranteed byte-accurate builds.
+
+### 2. Readable (sections-mnemonic/)
+```asm
+JSR     $00E35A(PC)                     ; $01020A
+MOVEA.L #$06020000,A0                   ; $01020E
+loc_010220:
+LEA     $00(A0,D0.W),A0                 ; $010220
+```
+Decoded mnemonics with labels - for code analysis.
+
+## Build Commands
+
+```bash
+make all          # Build 3MB ROM from source
+make compare      # Verify byte-perfect match
+make clean        # Remove build artifacts
+make tools        # Build vasm assembler
 ```
 
 ## Requirements
 
-### System Requirements
 - Python 3.x
-- GCC and Make (for building vasm)
-- wget or curl (for downloading vasm source)
+- GCC and Make (for vasm)
 - Unix-like environment (Linux, macOS, WSL)
 
-### ROM Requirements (NOT INCLUDED)
-**You must provide your own legal ROM dump:**
-- File: `Virtua Racing Deluxe (USA).32x`
-- Size: 3,145,728 bytes (3.0 MB)
+### ROM (NOT INCLUDED)
+You must provide your own legal ROM dump:
+- File: `Virtua Racing Deluxe (USA).32x` (in `roms/` directory)
+- Size: 3,145,728 bytes
 - MD5: `72b1ad0f949f68da7d0a6339ecd51a3f`
 
-Place the ROM in the root directory of this project.
+## Documentation
 
-⚠️ **Legal Notice**: This repository does NOT contain any copyrighted game data. You must own a legal copy of Virtua Racing Deluxe and create your own ROM dump.
-
-## How It Works
-
-1. **Header Disassembly**: The first 512 bytes are fully disassembled in [m68k_header.asm](disasm/m68k_header.asm)
-   - Initial Stack Pointer and Program Counter
-   - 62 exception vectors (perfectly aligned)
-   - Complete Sega header (console, copyright, title, serial, memory map, region)
-
-2. **Binary Inclusion**: The remainder of the ROM (from offset $200 onwards) is included using the `incbin` directive
-
-3. **Assembly**: vasm assembles the source file, combining the disassembled header with the binary blob
-
-4. **Verification**: MD5 checksum confirms perfect match
-
-## Next Steps (Optional)
-
-The current state achieves a perfect ROM match. Future enhancement could include:
-
-- Disassemble 32X Jump Table ($200-$3FF)
-- Disassemble MARS security code
-- Disassemble 68000 initialization routines
-- Extract and disassemble SH2 code (Master and Slave)
-- Identify and document data structures
-- Extract graphics, sound, and track data
-
-See [PROGRESS.md](PROGRESS.md) for detailed next steps.
+| Category | Key Documents |
+|----------|---------------|
+| **Architecture** | [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) |
+| **68K Functions** | [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) (503+ functions) |
+| **SH2 Functions** | [SH2_SYMBOL_MAP.md](disasm/SH2_SYMBOL_MAP.md) (107 functions) |
+| **Communication** | [68K_SH2_CROSS_REFERENCE.md](analysis/68K_SH2_CROSS_REFERENCE.md) |
+| **Data Structures** | [DATA_STRUCTURES.md](analysis/DATA_STRUCTURES.md) |
+| **Hardware** | [32x-hardware-manual.md](docs/32x-hardware-manual.md) |
+| **Development** | [development-guide.md](docs/development-guide.md) |
 
 ## Technical Details
 
-- **Target Platform**: Sega 32X (Mega Drive add-on)
-- **CPUs**: Motorola 68000 + 2x Hitachi SH2 + Zilog Z80
-- **ROM Size**: 3 MB (3,145,728 bytes)
-- **Assembler**: vasm (Motorola syntax)
-- **Disassemblers**: Custom Python tools
+| Component | Details |
+|-----------|---------|
+| Platform | Sega 32X (Mega Drive add-on) |
+| 68000 CPU | 12.5 MHz, game logic & coordination |
+| SH2 CPUs | 2x 23 MHz, 3D rendering |
+| Z80 CPU | Sound processing |
+| ROM Size | 3 MB (3,145,728 bytes) |
+| Frame Rate | ~20 FPS (architectural limit) |
 
 ## Credits
 
 - **Original Game**: SEGA (1994)
-- **Disassembly**: Claude Code with human guidance
+- **Disassembly & Analysis**: Claude Code with human guidance
 - **Tools**: vasm by Volker Barthelmann & Frank Wille
-- **Documentation**: SEGA technical manuals
 
 ## License
 
-This is a reverse engineering project for educational and preservation purposes. The original game is © SEGA 1994. No game content is distributed - you must provide your own legal ROM dump.
+Reverse engineering project for educational and preservation purposes. Original game © SEGA 1994. No copyrighted content included - you must provide your own legal ROM.
 
 ---
 
-**Boston Strong!** 🍺
-Perfect match achieved through systematic reverse engineering.
-
-**MD5: 72b1ad0f949f68da7d0a6339ecd51a3f**
+**Verification**: `MD5: 72b1ad0f949f68da7d0a6339ecd51a3f`
