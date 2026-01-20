@@ -401,7 +401,7 @@ wrapper_addr:
 ; === VDP Wait Function - MINIMAL TEST (infinite loop with COMM2 increment) ===
 ; Entry point: $02050C (SH2: 0x0602050C) - exactly 9 words (18 bytes)
 vdp_wait_test:                   ; $02050C
-        dc.w    $D102        ; MOV.L comm2_addr,R0 - load COMM2 address (disp=2 -> $020518)
+        dc.w    $D002        ; MOV.L comm2_addr,R0 - load COMM2 address into R0 (disp=2)
         dc.w    $E100        ; MOV #0,R1 - counter
 test_loop:                       ; $020510
         dc.w    $7101        ; ADD #1,R1 - increment
