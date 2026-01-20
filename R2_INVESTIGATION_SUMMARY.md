@@ -97,14 +97,14 @@ Date: 2026-01-20
 ### Quick Debugger Check:
 
 ```bash
-# Using Blastem (recommended)
-blastem build/vr_rebuild.32x
+# Using PicoDrive with embedded debugger
+picodrive --debug build/vr_rebuild.32x
 
 # In debugger console:
-b 0x06020688         # Break before JSR @R2
-r                    # Run game
-info registers       # Check R2 value
-x/4i $r2            # Disassemble what R2 points to
+break sh2s 0x06020688    # Break before JSR @R2
+run                      # Run game
+reg r2                   # Check R2 value
+disasm r2 4              # Disassemble what R2 points to
 ```
 
 **Expected output**:
