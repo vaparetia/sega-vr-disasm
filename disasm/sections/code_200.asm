@@ -2647,20 +2647,24 @@
         dc.w    $227B        ; $00169C
         dc.w    $0014        ; $00169E
         dc.w    $4E91        ; $0016A0
-        dc.w    $52B8        ; $0016A2
+        dc.w    $52B8        ; $0016A2 - ADDQ.L #1,($C964) - frame counter++
         dc.w    $C964        ; $0016A4
-        dc.w    $4CDF        ; $0016A6
-        dc.w    $7FFF        ; $0016A8
-        dc.w    $46FC        ; $0016AA
-        dc.w    $2300        ; $0016AC
-        dc.w    $4E73        ; $0016AE
-        dc.w    $4E73        ; $0016B0
-        dc.w    $0088        ; $0016B2
-        dc.w    $19FE        ; $0016B4
-        dc.w    $0088        ; $0016B6
-        dc.w    $19FE        ; $0016B8
-        dc.w    $0088        ; $0016BA
-        dc.w    $19FE        ; $0016BC
+
+        ; === Call COMM monitor in expansion ROM (6 bytes) ===
+        dc.w    $4EB9        ; $0016A6 - JSR $300000
+        dc.w    $0030        ; $0016A8
+        dc.w    $0000        ; $0016AA
+        ; === End COMM monitor call ===
+
+        dc.w    $4CDF        ; $0016AC - MOVEM.L (SP)+,D0-D7/A0-A6
+        dc.w    $7FFF        ; $0016AE
+        dc.w    $46FC        ; $0016B0 - MOVE.W #$2300,SR
+        dc.w    $2300        ; $0016B2
+        dc.w    $4E73        ; $0016B4 - RTE
+        dc.w    $4E73        ; $0016B6 - RTE (duplicate entry point?)
+        dc.w    $0088        ; $0016B8
+        dc.w    $19FE        ; $0016BA
+        dc.w    $0088        ; $0016BC
         dc.w    $0001        ; $0016BE
         dc.w    $8200        ; $0016C0
         dc.w    $0088        ; $0016C2
