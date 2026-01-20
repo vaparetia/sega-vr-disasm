@@ -52,28 +52,30 @@ master_dispatch_work:                   ; $300028 (SH2: 0x06300028)
         dc.w    $2000        ; .long 0x20004028 (COMM4 address)
         dc.w    $4028
 
-        ; ===== Slave Idle Wrapper (from sh2_slave_idle_wrapper.asm) =====
-        ; Wrapper that calls original VDP wait + checks for work
-slave_idle_wrapper:                     ; $300038 (SH2: 0x06300038)
-        dc.w    $DA07        ; MOV.L vdp_wait_addr,R10
-        dc.w    $DB08        ; MOV.L comm4_addr,R11
-        dc.w    $DC08        ; MOV.L comm2_addr,R12
+        ; ===== Slave Idle Wrapper (inline VDP wait + work check) =====
+slave_idle_wrapper:                     ; $300038 (SH2: 0x02300038 or 0x06300038)
+        dc.w    $DB04        ; MOV.L comm4_addr,R11 - load COMM4 address
+        dc.w    $DC04        ; MOV.L comm2_addr,R12 - load COMM2 address
 idle_wrapper_loop:
-        dc.w    $4A0B        ; JSR @R10 (call original VDP wait)
-        dc.w    $0009        ; NOP
+        ; === Inline VDP wait (original code from $02050C) ===
+        dc.w    $E000        ; MOV #0,R0
+        dc.w    $2106        ; MOV.W R0,@R1 (VDP register writes)
+        dc.w    $2106        ; MOV.W R0,@R1
+        dc.w    $2106        ; MOV.W R0,@R1
+        dc.w    $2106        ; MOV.W R0,@R1
+        dc.w    $4710        ; DT R1 (decrement loop counter)
+        dc.w    $8BF9        ; BF (branch if false)
+        ; === Check for work ===
         dc.w    $61B1        ; MOV.W @R11,R1 (R1 = COMM4)
         dc.w    $2118        ; TST R1,R1
-        dc.w    $89FA        ; BT idle_wrapper_loop (no work, loop)
+        dc.w    $89F2        ; BT idle_wrapper_loop (no work, loop back)
         dc.w    $62C1        ; MOV.W @R12,R2 (R2 = COMM2)
         dc.w    $7201        ; ADD #1,R2
         dc.w    $2C21        ; MOV.W R2,@R12 (COMM2++)
         dc.w    $E100        ; MOV #0,R1
         dc.w    $2B11        ; MOV.W R1,@R11 (clear COMM4)
-        dc.w    $AFF4        ; BRA idle_wrapper_loop
-        dc.w    $0009        ; NOP
-        dc.w    $0009        ; NOP (alignment)
-        dc.w    $0602        ; .long 0x0602050C (VDP wait function)
-        dc.w    $050C
+        dc.w    $AFED        ; BRA idle_wrapper_loop
+        dc.w    $0009        ; NOP (delay slot)
         dc.w    $2000        ; .long 0x20004028 (COMM4)
         dc.w    $4028
         dc.w    $2000        ; .long 0x20004024 (COMM2)

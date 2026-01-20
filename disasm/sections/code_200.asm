@@ -398,15 +398,16 @@
         dc.w    $E9E9        ; $00050C
         dc.w    $9FBF        ; $00050E
         dc.w    $DFFF        ; $000510
-        dc.w    $4D41        ; $000512
-        dc.w    $5253        ; $000514
-        dc.w    $2049        ; $000516
-        dc.w    $6E69        ; $000518
-        dc.w    $7469        ; $00051A
-        dc.w    $616C        ; $00051C
-        dc.w    $2026        ; $00051E
-        dc.w    $2053        ; $000520
-        dc.w    $6563        ; $000522
+; === SLAVE COMM2 INCREMENT TEST (replaces "MARS Init" ASCII text) ===
+        dc.w    $D104        ; $000512: MOV.L comm2_addr,R1
+        dc.w    $6112        ; $000514: MOV.W @R1,R1
+        dc.w    $7101        ; $000516: ADD #1,R1
+        dc.w    $D103        ; $000518: MOV.L comm2_addr,R0
+        dc.w    $2001        ; $00051A: MOV.W R1,@R0
+        dc.w    $AFFB        ; $00051C: BRA $000514
+        dc.w    $0009        ; $00051E: NOP
+        dc.w    $2000        ; $000520: .long 0x20004024 (high)
+        dc.w    $4024        ; $000522: .long 0x20004024 (low)
         dc.w    $7572        ; $000524
         dc.w    $6974        ; $000526
         dc.w    $7920        ; $000528

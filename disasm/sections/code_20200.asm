@@ -309,18 +309,21 @@
         dc.w    $1109        ; $02045A
         dc.w    $E020        ; $02045C
         dc.w    $400E        ; $02045E
-        dc.w    $B016        ; $020460 - BSR to idle function at 0x20490
-        dc.w    $0009        ; $020462 - NOP (delay slot)
-        dc.w    $AFFC        ; $020464 - BRA to 0x20460 (disp=-4)
-        dc.w    $0009        ; $020466 - NOP (delay slot)
-        dc.w    $0009        ; $020468 - NOP (unused)
-        dc.w    $0009        ; $02046A - NOP (unused)
-        dc.w    $0009        ; $02046C - NOP (unused)
-        dc.w    $0009        ; $02046E - NOP (unused)
-        dc.w    $0009        ; $020470 - NOP (unused)
-        dc.w    $0009        ; $020472 - NOP (unused)
-        dc.w    $0009        ; $020474 - NOP (unused)
-        dc.w    $0009        ; $020476 - NOP (unused)
+; === Redirect to Idle Wrapper in Expansion ROM ===
+redirect_to_wrapper:             ; $020460
+        dc.w    $D003        ; MOV.L wrapper_addr,R0
+        dc.w    $402B        ; JMP @R0 (jump to wrapper - never returns)
+        dc.w    $0009        ; NOP (delay slot)
+        dc.w    $0009        ; NOP (alignment)
+wrapper_addr:
+        dc.w    $0630        ; .long 0x06300038 (high word)
+        dc.w    $0038        ; .long 0x06300038 (low word)
+        dc.w    $0009        ; NOP (unused)
+        dc.w    $0009        ; NOP (unused)
+        dc.w    $0009        ; NOP (unused)
+        dc.w    $0009        ; NOP (unused)
+        dc.w    $0009        ; NOP (unused)
+        dc.w    $0009        ; NOP (unused)
         dc.w    $FFFF        ; $020478
         dc.w    $FE10        ; $02047A
         dc.w    $2000        ; $02047C
@@ -395,15 +398,19 @@
         dc.w    $4449        ; $020506
         dc.w    $D105        ; $020508
         dc.w    $D706        ; $02050A
-        dc.w    $E000        ; $02050C
-        dc.w    $2106        ; $02050E
-        dc.w    $2106        ; $020510
-        dc.w    $2106        ; $020512
-        dc.w    $2106        ; $020514
-        dc.w    $4710        ; $020516
-        dc.w    $8BF9        ; $020518
-        dc.w    $000B        ; $02051A
-        dc.w    $0009        ; $02051C
+; === VDP Wait Function - MINIMAL TEST (infinite loop with COMM2 increment) ===
+vdp_wait_test:                   ; $02050C
+        dc.w    $D103        ; MOV.L comm2_test,R1 - load COMM2 address
+test_loop:
+        dc.w    $6112        ; MOV.W @R1,R1 - read COMM2
+        dc.w    $7101        ; ADD #1,R1 - increment
+        dc.w    $D102        ; MOV.L comm2_test,R0 - reload address
+        dc.w    $2001        ; MOV.W R1,@R0 - write back
+        dc.w    $AFFB        ; BRA test_loop - infinite loop
+        dc.w    $0009        ; NOP (delay slot)
+comm2_test:
+        dc.w    $2000        ; .long 0x20004024 (COMM2)
+        dc.w    $4024
         dc.w    $0000        ; $02051E
         dc.w    $0604        ; $020520
         dc.w    $0000        ; $020522
