@@ -1,257 +1,305 @@
-# Next Steps - Post 4MB Cartridge Milestone
+# Next Steps - Incremental Testable Plan
 
 **Version:** v2.0-4mb-cartridge
 **Date:** 2026-01-21
-**Status:** Ready for Haiku execution
+**Approach:** Small steps, test after each change, early crash detection
 
 ---
 
-## Context
+## Golden Rule
 
-We have achieved the **4MB cartridge milestone**:
-- ✅ 1MB SH2 expansion space ready at $300000-$3FFFFF
-- ✅ ROM boots cleanly in PicoDrive
-- ✅ Comprehensive documentation in place
+**After EVERY change: `make clean && make all && picodrive build/vr_rebuild.32x`**
 
-The strategic goal is **60 FPS** (from current ~24 FPS). The expansion space enables **Track 2: Slave CPU Activation**, the highest-impact optimization (+50-100% FPS potential).
+If ROM fails to boot → revert immediately, investigate before proceeding.
 
 ---
 
-## Critical Blocker: Slave SH2 Boot Failure
+## Step 1: Verify Baseline
 
-⚠️ **Before any Slave CPU work can proceed**, we must address this discovery:
+**Goal:** Confirm current 4MB ROM boots correctly
 
-> Debugger measurements reveal the Slave SH2 never boots correctly in PicoDrive emulator.
-
-**Options to resolve:**
-
-| Option | Effort | Outcome |
-|--------|--------|---------|
-| A. Implement pdcore debugger | 15-20 hours | Diagnose exact boot failure point |
-| B. Fix PicoDrive directly | Unknown | Depends on root cause |
-| C. Investigate original ROM behavior | Medium | Verify if this is a PicoDrive bug or ROM issue |
-
-**Note:** BlastEm does NOT support 32X - it is Genesis/Mega Drive only.
-
-**Recommended:** Start with Option C (investigate original ROM), then implement pdcore if needed.
-
----
-
-## Phase 1: Slave SH2 Investigation
-
-### Task 1.1: Profile Original ROM's Slave Behavior
-
-**Goal:** Understand what Slave SH2 should be doing
-
-**Steps:**
-1. Disassemble Slave SH2 entry point in original ROM
-2. Trace Slave execution path from boot
-3. Document expected Slave state at frame N
-4. Compare with PicoDrive's actual behavior
-
-**Files to reference:**
-- [analysis/sh2-analysis/SH2_ANALYSIS_COMPLETE.md](analysis/sh2-analysis/SH2_ANALYSIS_COMPLETE.md)
-- [analysis/architecture/MASTER_SLAVE_ANALYSIS.md](analysis/architecture/MASTER_SLAVE_ANALYSIS.md)
-
----
-
-## Phase 2: Expansion ROM Code Injection (After Slave Boot Fixed)
-
-### Task 2.1: Create SH2 Test Function
-
-**Goal:** Inject minimal SH2 code into expansion space to verify execution
-
-**Location:** [disasm/sections/expansion_300000.asm](disasm/sections/expansion_300000.asm)
-
-**Approach:**
-```asm
-        org     $300000
-
-; Minimal test: Write signature to COMM6 register
-slave_test_func:
-        dc.w    $E601        ; MOV #1,R6 (load immediate 1)
-        dc.w    $C20B        ; MOV.W R0,@(disp,GBR) - write to COMM
-        dc.w    $000B        ; RTS
-        dc.w    $0009        ; NOP (delay slot)
-
-        ; Fill remaining space with padding
-        dcb.b   $100000-(*-$300000),$FF
-```
-
-**Critical Constraint:**
-- ALL code must be `dc.w` format (raw SH2 opcodes)
-- NEVER use 68K mnemonics in this section
-- Reference: [analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md)
-
-**SH2 opcode reference:**
-- Use [tools/sh2_disasm.py](tools/sh2_disasm.py) to verify opcodes
-- SH2 is little-endian for data, big-endian for instructions
-
----
-
-### Task 2.2: Hook Expansion Code from Slave Main Loop
-
-**Goal:** Have Slave SH2 call our expansion code
-
-**Approach:**
-1. Find Slave's idle/main loop in original ROM
-2. Inject a JSR/BSR to $02300000 (expansion space)
-3. Verify execution via COMM register signature
-
-**Expected SH2 addresses:**
-- ROM base: $02000000
-- Expansion base: $02300000 (maps to ROM $300000)
-
----
-
-## Phase 3: Work Distribution Implementation
-
-### Task 3.1: Design Work Queue
-
-**Goal:** Define shared memory structure for Master→Slave work distribution
-
-**Location:** SDRAM ($06000000-$0603FFFF)
-
-**Proposed structure:**
-```
-Offset    Size    Purpose
-$0000     4       Work queue head pointer
-$0004     4       Work queue tail pointer
-$0008     4       Work items pending count
-$000C     4       Slave status (0=idle, 1=busy)
-$0010+    N×16    Work item array (task type, params, etc.)
-```
-
-**Documentation needed:**
-- Create `analysis/optimization/WORK_QUEUE_DESIGN.md`
-
----
-
-### Task 3.2: Implement Simple Work Item
-
-**Goal:** Implement one parallelizable task
-
-**Candidates (from OPTIMIZATION_PLAN.md):**
-1. 3D vertex transformations
-2. Physics calculations
-3. Collision detection
-4. Background pre-rendering
-
-**Start with:** Memory clear/fill (simplest test case)
-
----
-
-## Phase 4: Profile and Measure
-
-### Task 4.1: Implement FPS Counter
-
-**Goal:** Measure actual FPS improvement
-
-**Tool:** [tools/inject_fps_counter.py](tools/inject_fps_counter.py)
-
-**Steps:**
-1. Inject FPS counter into V-INT handler
-2. Display on-screen or via COMM registers
-3. Compare baseline vs optimized
-
----
-
-### Task 4.2: Document Results
-
-**Goal:** Track performance gains per optimization
-
-**Template:**
-```markdown
-## Optimization: [Name]
-- Baseline FPS: ___
-- After FPS: ___
-- Delta: ___% improvement
-- Implementation: [file:line]
-```
-
----
-
-## Decision Tree
-
-```
-Start
-  │
-  ├─ Does Slave SH2 work in original ROM (PicoDrive)?
-  │    │
-  │    ├─ YES → Issue is with our modifications
-  │    │         Compare rebuilt ROM vs original
-  │    │         Check expansion section impact
-  │    │
-  │    └─ NO → PicoDrive has Slave SH2 emulation bug
-  │             Implement pdcore debugger (15-20 hours)
-  │             Use debugger to diagnose boot sequence
-  │             Consider fixing PicoDrive directly
-```
-
-**Note:** BlastEm does NOT support 32X - PicoDrive is the only viable emulator.
-
----
-
-## File Checklist for Haiku
-
-**Must Read Before Starting:**
-1. [CLAUDE.md](CLAUDE.md) - Project conventions and constraints
-2. [analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md) - Critical expansion constraints
-3. [analysis/sh2-analysis/SH2_ANALYSIS_COMPLETE.md](analysis/sh2-analysis/SH2_ANALYSIS_COMPLETE.md) - SH2 architecture
-
-**Key Implementation Files:**
-- [disasm/sections/expansion_300000.asm](disasm/sections/expansion_300000.asm) - Expansion space
-- [disasm/vrd.asm](disasm/vrd.asm) - Main build file
-- [disasm/sections/code_200.asm](disasm/sections/code_200.asm) - V-INT wrapper
-
-**Reference Documentation:**
-- [OPTIMIZATION_PLAN.md](OPTIMIZATION_PLAN.md) - Strategic roadmap
-- [docs/32x-hardware-manual.md](docs/32x-hardware-manual.md) - Hardware reference
-- [analysis/debugger-design/PDCORE_MASTER_PLAN.md](analysis/debugger-design/PDCORE_MASTER_PLAN.md) - Debugger design
-
----
-
-## Build & Test Commands
-
+**Actions:**
 ```bash
-# Build ROM
 make clean && make all
-
-# Verify size (should be 4MB)
-ls -la build/vr_rebuild.32x
-# Expected: 4,194,304 bytes
-
-# Test boot (PicoDrive is the only 32X emulator)
 picodrive build/vr_rebuild.32x
 ```
 
-**Note:** BlastEm does NOT support 32X. PicoDrive is the only viable emulator for testing.
+**Test:** Game reaches title screen within 5 seconds
+
+**Pass/Fail:**
+- ✅ PASS → Proceed to Step 2
+- ❌ FAIL → Stop, investigate regression
+
+---
+
+## Step 2: Verify Original ROM Slave Behavior
+
+**Goal:** Check if Slave SH2 works in the *original* ROM
+
+**Actions:**
+```bash
+picodrive roms/Virtua\ Racing\ Deluxe\ \(USA\).32x
+```
+
+**Test:** Use PicoDrive debug build to check Slave SH2 PC register
+- If Slave PC changes over time → Slave is executing
+- If Slave PC stuck at same address → Slave may be idle/broken
+
+**Pass/Fail:**
+- ✅ Slave executing → Proceed to Step 3
+- ❌ Slave stuck → Document as PicoDrive limitation, adjust plan
+
+**Note:** This determines if Slave SH2 issue is PicoDrive bug or ROM-specific.
+
+---
+
+## Step 3: Add Minimal SH2 Code (NOP only)
+
+**Goal:** Inject simplest possible SH2 code into expansion space
+
+**File:** `disasm/sections/expansion_300000.asm`
+
+**Change:**
+```asm
+        org     $300000
+
+; Minimal SH2 test: Single NOP instruction
+expansion_test:
+        dc.w    $0009               ; NOP (SH2 opcode)
+
+        ; Fill remaining space
+        dcb.b   $100000-2,$FF       ; 1MB - 2 bytes of padding
+```
+
+**Test:** `make clean && make all && picodrive build/vr_rebuild.32x`
+
+**Pass/Fail:**
+- ✅ PASS (boots) → Proceed to Step 4
+- ❌ FAIL → Revert change, investigate
+
+---
+
+## Step 4: Add NOP + RTS
+
+**Goal:** Add a complete minimal function (just returns)
+
+**File:** `disasm/sections/expansion_300000.asm`
+
+**Change:**
+```asm
+        org     $300000
+
+; Minimal SH2 function: NOP then return
+expansion_test:
+        dc.w    $0009               ; NOP
+        dc.w    $000B               ; RTS
+        dc.w    $0009               ; NOP (delay slot)
+
+        ; Fill remaining space
+        dcb.b   $100000-6,$FF       ; 1MB - 6 bytes of padding
+```
+
+**Test:** `make clean && make all && picodrive build/vr_rebuild.32x`
+
+**Pass/Fail:**
+- ✅ PASS → Proceed to Step 5
+- ❌ FAIL → Revert, check opcode encoding
+
+---
+
+## Step 5: Add COMM Register Write
+
+**Goal:** Write a signature value to COMM6 register
+
+**File:** `disasm/sections/expansion_300000.asm`
+
+**Change:**
+```asm
+        org     $300000
+
+; Write signature 0xABCD to COMM6, then return
+; COMM6 is at $20004030 (SH2 address for $A1512C)
+expansion_comm_test:
+        dc.w    $E1AB               ; MOV #0xAB,R1 (load 0xAB into R1)
+        dc.w    $D002               ; MOV.L @(disp,PC),R0 (load COMM6 addr)
+        dc.w    $2012               ; MOV.L R1,@R0 (write R1 to COMM6)
+        dc.w    $000B               ; RTS
+        dc.w    $0009               ; NOP (delay slot)
+        dc.w    $0000               ; alignment
+        dc.l    $20004030           ; COMM6 address literal
+
+        ; Fill remaining space
+        dcb.b   $100000-16,$FF
+```
+
+**Test:** `make clean && make all && picodrive build/vr_rebuild.32x`
+
+**Pass/Fail:**
+- ✅ PASS → Proceed to Step 6
+- ❌ FAIL → Revert, verify opcode encoding
+
+**Note:** This code exists but is NOT called yet. Just testing ROM still boots.
+
+---
+
+## Step 6: Verify Expansion Code is Reachable
+
+**Goal:** Confirm SH2 can read expansion ROM addresses
+
+**Actions:** Use PicoDrive debug build to:
+1. Set breakpoint at $02300000 (expansion start in SH2 space)
+2. Manually examine memory at $02300000
+3. Verify our injected opcodes are visible
+
+**Test:** Memory at $02300000 shows our opcodes (not $FF padding)
+
+**Pass/Fail:**
+- ✅ Opcodes visible → Proceed to Step 7
+- ❌ All $FF or wrong data → Check ROM build, address mapping
+
+---
+
+## Step 7: Hook Expansion Code from 68K V-INT
+
+**Goal:** Call expansion code via existing V-INT wrapper
+
+**File:** `disasm/sections/code_200.asm`
+
+**Change:** In the V-INT wrapper (around $00037A), add JSR to expansion test
+
+**Approach:**
+1. Find where V-INT wrapper has space for additional call
+2. Add `JSR expansion_comm_test` equivalent in dc.w format
+3. Ensure return path is preserved
+
+**Test:** `make clean && make all && picodrive build/vr_rebuild.32x`
+
+**Pass/Fail:**
+- ✅ PASS → Expansion code is being called!
+- ❌ FAIL → Revert, check JSR encoding
+
+**Verification:** Check COMM6 register in debugger for signature value
+
+---
+
+## Step 8: Verify COMM6 Signature Appears
+
+**Goal:** Confirm expansion code actually executes
+
+**Test:** In PicoDrive debug:
+1. Run ROM for a few frames
+2. Check COMM6 ($A1512C) value
+3. Should contain our signature (0xAB or similar)
+
+**Pass/Fail:**
+- ✅ Signature present → Expansion code execution confirmed!
+- ❌ No signature → Code not reached, investigate call path
+
+---
+
+## Step 9: Add Frame Counter to COMM6
+
+**Goal:** Prove code runs every frame (not just once)
+
+**File:** `disasm/sections/expansion_300000.asm`
+
+**Change:** Increment COMM6 instead of writing constant
+```asm
+expansion_frame_counter:
+        ; Read COMM6, increment, write back
+        dc.w    $D001               ; MOV.L @(disp,PC),R0 (COMM6 addr)
+        dc.w    $6002               ; MOV.L @R0,R0 (read current value)
+        dc.w    $7001               ; ADD #1,R0 (increment)
+        dc.w    $D001               ; MOV.L @(disp,PC),R1 (COMM6 addr again)
+        dc.w    $2102               ; MOV.L R0,@R1 (write back)
+        dc.w    $000B               ; RTS
+        dc.w    $0009               ; NOP (delay slot)
+        dc.w    $0000               ; alignment
+        dc.l    $20004030           ; COMM6 address
+```
+
+**Test:** COMM6 value increases each frame
+
+**Pass/Fail:**
+- ✅ Counter incrementing → Per-frame execution confirmed
+- ❌ Stuck at same value → Called once or not at all
+
+---
+
+## Step 10: Document Success, Plan Next Phase
+
+**Goal:** Record working configuration before advancing
+
+**Actions:**
+1. Commit working expansion code
+2. Document exact opcodes and addresses used
+3. Tag as milestone (e.g., `v2.1-expansion-executing`)
+4. Plan Slave SH2 activation steps
+
+---
+
+## Quick Reference: SH2 Opcodes
+
+| Instruction | Opcode | Notes |
+|-------------|--------|-------|
+| NOP | $0009 | No operation |
+| RTS | $000B | Return from subroutine |
+| MOV #imm,Rn | $E_nn | Load 8-bit immediate |
+| MOV.L @(disp,PC),Rn | $D_nn | PC-relative load |
+| MOV.L Rm,@Rn | $2nm2 | Store to address |
+| ADD #imm,Rn | $7nii | Add 8-bit immediate |
+
+**Delay slot:** Instruction after RTS/BRA always executes
+
+---
+
+## Revert Procedure
+
+If any step fails:
+
+```bash
+# Revert expansion file to padding only
+git checkout disasm/sections/expansion_300000.asm
+
+# Rebuild and verify
+make clean && make all && picodrive build/vr_rebuild.32x
+```
 
 ---
 
 ## Success Metrics
 
-| Milestone | Target | Status |
-|-----------|--------|--------|
-| 4MB cartridge boots | ✅ | Complete |
-| Slave SH2 boot diagnosed | ⏳ | Phase 1 |
-| Expansion code executes | ⏳ | Phase 2 |
-| Work queue implemented | ⏳ | Phase 3 |
-| Slave actively processing | ⏳ | Phase 3 |
-| FPS improvement measured | ⏳ | Phase 4 |
-| 48+ FPS achieved | ⏳ | Goal |
+| Step | Description | Status |
+|------|-------------|--------|
+| 1 | Baseline 4MB boots | ✅ Complete |
+| 2 | Original ROM Slave check | ⏳ |
+| 3 | NOP in expansion | ⏳ |
+| 4 | NOP + RTS | ⏳ |
+| 5 | COMM write (passive) | ⏳ |
+| 6 | Expansion reachable | ⏳ |
+| 7 | Hook from V-INT | ⏳ |
+| 8 | COMM signature verified | ⏳ |
+| 9 | Frame counter works | ⏳ |
+| 10 | Document & tag | ⏳ |
 
 ---
 
-## Warnings & Gotchas
+## Key Files
 
-1. **Expansion section is SH2-ONLY** - Never use 68K mnemonics
-2. **SH2 opcodes must be dc.w format** - vasmm68k_mot doesn't understand SH2
-3. **Test after every change** - Boot failures are common
-4. **Keep backups** - Use git branches for experiments
-5. **ROM header matters** - $1A4 must be $003F for 4MB
+| File | Purpose |
+|------|---------|
+| `disasm/sections/expansion_300000.asm` | SH2 expansion code |
+| `disasm/sections/code_200.asm` | V-INT wrapper (68K) |
+| `disasm/vrd.asm` | Main build file |
+
+---
+
+## Emulator Notes
+
+- **PicoDrive (system):** Use for boot testing
+- **PicoDrive (custom):** Use for debugging/register inspection
+- **BlastEm:** Does NOT support 32X
 
 ---
 
 **Last Updated:** 2026-01-21
-**Author:** Claude Opus 4.5 (planning for Haiku execution)
