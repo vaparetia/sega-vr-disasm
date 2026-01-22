@@ -263,10 +263,12 @@ Once pdcore or hardware test harness is available:
 
 ## References
 
-- Hardware Manual Section 3.2.2 (COMM registers)
-- Hardware Manual Section 1.13 (Boot ROM)
-- EXPANSION_ROM_MILESTONE_v2_1.md (implementation details)
-- NEXT_STEPS.md (Phase 11 planning)
+- **HARDWARE_COMPLIANCE_VERIFICATION.md** - Detailed verification against official Sega 32X Hardware Manual
+- Hardware Manual Section 3.2.2 (COMM registers - A15120-A1512E Communication Port)
+- Hardware Manual Section 1.13 (Boot ROM sequence, V-INT timing)
+- EXPANSION_ROM_MILESTONE_v2_1.md (implementation details and status)
+- PHASE11_SLAVE_HOOK_ROADMAP.md (Phase 11 mechanical implementation guide)
+- NEXT_STEPS.md (earlier testing plan)
 
 ---
 

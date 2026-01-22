@@ -125,6 +125,10 @@ You must provide your own legal ROM dump:
 
 | Category | Key Documents |
 |----------|---------------|
+| **Expansion ROM Status** | [EXPANSION_ROM_MILESTONE_v2_1.md](EXPANSION_ROM_MILESTONE_v2_1.md) (v2.1 complete, Phase 11 pending) |
+| **Hardware Compliance** | [HARDWARE_COMPLIANCE_VERIFICATION.md](HARDWARE_COMPLIANCE_VERIFICATION.md) (verified against manual) |
+| **Protocol Specification** | [EXPANSION_ROM_PROTOCOL_ABI.md](EXPANSION_ROM_PROTOCOL_ABI.md) (locked, edge-triggered COMM registers) |
+| **Phase 11 Roadmap** | [PHASE11_SLAVE_HOOK_ROADMAP.md](PHASE11_SLAVE_HOOK_ROADMAP.md) (Slave SH2 hook implementation) |
 | **Architecture** | [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) |
 | **4MB Expansion** | [ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md) |
 | **68K Functions** | [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) (503+ functions) |

@@ -396,7 +396,9 @@ Per hardware manual Section 1.13 (Boot ROM):
 
 ## Documentation References
 
+- **Hardware Compliance (VERIFIED):** [HARDWARE_COMPLIANCE_VERIFICATION.md](HARDWARE_COMPLIANCE_VERIFICATION.md) — Point-by-point verification against Sega 32X Hardware Manual
 - **Protocol ABI (LOCKED):** [EXPANSION_ROM_PROTOCOL_ABI.md](EXPANSION_ROM_PROTOCOL_ABI.md) — Master/Slave comm spec, ack semantics, diagnostic SDRAM layout
+- **Phase 11 Roadmap:** [PHASE11_SLAVE_HOOK_ROADMAP.md](PHASE11_SLAVE_HOOK_ROADMAP.md) — Mechanical implementation plan for Slave hook
 - **Architecture:** [ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md)
 - **Testing Plan:** [NEXT_STEPS.md](NEXT_STEPS.md)
 - **Step 7 Analysis:** [STEP7_FINDINGS.md](STEP7_FINDINGS.md)
