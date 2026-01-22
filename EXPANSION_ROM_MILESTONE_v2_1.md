@@ -336,6 +336,41 @@ To avoid undefined behavior, we use **separate registers**:
 
 This prevents simultaneous writes to the same register.
 
+### Boot ROM Interaction & Timing Safety
+
+Per hardware manual Section 1.13 (Boot ROM):
+
+**Boot ROM Sequence:**
+1. Master and Slave SH2 boot via Boot ROM ($03C0 user header)
+2. Master initializes system (SDRAM mode, controller, security)
+3. Master/Slave synchronize via COMM0:
+   - Master writes "M_OK" to COMM0
+   - Slave writes "S_OK" to COMM0
+4. Both clear COMM registers before application starts
+5. Boot ROM completes, application V-INT handler begins
+
+**Our Implementation Timing:**
+- ✅ **V-INT hook** (Step 7): Executes AFTER boot completes
+- ✅ **COMM6/COMM4 usage**: Only after application starts
+- ✅ **COMM0 preserved**: Our protocol uses COMM4/COMM6 (indices 2 and 3)
+- ✅ **No boot interference**: Expansion code not loaded/executed until Slave polling loop runs
+
+**Why Safe:**
+| Phase | Action | Our Code | Status |
+|-------|--------|----------|--------|
+| Boot ROM | Master/Slave sync (COMM0) | Not active | ✅ Safe |
+| Boot ROM | SDRAM init, security checks | Not active | ✅ Safe |
+| Boot completion | COMM registers cleared | Not yet running | ✅ Safe |
+| Application start | V-INT fires (~60Hz) | Hook executes | ✅ Ready |
+| Per-frame | Master writes COMM6 | Executes | ✅ Ready |
+| Per-frame | Slave reads COMM6 (when hooked) | Ready to execute | ✅ Ready |
+
+**No boot sequence dependencies or conflicts detected.** Our implementation assumes:
+1. Boot ROM has completed successfully
+2. COMM0 synchronization (M_OK/S_OK) has finished
+3. SDRAM is initialized and operational
+4. Both SH2 CPUs are running their main loops
+
 ### Known Limitations
 
 1. **Slave hook not yet implemented** - Slave still runs original code
