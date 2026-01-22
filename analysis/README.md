@@ -114,6 +114,11 @@ Cumulative progress reports, phase completions, and session summaries.
 High-level system architecture, memory layout, and ROM structure.
 
 **Key Documents:**
+- **ROM_EXPANSION_4MB_IMPLEMENTATION.md** - **NEW: Working 4MB cartridge with 1MB expansion (2026-01-21)**
+  - 4MB expansion ROM fully functional and validated
+  - 1MB SH2 working space ready for code injection
+  - Critical discovery: Expansion must contain SH2 code, not 68K
+  - Boot verified in PicoDrive stable build
 - **ROM_STRUCTURE.md** - Complete ROM layout and structure
 - **ROM_TEST_PLAN.md** - Testing methodology for rebuilt ROMs
 - **README_PRIORITY_8.md** - Priority 8 investigation guide
@@ -122,7 +127,7 @@ High-level system architecture, memory layout, and ROM structure.
 - **MEMORY_MAP.md** - Complete memory address mapping
 - **CODEBASE_DOCUMENTATION_PLAN.md** - Documentation strategy
 
-**Status:** ✅ Complete memory map, initialization sequence, and structure documented
+**Status:** ✅ Complete memory map, initialization sequence, structure, and **4MB expansion ROM implementation documented**
 
 ---
 
@@ -234,12 +239,13 @@ Detailed architecture documentation for critical game subsystems.
 | SH2 Analysis | 9 | ✅ Phase 4 Complete |
 | System Architecture (NEW) | 12 | ✅ 10 Documented |
 | Code Conversion (NEW) | 1 | ✅ Complete |
+| ROM/Cartridge | 1 | ✅ **4MB Expansion Working** |
 | Optimization | 9 | ✅ Identified Paths |
 | Profiling | 5 | ✅ Methodology Ready |
 | Phase Reports | 6 | ✅ Current |
-| Architecture | 7 | ✅ Complete |
+| Architecture | 8 | ✅ **4MB Implementation** |
 | Graphics/VDP | 1 | ✅ Complete |
-| **Total** | **~88** | **✅ Ready** |
+| **Total** | **~90** | **✅ Ready** |
 
 ---
 
@@ -263,7 +269,14 @@ Detailed architecture documentation for critical game subsystems.
 - **Name entry system (52-char grid keyboard, 3-char buffers, uppercase/lowercase toggle)**
 - **Race start camera & viewport system (smooth zoom/scroll, track-specific positioning, SH2 sync)**
 
-### ✅ Latest Addition: pdcore Debugger Design
+### ✅ Latest Addition: 4MB Expansion ROM Implementation (2026-01-21)
+- **Working 4MB cartridge** with full 1MB SH2 expansion space
+- **Critical Discovery**: Expansion section must contain SH2 code (dc.w), never 68K mnemonics
+- **Boot Verified**: Clean PicoDrive boot, 32X subsystem initialization successful
+- **Ready for Injection**: Expansion space prepared for Slave SH2 code deployment
+- **Documentation**: [ROM_EXPANSION_4MB_IMPLEMENTATION.md](architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md)
+
+### ✅ pdcore Debugger Design
 - Complete C API specification (18 functions, MVP-1)
 - BlastEm architecture analysis (6 documents, 103 KB)
 - PicoDrive integration plan (5 hook points, 36 lines changes)
@@ -345,5 +358,5 @@ Detailed architecture documentation for critical game subsystems.
 
 ---
 
-**Last Updated:** 2026-01-20 (Major revision: Slave boot failure discovered)
-**Overall Status:** ✅ Research Complete - Implementation Blocked (PicoDrive boot bug)
+**Last Updated:** 2026-01-21 (4MB Expansion ROM Implementation Complete)
+**Overall Status:** ✅ Research & Cartridge Building Complete - 4MB ROM with 1MB SH2 expansion space validated
