@@ -19,12 +19,14 @@ expansion_test:
         dc.w    $000B                   ; RTS
         dc.w    $0009                   ; NOP (delay slot)
 
-; Test function 2: Write 0xAB to COMM6 register
+; Test function 2: Increment COMM6 register every frame (frame counter)
 ; COMM6 is at $20004030 (SH2 address space)
-expansion_comm_test:
-        dc.w    $E1AB                   ; MOV #0xAB,R1 (load signature into R1)
-        dc.w    $D002                   ; MOV.L @(disp,PC),R0 (load COMM6 addr from literal)
-        dc.w    $2012                   ; MOV.L R1,@R0 (write R1 to address in R0)
+; Reads current value, increments by 1, writes back
+expansion_frame_counter:
+        dc.w    $D002                   ; MOV.L @(disp,PC),R0 (load COMM6 addr)
+        dc.w    $6008                   ; MOV.L @R0,R1 (read current COMM6 value to R1)
+        dc.w    $7101                   ; ADD #1,R1 (increment by 1)
+        dc.w    $2012                   ; MOV.L R1,@R0 (write R1 back to COMM6)
         dc.w    $000B                   ; RTS
         dc.w    $0009                   ; NOP (delay slot)
         dc.w    $0000                   ; alignment padding

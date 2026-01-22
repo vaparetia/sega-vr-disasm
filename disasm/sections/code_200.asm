@@ -194,10 +194,10 @@
         dc.w    $4EF9        ; $000374
         dc.w    $0088        ; $000376
         dc.w    $0832        ; $000378
-        dc.w    $4E71        ; $00037A
-        dc.w    $4E71        ; $00037C
-        dc.w    $4E71        ; $00037E
-        dc.w    $4E71        ; $000380
+        dc.w    $303C        ; $00037A - MOVE.W #imm16, addr32
+        dc.w    $0012        ; $00037C - immediate = $0012
+        dc.w    $00A1        ; $00037E - address high = $00A1
+        dc.w    $512C        ; $000380 - address low = $512C (COMM6 at $A1512C)
         dc.w    $4E71        ; $000382
         dc.w    $4E71        ; $000384
         dc.w    $4E71        ; $000386
