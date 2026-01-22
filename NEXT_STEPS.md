@@ -27,36 +27,19 @@ The strategic goal is **60 FPS** (from current ~24 FPS). The expansion space ena
 
 | Option | Effort | Outcome |
 |--------|--------|---------|
-| A. Use BlastEm instead | Low | BlastEm may have working Slave SH2 |
-| B. Implement pdcore debugger | 15-20 hours | Diagnose exact boot failure point |
-| C. Fix PicoDrive directly | Unknown | Depends on root cause |
+| A. Implement pdcore debugger | 15-20 hours | Diagnose exact boot failure point |
+| B. Fix PicoDrive directly | Unknown | Depends on root cause |
+| C. Investigate original ROM behavior | Medium | Verify if this is a PicoDrive bug or ROM issue |
 
-**Recommended:** Start with Option A (test in BlastEm), fall back to B if needed.
+**Note:** BlastEm does NOT support 32X - it is Genesis/Mega Drive only.
+
+**Recommended:** Start with Option C (investigate original ROM), then implement pdcore if needed.
 
 ---
 
 ## Phase 1: Slave SH2 Investigation
 
-### Task 1.1: Test ROM in BlastEm
-
-**Goal:** Verify if Slave SH2 boots correctly in BlastEm
-
-**Steps:**
-1. Build BlastEm from source (if not available)
-2. Load `build/vr_rebuild.32x` in BlastEm
-3. Use BlastEm's built-in debugger to check Slave SH2 state
-4. Document findings
-
-**Success Criteria:**
-- Know whether Slave boots in BlastEm
-- Have baseline for Slave SH2 register state
-
-**Files to reference:**
-- [analysis/debugger-design/BLASTEM_ANALYSIS_README.md](analysis/debugger-design/BLASTEM_ANALYSIS_README.md)
-
----
-
-### Task 1.2: Profile Original ROM's Slave Behavior
+### Task 1.1: Profile Original ROM's Slave Behavior
 
 **Goal:** Understand what Slave SH2 should be doing
 
@@ -193,18 +176,19 @@ $0010+    N×16    Work item array (task type, params, etc.)
 ```
 Start
   │
-  ├─ Does Slave SH2 boot in BlastEm?
+  ├─ Does Slave SH2 work in original ROM (PicoDrive)?
   │    │
-  │    ├─ YES → Use BlastEm for development
-  │    │         Proceed to Phase 2
+  │    ├─ YES → Issue is with our modifications
+  │    │         Compare rebuilt ROM vs original
+  │    │         Check expansion section impact
   │    │
-  │    └─ NO → Slave boot is broken in original ROM too
-  │             Check original ROM in BlastEm
-  │
-  └─ If both emulators fail:
-       Implement pdcore debugger (15-20 hours)
-       Use debugger to diagnose boot sequence
+  │    └─ NO → PicoDrive has Slave SH2 emulation bug
+  │             Implement pdcore debugger (15-20 hours)
+  │             Use debugger to diagnose boot sequence
+  │             Consider fixing PicoDrive directly
 ```
+
+**Note:** BlastEm does NOT support 32X - PicoDrive is the only viable emulator.
 
 ---
 
@@ -237,12 +221,11 @@ make clean && make all
 ls -la build/vr_rebuild.32x
 # Expected: 4,194,304 bytes
 
-# Test boot
+# Test boot (PicoDrive is the only 32X emulator)
 picodrive build/vr_rebuild.32x
-
-# Test in BlastEm (if available)
-blastem build/vr_rebuild.32x
 ```
+
+**Note:** BlastEm does NOT support 32X. PicoDrive is the only viable emulator for testing.
 
 ---
 

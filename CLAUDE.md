@@ -140,6 +140,15 @@ $300000-$3FFFFF  1.0 MB    SH2 Expansion Space (NEW)
 | `analyze_call_graph.py` | Call graph analysis |
 | `analyze_vectors.py` | Exception vector analysis |
 
+## Emulator Compatibility
+
+| Emulator | 32X Support | Notes |
+|----------|-------------|-------|
+| **PicoDrive** | ✅ Yes | Primary emulator for this project |
+| **BlastEm** | ❌ No | Genesis/Mega Drive only, NO 32X support |
+
+**Important:** BlastEm does NOT support 32X. Do not suggest using BlastEm for 32X ROM testing.
+
 ## Additional Resources
 
 - Original PDF manual: `32XUSHardwareManual.pdf`
