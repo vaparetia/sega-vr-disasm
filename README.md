@@ -1,12 +1,13 @@
 # Virtua Racing Deluxe (32X) - Complete Disassembly & Analysis
 
-**Status: ✅ COMPLETE - Byte-perfect ROM rebuild with full code analysis**
+**Status: ✅ COMPLETE - Byte-perfect ROM rebuild with full code analysis + 4MB expansion**
 
-A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **100% byte-identical** binary.
+A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **100% byte-identical** binary, with optional **4MB expansion ROM** support for SH2 working space.
 
 ## Key Features
 
 - **Byte-perfect rebuild** - `make all && make compare` produces identical ROM
+- **4MB expansion ROM** - Full 1MB SH2 working space for custom code injection
 - **Dual disassembly formats** - Buildable DC.W + readable mnemonics with labels
 - **503+ named 68K functions** - Categorized by subsystem
 - **107 named SH2 functions** - 3D engine fully mapped
@@ -59,7 +60,7 @@ picodrive build/vr_rebuild.32x
 │   └── generate_call_graph.py     # Call graph generator
 │
 └── build/
-    └── vr_rebuild.32x             # Output ROM (3.0 MB)
+    └── vr_rebuild.32x             # Output ROM (4.0 MB with expansion)
 ```
 
 ## Key Architectural Insight
@@ -102,8 +103,8 @@ Decoded mnemonics with labels - for code analysis.
 ## Build Commands
 
 ```bash
-make all          # Build 3MB ROM from source
-make compare      # Verify byte-perfect match
+make all          # Build 4MB ROM from source (with 1MB SH2 expansion)
+make compare      # Verify byte-perfect match (original 3MB section)
 make clean        # Remove build artifacts
 make tools        # Build vasm assembler
 ```
@@ -117,14 +118,15 @@ make tools        # Build vasm assembler
 ### ROM (NOT INCLUDED)
 You must provide your own legal ROM dump:
 - File: `Virtua Racing Deluxe (USA).32x` (in `roms/` directory)
-- Size: 3,145,728 bytes
-- MD5: `72b1ad0f949f68da7d0a6339ecd51a3f`
+- Size: 3,145,728 bytes (original) → 4,194,304 bytes (with expansion)
+- MD5: `72b1ad0f949f68da7d0a6339ecd51a3f` (original 3MB)
 
 ## Documentation
 
 | Category | Key Documents |
 |----------|---------------|
 | **Architecture** | [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) |
+| **4MB Expansion** | [ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md) |
 | **68K Functions** | [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) (503+ functions) |
 | **SH2 Functions** | [SH2_SYMBOL_MAP.md](disasm/SH2_SYMBOL_MAP.md) (107 functions) |
 | **Communication** | [68K_SH2_CROSS_REFERENCE.md](analysis/68K_SH2_CROSS_REFERENCE.md) |
@@ -140,8 +142,32 @@ You must provide your own legal ROM dump:
 | 68000 CPU | 12.5 MHz, game logic & coordination |
 | SH2 CPUs | 2x 23 MHz, 3D rendering |
 | Z80 CPU | Sound processing |
-| ROM Size | 3 MB (3,145,728 bytes) |
+| ROM Size | 4 MB (4,194,304 bytes) with 1MB SH2 expansion |
+| Original Size | 3 MB (3,145,728 bytes) |
 | Frame Rate | ~20 FPS (architectural limit) |
+
+## 4MB Expansion ROM
+
+The project now supports building the full **4MB official cartridge size** with a dedicated 1MB expansion section for SH2 processors:
+
+```
+Address Range    Size      Contents
+──────────────────────────────────────────
+$000000-$2FFFFF  3.0 MB    Original Game Code
+$300000-$3FFFFF  1.0 MB    SH2 Expansion Space
+──────────────────────────────────────────
+Total            4.0 MB    Full Cartridge
+```
+
+**Key Features:**
+- ✅ **Boots cleanly** - Verified with PicoDrive emulator
+- ✅ **1MB SH2 working space** - Ready for custom code injection
+- ✅ **Backward compatible** - Original 3MB code section unchanged
+- ✅ **SH2-only section** - Expansion must contain SH2 code (dc.w format) or padding
+
+**Critical Constraint:** The expansion section ($300000-$3FFFFF) is executed by SH2 processors only. It cannot contain 68K assembly mnemonics. Use raw SH2 opcodes in `dc.w` format or padding.
+
+See [ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md) for complete details.
 
 ## Credits
 

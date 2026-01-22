@@ -70,6 +70,7 @@ picodrive build/vr_rebuild.32x  # Linux (recommended)
 | Document | Contents |
 |----------|----------|
 | [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) | **Root cause** - Blocking sync model causes ~20 FPS ceiling |
+| [ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md) | **4MB expansion** - 1MB SH2 working space implementation |
 | [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) | 503+ named 68K functions by category |
 | [68K_SH2_CROSS_REFERENCE.md](analysis/68K_SH2_CROSS_REFERENCE.md) | Communication protocol between processors |
 | [DATA_STRUCTURES.md](analysis/DATA_STRUCTURES.md) | Memory maps, object tables, structures |
@@ -100,6 +101,29 @@ Historical session logs and phase reports preserved in `_archive/phase_logs/`.
 Convert between file offsets and CPU addresses:
 - **68000**: `cpu_addr = file_offset + 0x00880000`
 - **SH2**: `cpu_addr = file_offset + 0x02000000`
+
+### 4MB Expansion ROM Architecture
+
+The project builds a **4MB cartridge** (official VRD size) with 1MB SH2 expansion space:
+
+```
+ROM Layout:
+$000000-$2FFFFF  3.0 MB    Original Game Code (68K + SH2)
+$300000-$3FFFFF  1.0 MB    SH2 Expansion Space (NEW)
+```
+
+**CRITICAL CONSTRAINT - Expansion Section ($300000-$3FFFFF):**
+- This section is executed by **SH2 processors ONLY**, not the 68000
+- Can ONLY contain:
+  - SH2 code in `dc.w` format (raw 16-bit opcodes)
+  - Data literals
+  - Padding (0xFF)
+- **NEVER** use 68K assembly mnemonics (move.w, rts, etc.) in this section
+- 68K machine code produces invalid SH2 instructions → boot failure
+
+**Why:** Expansion ROM maps to SH2 address space ($02300000-$023FFFFF), not 68K space.
+
+**Implementation:** See [disasm/sections/expansion_300000.asm](disasm/sections/expansion_300000.asm)
 
 ### Python Tools
 
