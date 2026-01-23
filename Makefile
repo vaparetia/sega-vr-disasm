@@ -46,7 +46,8 @@ dirs:
 	@mkdir -p $(BUILD_DIR)
 
 # Build the ROM from original sections/
-$(OUTPUT_ROM): $(M68K_SRC)
+# Depends on SH2 assembly to ensure generated includes exist
+$(OUTPUT_ROM): $(M68K_SRC) $(SH2_FUNC006_INC)
 	@echo "==> Assembling 68000 code (from sections/)..."
 	$(ASM) $(ASMFLAGS) -o $@ $<
 	@echo "==> Build complete: $@"
