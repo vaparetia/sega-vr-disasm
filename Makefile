@@ -4,7 +4,9 @@
 
 # Tools
 ASM = tools/vasmm68k_mot
-SH2_AS = # TODO: Need SH2 assembler
+SH2_AS = sh-elf-as
+SH2_OBJCOPY = sh-elf-objcopy
+SH2_ASFLAGS = --isa=sh2
 PYTHON = python3
 
 # Directories
@@ -214,12 +216,63 @@ tools/vasmm68k_mot:
 	@echo "✓ vasm built successfully"
 
 # ============================================================================
+# SH2 Assembly
+# ============================================================================
+
+# SH2 source directories
+SH2_SRC_DIR = $(DISASM_DIR)/sh2
+SH2_GEN_DIR = $(SH2_SRC_DIR)/generated
+SH2_3D_DIR = $(SH2_SRC_DIR)/3d_engine
+
+# SH2 source files
+SH2_FUNC006_SRC = $(SH2_3D_DIR)/func_006_matrix_multiply.asm
+SH2_FUNC006_BIN = $(BUILD_DIR)/sh2/func_006.bin
+SH2_FUNC006_INC = $(SH2_GEN_DIR)/func_006.inc
+
+.PHONY: sh2-assembly sh2-verify
+
+# Build all SH2 assembly sources
+sh2-assembly: dirs $(SH2_FUNC006_INC)
+
+# Build func_006 binary from source
+$(SH2_FUNC006_BIN): $(SH2_FUNC006_SRC) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: func_006..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/func_006.o $<
+	$(SH2_OBJCOPY) -O binary $(BUILD_DIR)/sh2/func_006.o $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+# Generate dc.w include from binary (big-endian format for 68K assembler)
+$(SH2_FUNC006_INC): $(SH2_FUNC006_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: func_006.inc..."
+	@echo "; Auto-generated from $(SH2_FUNC006_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Verify SH2 assembly matches original ROM
+sh2-verify: $(SH2_FUNC006_BIN)
+	@echo "==> Verifying func_006 against original ROM..."
+	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x23120)) count=88 2>/dev/null > $(BUILD_DIR)/sh2/func_006_original.bin
+	@if diff -q $(SH2_FUNC006_BIN) $(BUILD_DIR)/sh2/func_006_original.bin > /dev/null 2>&1; then \
+		echo "✓✓✓ func_006: PERFECT MATCH! ✓✓✓"; \
+	else \
+		echo "✗ func_006: MISMATCH"; \
+		echo "=== Assembled ===" && xxd $(SH2_FUNC006_BIN) | head -10; \
+		echo "=== Original ===" && xxd $(BUILD_DIR)/sh2/func_006_original.bin | head -10; \
+		exit 1; \
+	fi
+
+# ============================================================================
 # Cleanup
 # ============================================================================
 
 clean:
 	@echo "==> Cleaning build files..."
 	rm -rf $(BUILD_DIR)
+	rm -rf $(SH2_GEN_DIR)
 
 clean-all: clean
 	@echo "==> Cleaning all generated files..."
@@ -244,6 +297,10 @@ help:
 	@echo "  compare-both   - Compare sections/ vs modules/ builds"
 	@echo "  hexdump        - Show hex dump comparison"
 	@echo ""
+	@echo "SH2 Assembly:"
+	@echo "  sh2-assembly   - Build SH2 sources to dc.w includes"
+	@echo "  sh2-verify     - Verify SH2 assembly matches original ROM"
+	@echo ""
 	@echo "Analysis:"
 	@echo "  disasm         - Disassemble ROM sections"
 	@echo "  disasm-m68k    - Disassemble 68000 code"
@@ -251,7 +308,7 @@ help:
 	@echo "  analyze        - Analyze ROM structure"
 	@echo "  find-sections  - Find code sections"
 	@echo ""
-	@echo "Maintenance:"
+	@echo "Maintenance:
 	@echo "  clean          - Remove build files"
 	@echo "  clean-all      - Remove all generated files including tools"
 	@echo "  tools          - Build assembler tools"
