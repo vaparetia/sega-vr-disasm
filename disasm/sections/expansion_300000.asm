@@ -9,30 +9,52 @@
 ; - Data literals
 ; - Padding (0xFF)
 ;
+; CRITICAL CONSTRAINT:
+; Phase 11 hook calls handler at 0x02300027 (file offset: 0x300000 + 0x27)
+; Handler MUST be placed at exactly this offset.
+;
 ; ============================================================================
 
         org     $300000
 
-; Test function 1: NOP then return
-expansion_test:
-        dc.w    $0009                   ; NOP
-        dc.w    $000B                   ; RTS
+; ============================================================================
+; PHASE 11 MASTER→SLAVE SYNCHRONIZATION HANDLER
+; Entry point: 0x300027 (SH2 address: 0x02300027 / 0x06300027)
+; ============================================================================
+;
+; Called by: Phase 11 Slave polling loop hook (0x06000596)
+; Trigger: When COMM6 = 0x0012 (Master→Slave signal)
+;
+; Handler responsibility:
+;   1. Increment COMM4 (response counter) by 1
+;   2. Return to hook
+;
+; After return, hook will clear COMM6 to prevent re-execution.
+;
+; This creates deterministic frame-perfect synchronization:
+;   Master Frame N: COMM6 ← 0x0012
+;   Slave executes handler: COMM4 ← COMM4 + 1
+;   Master Frame N+1: Reads COMM4 (incremented) and COMM6 (cleared)
+
+; Reserve space 0x300000-0x300026 (39 bytes) for future expansion
+        dcb.b   $27, $FF                ; Padding (0xFF = erased flash)
+
+; ============================================================================
+; FRAME SYNC HANDLER
+; ============================================================================
+handler_frame_sync:
+        dc.w    $D002                   ; MOV.L @(disp,PC),R0
+        dc.w    $0000                   ; Padding
+        dc.l    $20004028               ; COMM4 register address
+        dc.w    $6004                   ; MOV.L @R0,R1 (read COMM4 into R1)
+        dc.w    $7101                   ; ADD #1,R1 (increment counter)
+        dc.w    $2012                   ; MOV.L R1,@R0 (write back to COMM4)
+        dc.w    $000B                   ; RTS (return to hook)
         dc.w    $0009                   ; NOP (delay slot)
 
-; Test function 2: Increment COMM4 counter (response register)
-; Uses two-register protocol to avoid race conditions:
-;   - COMM6 ($2000402C): Master→Slave signal (read only from Slave)
-;   - COMM4 ($20004028): Slave→Master counter (write only from Slave)
-; This avoids hardware undefined behavior from simultaneous writes
-expansion_frame_counter:
-        dc.w    $D002                   ; MOV.L @(disp,PC),R0 (load COMM4 addr)
-        dc.w    $6008                   ; MOV.L @R0,R1 (read current COMM4 value to R1)
-        dc.w    $7101                   ; ADD #1,R1 (increment by 1)
-        dc.w    $2012                   ; MOV.L R1,@R0 (write R1 back to COMM4)
-        dc.w    $000B                   ; RTS
-        dc.w    $0009                   ; NOP (delay slot)
-        dc.w    $0000                   ; alignment padding
-        dc.l    $20004028               ; COMM4 address literal (4 bytes)
-
-        ; Fill remaining space with 0xFF padding
-        dcb.b   $100000-18,$FF          ; 1MB - 18 bytes of code/data
+; ============================================================================
+; REMAINING EXPANSION ROM SPACE
+; ============================================================================
+; Fill remaining 1MB with 0xFF padding (erased flash pattern)
+; Current position: 0x300027 + 16 bytes = 0x300037
+        dcb.b   ($100000 - $37), $FF    ; Fill rest of 1MB section
