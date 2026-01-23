@@ -1975,9 +1975,15 @@
 ; ═══════════════════════════════════════════════════════════════════════════
 ; func_008: Alt Matrix × Vector Multiplication (58 bytes, $0231AC-$0231E5)
 ; Source: disasm/sh2/3d_engine/func_008_alt_matrix_multiply.asm
+; NOTE: Last word (0x81A7 at $0231E4) serves as delay slot AND func_009's first instruction
 ; ═══════════════════════════════════════════════════════════════════════════
         include "sh2/generated/func_008.inc"
-        dc.w    $85E1        ; $0231E6
+; ═══════════════════════════════════════════════════════════════════════════
+; func_009: Display List Handler Type A (30 bytes, $0231E4-$023201)
+; Source: disasm/sh2/3d_engine/func_009_display_list_4elem.asm (VERIFIED)
+; NOT INTEGRATED: First instruction (0x81A7) shared with func_008 delay slot above
+; ═══════════════════════════════════════════════════════════════════════════
+        dc.w    $85E1        ; $0231E6 ; func_009 body continues (minus first instruction)
         dc.w    $81B1        ; $0231E8
         dc.w    $50C3        ; $0231EA
         dc.w    $51C7        ; $0231EC
@@ -1990,8 +1996,13 @@
         dc.w    $7B14        ; $0231FA
         dc.w    $85E3        ; $0231FC
         dc.w    $7001        ; $0231FE
-        dc.w    $000B        ; $023200
-        dc.w    $81E3        ; $023202
+        dc.w    $000B        ; $023200 ; func_009 RTS - delay slot is func_010's first instruction
+; ═══════════════════════════════════════════════════════════════════════════
+; func_010: Display List Handler Type B (26 bytes, $023202-$02321B)
+; Source: disasm/sh2/3d_engine/func_010_display_list_3elem.asm (VERIFIED)
+; NOT INTEGRATED: First instruction (0x81E3) shared with func_009 delay slot above
+; ═══════════════════════════════════════════════════════════════════════════
+        dc.w    $81E3        ; $023202 ; func_010 start (also func_009 delay slot)
         dc.w    $85E1        ; $023204
         dc.w    $81B1        ; $023206
         dc.w    $50C3        ; $023208
@@ -2003,8 +2014,8 @@
         dc.w    $7B10        ; $023214
         dc.w    $85E3        ; $023216
         dc.w    $7001        ; $023218
-        dc.w    $000B        ; $02321A
-        dc.w    $81E3        ; $02321C
+        dc.w    $000B        ; $02321A ; func_010 RTS
+        dc.w    $81E3        ; $02321C ; func_010 delay slot (borrowed)
         dc.w    $0009        ; $02321E
         dc.w    $4F22        ; $023220
         dc.w    $85E7        ; $023222
@@ -2170,23 +2181,9 @@
         dc.w    $0000        ; $023362
         dc.w    $0600        ; $023364
         dc.w    $3368        ; $023366
-        dc.w    $51E7        ; $023368
-        dc.w    $52E8        ; $02336A
-        dc.w    $4128        ; $02336C
-        dc.w    $4228        ; $02336E
-        dc.w    $50E5        ; $023370
-        dc.w    $6313        ; $023372
-        dc.w    $6423        ; $023374
-        dc.w    $210B        ; $023376
-        dc.w    $220B        ; $023378
-        dc.w    $1E1A        ; $02337A
-        dc.w    $1E2B        ; $02337C
-        dc.w    $50E6        ; $02337E
-        dc.w    $230B        ; $023380
-        dc.w    $240B        ; $023382
-        dc.w    $1E3C        ; $023384
-        dc.w    $000B        ; $023386
-        dc.w    $1E4D        ; $023388
+; func_016: Coordinate Transformation Utility (34 bytes, $023368-$02338A)
+; HOTSPOT: Called 4× per polygon (67,200 cycles/frame)
+        include "sh2/generated/func_016.inc"
         dc.w    $4F22        ; $02338A
         dc.w    $BFEC        ; $02338C
         dc.w    $0009        ; $02338E
