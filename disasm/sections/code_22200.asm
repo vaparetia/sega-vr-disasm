@@ -3673,83 +3673,14 @@
         dc.w    $1121        ; $023F26
         dc.w    $31DC        ; $023F28
         dc.w    $000B        ; $023F2A
-        dc.w    $0009        ; $023F2C
-        dc.w    $4018        ; $023F2E
-        dc.w    $4001        ; $023F30
-        dc.w    $30AC        ; $023F32
-        dc.w    $6193        ; $023F34
-        dc.w    $6206        ; $023F36
-        dc.w    $1120        ; $023F38
-        dc.w    $6206        ; $023F3A
-        dc.w    $1121        ; $023F3C
-        dc.w    $31DC        ; $023F3E
-        dc.w    $6206        ; $023F40
-        dc.w    $1120        ; $023F42
-        dc.w    $6206        ; $023F44
-        dc.w    $1121        ; $023F46
-        dc.w    $31DC        ; $023F48
-        dc.w    $6206        ; $023F4A
-        dc.w    $1120        ; $023F4C
-        dc.w    $6206        ; $023F4E
-        dc.w    $1121        ; $023F50
-        dc.w    $31DC        ; $023F52
-        dc.w    $6206        ; $023F54
-        dc.w    $1120        ; $023F56
-        dc.w    $6206        ; $023F58
-        dc.w    $1121        ; $023F5A
-        dc.w    $31DC        ; $023F5C
-        dc.w    $6206        ; $023F5E
-        dc.w    $1120        ; $023F60
-        dc.w    $6206        ; $023F62
-        dc.w    $1121        ; $023F64
-        dc.w    $31DC        ; $023F66
-        dc.w    $6206        ; $023F68
-        dc.w    $1120        ; $023F6A
-        dc.w    $6206        ; $023F6C
-        dc.w    $1121        ; $023F6E
-        dc.w    $31DC        ; $023F70
-        dc.w    $6206        ; $023F72
-        dc.w    $1120        ; $023F74
-        dc.w    $6206        ; $023F76
-        dc.w    $1121        ; $023F78
-        dc.w    $31DC        ; $023F7A
-        dc.w    $6206        ; $023F7C
-        dc.w    $1120        ; $023F7E
-        dc.w    $6206        ; $023F80
-        dc.w    $1121        ; $023F82
-        dc.w    $31DC        ; $023F84
-        dc.w    $6206        ; $023F86
-        dc.w    $1120        ; $023F88
-        dc.w    $6206        ; $023F8A
-        dc.w    $1121        ; $023F8C
-        dc.w    $31DC        ; $023F8E
-        dc.w    $6206        ; $023F90
-        dc.w    $1120        ; $023F92
-        dc.w    $6206        ; $023F94
-        dc.w    $1121        ; $023F96
-        dc.w    $31DC        ; $023F98
-        dc.w    $6206        ; $023F9A
-        dc.w    $1120        ; $023F9C
-        dc.w    $6206        ; $023F9E
-        dc.w    $1121        ; $023FA0
-        dc.w    $31DC        ; $023FA2
-        dc.w    $6206        ; $023FA4
-        dc.w    $1120        ; $023FA6
-        dc.w    $6206        ; $023FA8
-        dc.w    $1121        ; $023FAA
-        dc.w    $31DC        ; $023FAC
-        dc.w    $6206        ; $023FAE
-        dc.w    $1120        ; $023FB0
-        dc.w    $6206        ; $023FB2
-        dc.w    $1121        ; $023FB4
-        dc.w    $31DC        ; $023FB6
-        dc.w    $6206        ; $023FB8
-        dc.w    $1120        ; $023FBA
-        dc.w    $6206        ; $023FBC
-        dc.w    $1121        ; $023FBE
-        dc.w    $31DC        ; $023FC0
-        dc.w    $000B        ; $023FC2
-        dc.w    $0009        ; $023FC4
+; ============================================================================
+; func_065: Unrolled Data Copy Loop (HOTSPOT: 4× by func_060-063)
+; SH2 Address: $02223F2C | ROM: $23F2C | 152 bytes
+; Copies 14 × 8 = 112 bytes with custom stride
+; Source: disasm/sh2/3d_engine/func_065_unrolled_data_copy.asm
+; ============================================================================
+        include "disasm/sh2/generated/func_065.inc"
+        dc.w    $0009        ; $023FC4 - NOP (delay slot shared with following code)
         dc.w    $58E2        ; $023FC6
         dc.w    $59E1        ; $023FC8
         dc.w    $6785        ; $023FCA

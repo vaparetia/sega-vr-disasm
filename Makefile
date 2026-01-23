@@ -47,7 +47,7 @@ dirs:
 
 # Build the ROM from original sections/
 # Depends on SH2 assembly to ensure generated includes exist
-$(OUTPUT_ROM): $(M68K_SRC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC)
+$(OUTPUT_ROM): $(M68K_SRC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC065_INC)
 	@echo "==> Assembling 68000 code (from sections/)..."
 	$(ASM) $(ASMFLAGS) -o $@ $<
 	@echo "==> Build complete: $@"
@@ -246,10 +246,14 @@ SH2_FUNC010_SRC = $(SH2_3D_DIR)/func_010_display_list_3elem.asm
 SH2_FUNC010_BIN = $(BUILD_DIR)/sh2/func_010.bin
 SH2_FUNC010_INC = $(SH2_GEN_DIR)/func_010.inc
 
+SH2_FUNC065_SRC = $(SH2_3D_DIR)/func_065_unrolled_data_copy.asm
+SH2_FUNC065_BIN = $(BUILD_DIR)/sh2/func_065.bin
+SH2_FUNC065_INC = $(SH2_GEN_DIR)/func_065.inc
+
 .PHONY: sh2-assembly sh2-verify
 
 # Build all SH2 assembly sources
-sh2-assembly: dirs $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC)
+sh2-assembly: dirs $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC)
 
 # Build func_006 binary from source
 $(SH2_FUNC006_BIN): $(SH2_FUNC006_SRC) | dirs
@@ -345,8 +349,27 @@ $(SH2_FUNC010_INC): $(SH2_FUNC010_BIN)
 	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
 	@echo "    Output: $@ ($$(wc -l < $@) lines)"
 
+# Build func_065 binary from source
+$(SH2_FUNC065_BIN): $(SH2_FUNC065_SRC) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: func_065..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/func_065.o $<
+	$(SH2_OBJCOPY) -O binary $(BUILD_DIR)/sh2/func_065.o $@
+	@# Trim to exact 152 bytes (remove assembler padding/delay slot)
+	@truncate -s 152 $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+$(SH2_FUNC065_INC): $(SH2_FUNC065_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: func_065.inc..."
+	@echo "; Auto-generated from $(SH2_FUNC065_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
 # Verify SH2 assembly matches original ROM
-sh2-verify: $(SH2_FUNC006_BIN) $(SH2_FUNC008_BIN) $(SH2_FUNC016_BIN) $(SH2_FUNC009_BIN) $(SH2_FUNC010_BIN)
+sh2-verify: $(SH2_FUNC006_BIN) $(SH2_FUNC008_BIN) $(SH2_FUNC016_BIN) $(SH2_FUNC009_BIN) $(SH2_FUNC010_BIN) $(SH2_FUNC065_BIN)
 	@echo "==> Verifying SH2 assembly against original ROM..."
 	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x23120)) count=88 2>/dev/null > $(BUILD_DIR)/sh2/func_006_original.bin
 	@if diff -q $(SH2_FUNC006_BIN) $(BUILD_DIR)/sh2/func_006_original.bin > /dev/null 2>&1; then \
@@ -381,6 +404,13 @@ sh2-verify: $(SH2_FUNC006_BIN) $(SH2_FUNC008_BIN) $(SH2_FUNC016_BIN) $(SH2_FUNC0
 		echo "✓ func_010: PERFECT MATCH"; \
 	else \
 		echo "✗ func_010: MISMATCH"; \
+		exit 1; \
+	fi
+	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x23F2C)) count=152 2>/dev/null > $(BUILD_DIR)/sh2/func_065_original.bin
+	@if diff -q $(SH2_FUNC065_BIN) $(BUILD_DIR)/sh2/func_065_original.bin > /dev/null 2>&1; then \
+		echo "✓ func_065: PERFECT MATCH"; \
+	else \
+		echo "✗ func_065: MISMATCH"; \
 		exit 1; \
 	fi
 	@echo "✓✓✓ All SH2 functions verified! ✓✓✓"
