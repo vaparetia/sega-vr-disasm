@@ -3680,30 +3680,14 @@
 ; Source: disasm/sh2/3d_engine/func_065_unrolled_data_copy.asm
 ; ============================================================================
         include "disasm/sh2/generated/func_065.inc"
-        dc.w    $0009        ; $023FC4 - NOP (delay slot shared with following code)
-        dc.w    $58E2        ; $023FC6
-        dc.w    $59E1        ; $023FC8
-        dc.w    $6785        ; $023FCA
-        dc.w    $6193        ; $023FCC
-        dc.w    $6085        ; $023FCE
-        dc.w    $8800        ; $023FD0
-        dc.w    $890A        ; $023FD2
-        dc.w    $660C        ; $023FD4
-        dc.w    $4019        ; $023FD6
-        dc.w    $C8FF        ; $023FD8
-        dc.w    $8904        ; $023FDA
-        dc.w    $4610        ; $023FDC
-        dc.w    $8FFD        ; $023FDE
-        dc.w    $2104        ; $023FE0
-        dc.w    $AFF5        ; $023FE2
-        dc.w    $6085        ; $023FE4
-        dc.w    $AFF2        ; $023FE6
-        dc.w    $3168        ; $023FE8
-        dc.w    $4710        ; $023FEA
-        dc.w    $8FEE        ; $023FEC
-        dc.w    $39DC        ; $023FEE
-        dc.w    $000B        ; $023FF0
-        dc.w    $0009        ; $023FF2
+; ============================================================================
+; func_066: Run-Length Decoder (leaf function)
+; SH2 Address: $02223FC4 | ROM: $23FC4 | 48 bytes
+; Decodes RLE data: (value:count) pairs written to buffer
+; Note: First NOP is shared delay slot from func_065
+; Source: disasm/sh2/3d_engine/func_066_rle_decoder.asm
+; ============================================================================
+        include "disasm/sh2/generated/func_066.inc"
         dc.w    $58E2        ; $023FF4
         dc.w    $59E1        ; $023FF6
         dc.w    $7802        ; $023FF8
