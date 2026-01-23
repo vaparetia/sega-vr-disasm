@@ -61,7 +61,7 @@ func_008:
     .word   0x313D                  /* DMULS.L R3,R1 (Y × scale) */
     sts     mach,r0                 /* R0 = high 32 bits of result */
     add     r9,r0                   /* Add Y offset from caller */
-    .word   0x81a6                  /* MOV.W R0,@(20,R6) - GNU AS encoding bug */
+    .word   0x81a6                  /* MOV.W R0,@(12,R10) - store Y screen coord */
     .word   0x323D                  /* DMULS.L R3,R2 (Z × scale) */
     sts     mach,r0                 /* R0 = high 32 bits of result */
     add     r12,r0                  /* Add X offset from caller */

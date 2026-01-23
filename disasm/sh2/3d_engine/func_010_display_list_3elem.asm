@@ -33,9 +33,9 @@
 
 func_010:
     /* Byte output operations - using .word due to GNU AS encoding issues */
-    .word   0x81E3                  /* MOV.W R0,@(6,R1) - [R1+3] as word? */
-    .word   0x85E1                  /* MOV.W @(2,R5),R0 - load from [R5+1]? */
-    .word   0x81B1                  /* MOV.W R0,@(2,R1) - [R1+1] as word? */
+    .word   0x81E3                  /* MOV.W R0,@(6,R14) */
+    .word   0x85E1                  /* MOV.W @(2,R14),R0 */
+    .word   0x81B1                  /* MOV.W R0,@(2,R11) */
 
     /* Load 3 longwords from source structure */
     mov.l   @(12,r12),r0            /* R0 = [R12+0x0C] */
@@ -51,7 +51,7 @@ func_010:
     add     #0x10,r11               /* R11 += 16 */
 
     /* More byte output operations */
-    .word   0x85E3                  /* MOV.W @(6,R5),R0 - load from [R5+3]? */
+    .word   0x85E3                  /* MOV.W @(6,R14),R0 */
     add     #1,r0                   /* R0++ */
     rts
     /* Delay slot borrowed from following code in ROM */

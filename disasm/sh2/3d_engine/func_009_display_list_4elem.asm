@@ -35,9 +35,9 @@
 
 func_009:
     /* Byte output operations - using .word due to GNU AS encoding issues */
-    .word   0x81A7                  /* MOV.W R0,@(14,R1) - [R1+7] as word? */
-    .word   0x85E1                  /* MOV.W @(2,R5),R0 - load from [R5+1]? */
-    .word   0x81B1                  /* MOV.W R0,@(2,R1) - [R1+1] as word? */
+    .word   0x81A7                  /* MOV.W R0,@(14,R10) */
+    .word   0x85E1                  /* MOV.W @(2,R14),R0 */
+    .word   0x81B1                  /* MOV.W R0,@(2,R11) */
 
     /* Load 4 longwords from source structure */
     mov.l   @(12,r12),r0            /* R0 = [R12+0x0C] */
@@ -55,7 +55,7 @@ func_009:
     add     #0x14,r11               /* R11 += 20 */
 
     /* More byte output operations */
-    .word   0x85E3                  /* MOV.W @(6,R5),R0 - load from [R5+3]? */
+    .word   0x85E3                  /* MOV.W @(6,R14),R0 */
     add     #1,r0                   /* R0++ (increment counter) */
     rts
     /* Delay slot: first instruction of func_010 (0x81E3) */
