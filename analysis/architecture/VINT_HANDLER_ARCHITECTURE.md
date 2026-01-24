@@ -1,155 +1,173 @@
 # V-INT Handler Architecture
 
+**Purpose:** High-level overview of the V-INT dispatch mechanism
+**Scope:** Architecture and timing only; per-state disassembly is in [VINT_STATE_HANDLERS.md](VINT_STATE_HANDLERS.md)
+**Related:** [STATE_MACHINES.md](STATE_MACHINES.md) for game state machines, [MEMORY_MAP.md](MEMORY_MAP.md) for address details
+
+---
+
 ## Overview
 
-The V-INT (Vertical Interrupt) handler at [disasm/modules/68k/main-loop/vint_handler.asm:1684](disasm/modules/68k/main-loop/vint_handler.asm#L1684) implements a state machine that drives the game's main loop. It executes once per frame (60 Hz) and dispatches to different handlers based on the current game state.
+The V-INT (Vertical Interrupt) handler at ROM `$001684` implements a 16-state dispatch system that drives frame-synchronized operations. It executes once per frame (60 Hz NTSC) and dispatches to different handlers based on a pending state flag.
 
-## Handler Flow
+**Key distinction:**
+- `$FFC87A` - V-INT dispatch flag (set by game, cleared by handler)
+- `$FFC87E` - Main game state machine (persistent, separate system)
+
+Both use jump tables, but serve different purposes.
+
+---
+
+## Handler Flow (✅ Confirmed from disassembly)
 
 ```
 V-INT Entry ($001684)
-  ↓
-Check $C87A (state index)
-  ↓
-If zero → RTE (nothing to do)
-  ↓
-If non-zero:
-  ├─ Disable interrupts (SR = $2700)
-  ├─ Save all registers (MOVEM.L D1-D7/A0-A6 to stack)
-  ├─ Load state index from $C87A → D0
-  ├─ Clear $C87A (acknowledge state)
-  ├─ Dispatch via jump table: JSR (jump_table + D0 * 4)
-  ├─ Increment frame counter at $C964
-  ├─ Restore all registers
-  ├─ Enable interrupts (SR = $2300)
-  └─ RTE
+  │
+  ├─ TST.W $FFC87A            ; Check pending state
+  │
+  ├─ If zero → RTE            ; Nothing to do
+  │
+  └─ If non-zero:
+       ├─ SR = $2700           ; Disable all interrupts
+       ├─ MOVEM.L D0-D7/A0-A6  ; Save 14 registers
+       ├─ D0 = [$FFC87A]       ; Load state index
+       ├─ [$FFC87A] = 0        ; Clear (acknowledge)
+       ├─ JSR via jump table   ; Dispatch to handler
+       ├─ [$FFC964] += 1       ; Increment frame counter
+       ├─ MOVEM.L restore      ; Restore registers
+       ├─ SR = $2300           ; Re-enable interrupts
+       └─ RTE
 ```
 
-## State Machine Jump Table
+---
 
-The jump table at file offset $0016B2 contains 16 state handlers:
+## State Dispatch Table (✅ Confirmed)
 
-| State | Address    | File Offset | Handler Description |
-|-------|------------|-------------|---------------------|
-| 0     | $008819FE  | $0019FE     | Common state handler (used by states 0,1,2,8) |
-| 1     | $008819FE  | $0019FE     | (same as state 0) |
-| 2     | $008819FE  | $0019FE     | (same as state 0) |
-| 3     | $00018200  | $0018200    | ⚠️ RAM address (special case?) |
-| 4     | $00881A6E  | $001A6E     | State handler 4 |
-| 5     | $00881A72  | $001A72     | State handler 5 |
-| 6     | $00881C66  | $001C66     | State handler 6 |
-| 7     | $00881ACA  | $001ACA     | State handler 7 |
-| 8     | $008819FE  | $0019FE     | (same as state 0) |
-| 9     | $00881E42  | $001E42     | State handler 9 |
-| 10    | $00881B14  | $001B14     | State handler 10 |
-| 11    | $00881A64  | $001A64     | State handler 11 |
-| 12    | $00881BA8  | $001BA8     | State handler 12 |
-| 13    | $00881E94  | $001E94     | State handler 13 |
-| 14    | $00881F4A  | $001F4A     | State handler 14 |
-| 15    | $00882010  | $002010     | State handler 15 |
+**Jump table location:** ROM `$0016B2` (16 longword entries)
 
-## Key Memory Locations
+| State | Handler | Purpose |
+|-------|---------|---------|
+| 0,1,2,8 | `$0019FE` | Common VDP sync + Z-Bus operations |
+| 3 | `$018200` | ⚠️ Points to ROM, not RAM (see note) |
+| 4 | `$001A6E` | Minimal VDP read |
+| 5 | `$001A72` | VDP sync + RAM writes |
+| 6 | `$001C66` | VDP + frame buffer toggle |
+| 7 | `$001ACA` | VDP register config (sprites) |
+| 9 | `$001E42` | Frame buffer setup |
+| 10 | `$001B14` | VDP + sprite config |
+| 11 | `$001A64` | State transition (sets next=#44) |
+| 12 | `$001BA8` | Complex VDP register sets |
+| 13 | `$001E94` | VDP + frame buffer + palette |
+| 14 | `$001F4A` | VDP + frame buffer DMA |
+| 15 | `$002010` | Clear SH2 command flags |
 
-### State Management
-- **$C87A.W** - Current state index (0-15)
-  - Set by game code to trigger state change
-  - Cleared by V-INT handler after dispatch
-  - Zero = no pending state change
+**Note on State 3:** Address `$018200` is in ROM space, not RAM. The original doc flagged this as "RAM" which is incorrect. Likely an initialization path or debug hook—rarely triggered during normal gameplay.
 
-### Frame Timing
-- **$C964.L** - Global frame counter
-  - Incremented every V-INT
-  - Wraps at 32-bit overflow
-  - Used for timing, animations, etc.
+See [VINT_STATE_HANDLERS.md](VINT_STATE_HANDLERS.md) for detailed disassembly of each handler.
 
-### Controller Hardware
-- **$FE82-$FE93** - Controller port configuration
-  - Initialized by function at $00170C
-  - Pattern: `04 06 01 00 05 0A 09 08` (repeated twice)
-  - Related to Mega Drive controller I/O
+---
 
-### System Status
-- **$C810.W** - System state/mode register
-  - Value $0D triggers special initialization at $00179E
-  - Used for system state transitions
+## Key Memory Locations (📋 Inferred from code patterns)
 
-- **$C818.W** - Hardware configuration flags
-  - Bit 0: Affects data table selection
-  - Bit 1: Affects data table selection
-  - Used by function at $001784
+### V-INT Control
 
-- **$C86C-$C86E** - State transition control
-  - Cleared on state changes
-  - Related to $C810/$C811 mode handling
+| Address | Name | Purpose |
+|---------|------|---------|
+| `$FFC87A` | vint_state | Pending V-INT state (0-15, ×4 indexed) |
+| `$FFC964` | frame_counter | Global frame counter (32-bit, wraps) |
 
-## Interrupt Priority
+**Note:** Short addresses like `$C87A.W` are sign-extended by 68K to `$FFFFC87A`, which wraps to `$FFC87A` in the 24-bit address space.
 
-The handler uses SR manipulation for critical sections:
+### Related Game State (separate system)
 
-- **SR = $2700** - All interrupts disabled (level 7)
-  - Used during register save/restore
-  - Used during state dispatch
+| Address | Name | Purpose |
+|---------|------|---------|
+| `$FFC87E` | game_state | Main game state machine (menus, race, etc.) |
+| `$FFC8A0` | race_state | Race phase state |
 
-- **SR = $2300** - Normal operation (level 3)
-  - Allows H-INT and external interrupts
-  - Blocks lower-priority interrupts
+See [STATE_MACHINES.md](STATE_MACHINES.md) for complete state machine documentation.
 
-## Performance Characteristics
+### Controller Init Buffer (✅ Confirmed from disassembly)
 
-- **Overhead**: ~22 cycles (MOVEM save) + ~22 cycles (MOVEM restore) = 44 cycles minimum
-- **Frame budget**: 488,000 cycles @ 7.67 MHz (60 Hz)
-- **State handler budget**: ~487,956 cycles (99.99% of frame)
+| Address | Purpose |
+|---------|---------|
+| `$FFFE82-$FFFE93` | Controller port configuration buffer (Work RAM) |
 
-## State Handler Requirements
+Initialized by function at `$00170C` with pattern `04 06 01 00 05 0A 09 08` (repeated). Accessed via `LEA $FE82.W,A1` (sign-extended to $FFFE82).
+
+---
+
+## Interrupt Priority (✅ Confirmed)
+
+| SR Value | Level | Purpose |
+|----------|-------|---------|
+| `$2700` | 7 | All interrupts masked (critical section) |
+| `$2300` | 3 | Normal operation (allows H-INT) |
+
+The handler brackets its work with interrupt disable/enable to prevent re-entry.
+
+---
+
+## Performance Characteristics (📋 Estimated)
+
+### Timing
+
+| Metric | Value | Notes |
+|--------|-------|-------|
+| Frame period | 16.67 ms | 60 Hz NTSC |
+| Cycles/frame | ~128,000 | 7.67 MHz ÷ 60 Hz |
+| MOVEM save | ~120 cycles | 8 + 8×14 regs (D0-D7/A0-A6, not A7) |
+| MOVEM restore | ~120 cycles | 8 + 8×14 regs |
+| Handler overhead | ~300 cycles | Entry/exit bookkeeping |
+| Handler budget | ~127,700 cycles | 99.8% of frame |
+
+### Handler Requirements
 
 Each state handler must:
-1. Complete within one frame (16.67ms @ 60Hz)
-2. Preserve register state (handled by V-INT wrapper)
-3. Return via RTS (not RTE)
-4. Not modify $C87A (could cause re-entry)
+1. Complete within one frame (~127K cycles max)
+2. Return via RTS (not RTE—wrapper handles that)
+3. Not modify `$FFC87A` (could cause unexpected re-dispatch)
+4. Preserve any registers not saved by wrapper (none—all D0-D7/A0-A6 saved)
+
+---
 
 ## Usage Pattern
 
-Game code triggers state changes:
+**Game code triggers V-INT work:**
 ```asm
-MOVE.W  #5,$C87A.W   ; Set state to 5
+MOVE.W  #20,$FFC87A.W    ; Request state 5 (20 = 5 × 4)
 ; V-INT will dispatch to handler 5 on next frame
 ```
 
-State handlers can chain:
+**State values are pre-multiplied by 4** for jump table indexing.
+
+**Handlers can chain states:**
 ```asm
-my_state_handler:
-    ; ... do work ...
-    MOVE.W  #next_state,$C87A.W  ; Queue next state
+state_handler_5:
+    ; ... do VDP work ...
+    MOVE.W  #24,$FFC87A.W  ; Queue state 6 for next frame
     RTS
 ```
 
-## Related Functions
+---
 
-- **$00170C**: Controller port initialization
-- **$00179E**: System state transition handler
-- **$001784**: Data table copy routine
-- **$00185E**: (Called by state transition code)
+## Open Questions
 
-## Notes
+| Question | Status | Notes |
+|----------|--------|-------|
+| State 3 purpose | ❓ Unknown | Handler at $018200 (ROM) - when is it used? |
+| States 0,1,2,8 differentiation | 📋 Inferred | All call same handler—likely distinguished by other state |
 
-- State 3 ($00018200) is unusual - points to RAM instead of ROM
-  - May be a runtime-patched handler
-  - Could be a bug (should investigate)
+---
 
-- States 0, 1, 2, and 8 all use the same handler
-  - Suggests these are variants of a common mode
-  - Handler likely checks additional state
+## Related Documentation
 
-- The frame counter at $C964 can be used to measure:
-  - Actual framerate (via debugging)
-  - Game time elapsed
-  - Animation timing
+- [VINT_STATE_HANDLERS.md](VINT_STATE_HANDLERS.md) - Detailed per-state disassembly
+- [STATE_MACHINES.md](STATE_MACHINES.md) - Game state machines ($FFC87E, etc.)
+- [../../disasm/modules/68k/main-loop/vint_handler.asm](../../disasm/modules/68k/main-loop/vint_handler.asm) - Source disassembly
 
-## TODO
+---
 
-- [ ] Analyze each state handler to determine purpose
-- [ ] Map state transitions (which states lead to which)
-- [ ] Understand state 3 RAM handler
-- [ ] Document the common handler at $0019FE
-- [ ] Identify game modes (title, gameplay, menu, etc.)
+**Document Status:** Architectural overview
+**Confidence:** Mixed (see markers)
+**Last Updated:** 2026-01-23
