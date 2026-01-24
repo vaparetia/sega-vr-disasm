@@ -279,7 +279,7 @@ loc_00A416:
 ```
 
 **Required Conditions:**
-1. Not lap 1 ($C8C8 ≠ 1)
+1. Not lap 1 ($FFC8C8 ≠ 1, short form $C8C8.W)
 2. Speed > 89 ($0004 > $0059)
 3. Game mode = 4 ($C319 = $04)
 4. No active effect ($0086 = 0)
@@ -650,7 +650,7 @@ steering += boost
 | $0008 | word | Target speed | Speed calculations |
 | $000A | word | Lookup speed | Table writes |
 | $000E | word | Cooldown timer | Timer management |
-| $0014 | word | Boost timer | Boost detection |
+| $0014 | word | Boost timer (📋) | Boost detection |
 | $0016 | word | Modified speed | Acceleration |
 | $0024 | word | Track position | Opponent comparison |
 | $0030 | word | X position | Every frame |
@@ -659,8 +659,8 @@ steering += boost
 | $0040 | word | Current rotation | Steering |
 | $0054 | word | Frame counter | Step oscillation |
 | $0072 | word | Z position (depth) | Distance calc |
-| $006A | word | Effect timer A | Timer management |
-| $006C | word | Effect timer B | Timer management |
+| $006A | word | Effect timer A (📋) | Timer management |
+| $006C | word | Effect timer B (📋) | Timer management |
 | $0086 | word | Effect state | AI selection |
 | $008A | word | State index | Table lookups |
 | $00A4 | word | Opponent ID | AI tracking |
@@ -671,15 +671,15 @@ steering += boost
 
 | Address | Size | Purpose |
 |---------|------|---------|
-| $A000 | word | Camera X position |
-| $A002 | word | Camera Y position |
-| $C07A | word | Current track number |
-| $C0F8 | word | Max acceleration limit |
-| $C0FA | word | Min acceleration limit |
-| $C30F | byte | Game mode |
-| $C319 | byte | Lap/mode flags |
-| $C8A4 | byte | State flag |
-| $C8C8 | word | Lap number |
+| $FFA000 | word | Camera X position |
+| $FFA002 | word | Camera Y position |
+| $FFC07A | word | Current track number |
+| $FFC0F8 | word | Max acceleration limit |
+| $FFC0FA | word | Min acceleration limit |
+| $FFC30F | byte | Game mode |
+| $FFC319 | byte | Lap/mode flags |
+| $FFC8A4 | byte | State flag |
+| $FFC8C8 | word | Lap number |
 
 ---
 
