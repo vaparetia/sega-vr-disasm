@@ -3,9 +3,124 @@
 **Date**: January 6, 2026
 **Last Updated**: January 24, 2026
 **Attempted**: func_016 Inline Optimization
-**Result**: ❌ ROM Crash
-**Lesson**: Critical insights for future optimization attempts
-**Status**: Historical failure analysis (kept for reference; optimization plan updated post‑v2.3)
+**Result**: ✅ SUCCESS (func_021) / ❌ Complex (func_017-019)
+**Lesson**: Expansion ROM approach works for standalone functions
+**Status**: Proof of concept validated for func_021; func_017-019 require different approach
+
+---
+
+## ✅ SUCCESSFUL OPTIMIZATION: func_021 (January 24, 2026)
+
+### Summary
+
+**func_021** (Coordinate Transform + Cull loop) was successfully optimized by:
+1. Relocating the function to expansion ROM at `$0230003C`
+2. Inlining func_016 (coordinate transform) to eliminate BSR/RTS overhead
+3. Using a trampoline at the original location to redirect calls
+
+**Result**: Working ROM with func_016 inlined at one call site
+
+### Implementation Details
+
+| Component | Location | Size |
+|-----------|----------|------|
+| Trampoline | `$020234C8` (original func_021) | 12 bytes |
+| Optimized function | `$0230003C` (expansion ROM) | 96 bytes |
+| Inlined func_016 | First 32 bytes of optimized | 32 bytes |
+
+**Cycle savings**: ~6 cycles/call × 800 polygons = **4,800 cycles/frame**
+
+### Why func_021 Worked (Unlike func_017-019)
+
+1. **Standalone function**: No cross-function branching or shared code paths
+2. **Clean entry/exit**: Standard prologue/epilogue pattern
+3. **Predictable behavior**: Simple loop with nested function call
+
+### Trampoline Pattern
+
+```assembly
+; Original func_021 location ($020234C8) - now a trampoline
+    MOV.L   @(1,PC),R0      ; $D001 - Load expansion address
+    JMP     @R0             ; $402B - Jump to expansion ROM
+    NOP                     ; $0009 - Delay slot
+    NOP                     ; $0009 - Padding
+    .long   $0230003C       ; Target address in expansion ROM
+```
+
+**Overhead**: ~4-6 cycles for trampoline, but saves 6 cycles from inlined BSR/RTS = **net positive**
+
+### Critical Technical Lessons
+
+#### 1. 4-Byte Alignment for Literal Pools
+
+**Problem**: SH2 `MOV.L @(disp,PC),Rn` requires the literal address to be 4-byte aligned.
+
+**Symptom**: `invalid PC, aborting: 00090009` - jumped to NOP padding
+
+**Solution**: Place optimized functions at 4-byte aligned addresses (e.g., `$30003C` not `$300042`)
+
+**Formula for EA**: `EA = (PC & ~3) + 4 + disp×4`
+
+#### 2. SH2 Address Space Mapping
+
+**Problem**: Confused `$0222350A` with `$0202350A` (extra '2' digit)
+
+| Address | File Offset | Valid? |
+|---------|-------------|--------|
+| `$0202350A` | `$2350A` | ✅ Code |
+| `$0222350A` | `$22350A` | ❌ Data/garbage |
+
+**Lesson**: Double-check all literal addresses. SH2 ROM maps at `$02000000`, so `$02XXYYZZ` → file offset `$XXYYZZ`.
+
+#### 3. Instruction Encoding Verification
+
+**Problem**: Original code comment said `MOV.B R0,@(1,R5)` but actual instruction was `MOV.W @(2,R8),R0`
+
+| Opcode | Instruction | Operation |
+|--------|-------------|-----------|
+| `$8051` | `MOV.B R0,@(1,R5)` | **STORE** byte |
+| `$8581` | `MOV.W @(2,R8),R0` | **LOAD** word |
+
+**Symptom**: Glitchy 3D rendering (wrong data being written/read)
+
+**Lesson**: Always verify instruction encoding against disassembly, not just comments.
+
+#### 4. MOV.W Displacement Encoding
+
+**Problem**: `mov.w @(1,r8),r0` caused assembly error ("misaligned offset")
+
+**Reason**: MOV.W uses word-scaled displacement. `d=1` in encoding means byte offset 2.
+
+**Solution**: Write `mov.w @(2,r8),r0` in assembly to get `d=1` encoding (matches original `$8581`)
+
+### Files Modified
+
+| File | Purpose |
+|------|---------|
+| `disasm/sh2/expansion/func_021_optimized.asm` | Optimized SH2 source |
+| `disasm/sh2/generated/func_021_optimized.inc` | Generated dc.w opcodes |
+| `disasm/sections/expansion_300000.asm` | Expansion ROM section |
+| `disasm/sections/code_22200.asm` | Trampoline at original location |
+
+### Build Process
+
+```bash
+# 1. Regenerate include file after editing source
+./tools/asm_to_dcw.sh disasm/sh2/expansion/func_021_optimized.asm \
+    disasm/sh2/generated/func_021_optimized.inc
+
+# 2. Rebuild ROM
+make all
+
+# 3. Test
+picodrive build/vr_rebuild.32x
+```
+
+---
+
+## Historical Context: The Failed Approaches
+
+The following section documents the **original failed attempts** before the expansion ROM approach was validated.
 
 ---
 
@@ -293,23 +408,27 @@ inline_code:
 ## Conclusion
 
 **What we learned**:
-- Virtua Racing ROM is tightly packed (no easy inline opportunities)
-- Code expansion requires either relocation or trampolines
-- Both approaches have significant complexity/overhead
-- **Better optimizations exist** (func_065 FIFO, Master/Slave balance)
+- ✅ **Expansion ROM approach WORKS** for standalone functions (func_021 proven)
+- ❌ func_017/018/019 have complex cross-function dependencies - require different strategy
+- Trampoline overhead (~4-6 cycles) is acceptable when saving 6+ cycles from inlining
+- **Critical**: 4-byte alignment, correct addresses, and instruction encoding verification
 
 **What we gained**:
-- Complete understanding of optimization constraints
-- Knowledge of ROM structure and limitations
-- Identified better targets for optimization
-- Tools and analysis that remain valuable
+- **Working proof of concept**: func_021 with inlined func_016
+- Complete understanding of SH2 literal pool alignment requirements
+- Validated expansion ROM as optimization workspace
+- Reusable trampoline pattern for future optimizations
 
-**What's next (current as of v2.3+)**:
-- Master/Slave workload distribution (validated sync; see `analysis/architecture/MASTER_SLAVE_ANALYSIS.md`)
-- Targeted in-place optimizations that avoid code expansion
-- func_016 inlining remains infeasible without relocation work
+**What's next**:
+1. **Extend func_016 inlining** to func_017/018/019 (complex, may need full block relocation)
+2. **Apply same pattern** to other hot functions that can be relocated
+3. Master/Slave workload distribution (validated sync; see `analysis/architecture/MASTER_SLAVE_ANALYSIS.md`)
 
-**Overall impact**: Still targeting **+20-30% gain** from safer optimizations
+**Savings achieved**:
+- func_021 optimization: **~4,800 cycles/frame** (1 of 4 call sites)
+- Potential with all 4 sites: **~19,200 cycles/frame** (~5% frame budget)
+
+**Overall impact**: POC validates the approach; full implementation could yield **+2-3 FPS**
 
 ---
 

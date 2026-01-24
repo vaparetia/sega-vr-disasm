@@ -2319,25 +2319,29 @@
         dc.w    $0000        ; $0234C2
         dc.w    $0601        ; $0234C4
         dc.w    $0000        ; $0234C6
-        dc.w    $4F22        ; $0234C8
-        dc.w    $BF4D        ; $0234CA
-        dc.w    $0009        ; $0234CC
-        dc.w    $2F76        ; $0234CE
-        dc.w    $2F86        ; $0234D0
-        dc.w    $B01A        ; $0234D2
-        dc.w    $4F22        ; $0234D4
-        dc.w    $68F6        ; $0234D6
-        dc.w    $67F6        ; $0234D8
-        dc.w    $8581        ; $0234DA
-        dc.w    $C801        ; $0234DC
-        dc.w    $8F01        ; $0234DE
-        dc.w    $7810        ; $0234E0
-        dc.w    $7804        ; $0234E2
-        dc.w    $4710        ; $0234E4
-        dc.w    $8BF2        ; $0234E6
-        dc.w    $4F26        ; $0234E8
-        dc.w    $000B        ; $0234EA
-        dc.w    $0009        ; $0234EC
+; func_021: TRAMPOLINE to expansion ROM (func_016 inlined there)
+; Optimization: Eliminates BSR/RTS overhead for func_016 call
+; Target: $0230003C (4-byte aligned for MOV.L literal pool)
+        dc.w    $D001        ; $0234C8  MOV.L @(1,PC),R0  ; Load $0230003C
+        dc.w    $402B        ; $0234CA  JMP @R0           ; Jump to expansion ROM
+        dc.w    $0009        ; $0234CC  NOP               ; Delay slot
+        dc.w    $0009        ; $0234CE  NOP               ; Padding for literal alignment
+        dc.w    $0230        ; $0234D0  ; Literal: $0230003C (high word)
+        dc.w    $003C        ; $0234D2  ; Literal: $0230003C (low word)
+; Fill remaining original func_021 space with NOPs
+        dc.w    $0009        ; $0234D4  NOP
+        dc.w    $0009        ; $0234D6  NOP
+        dc.w    $0009        ; $0234D8  NOP
+        dc.w    $0009        ; $0234DA  NOP
+        dc.w    $0009        ; $0234DC  NOP
+        dc.w    $0009        ; $0234DE  NOP
+        dc.w    $0009        ; $0234E0  NOP
+        dc.w    $0009        ; $0234E2  NOP
+        dc.w    $0009        ; $0234E4  NOP
+        dc.w    $0009        ; $0234E6  NOP
+        dc.w    $0009        ; $0234E8  NOP
+        dc.w    $0009        ; $0234EA  NOP
+        dc.w    $0009        ; $0234EC  NOP
         dc.w    $D005        ; $0234EE
         dc.w    $51E9        ; $0234F0
         dc.w    $210B        ; $0234F2

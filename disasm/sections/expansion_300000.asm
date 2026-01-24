@@ -53,8 +53,36 @@ handler_frame_sync:
         dc.w    $0009                   ; NOP (delay slot)
 
 ; ============================================================================
+; PADDING TO ALIGN func_021_optimized (4-byte aligned for MOV.L literals)
+; ============================================================================
+; Handler is 9 words (18 bytes): $300027 + $12 = $300039
+; Padding to reach 4-BYTE ALIGNED address $30003C
+; (Critical: SH2 MOV.L @(disp,PC) requires 4-byte aligned literal addresses)
+; $30003C - $300039 = 3 bytes of padding needed
+        dc.b    $FF                     ; $300039
+        dc.b    $FF                     ; $30003A
+        dc.b    $FF                     ; $30003B
+
+; ============================================================================
+; func_021_optimized: Coordinate Transform + Cull (with func_016 inlined)
+; Entry point: 0x30003C (SH2 address: 0x0230003C) - 4-BYTE ALIGNED
+; ============================================================================
+;
+; This is an optimized version of func_021 that inlines func_016 to eliminate
+; BSR/RTS call overhead.
+;
+; OPTIMIZATION: Eliminates 6 cycles per call (BSR + RTS + delay slots)
+; At 800 polygons/frame: ~4,800 cycles saved for this call site
+;
+; Original func_021: $0234C8 (trampolined to here)
+; Size: 96 bytes (48 words)
+;
+func_021_optimized:
+        include "sh2/generated/func_021_optimized.inc"
+
+; ============================================================================
 ; REMAINING EXPANSION ROM SPACE
 ; ============================================================================
 ; Fill remaining 1MB with 0xFF padding (erased flash pattern)
-; Current position: 0x300027 + 16 bytes = 0x300037
-        dcb.b   ($100000 - $37), $FF    ; Fill rest of 1MB section
+; Current position: 0x30003C + 96 bytes = 0x30009C
+        dcb.b   ($100000 - $9C), $FF    ; Fill rest of 1MB section
