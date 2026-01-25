@@ -2319,24 +2319,40 @@
         dc.w    $0000        ; $0234C2
         dc.w    $0601        ; $0234C4
         dc.w    $0000        ; $0234C6
-; func_021: TRAMPOLINE to expansion ROM (func_016 inlined there)
-; Optimization: Eliminates BSR/RTS overhead for func_016 call
-; Target: $02300100 (4-byte aligned for MOV.L literal pool)
-        dc.w    $D001        ; $0234C8  MOV.L @(1,PC),R0  ; Load $02300100
-        dc.w    $402B        ; $0234CA  JMP @R0           ; Jump to expansion ROM
-        dc.w    $0009        ; $0234CC  NOP               ; Delay slot
-        dc.w    $0009        ; $0234CE  NOP               ; Padding for literal alignment
-        dc.w    $0230        ; $0234D0  ; Literal: $02300100 (high word)
-        dc.w    $0100        ; $0234D2  ; Literal: $02300100 (low word)
-; Fill remaining original func_021 space with NOPs
-        dc.w    $0009        ; $0234D4  NOP
-        dc.w    $0009        ; $0234D6  NOP
-        dc.w    $0009        ; $0234D8  NOP
-        dc.w    $0009        ; $0234DA  NOP
-        dc.w    $0009        ; $0234DC  NOP
-        dc.w    $0009        ; $0234DE  NOP
-        dc.w    $0009        ; $0234E0  NOP
-        dc.w    $0009        ; $0234E2  NOP
+; func_021: SLAVE OFFLOAD TRAMPOLINE
+; Captures real parameters (R14, R7, R8, R5) to shared memory at 0x2203E000,
+; then signals Slave via COMM7=0x16. Returns immediately - Slave does the work.
+;
+; This enables parallel processing: Master continues while Slave transforms vertices.
+;
+; Bytecode layout:
+;   0x0234C8: MOV.L @(16,PC),R0  (D004) - load param block from $0234DC
+;   0x0234CA: MOV.L R14,@R0      (20E2) - save R14 (context pointer)
+;   0x0234CC: MOV.L R7,@(4,R0)   (1071) - save R7 (loop counter)
+;   0x0234CE: MOV.L R8,@(8,R0)   (1082) - save R8 (data pointer)
+;   0x0234D0: MOV.L R5,@(12,R0)  (1053) - save R5 (output pointer)
+;   0x0234D2: MOV.L @(12,PC),R0  (D003) - load COMM7 addr from $0234E0
+;   0x0234D4: MOV #$16,R1        (E116) - vertex transform signal
+;   0x0234D6: MOV.W R1,@R0       (2011) - COMM7 = 0x16 (signal Slave)
+;   0x0234D8: RTS                (000B) - return to caller (Slave does work)
+;   0x0234DA: NOP                (0009) - delay slot
+;   0x0234DC: param block        (2203E000) - cache-through SDRAM
+;   0x0234E0: COMM7 address      (2000402E)
+;
+        dc.w    $D004        ; $0234C8  MOV.L @(16,PC),R0 - param block
+        dc.w    $20E2        ; $0234CA  MOV.L R14,@R0 - save R14
+        dc.w    $1071        ; $0234CC  MOV.L R7,@(4,R0) - save R7
+        dc.w    $1082        ; $0234CE  MOV.L R8,@(8,R0) - save R8
+        dc.w    $1053        ; $0234D0  MOV.L R5,@(12,R0) - save R5
+        dc.w    $D003        ; $0234D2  MOV.L @(12,PC),R0 - COMM7 addr
+        dc.w    $E116        ; $0234D4  MOV #$16,R1
+        dc.w    $2011        ; $0234D6  MOV.W R1,@R0 - signal Slave
+        dc.w    $000B        ; $0234D8  RTS
+        dc.w    $0009        ; $0234DA  NOP (delay slot)
+; Literal pool (4-byte aligned at $0234DC)
+        dc.l    $2203E000    ; $0234DC  param block address (cache-through SDRAM)
+        dc.l    $2000402E    ; $0234E0  COMM7 address
+; Fill remaining space with NOPs
         dc.w    $0009        ; $0234E4  NOP
         dc.w    $0009        ; $0234E6  NOP
         dc.w    $0009        ; $0234E8  NOP

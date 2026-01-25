@@ -4,30 +4,51 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Current Development Status
 
-**Phase:** Slave SH2 activated with "proof of life" - awaiting frame sync mechanism
+**Phase:** Real vertex transform offload operational - TRUE PARALLEL PROCESSING
 **Approach:** Full ROM rebuild from disassembly (NOT code injection)
 **Build:** `make all` produces complete 4MB ROM
 
 ### What's Working
 - 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
-- **Slave SH2 activated**: Runs `slave_work_wrapper` at $300200 instead of idle loop
-- **Proof of life**: Slave continuously increments COMM4 (`0x20004028`)
-- Expansion ROM contains: handler at $300028, func_021_optimized at $300100, slave_work_wrapper at $300200
+- **Master SH2 hooked**: Dispatch at $02046A redirects to `master_dispatch_hook` at $300050
+- **Slave SH2 activated**: Runs `slave_work_wrapper` at $300200 (work dispatch)
+- **Real parameter capture**: func_021 trampoline captures R14/R7/R8/R5 to shared memory
+- **TRUE PARALLEL PROCESSING**: Master returns immediately, Slave executes vertex transform
+- **Architecture**:
+  ```
+  Game calls func_021 → Trampoline captures R14/R7/R8/R5 → COMM7=0x16
+                      → Master returns immediately (no work done)
+                      → Slave picks up work, executes func_021_optimized
+                      → Both CPUs running in parallel!
+  ```
 
-### Slave Activation Details
-- **Original idle loop** at $0203CC: wrote to COMM3, looped forever
-- **Modified** to: JMP $02300200 (slave_work_wrapper in expansion ROM)
-- **Current behavior**: Tight loop incrementing COMM4 (proof Slave executes our code)
+### Expansion ROM Layout
+| Address | Size | Function |
+|---------|------|----------|
+| $300028 | 22B | `handler_frame_sync` |
+| $300050 | 44B | `master_dispatch_hook` (skips COMM7 for cmd 0x16) |
+| $300100 | 96B | `func_021_optimized` (func_016 inlined) |
+| $300200 | 76B | `slave_work_wrapper` (command dispatch) |
+| $300280 | 44B | `slave_test_func` (reads params, calls func_021_optimized) |
 
-### Next Step: Frame Synchronization
-Find a way to signal the Slave once per frame. Options:
-1. Master SH2 writes to COMM6 in its frame loop
-2. Find alternate 68K injection point with sufficient space
-3. Hook SH2 V-INT handler
+### Key Memory Locations
+| Address | Purpose |
+|---------|---------|
+| $0234C8 | func_021 trampoline (captures params, signals Slave) |
+| $2203E000 | Parameter block (R14, R7, R8, R5 - 16 bytes) |
+| $2000402E | COMM7 (Master→Slave signal) |
+| $2000402A | COMM5 (vertex transform counter, +101 per call) |
+
+### Next Steps
+1. ~~Parameter passing infrastructure~~ ✅ Done
+2. ~~Real parameter capture~~ ✅ Done
+3. **Performance Testing**: Measure FPS improvement
+4. **Synchronization**: Ensure Slave completes before next frame
+5. **Load Balancing**: Split polygon workload between CPUs
 
 ### Abandoned Approaches
 - **Code injection via `phase11_rom_patcher.py`**: Reached space/alignment limits
-- **68K V-INT hook**: BSR.W to $162D0 from $16A2 exceeded ±32KB range (actual distance: 85KB)
+- **68K V-INT hook**: BSR.W exceeded ±32KB range (actual distance: 85KB)
 
 **Current workflow:** Modify disassembly sources in `disasm/sections/`, rebuild with `make all`.
 

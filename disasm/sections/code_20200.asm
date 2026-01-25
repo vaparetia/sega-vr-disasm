@@ -317,13 +317,18 @@
         dc.w    $8800        ; $020464
         dc.w    $89FB        ; $020466
         dc.w    $8481        ; $020468
-        dc.w    $4008        ; $02046A
-        dc.w    $D107        ; $02046C
-        dc.w    $001E        ; $02046E
-        dc.w    $400B        ; $020470
-        dc.w    $0009        ; $020472
-        dc.w    $AFF4        ; $020474
-        dc.w    $0009        ; $020476
+; === MASTER DISPATCH HOOK: Redirect to expansion ROM ===
+; Original: SHLL2, table lookup, JSR handler, BRA loop, NOP
+; Modified: Jump to master_dispatch_hook at $02300050
+; The hook writes COMM7=1 (signals Slave), then does original dispatch
+; NOTE: Literal must be 4-byte aligned! D101 loads from (PC & ~3) + 4 + 4 = 0x020474
+        dc.w    $0009        ; $02046A - NOP (code alignment)
+        dc.w    $D101        ; $02046C - MOV.L @(4,PC),R1 - loads from $020474
+        dc.w    $412B        ; $02046E - JMP @R1
+        dc.w    $0009        ; $020470 - NOP (delay slot)
+        dc.w    $0009        ; $020472 - NOP (padding for literal 4-byte alignment)
+        dc.w    $0230        ; $020474 - \ Expansion ROM address (4-byte aligned!)
+        dc.w    $0050        ; $020476 - / 0x02300050 (master_dispatch_hook)
         dc.w    $FFFF        ; $020478
         dc.w    $FE10        ; $02047A
         dc.w    $2000        ; $02047C
