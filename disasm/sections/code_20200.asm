@@ -235,12 +235,15 @@
         dc.w    $524C        ; $0203C6
         dc.w    $0009        ; $0203C8
         dc.w    $0009        ; $0203CA
-        dc.w    $D101        ; $0203CC
-        dc.w    $2102        ; $0203CE
-        dc.w    $AFFE        ; $0203D0
-        dc.w    $0009        ; $0203D2
-        dc.w    $2000        ; $0203D4
-        dc.w    $402C        ; $0203D6
+; === SLAVE ACTIVATION: Jump to expansion ROM wrapper ===
+; Original: MOV.L/MOV.L/BRA loop writing to COMM3 forever
+; Modified: JMP to slave_work_wrapper at $02300200
+        dc.w    $D001        ; $0203CC - MOV.L @(4,PC),R0 - load wrapper addr
+        dc.w    $402B        ; $0203CE - JMP @R0
+        dc.w    $0009        ; $0203D0 - NOP (delay slot)
+        dc.w    $0009        ; $0203D2 - NOP (padding)
+        dc.w    $0230        ; $0203D4 - \ Expansion ROM address: $02300200
+        dc.w    $0200        ; $0203D6 - / (slave_work_wrapper)
         dc.w    $2F06        ; $0203D8
         dc.w    $2F16        ; $0203DA
         dc.w    $2F26        ; $0203DC

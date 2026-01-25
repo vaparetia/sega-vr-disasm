@@ -1,185 +1,146 @@
-# Slave SH2 Work Check Injection Guide
+# Slave SH2 Integration Guide
 
-> **⚠️ STATUS UPDATE (2026-01-24):** The code injection approach documented here reached its limits.
-> We now use **full assembly build** (`make all`) with the 4MB expansion ROM.
-> The expansion ROM function locations and COMM protocol sections remain accurate.
-> The "Injection Strategies" and "Code Gaps" sections are historical reference only.
+> **✅ STATUS UPDATE (2026-01-24):** Slave SH2 activation implemented using full assembly build.
+> The Slave now runs `slave_work_wrapper` which polls COMM6 for work signals.
+> Original idle loop at `$0203CC` redirected to expansion ROM.
 
 ## Overview
 
-This guide documents the expansion ROM layout and COMM protocol for Slave SH2 integration.
+This guide documents the Slave SH2 integration using the 4MB expansion ROM.
+
+## Current Implementation
+
+### Slave Activation Flow
+
+```
+Original:                          Now:
+$0203CC: Write COMM3              $0203CC: JMP $02300200
+$0203D0: BRA self (infinite)      slave_work_wrapper polls COMM6
+```
+
+### Protocol
+
+1. **Master** writes non-zero value to COMM6 (`0x20004038`)
+2. **Slave** detects signal in `slave_work_wrapper`
+3. **Slave** increments COMM4 (`0x20004028`)
+4. **Slave** clears COMM6
+5. **Master** can verify by reading COMM4
 
 ## Expansion ROM Functions
 
-All functions are in expansion ROM at `$300000-$3FFFFF` (SH2 addresses `0x02300000-0x023FFFFF`):
+All functions in expansion ROM at `$300000-$3FFFFF` (SH2: `0x02300000-0x023FFFFF`):
 
 | Function | ROM Address | SH2 Address | Size | Purpose |
 |----------|-------------|-------------|------|---------|
-| (padding) | `$300000` | `0x02300000` | 40 bytes | Reserved/padding |
-| `handler_frame_sync` | `$300028` | `0x02300028` | 22 bytes | COMM4 incrementer (frame sync handler) |
-| (padding) | `$30003E` | `0x0230003E` | ~194 bytes | Reserved for future handlers |
-| `func_021_optimized` | `$300100` | `0x02300100` | ~96 bytes | Coordinate transform + cull (func_016 inlined) |
+| (padding) | `$300000` | `0x02300000` | 40 bytes | Reserved |
+| `handler_frame_sync` | `$300028` | `0x02300028` | 22 bytes | COMM4 incrementer |
+| (padding) | `$30003E` | `0x0230003E` | ~194 bytes | Reserved |
+| `func_021_optimized` | `$300100` | `0x02300100` | ~96 bytes | Coordinate transform + cull |
+| (padding) | `$300160` | `0x02300160` | 160 bytes | Reserved |
+| **`slave_work_wrapper`** | `$300200` | `0x02300200` | ~32 bytes | **Slave main loop** |
 
 **Source:** [disasm/sections/expansion_300000.asm](../../disasm/sections/expansion_300000.asm)
 
-## Available Code Gaps in Slave ROM
+## Slave Work Wrapper
 
-Identified NOP/padding regions suitable for code injection:
-
-| Address Range | Size | Location | Best Use |
-|---------------|------|----------|----------|
-| `$020466-$020476` | 18 bytes | Near loop at $020460 | JSR helper (12 bytes) |
-| `$0206B6-$0206BE` | 10 bytes | Mid-section | BSR + address (8 bytes) |
-| `$0209D8-$0209E2` | 12 bytes | Data area | JSR helper |
-| `$0209F8-$020A02` | 12 bytes | Data area | JSR helper |
-| `$020A18-$020A22` | 12 bytes | Data area | JSR helper |
-| `$020A38-$020A42` | 12 bytes | Data area | JSR helper |
-| `$020A58-$020A62` | 12 bytes | Data area | JSR helper |
-| `$020A78-$020A82` | 12 bytes | Data area | JSR helper |
-
-**Total: 100 bytes** of safe, unused space in original Slave ROM.
-
-## Injection Strategies
-
-### Strategy 1: Idle Loop Wrapper (RECOMMENDED)
-
-**Concept**: Redirect Slave execution to expansion ROM wrapper that calls original VDP wait + checks for work.
-
-**Advantages**:
-- Non-invasive: Original VDP wait function unchanged
-- Clean separation: All new code in expansion ROM
-- Easy to debug: Clear execution path
-- Minimal ROM modifications: Single redirection point
-
-**Implementation**:
-
-The `slave_idle_wrapper` at `0x06300038` provides a complete replacement idle loop:
+Located at `$300200` (SH2 address `0x02300200`):
 
 ```asm
-slave_idle_wrapper:
-    ; Load function addresses once
-    mov.l   vdp_wait_addr, r10    ; R10 = original VDP wait (0x0602050C)
-    mov.l   comm4_addr, r11       ; R11 = COMM4 (0x20004028)
-    mov.l   comm2_addr, r12       ; R12 = COMM2 (0x20004024)
+slave_work_wrapper:
+    mov.l   @(20,PC),r1           ; Load COMM6 address
+.poll_loop:
+    mov.w   @r1,r0                ; Read COMM6
+    tst     r0,r0                 ; Test if zero
+    bt      .poll_loop            ; Keep polling if no work
 
-idle_loop:
-    jsr     @r10                  ; Call original VDP wait
+    ; Work signal received
+    mov.l   @(16,PC),r2           ; Load COMM4 address
+    mov.w   @r2,r0                ; Read COMM4
+    add     #1,r0                 ; Increment
+    mov.w   r0,@r2                ; Write COMM4
+
+    ; Clear work signal
+    mov     #0,r0
+    mov.w   r0,@r1                ; Clear COMM6
+    bra     .poll_loop            ; Continue polling
     nop
-
-    mov.w   @r11, r1              ; R1 = COMM4 (work signal)
-    tst     r1, r1                ; Check if work available
-    bt      idle_loop             ; No work, loop again
-
-    mov.w   @r12, r2              ; R2 = COMM2 (counter)
-    add     #1, r2                ; Increment
-    mov.w   r2, @r12              ; Write back
-
-    mov     #0, r1
-    mov.w   r1, @r11              ; Clear work flag
-
-    bra     idle_loop             ; Continue
-    nop
+; Literal pool:
+    .long   0x20004038            ; COMM6
+    .long   0x20004028            ; COMM4
 ```
 
-**Redirection Points**:
+## Slave Entry Point Modification
 
-Find where Slave first enters its main loop and redirect to `0x06300038`.
-
-Candidate locations:
-1. **$020466** (18-byte gap): Place JSR helper to jump to wrapper
-2. **Slave entry point** (TBD): Modify initial execution to start wrapper
-
-### Strategy 2: Inline Work Check
-
-**Concept**: Insert work check directly into existing code gaps.
-
-**Advantages**:
-- Faster (no JSR overhead)
-- Self-contained
-
-**Disadvantages**:
-- Limited space (12 bytes max per gap)
-- Must fit complete logic inline
-- Harder to maintain
-
-**Example** (12 bytes, fits in any gap):
-```asm
-; At injection point:
-    mov.l   func_addr, r0    ; 4 bytes
-    jsr     @r0              ; 2 bytes
-    nop                      ; 2 bytes
-func_addr:
-    .long   0x06300000       ; 4 bytes
-```
-
-## Execution Flow Analysis
-
-Based on emulator traces, Slave execution path:
-
-```
-1. Boot:         PC=0x00000204 (init)
-2. Init:         PC=0x0000020A → PC=0x00000218
-3. COMM setup:   Writes 0x535F to COMM2
-4. Main loop:    PC=0x06000512-0x06000516 (VDP polling)
-   └─ Tight loop: TST/TST/DT/BF cycle
-5. Status:       99.97% idle in VDP wait
-```
-
-**Key Finding**: Slave spends nearly all time in VDP wait loop at `0x0602050C-0x0602051A`.
-
-## Implementation Checklist
-
-- [ ] Choose injection strategy (Wrapper recommended)
-- [ ] Identify safe redirection point in Slave initialization
-- [ ] Create JSR helper in gap (e.g., `$020466-$020476`)
-- [ ] Build and test ROM
-- [ ] Verify COMM2 increments when Master signals COMM4
-- [ ] Implement actual work dispatch in Master rendering loop
-- [ ] Test Master-Slave work handoff
-
-## Master Integration
-
-To signal work from Master rendering loop (ROM ~`$023062`):
+**File:** [code_20200.asm:238-246](../../disasm/sections/code_20200.asm#L238-L246)
 
 ```asm
-; At end of Master rendering cycle:
-    mov.l   dispatch_addr, r0
-    jsr     @r0               ; Call master_dispatch_work
-    nop
-
-    ; ... original epilogue ...
-
-dispatch_addr:
-    .long   0x06300028        ; master_dispatch_work
+; Original idle loop at $0203CC-$0203D6:
+;   MOV.L/MOV.L/BRA self (write COMM3, loop forever)
+;
+; Modified to jump to expansion ROM:
+$0203CC: D001    ; MOV.L @(4,PC),R0 - load wrapper address
+$0203CE: 402B    ; JMP @R0
+$0203D0: 0009    ; NOP (delay slot)
+$0203D2: 0009    ; NOP (padding)
+$0203D4: 0230    ; \ Address: $02300200
+$0203D6: 0200    ; / (slave_work_wrapper)
 ```
 
-## Testing Protocol
+## COMM Register Protocol
 
-1. **Phase 1**: Verify wrapper executes
-   - Check Slave PC reaches `0x06300038`
-   - Confirm original VDP wait still called
+| Register | Address | Purpose |
+|----------|---------|---------|
+| COMM4 | `0x20004028` | Slave frame counter (Slave writes) |
+| COMM6 | `0x20004038` | Master→Slave signal (Master writes, Slave clears) |
 
-2. **Phase 2**: Verify work detection
-   - Master writes `1` to COMM4 (`0x20004028`)
-   - Slave increments COMM2 (`0x20004024`)
-   - COMM4 cleared after processing
+### Signal Values (Future)
 
-3. **Phase 3**: Full integration
-   - Master signals work at frame boundaries
-   - Slave processes work assignments
-   - Verify FPS improvement
+| Value | Meaning |
+|-------|---------|
+| `0x0000` | No work / idle |
+| `0x0012` | Frame sync (increment counter) |
+| `0x0016` | Vertex transform (call func_021_optimized) |
+
+## Testing
+
+### Verify Slave Activation
+
+```bash
+# Build ROM with Slave activation
+make all
+
+# Verify bytecode at jump point
+xxd -s 0x0203CC -l 12 build/vr_rebuild.32x
+# Expected: d001 402b 0009 0009 0230 0200
+
+# Verify slave_work_wrapper at expansion ROM
+xxd -s 0x300200 -l 32 build/vr_rebuild.32x
+# Expected: d105 6101 2008 89fc d204 6201 7001 2021...
+
+# Boot in PicoDrive
+picodrive build/vr_rebuild.32x
+```
+
+### Test COMM Communication
+
+To test the Slave responds:
+1. Master writes non-zero to COMM6
+2. Slave increments COMM4 and clears COMM6
+3. Monitor COMM4 for increments
+
+## Next Steps
+
+1. **Master Integration**: Find Master rendering loop, add COMM6 write
+2. **Work Dispatch**: Extend `slave_work_wrapper` to call functions based on signal value
+3. **Performance Testing**: Measure FPS improvement with Slave doing work
 
 ## Notes
 
-- All addresses shown as ROM offsets; add `0x02000000` for SH2 cached or `0x06000000` for uncached
-- COMM register addresses are from SH2 perspective (`0x20004000+`)
-- Preserve register state if injecting into active code paths
-- Test with PicoDrive DRC disabled for initial validation
+- ROM addresses use `$XXXXXX` format (file offset)
+- SH2 addresses use `0x02XXXXXX` (cached) or `0x06XXXXXX` (uncached)
+- COMM registers at `0x20004XXX` from SH2 perspective
 
 ## Source Files
 
-- `disasm/sh2_slave_work_check.asm` - Standalone work check
-- `disasm/sh2_slave_idle_wrapper.asm` - Complete wrapper implementation
-- `disasm/sh2_master_work_dispatch.asm` - Master signaling
-- `disasm/sections/expansion_300000.asm` - Expansion ROM layout
-- `tools/find_slave_gaps.py` - Gap finder utility
+- [disasm/sections/expansion_300000.asm](../../disasm/sections/expansion_300000.asm) - Expansion ROM layout
+- [disasm/sections/code_20200.asm](../../disasm/sections/code_20200.asm) - Slave code (modified at $0203CC)
