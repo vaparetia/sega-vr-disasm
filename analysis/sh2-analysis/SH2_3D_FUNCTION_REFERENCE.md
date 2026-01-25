@@ -2,7 +2,7 @@
 
 **Virtua Racing Deluxe - Complete Function Catalog**
 **Analysis Date**: January 6, 2026
-**Updated**: January 25, 2026 (v4.0 parallel processing)
+**Updated**: January 25, 2026 (v4.0 baseline established)
 
 ---
 
@@ -66,7 +66,7 @@ void func_016(Context* r14) {
 
 **OPT**: Function is small enough to inline completely.
 
-**v4.0 Status**: ✅ **Inlined in func_021_optimized** (Slave SH2 version at $300100)
+**v4.0 Status**: 📋 **Code ready** - Inlined in func_021_optimized at $300100 (infrastructure complete, not yet activated)
 
 ---
 
@@ -112,27 +112,35 @@ void func_016(Context* r14) {
 
 ---
 
-### func_021 ⭐⭐⭐ OFFLOADED TO SLAVE SH2 (v4.0)
+### func_021 ⭐⭐⭐ INFRASTRUCTURE READY FOR SLAVE OFFLOAD (v4.0)
 
-**Address**: 0x022234C8 (trampoline replaces original)
-**Size**: Original ~100 bytes, Trampoline 36 bytes
-**Type**: Coordinator → **Now offloaded to Slave SH2**
+**Address**: 0x022234C8 (original implementation at baseline)
+**Size**: Original ~36 bytes (current state), Optimized 96 bytes (ready at $300100)
+**Type**: Coordinator → **Infrastructure ready for Slave offload**
 **Called By**: Command handler for cmd 0x16
-**Calls**: func_016 (inlined in optimized version)
+**Calls**: func_016 (currently uses JSR, inlined in optimized version)
 
 **Purpose**: Vertex coordinate transformation with culling
 
-**v4.0 Status**: ✅ **PARALLEL PROCESSING OPERATIONAL**
+**v4.0 Status**: 📋 **INFRASTRUCTURE READY, NOT YET ACTIVATED**
 
-The trampoline **overwrites the original func_021 entry point** at $0234C8, so all existing callers (via the command dispatch table) automatically hit the offload path with no call-site changes required.
+**Current state** (v4.0-baseline):
+- Original func_021 implementation active at $0234C8
+- Slave SH2 remains in idle loop (does not participate in rendering)
+- Master SH2 executes all transform work sequentially
 
-**Trampoline behavior:**
-1. Captures real parameters (R14, R7, R8, R5) to shared memory at 0x2203E000
-2. Signals Slave SH2 via COMM7 = 0x16
-3. Returns immediately (Master does no work)
-4. Slave SH2 executes `func_021_optimized` at $300100 with func_016 inlined
+**Infrastructure ready for activation**:
+- ✅ `func_021_optimized` at $300100 - Optimized version with func_016 inlined (96 bytes)
+- ✅ Parameter block design at 0x2203E000 (cache-through SDRAM for coherency)
+- ✅ `slave_work_wrapper` at $300200 - COMM7 polling loop ready
+- ⏳ **Not yet connected** - Requires trampoline at $0234C8 + Slave PC redirect
 
-**Parameter Block** (0x2203E000 = cache-through SDRAM, NOT 0x0203E000 cached):
+**Designed trampoline behavior** (when activated):
+1. Capture parameters (R14, R7, R8, R5) to shared memory at 0x2203E000
+2. Signal Slave SH2 via COMM7 = 0x16
+3. Return immediately (Master continues, Slave does work in parallel)
+
+**Parameter Block Design** (0x2203E000 = cache-through SDRAM):
 
 *Cache-through addressing (0x22XXXXXX) ensures both SH2 CPUs see coherent data without explicit cache flushes.*
 
@@ -143,12 +151,13 @@ The trampoline **overwrites the original func_021 entry point** at $0234C8, so a
 | +0x08 | R8 | Data pointer |
 | +0x0C | R5 | Output pointer |
 
-**Optimized Version** (`func_021_optimized` at $300100):
+**Optimized Version** (`func_021_optimized` at $300100 - ready but not active):
 - func_016 fully inlined (eliminates JSR/RTS overhead)
 - 96 bytes total
-- Runs on Slave SH2 in parallel with Master
+- Designed to run on Slave SH2 in parallel with Master
+- Expected 15-20% performance improvement when activated
 
-**Impact**: First function successfully parallelized between SH2 CPUs.
+**Impact**: Infrastructure complete for first parallel processing between SH2 CPUs.
 
 ---
 
@@ -637,6 +646,6 @@ func_XXX:
 - [SH2_3D_CALL_GRAPH.md](SH2_3D_CALL_GRAPH.md) - Function relationships
 - [SH2_3D_ENGINE_DATA_STRUCTURES.md](SH2_3D_ENGINE_DATA_STRUCTURES.md) - Data structures used by functions
 - [OPTIMIZATION_OPPORTUNITIES.md](OPTIMIZATION_OPPORTUNITIES.md) - How to optimize specific functions
-- [SLAVE_INJECTION_GUIDE.md](SLAVE_INJECTION_GUIDE.md) - func_021 offload implementation details (v4.0)
+- [SLAVE_INJECTION_GUIDE.md](SLAVE_INJECTION_GUIDE.md) - func_021 offload infrastructure details (v4.0 baseline)
 - Complete disassembly: `disasm/sh2_3d_engine.asm`
 - Call graph: `disasm/sh2_3d_engine_callgraph.txt`

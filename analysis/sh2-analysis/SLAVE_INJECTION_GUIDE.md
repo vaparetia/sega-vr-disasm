@@ -1,24 +1,25 @@
 # Slave SH2 Integration Guide
 
-> **✅ STATUS UPDATE (2026-01-25):** Real vertex transform offload operational!
-> - Master SH2 dispatch hook skips COMM7 for cmd 0x16 (trampoline handles it)
-> - func_021 trampoline captures **real parameters** (R14, R7, R8, R5) to shared memory
-> - Slave SH2 reads real parameters, executes `func_021_optimized`
-> - **TRUE PARALLEL PROCESSING** - Master continues while Slave transforms vertices
+> **📋 STATUS UPDATE (2026-01-25):** Infrastructure complete, ready for activation!
+> - ✅ `func_021_optimized` ready at $300100 (96 bytes, func_016 inlined)
+> - ✅ `slave_work_wrapper` ready at $300200 (COMM7 polling loop)
+> - ✅ Parameter block design at 0x2203E000 (cache-through SDRAM)
+> - ⏳ **NOT YET ACTIVATED** - Requires trampoline connection + Slave PC redirect
+> - Current state: Tagged as `v4.0-baseline` - ROM identical to original
 >
-> **Architecture:**
+> **Designed Architecture** (when activated):
 > ```
 > Game calls func_021 → Trampoline captures R14/R7/R8/R5 → COMM7=0x16
 >                     → Master returns immediately (no work done)
 >                     → Slave picks up work, executes func_021_optimized
->                     → Both CPUs running in parallel!
+>                     → Both CPUs running in parallel! (15-20% expected speedup)
 > ```
 
 ## Overview
 
 This guide documents the Slave SH2 integration using the 4MB expansion ROM.
 
-## Current Implementation
+## Infrastructure Design (v4.0 Baseline)
 
 ### Architecture Diagram
 
@@ -265,19 +266,26 @@ Using emulator memory view:
 - Master writes dummy params, Slave reads them
 - func_021_optimized called with R7=0 (safe test)
 
-### Phase 4: Real Parameter Capture (2026-01-25) ✅ CURRENT
-- func_021 trampoline captures real R14/R7/R8/R5
-- Master returns immediately after signaling
-- Slave executes func_021_optimized with actual game data
-- **TRUE PARALLEL PROCESSING ACHIEVED**
+### Phase 4: Infrastructure Complete (2026-01-25) 📋 BASELINE
+- func_021 trampoline designed (not yet active)
+- Parameter capture design complete (cache-through SDRAM at 0x2203E000)
+- func_021_optimized ready at $300100 with func_016 inlined (96 bytes)
+- slave_work_wrapper ready at $300200 (COMM7 polling loop)
+- **INFRASTRUCTURE READY** - Not yet connected, awaiting activation experiment
 
-## Next Steps
+## Implementation Steps (For Activation)
 
-1. ~~Parameter passing infrastructure~~ ✅ Done!
-2. ~~Real parameter capture~~ ✅ Done!
-3. **Performance Testing**: Measure FPS improvement
-4. **Synchronization**: Ensure Slave completes before next frame
-5. **Load Balancing**: Split polygon workload between CPUs
+**Current state**: v4.0-baseline (infrastructure ready, not connected)
+
+1. ✅ **Infrastructure design** - All code ready in expansion ROM
+2. ✅ **Parameter block design** - Cache-through SDRAM at 0x2203E000
+3. ⏳ **Activation required**:
+   - Add trampoline at func_021 entry ($0234C8)
+   - Redirect Slave PC to $02300200 (slave_work_wrapper)
+   - Rebuild and test with metrics
+4. **Performance Testing**: Measure actual FPS improvement vs baseline
+5. **Synchronization**: Ensure Slave completes before results needed
+6. **Load Balancing**: Consider splitting polygon workload between CPUs
 
 ## Technical Notes
 
