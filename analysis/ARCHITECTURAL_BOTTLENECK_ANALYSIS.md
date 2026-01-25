@@ -180,14 +180,31 @@ With accurate frame-boundary detection, proper instrumentation, and architectura
 
 1. **Command Queue Buffering**: Pre-build next frame's command list while current frame renders
 2. **Async Submission**: Remove blocking wait, poll completion in main loop
-3. **Slave SH2 Utilization**: Partition polygon workload between Master/Slave
+3. **Slave SH2 Utilization**: Partition polygon workload between Master/Slave ✅ **In Progress**
 4. **Speculative Execution**: Allow 68K game logic to proceed during render
 
 ---
 
-*This analysis serves as a foundation for profiling, redesign, and experimental optimization of the 32X rendering pipeline.*
+## Implementation Progress (v4.0 - January 2026)
+
+**Slave SH2 parallelization is now operational:**
+
+- func_021 (vertex transform) offloaded to Slave SH2
+- Master returns immediately, Slave executes in parallel
+- Real parameters captured via shared memory at 0x2203E000 (cache-through SDRAM)
+- See [MASTER_SLAVE_ANALYSIS.md](architecture/MASTER_SLAVE_ANALYSIS.md) for details
+
+**Note on frame rate:** VR's rendering speed is highly variable (~15-30 FPS) depending on scene complexity. The "~20 FPS" figure is an average; actual frame time depends on polygon count, track geometry, and number of visible cars.
+
+---
+
+## Archived Analysis
+
+Earlier bottleneck analysis with specific VDP wait loop addresses archived to:
+- [_archive/BOTTLENECK_ANALYSIS_v1.md](_archive/BOTTLENECK_ANALYSIS_v1.md)
 
 ---
 
 *Generated: January 2026*
-*Status: Architectural analysis complete*
+*Updated: January 25, 2026 (v4.0 parallel processing milestone)*
+*Status: Architectural analysis complete, Slave SH2 optimization in progress*
