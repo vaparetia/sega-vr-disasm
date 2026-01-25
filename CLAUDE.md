@@ -2,6 +2,32 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Current Development Status
+
+**Phase:** Assembly-focused Slave SH2 integration
+**Approach:** Full ROM rebuild from disassembly (NOT code injection)
+**Build:** `make all` produces complete 4MB ROM
+
+### What's Working
+- 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
+- Expansion section contains SH2 code (handler at 0x300028, func_021_optimized at 0x300100)
+- PicoDrive SH2 reset vectors fixed (reads from 32X header at 0x3E0+)
+
+### Current Focus
+Moving 3D pipeline functions to expansion ROM for future Slave execution:
+- `func_021_optimized` (coordinate transform + cull with func_016 inlined) - in expansion ROM
+- Handler infrastructure at 0x300028 - ready for COMM signaling
+
+### Abandoned Approaches
+**Code injection via `phase11_rom_patcher.py` reached its limits:**
+- Hook bytecode conflicts with existing 68K code at ROM boundaries
+- PC-relative displacement calculations fragile across versions
+- Cannot safely expand hooks without breaking surrounding code
+
+**Current workflow:** Modify disassembly sources in `disasm/sections/`, rebuild with `make all`.
+
+---
+
 ## Core Development Principles
 
 ### DRY (Don't Repeat Yourself) - STRICTLY ENFORCED

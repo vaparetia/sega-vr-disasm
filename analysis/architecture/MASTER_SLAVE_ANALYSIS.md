@@ -12,8 +12,9 @@
 |------|---------|--------|------------|
 | 2026-01-06 | v1.0 | Initial | Static analysis identified Slave idle loop |
 | 2026-01-20 | v1.1 | Blocked | Discovered PicoDrive Slave boot failure |
-| 2026-01-22 | **v2.3** | **BYPASS ACHIEVED** | Phase 11-13: Hook injection bypasses boot issue |
-| 2026-01-23 | v2.4 | Current | Document reconciled with validated state |
+| 2026-01-22 | v2.3 | Bypass attempted | Phase 11-13: Hook injection approach |
+| 2026-01-23 | v2.4 | Injection limits | Hook injection hit space/alignment constraints |
+| 2026-01-24 | **v3.0** | **ASSEMBLY APPROACH** | Switched to full assembly build with 4MB expansion |
 
 ---
 
@@ -22,19 +23,30 @@
 ### Original Finding (v1.0)
 The Slave SH2 CPU is largely IDLE during 3D rendering. The Master SH2 performs the vast majority of rendering work while the Slave sits in an infinite loop waiting for commands that rarely come.
 
-### Current Status (v2.3+)
-**The boot issue has been BYPASSED.** Phase 11-13 implemented a 44-byte hook that intercepts the Slave's running idle loop and redirects it to expansion ROM handlers. Frame-perfect Master→Slave synchronization is now validated and production-ready.
+### Current Status (v3.0)
+**Approach changed from code injection to full assembly build.**
 
-**Why the bypass works:** The Slave eventually falls into an idle polling loop (at SDRAM 0x06000596) regardless of incorrect reset vector handling. The hook intercepts this loop without needing to fix the reset vector path itself.
+The hook injection approach (Phase 11-13) reached its limits due to:
+- ROM space constraints at injection points (68K code boundaries)
+- Fragile PC-relative displacement calculations
+- Inability to safely expand hooks without breaking surrounding code
 
-**Important distinction:** This is a hook injection into an observed idle loop in PicoDrive, not a fix to SH2 reset vector logic. The underlying emulator bug remains.
+**New approach:**
+1. Build complete 4MB ROM from disassembly sources (`make all`)
+2. Use 1MB expansion space ($300000-$3FFFFF) for new SH2 code
+3. Relocate 3D pipeline functions to expansion ROM
+4. Modify original code to call relocated functions
 
-| Aspect | Before v2.3 | After v2.3 |
+**What's in expansion ROM:**
+- Handler at 0x300028 (COMM4 incrementer, ready for work dispatch)
+- `func_021_optimized` at 0x300100 (coordinate transform + cull with func_016 inlined)
+
+| Aspect | Before v3.0 | After v3.0 |
 |--------|-------------|------------|
-| Slave sync | ❌ Blocked (boot failure) | ✅ Working (hook bypass) |
-| COMM protocol | ❓ Theoretical | ✅ Validated (COMM6/COMM4) |
-| Frame sync | ❓ Untested | ✅ 3,600-frame stress test passed |
-| Next step | Fix PicoDrive | Implement workload distribution |
+| Build approach | Code injection (patcher) | Full assembly (`make all`) |
+| Expansion space | Unused | 1MB active ($300000-$3FFFFF) |
+| Code relocation | N/A | func_021 in expansion ROM |
+| Next step | Debug hook injection | Integrate relocated functions
 
 ---
 

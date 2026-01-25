@@ -446,6 +446,46 @@ inline_code:
 
 ---
 
+## ❌ ABANDONED: Phase 11 Code Injection (January 24, 2026)
+
+### Summary
+
+The code injection approach using `phase11_rom_patcher.py` reached its limits and was abandoned in favor of full assembly build.
+
+### What We Tried
+
+Inject hook bytecode at ROM offset 0x596 to intercept Slave SH2 idle polling and redirect to expansion ROM handler.
+
+### Why It Failed
+
+1. **ROM space conflicts**: The injection point (0x596) contains "ROM Version 1.0" string (16 bytes), immediately followed by a 68K function at 0x5A6. Our hook bytecode extended into the 68K function.
+
+2. **PC-relative fragility**: SH2 MOV.L @(disp,PC) requires careful alignment. Multiple versions (v4, v5, v6) had displacement calculation errors.
+
+3. **Literal pool alignment**: 4-byte alignment requirements conflicted with available space between existing code.
+
+4. **Debugging difficulty**: Hand-encoding bytecode is error-prone; each iteration required manual verification.
+
+### Lesson Learned
+
+**Code injection works for small, isolated patches but doesn't scale.**
+
+For significant code changes:
+- Use full assembly build (`make all`)
+- Modify disassembly sources directly
+- Let the assembler handle opcode encoding and alignment
+- Test with complete rebuild, not incremental patches
+
+### Correct Approach (Current)
+
+Instead of patching existing ROM, we now:
+1. Edit `disasm/sections/` assembly files
+2. Add new code to `expansion_300000.asm`
+3. Build complete ROM with `make all`
+4. Test rebuilt ROM in PicoDrive
+
+---
+
 ## Historical Note
 
 This failed optimization attempt is **valuable documentation** for the community:
@@ -459,5 +499,5 @@ This failed optimization attempt is **valuable documentation** for the community
 ---
 
 **Status**: Documented and understood
-**Lesson**: Always verify ROM structure before attempting code expansion
-**Next**: Focus on proven, lower-risk optimizations
+**Lesson**: Always verify ROM structure before attempting code expansion; prefer full assembly build over injection
+**Next**: Continue moving functions to expansion ROM via assembly

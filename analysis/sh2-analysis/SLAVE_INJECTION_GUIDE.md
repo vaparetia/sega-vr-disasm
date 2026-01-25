@@ -1,18 +1,26 @@
 # Slave SH2 Work Check Injection Guide
 
+> **⚠️ STATUS UPDATE (2026-01-24):** The code injection approach documented here reached its limits.
+> We now use **full assembly build** (`make all`) with the 4MB expansion ROM.
+> The expansion ROM function locations and COMM protocol sections remain accurate.
+> The "Injection Strategies" and "Code Gaps" sections are historical reference only.
+
 ## Overview
 
-This guide documents safe injection points for activating the Slave SH2 CPU with work checking capabilities.
+This guide documents the expansion ROM layout and COMM protocol for Slave SH2 integration.
 
 ## Expansion ROM Functions
 
-All work check functions are located in expansion ROM at `$300000-$30FFFF` (SH2 addresses `0x06300000-0x0630FFFF`):
+All functions are in expansion ROM at `$300000-$3FFFFF` (SH2 addresses `0x02300000-0x023FFFFF`):
 
 | Function | ROM Address | SH2 Address | Size | Purpose |
 |----------|-------------|-------------|------|---------|
-| `slave_work_check` | `$300000` | `0x06300000` | 28 bytes | Standalone work check (COMM4→COMM2) |
-| `master_dispatch_work` | `$300028` | `0x06300028` | 16 bytes | Master signals work via COMM4 |
-| `slave_idle_wrapper` | `$300038` | `0x06300038` | 48 bytes | Complete idle loop replacement |
+| (padding) | `$300000` | `0x02300000` | 40 bytes | Reserved/padding |
+| `handler_frame_sync` | `$300028` | `0x02300028` | 22 bytes | COMM4 incrementer (frame sync handler) |
+| (padding) | `$30003E` | `0x0230003E` | ~194 bytes | Reserved for future handlers |
+| `func_021_optimized` | `$300100` | `0x02300100` | ~96 bytes | Coordinate transform + cull (func_016 inlined) |
+
+**Source:** [disasm/sections/expansion_300000.asm](../../disasm/sections/expansion_300000.asm)
 
 ## Available Code Gaps in Slave ROM
 
