@@ -2,6 +2,7 @@
 
 **Virtua Racing Deluxe - Complete Function Catalog**
 **Analysis Date**: January 6, 2026
+**Updated**: January 25, 2026 (v4.0 parallel processing)
 
 ---
 
@@ -65,6 +66,8 @@ void func_016(Context* r14) {
 
 **OPT**: Function is small enough to inline completely.
 
+**v4.0 Status**: ✅ **Inlined in func_021_optimized** (Slave SH2 version at $300100)
+
 ---
 
 ### func_065 ⭐⭐⭐ HOTTEST
@@ -106,6 +109,41 @@ void func_016(Context* r14) {
 **Optimization**: Consider iteration instead of recursion to reduce stack overhead.
 
 **OPT**: Stack frames add 4-6 cycles per recursion level.
+
+---
+
+### func_021 ⭐⭐⭐ OFFLOADED TO SLAVE SH2 (v4.0)
+
+**Address**: 0x022234C8 (trampoline replaces original)
+**Size**: Original ~100 bytes, Trampoline 36 bytes
+**Type**: Coordinator → **Now offloaded to Slave SH2**
+**Called By**: Command handler for cmd 0x16
+**Calls**: func_016 (inlined in optimized version)
+
+**Purpose**: Vertex coordinate transformation with culling
+
+**v4.0 Status**: ✅ **PARALLEL PROCESSING OPERATIONAL**
+
+The original func_021 has been replaced with a trampoline at $0234C8 that:
+1. Captures real parameters (R14, R7, R8, R5) to shared memory at 0x2203E000
+2. Signals Slave SH2 via COMM7 = 0x16
+3. Returns immediately (Master does no work)
+4. Slave SH2 executes `func_021_optimized` at $300100 with func_016 inlined
+
+**Parameter Block** (0x2203E000, cache-through SDRAM):
+| Offset | Register | Purpose |
+|--------|----------|---------|
+| +0x00 | R14 | RenderingContext pointer |
+| +0x04 | R7 | Loop counter (polygon count) |
+| +0x08 | R8 | Data pointer |
+| +0x0C | R5 | Output pointer |
+
+**Optimized Version** (`func_021_optimized` at $300100):
+- func_016 fully inlined (eliminates JSR/RTS overhead)
+- 96 bytes total
+- Runs on Slave SH2 in parallel with Master
+
+**Impact**: First function successfully parallelized between SH2 CPUs.
 
 ---
 
@@ -466,26 +504,27 @@ func_001
 
 | Rank | Function | Address | Size | Type | Purpose | Priority |
 |------|----------|---------|------|------|---------|----------|
-| 1 | func_016 | 0x0222335A | 44 B | Leaf | Coord transform ⭐⭐⭐ | Critical |
-| 2 | func_065 | 0x02223F2C | 150 B | Leaf | Rasterization ⭐⭐⭐ | Critical |
-| 3 | func_020 | 0x02223468 | 86 B | Coord | Recursive polygon ⭐⭐ | High |
-| 4 | func_006 | 0x02223114 | 98 B | Leaf | MAC.L transform | High |
-| 5 | func_008 | 0x022231A2 | 66 B | Leaf | MAC.L transform | High |
-| 6 | func_001 | 0x0222301C | 74 B | Coord | Main coordinator | High |
-| 7 | func_005 | 0x022230E6 | 46 B | Coord | Transform setup | Medium |
-| 8 | func_007 | 0x02223176 | 44 B | Coord | Transform setup | Medium |
-| 9 | func_018 | 0x022233A2 | 106 B | Coord | Polygon batch | Medium |
-| 10 | func_019 | 0x0222340C | 92 B | Coord | Polygon batch | Medium |
-| 11 | func_009 | 0x022231E4 | 30 B | Leaf | Result packing | Medium |
-| 12 | func_012 | 0x02223268 | 92 B | Coord | Matrix processor | Medium |
-| 13 | func_023 | 0x02223500 | ?? B | ?? | Polygon helper | Medium |
-| 14 | 0x02224084 | 0x02224084 | 60 B | Leaf | Hardware init | Low |
-| 15 | 0x02224000 | 0x02224000 | 90 B | Leaf | Data unpacker | Low |
-| 16 | func_011 | 0x0222321C | 76 B | Coord | Matrix loop | Low |
-| 17 | func_002 | 0x02223066 | 102 B | Coord | Init coordinator | Low |
-| 18 | func_010 | 0x02223202 | 26 B | Leaf | Result packing | Low |
-| 19 | func_000 | 0x0222300A | 18 B | Leaf | Data copy | Low |
-| 20 | func_017 | 0x02223388 | 26 B | Coord | Helper | Low |
+| 1 | **func_021** | 0x022234C8 | 36 B | Offload | **Vertex transform ✅ PARALLELIZED** | ✅ Done |
+| 2 | func_016 | 0x0222335A | 44 B | Leaf | Coord transform (inlined in func_021_optimized) | ✅ Done |
+| 3 | func_065 | 0x02223F2C | 150 B | Leaf | Rasterization ⭐⭐⭐ | Critical |
+| 4 | func_020 | 0x02223468 | 86 B | Coord | Recursive polygon ⭐⭐ | High |
+| 5 | func_006 | 0x02223114 | 98 B | Leaf | MAC.L transform | High |
+| 6 | func_008 | 0x022231A2 | 66 B | Leaf | MAC.L transform | High |
+| 7 | func_001 | 0x0222301C | 74 B | Coord | Main coordinator | High |
+| 8 | func_005 | 0x022230E6 | 46 B | Coord | Transform setup | Medium |
+| 9 | func_007 | 0x02223176 | 44 B | Coord | Transform setup | Medium |
+| 10 | func_018 | 0x022233A2 | 106 B | Coord | Polygon batch | Medium |
+| 11 | func_019 | 0x0222340C | 92 B | Coord | Polygon batch | Medium |
+| 12 | func_009 | 0x022231E4 | 30 B | Leaf | Result packing | Medium |
+| 13 | func_012 | 0x02223268 | 92 B | Coord | Matrix processor | Medium |
+| 14 | func_023 | 0x02223500 | ?? B | ?? | Polygon helper | Medium |
+| 15 | 0x02224084 | 0x02224084 | 60 B | Leaf | Hardware init | Low |
+| 16 | 0x02224000 | 0x02224000 | 90 B | Leaf | Data unpacker | Low |
+| 17 | func_011 | 0x0222321C | 76 B | Coord | Matrix loop | Low |
+| 18 | func_002 | 0x02223066 | 102 B | Coord | Init coordinator | Low |
+| 19 | func_010 | 0x02223202 | 26 B | Leaf | Result packing | Low |
+| 20 | func_000 | 0x0222300A | 18 B | Leaf | Data copy | Low |
+| 21 | func_017 | 0x02223388 | 26 B | Coord | Helper | Low |
 
 ---
 
@@ -593,5 +632,6 @@ func_XXX:
 - [SH2_3D_CALL_GRAPH.md](SH2_3D_CALL_GRAPH.md) - Function relationships
 - [SH2_3D_ENGINE_DATA_STRUCTURES.md](SH2_3D_ENGINE_DATA_STRUCTURES.md) - Data structures used by functions
 - [OPTIMIZATION_OPPORTUNITIES.md](OPTIMIZATION_OPPORTUNITIES.md) - How to optimize specific functions
+- [SLAVE_INJECTION_GUIDE.md](SLAVE_INJECTION_GUIDE.md) - func_021 offload implementation details (v4.0)
 - Complete disassembly: `disasm/sh2_3d_engine.asm`
 - Call graph: `disasm/sh2_3d_engine_callgraph.txt`
