@@ -189,12 +189,15 @@ With accurate frame-boundary detection, proper instrumentation, and architectura
 
 ## Implementation Progress (v4.0 - January 2026)
 
-**Slave SH2 parallelization is now operational:**
+**Slave SH2 parallelization infrastructure complete (baseline tag: `v4.0-baseline`):**
 
-- func_021 (vertex transform) offloaded to Slave SH2
-- Master returns immediately, Slave executes in parallel
-- Real parameters captured via shared memory at 0x2203E000 (cache-through SDRAM)
+- ✅ **Infrastructure ready**: `func_021_optimized` at $300100, `slave_work_wrapper` at $300200
+- ✅ **Expansion ROM**: 1MB area at $300000-$3FFFFF with optimized code
+- ✅ **Parameter design**: Shared memory at 0x2203E000 (cache-through SDRAM for coherency)
+- ⏳ **Not yet activated**: Current ROM uses original func_021, Slave remains idle
 - See [MASTER_SLAVE_ANALYSIS.md](architecture/MASTER_SLAVE_ANALYSIS.md) for details
+
+**Next step**: Activate parallel processing by connecting infrastructure (Slave PC redirect + func_021 trampoline).
 
 **Note on frame rate:** VR's rendering speed is highly variable (~15-30 FPS) depending on scene complexity. The "~20 FPS" figure is an average; actual frame time depends on polygon count, track geometry, and number of visible cars.
 
@@ -208,5 +211,5 @@ Earlier bottleneck analysis with specific VDP wait loop addresses archived to:
 ---
 
 *Generated: January 2026*
-*Updated: January 25, 2026 (v4.0 parallel processing milestone)*
-*Status: Architectural analysis complete, Slave SH2 vertex transform offload operational*
+*Updated: January 25, 2026 (v4.0 baseline established)*
+*Status: Architectural analysis complete, Slave SH2 infrastructure ready for activation*
