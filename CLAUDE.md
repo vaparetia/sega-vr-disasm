@@ -4,26 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Current Development Status
 
-**Phase:** Slave SH2 activated, awaiting Master integration
+**Phase:** Slave SH2 activated with "proof of life" - awaiting frame sync mechanism
 **Approach:** Full ROM rebuild from disassembly (NOT code injection)
 **Build:** `make all` produces complete 4MB ROM
 
 ### What's Working
 - 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
-- **Slave SH2 activated**: Now runs `slave_work_wrapper` at $300200 instead of idle loop
-- Slave polls COMM6 for work signals, increments COMM4 when signaled
+- **Slave SH2 activated**: Runs `slave_work_wrapper` at $300200 instead of idle loop
+- **Proof of life**: Slave continuously increments COMM4 (`0x20004028`)
 - Expansion ROM contains: handler at $300028, func_021_optimized at $300100, slave_work_wrapper at $300200
 
 ### Slave Activation Details
 - **Original idle loop** at $0203CC: wrote to COMM3, looped forever
 - **Modified** to: JMP $02300200 (slave_work_wrapper in expansion ROM)
-- **Protocol**: Master writes to COMM6 → Slave increments COMM4 → Slave clears COMM6
+- **Current behavior**: Tight loop incrementing COMM4 (proof Slave executes our code)
 
-### Next Step: Master Integration
-Find Master's rendering loop and add COMM6 write to trigger Slave work.
+### Next Step: Frame Synchronization
+Find a way to signal the Slave once per frame. Options:
+1. Master SH2 writes to COMM6 in its frame loop
+2. Find alternate 68K injection point with sufficient space
+3. Hook SH2 V-INT handler
 
 ### Abandoned Approaches
-**Code injection via `phase11_rom_patcher.py` reached its limits.**
+- **Code injection via `phase11_rom_patcher.py`**: Reached space/alignment limits
+- **68K V-INT hook**: BSR.W to $162D0 from $16A2 exceeded ±32KB range (actual distance: 85KB)
 
 **Current workflow:** Modify disassembly sources in `disasm/sections/`, rebuild with `make all`.
 

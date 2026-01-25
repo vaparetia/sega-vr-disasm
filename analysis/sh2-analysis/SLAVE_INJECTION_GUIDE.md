@@ -1,8 +1,9 @@
 # Slave SH2 Integration Guide
 
-> **✅ STATUS UPDATE (2026-01-24):** Slave SH2 activation implemented using full assembly build.
-> The Slave now runs `slave_work_wrapper` which polls COMM6 for work signals.
+> **✅ STATUS UPDATE (2026-01-24):** Slave SH2 activated with "proof of life" implementation.
+> The Slave now runs `slave_work_wrapper` which continuously increments COMM4.
 > Original idle loop at `$0203CC` redirected to expansion ROM.
+> Frame synchronization pending (68K V-INT approach failed due to BSR range limits).
 
 ## Overview
 
@@ -15,10 +16,21 @@ This guide documents the Slave SH2 integration using the 4MB expansion ROM.
 ```
 Original:                          Now:
 $0203CC: Write COMM3              $0203CC: JMP $02300200
-$0203D0: BRA self (infinite)      slave_work_wrapper polls COMM6
+$0203D0: BRA self (infinite)      slave_work_wrapper increments COMM4
 ```
 
-### Protocol
+### Current Mode: Proof of Life
+
+The Slave continuously increments COMM4 to demonstrate it's running our code:
+
+1. **Slave** reads COMM4 (`0x20004028`)
+2. **Slave** increments value
+3. **Slave** writes back to COMM4
+4. **Repeat** (tight loop)
+
+### Future: Frame-Synchronized Protocol
+
+Once a signaling mechanism is implemented:
 
 1. **Master** writes non-zero value to COMM6 (`0x20004038`)
 2. **Slave** detects signal in `slave_work_wrapper`
@@ -44,6 +56,25 @@ All functions in expansion ROM at `$300000-$3FFFFF` (SH2: `0x02300000-0x023FFFFF
 ## Slave Work Wrapper
 
 Located at `$300200` (SH2 address `0x02300200`):
+
+### Current: Proof of Life (Continuous Increment)
+
+```asm
+slave_work_wrapper:
+    mov.l   @(8,PC),r1            ; Load COMM4 address
+.loop:
+    mov.w   @r1,r0                ; Read COMM4
+    add     #1,r0                 ; Increment
+    mov.w   r0,@r1                ; Write COMM4
+    bra     .loop                 ; Repeat forever
+    nop
+; Literal pool:
+    .long   0x20004028            ; COMM4 address
+```
+
+**Bytecode:** `D102 6101 7001 2011 AFFA 0009 2000 4028`
+
+### Future: COMM6-Triggered (Frame Sync)
 
 ```asm
 slave_work_wrapper:
@@ -113,26 +144,39 @@ make all
 xxd -s 0x0203CC -l 12 build/vr_rebuild.32x
 # Expected: d001 402b 0009 0009 0230 0200
 
-# Verify slave_work_wrapper at expansion ROM
-xxd -s 0x300200 -l 32 build/vr_rebuild.32x
-# Expected: d105 6101 2008 89fc d204 6201 7001 2021...
+# Verify slave_work_wrapper at expansion ROM (proof of life version)
+xxd -s 0x300200 -l 16 build/vr_rebuild.32x
+# Expected: d102 6101 7001 2011 affa 0009 2000 4028
 
 # Boot in PicoDrive
 picodrive build/vr_rebuild.32x
 ```
 
-### Test COMM Communication
+### Verify COMM4 Incrementing
 
-To test the Slave responds:
-1. Master writes non-zero to COMM6
-2. Slave increments COMM4 and clears COMM6
-3. Monitor COMM4 for increments
+COMM4 at `0x20004028` should be rapidly incrementing. Use emulator memory view or debugger to observe.
+
+## Failed Approaches
+
+### 68K V-INT Hook (Abandoned)
+
+**Attempted:** Add COMM6 write to 68K V-INT handler at `$001684`
+
+**Problem:** V-INT handler at `$0016A2` needed to BSR to wrapper at `$0162D0`, but:
+- Distance: 85,038 bytes (0x14C2E)
+- BSR.W range: ±32,767 bytes
+- No padding within BSR range for wrapper placement
+
+**Result:** BSR displacement overflow caused jump to wrong address → blank screen
 
 ## Next Steps
 
-1. **Master Integration**: Find Master rendering loop, add COMM6 write
-2. **Work Dispatch**: Extend `slave_work_wrapper` to call functions based on signal value
-3. **Performance Testing**: Measure FPS improvement with Slave doing work
+1. **Frame Sync Signal**: Find alternative signaling mechanism
+   - Option A: Master SH2 writes to COMM6 in its frame loop
+   - Option B: Find 68K injection point with more space
+   - Option C: Use SH2 V-INT handler
+2. **Work Dispatch**: Once sync works, extend wrapper to dispatch based on signal value
+3. **Performance Testing**: Measure FPS improvement with Slave doing vertex transforms
 
 ## Notes
 

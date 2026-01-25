@@ -312,22 +312,34 @@ The transform code uses addresses like 0xC0000740, 0xC0000760. This is NOT a sta
 
 ## 🛠 Implementation Roadmap
 
-### ✅ Phase 11-13: Foundation (COMPLETE)
-- ✅ Slave hook mechanism (44 bytes at SDRAM 0x06000596)
-- ✅ Expansion ROM handler (16 bytes at 0x02300027)
+### ✅ Phase 11-13: Foundation (COMPLETE - Superseded)
+- ✅ Slave hook mechanism via SDRAM injection
+- ✅ Expansion ROM handler
 - ✅ COMM6/COMM4 protocol validated
-- ✅ 3,600-frame stress test passed
+- ⚠️ **Superseded by full assembly approach (v3.0)**
 
-### 🔬 Phase 15+: Vertex Transform Offload (NEXT)
-1. Implement cache-through staging buffer at 0x22000200
-2. Copy vertex subset to staging before signal
-3. Slave transforms using proven matrix code
-4. Validate results match Master-only transforms
-5. Measure actual performance impact
+### ✅ Phase v3.0: Full Assembly Build (COMPLETE)
+- ✅ 4MB ROM builds from disassembly sources (`make all`)
+- ✅ 1MB expansion ROM space at $300000-$3FFFFF
+- ✅ Slave idle loop redirected: $0203CC → JMP $02300200
+- ✅ `slave_work_wrapper` executes in expansion ROM
+- ✅ "Proof of life": Slave continuously increments COMM4
+- ⏳ **Pending**: Frame synchronization signal
+
+### ⚠️ Failed: 68K V-INT Hook
+- Attempted: BSR.W from $16A2 to wrapper at $162D0
+- Problem: Distance 85KB exceeds BSR.W ±32KB range
+- Result: Abandoned, need alternative signaling approach
+
+### 🔬 Next: Frame Synchronization
+Options being explored:
+1. Master SH2 writes COMM6 in its frame loop
+2. Alternative 68K injection point
+3. SH2 V-INT handler hook
 
 ### 📋 Future Phases
+- Vertex transform offload with cache-through staging
 - Parallel polygon processing
-- Lighting offload
 - Pipeline optimization (frame N+1 pre-computation)
 
 ---
@@ -340,13 +352,15 @@ The transform code uses addresses like 0xC0000740, 0xC0000760. This is NOT a sta
 ### Progress Made
 1. **v1.0**: Identified the problem (Slave idle, Master overloaded)
 2. **v1.1**: Hit blocker (PicoDrive boot failure)
-3. **v2.3**: **Bypassed blocker** with hook injection
-4. **Current**: Ready for workload distribution implementation
+3. **v2.3**: Bypassed blocker with hook injection
+4. **v3.0**: **Full assembly build** with 4MB ROM
+5. **Current**: Slave executes expansion ROM code ("proof of life")
 
 ### Why This Matters
 - First time Virtua Racing's CPU usage has been analyzed in 30+ years
 - Clear path to +15-50% performance improvement
-- v2.3 proves the synchronization mechanism works
+- Slave SH2 now running custom code from expansion ROM
+- Foundation ready for actual work offload
 - Techniques applicable to other 32X games
 
 ---
@@ -373,8 +387,9 @@ The transform code uses addresses like 0xC0000740, 0xC0000760. This is NOT a sta
 
 ---
 
-**Status**: Foundation complete (v2.3), ready for workload distribution
-**Next Phase**: Vertex transform offload with cache-through staging
+**Status**: Slave activated (v3.0), awaiting frame sync mechanism
+**Current**: "Proof of life" - Slave increments COMM4 continuously
+**Next Phase**: Implement frame synchronization, then vertex transform offload
 **Estimated gain**: +15-50% performance (theoretical, depends on cache behavior)
 **Risk**: Medium (cache coherency requires careful handling)
 **Reward**: HIGH - largest optimization opportunity identified
@@ -383,5 +398,6 @@ The transform code uses addresses like 0xC0000740, 0xC0000760. This is NOT a sta
 
 **Original Discovery**: January 6, 2026
 **v2.3 Bypass Achieved**: January 22, 2026
-**Document Updated**: January 23, 2026
-**Validated**: Yes (v2.3 protocol stress-tested)
+**v3.0 Assembly Build**: January 24, 2026
+**Document Updated**: January 24, 2026
+**Validated**: Slave executes expansion ROM code (COMM4 increments)

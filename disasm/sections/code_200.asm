@@ -2647,7 +2647,7 @@
         dc.w    $227B        ; $00169C
         dc.w    $0014        ; $00169E
         dc.w    $4E91        ; $0016A0
-        dc.w    $52B8        ; $0016A2 - ADDQ.L #1,($C964) - frame counter++
+        dc.w    $52B8        ; $0016A2 - ADDQ.L #1,($C964).W (frame counter++)
         dc.w    $C964        ; $0016A4
         dc.w    $4CDF        ; $0016A6 - MOVEM.L (SP)+,D0-D7/A0-A6 (CRITICAL!)
         dc.w    $7FFF        ; $0016A8

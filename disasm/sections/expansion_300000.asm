@@ -79,40 +79,23 @@ func_021_optimized:
 ; ============================================================================
 ; SLAVE WORK WRAPPER: 0x300200 (SH2 address: 0x02300200)
 ; ============================================================================
-; This is the new Slave SH2 main loop. Instead of sitting idle, the Slave
-; now polls COMM6 for work signals and responds by incrementing COMM4.
+; Slave SH2 main loop - continuously increments COMM4 as "proof of life"
+; This demonstrates the Slave is running and executing our code.
 ;
-; Protocol:
-;   1. Master writes non-zero value to COMM6
-;   2. Slave detects signal, increments COMM4
-;   3. Slave clears COMM6
-;   4. Master can detect completion by reading COMM4
-;
-; Future: Add work dispatch based on COMM6 signal value
-;   0x0012 = Frame sync (just increment counter)
-;   0x0016 = Call func_021_optimized for vertex transforms
+; Later: Add COMM6 polling for frame-synchronized work dispatch
 ;
 slave_work_wrapper:
-        dc.w    $D105           ; MOV.L @(20,PC),R1 - load COMM6 addr (EA=0x300218)
-.poll_loop:
-        dc.w    $6101           ; MOV.W @R1,R0 - read COMM6 (16-bit)
-        dc.w    $2008           ; TST R0,R0 - test if zero
-        dc.w    $89FC           ; BT .poll_loop - branch if zero (no work)
-        ; Work signal received
-        dc.w    $D204           ; MOV.L @(16,PC),R2 - load COMM4 addr (EA=0x30021C)
-        dc.w    $6201           ; MOV.W @R2,R0 - read COMM4
-        dc.w    $7001           ; ADD #1,R0 - increment
-        dc.w    $2021           ; MOV.W R0,@R2 - write COMM4
-        ; Clear work signal
-        dc.w    $E000           ; MOV #0,R0
-        dc.w    $2011           ; MOV.W R0,@R1 - clear COMM6
-        dc.w    $AFF5           ; BRA .poll_loop - continue polling
-        dc.w    $0009           ; NOP (delay slot)
-; Literal pool (4-byte aligned at 0x300218)
-        dc.l    $20004038       ; COMM6 address
+        dc.w    $D102           ; $300200: MOV.L @(8,PC),R1 - load COMM4 addr
+.loop:
+        dc.w    $6101           ; $300202: MOV.W @R1,R0 - read COMM4
+        dc.w    $7001           ; $300204: ADD #1,R0 - increment
+        dc.w    $2011           ; $300206: MOV.W R0,@R1 - write COMM4
+        dc.w    $AFFA           ; $300208: BRA .loop (-6)
+        dc.w    $0009           ; $30020A: NOP (delay slot)
+; Literal pool (4-byte aligned at 0x30020C)
         dc.l    $20004028       ; COMM4 address
 
 ; ============================================================================
 ; REMAINING EXPANSION ROM SPACE
 ; ============================================================================
-        dcb.b   ($100000 - $220), $FF
+        dcb.b   ($100000 - $210), $FF
