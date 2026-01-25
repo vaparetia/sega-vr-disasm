@@ -147,38 +147,76 @@ Automated testing captured only menu/attract mode behavior. Actual performance t
 
 ---
 
-## Critical Finding: Custom PicoDrive Issues
+## Critical Finding: Custom PicoDrive Memory Mapping Fixed
 
-### Problem
+### Original Problem (RESOLVED)
 
-The custom PicoDrive build (`third_party/picodrive/`) has memory mapping issues:
+The custom PicoDrive build had three critical memory mapping bugs:
 
-- **v4.0 ROM**: Slave stuck at PC=0x06000596 (original idle loop)
-- **Expected**: Slave should be at PC=0x02300200 (expansion ROM slave_work_wrapper)
-- **Cause**: 4MB ROM / expansion area ($300000-$3FFFFF) not properly mapped
+1. **IDL copy target**: Wrote to ROM instead of SDRAM (32x.c:195)
+2. **Memory mapping**: 0x06/0x26 mapped to ROM instead of SDRAM (memory.c:2361-2493)
+3. **Stack pointer**: 0x260FFFF0 beyond 256KB SDRAM boundary (32x.c:174,177)
 
 **Evidence**:
 ```
 SSH2<-COMM2 #820001] reg=0x0000 PC=06000596  ← Stuck in original loop
 ```
 
-The Slave never reaches our modified code at $300200.
+### Patch Applied (January 25, 2026)
 
-### Solution
+**Files Modified**:
+- `third_party/picodrive/pico/32x/32x.c`: Fixed stack pointer, IDL copy now writes to SDRAM
+- `third_party/picodrive/pico/32x/memory.c`: Mapped 0x06/0x22/0x26 to SDRAM (cached/cache-through)
 
-Use **system PicoDrive** (`/usr/local/bin/picodrive`) for testing:
-- Both ROMs confirmed working perfectly
-- 3D attract mode displays correctly
-- Full gameplay operational
+**Result**: Custom PicoDrive now properly emulates 4MB ROMs with correct SDRAM mapping.
 
-**Trade-off**: System PicoDrive has no debug output, so COMM register monitoring unavailable.
+---
+
+## New Finding: v4.0 ROM Slave Initialization Issue
+
+### Problem
+
+Even with fixed PicoDrive, v4.0 ROM Slave remains stuck at PC=0x06000596:
+
+- **Current Behavior**: Slave initializes to PC=0x06000288 (original SDRAM code)
+- **Expected Behavior**: Slave should initialize to PC=0x02300200 (expansion ROM slave_work_wrapper)
+- **Root Cause**: ROM initialization code never redirects Slave to expansion area
+
+**Evidence from Patched PicoDrive**:
+```
+[IDL] Copying 0xC000 bytes from ROM 0x020000 to SDRAM 0x000000  ✓ SDRAM!
+[INIT] Slave SH2: PC=0x06000288 SP=0x0603FFF0 VBR=0x06000140  ✗ Wrong PC!
+[SSH2<-COMM2 #1] reg=0x0000 PC=0600058A
+[SSH2<-COMM2 #2] reg=0x0000 PC=06000596  ← Stuck in original idle loop
+```
+
+### Solution Required
+
+**Modify v4.0 ROM**: Change Slave initialization to set PC=0x02300200
+
+The expansion ROM infrastructure is complete:
+- ✅ `slave_work_wrapper` at 0x02300200 polls COMM7
+- ✅ `slave_test_func` at 0x02300280 reads parameters from 0x2203E000
+- ✅ `func_021_optimized` at 0x02300100 executes transform
+
+Missing piece: **Redirect Slave to expansion ROM at boot**
 
 ## Next Steps
 
-1. **Manual Testing**: Load both ROMs in system PicoDrive and race
-2. **Visual Verification**: Confirm v4.0 ROM plays correctly
-3. **Performance Metrics**: Compare perceived FPS during heavy 3D scenes
-4. **Custom PicoDrive**: Fix memory mapping for 4MB ROMs (future work)
+1. **ROM Modification** (REQUIRED): Modify Slave initialization in v4.0 ROM
+   - Locate Slave PC initialization code (currently sets 0x06000288)
+   - Change to 0x02300200 (expansion ROM slave_work_wrapper)
+   - Rebuild and test with patched PicoDrive
+
+2. **Verification**: After ROM fix, confirm:
+   - Slave PC reaches 0x02300200 at startup
+   - COMM5 increments during 3D rendering (attract mode after 7 seconds)
+   - COMM7 shows 0x16 signals when Master dispatches vertex transforms
+
+3. **Performance Testing**: Compare original vs v4.0 with metrics
+   - 60 seconds of attract mode (includes 3D rendering)
+   - Monitor COMM5 increment rate (should be +101 per transform)
+   - Measure performance improvement
 
 ---
 
