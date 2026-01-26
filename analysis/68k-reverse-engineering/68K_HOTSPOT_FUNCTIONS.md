@@ -132,6 +132,14 @@ Game Logic → WaitForVBlank() → Sets flag → Spins
 | 8 | $0088204A | 11 | **ClearInputState** | Clear input RAM |
 | 9 | $008826C8 | 10 | **VDPFrameControl** | Frame buffer FM toggle |
 
+### SH2 Functions (Not 68K Code)
+
+| Rank | Address | Calls | Function Name | Purpose |
+|------|---------|-------|---------------|---------|
+| **NEW** | **$020234C8** | **High** | **func_021_trampoline (SH2)** | **Parallel vertex transform (experimental)** |
+
+**Note**: func_021_trampoline is **SH2 code**, not 68K. Listed separately to avoid confusion.
+
 ---
 
 ## Key RAM Locations (68K Work RAM $FF0000-$FFFFFF)
@@ -365,8 +373,83 @@ main_loop
 
 ---
 
+## func_021_trampoline ($020234C8) - SH2 CODE (NEW v4.0) ⚠️ EXPERIMENTAL
+
+**⚠️ IMPORTANT**: This is **SH2 code**, NOT 68K code. Listed here for completeness only.
+
+**Status**: Infrastructure ready, activation deferred due to timing concerns.
+
+```
+; ═══════════════════════════════════════════════════════════════════════════
+; func_021_trampoline: Parallel Vertex Transform Dispatcher (SH2)
+; ═══════════════════════════════════════════════════════════════════════════
+; Address: $020234C8 (SH2 code space - NOT 68K!)
+; Called by: Game engine vertex processing (high frequency)
+;
+; Purpose: Capture vertex transform parameters and offload to Slave SH2 for
+;          parallel execution. Infrastructure ready but activation deferred.
+;
+; Input:
+;   R14 - Parameter 1 (rendering context pointer)
+;   R7  - Parameter 2 (loop count)
+;   R8  - Parameter 3 (data pointer)
+;   R5  - Parameter 4 (output pointer)
+; Output: None (Master returns immediately, Slave processes asynchronously)
+; Modifies: Parameter block at $2203E000, COMM7
+; ═══════════════════════════════════════════════════════════════════════════
+
+; Pseudo-implementation (actual SH2 assembly):
+;
+; 1. Capture parameters to shared memory
+;    MOV.L   R14,@($2203E000)    ; Store R14 (rendering context)
+;    MOV.L   R7,@($2203E004)     ; Store R7 (loop count)
+;    MOV.L   R8,@($2203E008)     ; Store R8 (data pointer)
+;    MOV.L   R5,@($2203E00C)     ; Store R5 (output pointer)
+;
+; 2. Signal Slave SH2 via COMM7
+;    MOV.W   #$16,@COMM7         ; Command $16 = vertex transform
+;
+; 3. Return immediately (non-blocking!)
+;    RTS
+```
+
+**Architecture Flow** (when activated):
+```
+Game calls func_021
+    ↓
+Trampoline at $0234C8
+    ↓ (captures params)
+Parameter Block $2203E000
+    ↓ (signals via COMM7=$16)
+Master SH2 returns immediately ←── PARALLEL ──→ Slave SH2 picks up work
+    ↓                                              ↓
+Continues with next task                    Executes func_021_optimized
+    ↓                                              ↓
+Both CPUs running in parallel!              Increments COMM5 (+101)
+(IF ACTIVATED)                                   (debug telemetry)
+```
+
+**Performance Impact** (THEORETICAL - UNVALIDATED):
+- **Before**: Master SH2 blocked waiting for vertex transform (SERIAL)
+- **After**: Master SH2 returns immediately, Slave works in parallel (PARALLEL) [ESTIMATED]
+- **Speedup**: ~2x effective CPU utilization on vertex-heavy workloads [UNVALIDATED]
+
+⚠️ **Reality**: No performance testing conducted. Activation deferred pending timing validation.
+
+**Related Components** (all SH2 code):
+- **master_dispatch_hook** ($02046A → $300050): Intercepts dispatch, skips COMM7 cmd $16
+- **slave_work_wrapper** ($300200): Slave command dispatcher (polling loop)
+- **slave_test_func** ($300280): Reads parameters, calls func_021_optimized
+- **func_021_optimized** ($300100): Optimized vertex transform (func_016 inlined)
+
+**Why Listed Here**: Although this is SH2 code, it's documented in 68K analysis because it impacts overall system architecture and inter-CPU communication patterns.
+
+---
+
 ## References
 
 - 68K_INTERRUPT_HANDLERS.md - V-INT handler details
 - 68K_MEMORY_MAP.md - Hardware register addresses
 - 68K_FUNCTION_INVENTORY.md - Complete function list
+- 68K_COMM_PROTOCOL.md - Pattern 4: Parallel Processing Offload
+- 68K_PARALLEL_PROCESSING_ARCHITECTURE.md - Detailed parallel architecture analysis

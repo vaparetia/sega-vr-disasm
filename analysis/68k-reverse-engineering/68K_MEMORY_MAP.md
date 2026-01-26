@@ -9,18 +9,22 @@ The Sega 32X adds hardware to the base Mega Drive/Genesis. From the 68000's pers
 
 ## Complete Memory Map
 
+**Legend**: ✅ Project-verified | 📋 Hardware manual spec
+
 ### ROM and RAM
 
-| Address Range | Size | Description |
-|---------------|------|-------------|
-| `$000000-$0FFFFF` | 1MB | Cartridge ROM (directly accessible) |
-| `$200000-$23FFFF` | 256KB | Backup RAM (optional) |
-| `$400000-$7FFFFF` | 4MB | Extended ROM area (banked) |
-| `$800000-$87FFFF` | 512KB | Shadow ROM / Boot ROM |
-| `$880000-$8FFFFF` | 512KB | ROM mirror (mapped from $000000) |
-| `$900000-$9FFFFF` | 1MB | Main cartridge emulation RAM |
-| `$FC0000-$FEFFFF` | 192KB | Extended work RAM |
-| `$FF0000-$FFFFFF` | 64KB | **Main Work RAM** |
+| Address Range | Size | Description | Status |
+|---------------|------|-------------|--------|
+| `$000000-$3FFFFF` | **4MB** | **Cartridge ROM (VRD project-specific)** | ✅ |
+| `$200000-$23FFFF` | 256KB | Backup RAM (optional, not used in VRD) | 📋 |
+| `$400000-$7FFFFF` | 4MB | Extended ROM area (banked, overlaps with above) | 📋 |
+| `$800000-$87FFFF` | 512KB | ROM mirror (shadow of $000000-$07FFFF) | 📋 |
+| `$880000-$8FFFFF` | 512KB | ROM mirror (shadow of $080000-$0FFFFF) | ✅ |
+| `$900000-$9FFFFF` | 1MB | 32X banked ROM window (bank registers $A130F1-$A130FF) | 📋 |
+| `$FC0000-$FEFFFF` | 192KB | Extended work RAM (Mega Drive) | 📋 |
+| `$FF0000-$FFFFFF` | 64KB | **Main Work RAM** | ✅ |
+
+**Note**: VRD uses a 4MB ROM (official cartridge size), not 1MB. The $900000 region is the **banked ROM access window** controlled by bank registers, not RAM.
 
 ### Z80 Sound CPU
 
@@ -264,19 +268,46 @@ Based on analysis of Virtua Racing Deluxe:
 | A6 | Frame pointer or context pointer |
 | A7 | Stack pointer (SP) |
 
+## SH2 Memory Regions (v4.0 Parallel Processing)
+
+### SH2 SDRAM Parameter Block (v4.0 Experimental)
+
+| Address | Size | Purpose |
+|---------|------|---------|
+| **$2203E000** | 4 bytes | R14 parameter (rendering context pointer) |
+| **$2203E004** | 4 bytes | R7 parameter (loop count) |
+| **$2203E008** | 4 bytes | R8 parameter (data pointer) |
+| **$2203E00C** | 4 bytes | R5 parameter (output pointer) |
+
+**Purpose**: Shared memory for Master SH2 → Slave SH2 parameter passing in parallel processing architecture. Parameters captured by `func_021` trampoline at $0234C8 and consumed by Slave SH2's `slave_test_func` at $300280.
+
+**⚠️ Status**: Infrastructure ready, activation deferred due to timing concerns.
+
 ## Communication Protocol Notes
 
 The 68000 and SH2 CPUs communicate via the 8 COMM registers:
 - **COMM0-COMM3**: Typically 68K → SH2 commands
 - **COMM4-COMM7**: Typically SH2 → 68K responses
+  - **COMM5**: Work counter (v4.0: debug telemetry, +101 per transform)
+  - **COMM7**: Parallel processing (v4.0: Master SH2 → Slave SH2 cmd $16)
 
-**Synchronization Pattern**:
+**Synchronization Pattern (Traditional Blocking)**:
 1. 68K writes command to COMM0-3
 2. 68K sets flag in COMM register
 3. SH2 polls COMM, processes command
 4. SH2 writes result to COMM4-7
 5. SH2 clears/sets acknowledgment flag
 6. 68K polls for acknowledgment
+
+**New Pattern (v4.0 Parallel Processing) ⚠️ EXPERIMENTAL**:
+1. Master SH2 captures parameters to $2203E000
+2. Master SH2 signals Slave via COMM7 = $16
+3. Master SH2 returns immediately (non-blocking)
+4. Slave SH2 reads parameters from $2203E000
+5. Slave SH2 executes work in parallel
+6. Slave SH2 increments COMM5 counter when complete (debug telemetry)
+
+**Status**: Infrastructure ready, activation deferred pending performance testing.
 
 ## References
 

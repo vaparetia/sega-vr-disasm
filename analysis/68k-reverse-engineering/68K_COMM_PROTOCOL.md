@@ -1,7 +1,10 @@
 # 68K ↔ SH2 Communication Protocol - Virtua Racing Deluxe
 
 **Project**: Virtua Racing Deluxe (USA).32x
-**Date**: 2026-01-06
+**Last Updated**: 2026-01-26
+**Revision History**:
+- v1.1 (2026-01-26): Added v4.0 parallel processing commands, clarified command $16 scope
+- v1.0 (2026-01-06): Initial documentation
 
 ## Overview
 
@@ -149,12 +152,25 @@ From [SendDREQCommand](68K_HOTSPOT_FUNCTIONS.md#senddreqcommand-0088fb36---17-ca
 
 ## Known Command Codes
 
-| Command | COMM Register | Purpose | Source |
-|---------|---------------|---------|--------|
-| $2D | COMM0 | DREQ transfer | SendDREQCommand ($FB36) |
-| 'VRES' | COMM6 | Video resolution init | Boot sequence ($8A8) |
-| 'M_OK' | COMM0 | Master SH2 ready | Boot sequence ($8CE) |
-| 'S_OK' | COMM2 | Slave SH2 ready | Boot sequence ($8D8) |
+| Command | COMM Register | Direction | Purpose | Source |
+|---------|---------------|-----------|---------|--------|
+| $2D | COMM0 | 68K → SH2 | DREQ transfer | SendDREQCommand ($FB36) |
+| $16 | COMM7 | **Master SH2 → Slave SH2** | **Vertex transform offload (v4.0)** | **func_021 trampoline ($0234C8)** |
+| 'VRES' | COMM6 | SH2 → 68K | Video resolution init | Boot sequence ($8A8) |
+| 'M_OK' | COMM0 | Master SH2 → 68K | Master SH2 ready | Boot sequence ($8CE) |
+| 'S_OK' | COMM2 | Slave SH2 → 68K | Slave SH2 ready | Boot sequence ($8D8) |
+
+**Note**: Command $16 is **Master SH2 → Slave SH2** only, not issued by 68K.
+
+### New: Parallel Processing Commands (v4.0) ⚠️ EXPERIMENTAL
+
+**Command $16: Vertex Transform Offload**
+- **COMM Register**: COMM7 ($A1512E / $2000402E)
+- **Direction**: **Master SH2 → Slave SH2** (SH2-internal communication)
+- **Purpose**: Signal Slave SH2 to execute vertex transform in parallel
+- **Parameter Block**: $2203E000 (16 bytes: R14, R7, R8, R5)
+- **Counter**: COMM5 incremented by 101 per call (debug telemetry only)
+- **Status**: ⚠️ Infrastructure ready, activation deferred due to timing concerns
 
 ---
 
@@ -349,18 +365,72 @@ From 32X Hardware Manual:
 
 ---
 
+## Pattern 4: Parallel Processing Offload (v4.0) ⚠️ EXPERIMENTAL
+
+**⚠️ Status**: Infrastructure ready, activation deferred. Shadow path validated only.
+
+**Typical Usage**: Master SH2 offloads work to Slave SH2 without blocking
+
+```
+Master SH2 (func_021)              Slave SH2 (slave_work_wrapper)
+────────────────────────────────────────────────────────────────────
+Game calls func_021
+  ↓
+Trampoline at $0234C8
+  ↓
+1. Capture parameters to $2203E000
+   R14 → [$2203E000] (rendering context)
+   R7  → [$2203E004] (loop count)
+   R8  → [$2203E008] (data pointer)
+   R5  → [$2203E00C] (output pointer)
+  ↓
+2. Signal Slave via COMM7
+   COMM7 = $16                │
+  ↓                           │
+3. Return immediately (!)     │   Polling COMM7
+  ↓                           │   Detects COMM7 = $16
+Both CPUs running parallel    │   ↓
+(IF ACTIVATED)                │   Read parameters from $2203E000
+                              │   ↓
+                              │   Call func_021_optimized
+                              │   (func_016 inlined)
+                              │   ↓
+                              │   Increment COMM5 += 101 (debug telemetry)
+                              │   ↓
+                              │   Clear COMM7 (ready for next)
+```
+
+**Key Difference from Pattern 1 (Command/Response)**:
+- Pattern 1: Master WAITS for Slave response (blocking)
+- Pattern 4: Master RETURNS immediately (non-blocking, parallel)
+
+**Memory Locations**:
+- **Parameter Block**: $2203E000-$2203E00F (16 bytes, SH2 SDRAM)
+- **Command Signal**: COMM7 ($2000402E)
+- **Work Counter**: COMM5 ($2000402A)
+
+**Implementation**:
+- **Master Hook**: $02046A → `master_dispatch_hook` at $300050
+- **Slave Worker**: $300200 → `slave_work_wrapper` (command dispatch)
+- **Trampoline**: $0234C8 → `func_021` parameter capture
+- **Optimized Code**: $300100 → `func_021_optimized` (with func_016 inlined)
+
+---
+
 ## Communication Register Usage Summary
 
 ### Common Patterns
 
 | Register(s) | Typical Use |
 |-------------|-------------|
-| COMM0 | Command byte, busy flag |
+| COMM0 | Command byte, busy flag (68K ↔ SH2) |
 | COMM1 | Acknowledge flags, status |
 | COMM2 | Secondary command/status |
 | COMM3 | Command parameters |
 | COMM4-7 | Response data, multi-byte results |
+| **COMM5** | **Work counter (v4.0: debug telemetry, +101 per transform)** |
 | COMM6 | Signature strings ('VRES') |
+| **COMM7** | **Parallel processing (v4.0: Master SH2 → Slave SH2 cmd $16)** |
 
 ---
 

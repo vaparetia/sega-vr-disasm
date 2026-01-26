@@ -249,6 +249,51 @@ JSR     (A0,D0.L)           ; Jump to handler
 
 ---
 
+### Pattern E: Parallel Workload Offload (v4.0) ⚠️ EXPERIMENTAL
+
+**⚠️ STATUS**: Infrastructure ready, activation deferred due to timing concerns. Shadow path validated only.
+
+**Purpose**: Offload compute-intensive work from Master to Slave SH2 without blocking
+**Frequency**: NEW - vertex transform operations (when activated)
+**Structure**:
+
+```asm
+; SH2 Pattern (func_021 trampoline at $0234C8) - NOT 68K CODE!
+; 1. Capture parameters to shared memory
+    MOV.L   R14,@($2203E000)    ; Store arg 1 (rendering context)
+    MOV.L   R7,@($2203E004)     ; Store arg 2 (loop count)
+    MOV.L   R8,@($2203E008)     ; Store arg 3 (data pointer)
+    MOV.L   R5,@($2203E00C)     ; Store arg 4 (output pointer)
+
+; 2. Signal Slave SH2 via COMM7
+    MOV.W   #$16,@COMM7         ; Command $16 = vertex transform
+
+; 3. Return immediately (non-blocking!)
+    RTS                         ; Master continues, Slave picks up work
+```
+
+**Key Characteristics**:
+- **Non-blocking**: Caller returns immediately after signaling
+- **Parameter passing**: Via shared memory ($2203E000 block)
+- **Asynchronous execution**: Slave processes while Master continues
+- **Work counter**: COMM5 incremented by 101 on completion (debug telemetry only)
+- **⚠️ TIMING RISK**: Frame synchronization not validated
+- **⚠️ EXPERIMENTAL**: Live activation deferred pending testing
+
+**Performance Impact** (THEORETICAL - UNVALIDATED):
+- Original blocking model: ~50% CPU utilization (one CPU waits)
+- Parallel model: ~80%+ CPU utilization (both CPUs active) [ESTIMATED]
+- Effective speedup: ~1.6-2x on vertex-heavy workloads [UNVALIDATED]
+
+**Related Components** (all SH2 code):
+- master_dispatch_hook ($300050): Skips blocking wait for cmd $16
+- slave_work_wrapper ($300200): Slave command dispatcher
+- Parameter block ($2203E000): 16-byte shared memory region
+
+**See**: [68K_PARALLEL_PROCESSING_ARCHITECTURE.md](68K_PARALLEL_PROCESSING_ARCHITECTURE.md) for complete analysis
+
+---
+
 ## Memory Management
 
 ### Stack Frame Usage
@@ -539,7 +584,7 @@ JSR     (A0,D0.L)          ; Jump to handler
 
 ---
 
-### Family 8: Wrapper Functions (4 functions)
+### Family 8: Wrapper Functions (5 functions)
 
 **Types**:
 
@@ -548,10 +593,13 @@ JSR     (A0,D0.L)          ; Jump to handler
 | Register Wrapper | 2 | func_6D8C, func_A7CC | Save/call/restore |
 | Minimal Handler | 1 | func_1469C | Interrupt disable wrapper |
 | Entry Stub | 1 | func_4922 | Variant entry point |
+| **Parallel Trampoline** | **1** | **func_021 ($0234C8)** | **Parameter capture + signal** |
 
 **Pattern**: Minimal code, delegation to other functions
 
 **Performance Characteristic**: Caller pays for register save cost
+
+**New v4.0**: Parallel trampoline pattern captures parameters and signals async work without blocking
 
 ---
 
@@ -657,11 +705,17 @@ Root: V_INT_Handler ($1684)
 
 - **Priority 8 Documentation**: [68K_MAIN_LOGIC.md](68K_MAIN_LOGIC.md)
 - **Extended Regions**: [68K_EXTENDED_REGIONS.md](68K_EXTENDED_REGIONS.md)
-- **Hardware Reference**: [32x-hardware-manual.md](../docs/32x-hardware-manual.md)
+- **Hardware Reference**: [32x-hardware-manual.md](../../docs/32x-hardware-manual.md)
 - **Memory Map**: [68K_MEMORY_MAP.md](68K_MEMORY_MAP.md)
+- **Parallel Processing**: [68K_PARALLEL_PROCESSING_ARCHITECTURE.md](68K_PARALLEL_PROCESSING_ARCHITECTURE.md) ← NEW v4.0
+- **Communication Protocol**: [68K_COMM_PROTOCOL.md](68K_COMM_PROTOCOL.md)
 
 ---
 
-**Document Version**: 1.0
-**Last Updated**: 2026-01-07
+**Document Version**: 1.2
+**Last Updated**: 2026-01-26
 **Analysis Scope**: 182 functions across Priorities 1-9
+**Revision History**:
+- v1.2 (2026-01-26): Added experimental warnings to Pattern E, corrected parameter meanings
+- v1.1 (2026-01-26): Pattern E (Parallel Workload Offload), Family 8 update
+- v1.0 (2026-01-07): Initial documentation
