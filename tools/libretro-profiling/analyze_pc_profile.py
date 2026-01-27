@@ -11,6 +11,26 @@ import sys
 from pathlib import Path
 
 
+def get_memory_region(pc: int) -> str:
+    """Identify SH2 memory region from PC address."""
+    if pc < 0x00001000:
+        return "BIOS"
+    elif pc >= 0x02000000 and pc < 0x02400000:
+        return "ROM"
+    elif pc >= 0x06000000 and pc < 0x06100000:
+        return "SDRAM"
+    elif pc >= 0x20000000 and pc < 0x20100000:
+        return "SDRAM-C"  # Cache-through SDRAM
+    elif pc >= 0x22000000 and pc < 0x22100000:
+        return "FB"  # Frame buffer
+    elif pc >= 0x24000000 and pc < 0x24100000:
+        return "VRAM"
+    elif pc >= 0xC0000000 and pc < 0xC0100000:
+        return "ROM-C"  # Cache-through ROM
+    else:
+        return "UNK"
+
+
 def analyze_pc_profile(csv_path: str, top_n: int = 20):
     """Analyze PC-level profiling data and show hotspots."""
 
@@ -29,6 +49,7 @@ def analyze_pc_profile(csv_path: str, top_n: int = 20):
 
             entry = {
                 'pc': pc,
+                'region': get_memory_region(pc),
                 'total_cycles': total_cycles,
                 'count': count,
                 'avg_cycles': avg_cycles,
@@ -52,13 +73,13 @@ def analyze_pc_profile(csv_path: str, top_n: int = 20):
 
         print(f"Total cycles: {total_master:,}")
         print()
-        print("  PC       Total Cycles    Count    Avg     Share   Cumulative")
-        print("--------  --------------  --------  ------  ------  ----------")
+        print("    PC        Region    Total Cycles    Count    Avg     Share   Cumulative")
+        print("----------  --------  --------------  --------  ------  ------  ----------")
 
         cumulative = 0.0
         for i, entry in enumerate(master_samples[:top_n]):
             cumulative += entry['share']
-            print(f"{entry['pc']:06X}    {entry['total_cycles']:13,}  {entry['count']:8,}  "
+            print(f"0x{entry['pc']:08X}  {entry['region']:8s}  {entry['total_cycles']:13,}  {entry['count']:8,}  "
                   f"{entry['avg_cycles']:6.1f}  {entry['share']:5.2f}%  {cumulative:6.2f}%")
         print()
     else:
@@ -74,13 +95,13 @@ def analyze_pc_profile(csv_path: str, top_n: int = 20):
 
         print(f"Total cycles: {total_slave:,}")
         print()
-        print("  PC       Total Cycles    Count    Avg     Share   Cumulative")
-        print("--------  --------------  --------  ------  ------  ----------")
+        print("    PC        Region    Total Cycles    Count    Avg     Share   Cumulative")
+        print("----------  --------  --------------  --------  ------  ------  ----------")
 
         cumulative = 0.0
         for i, entry in enumerate(slave_samples[:top_n]):
             cumulative += entry['share']
-            print(f"{entry['pc']:06X}    {entry['total_cycles']:13,}  {entry['count']:8,}  "
+            print(f"0x{entry['pc']:08X}  {entry['region']:8s}  {entry['total_cycles']:13,}  {entry['count']:8,}  "
                   f"{entry['avg_cycles']:6.1f}  {entry['share']:5.2f}%  {cumulative:6.2f}%")
         print()
     else:
@@ -108,9 +129,9 @@ def analyze_pc_profile(csv_path: str, top_n: int = 20):
     if slave_samples:
         with open(hotspot_file, 'w') as f:
             f.write("# Slave SH2 Hotspots - Top 20 PCs by cycle share\n")
-            f.write("# Format: PC (share%) - Use for disassembly lookup\n\n")
+            f.write("# Format: PC [Region] (share%) - Use for disassembly lookup\n\n")
             for i, entry in enumerate(slave_samples[:20], 1):
-                f.write(f"{i:2d}. 0x{entry['pc']:06X} ({entry['share']:5.2f}%)\n")
+                f.write(f"{i:2d}. 0x{entry['pc']:08X} [{entry['region']:8s}] ({entry['share']:5.2f}%)\n")
         print(f"\nHotspots exported to: {hotspot_file}")
 
 
