@@ -17,6 +17,31 @@ After comprehensive codebase analysis, we've identified three high-impact optimi
 
 **Critical learning:** func_065 FIFO batching is impossible (fall-through design). We've documented this failure and will not pursue it.
 
+### v4.0 Parallel Processing Update (2026-01-26)
+
+**Major Development:** Slave CPU activation infrastructure (v4.0) is **COMPLETE** but **NOT YET ACTIVATED**.
+
+**What's Ready:**
+- ✅ Parameter capture trampoline at $0234C8 (func_021)
+- ✅ Shared memory parameter block at $2203E000 (SDRAM)
+- ✅ Master dispatch hook at $300050 (skips work for COMM7=$16)
+- ✅ Slave work dispatcher at $300200 (command routing)
+- ✅ func_021_optimized at $300100 (vertex transform with func_016 inlined)
+- ✅ 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
+
+**Current Blockers:**
+1. ❌ PicoDrive latest build broken (no profiling/debugging capability)
+2. ❌ Need safe trampolining mechanism to 4th MB expansion ROM (SH2-only)
+3. ⚠️ Timing validation required before live activation (frame sync concerns)
+
+**Next Steps:**
+→ See [ROADMAP_v4.1.md](ROADMAP_v4.1.md) for detailed activation plan
+
+**Impact on Track 2 (Slave CPU Activation):**
+- Infrastructure complete (Phases 1-3 of original plan done)
+- Activation deferred pending profiling capability and timing validation
+- Expected FPS gain remains +50-100% once activated
+
 ---
 
 ## Current State Analysis
@@ -185,89 +210,103 @@ python3 gdb_profiler.py vdp_polling  # Create this profile
 
 ---
 
-### Track 2: Slave CPU Activation 🔥 **VERY HIGH PRIORITY**
+### Track 2: Slave CPU Activation 🔥 **VERY HIGH PRIORITY** (v4.0 INFRASTRUCTURE COMPLETE)
 
 **Goal:** Activate idle Slave SH2 and distribute work
 
-**Current state:**
-- Slave CPU 99.97% idle (only 0.03% active!)
-- Master CPU does all work alone
-- Massive untapped processing power
+**Current state (Updated 2026-01-26):**
+- ✅ **v4.0 Infrastructure COMPLETE** (parameter passing, trampolines, dispatch code)
+- ⏳ **Activation PENDING** (awaiting profiling capability + timing validation)
+- ⏳ Slave CPU still ~99.97% idle (infrastructure ready but not activated)
+- ⏳ Master CPU still does all work (v4.0 shadow path validated, live path pending)
 
-**Expected gain:** +50-100% FPS (24 → 36-48 FPS)
+**Expected gain:** +50-100% FPS (24 → 36-48 FPS) - **UNCHANGED**
 
-**Risk:** Medium (multi-CPU synchronization)
+**Risk:** Medium (multi-CPU synchronization, frame timing)
 
-**Phases:**
+**Status Update:**
+- Phases 1-3 below are **COMPLETE** (v4.0 implementation)
+- Activation phases now documented in [ROADMAP_v4.1.md](ROADMAP_v4.1.md)
+- **Current Blockers:**
+  1. PicoDrive debugger broken (no profiling)
+  2. Need safe trampolining to 4th MB expansion ROM
+  3. Timing validation required
 
-#### Phase 1: Investigation (Week 1) ⏱️ 3-4 days
+**Original Phases (Completed in v4.0):**
 
-**Tasks:**
-1. Find Slave CPU entry point
-2. Understand current idle loop
-3. Analyze Master↔Slave communication (COMM registers)
-4. Document synchronization primitives
-
-**Deliverables:**
-- SLAVE_CPU_ANALYSIS.md
-- Entry point location
-- COMM protocol documentation
-
-**Tools:**
-```bash
-python3 gdb_profiler.py slave_cpu  # Create this profile
-```
-
-#### Phase 2: Work Distribution Design (Week 2) ⏱️ 3-5 days
+#### Phase 1: Investigation (Week 1) ⏱️ 3-4 days ✅ **COMPLETE**
 
 **Tasks:**
-1. Identify parallelizable work (3D transforms, physics, etc.)
-2. Design work queue system
-3. Define Master/Slave responsibilities
-4. Plan synchronization points
+1. ✅ Find Slave CPU entry point
+2. ✅ Understand current idle loop
+3. ✅ Analyze Master↔Slave communication (COMM registers)
+4. ✅ Document synchronization primitives
 
 **Deliverables:**
-- SLAVE_CPU_DESIGN.md
-- Work queue architecture
-- Sync protocol specification
+- ✅ [MASTER_SLAVE_ANALYSIS.md](analysis/architecture/MASTER_SLAVE_ANALYSIS.md)
+- ✅ [68K_COMM_PROTOCOL.md](analysis/68k-reverse-engineering/68K_COMM_PROTOCOL.md)
+- ✅ [68K_PARALLEL_PROCESSING_ARCHITECTURE.md](analysis/68k-reverse-engineering/68K_PARALLEL_PROCESSING_ARCHITECTURE.md)
 
-**Candidates for Slave work:**
-- 3D vertex transformations (func_016?)
-- Physics calculations
-- Collision detection
-- Sound processing
-- Background pre-rendering
-
-#### Phase 3: Implement Work Queue (Week 2-3) ⏱️ 5-7 days
+#### Phase 2: Work Distribution Design (Week 2) ⏱️ 3-5 days ✅ **COMPLETE**
 
 **Tasks:**
-1. Create simple work queue in SDRAM
-2. Implement Master producer, Slave consumer
-3. Test with simple task (e.g., memory clear)
-4. Incrementally add real work
+1. ✅ Identify parallelizable work (3D transforms, physics, etc.)
+2. ✅ Design work queue system (parameter block + COMM signaling)
+3. ✅ Define Master/Slave responsibilities
+4. ✅ Plan synchronization points
 
 **Deliverables:**
-- Work queue implementation
-- Test ROM
-- Performance measurements
+- ✅ v4.0 Architecture: Master signals Slave via COMM7=$16
+- ✅ Parameter block at $2203E000 (R14, R7, R8, R5)
+- ✅ Slave dispatch system implemented
+
+**Parallelized work (v4.0):**
+- ✅ func_021 vertex transformations (delegated to Slave)
+- ⏳ Additional functions deferred to v4.1+ optimization phase
+
+#### Phase 3: Implement Work Queue (Week 2-3) ⏱️ 5-7 days ✅ **COMPLETE**
+
+**Tasks:**
+1. ✅ Create parameter passing system in SDRAM
+2. ✅ Implement Master producer (func_021 trampoline), Slave consumer (slave_work_wrapper)
+3. ✅ Test with real vertex transform workload (func_021_optimized)
+4. ✅ Shadow path validated (infrastructure proven)
+
+**Deliverables:**
+- ✅ func_021 trampoline at $0234C8 (captures R14, R7, R8, R5)
+- ✅ Parameter block at $2203E000 (16 bytes in SDRAM)
+- ✅ Slave work wrapper at $300200 (dispatches COMM7=$16 to func_021_optimized)
+- ✅ func_021_optimized at $300100 (vertex transform with func_016 inlined)
+- ✅ ROM builds and boots successfully
 
 **Success criteria:**
-- Slave CPU actively processing
-- No race conditions
-- Work completes correctly
+- ✅ Slave dispatch code executes (shadow path validated)
+- ⏳ Live activation pending timing validation
+- ⏳ Performance measurements pending profiling capability
 
-#### Phase 4: Optimize Distribution (Week 3-4) ⏱️ 3-5 days
+#### Phase 4: Activation & Validation (Now → Week 8) ⏱️ 6-8 weeks ⏳ **IN PROGRESS**
 
-**Tasks:**
-1. Profile work distribution
-2. Balance load between CPUs
-3. Minimize synchronization overhead
-4. Tune cache usage
+**Status:** Infrastructure complete, activation pending per [ROADMAP_v4.1.md](ROADMAP_v4.1.md)
 
-**Deliverables:**
-- SLAVE_CPU_RESULTS.md
-- Load balancing analysis
-- FPS improvement measurements
+**Current Blockers:**
+1. ❌ PicoDrive debugger broken (investigating SH2 core issue)
+2. ❌ Need safe trampolining to 4th MB expansion ROM
+3. ⚠️ Timing validation required (Slave must complete within frame budget)
+
+**Activation Plan:** See [ROADMAP_v4.1.md](ROADMAP_v4.1.md) for detailed phases:
+- **Phase 1:** Restore profiling capability (1-2 weeks)
+- **Phase 2:** Safe trampolining to expansion ROM (1-2 weeks)
+- **Phase 3:** Timing validation & synchronization (1-2 weeks)
+- **Phase 4:** Live activation & performance measurement (1-2 weeks)
+- **Phase 5:** Optimization iterations (2-4 weeks)
+
+**Expected Deliverables:**
+- Working profiling setup (PicoDrive fix or alternative)
+- Expansion ROM trampoline infrastructure
+- Timing validation report (Slave execution time vs frame budget)
+- Live v4.0 ROM with parallel processing activated
+- Performance measurements (actual FPS improvement)
+- Load balancing optimization (v4.1+)
 
 ---
 
@@ -349,77 +388,86 @@ python3 gdb_profiler.py slave_cpu  # Create this profile
 
 ## Implementation Timeline
 
-### Week 1: Profiling & Analysis
+**NOTE (2026-01-26):** Timeline updated to reflect v4.0 completion and current blockers. See [ROADMAP_v4.1.md](ROADMAP_v4.1.md) for detailed activation plan.
 
-**Monday-Tuesday:**
+### Completed Work (v4.0 Development)
+
+**Slave CPU Investigation & Design:**
 - ✅ Set up GDB profiling environment
-- ⏳ Profile VDP polling loops
-- ⏳ Profile Slave CPU state
+- ✅ Find Slave CPU entry point
+- ✅ Document COMM protocol
+- ✅ Design Slave CPU work queue (parameter block + COMM signaling)
+- ✅ Implement work distribution infrastructure
+- ✅ Create func_021 trampoline (parameter capture)
+- ✅ Implement Slave dispatch system
+- ✅ Shadow path validation (infrastructure proven)
 
-**Wednesday-Thursday:**
-- ⏳ Analyze VDP interrupt requirements
-- ⏳ Find Slave CPU entry point
-- ⏳ Document COMM protocol
+**Milestone:** ✅ v4.0 infrastructure complete, ROM builds and boots successfully
 
-**Friday:**
-- ⏳ Profile 68000 sync overhead
-- ⏳ Complete week 1 analysis docs
+### Current Phase: Activation Preparation (Week 1-8)
 
-**Milestone:** All profiling data collected, analysis complete
+**Week 1-2: Restore Profiling Capability** ⏳ **IN PROGRESS**
+- ⏳ Investigate PicoDrive SH2 core issue
+- ⏳ Research MAME SH2 core documentation
+- ⏳ Evaluate alternative profiling approaches
+- ⏳ Validate profiling setup
 
-### Week 2: VDP Interrupts + Slave Investigation
+**Week 3-4: Safe Trampolining to 4th MB**
+- ⏳ Design trampoline architecture
+- ⏳ Implement trampoline infrastructure
+- ⏳ Migrate v4.0 code to expansion ROM
+- ⏳ Document expansion ROM usage guidelines
 
-**Monday-Wednesday:**
+**Week 5-6: Timing Validation & Synchronization**
+- ⏳ Shadow path timing analysis
+- ⏳ Design synchronization protocol
+- ⏳ Implement frame synchronization
+- ⏳ Validate parameter passing integrity
+
+**Week 7-8: Live Activation & Measurement**
+- ⏳ Shadow path → live path migration
+- ⏳ Performance measurement (FPS)
+- ⏳ Regression testing
+- ⏳ Documentation update
+
+**Milestone:** v4.0 live and operational, FPS improvement measured
+
+### Future: Optimization & Additional Tracks (Week 9+)
+
+**VDP Polling Elimination (Track 1):**
+- ⏳ Profile VDP polling loops (requires working profiler)
 - ⏳ Design VDP interrupt architecture
-- ⏳ Implement V-blank handler
-- ⏳ Test interrupt-driven VDP
+- ⏳ Implement interrupt-driven VDP
+- ⏳ Measure FPS gain
 
-**Thursday-Friday:**
-- ⏳ Design Slave CPU work queue
-- ⏳ Implement basic queue
+**68000 Sync Optimization (Track 3):**
+- ⏳ Profile 68000 sync overhead
+- ⏳ Optimize COMM protocol
+- ⏳ Batch operations, reduce polling
 
-**Milestone:** VDP interrupts working, Slave design complete
+**Load Balancing & Optimization (v4.1+):**
+- ⏳ Profile work distribution
+- ⏳ Balance load between CPUs
+- ⏳ Optimize cache usage
+- ⏳ Parallelize additional functions
 
-### Week 3: Slave CPU Activation
-
-**Monday-Wednesday:**
-- ⏳ Implement work distribution
-- ⏳ Test parallel processing
-- ⏳ Balance load
-
-**Thursday-Friday:**
-- ⏳ Optimize and tune
-- ⏳ Measure combined FPS gain
-
-**Milestone:** Slave CPU active, work distributed
-
-### Week 4: Optimization & Polish
-
-**Monday-Wednesday:**
-- ⏳ 68000 sync optimization
-- ⏳ Fine-tune all tracks
-- ⏳ Fix bugs
-
-**Thursday-Friday:**
-- ⏳ Final testing
-- ⏳ Documentation
-- ⏳ Performance report
-
-**Milestone:** 60 FPS target achieved (or close)
+**Milestone:** Combined optimizations → 60 FPS target
 
 ---
 
 ## Success Metrics
 
-### Quantitative Goals
+### Quantitative Goals (Updated 2026-01-26)
 
-| Milestone | Target FPS | Cumulative Gain | Track |
-|-----------|-----------|-----------------|-------|
-| Baseline | 24 | - | - |
-| VDP interrupts | 31-34 | +30-40% | Track 1 |
-| Slave CPU active | 42-54 | +75-125% | Track 1+2 |
-| 68K sync optimized | 48-62 | +100-160% | Track 1+2+3 |
-| **Target** | **60** | **+150%** | All |
+| Milestone | Target FPS | Cumulative Gain | Track | Status |
+|-----------|-----------|-----------------|-------|--------|
+| Baseline | 24 | - | - | ✅ Measured |
+| **v4.0 Slave CPU active** | **36-48** | **+50-100%** | **Track 2** | **⏳ Pending activation** |
+| VDP interrupts | 47-67 | +95-180% | Track 1+2 | ⏳ Planned |
+| 68K sync optimized | 52-77 | +115-220% | Track 1+2+3 | ⏳ Planned |
+| **Target** | **60+** | **+150%+** | All | ⏳ Goal |
+
+**Note:** Track 2 (Slave CPU) infrastructure complete but not yet activated. FPS gains are projected based on expected 50-100% improvement from parallel processing. Actual gains to be measured upon activation (see [ROADMAP_v4.1.md](ROADMAP_v4.1.md)).
 
 ### Qualitative Goals
 
@@ -445,19 +493,30 @@ python3 gdb_profiler.py slave_cpu  # Create this profile
 
 ## Risk Mitigation
 
-### Known Risks
+### Known Risks (Updated 2026-01-26)
 
-**VDP Interrupts:**
+**v4.0 Activation (Current Blockers):**
+- **Risk 1:** PicoDrive debugger broken, no profiling capability
+  - **Mitigation:** Investigate SH2 core issue, evaluate MAME or alternative profiling
+  - **Fallback:** Cycle-accurate logging in ROM code
+- **Risk 2:** Trampolining to 4th MB expansion ROM
+  - **Mitigation:** Design safe calling convention, test thoroughly
+  - **Fallback:** Keep code in main ROM (limits future expansion)
+- **Risk 3:** Slave execution time exceeds frame budget
+  - **Mitigation:** Extensive timing validation before activation
+  - **Fallback:** Deactivate parallel processing, optimize Slave code
+
+**VDP Interrupts (Track 1):**
 - **Risk:** Timing-sensitive, might break rendering
 - **Mitigation:** Incremental conversion, one loop at a time
 - **Fallback:** Keep polling as backup code path
 
-**Slave CPU:**
-- **Risk:** Race conditions, synchronization bugs
-- **Mitigation:** Start with simple tasks, extensive testing
+**Slave CPU Synchronization (Track 2):**
+- **Risk:** Race conditions, data corruption
+- **Mitigation:** Simple completion flag protocol, extensive testing
 - **Fallback:** Disable Slave work queue, revert to Master-only
 
-**68000 Sync:**
+**68000 Sync (Track 3):**
 - **Risk:** Breaking existing communication protocol
 - **Mitigation:** Profile first, change incrementally
 - **Fallback:** Restore original COMM usage
@@ -544,36 +603,82 @@ Each optimization track gets:
 
 ---
 
-## Next Actions (Immediate)
+## Next Actions (Immediate) - Updated 2026-01-26
 
-### This Session
+### Completed (v4.0 Development)
 1. ✅ Create optimization plan (this document)
-2. ⏳ Set up VDP profiling
-3. ⏳ Create profiling scripts for all tracks
+2. ✅ Find Slave CPU entry point
+3. ✅ Analyze Master↔Slave communication
+4. ✅ Design and implement parallel processing infrastructure
+5. ✅ Document v4.0 architecture
 
-### Next Session
-1. Profile VDP polling loops
-2. Find Slave CPU entry point
-3. Analyze 68000 sync pattern
-4. Generate first empirical data
+### Current Priority: v4.0 Activation (See ROADMAP_v4.1.md)
+
+**Phase 1: Restore Profiling Capability** ⏳ **IN PROGRESS**
+1. Test PicoDrive builds (system vs latest custom)
+2. Document exact failure mode
+3. Research MAME SH2 core documentation
+4. Evaluate alternative profiling approaches
+5. Choose profiling strategy
+
+**Phase 2: Safe Trampolining to 4th MB**
+1. Design trampoline architecture
+2. Implement trampoline infrastructure
+3. Migrate v4.0 code to expansion ROM
+4. Test call chain (main ROM → expansion ROM)
+
+**Phase 3: Timing Validation**
+1. Measure Slave execution time (func_021_optimized)
+2. Validate frame budget compliance
+3. Implement synchronization protocol
+4. Test parameter passing integrity
+
+**Phase 4: Live Activation**
+1. Enable live parallel processing
+2. Measure actual FPS improvement
+3. Regression testing
+4. Update documentation
+
+**Deferred Until v4.0 Active:**
+- VDP polling elimination (Track 1) - requires working profiler
+- 68000 sync optimization (Track 3) - lower priority than v4.0
+- Additional function parallelization (v4.1+) - depends on v4.0 results
 
 ---
 
-## Approval & Commitment
+## Approval & Commitment (Updated 2026-01-26)
 
-**Estimated effort:** 4 weeks (20-30 hours/week)
-**Expected outcome:** 48-72 FPS (2-3× improvement)
-**Risk level:** Medium (managed with incremental approach)
-**Fallback plan:** Keep working baseline ROM at all times
+**Original Timeline:** 4 weeks → **REVISED:** 8-12 weeks (v4.0 activation + optimization)
+
+**Phase Breakdown:**
+- **Weeks 1-2:** Restore profiling capability
+- **Weeks 3-4:** Implement safe trampolining to expansion ROM
+- **Weeks 5-6:** Timing validation & synchronization
+- **Weeks 7-8:** v4.0 live activation & measurement
+- **Weeks 9-12:** Optimization iterations (VDP, 68K sync, load balancing)
+
+**Expected outcome:**
+- **v4.0 alone:** 36-48 FPS (+50-100%) - Slave CPU parallel processing
+- **Combined:** 60+ FPS (+150%+) - All tracks optimized
+
+**Risk level:** Medium (v4.0 infrastructure complete, activation risks managed)
+
+**Fallback plan:**
+- Keep v3.0 baseline ROM at all times
+- v4.0 infrastructure can be deactivated if timing validation fails
+- Multiple profiling options if PicoDrive unfixable
 
 **Decision points:**
-- Week 1 end: Profiling data review, go/no-go per track
-- Week 2 end: VDP results review, adjust Slave plan if needed
-- Week 3 end: Combined results, decide on Track 4
-- Week 4 end: Final assessment, document outcomes
+- **Week 2 end:** Profiling capability restored (GO/NO-GO on v4.0 activation)
+- **Week 4 end:** Trampolining working (GO/NO-GO on expansion ROM migration)
+- **Week 6 end:** Timing validated (GO/NO-GO on live activation)
+- **Week 8 end:** v4.0 FPS measured (decide on additional tracks)
+- **Week 12 end:** Final optimization assessment
 
-**This plan is approved and ready for execution.** ✅
+**Current Focus:** v4.0 activation per [ROADMAP_v4.1.md](ROADMAP_v4.1.md)
+
+**This plan reflects v4.0 completion and current activation priorities.** ✅
 
 ---
 
-**Next step:** Run profiling to validate assumptions and gather empirical data.
+**Next step:** Investigate PicoDrive SH2 core issue and restore profiling capability (ROADMAP Phase 1).
