@@ -3,7 +3,8 @@
     "allow": [
       "Bash(timeout 3s:*)",
       "Bash(timeout 10:*)",
-      "Bash(timeout 5s picodrive:*)"
+      "Bash(timeout 5s picodrive:*)",
+      "Bash(./run_pc_profiling.sh:*)"
     ]
   }
 }

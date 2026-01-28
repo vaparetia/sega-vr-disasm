@@ -95,3 +95,8 @@ desktop.ini
 # Keep these directories but ignore their contents except .gitkeep
 build/.gitkeep
 !build/.gitkeep
+
+# Profiling temporary files
+tools/libretro-profiling/*.csv
+tools/libretro-profiling/profiling_frontend
+tools/libretro-profiling/build_log.txt
