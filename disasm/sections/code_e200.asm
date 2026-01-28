@@ -1232,31 +1232,25 @@ sh2_send_cmd_async:                     ; $00EB7C
         tst.w   $00FFD000               ; PENDING_CMD_VALID - queue slot free?
         beq.s   .slot_free
 
-        ; Queue full - fallback to blocking
-        addq.w  #1,$00FFD018            ; ASYNC_OVERFLOW_COUNT++
+        ; Queue full - fallback to blocking (counter removed to save space)
         jmp     $00E316                 ; Original blocking function
 
 .slot_free:
-        ; Store command in queue (but don't mark valid yet)
+        ; Store command in queue AND mark valid (queued or immediate)
         move.w  d0,$00FFD002            ; PENDING_CMD_TYPE
-        move.l  a0,$00FFD008            ; PENDING_CMD_PARAMS
-        move.l  a1,$00FFD00C            ; PENDING_CMD_PARAMS+4
+        move.l  a0,$00FFD008            ; PENDING_CMD_PARAMS (A1 unused in async POC)
+        move.w  #1,$00FFD000            ; PENDING_CMD_VALID = 1 (CRITICAL!)
 
-        ; Check if SH2 ready
+        ; Check if SH2 ready - if so, submit now; if not, V-INT will dispatch later
         tst.b   $00A15120               ; COMM0 == 0?
-        bne.s   .sh2_busy               ; Busy - don't submit, just return
+        bne.s   .sh2_busy               ; Busy - queued for later dispatch
 
-        ; SH2 ready - write COMM registers now
+        ; SH2 ready - write COMM registers now (FULL PROTOCOL)
         adda.l  #$02000000,a0           ; Convert to SH2 address
-        move.l  a0,$00A15128            ; COMM4
+        move.l  a0,$00A15128            ; COMM4 = params
         move.w  #$0101,$00A1512C        ; COMM6 = trigger
-
-        ; Mark valid ONLY after successful submission
-        move.w  #1,$00FFD000            ; PENDING_CMD_VALID = 1
-
-        ; Update counters
-        addq.w  #1,$00FFD004            ; PENDING_CMD_COUNT++
-        addq.l  #1,$00FFD014            ; TOTAL_CMDS_ASYNC++
+        move.b  d0,$00A15121            ; COMM1 = command byte (CRITICAL!)
+        move.b  #$01,$00A15120          ; COMM0 = handshake signal (CRITICAL!)
 
 .sh2_busy:
         rts
@@ -1348,41 +1342,32 @@ sh2_send_cmd_async:                     ; $00EB7C
 ; MODIFIES: D0, D1, D7 (safe - restored by V-INT MOVEM.L after return)
 ; ============================================================================
 sh2_wait_frame_complete:                ; $00EC76
-        ; Check if valid pending command (handles uninitialized memory)
+        ; No init needed - Work RAM cleared at boot (saves 26 bytes)
+.check_pending:
         cmpi.w  #1,$00FFD000            ; PENDING_CMD_VALID == 1?
-        bne.s   .done                   ; No - either 0 or garbage, nothing to wait for
+        bne.s   .done                   ; No, nothing to wait for
 
-        ; Record start frame for cycle tracking
-        move.l  $0000C964,d7            ; frame_counter start
+        ; CRITICAL: Dispatch queued command if SH2 is now ready
+        tst.b   $00A15120               ; COMM0 == 0? (SH2 ready)
+        bne.s   .already_dispatched     ; No, command already sent, just wait
 
+        ; SH2 ready - dispatch queued command now (FULL PROTOCOL)
+        movea.l $00FFD008,a0            ; Load queued params
+        adda.l  #$02000000,a0           ; Convert to SH2 address
+        move.l  a0,$00A15128            ; COMM4 = params
+        move.w  #$0101,$00A1512C        ; COMM6 = trigger
+        move.w  $00FFD002,d0            ; Load command type
+        move.b  d0,$00A15121            ; COMM1 = command byte (CRITICAL!)
+        move.b  #$01,$00A15120          ; COMM0 = handshake signal (CRITICAL!)
+
+.already_dispatched:
 .wait_loop:
         tst.b   $00A1512C               ; COMM6 - SH2 busy?
         beq.s   .complete               ; No, command complete
         bra.s   .wait_loop              ; Yes, keep polling
 
 .complete:
-        ; Calculate wait cycles for profiling
-        move.l  $0000C964,d0            ; frame_counter end
-        sub.l   d7,d0                   ; Frames waited
-        beq.s   .no_cycles              ; Zero frames, skip stats
-
-        ; Convert frames to cycles (~128K cycles/frame)
-        lsl.l   #8,d0                   ; * 256
-        lsl.l   #1,d0                   ; * 512 (approx)
-
-        ; Update cumulative wait cycles
-        add.l   d0,$00FFD01C            ; TOTAL_WAIT_CYCLES += d0
-
-        ; Update max if needed
-        move.l  $00FFD020,d1            ; MAX_WAIT_CYCLES
-        cmp.l   d1,d0                   ; Current > max?
-        ble.s   .not_max
-        move.l  d0,$00FFD020            ; Update max
-
-.not_max:
-.no_cycles:
-        ; Clear pending counters
-        clr.w   $00FFD004               ; PENDING_CMD_COUNT = 0
+        ; Clear pending flag (profiling removed to save space)
         clr.w   $00FFD000               ; PENDING_CMD_VALID = 0
 
 .done:
@@ -3772,7 +3757,7 @@ sh2_wait_frame_complete:                ; $00EC76
         dc.w    $0601        ; $00FF5A
         dc.w    $9C80        ; $00FF5C
         dc.w    $4EBA        ; $00FF5E
-        dc.w    $E3B6        ; $00FF60 - RESTORED: Original blocking offset (was $EC16)
+        dc.w    $E3B6        ; $00FF60 - ASYNC: DISABLED FOR TESTING
         dc.w    $41F9        ; $00FF62
         dc.w    $000F        ; $00FF64
         dc.w    $4620        ; $00FF66
