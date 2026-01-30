@@ -192,6 +192,39 @@ $300000-$3FFFFF  1.0 MB    SH2 Expansion Space (NEW)
 | `analyze_call_graph.py` | Call graph analysis |
 | `analyze_vectors.py` | Exception vector analysis |
 
+### Profiling Tools (`tools/libretro-profiling/`)
+
+**Location:** `tools/libretro-profiling/`
+
+Cycle-accurate profiling using a custom PicoDrive libretro core with instrumentation.
+
+| Tool | Purpose |
+|------|---------|
+| `profiling_frontend` | Headless libretro frontend for automated profiling |
+| `picodrive_libretro.so` | Custom PicoDrive core with profiling instrumentation |
+| `analyze_profile.py` | Frame-level analysis (68K/MSH2/SSH2 cycles per frame) |
+| `analyze_pc_profile.py` | PC-level hotspot analysis (which addresses consume cycles) |
+
+**Quick Start:**
+```bash
+cd tools/libretro-profiling
+
+# Basic profiling (1800 frames = 30 seconds at 60 V-INT)
+./profiling_frontend ../../build/vr_rebuild.32x 1800 --autoplay
+
+# PC-level hotspot profiling
+VRD_PROFILE_PC=1 VRD_PROFILE_PC_LOG=profile.csv \
+./profiling_frontend ../../build/vr_rebuild.32x 2400 --autoplay
+python3 analyze_pc_profile.py profile.csv
+```
+
+**Key metrics:**
+- **68K**: ~127,987 cycles/frame @ 7.67 MHz (100% utilization = bottleneck)
+- **Master SH2**: ~139,568 cycles/frame @ 23 MHz (36% utilization)
+- **Slave SH2**: ~299,958 cycles/frame @ 23 MHz (78% utilization)
+
+**Documentation:** See [README_68K_PC_PROFILING.md](tools/libretro-profiling/README_68K_PC_PROFILING.md)
+
 ## Emulator Compatibility
 
 | Emulator | 32X Support | Notes |
