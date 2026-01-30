@@ -1216,6 +1216,8 @@
         dc.w    $98C1        ; $00EB70
         dc.w    $A103        ; $00EB72
         dc.w    $A945        ; $00EB74
+; Padding: 94 bytes (47 words) of zeros from $EB76-$EBD2
+        dcb.w   47, $0000
         dc.w    $0000        ; $00EBD4
         dc.w    $0000        ; $00EBD6
         dc.w    $0000        ; $00EBD8
@@ -1297,6 +1299,8 @@
         dc.w    $98C1        ; $00EC70
         dc.w    $A103        ; $00EC72
         dc.w    $A945        ; $00EC74
+; Padding: 72 bytes (36 words) of zeros from $EC76-$ECBC
+        dcb.w   36, $0000
         dc.w    $0000        ; $00ECBE
         dc.w    $0000        ; $00ECC0
         dc.w    $0000        ; $00ECC2
@@ -3644,7 +3648,7 @@
         dc.w    $0601        ; $00FF0E
         dc.w    $4000        ; $00FF10
         dc.w    $4EBA        ; $00FF12
-        dc.w    $EC62        ; $00FF14 - PATCHED: JSR async_trampoline (was $E402)
+        dc.w    $E402        ; $00FF14
         dc.w    $41F9        ; $00FF16
         dc.w    $000E        ; $00FF18
         dc.w    $CC90        ; $00FF1A
@@ -3652,7 +3656,7 @@
         dc.w    $0601        ; $00FF1E
         dc.w    $9000        ; $00FF20
         dc.w    $4EBA        ; $00FF22
-        dc.w    $EC52        ; $00FF24 - PATCHED: JSR async_trampoline (was $E3F2)
+        dc.w    $E3F2        ; $00FF24
         dc.w    $7000        ; $00FF26
         dc.w    $1038        ; $00FF28
         dc.w    $FEB1        ; $00FF2A
@@ -3667,7 +3671,7 @@
         dc.w    $0601        ; $00FF3C
         dc.w    $9700        ; $00FF3E
         dc.w    $4EBA        ; $00FF40
-        dc.w    $EC34        ; $00FF42 - PATCHED: JSR async_trampoline (was $E3D4)
+        dc.w    $E3D4        ; $00FF42
         dc.w    $7000        ; $00FF44
         dc.w    $1038        ; $00FF46
         dc.w    $FEA5        ; $00FF48
