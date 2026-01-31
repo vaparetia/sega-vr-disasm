@@ -1945,34 +1945,9 @@
 ; Source: disasm/sh2/3d_engine/func_013_vdp_init_short.asm
 ; ═══════════════════════════════════════════════════════════════════════════
         include "sh2/generated/func_013.inc"
-        dc.w    $D204        ; $023330
-        dc.w    $E706        ; $023332
-        dc.w    $6016        ; $023334
-        dc.w    $2202        ; $023336
-        dc.w    $4710        ; $023338
-        dc.w    $8FFB        ; $02333A
-        dc.w    $7204        ; $02333C
-        dc.w    $000B        ; $02333E
-        dc.w    $0009        ; $023340
-        dc.w    $0000        ; $023342
-        dc.w    $C000        ; $023344
-        dc.w    $070C        ; $023346
-        dc.w    $D105        ; $023348
-        dc.w    $D006        ; $02334A
-        dc.w    $9706        ; $02334C
-        dc.w    $6206        ; $02334E
-        dc.w    $2122        ; $023350
-        dc.w    $4710        ; $023352
-        dc.w    $8FFB        ; $023354
-        dc.w    $7104        ; $023356
-        dc.w    $000B        ; $023358
-        dc.w    $0009        ; $02335A
-        dc.w    $0192        ; $02335C
-        dc.w    $0000        ; $02335E
-        dc.w    $C000        ; $023360
-        dc.w    $0000        ; $023362
-        dc.w    $0600        ; $023364
-        dc.w    $3368        ; $023366
+; func_014 + func_015: VDP Data Copy Utilities (56 bytes: $023330-$023367)
+; func_014: 6-byte copy to VDP registers, func_015: 402-byte bulk frame copy
+        include "sh2/generated/func_014_015.inc"
 ; func_016: Coordinate Transformation Utility (34 bytes, $023368-$02338A)
 ; HOTSPOT: Called 4× per polygon (67,200 cycles/frame)
         include "sh2/generated/func_016.inc"
