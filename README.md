@@ -14,7 +14,7 @@ A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with
 - **4MB expansion ROM** - 1MB SH2 working space with custom hooks
 - **503+ named 68K functions** - Categorized by subsystem
 - **107 named SH2 functions** - 3D engine fully mapped
-- **53 SH2 functions translated** - Proper assembly source with byte-accurate ROM verification
+- **59 SH2 functions translated** - Proper assembly source with byte-accurate ROM verification
 
 ## Quick Start
 
@@ -157,7 +157,7 @@ You must provide your own legal ROM dump:
 
 ### SH2 3D Engine Translations
 
-Complete annotated translations of 53 SH2 functions are in `disasm/sh2/3d_engine/`. Key findings:
+Complete annotated translations of 59 SH2 functions are in `disasm/sh2/3d_engine/`. Key findings:
 
 | Function | Size | Purpose |
 |----------|------|---------|

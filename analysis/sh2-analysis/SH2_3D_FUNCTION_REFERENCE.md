@@ -2,7 +2,7 @@
 
 **Virtua Racing Deluxe - Complete Function Catalog**
 **Analysis Date**: January 6, 2026
-**Updated**: January 31, 2026 (53 functions translated with annotations)
+**Updated**: January 31, 2026 (59 functions translated with annotations)
 
 ---
 
@@ -16,7 +16,7 @@ Comprehensive reference for all 109 functions in the SH2 3D rendering engine. Fu
 
 ```
 Total Functions: 109
-├── Fully Translated: 53 (with detailed annotations)
+├── Fully Translated: 59 (with detailed annotations)
 ├── Entry Points: 74
 ├── Coordinators: 31
 ├── Leaf Functions: 78
@@ -25,7 +25,7 @@ Total Functions: 109
 └── Hardware Functions (VDP/register access): 12
 ```
 
-**Translation Directory**: All 53 translated functions are in `disasm/sh2/3d_engine/` with byte-accurate ROM verification.
+**Translation Directory**: All 59 translated functions are in `disasm/sh2/3d_engine/` with byte-accurate ROM verification.
 
 ---
 
@@ -791,6 +791,6 @@ All 53 fully annotated translations are in `disasm/sh2/3d_engine/`:
 | **Transform** | `func_005_transform_loop.asm`, `func_006_matrix_multiply.asm`, `func_016_coord_transform.asm`, `func_021_original.asm` |
 | **Culling** | `func_023_frustum_cull.asm`, `func_024_screen_coords.asm`, `func_029_030_031_visibility_short.asm` |
 | **Rendering** | `func_033_render_quad.asm`, `func_034_span_filler.asm`, `func_036_render_dispatch.asm` |
-| **Display** | `func_040_display_list_short.asm`, `func_040_059_display_engine.asm`, `func_009_display_list_4elem.asm` |
+| **Display** | `func_040_display_list_short.asm`, `func_040_059_display_engine.asm`, `func_009_display_list_4elem.asm`, `func_054_conditional_bsr_short.asm`, `func_055_unrolled_copy_short.asm`, `func_070_loop_dispatcher_short.asm` |
 | **VDP/HW** | `func_014_015_vdp_copy_short.asm`, `func_067_plus_vdp_hw.asm`, `func_vdp_init_with_delay.asm` |
-| **Utilities** | `func_065_unrolled_data_copy.asm`, `func_066_rle_decoder.asm`, `func_000_data_copy.asm` |
+| **Utilities** | `func_065_unrolled_data_copy.asm`, `func_066_rle_decoder.asm`, `func_000_data_copy.asm`, `func_067_rle_entry_alt1_short.asm`, `func_068_rle_entry_alt2_short.asm`, `func_069_block_copy_stride_short.asm` |
