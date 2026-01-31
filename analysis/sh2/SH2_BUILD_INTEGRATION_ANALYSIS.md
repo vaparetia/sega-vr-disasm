@@ -51,18 +51,18 @@ These have clear boundaries, no shared exits, and can be verified independently.
 
 | Function | ROM Offset | Size | Notes |
 |----------|------------|------|-------|
-| func_000 | 0x2300A | 26B* | Data copy to VDP (verified size) |
-| func_005 | 0x230E8 | 52B | Transform loop, 44B code + 8B literals |
-| func_007 | 0x23178 | 50B | Alt transform, 42B code + 8B literals |
+| func_000 | 0x2300A | 26B* | Data copy to VDP (verified) |
+| func_005 | 0x230E8 | 56B* | Transform loop (verified) |
+| func_007 | 0x23178 | 52B* | Alt transform (verified) |
 | func_011 | 0x23220 | 70B | Display list loop |
 | func_012 | 0x23278 | 74B | Display entry handler |
-| func_013 | 0x232D4 | 50B | VDP init |
-| func_017 | 0x2338A | 22B | Quad helper |
+| func_013 | 0x232D4 | 64B* | VDP init (verified, includes literals) |
+| func_017 | 0x2338A | 26B* | Quad helper (verified) |
 | func_021_original | 0x234C8 | 36B | ⚠️ DO NOT INTEGRATE (async experiments active) |
-| func_022 | 0x234EE | 18B | Wait ready |
+| func_022 | 0x234EE | 26B* | Wait ready (verified) |
 | func_026 | 0x23644 | 52B | Bounds compare |
 | func_029 | 0x23688 | 64B | Visibility classify |
-| func_032 | 0x236DA | 28B | Scanline setup |
+| func_032 | 0x236DA | 30B* | Scanline setup (verified) |
 | func_033 | 0x236F8 | 98B | Render quad |
 
 **Total Category A:** 13 functions (12 integrable, 1 blocked by experiments)
@@ -73,7 +73,7 @@ These files contain multiple related functions that share code or exits.
 
 | File | Functions | ROM Range | Total Size | Complexity |
 |------|-----------|-----------|------------|------------|
-| func_003_004_offset_copy.asm | 2 | 0x230CC-0x230E6 | 26B | Low |
+| func_003_004_offset_copy.asm | 2 | 0x230CC-0x230E7 | 28B* | Low |
 | func_025_027_028_030_031_small_utils.asm | 5 | 0x23634-0x236D8 | ~68B | Medium (shared exits) |
 | func_037_038_039_helpers.asm | 3 | 0x2381E-0x2385A | ~60B | Low |
 | func_060_063_raster_batch.asm | 4 | 0x23DD8-0x23EC6 | 238B | Low |
@@ -132,16 +132,21 @@ Functions identified outside the main numbering sequence.
 
 These can likely be integrated with minimal risk:
 
-| Rank | Function | Size | ROM Offset | Risk Level | Verify Size |
-|------|----------|------|------------|------------|-------------|
-| 1 | func_000 | 26B* | 0x2300A | Very Low | ✓ Done |
-| 2 | func_022 | 18B | 0x234EE | Very Low | Needed |
-| 3 | func_017 | 22B | 0x2338A | Very Low | Needed |
-| 4 | func_003_004 | 26B | 0x230CC | Low | Needed |
-| 5 | func_032 | 28B | 0x236DA | Low | Needed |
-| 6 | func_005 | 52B | 0x230E8 | Low | Needed |
-| 7 | func_007 | 50B | 0x23178 | Low | Needed |
-| 8 | func_013 | 50B | 0x232D4 | Low | Needed |
+| Rank | Function | Header | Verified | ROM Range | Risk Level |
+|------|----------|--------|----------|-----------|------------|
+| 1 | func_000 | 24B | **26B*** | 0x2300A-0x23023 | Very Low |
+| 2 | func_022 | 18B | **26B*** | 0x234EE-0x23507 | Very Low |
+| 3 | func_017 | 22B | **26B*** | 0x2338A-0x233A3 | Very Low |
+| 4 | func_003_004 | 26B | **28B*** | 0x230CC-0x230E7 | Low |
+| 5 | func_032 | 28B | **30B*** | 0x236DA-0x236F7 | Low |
+| 6 | func_005 | 52B | **56B*** | 0x230E8-0x2311F | Low |
+| 7 | func_007 | 50B | **52B*** | 0x23178-0x231AB | Low |
+| 8 | func_013 | 50B | **64B*** | 0x232D4-0x23313 | Low |
+
+**All Priority 1 sizes verified empirically (2026-01-31).** Discrepancies due to:
+- Delay slots (2B per RTS)
+- Literal pool alignment padding (2-4B)
+- Literals included in actual ROM range
 
 ### Priority 2: Medium Functions (Moderate size, standalone)
 
@@ -320,16 +325,16 @@ For each integrated function:
 ## 7. Recommended Integration Order
 
 ### Phase 1: Quick Wins (Week 1)
-1. func_000 (26B*) - Simplest, size verified
-2. func_022 (18B) - Very small
-3. func_017 (22B) - Small helper
-4. func_032 (28B) - Small utility
+1. func_000 (26B*) - Simplest, verified
+2. func_022 (26B*) - Verified
+3. func_017 (26B*) - Verified
+4. func_032 (30B*) - Verified
 
 ### Phase 2: Small Standalone (Week 2)
-5. func_003_004 (26B) - Grouped pair
-6. func_005 (52B) - Transform loop
-7. func_007 (50B) - Alt transform
-8. func_013 (50B) - VDP init
+5. func_003_004 (28B*) - Grouped pair, verified
+6. func_005 (56B*) - Transform loop, verified
+7. func_007 (52B*) - Alt transform, verified
+8. func_013 (64B*) - VDP init, verified (includes literals)
 
 ### Phase 3: Medium Functions (Week 3)
 9. func_026 (52B)
@@ -369,29 +374,29 @@ For each integrated function:
 | func_000_data_copy.asm | 0x2300A | 0x23023 | 26B* | Not integrated |
 | func_001_main_coordinator.asm | 0x23024 | 0x2306E | 74B | Doc only |
 | func_002_case_handlers.asm | 0x23070 | 0x230CA | 90B | Doc only |
-| func_003_004_offset_copy.asm | 0x230CC | 0x230E6 | 26B | Not integrated |
-| func_005_transform_loop.asm | 0x230E8 | 0x23114 | 52B | Not integrated |
+| func_003_004_offset_copy.asm | 0x230CC | 0x230E7 | 28B* | Not integrated |
+| func_005_transform_loop.asm | 0x230E8 | 0x2311F | 56B* | Not integrated |
 | func_006_matrix_multiply.asm | 0x23120 | 0x23177 | 88B | **INTEGRATED** |
-| func_007_alt_transform_loop.asm | 0x23178 | 0x231A2 | 50B | Not integrated |
+| func_007_alt_transform_loop.asm | 0x23178 | 0x231AB | 52B* | Not integrated |
 | func_008_alt_matrix_multiply.asm | 0x231AC | 0x231E3 | 56B | **INTEGRATED** |
 | func_009_display_list_4elem.asm | 0x231E4 | 0x23201 | 30B | **INTEGRATED** |
 | func_010_display_list_3elem.asm | 0x23202 | 0x2321B | 26B | **INTEGRATED** |
 | func_011_display_list_loop.asm | 0x23220 | 0x23266 | 70B | Not integrated |
 | func_012_display_entry_handler.asm | 0x23278 | 0x232C2 | 74B | Not integrated |
-| func_013_vdp_init.asm | 0x232D4 | 0x23306 | 50B | Not integrated |
+| func_013_vdp_init.asm | 0x232D4 | 0x23313 | 64B* | Not integrated |
 | func_016_coord_transform.asm | 0x23368 | 0x2338A | 34B | **INTEGRATED** |
-| func_017_quad_helper.asm | 0x2338A | 0x233A0 | 22B | Not integrated |
+| func_017_quad_helper.asm | 0x2338A | 0x233A3 | 26B* | Not integrated |
 | func_018_quad_batch.asm | 0x233A2 | 0x2340A | 106B | Not integrated |
 | func_019_quad_batch_alt.asm | 0x2340C | 0x23466 | 92B | Not integrated |
 | func_020_recursive_quad.asm | 0x23468 | 0x234BE | 86B | Not integrated |
 | func_021_original.asm | 0x234C8 | 0x234EC | 36B | Not integrated |
-| func_022_wait_ready.asm | 0x234EE | 0x23500 | 18B | Not integrated |
+| func_022_wait_ready.asm | 0x234EE | 0x23507 | 26B* | Not integrated |
 | func_023_frustum_cull.asm | 0x23508 | 0x235F2 | 234B | Not integrated |
 | func_024_screen_coords.asm | 0x235F6 | 0x23632 | 60B | Not integrated |
 | func_025_027_028_030_031_small_utils.asm | 0x23634 | 0x236D8 | ~68B | Not integrated |
 | func_026_bounds_compare.asm | 0x23644 | 0x23678 | 52B | Not integrated |
 | func_029_visibility_classify.asm | 0x23688 | 0x236C8 | 64B | Not integrated |
-| func_032_scanline_setup.asm | 0x236DA | 0x236F6 | 28B | Not integrated |
+| func_032_scanline_setup.asm | 0x236DA | 0x236F7 | 30B* | Not integrated |
 | func_033_render_quad.asm | 0x236F8 | 0x2375A | 98B | Not integrated |
 | func_034_span_filler.asm | 0x2375C | 0x237D0 | ~116B | Not integrated |
 | func_036_render_dispatch.asm | 0x237D6 | 0x2381C | ~70B | Not integrated |
