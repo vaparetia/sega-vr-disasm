@@ -381,7 +381,26 @@ shadow_path_wrapper:
         dc.l    $02300300       ; $300430: func_021_original_relocated
 
 ; ============================================================================
+; BATCH COPY HANDLER: 0x300500 (SH2 address: 0x02300500)
+; ============================================================================
+; Batch copy optimization for reducing 68K blocking waits.
+; Replaces 8 separate sh2_send_cmd_wait calls with a single batch command.
+;
+; Protocol (command $26 - BATCH_COPY):
+;   COMM4 = table address (SH2 space)
+;   Table format: [count:16][pad:16][src:32][dst:32][size:32]...
+;
+; Entry: COMM4 contains pointer to batch table
+; Uses: R0-R5, R8
+;
+; See: analysis/optimization/BATCH_COPY_COMMAND_DESIGN.md
+;
+        dcb.b   ($500 - $434), $FF  ; Pad to 0x300500
+batch_copy_handler:
+        include "sh2/generated/batch_copy_handler.inc"
+
+; ============================================================================
 ; REMAINING EXPANSION ROM SPACE
 ; ============================================================================
-; Current position: 0x300434
-        dcb.b   ($100000 - $434), $FF
+; Current position: 0x300538 (handler is 56 bytes)
+        dcb.b   ($100000 - $538), $FF

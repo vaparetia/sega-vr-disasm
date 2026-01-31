@@ -260,10 +260,15 @@ SH2_FUNC021_OPT_SRC = $(SH2_EXP_DIR)/func_021_optimized.asm
 SH2_FUNC021_OPT_BIN = $(BUILD_DIR)/sh2/func_021_optimized.bin
 SH2_FUNC021_OPT_INC = $(SH2_GEN_DIR)/func_021_optimized.inc
 
+# Batch copy handler (optimization for cmd $26)
+SH2_BATCH_COPY_SRC = $(SH2_SRC_DIR)/batch_copy_handler.asm
+SH2_BATCH_COPY_BIN = $(BUILD_DIR)/sh2/batch_copy_handler.bin
+SH2_BATCH_COPY_INC = $(SH2_GEN_DIR)/batch_copy_handler.inc
+
 .PHONY: sh2-assembly sh2-verify
 
 # Build all SH2 assembly sources
-sh2-assembly: dirs $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC)
+sh2-assembly: dirs $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC)
 
 # Build func_006 binary from source
 $(SH2_FUNC006_BIN): $(SH2_FUNC006_SRC) | dirs
@@ -409,6 +414,23 @@ $(SH2_FUNC021_OPT_INC): $(SH2_FUNC021_OPT_BIN)
 	@mkdir -p $(SH2_GEN_DIR)
 	@echo "==> Generating dc.w include: func_021_optimized.inc..."
 	@echo "; Auto-generated from $(SH2_FUNC021_OPT_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build batch_copy_handler binary from source
+$(SH2_BATCH_COPY_BIN): $(SH2_BATCH_COPY_SRC) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: batch_copy_handler..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/batch_copy_handler.o $<
+	$(SH2_OBJCOPY) -O binary $(BUILD_DIR)/sh2/batch_copy_handler.o $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+$(SH2_BATCH_COPY_INC): $(SH2_BATCH_COPY_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: batch_copy_handler.inc..."
+	@echo "; Auto-generated from $(SH2_BATCH_COPY_SRC)" > $@
 	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
 	@echo "" >> $@
 	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
