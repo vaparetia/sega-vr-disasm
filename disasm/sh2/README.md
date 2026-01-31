@@ -194,6 +194,7 @@ The following functions are automatically built via `make sh2-assembly`:
 | Function | Source | Size | Notes |
 |----------|--------|------|-------|
 | func_000 | 3d_engine/ | 26B | Data copy to VDP (with linker script) |
+| func_003_004 | 3d_engine/ | 32B | Offset copy utilities (with linker script) |
 | func_005 | 3d_engine/ | 56B | Transform loop (with linker script) |
 | func_006 | 3d_engine/ | 88B | Matrix multiply |
 | func_007 | 3d_engine/ | 52B | Alt transform loop (with linker script) |
@@ -203,13 +204,16 @@ The following functions are automatically built via `make sh2-assembly`:
 | func_011 | 3d_engine/ | 84B | Display list loop (with linker script) |
 | func_012 | 3d_engine/ | 92B | Display entry handler (with linker script) |
 | func_013 | 3d_engine/ | 92B | VDP init short (with linker script) |
-| func_026 | 3d_engine/ | 68B | Bounds compare + exit paths (with linker script) |
-| func_003_004 | 3d_engine/ | 32B | Offset copy utilities (with linker script) |
-| func_029_030_031 | 3d_engine/ | 82B | Visibility classifier + exit paths (with linker script) |
+| func_014_015 | 3d_engine/ | 56B | VDP data copy utilities (with linker script) |
 | func_016 | 3d_engine/ | 34B | Coord transform |
 | func_017 | 3d_engine/ | 26B | Quad helper (with linker script) |
 | func_022 | 3d_engine/ | 26B | Wait ready/HW sync (with linker script) |
+| func_024 | 3d_engine/ | 62B | Screen coordinate calculator (with linker script) |
+| func_025 | 3d_engine/ | 16B | Coordinate offset calculator (with linker script) |
+| func_026 | 3d_engine/ | 68B | Bounds compare + exit paths (with linker script) |
+| func_029_030_031 | 3d_engine/ | 82B | Visibility classifier + exit paths (with linker script) |
 | func_032 | 3d_engine/ | 32B | Table lookup loop (with linker script) |
+| func_033 | 3d_engine/ | 98B | Quad rendering / edge walking (with linker script) |
 | func_065 | 3d_engine/ | 152B | Unrolled data copy |
 | func_066 | 3d_engine/ | 48B | RLE decoder |
 | func_021_optimized | expansion/ | 96B | Slave vertex transform |
