@@ -92,16 +92,18 @@ Replace dc.w section with assembly-generated include.
 ## Current Files
 
 ### 3D Engine (`3d_engine/`)
+- `func_000_data_copy.asm` - Matrix/constant copy to VDP (12 longwords)
 - `func_001_main_coordinator.asm` - Central dispatch for 3D engine
 - `func_002_case_handlers.asm` - Jump table handlers
+- `func_003_004_offset_copy.asm` - Tiny offset-based copy utilities
 - `func_005_transform_loop.asm` - Vertex transform loop
 - `func_006_matrix_multiply.asm` - 4x4 matrix multiplication
 - `func_021_original.asm` - Original vertex transform function
 - `func_023_frustum_cull.asm` - Frustum culling logic
 - `master_command_loop.asm` - Master SH2 command dispatcher
 - `slave_idle_loop.asm` - Slave initial idle state
-- `slave_command_dispatcher.asm` - ✅ **NEW** Slave command polling loop (66.5% idle confirmed)
-- *(28 total function files)*
+- `slave_command_dispatcher.asm` - Slave command polling loop (66.5% idle confirmed)
+- *(34 total function files)*
 
 ### Expansion (`expansion/`)
 - `func_021_optimized.asm` - Optimized vertex transform for Slave
