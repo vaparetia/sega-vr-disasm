@@ -1,6 +1,6 @@
 /*
  * func_000: Matrix/Constant Data Copy
- * ROM File Offset: 0x2300A - 0x02301C (18 bytes + 6 bytes data = 24 bytes)
+ * ROM File Offset: 0x2300A - 0x23023 (26 bytes verified)
  * SH2 Address: 0x0222300A
  *
  * Purpose: Copy 12 longwords (48 bytes) from source pointer (R13) to
@@ -30,11 +30,14 @@
  */
 
 .section .text
-.align 2
+.p2align 1    /* 2-byte alignment (2^1), not 4-byte, for 0x2300A start */
 
 func_000:
     add     r0,r0                   /* R0 *= 2 (scale index) */
-    mov.l   const_dst_base,r12      /* R12 = 0xC0000740 (destination) */
+    /* MOV.L const_dst_base,r12 - manually encoded to avoid assembler alignment check
+     * When linked at 0x2300A: PC = 0x2300C+4 = 0x23010, target = PC+16 = 0x23020
+     * Encoding: 0xDC04 = MOV.L @(4*4,PC),R12 */
+    .short  0xDC04
     mov     #12,r7                  /* R7 = 12 (loop count) */
 
 .copy_loop:
@@ -47,9 +50,13 @@ func_000:
     rts                             /* Return */
     nop                             /* Delay slot */
 
-.align 4
+/* Manual 2-byte padding to align literal at 0x23020 when linked at 0x2300A
+ * (Assembler calculates alignment at address 0, but final link address is
+ * 0x2300A which shifts alignment by 2 bytes) */
+    .byte   0x00, 0x00
 const_dst_base:
-    .long   0xC0000740              /* VDP/matrix buffer base address */
+    /* Use .byte to avoid assembler alignment check */
+    .byte   0xC0, 0x00, 0x07, 0x40  /* 0xC0000740 in big-endian */
 
 /*
  * Analysis Notes:

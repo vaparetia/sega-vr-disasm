@@ -1802,19 +1802,12 @@
         dc.w    $C000        ; $023004
         dc.w    $0000        ; $023006
         dc.w    $0600        ; $023008
-        dc.w    $300C        ; $02300A
-        dc.w    $DC04        ; $02300C
-        dc.w    $E70C        ; $02300E
-        dc.w    $60D6        ; $023010
-        dc.w    $2C02        ; $023012
-        dc.w    $4710        ; $023014
-        dc.w    $8FFB        ; $023016
-        dc.w    $7C04        ; $023018
-        dc.w    $000B        ; $02301A
-        dc.w    $0009        ; $02301C
-        dc.w    $0000        ; $02301E
-        dc.w    $C000        ; $023020
-        dc.w    $0740        ; $023022
+; ═══════════════════════════════════════════════════════════════════════════
+; func_000: Matrix/Constant Data Copy (26 bytes, $02300A-$023023)
+; Source: disasm/sh2/3d_engine/func_000_data_copy.asm
+; Purpose: Copy 12 longwords (48 bytes) from R13 source to fixed dst 0xC0000740
+; ═══════════════════════════════════════════════════════════════════════════
+        include "sh2/generated/func_000.inc"
         dc.w    $4F22        ; $023024
         dc.w    $B0A7        ; $023026
         dc.w    $7D02        ; $023028

@@ -47,7 +47,7 @@ dirs:
 
 # Build the ROM from original sections/
 # Depends on SH2 assembly to ensure generated includes exist
-$(OUTPUT_ROM): $(M68K_SRC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC)
+$(OUTPUT_ROM): $(M68K_SRC) $(SH2_FUNC000_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC)
 	@echo "==> Assembling 68000 code (from sections/)..."
 	$(ASM) $(ASMFLAGS) -o $@ $<
 	@echo "==> Build complete: $@"
@@ -224,8 +224,14 @@ tools/vasmm68k_mot:
 SH2_SRC_DIR = $(DISASM_DIR)/sh2
 SH2_GEN_DIR = $(SH2_SRC_DIR)/generated
 SH2_3D_DIR = $(SH2_SRC_DIR)/3d_engine
+SH2_LD = sh-elf-ld
 
-# SH2 source files
+# SH2 source files (Priority 1: simplest functions first)
+SH2_FUNC000_SRC = $(SH2_3D_DIR)/func_000_data_copy.asm
+SH2_FUNC000_LDS = $(SH2_3D_DIR)/func_000.lds
+SH2_FUNC000_BIN = $(BUILD_DIR)/sh2/func_000.bin
+SH2_FUNC000_INC = $(SH2_GEN_DIR)/func_000.inc
+
 SH2_FUNC006_SRC = $(SH2_3D_DIR)/func_006_matrix_multiply.asm
 SH2_FUNC006_BIN = $(BUILD_DIR)/sh2/func_006.bin
 SH2_FUNC006_INC = $(SH2_GEN_DIR)/func_006.inc
@@ -268,7 +274,25 @@ SH2_BATCH_COPY_INC = $(SH2_GEN_DIR)/batch_copy_handler.inc
 .PHONY: sh2-assembly sh2-verify
 
 # Build all SH2 assembly sources
-sh2-assembly: dirs $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC)
+sh2-assembly: dirs $(SH2_FUNC000_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC)
+
+# Build func_000 binary from source (requires linker script for PC-relative addressing)
+$(SH2_FUNC000_BIN): $(SH2_FUNC000_SRC) $(SH2_FUNC000_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: func_000 (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/func_000.o $<
+	$(SH2_LD) -T $(SH2_FUNC000_LDS) -o $(BUILD_DIR)/sh2/func_000.elf $(BUILD_DIR)/sh2/func_000.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/func_000.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 26)"
+
+$(SH2_FUNC000_INC): $(SH2_FUNC000_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: func_000.inc..."
+	@echo "; Auto-generated from $(SH2_FUNC000_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
 
 # Build func_006 binary from source
 $(SH2_FUNC006_BIN): $(SH2_FUNC006_SRC) | dirs
@@ -437,8 +461,15 @@ $(SH2_BATCH_COPY_INC): $(SH2_BATCH_COPY_BIN)
 	@echo "    Output: $@ ($$(wc -l < $@) lines)"
 
 # Verify SH2 assembly matches original ROM
-sh2-verify: $(SH2_FUNC006_BIN) $(SH2_FUNC008_BIN) $(SH2_FUNC016_BIN) $(SH2_FUNC009_BIN) $(SH2_FUNC010_BIN) $(SH2_FUNC065_BIN) $(SH2_FUNC066_BIN)
+sh2-verify: $(SH2_FUNC000_BIN) $(SH2_FUNC006_BIN) $(SH2_FUNC008_BIN) $(SH2_FUNC016_BIN) $(SH2_FUNC009_BIN) $(SH2_FUNC010_BIN) $(SH2_FUNC065_BIN) $(SH2_FUNC066_BIN)
 	@echo "==> Verifying SH2 assembly against original ROM..."
+	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x2300A)) count=26 2>/dev/null > $(BUILD_DIR)/sh2/func_000_original.bin
+	@if diff -q $(SH2_FUNC000_BIN) $(BUILD_DIR)/sh2/func_000_original.bin > /dev/null 2>&1; then \
+		echo "✓ func_000: PERFECT MATCH"; \
+	else \
+		echo "✗ func_000: MISMATCH"; \
+		exit 1; \
+	fi
 	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x23120)) count=88 2>/dev/null > $(BUILD_DIR)/sh2/func_006_original.bin
 	@if diff -q $(SH2_FUNC006_BIN) $(BUILD_DIR)/sh2/func_006_original.bin > /dev/null 2>&1; then \
 		echo "✓ func_006: PERFECT MATCH"; \
