@@ -18,6 +18,8 @@
 
 These functions are assembled via `make sh2-assembly` and included in the ROM:
 
+### ROM-Replacing Functions (verified against original)
+
 | Function | ROM Offset | Size | Include Location | Verified |
 |----------|------------|------|------------------|----------|
 | func_006 | 0x23120 | 88B | code_22200.asm:1948 | Yes (sh2-verify) |
@@ -27,12 +29,21 @@ These functions are assembled via `make sh2-assembly` and included in the ROM:
 | func_016 | 0x23368 | 34B | code_22200.asm:2162 | Yes (sh2-verify) |
 | func_065 | 0x23F2C | 152B | code_22200.asm:3661 | Yes (sh2-verify) |
 | func_066 | 0x23FC4 | 48B | code_22200.asm:3669 | Yes (sh2-verify) |
-| func_021_optimized | N/A | 96B | expansion_300000.asm:138 | N/A (new code) |
-| batch_copy_handler | N/A | 56B | expansion_300000.asm:400 | N/A (new code) |
+
+### Expansion ROM Functions (new code, not replacing original)
+
+| Function | Expansion Addr | Size | Include Location | Notes |
+|----------|----------------|------|------------------|-------|
+| func_021_optimized | 0x300100 | 96B | expansion_300000.asm:138 | Slave vertex transform |
+| batch_copy_handler | 0x300500 | 56B | expansion_300000.asm:400 | Batch copy cmd $26 |
 
 ---
 
 ## 2. Function Classification
+
+> **Note:** Categories are not mutually exclusive. Some functions appear in both
+> a numbered category (A-E) and the Appendix. Total file count is 41; function
+> counts overlap because composite files contain multiple functions.
 
 ### Category A: Standalone Functions (Easiest to Integrate)
 
@@ -40,21 +51,21 @@ These have clear boundaries, no shared exits, and can be verified independently.
 
 | Function | ROM Offset | Size | Notes |
 |----------|------------|------|-------|
-| func_000 | 0x2300A | 24B | Data copy to VDP, includes 6B data |
+| func_000 | 0x2300A | 26B* | Data copy to VDP (verified size) |
 | func_005 | 0x230E8 | 52B | Transform loop, 44B code + 8B literals |
 | func_007 | 0x23178 | 50B | Alt transform, 42B code + 8B literals |
 | func_011 | 0x23220 | 70B | Display list loop |
 | func_012 | 0x23278 | 74B | Display entry handler |
 | func_013 | 0x232D4 | 50B | VDP init |
 | func_017 | 0x2338A | 22B | Quad helper |
-| func_021_original | 0x234C8 | 36B | Original vertex transform |
+| func_021_original | 0x234C8 | 36B | ⚠️ DO NOT INTEGRATE (async experiments active) |
 | func_022 | 0x234EE | 18B | Wait ready |
 | func_026 | 0x23644 | 52B | Bounds compare |
 | func_029 | 0x23688 | 64B | Visibility classify |
 | func_032 | 0x236DA | 28B | Scanline setup |
 | func_033 | 0x236F8 | 98B | Render quad |
 
-**Total Category A:** 13 functions
+**Total Category A:** 13 functions (12 integrable, 1 blocked by experiments)
 
 ### Category B: Multi-Function Files (Grouped Translations)
 
@@ -85,7 +96,7 @@ These are summary/documentation files covering many functions. They explain the 
 | func_034_span_filler.asm | 1 | 0x2375C-0x237D0 | ~116B |
 | func_036_render_dispatch.asm | 1 | 0x237D6-0x2381C | ~70B |
 | func_040_059_display_engine.asm | ~20 | 0x2385A-0x23DD6 | 1404B, summary file |
-| func_067_plus_vdp_hw.asm | ~10 | 0x23FC4-0x24200+ | 576B+, VDP region |
+| func_067_plus_vdp_hw.asm | ~10 | 0x23FF4-0x24200+ | 524B+, VDP region (starts after func_066) |
 
 **Total Category C:** 11 files covering ~46 functions
 
@@ -121,27 +132,27 @@ Functions identified outside the main numbering sequence.
 
 These can likely be integrated with minimal risk:
 
-| Rank | Function | Size | ROM Offset | Risk Level |
-|------|----------|------|------------|------------|
-| 1 | func_000 | 26B* | 0x2300A | Very Low |
-| 2 | func_022 | 18B | 0x234EE | Very Low |
-| 3 | func_017 | 22B | 0x2338A | Very Low |
-| 4 | func_003_004 | 26B | 0x230CC | Low |
-| 5 | func_032 | 28B | 0x236DA | Low |
-| 6 | func_005 | 52B | 0x230E8 | Low |
-| 7 | func_007 | 50B | 0x23178 | Low |
-| 8 | func_013 | 50B | 0x232D4 | Low |
+| Rank | Function | Size | ROM Offset | Risk Level | Verify Size |
+|------|----------|------|------------|------------|-------------|
+| 1 | func_000 | 26B* | 0x2300A | Very Low | ✓ Done |
+| 2 | func_022 | 18B | 0x234EE | Very Low | Needed |
+| 3 | func_017 | 22B | 0x2338A | Very Low | Needed |
+| 4 | func_003_004 | 26B | 0x230CC | Low | Needed |
+| 5 | func_032 | 28B | 0x236DA | Low | Needed |
+| 6 | func_005 | 52B | 0x230E8 | Low | Needed |
+| 7 | func_007 | 50B | 0x23178 | Low | Needed |
+| 8 | func_013 | 50B | 0x232D4 | Low | Needed |
 
 ### Priority 2: Medium Functions (Moderate size, standalone)
 
-| Rank | Function | Size | ROM Offset | Risk Level |
-|------|----------|------|------------|------------|
-| 9 | func_026 | 52B | 0x23644 | Low |
-| 10 | func_024 | 60B | 0x235F6 | Low |
-| 11 | func_029 | 64B | 0x23688 | Low |
-| 12 | func_011 | 70B | 0x23220 | Low |
-| 13 | func_012 | 74B | 0x23278 | Low |
-| 14 | func_033 | 98B | 0x236F8 | Medium |
+| Rank | Function | Size | ROM Offset | Risk Level | Verify Size |
+|------|----------|------|------------|------------|-------------|
+| 9 | func_026 | 52B | 0x23644 | Low | Needed |
+| 10 | func_024 | 60B | 0x235F6 | Low | Needed |
+| 11 | func_029 | 64B | 0x23688 | Low | Needed |
+| 12 | func_011 | 70B | 0x23220 | Low | Needed |
+| 13 | func_012 | 74B | 0x23278 | Low | Needed |
+| 14 | func_033 | 98B | 0x236F8 | Medium | Needed |
 
 ### Priority 3: Complex Functions (Requires careful verification)
 
@@ -173,6 +184,11 @@ These are summary files not intended for direct integration:
 ---
 
 ## 4. Integration Workflow
+
+> **⚠️ PC-Relative Addressing Warning:** Functions with `MOV.L @(disp,PC),Rn`
+> instructions have limited displacement range. Relocating or splitting a function
+> can break literal pool references. Always verify assembled output matches expected
+> addresses before integration.
 
 For each function, follow this workflow:
 
@@ -304,7 +320,7 @@ For each integrated function:
 ## 7. Recommended Integration Order
 
 ### Phase 1: Quick Wins (Week 1)
-1. func_000 (24B) - Simplest
+1. func_000 (26B*) - Simplest, size verified
 2. func_022 (18B) - Very small
 3. func_017 (22B) - Small helper
 4. func_032 (28B) - Small utility
@@ -345,6 +361,9 @@ For each integrated function:
 
 ## Appendix A: Full Function Inventory
 
+> **Range Convention:** ROM End is the **last byte** of the function (inclusive).
+> Size = ROM End - ROM Start + 1. Sizes marked with `*` have been verified against ROM.
+
 | File | ROM Start | ROM End | Size | Status |
 |------|-----------|---------|------|--------|
 | func_000_data_copy.asm | 0x2300A | 0x23023 | 26B* | Not integrated |
@@ -381,7 +400,7 @@ For each integrated function:
 | func_060_063_raster_batch.asm | 0x23DD8 | 0x23EC6 | 238B | Not integrated |
 | func_065_unrolled_data_copy.asm | 0x23F2C | 0x23FC3 | 152B | **INTEGRATED** |
 | func_066_rle_decoder.asm | 0x23FC4 | 0x23FF3 | 48B | **INTEGRATED** |
-| func_067_plus_vdp_hw.asm | 0x23FC4 | 0x24200+ | 576B+ | Doc only |
+| func_067_plus_vdp_hw.asm | 0x23FF4 | 0x24200+ | 524B+ | Doc only (starts after func_066) |
 
 ---
 
