@@ -54,6 +54,41 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ---
 
+## Ground Rules for Code Modifications - STRICTLY ENFORCED
+
+### 1. Do Not Guess
+- **Use the official documentation** at `docs/` (hardware manuals, development guides)
+- **Use the comprehensive analysis** at `analysis/` (game architecture, function references, data structures)
+- If information isn't available, research it first - don't assume
+
+### 2. Understand Before Modifying
+- **Never patch `dc.w` values without understanding what they do**
+- If you encounter uncommented functions or raw `dc.w` code, do the work to understand it first
+- When possible, translate `dc.w` sequences into proper assembly mnemonics with comments
+- Disassemble and document code before making any modifications
+
+### 3. Use Available Tools
+- **Profiler**: Use `tools/libretro-profiling/` for performance analysis
+- **Disassemblers**: Use `tools/m68k_disasm.py` and `tools/sh2_disasm.py`
+- Don't make performance assumptions - measure with the profiler
+
+### 4. Proper Assembly, Not Binary Injection
+- **Always modify proper assembly code** - don't trust raw binary/hex patches
+- Convert `dc.w` sequences to mnemonics before modifying
+- Binary injection is error-prone and hard to maintain
+
+### 5. Clean Commits Only
+- **Never leave stale "PATCHED" comments** with old values - either fully revert or fully commit
+- After fixes, verify the ROM matches original where expected (no unintended byte changes)
+- If a modification doesn't work, revert it completely - don't leave partial changes
+
+### 6. Verify Changes
+- Always rebuild and test after modifications
+- Compare key ROM regions with original using `xxd` or `cmp`
+- A working ROM that boots is the minimum bar - test actual gameplay
+
+---
+
 ## Core Development Principles
 
 ### DRY (Don't Repeat Yourself) - STRICTLY ENFORCED
