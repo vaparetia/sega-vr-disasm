@@ -103,7 +103,12 @@ Replace dc.w section with assembly-generated include.
 - `master_command_loop.asm` - Master SH2 command dispatcher
 - `slave_idle_loop.asm` - Slave initial idle state
 - `slave_command_dispatcher.asm` - Slave command polling loop (66.5% idle confirmed)
-- *(34 total function files)*
+- `func_025_027_028_030_031_small_utils.asm` - Min/max tracking utilities
+- `func_034_span_filler.asm` - Edge interpolation for rasterizer
+- `func_036_render_dispatch.asm` - Display list processor
+- `func_037_038_039_helpers.asm` - Visibility test helpers
+- `func_060_063_raster_batch.asm` - Batch copy coordinators (call func_065)
+- *(39 total function files)*
 
 ### Expansion (`expansion/`)
 - `func_021_optimized.asm` - Optimized vertex transform for Slave
