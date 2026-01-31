@@ -6,7 +6,7 @@ A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with
 
 ## Key Features
 
-- **Byte-perfect rebuild** - `make all && make compare` produces identical ROM
+- **Near byte-perfect rebuild** - Only 2 expected differences (ROM size header, V-INT branch offset)
 - **TRUE PARALLEL PROCESSING** - Master returns immediately, Slave executes vertex transform
 - **Master SH2 hooked** - Dispatch at $02046A redirects to expansion ROM
 - **Slave SH2 activated** - Work dispatch wrapper operational at $300200
@@ -22,9 +22,9 @@ A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with
 # Build the ROM
 make all
 
-# Verify byte-perfect match
-make compare
-# Output: ✓✓✓ PERFECT MATCH! ROMs are identical! ✓✓✓
+# Verify SH2 functions match original
+make sh2-verify
+# Output: ✓✓✓ All SH2 functions verified! ✓✓✓
 
 # Test in emulator
 picodrive build/vr_rebuild.32x
