@@ -417,6 +417,38 @@ SH2_FUNC053_LDS = $(SH2_3D_DIR)/func_053.lds
 SH2_FUNC053_BIN = $(BUILD_DIR)/sh2/func_053.bin
 SH2_FUNC053_INC = $(SH2_GEN_DIR)/func_053.inc
 
+SH2_FUNC054_SRC = $(SH2_3D_DIR)/func_054_conditional_bsr_short.asm
+SH2_FUNC054_LDS = $(SH2_3D_DIR)/func_054.lds
+SH2_FUNC054_BIN = $(BUILD_DIR)/sh2/func_054.bin
+SH2_FUNC054_INC = $(SH2_GEN_DIR)/func_054.inc
+
+SH2_FUNC055_SRC = $(SH2_3D_DIR)/func_055_unrolled_copy_short.asm
+SH2_FUNC055_LDS = $(SH2_3D_DIR)/func_055.lds
+SH2_FUNC055_BIN = $(BUILD_DIR)/sh2/func_055.bin
+SH2_FUNC055_INC = $(SH2_GEN_DIR)/func_055.inc
+
+# NOTE: func_056 removed - code at $023F2E is already covered by func_065
+
+SH2_FUNC067_SRC = $(SH2_3D_DIR)/func_067_rle_entry_alt1_short.asm
+SH2_FUNC067_LDS = $(SH2_3D_DIR)/func_067.lds
+SH2_FUNC067_BIN = $(BUILD_DIR)/sh2/func_067.bin
+SH2_FUNC067_INC = $(SH2_GEN_DIR)/func_067.inc
+
+SH2_FUNC068_SRC = $(SH2_3D_DIR)/func_068_rle_entry_alt2_short.asm
+SH2_FUNC068_LDS = $(SH2_3D_DIR)/func_068.lds
+SH2_FUNC068_BIN = $(BUILD_DIR)/sh2/func_068.bin
+SH2_FUNC068_INC = $(SH2_GEN_DIR)/func_068.inc
+
+SH2_FUNC069_SRC = $(SH2_3D_DIR)/func_069_block_copy_stride_short.asm
+SH2_FUNC069_LDS = $(SH2_3D_DIR)/func_069.lds
+SH2_FUNC069_BIN = $(BUILD_DIR)/sh2/func_069.bin
+SH2_FUNC069_INC = $(SH2_GEN_DIR)/func_069.inc
+
+SH2_FUNC070_SRC = $(SH2_3D_DIR)/func_070_loop_dispatcher_short.asm
+SH2_FUNC070_LDS = $(SH2_3D_DIR)/func_070.lds
+SH2_FUNC070_BIN = $(BUILD_DIR)/sh2/func_070.bin
+SH2_FUNC070_INC = $(SH2_GEN_DIR)/func_070.inc
+
 SH2_FUNC005_SRC = $(SH2_3D_DIR)/func_005_transform_loop.asm
 SH2_FUNC005_LDS = $(SH2_3D_DIR)/func_005.lds
 SH2_FUNC005_BIN = $(BUILD_DIR)/sh2/func_005.bin
@@ -469,7 +501,7 @@ SH2_BATCH_COPY_INC = $(SH2_GEN_DIR)/batch_copy_handler.inc
 .PHONY: sh2-assembly sh2-verify
 
 # Build all SH2 assembly sources
-sh2-assembly: dirs $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC040_CASES_INC) $(SH2_FUNC040_UTIL_INC) $(SH2_FUNC041_INC) $(SH2_FUNC042_INC) $(SH2_FUNC043_INC) $(SH2_FUNC044_INC) $(SH2_FUNC045_INC) $(SH2_FUNC046_INC) $(SH2_FUNC047_INC) $(SH2_FUNC048_INC) $(SH2_FUNC049_INC) $(SH2_FUNC050_INC) $(SH2_FUNC051_INC) $(SH2_FUNC052_INC) $(SH2_FUNC053_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC)
+sh2-assembly: dirs $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC040_CASES_INC) $(SH2_FUNC040_UTIL_INC) $(SH2_FUNC041_INC) $(SH2_FUNC042_INC) $(SH2_FUNC043_INC) $(SH2_FUNC044_INC) $(SH2_FUNC045_INC) $(SH2_FUNC046_INC) $(SH2_FUNC047_INC) $(SH2_FUNC048_INC) $(SH2_FUNC049_INC) $(SH2_FUNC050_INC) $(SH2_FUNC051_INC) $(SH2_FUNC052_INC) $(SH2_FUNC053_INC) $(SH2_FUNC054_INC) $(SH2_FUNC055_INC) $(SH2_FUNC067_INC) $(SH2_FUNC068_INC) $(SH2_FUNC069_INC) $(SH2_FUNC070_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC)
 
 # Build func_000 binary from source (requires linker script for PC-relative addressing)
 $(SH2_FUNC000_BIN): $(SH2_FUNC000_SRC) $(SH2_FUNC000_LDS) | dirs
@@ -1162,6 +1194,114 @@ $(SH2_FUNC053_INC): $(SH2_FUNC053_BIN)
 	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
 	@echo "    Output: $@ ($$(wc -l < $@) lines)"
 
+# Build func_054 binary from source (requires linker script)
+$(SH2_FUNC054_BIN): $(SH2_FUNC054_SRC) $(SH2_FUNC054_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: func_054 (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/func_054.o $<
+	$(SH2_LD) -T $(SH2_FUNC054_LDS) -o $(BUILD_DIR)/sh2/func_054.elf $(BUILD_DIR)/sh2/func_054.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/func_054.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 56)"
+
+$(SH2_FUNC054_INC): $(SH2_FUNC054_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: func_054.inc..."
+	@echo "; Auto-generated from $(SH2_FUNC054_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build func_055 binary from source (requires linker script)
+$(SH2_FUNC055_BIN): $(SH2_FUNC055_SRC) $(SH2_FUNC055_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: func_055 (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/func_055.o $<
+	$(SH2_LD) -T $(SH2_FUNC055_LDS) -o $(BUILD_DIR)/sh2/func_055.elf $(BUILD_DIR)/sh2/func_055.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/func_055.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 92)"
+
+$(SH2_FUNC055_INC): $(SH2_FUNC055_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: func_055.inc..."
+	@echo "; Auto-generated from $(SH2_FUNC055_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build func_067 binary from source (requires linker script)
+$(SH2_FUNC067_BIN): $(SH2_FUNC067_SRC) $(SH2_FUNC067_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: func_067 (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/func_067.o $<
+	$(SH2_LD) -T $(SH2_FUNC067_LDS) -o $(BUILD_DIR)/sh2/func_067.elf $(BUILD_DIR)/sh2/func_067.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/func_067.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 14)"
+
+$(SH2_FUNC067_INC): $(SH2_FUNC067_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: func_067.inc..."
+	@echo "; Auto-generated from $(SH2_FUNC067_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build func_068 binary from source (requires linker script)
+$(SH2_FUNC068_BIN): $(SH2_FUNC068_SRC) $(SH2_FUNC068_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: func_068 (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/func_068.o $<
+	$(SH2_LD) -T $(SH2_FUNC068_LDS) -o $(BUILD_DIR)/sh2/func_068.elf $(BUILD_DIR)/sh2/func_068.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/func_068.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 12)"
+
+$(SH2_FUNC068_INC): $(SH2_FUNC068_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: func_068.inc..."
+	@echo "; Auto-generated from $(SH2_FUNC068_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build func_069 binary from source (requires linker script)
+$(SH2_FUNC069_BIN): $(SH2_FUNC069_SRC) $(SH2_FUNC069_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: func_069 (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/func_069.o $<
+	$(SH2_LD) -T $(SH2_FUNC069_LDS) -o $(BUILD_DIR)/sh2/func_069.elf $(BUILD_DIR)/sh2/func_069.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/func_069.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 76)"
+
+$(SH2_FUNC069_INC): $(SH2_FUNC069_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: func_069.inc..."
+	@echo "; Auto-generated from $(SH2_FUNC069_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build func_070 binary from source (requires linker script)
+$(SH2_FUNC070_BIN): $(SH2_FUNC070_SRC) $(SH2_FUNC070_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: func_070 (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/func_070.o $<
+	$(SH2_LD) -T $(SH2_FUNC070_LDS) -o $(BUILD_DIR)/sh2/func_070.elf $(BUILD_DIR)/sh2/func_070.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/func_070.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 36)"
+
+$(SH2_FUNC070_INC): $(SH2_FUNC070_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: func_070.inc..."
+	@echo "; Auto-generated from $(SH2_FUNC070_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
 # Build func_005 binary from source (requires linker script for PC-relative addressing)
 $(SH2_FUNC005_BIN): $(SH2_FUNC005_SRC) $(SH2_FUNC005_LDS) | dirs
 	@mkdir -p $(BUILD_DIR)/sh2
@@ -1533,6 +1673,48 @@ sh2-verify: $(SH2_FUNC000_BIN) $(SH2_FUNC022_BIN) $(SH2_FUNC017_BIN) $(SH2_FUNC0
 		echo "✓ func_053: PERFECT MATCH"; \
 	else \
 		echo "✗ func_053: MISMATCH"; \
+		exit 1; \
+	fi
+	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x23E90)) count=56 2>/dev/null > $(BUILD_DIR)/sh2/func_054_original.bin
+	@if diff -q $(SH2_FUNC054_BIN) $(BUILD_DIR)/sh2/func_054_original.bin > /dev/null 2>&1; then \
+		echo "✓ func_054: PERFECT MATCH"; \
+	else \
+		echo "✗ func_054: MISMATCH"; \
+		exit 1; \
+	fi
+	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x23ED0)) count=92 2>/dev/null > $(BUILD_DIR)/sh2/func_055_original.bin
+	@if diff -q $(SH2_FUNC055_BIN) $(BUILD_DIR)/sh2/func_055_original.bin > /dev/null 2>&1; then \
+		echo "✓ func_055: PERFECT MATCH"; \
+	else \
+		echo "✗ func_055: MISMATCH"; \
+		exit 1; \
+	fi
+	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x23FF4)) count=14 2>/dev/null > $(BUILD_DIR)/sh2/func_067_original.bin
+	@if diff -q $(SH2_FUNC067_BIN) $(BUILD_DIR)/sh2/func_067_original.bin > /dev/null 2>&1; then \
+		echo "✓ func_067: PERFECT MATCH"; \
+	else \
+		echo "✗ func_067: MISMATCH"; \
+		exit 1; \
+	fi
+	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x24002)) count=12 2>/dev/null > $(BUILD_DIR)/sh2/func_068_original.bin
+	@if diff -q $(SH2_FUNC068_BIN) $(BUILD_DIR)/sh2/func_068_original.bin > /dev/null 2>&1; then \
+		echo "✓ func_068: PERFECT MATCH"; \
+	else \
+		echo "✗ func_068: MISMATCH"; \
+		exit 1; \
+	fi
+	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x2400E)) count=76 2>/dev/null > $(BUILD_DIR)/sh2/func_069_original.bin
+	@if diff -q $(SH2_FUNC069_BIN) $(BUILD_DIR)/sh2/func_069_original.bin > /dev/null 2>&1; then \
+		echo "✓ func_069: PERFECT MATCH"; \
+	else \
+		echo "✗ func_069: MISMATCH"; \
+		exit 1; \
+	fi
+	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x24060)) count=36 2>/dev/null > $(BUILD_DIR)/sh2/func_070_original.bin
+	@if diff -q $(SH2_FUNC070_BIN) $(BUILD_DIR)/sh2/func_070_original.bin > /dev/null 2>&1; then \
+		echo "✓ func_070: PERFECT MATCH"; \
+	else \
+		echo "✗ func_070: MISMATCH"; \
 		exit 1; \
 	fi
 	@dd if="$(ORIGINAL_ROM)" bs=1 skip=$$((0x236DA)) count=32 2>/dev/null > $(BUILD_DIR)/sh2/func_032_original.bin

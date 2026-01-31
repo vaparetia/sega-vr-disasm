@@ -2115,85 +2115,18 @@
         dc.w    $0400        ; $023E8A
         dc.w    $0600        ; $023E8C
         dc.w    $3E3C        ; $023E8E
-; func_054+ continue at $023E90
-        dc.w    $4F22        ; $023E90
-        dc.w    $59E1        ; $023E92
-        dc.w    $9018        ; $023E94
-        dc.w    $390C        ; $023E96
-        dc.w    $DA0C        ; $023E98
-        dc.w    $84E1        ; $023E9A
-        dc.w    $4008        ; $023E9C
-        dc.w    $0AAE        ; $023E9E
-        dc.w    $EC00        ; $023EA0
-        dc.w    $84E9        ; $023EA2
-        dc.w    $8800        ; $023EA4
-        dc.w    $8901        ; $023EA6
-        dc.w    $B041        ; $023EA8
-        dc.w    $EC01        ; $023EAA
-        dc.w    $7908        ; $023EAC
-        dc.w    $84EA        ; $023EAE
-        dc.w    $4C15        ; $023EB0
-        dc.w    $8901        ; $023EB2
-        dc.w    $8800        ; $023EB4
-        dc.w    $8901        ; $023EB6
-        dc.w    $B039        ; $023EB8
-        dc.w    $EC01        ; $023EBA
-        dc.w    $7908        ; $023EBC
-        dc.w    $B036        ; $023EBE
-        dc.w    $84EB        ; $023EC0
-        dc.w    $4F26        ; $023EC2
-        dc.w    $000B        ; $023EC4
-        dc.w    $0009        ; $023EC6
-        dc.w    $0400        ; $023EC8
+; func_054: Conditional BSR Handler Type 9 (56 bytes: $023E90-$023EC7)
+; Uses R12 flag for conditional BSR calls
+        include "sh2/generated/func_054.inc"
+; Literal pool for func_054 (offset and address constants)
+        dc.w    $0400        ; $023EC8: offset constant
         dc.w    $0000        ; $023ECA
-        dc.w    $0600        ; $023ECC
+        dc.w    $0600        ; $023ECC: address constant
         dc.w    $3E3C        ; $023ECE
-        dc.w    $4008        ; $023ED0
-        dc.w    $4008        ; $023ED2
-        dc.w    $4008        ; $023ED4
-        dc.w    $30AC        ; $023ED6
-        dc.w    $6193        ; $023ED8
-        dc.w    $6206        ; $023EDA
-        dc.w    $1120        ; $023EDC
-        dc.w    $6206        ; $023EDE
-        dc.w    $1121        ; $023EE0
-        dc.w    $31DC        ; $023EE2
-        dc.w    $6206        ; $023EE4
-        dc.w    $1120        ; $023EE6
-        dc.w    $6206        ; $023EE8
-        dc.w    $1121        ; $023EEA
-        dc.w    $31DC        ; $023EEC
-        dc.w    $6206        ; $023EEE
-        dc.w    $1120        ; $023EF0
-        dc.w    $6206        ; $023EF2
-        dc.w    $1121        ; $023EF4
-        dc.w    $31DC        ; $023EF6
-        dc.w    $6206        ; $023EF8
-        dc.w    $1120        ; $023EFA
-        dc.w    $6206        ; $023EFC
-        dc.w    $1121        ; $023EFE
-        dc.w    $31DC        ; $023F00
-        dc.w    $6206        ; $023F02
-        dc.w    $1120        ; $023F04
-        dc.w    $6206        ; $023F06
-        dc.w    $1121        ; $023F08
-        dc.w    $31DC        ; $023F0A
-        dc.w    $6206        ; $023F0C
-        dc.w    $1120        ; $023F0E
-        dc.w    $6206        ; $023F10
-        dc.w    $1121        ; $023F12
-        dc.w    $31DC        ; $023F14
-        dc.w    $6206        ; $023F16
-        dc.w    $1120        ; $023F18
-        dc.w    $6206        ; $023F1A
-        dc.w    $1121        ; $023F1C
-        dc.w    $31DC        ; $023F1E
-        dc.w    $6206        ; $023F20
-        dc.w    $1120        ; $023F22
-        dc.w    $6206        ; $023F24
-        dc.w    $1121        ; $023F26
-        dc.w    $31DC        ; $023F28
-        dc.w    $000B        ; $023F2A
+; func_055: Unrolled 8-Block Copy with Stride (92 bytes: $023ED0-$023F2B)
+; Called by func_050's 10 BSR calls. Copies 64 bytes with stride.
+; Note: RTS delay slot at $023F2C is shared with func_065 (first NOP)
+        include "sh2/generated/func_055.inc"
 ; ============================================================================
 ; func_065: Unrolled Data Copy Loop (HOTSPOT: 4× by func_060-063)
 ; SH2 Address: $02223F2C | ROM: $23F2C | 152 bytes
@@ -2209,78 +2142,30 @@
 ; Source: disasm/sh2/3d_engine/func_066_rle_decoder.asm
 ; ============================================================================
         include "disasm/sh2/generated/func_066.inc"
-        dc.w    $58E2        ; $023FF4
-        dc.w    $59E1        ; $023FF6
-        dc.w    $7802        ; $023FF8
-        dc.w    $85E1        ; $023FFA
-        dc.w    $6703        ; $023FFC
-        dc.w    $AFE5        ; $023FFE
-        dc.w    $6DDB        ; $024000
-        dc.w    $58E2        ; $024002
-        dc.w    $59E1        ; $024004
-        dc.w    $7802        ; $024006
-        dc.w    $85E1        ; $024008
-        dc.w    $AFDF        ; $02400A
-        dc.w    $6703        ; $02400C
-        dc.w    $58E2        ; $02400E
-        dc.w    $59E1        ; $024010
-        dc.w    $E0FC        ; $024012
-        dc.w    $2909        ; $024014
-        dc.w    $6093        ; $024016
-        dc.w    $911F        ; $024018
-        dc.w    $2019        ; $02401A
-        dc.w    $911E        ; $02401C
-        dc.w    $3013        ; $02401E
-        dc.w    $8919        ; $024020
-        dc.w    $4009        ; $024022
-        dc.w    $4001        ; $024024
-        dc.w    $6685        ; $024026
-        dc.w    $E500        ; $024028
-        dc.w    $306C        ; $02402A
-        dc.w    $70D8        ; $02402C
-        dc.w    $4015        ; $02402E
-        dc.w    $8B03        ; $024030
-        dc.w    $3608        ; $024032
-        dc.w    $6503        ; $024034
-        dc.w    $4508        ; $024036
-        dc.w    $4500        ; $024038
-        dc.w    $6785        ; $02403A
-        dc.w    $6193        ; $02403C
-        dc.w    $6263        ; $02403E
-        dc.w    $6086        ; $024040
-        dc.w    $1100        ; $024042
-        dc.w    $6086        ; $024044
-        dc.w    $1101        ; $024046
-        dc.w    $4210        ; $024048
-        dc.w    $8FF9        ; $02404A
-        dc.w    $7108        ; $02404C
-        dc.w    $385C        ; $02404E
-        dc.w    $4710        ; $024050
-        dc.w    $8FF3        ; $024052
-        dc.w    $39DC        ; $024054
-        dc.w    $000B        ; $024056
-        dc.w    $0009        ; $024058
-        dc.w    $01FF        ; $02405A
-        dc.w    $0140        ; $02405C
-        dc.w    $FFFF        ; $02405E
-        dc.w    $4F22        ; $024060
-        dc.w    $85E0        ; $024062
-        dc.w    $8800        ; $024064
-        dc.w    $8907        ; $024066
-        dc.w    $2FE6        ; $024068
-        dc.w    $2F76        ; $02406A
-        dc.w    $B00A        ; $02406C
-        dc.w    $0009        ; $02406E
-        dc.w    $B098        ; $024070
-        dc.w    $0009        ; $024072
-        dc.w    $67F6        ; $024074
-        dc.w    $6EF6        ; $024076
-        dc.w    $4710        ; $024078
-        dc.w    $8FF2        ; $02407A
-        dc.w    $7E14        ; $02407C
-        dc.w    $4F26        ; $02407E
-        dc.w    $000B        ; $024080
-        dc.w    $0009        ; $024082
+; ============================================================================
+; func_067: RLE Entry Point (Alternative 1) (14 bytes: $023FF4-$024001)
+; Setup + BRA into func_066 loop with NEG R13,R13 in delay slot
+; ============================================================================
+        include "sh2/generated/func_067.inc"
+; ============================================================================
+; func_068: RLE Entry Point (Alternative 2) (12 bytes: $024002-$02400D)
+; Setup + BRA into func_066 loop
+; ============================================================================
+        include "sh2/generated/func_068.inc"
+; ============================================================================
+; func_069: Block Copy with Stride (76 bytes: $02400E-$024059)
+; Nested loop block copy with bounds checking
+; ============================================================================
+        include "sh2/generated/func_069.inc"
+; Literal pool for func_069
+        dc.w    $01FF        ; $02405A: mask constant
+        dc.w    $0140        ; $02405C: threshold (320)
+        dc.w    $FFFF        ; $02405E: sentinel
+; ============================================================================
+; func_070: Loop Dispatcher (36 bytes: $024060-$024083)
+; Iterates through elements calling setup and process subroutines
+; ============================================================================
+        include "sh2/generated/func_070.inc"
         dc.w    $DD1E        ; $024084
         dc.w    $D11F        ; $024086
         dc.w    $84E2        ; $024088
