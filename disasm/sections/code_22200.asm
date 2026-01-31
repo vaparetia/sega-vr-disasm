@@ -1954,132 +1954,14 @@
 ; func_017: Quad Processing Helper (26 bytes, $02338A-$0233A3)
 ; Calls func_016, loops until output byte non-zero
         include "sh2/generated/func_017.inc"
-        dc.w    $E100        ; $0233A4
-        dc.w    $2A12        ; $0233A6
-        dc.w    $7AFC        ; $0233A8
-        dc.w    $4001        ; $0233AA
-        dc.w    $1E02        ; $0233AC
-        dc.w    $2F66        ; $0233AE
-        dc.w    $2F76        ; $0233B0
-        dc.w    $2FA6        ; $0233B2
-        dc.w    $C9FF        ; $0233B4
-        dc.w    $8800        ; $0233B6
-        dc.w    $8901        ; $0233B8
-        dc.w    $B071        ; $0233BA
-        dc.w    $4F22        ; $0233BC
-        dc.w    $7BF0        ; $0233BE
-        dc.w    $84EA        ; $0233C0
-        dc.w    $8800        ; $0233C2
-        dc.w    $8901        ; $0233C4
-        dc.w    $B06B        ; $0233C6
-        dc.w    $4F22        ; $0233C8
-        dc.w    $7BF0        ; $0233CA
-        dc.w    $84E9        ; $0233CC
-        dc.w    $8800        ; $0233CE
-        dc.w    $8901        ; $0233D0
-        dc.w    $B065        ; $0233D2
-        dc.w    $4F22        ; $0233D4
-        dc.w    $7BF0        ; $0233D6
-        dc.w    $84E8        ; $0233D8
-        dc.w    $8800        ; $0233DA
-        dc.w    $8901        ; $0233DC
-        dc.w    $B05F        ; $0233DE
-        dc.w    $4F22        ; $0233E0
-        dc.w    $6AF6        ; $0233E2
-        dc.w    $67F6        ; $0233E4
-        dc.w    $66F6        ; $0233E6
-        dc.w    $4710        ; $0233E8
-        dc.w    $8FD1        ; $0233EA
-        dc.w    $7BF0        ; $0233EC
-        dc.w    $AFD6        ; $0233EE
-        dc.w    $0009        ; $0233F0
-        dc.w    $4F22        ; $0233F2
-        dc.w    $BFB8        ; $0233F4
-        dc.w    $0009        ; $0233F6
-        dc.w    $60A2        ; $0233F8
-        dc.w    $D105        ; $0233FA
-        dc.w    $2018        ; $0233FC
-        dc.w    $8B09        ; $0233FE
-        dc.w    $7AFC        ; $023400
-        dc.w    $4710        ; $023402
-        dc.w    $8FF8        ; $023404
-        dc.w    $7BC0        ; $023406
-        dc.w    $4F26        ; $023408
-        dc.w    $000B        ; $02340A
-        dc.w    $0009        ; $02340C
-        dc.w    $0000        ; $02340E
-        dc.w    $FF00        ; $023410
-        dc.w    $FF00        ; $023412
-        dc.w    $D10D        ; $023414
-        dc.w    $2109        ; $023416
-        dc.w    $2A12        ; $023418
-        dc.w    $7AFC        ; $02341A
-        dc.w    $4001        ; $02341C
-        dc.w    $1E02        ; $02341E
-        dc.w    $2F66        ; $023420
-        dc.w    $2F76        ; $023422
-        dc.w    $2FA6        ; $023424
-        dc.w    $84EA        ; $023426
-        dc.w    $8800        ; $023428
-        dc.w    $8901        ; $02342A
-        dc.w    $B038        ; $02342C
-        dc.w    $4F22        ; $02342E
-        dc.w    $7BE0        ; $023430
-        dc.w    $84E8        ; $023432
-        dc.w    $8800        ; $023434
-        dc.w    $8901        ; $023436
-        dc.w    $B032        ; $023438
-        dc.w    $4F22        ; $02343A
-        dc.w    $6AF6        ; $02343C
-        dc.w    $67F6        ; $02343E
-        dc.w    $66F6        ; $023440
-        dc.w    $4710        ; $023442
-        dc.w    $8FD8        ; $023444
-        dc.w    $7BE0        ; $023446
-        dc.w    $AFDE        ; $023448
-        dc.w    $0009        ; $02344A
-        dc.w    $00FF        ; $02344C
-        dc.w    $00FF        ; $02344E
-        dc.w    $4F22        ; $023450
-        dc.w    $BF89        ; $023452
-        dc.w    $0009        ; $023454
-        dc.w    $60A2        ; $023456
-        dc.w    $8800        ; $023458
-        dc.w    $8B06        ; $02345A
-        dc.w    $7AFC        ; $02345C
-        dc.w    $4710        ; $02345E
-        dc.w    $8FF9        ; $023460
-        dc.w    $7BC0        ; $023462
-        dc.w    $4F26        ; $023464
-        dc.w    $000B        ; $023466
-        dc.w    $0009        ; $023468
-        dc.w    $E100        ; $02346A
-        dc.w    $2A12        ; $02346C
-        dc.w    $7AFC        ; $02346E
-        dc.w    $4001        ; $023470
-        dc.w    $1E02        ; $023472
-        dc.w    $2F66        ; $023474
-        dc.w    $2F76        ; $023476
-        dc.w    $2FA6        ; $023478
-        dc.w    $84EB        ; $02347A
-        dc.w    $8800        ; $02347C
-        dc.w    $8901        ; $02347E
-        dc.w    $B00E        ; $023480
-        dc.w    $4F22        ; $023482
-        dc.w    $7BE0        ; $023484
-        dc.w    $84E9        ; $023486
-        dc.w    $8800        ; $023488
-        dc.w    $8901        ; $02348A
-        dc.w    $B008        ; $02348C
-        dc.w    $4F22        ; $02348E
-        dc.w    $6AF6        ; $023490
-        dc.w    $67F6        ; $023492
-        dc.w    $66F6        ; $023494
-        dc.w    $4710        ; $023496
-        dc.w    $8FDD        ; $023498
-        dc.w    $7BE0        ; $02349A
-        dc.w    $AFE2        ; $02349C
-        dc.w    $0009        ; $02349E
+; func_018: Quad Batch Processor (112 bytes: $0233A4-$023413)
+; Processes 4 vertices per quad via conditional BSR to func_020
+        include "sh2/generated/func_018.inc"
+; func_019: Quad Batch Alternate (starts at $023414)
+; Two entry points: $023414 (masked) and $02346A (zero mask)
+; Both process quads via conditional BSR to func_020
+        include "sh2/generated/func_019.inc"
+; func_020: Vertex processor helper (starts at $0234A0)
         dc.w    $2FB6        ; $0234A0
         dc.w    $61B5        ; $0234A2
         dc.w    $D807        ; $0234A4
@@ -2265,137 +2147,16 @@
 ; func_033: Quad Rendering / Edge Walking (98 bytes: $0236FA-$02375B)
 ; Edge walking algorithm for polygon rasterization, calls func_034
         include "sh2/generated/func_033.inc"
-; func_034: Span Filler (starts at $02375C)
-; Note: First instruction ($2902) is shared as func_033's RTS delay slot
-        dc.w    $2902        ; $02375C
-        dc.w    $641F        ; $02375E
-        dc.w    $652F        ; $023760
-        dc.w    $3543        ; $023762
-        dc.w    $8902        ; $023764
-        dc.w    $6413        ; $023766
-        dc.w    $6123        ; $023768
-        dc.w    $6243        ; $02376A
-        dc.w    $6419        ; $02376C
-        dc.w    $644F        ; $02376E
-        dc.w    $6529        ; $023770
-        dc.w    $655F        ; $023772
-        dc.w    $3458        ; $023774
-        dc.w    $9718        ; $023776
-        dc.w    $651F        ; $023778
-        dc.w    $662F        ; $02377A
-        dc.w    $3568        ; $02377C
-        dc.w    $3757        ; $02377E
-        dc.w    $8916        ; $023780
-        dc.w    $D70A        ; $023782
-        dc.w    $4500        ; $023784
-        dc.w    $375C        ; $023786
-        dc.w    $6771        ; $023788
-        dc.w    $274F        ; $02378A
-        dc.w    $651F        ; $02378C
-        dc.w    $673F        ; $02378E
-        dc.w    $041A        ; $023790
-        dc.w    $3758        ; $023792
-        dc.w    $4728        ; $023794
-        dc.w    $4408        ; $023796
-        dc.w    $374D        ; $023798
-        dc.w    $633D        ; $02379A
-        dc.w    $6419        ; $02379C
-        dc.w    $070A        ; $02379E
-        dc.w    $644F        ; $0237A0
-        dc.w    $374C        ; $0237A2
-        dc.w    $4728        ; $0237A4
-        dc.w    $000B        ; $0237A6
-        dc.w    $237B        ; $0237A8
-        dc.w    $FF01        ; $0237AA
-        dc.w    $0600        ; $0237AC
-        dc.w    $48D0        ; $0237AE
-        dc.w    $651F        ; $0237B0
-        dc.w    $673F        ; $0237B2
-        dc.w    $3758        ; $0237B4
-        dc.w    $247F        ; $0237B6
-        dc.w    $9D0C        ; $0237B8
-        dc.w    $662F        ; $0237BA
-        dc.w    $3568        ; $0237BC
-        dc.w    $071A        ; $0237BE
-        dc.w    $1D50        ; $0237C0
-        dc.w    $1D71        ; $0237C2
-        dc.w    $633D        ; $0237C4
-        dc.w    $6419        ; $0237C6
-        dc.w    $644F        ; $0237C8
-        dc.w    $57D7        ; $0237CA
-        dc.w    $374C        ; $0237CC
-        dc.w    $4728        ; $0237CE
-        dc.w    $000B        ; $0237D0
-        dc.w    $237B        ; $0237D2
-        dc.w    $FF00        ; $0237D4
-        dc.w    $4F22        ; $0237D6
-        dc.w    $B021        ; $0237D8
-        dc.w    $6381        ; $0237DA
-        dc.w    $6A03        ; $0237DC
-        dc.w    $6C03        ; $0237DE
-        dc.w    $6386        ; $0237E0
-        dc.w    $8B01        ; $0237E2
-        dc.w    $2932        ; $0237E4
-        dc.w    $7904        ; $0237E6
-        dc.w    $B019        ; $0237E8
-        dc.w    $6381        ; $0237EA
-        dc.w    $6B03        ; $0237EC
-        dc.w    $20C8        ; $0237EE
-        dc.w    $8B0C        ; $0237F0
-        dc.w    $20CB        ; $0237F2
-        dc.w    $C806        ; $0237F4
-        dc.w    $8906        ; $0237F6
-        dc.w    $B01C        ; $0237F8
-        dc.w    $60C3        ; $0237FA
-        dc.w    $B01A        ; $0237FC
-        dc.w    $60B3        ; $0237FE
-        dc.w    $60B3        ; $023800
-        dc.w    $C806        ; $023802
-        dc.w    $8B02        ; $023804
-        dc.w    $6382        ; $023806
-        dc.w    $2932        ; $023808
-        dc.w    $7904        ; $02380A
-        dc.w    $7804        ; $02380C
-        dc.w    $6CB3        ; $02380E
-        dc.w    $6082        ; $023810
-        dc.w    $88FF        ; $023812
-        dc.w    $8BE8        ; $023814
-        dc.w    $E0FF        ; $023816
-        dc.w    $4F26        ; $023818
-        dc.w    $000B        ; $02381A
-        dc.w    $2902        ; $02381C
-        dc.w    $51E7        ; $02381E
-        dc.w    $52E8        ; $023820
-        dc.w    $E000        ; $023822
-        dc.w    $3313        ; $023824
-        dc.w    $8900        ; $023826
-        dc.w    $CB04        ; $023828
-        dc.w    $3233        ; $02382A
-        dc.w    $8900        ; $02382C
-        dc.w    $CB02        ; $02382E
-        dc.w    $000B        ; $023830
-        dc.w    $C806        ; $023832
-        dc.w    $8800        ; $023834
-        dc.w    $8B01        ; $023836
-        dc.w    $000B        ; $023838
-        dc.w    $0009        ; $02383A
-        dc.w    $8802        ; $02383C
-        dc.w    $53E8        ; $02383E
-        dc.w    $8900        ; $023840
-        dc.w    $53E7        ; $023842
-        dc.w    $4F22        ; $023844
-        dc.w    $6282        ; $023846
-        dc.w    $6083        ; $023848
-        dc.w    $70FC        ; $02384A
-        dc.w    $6102        ; $02384C
-        dc.w    $6229        ; $02384E
-        dc.w    $BF85        ; $023850
-        dc.w    $6119        ; $023852
-        dc.w    $6339        ; $023854
-        dc.w    $2932        ; $023856
-        dc.w    $4F26        ; $023858
-        dc.w    $000B        ; $02385A
-        dc.w    $7904        ; $02385C
+; func_034: Span Filler / Edge Interpolation (122 bytes: $02375C-$0237D5)
+; Bresenham-style edge interpolation with reciprocal table for fast division
+        include "sh2/generated/func_034.inc"
+; func_036: Render Dispatch D (72 bytes: $0237D6-$02381D)
+; Display list processor for polygon entries
+        include "sh2/generated/func_036.inc"
+; func_037_038_039: Visibility Helper Functions (64 bytes: $02381E-$02385D)
+; Helper subroutines for func_036 render dispatch
+        include "sh2/generated/func_037_038_039.inc"
+; Next function at $02385E (display list handler)
         dc.w    $D811        ; $02385E
         dc.w    $D911        ; $023860
         dc.w    $56E9        ; $023862
