@@ -1890,22 +1890,9 @@
         dc.w    $8B04        ; $0230C2
         dc.w    $B006        ; $0230C4
         dc.w    $66D5        ; $0230C6
-        dc.w    $4F26        ; $0230C8
-        dc.w    $000B        ; $0230CA
-        dc.w    $0009        ; $0230CC
-        dc.w    $37CC        ; $0230CE
-        dc.w    $AFFA        ; $0230D0
-        dc.w    $1743        ; $0230D2
-        dc.w    $36AC        ; $0230D4
-        dc.w    $37CC        ; $0230D6
-        dc.w    $5463        ; $0230D8
-        dc.w    $000B        ; $0230DA
-        dc.w    $1743        ; $0230DC
-        dc.w    $36CC        ; $0230DE
-        dc.w    $37CC        ; $0230E0
-        dc.w    $5463        ; $0230E2
-        dc.w    $000B        ; $0230E4
-        dc.w    $1743        ; $0230E6
+; func_002 exit paths + func_003 + func_004 (32 bytes: $0230C8-$0230E7)
+; Offset-based data copy utilities
+        include "sh2/generated/func_003_004.inc"
 ; ═══════════════════════════════════════════════════════════════════════════
 ; func_005: Matrix Transform Loop (56 bytes, $0230E8-$02311F)
 ; Source: disasm/sh2/3d_engine/func_005_transform_loop.asm

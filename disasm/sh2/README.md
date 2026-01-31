@@ -184,7 +184,7 @@ For each converted section:
 - ✅ Assembly toolchain working (sh-elf-as)
 - ✅ Byte-perfect output proven (slave_test_exact.asm)
 - ✅ Conversion workflow created
-- ✅ Build system integration (Makefile rules for 19 functions)
+- ✅ Build system integration (Makefile rules for 20 functions)
 - ⏳ Batch conversion tools (planned)
 
 ## Functions in Build System
@@ -204,6 +204,7 @@ The following functions are automatically built via `make sh2-assembly`:
 | func_012 | 3d_engine/ | 92B | Display entry handler (with linker script) |
 | func_013 | 3d_engine/ | 92B | VDP init short (with linker script) |
 | func_026 | 3d_engine/ | 68B | Bounds compare + exit paths (with linker script) |
+| func_003_004 | 3d_engine/ | 32B | Offset copy utilities (with linker script) |
 | func_016 | 3d_engine/ | 34B | Coord transform |
 | func_017 | 3d_engine/ | 26B | Quad helper (with linker script) |
 | func_022 | 3d_engine/ | 26B | Wait ready/HW sync (with linker script) |
