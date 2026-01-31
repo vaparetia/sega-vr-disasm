@@ -2314,47 +2314,9 @@
 ; func_026, func_027, func_028 (68 bytes: $023644-$023687)
 ; Bounds comparison with shared exit paths
         include "sh2/generated/func_026.inc"
-        dc.w    $D805        ; $023688
-        dc.w    $8580        ; $02368A
-        dc.w    $EA00        ; $02368C
-        dc.w    $EB00        ; $02368E
-        dc.w    $6103        ; $023690
-        dc.w    $6203        ; $023692
-        dc.w    $8582        ; $023694
-        dc.w    $3013        ; $023696
-        dc.w    $8904        ; $023698
-        dc.w    $EA04        ; $02369A
-        dc.w    $A006        ; $02369C
-        dc.w    $6103        ; $02369E
-        dc.w    $C000        ; $0236A0
-        dc.w    $0742        ; $0236A2
-        dc.w    $3203        ; $0236A4
-        dc.w    $8901        ; $0236A6
-        dc.w    $EB04        ; $0236A8
-        dc.w    $6203        ; $0236AA
-        dc.w    $8584        ; $0236AC
-        dc.w    $3013        ; $0236AE
-        dc.w    $8902        ; $0236B0
-        dc.w    $EA08        ; $0236B2
-        dc.w    $A004        ; $0236B4
-        dc.w    $6103        ; $0236B6
-        dc.w    $3203        ; $0236B8
-        dc.w    $8901        ; $0236BA
-        dc.w    $EB08        ; $0236BC
-        dc.w    $6203        ; $0236BE
-        dc.w    $8586        ; $0236C0
-        dc.w    $3013        ; $0236C2
-        dc.w    $8902        ; $0236C4
-        dc.w    $EA0C        ; $0236C6
-        dc.w    $000B        ; $0236C8
-        dc.w    $6103        ; $0236CA
-        dc.w    $3203        ; $0236CC
-        dc.w    $8902        ; $0236CE
-        dc.w    $EB0C        ; $0236D0
-        dc.w    $000B        ; $0236D2
-        dc.w    $6203        ; $0236D4
-        dc.w    $000B        ; $0236D6
-        dc.w    $0009        ; $0236D8
+; func_029, func_030, func_031 (82 bytes: $023688-$0236D9)
+; Visibility edge classifier with shared exit paths
+        include "sh2/generated/func_029_030_031.inc"
 ; func_032: Table Lookup / Indexed Load Loop (32 bytes, $0236DA-$0236F9)
 ; Uses indexed addressing @(R0,R8) for table lookups
         include "sh2/generated/func_032.inc"
