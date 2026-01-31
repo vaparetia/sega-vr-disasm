@@ -212,6 +212,7 @@ The following functions are automatically built via `make sh2-assembly`:
 | func_020 | 3d_engine/ | 40B | Vertex processor helper (with linker script) |
 | func_021_orig | 3d_engine/ | 38B | Original vertex transform (with linker script) |
 | func_022 | 3d_engine/ | 26B | Wait ready/HW sync (with linker script) |
+| func_023 | 3d_engine/ | 238B | Frustum cull / visibility dispatcher (with linker script) |
 | func_024 | 3d_engine/ | 62B | Screen coordinate calculator (with linker script) |
 | func_025 | 3d_engine/ | 16B | Coordinate offset calculator (with linker script) |
 | func_026 | 3d_engine/ | 68B | Bounds compare + exit paths (with linker script) |
