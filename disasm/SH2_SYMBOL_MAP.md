@@ -106,8 +106,20 @@
 | $02224AEC | register_save_wrapper | |
 | $02224C7E | stream_state_machine | |
 | $02224D16 | multipath_render_dispatch | |
-| $22000400 | slave_main_loop | |
-| $22001000 | slave_process_polygons | |
-| $22001100 | parse_polygon_bounds | |
+| $22000400 | slave_main_loop | (placeholder - actual at $06000592) |
+| $22001000 | slave_process_polygons | (placeholder) |
+| $22001100 | parse_polygon_bounds | (placeholder) |
 
-**Total symbols:** 107
+## Slave SH2 Functions (✅ Confirmed January 2026)
+
+| SDRAM Address | ROM Offset | Symbol | Description |
+|---------------|------------|--------|-------------|
+| $06000570 | $020570 | slave_init | Initialize Slave, set VBR |
+| $06000592 | $020592 | slave_command_loop | Poll COMM1 for commands |
+| $060005C8 | $0205C8 | slave_jump_table | Command handler dispatch table |
+| $06000608 | $020608 | slave_delay_loop | Idle state (64-cycle delay) |
+| $0600060A | $02060A | *(delay NOP)* | **66.5% Slave cycles** (profiler hotspot) |
+
+See: [slave_command_dispatcher.asm](sh2/3d_engine/slave_command_dispatcher.asm)
+
+**Total symbols:** 112

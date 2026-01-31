@@ -64,11 +64,37 @@ There is no evidence of:
 
 The 68K cannot prepare the next workload while the SH-2 renders the current one. Likewise, the SH-2 cannot prefetch or speculate on upcoming work.
 
-### 3.2 Forced SH-2 Underutilization
+### 3.2 Forced SH-2 Underutilization ✅ CONFIRMED
 
 Even though two SH-2 processors are present, the architecture does not expose sustained parallel workloads. One SH-2 effectively becomes a **burst worker**, activated only when explicitly commanded and otherwise waiting for synchronization events.
 
-This explains the empirical observation that the second SH-2 remains idle for large portions of frame time.
+**Profiler confirmation (January 2026):** PC-level profiling shows **66.5% of Slave SH2 cycles** spent at `$0600060A` - the idle delay loop. This directly validates the architectural underutilization hypothesis.
+
+#### Slave Command Dispatcher (✅ Disassembled)
+
+The Slave SH2 runs a simple command polling loop at SDRAM `$06000592`:
+
+```asm
+.command_loop:
+    mov.l   comm1_addr,r1       ; R1 = 0x20004024 (COMM1)
+    mov.b   @r1,r0              ; R0 = COMM1 value
+    cmp/eq  #0,r0               ; Is COMM1 == 0?
+    bt      .delay_loop         ; Yes: no work, go idle
+    ; ... dispatch to command handler via jump table ...
+    bra     .command_loop       ; Loop back
+
+.delay_loop:                    ; $06000608
+    mov     #64,r7              ; R7 = 64 iterations
+.delay_spin:
+    nop                         ; ← Profiler hotspot ($0600060A)
+    dt      r7                  ; R7-- and T = (R7==0)
+    bf      .delay_spin         ; Loop while R7 != 0
+    bra     .command_loop       ; Return to dispatcher
+```
+
+**Key insight:** The delay loop is **correct behavior** for an idle CPU. Reducing iterations would just increase bus contention from more frequent COMM1 reads. The fix is architectural: give the Slave actual rendering work.
+
+See: [slave_command_dispatcher.asm](../disasm/sh2/3d_engine/slave_command_dispatcher.asm)
 
 ### 3.3 Frame Rate Ceiling
 
@@ -167,6 +193,8 @@ With accurate frame-boundary detection, proper instrumentation, and architectura
 
 ## Key Functions in the Blocking Path
 
+### 68K Side
+
 | Address | Function | Role |
 |---------|----------|------|
 | $00E316 | `sh2_send_cmd_wait` | **Primary blocking point** - waits for SH2 ready |
@@ -175,6 +203,15 @@ With accurate frame-boundary detection, proper instrumentation, and architectura
 | $00E3B4 | `sh2_cmd_27` | Most frequent graphics command (21 calls) |
 | $002890 | `sh2_comm_sync` | COMM register synchronization |
 | $0028C2 | `VDPSyncSH2` | VDP/SH2 sync coordination |
+
+### Slave SH2 Side (✅ Confirmed January 2026)
+
+| SDRAM Address | ROM Offset | Function | Role |
+|---------------|------------|----------|------|
+| $06000570 | $020570 | `slave_init` | Initialize Slave, set VBR, wait for Master |
+| $06000592 | $020592 | `slave_command_loop` | Poll COMM1 for commands |
+| $06000608 | $020608 | `slave_delay_loop` | Idle state (64-cycle delay) |
+| $0600060A | $02060A | *(delay NOP)* | **66.5% of Slave cycles spent here** |
 
 *Note: This table documents the original 68K→SH2 protocol. v4.0 adds COMM7/COMM5 for Master→Slave offload signaling.*
 
@@ -211,5 +248,5 @@ Earlier bottleneck analysis with specific VDP wait loop addresses archived to:
 ---
 
 *Generated: January 2026*
-*Updated: January 25, 2026 (v4.0 baseline established)*
+*Updated: January 30, 2026 (Slave command dispatcher disassembled, 66.5% idle confirmed)*
 *Status: Architectural analysis complete, Slave SH2 infrastructure ready for activation*

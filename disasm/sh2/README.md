@@ -91,6 +91,26 @@ Replace dc.w section with assembly-generated include.
 
 ## Current Files
 
+### 3D Engine (`3d_engine/`)
+- `func_001_main_coordinator.asm` - Central dispatch for 3D engine
+- `func_002_case_handlers.asm` - Jump table handlers
+- `func_005_transform_loop.asm` - Vertex transform loop
+- `func_006_matrix_multiply.asm` - 4x4 matrix multiplication
+- `func_021_original.asm` - Original vertex transform function
+- `func_023_frustum_cull.asm` - Frustum culling logic
+- `master_command_loop.asm` - Master SH2 command dispatcher
+- `slave_idle_loop.asm` - Slave initial idle state
+- `slave_command_dispatcher.asm` - ✅ **NEW** Slave command polling loop (66.5% idle confirmed)
+- *(28 total function files)*
+
+### Expansion (`expansion/`)
+- `func_021_optimized.asm` - Optimized vertex transform for Slave
+- `phase11_hook_v2.asm` - Master→Slave dispatch hook
+
+### Root
+- `batch_copy_handler.asm` - Batch memory copy handler (pending redesign)
+
+### Legacy Test Files
 - `slave_test_loop.asm` - COMM2 increment test (with .align)
 - `slave_test_exact.asm` - COMM2 increment test (exact layout) ✅ **BYTE-PERFECT**
 

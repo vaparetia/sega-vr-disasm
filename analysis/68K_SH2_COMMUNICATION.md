@@ -78,15 +78,30 @@ See [DATA_STRUCTURES.md](architecture/DATA_STRUCTURES.md) for complete memory ma
 
 ## COMM Register Usage
 
-### Original Game (📋 Inferred from code patterns)
+### Original Game (✅ Confirmed January 2026)
 
-| Register | Observed Usage |
-|----------|----------------|
-| COMM0 | 68K→SH2 command (inferred: RENDER_FRAME) |
-| COMM1 | Display list address (inferred from 68K writes) |
-| COMM2 | Work status flags (inferred) |
-| COMM3 | Slave status ("OVRN" loop, ✅ confirmed in ROM at $20694) |
-| COMM4-7 | Unused by original game |
+| Register | SH2 Address | Usage | Confidence |
+|----------|-------------|-------|------------|
+| COMM0 | $20004020 | 68K→Master SH2 command | 📋 Inferred |
+| COMM1 | $20004024 | **Slave command byte** - Slave polls this for work | ✅ Confirmed |
+| COMM2 | $20004028 | Work status flags | 📋 Inferred |
+| COMM3 | $2000402C | Slave status ("OVRN" marker) | ✅ Confirmed |
+| COMM4-7 | $20004030-3C | Unused by original game | ✅ Confirmed |
+
+**Slave COMM1 Protocol (✅ Disassembled):**
+
+The Slave SH2 runs a command dispatcher loop at SDRAM `$06000592`:
+
+```
+1. Read COMM1 byte
+2. If COMM1 == 0: No work → enter delay loop ($06000608)
+3. If COMM1 != 0: Dispatch to handler via jump table ($060005C8)
+4. Loop back to step 1
+```
+
+The delay loop burns 64 cycles before rechecking COMM1. Profiling shows **66.5% of Slave cycles** spent in this loop - confirming architectural underutilization.
+
+See: [slave_command_dispatcher.asm](../disasm/sh2/3d_engine/slave_command_dispatcher.asm)
 
 ### v2.3 Protocol Additions (✅ Validated)
 
@@ -140,13 +155,21 @@ See [68K_FUNCTION_REFERENCE.md](68K_FUNCTION_REFERENCE.md) for complete function
 | $022230E6 | `matrix_transform_loop` | Transform batch |
 | $02224320 | `polygon_dispatch_6way` | Polygon render |
 
-### Slave SH2 (Original Game)
+### Slave SH2 (Original Game) ✅ Confirmed January 2026
 
-| Address | Description |
-|---------|-------------|
-| $02220694 | Idle loop - writes "OVRN" to COMM3 repeatedly |
+| SDRAM Addr | ROM Offset | Name | Description |
+|------------|------------|------|-------------|
+| $06000570 | $020570 | `slave_init` | Initialize Slave, set VBR, wait for Master |
+| $06000592 | $020592 | `slave_command_loop` | Poll COMM1 for commands |
+| $060005C8 | $0205C8 | `slave_jump_table` | Command handler dispatch table |
+| $06000608 | $020608 | `slave_delay_loop` | Idle state (64-cycle delay) |
+| $0600060A | $02060A | *(delay NOP)* | **66.5% of Slave cycles** (profiler hotspot) |
+| $02220694 | $020694 | *(unused)* | "OVRN" marker write (fallback idle) |
 
-The Slave is **largely idle** during 3D rendering. See [MASTER_SLAVE_ANALYSIS.md](architecture/MASTER_SLAVE_ANALYSIS.md) for analysis.
+**Profiler Confirmation:** PC-level profiling shows the Slave spends 66.5% of its cycles at `$0600060A` (the NOP inside the delay loop), confirming the Slave is **architecturally underutilized** - it has no rendering work to do.
+
+See: [slave_command_dispatcher.asm](../disasm/sh2/3d_engine/slave_command_dispatcher.asm)
+See: [MASTER_SLAVE_ANALYSIS.md](architecture/MASTER_SLAVE_ANALYSIS.md) for optimization strategies.
 
 ---
 
@@ -225,4 +248,4 @@ See [VINT_HANDLER_ARCHITECTURE.md](architecture/VINT_HANDLER_ARCHITECTURE.md) fo
 
 **Document Status:** Reference document
 **Confidence:** Mixed - see ✅/📋 markers per section
-**Last Updated:** 2026-01-24
+**Last Updated:** 2026-01-30 (Slave command dispatcher confirmed via profiling)
