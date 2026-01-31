@@ -150,11 +150,24 @@ slave_init:
  *    - Having Master signal Slave via COMM7 for parallel vertex transforms
  *    - Allowing true parallel processing between Master and Slave
  *
- * The delay loop itself should NOT be optimized - it's correct behavior
- * for an idle CPU. Reducing iterations just increases bus contention.
- * The fix is architectural: give the Slave real work to do.
+ * OPTIMIZATION STATUS (see DELAY_ELIMINATION_TEST_RESULTS.md):
+ * ─────────────────────────────────────────────────────────────
+ * The delay loop CAN be safely reduced (tested: 64→1 iterations):
+ *   - No hardware timing dependencies (pure busy-wait)
+ *   - No synchronization primitives affected
+ *   - Slave cycles: 300K → 100K per frame (-66.6%)
+ *   - Slave utilization: 78% → 26% (52% headroom gained)
+ *   - Bottleneck shifts from Slave → Master
+ *
+ * TO APPLY: Change MOV #64,R7 to MOV #1,R7 at $020608:
+ *   Original: E740 (64 iterations)
+ *   Patched:  E701 (1 iteration)
+ *
+ * REQUIRES: Gameplay validation before deployment.
+ * ─────────────────────────────────────────────────────────────
  *
  * See: analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md
+ * See: analysis/profiling/DELAY_ELIMINATION_TEST_RESULTS.md
  * See: disasm/sections/expansion_300000.asm (slave_work_wrapper)
  * ============================================================================ */
 
