@@ -2054,41 +2054,10 @@
 ; func_044: Edge/Scan Processor (268 bytes: $023BA8-$023CB3)
 ; Edge and scanline processing with multiple entry points
         include "sh2/generated/func_044.inc"
-; func_045+ continue at $023CB4
-        dc.w    $4F22        ; $023CB4
-        dc.w    $84E0        ; $023CB6
-        dc.w    $8800        ; $023CB8
-        dc.w    $8909        ; $023CBA
-        dc.w    $2FE6        ; $023CBC
-        dc.w    $2F76        ; $023CBE
-        dc.w    $9D2C        ; $023CC0
-        dc.w    $D117        ; $023CC2
-        dc.w    $4000        ; $023CC4
-        dc.w    $001D        ; $023CC6
-        dc.w    $0003        ; $023CC8
-        dc.w    $0009        ; $023CCA
-        dc.w    $67F6        ; $023CCC
-        dc.w    $6EF6        ; $023CCE
-        dc.w    $4710        ; $023CD0
-        dc.w    $8FF0        ; $023CD2
-        dc.w    $7E10        ; $023CD4
-        dc.w    $4F26        ; $023CD6
-        dc.w    $000B        ; $023CD8
-        dc.w    $0009        ; $023CDA
-        dc.w    $002C        ; $023CDC
-        dc.w    $002C        ; $023CDE
-        dc.w    $00A2        ; $023CE0
-        dc.w    $010C        ; $023CE2
-        dc.w    $0198        ; $023CE4
-        dc.w    $0198        ; $023CE6
-        dc.w    $01C4        ; $023CE8
-        dc.w    $0072        ; $023CEA
-        dc.w    $0088        ; $023CEC
-        dc.w    $02FA        ; $023CEE
-        dc.w    $0058        ; $023CF0
-        dc.w    $0328        ; $023CF2
-        dc.w    $0336        ; $023CF4
-        dc.w    $0342        ; $023CF6
+; func_045: Dispatch Loop Processor (68 bytes: $023CB4-$023CF7)
+; BSRF-based dispatch loop with jump table for entry type handling
+        include "sh2/generated/func_045.inc"
+; func_046+ continue at $023CF8
         dc.w    $58E2        ; $023CF8
         dc.w    $59E1        ; $023CFA
         dc.w    $6685        ; $023CFC
