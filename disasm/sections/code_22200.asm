@@ -2065,87 +2065,19 @@
         dc.w    $0000        ; $023D1E
         dc.w    $0600        ; $023D20
         dc.w    $3CDC        ; $023D22
-        dc.w    $85E1        ; $023D24
-        dc.w    $9107        ; $023D26
-        dc.w    $3013        ; $023D28
-        dc.w    $8906        ; $023D2A
-        dc.w    $58E2        ; $023D2C
-        dc.w    $59E1        ; $023D2E
-        dc.w    $E1FC        ; $023D30
-        dc.w    $2019        ; $023D32
-        dc.w    $AFE2        ; $023D34
-        dc.w    $390C        ; $023D36
-        dc.w    $0140        ; $023D38
-        dc.w    $000B        ; $023D3A
-        dc.w    $0009        ; $023D3C
-        dc.w    $85E1        ; $023D3E
-        dc.w    $9105        ; $023D40
-        dc.w    $3013        ; $023D42
-        dc.w    $8904        ; $023D44
-        dc.w    $58E2        ; $023D46
-        dc.w    $59E1        ; $023D48
-        dc.w    $A13E        ; $023D4A
-        dc.w    $390C        ; $023D4C
-        dc.w    $0200        ; $023D4E
-        dc.w    $000B        ; $023D50
-        dc.w    $0009        ; $023D52
-        dc.w    $85E1        ; $023D54
-        dc.w    $9107        ; $023D56
-        dc.w    $3013        ; $023D58
-        dc.w    $8906        ; $023D5A
-        dc.w    $59E1        ; $023D5C
-        dc.w    $E1FC        ; $023D5E
-        dc.w    $2019        ; $023D60
-        dc.w    $390C        ; $023D62
-        dc.w    $A005        ; $023D64
-        dc.w    $4F22        ; $023D66
-        dc.w    $0140        ; $023D68
-        dc.w    $000B        ; $023D6A
-        dc.w    $0009        ; $023D6C
-        dc.w    $4F22        ; $023D6E
-        dc.w    $59E1        ; $023D70
-        dc.w    $DA15        ; $023D72
-        dc.w    $84E1        ; $023D74
-        dc.w    $4008        ; $023D76
-        dc.w    $0AAE        ; $023D78
-        dc.w    $84E8        ; $023D7A
-        dc.w    $8800        ; $023D7C
-        dc.w    $8901        ; $023D7E
-        dc.w    $B0A6        ; $023D80
-        dc.w    $0009        ; $023D82
-        dc.w    $7908        ; $023D84
-        dc.w    $84E9        ; $023D86
-        dc.w    $8800        ; $023D88
-        dc.w    $8901        ; $023D8A
-        dc.w    $B0A0        ; $023D8C
-        dc.w    $0009        ; $023D8E
-        dc.w    $7908        ; $023D90
-        dc.w    $B09D        ; $023D92
-        dc.w    $84EA        ; $023D94
-        dc.w    $7908        ; $023D96
-        dc.w    $B09A        ; $023D98
-        dc.w    $E00A        ; $023D9A
-        dc.w    $7908        ; $023D9C
-        dc.w    $B097        ; $023D9E
-        dc.w    $84EB        ; $023DA0
-        dc.w    $7908        ; $023DA2
-        dc.w    $B094        ; $023DA4
-        dc.w    $84EC        ; $023DA6
-        dc.w    $7908        ; $023DA8
-        dc.w    $B091        ; $023DAA
-        dc.w    $E00B        ; $023DAC
-        dc.w    $7908        ; $023DAE
-        dc.w    $B08E        ; $023DB0
-        dc.w    $84ED        ; $023DB2
-        dc.w    $7908        ; $023DB4
-        dc.w    $B08B        ; $023DB6
-        dc.w    $84EE        ; $023DB8
-        dc.w    $7908        ; $023DBA
-        dc.w    $B088        ; $023DBC
-        dc.w    $84EF        ; $023DBE
-        dc.w    $4F26        ; $023DC0
-        dc.w    $000B        ; $023DC2
-        dc.w    $0009        ; $023DC4
+; func_047: Bounds Check Handler Type 10 (26 bytes: $023D24-$023D3D)
+; Checks bounds and jumps to func_046 inner loop
+        include "sh2/generated/func_047.inc"
+; func_048: Bounds Check Handler Type 7 (22 bytes: $023D3E-$023D53)
+; Checks bounds and jumps to $023FCA
+        include "sh2/generated/func_048.inc"
+; func_049: Bounds Check Entry Type 8 (26 bytes: $023D54-$023D6D)
+; Saves PR in delay slot, enters func_050 body
+        include "sh2/generated/func_049.inc"
+; func_050: Multi-BSR Processing Handler (88 bytes: $023D6E-$023DC5)
+; 10 BSR calls to processing subroutine at $023ED0
+        include "sh2/generated/func_050.inc"
+; Literal pool for func_050 (addresses for MOV.L)
         dc.w    $0000        ; $023DC6
         dc.w    $0600        ; $023DC8
         dc.w    $3DCC        ; $023DCA
