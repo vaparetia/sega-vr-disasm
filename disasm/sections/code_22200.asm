@@ -1906,65 +1906,21 @@
         dc.w    $5463        ; $0230E2
         dc.w    $000B        ; $0230E4
         dc.w    $1743        ; $0230E6
-        dc.w    $2FE6        ; $0230E8
-        dc.w    $4F22        ; $0230EA
-        dc.w    $6BD5        ; $0230EC
-        dc.w    $5AEB        ; $0230EE
-        dc.w    $5CE4        ; $0230F0
-        dc.w    $69C9        ; $0230F2
-        dc.w    $699F        ; $0230F4
-        dc.w    $6CCF        ; $0230F6
-        dc.w    $57E2        ; $0230F8
-        dc.w    $D407        ; $0230FA
-        dc.w    $D507        ; $0230FC
-        dc.w    $960A        ; $0230FE
-        dc.w    $5EE7        ; $023100
-        dc.w    $4E0B        ; $023102
-        dc.w    $60D5        ; $023104
-        dc.w    $B00B        ; $023106
-        dc.w    $0028        ; $023108
-        dc.w    $4B10        ; $02310A
-        dc.w    $8FF9        ; $02310C
-        dc.w    $7A10        ; $02310E
-        dc.w    $4F26        ; $023110
-        dc.w    $000B        ; $023112
-        dc.w    $6EF6        ; $023114
-        dc.w    $FF00        ; $023116
-        dc.w    $C000        ; $023118
-        dc.w    $0760        ; $02311A
-        dc.w    $C000        ; $02311C
-        dc.w    $0770        ; $02311E
+; ═══════════════════════════════════════════════════════════════════════════
+; func_005: Matrix Transform Loop (56 bytes, $0230E8-$02311F)
+; Source: disasm/sh2/3d_engine/func_005_transform_loop.asm
+; ═══════════════════════════════════════════════════════════════════════════
+        include "sh2/generated/func_005.inc"
 ; ═══════════════════════════════════════════════════════════════════════════
 ; func_006: Matrix × Vector Multiplication (88 bytes, $023120-$023177)
 ; Source: disasm/sh2/3d_engine/func_006_matrix_multiply.asm
 ; ═══════════════════════════════════════════════════════════════════════════
         include "sh2/generated/func_006.inc"
-        dc.w    $2FE6        ; $023178
-        dc.w    $4F22        ; $02317A
-        dc.w    $6BD5        ; $02317C
-        dc.w    $5AEB        ; $02317E
-        dc.w    $5CE4        ; $023180
-        dc.w    $69C9        ; $023182
-        dc.w    $699F        ; $023184
-        dc.w    $6CCF        ; $023186
-        dc.w    $53E6        ; $023188
-        dc.w    $D406        ; $02318A
-        dc.w    $D506        ; $02318C
-        dc.w    $5EE7        ; $02318E
-        dc.w    $4E0B        ; $023190
-        dc.w    $60D5        ; $023192
-        dc.w    $B00A        ; $023194
-        dc.w    $0028        ; $023196
-        dc.w    $4B10        ; $023198
-        dc.w    $8FF9        ; $02319A
-        dc.w    $7A10        ; $02319C
-        dc.w    $4F26        ; $02319E
-        dc.w    $000B        ; $0231A0
-        dc.w    $6EF6        ; $0231A2
-        dc.w    $C000        ; $0231A4
-        dc.w    $0740        ; $0231A6
-        dc.w    $C000        ; $0231A8
-        dc.w    $0770        ; $0231AA
+; ═══════════════════════════════════════════════════════════════════════════
+; func_007: Alt Transform Loop (52 bytes, $023178-$0231AB)
+; Source: disasm/sh2/3d_engine/func_007_alt_transform_loop.asm
+; ═══════════════════════════════════════════════════════════════════════════
+        include "sh2/generated/func_007.inc"
 ; ═══════════════════════════════════════════════════════════════════════════
 ; func_008: Alt Matrix × Vector Multiplication (56 bytes, $0231AC-$0231E3)
 ; Source: disasm/sh2/3d_engine/func_008_alt_matrix_multiply.asm
@@ -1989,55 +1945,14 @@
 ; func_011: Display List Processing Loop (84 bytes)
 ; ROM offset: $023220-$023273
         include "sh2/generated/func_011.inc"
-; func_012 literal pool entry (belongs to func_012)
+; Literal pool entry between func_011 and func_012
         dc.w    $C000        ; $023274
         dc.w    $0700        ; $023276
-        dc.w    $4F22        ; $023278
-        dc.w    $5CE4        ; $02327A
-        dc.w    $69C9        ; $02327C
-        dc.w    $699F        ; $02327E
-        dc.w    $6CCF        ; $023280
-        dc.w    $53E6        ; $023282
-        dc.w    $D410        ; $023284
-        dc.w    $D511        ; $023286
-        dc.w    $5AE8        ; $023288
-        dc.w    $BF8F        ; $02328A
-        dc.w    $0028        ; $02328C
-        dc.w    $7A10        ; $02328E
-        dc.w    $D00F        ; $023290
-        dc.w    $5150        ; $023292
-        dc.w    $310C        ; $023294
-        dc.w    $1510        ; $023296
-        dc.w    $BF88        ; $023298
-        dc.w    $0028        ; $02329A
-        dc.w    $7A10        ; $02329C
-        dc.w    $D00C        ; $02329E
-        dc.w    $5152        ; $0232A0
-        dc.w    $3108        ; $0232A2
-        dc.w    $1512        ; $0232A4
-        dc.w    $BF81        ; $0232A6
-        dc.w    $0028        ; $0232A8
-        dc.w    $7A10        ; $0232AA
-        dc.w    $D008        ; $0232AC
-        dc.w    $5150        ; $0232AE
-        dc.w    $3108        ; $0232B0
-        dc.w    $1510        ; $0232B2
-        dc.w    $BF7A        ; $0232B4
-        dc.w    $0028        ; $0232B6
-        dc.w    $5CE8        ; $0232B8
-        dc.w    $5BE9        ; $0232BA
-        dc.w    $BF93        ; $0232BC
-        dc.w    $0009        ; $0232BE
-        dc.w    $4F26        ; $0232C0
-        dc.w    $000B        ; $0232C2
-        dc.w    $1EB9        ; $0232C4
-        dc.w    $0000        ; $0232C6
-        dc.w    $C000        ; $0232C8
-        dc.w    $0740        ; $0232CA
-        dc.w    $C000        ; $0232CC
-        dc.w    $0770        ; $0232CE
-        dc.w    $0020        ; $0232D0
-        dc.w    $0000        ; $0232D2
+; ═══════════════════════════════════════════════════════════════════════════
+; func_012: Display Entry Handler (92 bytes, $023278-$0232D3)
+; Source: disasm/sh2/3d_engine/func_012_display_entry.asm
+; ═══════════════════════════════════════════════════════════════════════════
+        include "sh2/generated/func_012.inc"
         dc.w    $DE0D        ; $0232D4
         dc.w    $C70F        ; $0232D6
         dc.w    $E70E        ; $0232D8
