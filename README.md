@@ -14,7 +14,7 @@ A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with
 - **4MB expansion ROM** - 1MB SH2 working space with custom hooks
 - **503+ named 68K functions** - Categorized by subsystem
 - **107 named SH2 functions** - 3D engine fully mapped
-- **21 SH2 functions translated** - Proper assembly source with verification
+- **53 SH2 functions translated** - Proper assembly source with byte-accurate ROM verification
 
 ## Quick Start
 
@@ -148,10 +148,26 @@ You must provide your own legal ROM dump:
 | **4MB Expansion** | [ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md) |
 | **68K Functions** | [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) (503+ functions) |
 | **SH2 Functions** | [SH2_SYMBOL_MAP.md](disasm/SH2_SYMBOL_MAP.md) (107 functions) |
+| **SH2 3D Pipeline** | [SH2_3D_PIPELINE_ARCHITECTURE.md](analysis/sh2-analysis/SH2_3D_PIPELINE_ARCHITECTURE.md) |
+| **SH2 Function Ref** | [SH2_3D_FUNCTION_REFERENCE.md](analysis/sh2-analysis/SH2_3D_FUNCTION_REFERENCE.md) (53 translated) |
 | **Communication** | [68K_SH2_COMMUNICATION.md](analysis/68K_SH2_COMMUNICATION.md) |
 | **Data Structures** | [DATA_STRUCTURES.md](analysis/architecture/DATA_STRUCTURES.md) |
 | **Hardware** | [32x-hardware-manual.md](docs/32x-hardware-manual.md) |
 | **Development** | [development-guide.md](docs/development-guide.md) |
+
+### SH2 3D Engine Translations
+
+Complete annotated translations of 53 SH2 functions are in `disasm/sh2/3d_engine/`. Key findings:
+
+| Function | Size | Purpose |
+|----------|------|---------|
+| func_023 | **238 B** | Largest - Frustum culling hub, dispatches to all render paths |
+| func_006 | 88 B | Core MAC.L matrix × vector transform (~45 cycles/vertex) |
+| func_034 | 122 B | Span filler with reciprocal table at 0x060048D0 |
+| func_040 | 122 B | Display list with 12-entry jump table |
+| func_016 | 34 B | Coord packing - HOTSPOT: 17% frame budget when called 4×/polygon |
+
+**Verified VDP Addresses**: 0xC00007C0 (buffer A), 0xC00007E0 (buffer B), 0xC0000740 (edge buffer)
 
 ## Technical Details
 

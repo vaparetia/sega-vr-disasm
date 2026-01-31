@@ -3,6 +3,7 @@
 **Virtua Racing Deluxe - SH2 3D Engine**
 **ROM Region**: 0x23000-0x24000+ (several KB of highly optimized code)
 **Analysis Date**: January 6, 2026
+**Last Updated**: January 31, 2026 (53 functions translated with annotations)
 
 ---
 
@@ -12,10 +13,13 @@ The Virtua Racing Deluxe 3D engine consists of **109 functions** spanning 8KB of
 
 **Key Metrics:**
 - Total Functions: 109
+- **Fully Translated**: 53 functions with detailed annotations
 - Direct Calls (BSR): 98
 - Indirect Calls (JSR): 20
 - Leaf Functions: 78
 - Memory Accesses Analyzed: 379
+
+**Translation Status**: Complete assembly translations with ROM verification are available in `disasm/sh2/3d_engine/`. All translations use `.short` (16-bit raw opcodes) to guarantee byte-accurate builds.
 
 ---
 
@@ -54,6 +58,57 @@ The Virtua Racing Deluxe 3D engine consists of **109 functions** spanning 8KB of
  6. DISPLAY
     └─ VDP Frame Swap
 ```
+
+---
+
+## Verified Function Mappings (from Translation Work)
+
+The following function mappings have been **verified through complete disassembly translation** with byte-accurate ROM matching:
+
+### Coordinate Transformation Pipeline
+
+| Function | ROM Address | Size | Purpose |
+|----------|-------------|------|---------|
+| func_000 | 0x2300A-0x23023 | 26 B | Matrix/constant data copy (12 longwords to 0xC0000740) |
+| func_001 | 0x23024-0x2306E | 74 B | Main coordinator / switch dispatcher with dual entry points |
+| func_005 | 0x230E8-0x2311F | 56 B | Matrix transform loop with indirect dispatch |
+| func_006 | 0x23120-0x23178 | 88 B | Core MAC.L matrix × vector multiplication (~45 cycles/vertex) |
+| func_016 | 0x23368-0x2338A | 34 B | Coordinate packing (HOTSPOT: 17% frame budget) |
+| func_021 | 0x234C8-0x234ED | 38 B | Vertex transform loop (now offloaded to Slave SH2) |
+
+### Visibility & Culling Pipeline
+
+| Function | ROM Address | Size | Purpose |
+|----------|-------------|------|---------|
+| func_023 | 0x23508-0x235F5 | 238 B | **LARGEST** - Frustum culling / visibility dispatcher |
+| func_024 | 0x235F6-0x23633 | 62 B | Screen coordinate calculator (3D to 2D) |
+| func_026 | (referenced) | - | Bounds comparison for visibility culling |
+
+### Rendering & Rasterization Pipeline
+
+| Function | ROM Address | Size | Purpose |
+|----------|-------------|------|---------|
+| func_033 | 0x236FA-0x2375B | 98 B | Quad rendering / edge walking |
+| func_034 | 0x2375C-0x237D5 | 122 B | Span filler / edge interpolation (reciprocal table at 0x060048D0) |
+| func_040 | 0x2385E-0x238D7 | 122 B | Display list buffer setup (12-entry jump table) |
+
+### VDP & Hardware Interface
+
+| Function | ROM Address | Size | Purpose |
+|----------|-------------|------|---------|
+| func_014 | 0x23330-0x23341 | 18 B | VDP 6-byte copy utility |
+| func_015 | 0x23342-0x23367 | 38 B | VDP 402-byte frame buffer transfer |
+
+### Key Hardware Addresses (Verified)
+
+| Address | Purpose |
+|---------|---------|
+| 0xC0000700 | SDRAM context base |
+| 0xC0000740 | Edge buffer / matrix destination |
+| 0xC0000780 | Secondary context pointer |
+| 0xC00007C0 | VDP display list buffer A |
+| 0xC00007E0 | VDP display list buffer B |
+| 0x060048D0 | Reciprocal lookup table (for fast division) |
 
 ---
 
@@ -113,13 +168,18 @@ The Virtua Racing Deluxe 3D engine consists of **109 functions** spanning 8KB of
 
 ### Stage 3: Vertex Transformation
 
-**Functions**: func_006 (0x02223114-0x02223174) and func_008 (0x022231A2-0x022231E2)
+**Functions**: func_006 (0x02223120-0x02223178) and func_008 (0x022231A2-0x022231E2)
 
 **Purpose**: Transform 3D vertices from model space to screen coordinates using matrix multiplication.
 
-**Matrix Math (MAC.L Operations)** - func_006 example:
+**Verified from Translation** (`disasm/sh2/3d_engine/func_006_matrix_multiply.asm`):
+
 ```assembly
-; 3x3 Matrix × Vector multiplication (0x02223114-0x02223174)
+; func_006: Core 3D transform using SH2 MAC (Multiply-Accumulate)
+; Formula: V_out = M × V_in + T (with 16.16 fixed-point format)
+; Performance: ~45 cycles per vertex
+
+; 3x3 Matrix × Vector multiplication
 02223120  054F     MAC.L   @R4+,@R5+      ; M[0][0] * V[0]
 02223122  054F     MAC.L   @R4+,@R5+      ; M[0][1] * V[1]
 02223124  054F     MAC.L   @R4+,@R5+      ; M[0][2] * V[2]
@@ -136,9 +196,11 @@ The Virtua Racing Deluxe 3D engine consists of **109 functions** spanning 8KB of
 
 **Key Features**:
 - Uses SH2 MAC (Multiply-Accumulate) for efficiency
-- Fixed-point arithmetic (no FPU on SH2)
+- Fixed-point arithmetic (no FPU on SH2) - **16.16 format confirmed**
 - XTRCT extracts middle 32 bits from 64-bit MAC result
 - R4 = matrix pointer, R5 = vector pointer
+- 9 MAC.L operations total (3 per XYZ component)
+- Uses DMULS.L (32×32→64) for screen coordinate scaling
 
 **Transformation Sequence**:
 1. Model coordinates → World coordinates (object transform matrix)
@@ -357,3 +419,16 @@ The Virtua Racing Deluxe 3D engine represents professional-grade early-90s 3D pr
 - [SH2_3D_CALL_GRAPH.md](SH2_3D_CALL_GRAPH.md) - Function relationships and call chains
 - [32X_FRAME_BUFFER_FORMAT.md](32X_FRAME_BUFFER_FORMAT.md) - Frame buffer architecture and VDP modes
 - [OPTIMIZATION_OPPORTUNITIES.md](OPTIMIZATION_OPPORTUNITIES.md) - Performance improvements
+
+### Translated Assembly Sources
+
+Complete annotated translations with ROM verification are in `disasm/sh2/3d_engine/`:
+
+| Category | Key Files |
+|----------|-----------|
+| **Transform** | `func_006_matrix_multiply.asm`, `func_016_coord_transform.asm`, `func_021_original_short.asm` |
+| **Culling** | `func_023_frustum_cull.asm`, `func_024_screen_coords.asm` |
+| **Rendering** | `func_033_render_quad.asm`, `func_034_span_filler.asm`, `func_036_render_dispatch.asm` |
+| **Display** | `func_040_display_list_short.asm`, `func_040_059_display_engine.asm` |
+| **VDP** | `func_014_015_vdp_copy_short.asm`, `func_067_plus_vdp_hw.asm` |
+| **Coordination** | `func_001_main_coordinator.asm`, `master_command_loop.asm`, `slave_command_dispatcher.asm` |

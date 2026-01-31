@@ -2,7 +2,7 @@
 
 **Virtua Racing Deluxe - Complete Function Catalog**
 **Analysis Date**: January 6, 2026
-**Updated**: January 25, 2026 (v4.0 baseline established)
+**Updated**: January 31, 2026 (53 functions translated with annotations)
 
 ---
 
@@ -16,6 +16,7 @@ Comprehensive reference for all 109 functions in the SH2 3D rendering engine. Fu
 
 ```
 Total Functions: 109
+├── Fully Translated: 53 (with detailed annotations)
 ├── Entry Points: 74
 ├── Coordinators: 31
 ├── Leaf Functions: 78
@@ -23,6 +24,8 @@ Total Functions: 109
 ├── MAC.L Functions (matrix math): 8
 └── Hardware Functions (VDP/register access): 12
 ```
+
+**Translation Directory**: All 53 translated functions are in `disasm/sh2/3d_engine/` with byte-accurate ROM verification.
 
 ---
 
@@ -98,6 +101,7 @@ void func_016(Context* r14) {
 **Type**: Coordinator (recursive)
 **Called By**: func_018, func_019, func_020 (self)
 **Call Count**: 3
+**Translation**: `disasm/sh2/3d_engine/func_020_recursive_quad.asm`, `func_020_vertex_helper_short.asm`
 
 **Purpose**: Recursive polygon subdivision or hierarchical processing
 
@@ -109,6 +113,42 @@ void func_016(Context* r14) {
 **Optimization**: Consider iteration instead of recursion to reduce stack overhead.
 
 **OPT**: Stack frames add 4-6 cycles per recursion level.
+
+---
+
+### func_023 ⭐⭐⭐ LARGEST STANDALONE FUNCTION
+
+**Address**: 0x02223508 - 0x022235F5
+**Size**: 238 bytes (largest single function in 3D engine)
+**Type**: Coordinator (visibility hub)
+**Called By**: func_020, func_021
+**Calls**: func_024, func_026, func_029, func_032, func_033, func_036
+**Translation**: `disasm/sh2/3d_engine/func_023_frustum_cull.asm`, `func_023_frustum_cull_short.asm`
+
+**Purpose**: Core visibility testing and rendering dispatch hub - the heart of the 3D engine
+
+**Verified Operations**:
+- Performs frustum culling on quads
+- Multiple visibility test paths with early-out rejection
+- Loads 6 context pointers from SDRAM (0xC0000700, 0xC0000740, 0xC0000780, 0xC00007A0, 0xC00007C0, 0xC00007E0)
+- Z-depth testing and inequality checks
+- Complex branching with 3 separate literal pools
+
+**Key Code Patterns**:
+```assembly
+; Context pointer loading
+MOV.L @(PC,disp),R8  ; Load 0xC0000700
+MOV.L @(PC,disp),R9  ; Load 0xC0000740
+; ...
+; Visibility test and early-out
+TST R0,R0
+BT .reject_polygon
+; Depth comparison
+CMP/GT R2,R3
+BF .occluded
+```
+
+**Optimization**: Large function, but branching is well-optimized with early exits. Cache-friendly at 238 bytes.
 
 ---
 
@@ -388,10 +428,95 @@ func_001
 **Type**: Coordinator
 **Calls**: func_016 (hot), func_020
 **Call Count**: Unknown (entry point)
+**Translation**: `disasm/sh2/3d_engine/func_019_quad_batch_alt.asm`, `func_019_quad_batch_alt_short.asm`
 
 **Purpose**: Alternative polygon processing path (similar to func_018)
 
 **Likely**: Different polygon type (triangles vs quads?) or rendering mode.
+
+---
+
+## Rasterization Functions (Newly Documented)
+
+### func_033 ⭐⭐ Quad Rendering
+
+**Address**: 0x022236FA - 0x0222375B
+**Size**: 98 bytes
+**Type**: Coordinator
+**Called By**: func_023 (visibility hub)
+**Calls**: func_034 (span filler)
+**Translation**: `disasm/sh2/3d_engine/func_033_render_quad.asm`, `func_033_render_quad_short.asm`
+
+**Purpose**: Renders quads by walking their edges, generating scanline data
+
+**Verified Operations**:
+- Edge buffer at 0xC0000740
+- MAC.W for edge interpolation (@R8+ and @R9+)
+- Coordinate comparison for left/right edge detection
+- Branch paths based on edge order (left-first vs right-first)
+
+**Key Code Pattern**:
+```assembly
+; Edge walking with MAC.W interpolation
+MAC.W @R8+,@R9+    ; Interpolate edge value
+STS MACL,R0        ; Get result
+; Left/right edge comparison
+CMP/GT R2,R3
+BT .right_edge_first
+```
+
+---
+
+### func_034 ⭐⭐ Span Filler
+
+**Address**: 0x0222375C - 0x022237D5
+**Size**: 122 bytes
+**Type**: Leaf function
+**Called By**: func_033
+**Translation**: `disasm/sh2/3d_engine/func_034_span_filler.asm`, `func_034_span_filler_short.asm`
+
+**Purpose**: Calculates interpolated edge values for scanline rendering
+
+**Verified Operations**:
+- Two paths: large delta (reciprocal table), small delta (direct math)
+- **Reciprocal table at 0x060048D0** for fast division approximation
+- MULS.W for edge value multiplication
+- SHLL16/SHLL2 for fixed-point scaling
+- Coordinate swapping and sign extension
+
+**Key Finding**: Uses precomputed reciprocal table to avoid expensive division operations - common 90s optimization technique.
+
+---
+
+### func_040 ⭐ Display List Buffer Setup
+
+**Address**: 0x0222385E - 0x022238D7
+**Size**: 122 bytes
+**Type**: Leaf function with jump table
+**Called By**: Display engine coordinator
+**Translation**: `disasm/sh2/3d_engine/func_040_display_list_short.asm`
+
+**Purpose**: Initialize display list buffers at VDP addresses
+
+**Verified Operations**:
+- VDP buffer pointers: **0xC00007C0** (buf A), **0xC00007E0** (buf B)
+- **12-entry jump table** for polygon type dispatch
+- Wait loop for status bit 8 (buffer ready)
+- Two copy loops transfer data from VDP to working buffers
+- Uses 0xFF as terminator for copy loops
+- Multiple alternate entry points for different copy modes
+
+**Jump Table Offsets** (from 0x023886):
+```
+Index  Offset  Purpose
+0      0x09    (default path)
+1      0x2A    (42 bytes forward)
+2      0x42    (66 bytes forward)
+...
+11     0x58    (88 bytes forward)
+```
+
+**Flag Mask**: 0x20000000 used for status register checking
 
 ---
 
@@ -514,31 +639,35 @@ func_001
 
 ---
 
-## Summary Table: Top 20 Functions by Importance
+## Summary Table: Top 25 Functions by Importance
 
-| Rank | Function | Address | Size | Type | Purpose | Priority |
-|------|----------|---------|------|------|---------|----------|
-| 1 | **func_021** | 0x022234C8 | 36 B | Offload | **Vertex transform ✅ PARALLELIZED** | ✅ Done |
-| 2 | func_016 | 0x0222335A | 44 B | Leaf | Coord transform (inlined in func_021_optimized) | ✅ Done |
-| 3 | func_065 | 0x02223F2C | 150 B | Leaf | Rasterization ⭐⭐⭐ | Critical |
-| 4 | func_020 | 0x02223468 | 86 B | Coord | Recursive polygon ⭐⭐ | High |
-| 5 | func_006 | 0x02223114 | 98 B | Leaf | MAC.L transform | High |
-| 6 | func_008 | 0x022231A2 | 66 B | Leaf | MAC.L transform | High |
-| 7 | func_001 | 0x0222301C | 74 B | Coord | Main coordinator | High |
-| 8 | func_005 | 0x022230E6 | 46 B | Coord | Transform setup | Medium |
-| 9 | func_007 | 0x02223176 | 44 B | Coord | Transform setup | Medium |
-| 10 | func_018 | 0x022233A2 | 106 B | Coord | Polygon batch | Medium |
-| 11 | func_019 | 0x0222340C | 92 B | Coord | Polygon batch | Medium |
-| 12 | func_009 | 0x022231E4 | 30 B | Leaf | Result packing | Medium |
-| 13 | func_012 | 0x02223268 | 92 B | Coord | Matrix processor | Medium |
-| 14 | func_023 | 0x02223500 | ?? B | ?? | Polygon helper | Medium |
-| 15 | 0x02224084 | 0x02224084 | 60 B | Leaf | Hardware init | Low |
-| 16 | 0x02224000 | 0x02224000 | 90 B | Leaf | Data unpacker | Low |
-| 17 | func_011 | 0x0222321C | 76 B | Coord | Matrix loop | Low |
-| 18 | func_002 | 0x02223066 | 102 B | Coord | Init coordinator | Low |
-| 19 | func_010 | 0x02223202 | 26 B | Leaf | Result packing | Low |
-| 20 | func_000 | 0x0222300A | 18 B | Leaf | Data copy | Low |
-| 21 | func_017 | 0x02223388 | 26 B | Coord | Helper | Low |
+| Rank | Function | Address | Size | Type | Purpose | Status |
+|------|----------|---------|------|------|---------|--------|
+| 1 | **func_021** | 0x022234C8 | 38 B | Offload | **Vertex transform ✅ PARALLELIZED** | ✅ Translated |
+| 2 | **func_023** | 0x02223508 | **238 B** | Coord | **Frustum cull hub (LARGEST)** | ✅ Translated |
+| 3 | func_016 | 0x02223368 | 34 B | Leaf | Coord packing (17% frame budget) | ✅ Translated |
+| 4 | func_065 | 0x02223F2C | 150 B | Leaf | Rasterization ⭐⭐⭐ | ✅ Translated |
+| 5 | func_040 | 0x0222385E | 122 B | Leaf | Display list (12-entry jump table) | ✅ Translated |
+| 6 | func_033 | 0x022236FA | 98 B | Coord | Quad edge walking | ✅ Translated |
+| 7 | func_034 | 0x0222375C | 122 B | Leaf | Span filler (reciprocal table) | ✅ Translated |
+| 8 | func_020 | 0x02223468 | 86 B | Coord | Recursive polygon ⭐⭐ | ✅ Translated |
+| 9 | func_006 | 0x02223120 | 88 B | Leaf | MAC.L transform (~45 cyc/vtx) | ✅ Translated |
+| 10 | func_008 | 0x022231A2 | 66 B | Leaf | MAC.L transform | ✅ Translated |
+| 11 | func_001 | 0x02223024 | 74 B | Coord | Main coordinator | ✅ Translated |
+| 12 | func_005 | 0x022230E8 | 56 B | Coord | Transform loop | ✅ Translated |
+| 13 | func_024 | 0x022235F6 | 62 B | Leaf | Screen coords (3D→2D) | ✅ Translated |
+| 14 | func_018 | 0x022233A2 | 106 B | Coord | Polygon batch | ✅ Translated |
+| 15 | func_019 | 0x0222340C | 92 B | Coord | Polygon batch alt | ✅ Translated |
+| 16 | func_009 | 0x022231E4 | 30 B | Leaf | Result packing | ✅ Translated |
+| 17 | func_012 | 0x02223268 | 92 B | Coord | Matrix processor | Medium |
+| 18 | func_014 | 0x02223330 | 18 B | Leaf | VDP 6-byte copy | ✅ Translated |
+| 19 | func_015 | 0x02223342 | 38 B | Leaf | VDP 402-byte copy | ✅ Translated |
+| 20 | func_000 | 0x0222300A | 26 B | Leaf | Matrix data copy | ✅ Translated |
+| 21 | func_011 | 0x0222321C | 76 B | Coord | Display list loop | ✅ Translated |
+| 22 | func_002 | 0x02223066 | 102 B | Coord | Case handlers | ✅ Translated |
+| 23 | func_010 | 0x02223202 | 26 B | Leaf | Result packing | Medium |
+| 24 | func_017 | 0x02223388 | 26 B | Coord | Quad helper | ✅ Translated |
+| 25 | func_007 | 0x02223176 | 44 B | Coord | Alt transform setup | ✅ Translated |
 
 ---
 
@@ -649,3 +778,19 @@ func_XXX:
 - [SLAVE_INJECTION_GUIDE.md](SLAVE_INJECTION_GUIDE.md) - func_021 offload infrastructure details (v4.0 baseline)
 - Complete disassembly: `disasm/sh2_3d_engine.asm`
 - Call graph: `disasm/sh2_3d_engine_callgraph.txt`
+
+### Translated Assembly Sources
+
+All 53 fully annotated translations are in `disasm/sh2/3d_engine/`:
+
+**Key Translation Files by Pipeline Stage:**
+
+| Stage | Files |
+|-------|-------|
+| **Coordination** | `func_001_main_coordinator.asm`, `func_002_case_handlers.asm`, `master_command_loop.asm`, `slave_command_dispatcher.asm` |
+| **Transform** | `func_005_transform_loop.asm`, `func_006_matrix_multiply.asm`, `func_016_coord_transform.asm`, `func_021_original.asm` |
+| **Culling** | `func_023_frustum_cull.asm`, `func_024_screen_coords.asm`, `func_029_030_031_visibility_short.asm` |
+| **Rendering** | `func_033_render_quad.asm`, `func_034_span_filler.asm`, `func_036_render_dispatch.asm` |
+| **Display** | `func_040_display_list_short.asm`, `func_040_059_display_engine.asm`, `func_009_display_list_4elem.asm` |
+| **VDP/HW** | `func_014_015_vdp_copy_short.asm`, `func_067_plus_vdp_hw.asm`, `func_vdp_init_with_delay.asm` |
+| **Utilities** | `func_065_unrolled_data_copy.asm`, `func_066_rle_decoder.asm`, `func_000_data_copy.asm` |
