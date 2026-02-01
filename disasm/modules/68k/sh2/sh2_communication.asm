@@ -246,6 +246,59 @@ sh2_cmd_27:
         rts                                     ; $00E404: $4E75             - Return
 
 ; ============================================================================
+; sh2_cmd_2F ($00E406) - Extended Command with 4 Parameters
+; Purpose: Sends command $2F with data pointer and 4 parameters (D0-D3)
+; Called by: Complex graphics operations
+; Parameters:
+;   A0 = Data pointer (68K address, written directly)
+;   D0 = Parameter 1
+;   D1 = Parameter 2
+;   D2 = Parameter 3
+;   D3 = Parameter 4
+; Returns: Nothing
+;
+; BLOCKING: Contains THREE busy-wait loops
+; Similar to sh2_cmd_27 but with an additional parameter phase
+;
+; Protocol:
+;   Phase 1: Wait for ready, send A0 pointer, command $2F, wait for ack
+;   Phase 2: Send D0/D1, wait for ack
+;   Phase 3: Send D2/D3, return (SH2 processes async)
+; ============================================================================
+
+; Command code for extended command
+CMD_EXTENDED    equ     $2F         ; Extended command code
+
+        org     $00E406
+
+sh2_cmd_2F:
+; Phase 1: Wait for SH2 ready, then send pointer and command
+.wait_ready:
+        tst.b   COMM0_HI                        ; $00E406: $4A39 $00A1 $5120 - Test command flag
+        bne.s   .wait_ready                     ; $00E40C: $66F8             - Loop until ready
+        move.l  a0,COMM4                        ; $00E40E: $23C8 $00A1 $5128 - Write pointer
+        move.w  #HANDSHAKE_READY,COMM6          ; $00E414: $33FC $0101 $00A1 $512C - Signal ready
+        move.b  #CMD_EXTENDED,COMM0_LO          ; $00E41C: $13FC $002F $00A1 $5121 - Command $2F
+        move.b  #$01,COMM0_HI                   ; $00E424: $13FC $0001 $00A1 $5120 - Trigger
+
+; Phase 2: Wait for ack, send D0/D1
+.wait_phase1:
+        tst.b   COMM6                           ; $00E42C: $4A39 $00A1 $512C - Check handshake
+        bne.s   .wait_phase1                    ; $00E432: $66F8             - Loop until clear
+        move.w  d0,COMM4                        ; $00E434: $33C0 $00A1 $5128 - Write D0
+        move.w  d1,COMM5                        ; $00E43A: $33C1 $00A1 $512A - Write D1
+        move.w  #HANDSHAKE_READY,COMM6          ; $00E440: $33FC $0101 $00A1 $512C - Signal ready
+
+; Phase 3: Wait for ack, send D2/D3 (no final wait - SH2 processes async)
+.wait_phase2:
+        tst.b   COMM6                           ; $00E448: $4A39 $00A1 $512C - Check handshake
+        bne.s   .wait_phase2                    ; $00E44E: $66F8             - Loop until clear
+        move.w  d2,COMM4                        ; $00E450: $33C2 $00A1 $5128 - Write D2
+        move.w  d3,COMM5                        ; $00E456: $33C3 $00A1 $512A - Write D3
+        move.w  #HANDSHAKE_READY,COMM6          ; $00E45C: $33FC $0101 $00A1 $512C - Signal ready
+        rts                                     ; $00E464: $4E75             - Return
+
+; ============================================================================
 ; SUMMARY OF BLOCKING BEHAVIOR
 ; ============================================================================
 ;
@@ -255,6 +308,7 @@ sh2_cmd_27:
 ; sh2_wait_response |     1      |     14+      | ~1000 per call
 ; sh2_send_cmd      |     3      |     10+      | ~3000 per call
 ; sh2_cmd_27        |     2      |     21       | ~2000 per call
+; sh2_cmd_2F        |     3      |     varies   | ~3000 per call
 ;
 ; Total estimated blocked cycles per frame: 90,000+
 ; At 7.67 MHz, this is ~6.5ms of pure waiting per frame
