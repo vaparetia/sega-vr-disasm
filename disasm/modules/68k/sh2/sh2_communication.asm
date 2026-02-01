@@ -1,268 +1,215 @@
 ; ============================================================================
-; 68K-SH2 Communication Functions ($00E1BC-$00E464)
+; SH2 Communication Functions ($00E316-$00E3B2)
 ; ============================================================================
 ;
-; ARCHITECTURE OVERVIEW
-; ---------------------
-; These functions manage communication between the 68000 and dual SH2 processors.
-; The 68K issues commands and waits for SH2 completion via COMM registers at
-; $A15120-$A1512F (68K side) / $20004020-$2000402F (SH2 side).
+; PURPOSE
+; -------
+; These functions handle communication between the 68000 and SH2 processors
+; via the 32X communication registers (COMM0-COMM7).
 ;
-; *** CRITICAL BOTTLENECK ***
-; The blocking synchronization pattern in sh2_send_cmd_wait causes the ~20 FPS
-; ceiling. Every SH2 command serializes: 68K waits → SH2 executes → 68K continues.
-; See analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md for optimization strategy.
+; ARCHITECTURAL BOTTLENECK (CRITICAL)
+; -----------------------------------
+; These functions implement BLOCKING synchronous communication:
 ;
-; COMM Register Mapping:
-;   68K $A15120 / SH2 $20004020 = COMM0 (command trigger: 68K→SH2)
-;   68K $A15121 = COMM0 low byte (command number)
-;   68K $A15128 / SH2 $20004028 = COMM2 (parameter block / address)
-;   68K $A1512A = COMM2 low (parameter)
-;   68K $A1512C / SH2 $2000402C = COMM3 (status: SH2→68K response)
+;   68K: Send command → BUSY WAIT → Receive response → BUSY WAIT → Continue
 ;
-; Protocol Flow:
-;   1. 68K polls COMM0 until 0 (SH2 ready)
-;   2. 68K writes parameters to COMM2/COMM3
-;   3. 68K writes command byte to COMM1
-;   4. 68K writes $01 to COMM0 (trigger)
-;   5. 68K polls COMM3 until 0 (SH2 done)
+; This serializes all work through single-threaded blocking waits, causing:
+; - ~20 FPS frame rate ceiling
+; - 68K at 100% utilization (waiting)
+; - Master SH2 at ~36% utilization (idle during 68K waits)
+; - Slave SH2 at ~78% utilization (underutilized)
 ;
-; Dependencies: VDP registers at A5, VDP data at A6
-; Related: 68K_SH2_COMMUNICATION.md, MASTER_SLAVE_ANALYSIS.md
-; ============================================================================
-
-; ============================================================================
-; sh2_palette_load ($00E1BC)
-; Purpose: Load palette data to VDP CRAM via DMA-like copy
-; Called by: 9 locations (per function reference)
-; Parameters: A5 = VDP control port, A6 = VDP data port
-;             A0 = palette source ($0088E20C base)
-; Returns: Nothing
-; ============================================================================
+; The root cause is the TST.B/BNE.S loops that spin until COMM registers
+; change state. The 68K cannot do other work while waiting.
 ;
-; This function loads palette data from ROM table at $0088E20C into VDP CRAM.
-; Sets VDP auto-increment to 2, then writes 6x8 palette entries + 80 zeros.
-;
-; Note: Located in code_c200.asm ($E1BC-$E1FF), continues in code_e200.asm
-
-sh2_palette_load:       ; $00E1BC
-        ; MOVE.W  #$8F02,(A5)             ; Set VDP auto-increment = 2
-        ; MOVE.L  #$40000003,(A5)         ; CRAM write address = $0000
-        ; CLR.W   D0
-        ; MOVEQ   #$1B,D3                 ; 28 outer iterations
-        ; ... palette loading loop follows ...
-
-; ============================================================================
-; sh2_graphics_cmd ($00E22C)
-; Purpose: Graphics buffer setup command
-; Called by: 14 locations (per function reference)
-; Parameters: A0 = buffer base, A1 = saved A0
-;             D0 = buffer select (0-3), D1/D2 = offset params
-;             D3/D4 = dimensions
-; Returns: A0 = restored from A1
-; ============================================================================
-;
-; Calculates graphics buffer addresses and writes setup commands.
-; Uses sh2_copy_routine internally for toggle patterns.
-
-sh2_graphics_cmd:       ; $00E22C
-        ; MOVEA.L A0,A1                   ; Save base address
-        ; LSL.W   #1,D1                   ; D1 * 2
-        ; LSL.W   #7,D2                   ; D2 * 128
-        ; ADD.W   D2,D1                   ; Combined offset
-        ; ... buffer calculations ...
-
-; ============================================================================
-; sh2_copy_routine ($00E2E4)
-; Purpose: Helper - calculate value with bit toggle
-; Called by: 7 locations (sh2_graphics_cmd internal)
-; Parameters: D0 = base, D1 = toggle bit, D2 = offset
-; Returns: D6 = D0 + D1 + D2, D1 bit 0 toggled
-; ============================================================================
-
-sh2_copy_routine:       ; $00E2E4
-        ; MOVE.W  D2,D6
-        ; ADD.W   D0,D6
-        ; ADD.W   D1,D6
-        ; BCHG    #0,D1                   ; Toggle bit 0 for alternating pattern
-        ; RTS
-
-; ============================================================================
-; sh2_load_data ($00E2F0)
-; Purpose: Load data block to VDP CRAM
-; Called by: 10 locations (per function reference)
-; Parameters: A0 = source data, A5 = VDP control, A6 = VDP data
-; Returns: Nothing
-; ============================================================================
-;
-; Bulk CRAM load: writes 28 chunks of 32 longwords each, with 32 zero-padding
-; between each chunk.
-
-sh2_load_data:          ; $00E2F0
-        ; MOVE.L  #$60000002,(A5)         ; CRAM write address
-        ; MOVEQ   #$1B,D0                 ; 28 chunks
-        ; .loop:
-        ;   MOVE.W  #$001F,D1             ; 32 longwords per chunk
-        ;   .inner: MOVE.L (A0)+,(A6)     ; Copy data
-        ;           DBRA D1,.inner
-        ;   MOVE.W  #$001F,D1             ; 32 zero longwords
-        ;   .pad:   MOVE.L #0,(A6)
-        ;           DBRA D1,.pad
-        ;   DBRA D0,.loop
-        ; RTS
-
-; ============================================================================
-; sh2_send_cmd_wait ($00E316) *** BLOCKING BOTTLENECK ***
-; Purpose: Wait for SH2 ready, send command $25 with address parameter
-; Called by: Multiple graphics/DMA operations
-; Parameters: A0 = 68K ROM address (converted to SH2 space internally)
-;             A1 = secondary address for COMM8
-; Returns: Nothing (blocks until SH2 acknowledges)
-; ============================================================================
-;
-; *** THIS IS THE ARCHITECTURAL BOTTLENECK ***
-;
-; This function implements blocking synchronization:
-; 1. Busy-wait loop on COMM0 until SH2 clears it (ready)
-; 2. Convert A0 from 68K space to SH2 space (+$02000000)
-; 3. Write address to COMM8
-; 4. Write ready flag $0101 to COMM12
-; 5. Write command $25 to COMM1
-; 6. Write $01 to COMM0 (trigger SH2)
-; 7. Fall through to sh2_wait_response to wait for completion
-;
-; The blocking nature serializes all SH2 work, preventing parallel processing.
-; Optimization: Replace wait loops with asynchronous handshake or DMA.
-
-sh2_send_cmd_wait:      ; $00E316
-        ; .wait_ready:
-        ; TST.B   $00A15120               ; Poll COMM0 high byte
-        ; BNE.S   .wait_ready             ; Loop while SH2 busy (!= 0)
-        ;
-        ; ADDA.L  #$02000000,A0           ; Convert to SH2 address space
-        ; MOVE.L  A0,$00A15128            ; COMM8 = address (COMM2 for SH2)
-        ; MOVE.W  #$0101,$00A1512C        ; COMM12 = ready flag
-        ; MOVE.B  #$25,$00A15121          ; COMM1 = command $25
-        ; MOVE.B  #$01,$00A15120          ; COMM0 = trigger (signal SH2)
-        ; ... falls through to sh2_wait_response ...
-
-; ============================================================================
-; sh2_wait_response ($00E342) *** BLOCKING ***
-; Purpose: Wait for SH2 to clear COMM12 (completion signal)
-; Called by: sh2_send_cmd_wait (fall-through), sh2_send_cmd, sh2_cmd_27
-; Parameters: A1 = address for next COMM8 write
-; Returns: Nothing (blocks until SH2 done)
-; ============================================================================
-;
-; Second half of the blocking sync pattern. Waits for SH2 to signal completion
-; by clearing COMM12, then optionally writes next parameters.
-
-sh2_wait_response:      ; $00E342
-        ; .wait_done:
-        ; TST.B   $00A1512C               ; Poll COMM12 high byte
-        ; BNE.S   .wait_done              ; Loop while SH2 working (!= 0)
-        ;
-        ; MOVE.L  A1,$00A15128            ; COMM8 = next address
-        ; MOVE.W  #$0101,$00A1512C        ; COMM12 = ready for next
-        ; RTS
-
-; ============================================================================
-; sh2_send_cmd ($00E35A)
-; Purpose: Send command $22 with address and dimension parameters
-; Called by: Text rendering, graphics operations (multiple locations)
-; Parameters: A0 = destination address (SH2 space)
-;             A1 = source address
-;             D0 = width, D1 = height
-; Returns: Nothing
-; ============================================================================
-;
-; Sends a graphics copy command ($22) to SH2:
-; 1. Wait for ready
-; 2. Write dest address to COMM8
-; 3. Write ready flag to COMM12
-; 4. Send command $22
-; 5. Wait for COMM12 clear
-; 6. Write dimensions to COMM8/COMM10
-; 7. Wait for COMM12 clear
-; 8. Write source address to COMM8
-
-sh2_send_cmd:           ; $00E35A
-        ; TST.B   $00A15120               ; Wait for ready
-        ; BNE.S   sh2_send_cmd
-        ;
-        ; MOVE.L  A1,$00A15128            ; COMM8 = dest address
-        ; MOVE.W  #$0101,$00A1512C        ; COMM12 = ready
-        ; MOVE.B  #$22,$00A15121          ; COMM1 = command $22
-        ; MOVE.B  #$01,$00A15120          ; COMM0 = trigger
-        ;
-        ; .wait1: TST.B $00A1512C / BNE.S .wait1
-        ;
-        ; MOVE.W  D0,$00A15128            ; COMM8 = width
-        ; MOVE.W  D1,$00A1512A            ; COMM10 = height
-        ; MOVE.W  #$0101,$00A1512C        ; COMM12 = ready
-        ;
-        ; .wait2: TST.B $00A1512C / BNE.S .wait2
-        ;
-        ; MOVE.L  A0,$00A15128            ; COMM8 = source address
-        ; MOVE.W  #$0101,$00A1512C        ; COMM12 = ready
-        ; RTS
-
-; ============================================================================
-; sh2_cmd_27 ($00E3B4)
-; Purpose: Send command $27 with 4 parameters (21 call sites)
-; Called by: Most frequent SH2 command - polygon/vertex submission
-; Parameters: A0 = address, D0-D2 = parameters
-; Returns: Nothing
-; ============================================================================
-;
-; Command $27 is the most frequently called SH2 command (21 call sites).
-; Likely used for polygon data submission during 3D rendering.
-;
-; Protocol: address → wait → params D0/D1 → wait → param D2 → done
-
-sh2_cmd_27:             ; $00E3B4
-        ; MOVE.L  A0,$00A15128            ; COMM8 = address
-        ; MOVE.W  #$0101,$00A1512C        ; COMM12 = ready
-        ; MOVE.B  #$27,$00A15121          ; COMM1 = command $27
-        ; MOVE.B  #$01,$00A15120          ; COMM0 = trigger
-        ;
-        ; .wait1: TST.B $00A1512C / BNE.S .wait1
-        ;
-        ; MOVE.W  D0,$00A15128            ; COMM8 = param 0
-        ; MOVE.W  D1,$00A1512A            ; COMM10 = param 1
-        ; MOVE.W  #$0101,$00A1512C
-        ;
-        ; .wait2: TST.B $00A1512C / BNE.S .wait2
-        ;
-        ; MOVE.W  D2,$00A15128            ; COMM8 = param 2
-        ; MOVE.W  #$0101,$00A1512C
-        ; RTS
-
-; ============================================================================
-; sh2_cmd_2f ($00E406) - Extended 4-parameter command
-; Purpose: Command $2F with extended parameters
-; Parameters: A0 = address, D0-D3 = parameters
-; Returns: Nothing
-; ============================================================================
-
-sh2_cmd_2f:             ; $00E406
-        ; Similar pattern to sh2_cmd_27 but with 4 parameters (D0-D3)
-
-; ============================================================================
-; END OF SH2 COMMUNICATION MODULE
-; ============================================================================
-;
-; OPTIMIZATION NOTES:
-; ------------------
-; The blocking wait loops prevent parallel processing between 68K and SH2.
-; Current flow: 68K → wait → SH2 work → 68K continues (serialized)
-;
-; Proposed optimization (in expansion ROM at $300000+):
-; 1. Replace blocking waits with non-blocking checks
-; 2. Queue multiple commands before waiting
-; 3. Allow 68K game logic to run while SH2 renders
-; 4. Use Slave SH2 for parallel polygon processing
+; OPTIMIZATION TARGET
+; -------------------
+; To improve frame rate, these blocking waits need to be replaced with:
+; - Interrupt-driven communication (complex, requires timing changes)
+; - Asynchronous command queuing (implemented in expansion ROM at $300000+)
+; - Splitting work between Master and Slave SH2
 ;
 ; See: analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md
-;      analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md
+;
+; COMM REGISTER MAP ($A15120-$A1512F)
+; -----------------------------------
+; $A15120 (COMM0) - Command flag (68K writes, SH2 reads)
+; $A15121 (COMM1) - Command code (68K writes, SH2 reads)
+; $A15122 (COMM2) - Status (SH2 writes, 68K reads)
+; $A15123 (COMM3) - Reserved
+; $A15124-27 (COMM4-7) - 16-bit parameter passing
+; $A15128-2B (COMM8-11) - 32-bit parameter passing
+; $A1512C-2F (COMM12-15) - Handshake flags
+;
+; COMMAND CODES
+; -------------
+; $21 - Unknown
+; $22 - Direct command send (sh2_send_cmd)
+; $25 - Wait and send (sh2_send_cmd_wait)
+; $27 - Command $27 (21 calls/frame)
+; $2F - Extended command
+;
+; REGISTER CONVENTIONS
+; --------------------
+; A0 - Data pointer (converted to SH2 address space)
+; A1 - Secondary data pointer
+; D0, D1 - Parameters
+;
+; Dependencies: 32X adapter initialization
+; Related: 68K_SH2_COMMUNICATION.md, ARCHITECTURAL_BOTTLENECK_ANALYSIS.md
+; ============================================================================
+; Format: Proper mnemonics with original bytes in comments for verification
+; ============================================================================
+
+; 32X Communication Registers
+COMM0           equ     $A15120     ; Command flag (byte)
+COMM1           equ     $A15121     ; Command code (byte)
+COMM2           equ     $A15122     ; Status (byte)
+COMM3           equ     $A15123     ; Reserved (byte)
+COMM4           equ     $A15124     ; Parameter word
+COMM5           equ     $A15126     ; Parameter word
+COMM8           equ     $A15128     ; Parameter long (low word)
+COMM9           equ     $A1512A     ; Parameter long (high word)
+COMM12          equ     $A1512C     ; Handshake word
+
+; SH2 Address Space Offset
+; 68K addresses are converted to SH2 space by adding $02000000
+SH2_ADDR_OFFSET equ     $02000000
+
+; Command codes
+CMD_DIRECT      equ     $22         ; Direct command send
+CMD_WAIT_SEND   equ     $25         ; Wait and send command
+CMD_27          equ     $27         ; Frequently used command
+
+; Handshake values
+HANDSHAKE_READY equ     $0101       ; Ready for next phase
+
+        org     $00E316
+
+; ============================================================================
+; sh2_send_cmd_wait ($00E316) - Wait for Ready, Send Command
+; Purpose: Waits for SH2 to be ready, then sends a command with data pointer
+; Called by: Various graphics/3D functions
+; Parameters:
+;   A0 = 68K data pointer (converted to SH2 address space)
+; Returns: Nothing (A0 preserved in A1)
+;
+; BLOCKING: Contains busy-wait loop at $00E316-$00E31C
+; This is a PRIMARY BOTTLENECK FUNCTION
+; ============================================================================
+
+sh2_send_cmd_wait:
+; --- BLOCKING WAIT LOOP ---
+; Spins until COMM0 == 0, preventing any other 68K work
+.wait_ready:
+        tst.b   COMM0                           ; $00E316: $4A39 $00A1 $5120 - Test command flag
+        bne.s   .wait_ready                     ; $00E31C: $66F8             - Loop until ready
+
+; Convert 68K address to SH2 address space
+        adda.l  #SH2_ADDR_OFFSET,a0             ; $00E31E: $D1FC $0200 $0000 - A0 += $02000000
+        move.l  a0,COMM8                        ; $00E324: $23C8 $00A1 $5128 - Write data pointer
+        move.w  #HANDSHAKE_READY,COMM12         ; $00E32A: $33FC $0101 $00A1 $512C - Signal ready
+        move.b  #CMD_WAIT_SEND,COMM1            ; $00E332: $13FC $0025 $00A1 $5121 - Command $25
+        move.b  #$01,COMM0                      ; $00E33A: $13FC $0001 $00A1 $5120 - Trigger command
+        ; Falls through to sh2_wait_response
+
+; ============================================================================
+; sh2_wait_response ($00E342) - Wait for SH2 Response
+; Purpose: Blocks until SH2 clears handshake, then sets up next transfer
+; Called by: sh2_send_cmd_wait (fall-through), other command functions
+; Parameters:
+;   A1 = Secondary data pointer
+; Returns: Nothing
+;
+; BLOCKING: Contains busy-wait loop at $00E342-$00E348
+; This is a PRIMARY BOTTLENECK FUNCTION
+; ============================================================================
+
+sh2_wait_response:
+; --- BLOCKING WAIT LOOP ---
+; Spins until COMM12 == 0, preventing any other 68K work
+.wait_ack:
+        tst.b   COMM12                          ; $00E342: $4A39 $00A1 $512C - Test handshake
+        bne.s   .wait_ack                       ; $00E348: $66F8             - Loop until cleared
+
+; Set up secondary pointer for next phase
+        move.l  a1,COMM8                        ; $00E34A: $23C9 $00A1 $5128 - Write secondary ptr
+        move.w  #HANDSHAKE_READY,COMM12         ; $00E350: $33FC $0101 $00A1 $512C - Signal ready
+        rts                                     ; $00E358: $4E75             - Return
+
+; ============================================================================
+; sh2_send_cmd ($00E35A) - Direct Command Send
+; Purpose: Sends a command directly with multiple parameters
+; Called by: text_render, various graphics functions
+; Parameters:
+;   A0 = Data pointer
+;   A1 = Secondary pointer
+;   D0 = Parameter 1 (width/count)
+;   D1 = Parameter 2 (height/type)
+; Returns: Nothing
+;
+; BLOCKING: Contains THREE busy-wait loops
+; This function has the MOST BLOCKING WAITS of all comm functions
+; ============================================================================
+
+sh2_send_cmd:
+; --- BLOCKING WAIT 1 ---
+.wait_ready:
+        tst.b   COMM0                           ; $00E35A: $4A39 $00A1 $5120 - Test command flag
+        bne.s   .wait_ready                     ; $00E360: $66F8             - Loop until ready
+
+; Send secondary pointer
+        move.l  a1,COMM8                        ; $00E362: $23C9 $00A1 $5128 - Write A1
+        move.w  #HANDSHAKE_READY,COMM12         ; $00E368: $33FC $0101 $00A1 $512C - Signal ready
+        move.b  #CMD_DIRECT,COMM1               ; $00E370: $13FC $0022 $00A1 $5121 - Command $22
+        move.b  #$01,COMM0                      ; $00E378: $13FC $0001 $00A1 $5120 - Trigger command
+
+; --- BLOCKING WAIT 2 ---
+.wait_phase1:
+        tst.b   COMM12                          ; $00E380: $4A39 $00A1 $512C - Test handshake
+        bne.s   .wait_phase1                    ; $00E386: $66F8             - Loop until cleared
+
+; Send parameters D0/D1
+        move.w  d0,COMM8                        ; $00E388: $33C0 $00A1 $5128 - Write D0
+        move.w  d1,COMM9                        ; $00E38E: $33C1 $00A1 $512A - Write D1
+        move.w  #HANDSHAKE_READY,COMM12         ; $00E394: $33FC $0101 $00A1 $512C - Signal ready
+
+; --- BLOCKING WAIT 3 ---
+.wait_phase2:
+        tst.b   COMM12                          ; $00E39C: $4A39 $00A1 $512C - Test handshake
+        bne.s   .wait_phase2                    ; $00E3A2: $66F8             - Loop until cleared
+
+; Send data pointer
+        move.l  a0,COMM8                        ; $00E3A4: $23C8 $00A1 $5128 - Write A0
+        move.w  #HANDSHAKE_READY,COMM12         ; $00E3AA: $33FC $0101 $00A1 $512C - Signal ready
+        rts                                     ; $00E3B2: $4E75             - Return
+
+; ============================================================================
+; SUMMARY OF BLOCKING BEHAVIOR
+; ============================================================================
+;
+; Function          | Wait Loops | Called/Frame | Blocked Cycles (est)
+; ------------------+------------+--------------+----------------------
+; sh2_send_cmd_wait |     1      |     14       | ~1000 per call
+; sh2_wait_response |     1      |     14+      | ~1000 per call
+; sh2_send_cmd      |     3      |     10+      | ~3000 per call
+;
+; Total estimated blocked cycles per frame: 50,000+
+; At 7.67 MHz, this is ~6.5ms of pure waiting per frame
+; Target frame time for 60 FPS: 16.67ms
+; Blocking alone consumes ~40% of available frame time
+;
+; ============================================================================
+; OPTIMIZATION STRATEGY (Implemented in expansion ROM)
+; ============================================================================
+;
+; Instead of blocking waits:
+; 1. Queue commands to a shared buffer
+; 2. Signal Slave SH2 via COMM7 (non-blocking write)
+; 3. Master SH2 continues with other work
+; 4. Slave processes queued commands in parallel
+; 5. Synchronize only at frame boundary
+;
+; See: disasm/sections/expansion_300000.asm for implementation
+;
 ; ============================================================================

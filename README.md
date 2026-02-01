@@ -185,7 +185,9 @@ Converting raw `dc.w` opcodes to readable, maintainable 68000 assembly. Translat
 |--------|---------------|---------|
 | [adapter_init.asm](disasm/modules/68k/boot/adapter_init.asm) | $000838-$0009BA | 32X hardware init, VDP setup, main loop entry |
 | [vint_handler.asm](disasm/modules/68k/main-loop/vint_handler.asm) | $001684-$0017EE | V-INT state machine (16 states), controller init |
+| [game_logic_core.asm](disasm/modules/68k/game/game_logic_core.asm) | $006200-$006312 | Game state dispatcher (7 states) |
 | [object_system.asm](disasm/modules/68k/game/object_system.asm) | $006F98-$007200 | High-frequency physics (150+ calls/frame) |
+| [sh2_communication.asm](disasm/modules/68k/sh2/sh2_communication.asm) | $00E316-$00E3B2 | **Blocking sync** - root cause of ~20 FPS limit |
 
 **Translation Format:**
 ```asm
@@ -215,7 +217,7 @@ vint_handler:
 | ROM Size | 4 MB (4,194,304 bytes) with 1MB SH2 expansion |
 | Original Size | 3 MB (3,145,728 bytes) |
 | Original Frame Rate | ~20 FPS (architectural limit due to blocking sync) |
-| Current Status | 75 SH2 + 3 68K modules translated, parallel hooks prepared |
+| Current Status | 75 SH2 + 5 68K modules translated, parallel hooks prepared |
 
 ## 4MB Expansion ROM
 
