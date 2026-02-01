@@ -1,15 +1,16 @@
 # Virtua Racing Deluxe (32X) - Complete Disassembly & Analysis
 
-**Status: ✅ v4.2.0 - SH2 Translation Milestone Complete**
+**Status: ✅ v4.3.0 - 68K Translation In Progress**
 
 A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **byte-identical** binary in all translated regions, with **4MB expansion ROM** containing SH2 parallel processing infrastructure.
 
 ## Key Features
 
-- **Byte-perfect rebuild** - All 75 translated SH2 functions verified identical to original ROM
+- **Byte-perfect rebuild** - All translated functions verified identical to original ROM
 - **75 SH2 functions translated** - Proper `.short` opcode assembly with full annotations
+- **68K translation in progress** - Core modules converted from dc.w to proper assembly
 - **4MB expansion ROM** - 1MB SH2 working space with parallel processing infrastructure (not yet activated)
-- **503+ named 68K functions** - Categorized by subsystem
+- **503+ named 68K functions** - Categorized by subsystem with 200+ auto-injected labels
 - **107 named SH2 functions** - 3D engine fully mapped
 - **Build system integrated** - Makefile rules for all translated functions
 
@@ -35,7 +36,12 @@ picodrive build/vr_rebuild.32x
 │   ├── vrd.asm                    # Main build file
 │   ├── sections/                  # Pure DC.W (buildable)
 │   ├── sections-mnemonic/         # Readable mnemonics (reference)
-│   ├── modules/68k/               # Annotated code modules
+│   ├── modules/68k/               # Translated 68K assembly
+│   │   ├── boot/                  # Hardware initialization
+│   │   ├── main-loop/             # V-INT and state machines
+│   │   ├── game/                  # Game logic and physics
+│   │   └── sh2/                   # SH2 communication
+│   ├── sh2/3d_engine/             # Translated SH2 functions
 │   ├── sh2_symbols.inc            # 107 SH2 function symbols
 │   └── SH2_SYMBOL_MAP.md          # SH2 symbol reference
 │
@@ -56,6 +62,7 @@ picodrive build/vr_rebuild.32x
 ├── tools/                         # Python analysis tools
 │   ├── build_symbol_table.py      # 68K symbol generator
 │   ├── build_sh2_symbol_table.py  # SH2 symbol generator
+│   ├── inject_function_labels.py  # Auto-inject labels from reference
 │   ├── m68k_disasm.py             # 68K disassembler
 │   ├── sh2_disasm.py              # SH2 disassembler
 │   └── generate_call_graph.py     # Call graph generator
@@ -133,10 +140,10 @@ You must provide your own legal ROM dump:
 
 1. ~~SH2 function translation (major pass)~~ ✅ Done (75 functions)
 2. ~~Parallel processing infrastructure~~ ✅ Done (expansion ROM ready)
-3. **Activate parallel hooks** - Wire up dispatch redirect and func_021 trampoline
-4. **Performance Testing** - Measure FPS improvement from parallel processing
-5. **Synchronization** - Ensure Slave completes before next frame
-6. **Load Balancing** - Split polygon workload between CPUs
+3. **68K assembly translation** - Converting dc.w to proper assembly (in progress)
+4. **Activate parallel hooks** - Wire up dispatch redirect and func_021 trampoline
+5. **Performance Testing** - Measure FPS improvement from parallel processing
+6. **Synchronization** - Ensure Slave completes before next frame
 
 ## Documentation
 
@@ -145,6 +152,7 @@ You must provide your own legal ROM dump:
 | **Architecture** | [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) |
 | **4MB Expansion** | [ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md) |
 | **68K Functions** | [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) (503+ functions) |
+| **68K Modules** | [disasm/modules/68k/](disasm/modules/68k/) (translated assembly) |
 | **SH2 Functions** | [SH2_SYMBOL_MAP.md](disasm/SH2_SYMBOL_MAP.md) (107 functions) |
 | **SH2 3D Pipeline** | [SH2_3D_PIPELINE_ARCHITECTURE.md](analysis/sh2-analysis/SH2_3D_PIPELINE_ARCHITECTURE.md) |
 | **SH2 Function Ref** | [SH2_3D_FUNCTION_REFERENCE.md](analysis/sh2-analysis/SH2_3D_FUNCTION_REFERENCE.md) (75 translated) |
@@ -167,6 +175,35 @@ Complete annotated translations of 75 SH2 functions are in `disasm/sh2/3d_engine
 
 **Verified VDP Addresses**: 0xC00007C0 (buffer A), 0xC00007E0 (buffer B), 0xC0000740 (edge buffer)
 
+### 68K Assembly Translations
+
+Converting raw `dc.w` opcodes to readable, maintainable 68000 assembly. Translations use EQU constants and preserve original bytes in comments for verification.
+
+**Translated Modules** (in `disasm/modules/68k/`):
+
+| Module | Address Range | Purpose |
+|--------|---------------|---------|
+| [adapter_init.asm](disasm/modules/68k/boot/adapter_init.asm) | $000838-$0009BA | 32X hardware init, VDP setup, main loop entry |
+| [vint_handler.asm](disasm/modules/68k/main-loop/vint_handler.asm) | $001684-$0017EE | V-INT state machine (16 states), controller init |
+| [object_system.asm](disasm/modules/68k/game/object_system.asm) | $006F98-$007200 | High-frequency physics (150+ calls/frame) |
+
+**Translation Format:**
+```asm
+; Constants at top with EQU
+VINT_STATE      equ     $C87A   ; V-INT state flag (word)
+ADAPTER_BASE    equ     $A15100 ; 32X adapter control
+
+; Code preserves original bytes for verification
+vint_handler:
+        tst.w   VINT_STATE.w                    ; $001684: $4A78 $C87A - Test state
+        beq.s   vint_early_exit                 ; $001688: $6726       - Exit if 0
+```
+
+**Key Discoveries:**
+- Object structure has 150+ byte offsets (position at $30/$34, velocity at $44/$46, angles at $5A-$5E)
+- Trig tables at $0093A02C (sine) and $0093A42C (cosine) with 1024 entries each
+- V-INT state machine uses jump table with 16 handler functions
+
 ## Technical Details
 
 | Component | Details |
@@ -178,7 +215,7 @@ Complete annotated translations of 75 SH2 functions are in `disasm/sh2/3d_engine
 | ROM Size | 4 MB (4,194,304 bytes) with 1MB SH2 expansion |
 | Original Size | 3 MB (3,145,728 bytes) |
 | Original Frame Rate | ~20 FPS (architectural limit due to blocking sync) |
-| Current Status | 75 SH2 functions translated, parallel hooks prepared (not activated) |
+| Current Status | 75 SH2 + 3 68K modules translated, parallel hooks prepared |
 
 ## 4MB Expansion ROM
 
