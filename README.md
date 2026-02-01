@@ -8,7 +8,7 @@ A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with
 
 - **Byte-perfect rebuild** - All translated functions verified identical to original ROM
 - **75 SH2 functions translated** - Proper `.short` opcode assembly across 36 files
-- **5 68K modules translated** - Boot, game logic, physics, adapter init, SH2 communication
+- **6 68K modules translated** - Boot, game logic, physics, collision, adapter init, SH2 communication
 - **4MB expansion ROM** - 1MB SH2 working space with parallel processing infrastructure (not yet activated)
 - **503+ named 68K functions** - Categorized by subsystem with 200+ auto-injected labels
 - **107 named SH2 functions** - 3D engine fully mapped
@@ -187,6 +187,7 @@ Converting raw `dc.w` opcodes to readable, maintainable 68000 assembly. Translat
 | [vint_handler.asm](disasm/modules/68k/main-loop/vint_handler.asm) | $001684-$0017EE | V-INT state machine (16 states), controller init |
 | [game_logic_core.asm](disasm/modules/68k/game/game_logic_core.asm) | $006200-$006312 | Game state dispatcher (7 states) |
 | [object_system.asm](disasm/modules/68k/game/object_system.asm) | $006F98-$007200 | High-frequency physics (150+ calls/frame) |
+| [object_collision.asm](disasm/modules/68k/game/object_collision.asm) | $0075FE-$007F50 | Collision, distance, bounds (43 calls/frame) |
 | [sh2_communication.asm](disasm/modules/68k/sh2/sh2_communication.asm) | $00E316-$00E3B2 | **Blocking sync** - root cause of ~20 FPS limit |
 
 **Translation Format:**
@@ -217,7 +218,7 @@ vint_handler:
 | ROM Size | 4 MB (4,194,304 bytes) with 1MB SH2 expansion |
 | Original Size | 3 MB (3,145,728 bytes) |
 | Original Frame Rate | ~20 FPS (architectural limit due to blocking sync) |
-| Current Status | 75 SH2 + 5 68K modules translated, parallel hooks prepared |
+| Current Status | 75 SH2 + 6 68K modules translated, parallel hooks prepared |
 
 ## 4MB Expansion ROM
 
