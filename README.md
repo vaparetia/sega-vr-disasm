@@ -1,6 +1,6 @@
 # Virtua Racing Deluxe (32X) - Complete Disassembly & Analysis
 
-**Status: ✅ v4.3.0 - 68K Translation In Progress**
+**Status: ✅ v4.3.1 - 68K Translation In Progress**
 
 A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **byte-identical** binary in all translated regions, with **4MB expansion ROM** containing SH2 parallel processing infrastructure.
 
@@ -8,7 +8,7 @@ A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with
 
 - **Byte-perfect rebuild** - All translated functions verified identical to original ROM
 - **75 SH2 functions translated** - Proper `.short` opcode assembly across 36 files
-- **11 68K modules translated** - Boot, VDP, input, game logic, physics, collision, camera, sprites, utilities
+- **13 68K modules translated** - Boot, VDP, input, game logic, physics, collision, camera, sprites, utilities, trig, memory
 - **4MB expansion ROM** - 1MB SH2 working space with parallel processing infrastructure (not yet activated)
 - **503+ named 68K functions** - Categorized by subsystem with 200+ auto-injected labels
 - **107 named SH2 functions** - 3D engine fully mapped
@@ -193,6 +193,8 @@ Converting raw `dc.w` opcodes to readable, maintainable 68000 assembly. Translat
 | [object_system.asm](disasm/modules/68k/game/object_system.asm) | $006F98-$008180 | High-frequency physics (150+ calls/frame) |
 | [object_collision.asm](disasm/modules/68k/game/object_collision.asm) | $0075C8-$007F50 | Collision, distance, dot products (50+ calls/frame) |
 | [camera.asm](disasm/modules/68k/game/camera.asm) | $009040-$0091xx | View offset calc, bounds checking |
+| [position_trig.asm](disasm/modules/68k/game/position_trig.asm) | $007084-$0074AC | Trig lookup (29 calls/frame), position update, angle normalize |
+| [fast_copy.asm](disasm/modules/68k/memory/fast_copy.asm) | $004836-$00494C | Unrolled memory copy/fill (16-112 bytes) |
 | [sh2_communication.asm](disasm/modules/68k/sh2/sh2_communication.asm) | $00E316-$00E3B2 | **Blocking sync** - root cause of ~20 FPS limit |
 
 **Translation Format:**
@@ -223,7 +225,7 @@ vint_handler:
 | ROM Size | 4 MB (4,194,304 bytes) with 1MB SH2 expansion |
 | Original Size | 3 MB (3,145,728 bytes) |
 | Original Frame Rate | ~20 FPS (architectural limit due to blocking sync) |
-| Current Status | 75 SH2 + 11 68K modules translated, parallel hooks prepared |
+| Current Status | 75 SH2 + 13 68K modules translated, parallel hooks prepared |
 
 ## 4MB Expansion ROM
 
