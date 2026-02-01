@@ -5,8 +5,8 @@
 
         org     $01C200
 
-        ORI.B  #$0000,D0                        ; $01C200
-        ANDI.B  #$0020,D0                       ; $01C204
+        ORI.B  #$00,D0                          ; $01C200
+        ANDI.B  #$20,D0                         ; $01C204
         DC.W    $FFFF                           ; $01C208
         DC.W    $FFFF                           ; $01C20A
         DC.W    $FFFF                           ; $01C20C

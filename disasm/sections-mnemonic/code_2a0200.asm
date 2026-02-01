@@ -6,107 +6,116 @@
         org     $2A0200
 
         CLR.B  D0                               ; $2A0200
-        ORI.B  #$57EE,D0                        ; $2A0202
-        ORI.B  #$0000,D0                        ; $2A0206
+        ORI.B  #$EE,D0                          ; $2A0202
+        ORI.B  #$00,D0                          ; $2A0206
         SUBQ.B  #5,-(A1)                        ; $2A020A
-        ORI.B  #$0000,D0                        ; $2A020C
+        ORI.B  #$00,D0                          ; $2A020C
         SUBQ.B  #5,-(A1)                        ; $2A0210
         CLR.B  D0                               ; $2A0212
-        ORI.B  #$A4CE,D0                        ; $2A0214
+        ORI.B  #$CE,D0                          ; $2A0214
         CLR.B  D0                               ; $2A0218
-        ORI.B  #$A4CE,D0                        ; $2A021A
-        ORI.B  #$0000,D0                        ; $2A021E
-        MOVE.L  D2,D4                           ; $2A0222
-        ORI.B  #$0000,D0                        ; $2A0224
-        MOVE.L  D2,D4                           ; $2A0228
+        ORI.B  #$CE,D0                          ; $2A021A
+        ORI.B  #$00,D0                          ; $2A021E
+        DC.W    $A802                           ; $2A0222
+        ORI.B  #$00,D0                          ; $2A0224
+        DC.W    $A802                           ; $2A0228
         CLR.B  D0                               ; $2A022A
-        ORI.B  #$3F10,D0                        ; $2A022C
-        MOVE.W  $6F(PC,A7.L),$3F10(A0)          ; $2A0230
-        MOVE.L  $6F(PC,A7.L),$57F0(A6)          ; $2A0236
-        MOVE.L  $00(PC,D0.W),$57F0(A6)          ; $2A023C
-        MOVE.W  $00(PC,D0.W),$3F10(A0)          ; $2A0242
+        ORI.B  #$10,D0                          ; $2A022C
+        MOVE.W  $2A02A1(PC,A7.L),$3F10(A0)      ; $2A0230
+        MOVE.L  $2A02A7(PC,A7.L),$57F0(A6)      ; $2A0236
+        MOVE.L  $2A023E(PC,D0.W),$57F0(A6)      ; $2A023C
+        MOVE.W  $2A0244(PC,D0.W),$3F10(A0)      ; $2A0242
         DC.W    $417B                           ; $2A0248
-        MOVEA.W $3F10(A7),A4                    ; $2A024A
-        MOVE.W  $6F(PC,A7.L),$57F0(A6)          ; $2A024E
-        MOVE.W  $00(PC,D0.W),$57F0(A6)          ; $2A0254
+        DC.W    $F86F                           ; $2A024A
+        MOVE.W  (A0),-(A7)                      ; $2A024C
+        MOVE.W  $2A02BF(PC,A7.L),$57F0(A6)      ; $2A024E
+        MOVE.W  $2A0256(PC,D0.W),$57F0(A6)      ; $2A0254
         DC.W    $417B                           ; $2A025A
-        ORI.B  #$A7FF,D0                        ; $2A025C
-        MOVE.W  $00(PC,D0.W),-$5801(A0)         ; $2A0260
-        MOVE.L  $00(PC,D0.W),-$3D3C(A6)         ; $2A0266
-        MOVE.L  $00(PC,D0.W),-$3D3C(A6)         ; $2A026C
-        MOVE.W  $00(PC,D0.W),-$5801(A0)         ; $2A0272
+        ORI.B  #$FF,D0                          ; $2A025C
+        MOVE.W  $2A0262(PC,D0.W),-$5801(A0)     ; $2A0260
+        MOVE.L  $2A0268(PC,D0.W),-$3D3C(A6)     ; $2A0266
+        MOVE.L  $2A026E(PC,D0.W),-$3D3C(A6)     ; $2A026C
+        MOVE.W  $2A0274(PC,D0.W),-$5801(A0)     ; $2A0272
         DC.W    $417B                           ; $2A0278
-        ORI.B  #$A7FF,D0                        ; $2A027A
-        MOVE.W  $00(PC,D0.W),-$3D3C(A6)         ; $2A027E
-        MOVE.W  $00(PC,D0.W),-$3D3C(A6)         ; $2A0284
+        ORI.B  #$FF,D0                          ; $2A027A
+        MOVE.W  $2A0280(PC,D0.W),-$3D3C(A6)     ; $2A027E
+        MOVE.W  $2A0286(PC,D0.W),-$3D3C(A6)     ; $2A0284
         DC.W    $417B                           ; $2A028A
-        ORI.B  #$D225,D0                        ; $2A028C
+        ORI.B  #$25,D0                          ; $2A028C
         DC.W    $417B                           ; $2A0290
-        ORI.B  #$D225,D0                        ; $2A0292
-        MOVE.L  $00(PC,D0.W),$17A0(A6)          ; $2A0296
+        ORI.B  #$25,D0                          ; $2A0292
+        MOVE.L  $2A0298(PC,D0.W),$17A0(A6)      ; $2A0296
         DC.W    $417B                           ; $2A029C
-        MOVE.W  -$47(A0,A6.L),(A7)              ; $2A029E
+        DC.W    $FEB0                           ; $2A029E
+        ROR.L  D5,D1                            ; $2A02A0
         DC.W    $417B                           ; $2A02A2
         DC.W    $FFFF                           ; $2A02A4
         ROR.L  D5,D1                            ; $2A02A6
-        MOVE.L  -$01(PC,A7.L),$17A0(A6)         ; $2A02A8
-        MOVE.L  -$50(PC,A7.L),$2FF1(A6)         ; $2A02AE
+        MOVE.L  $2A02A9(PC,A7.L),$17A0(A6)      ; $2A02A8
+        MOVE.L  $2A0260(PC,A7.L),$2FF1(A6)      ; $2A02AE
         DC.W    $417B                           ; $2A02B4
         DC.W    $FB3D                           ; $2A02B6
         DC.W    $2FF1                           ; $2A02B8
-        MOVE.L  $3D(PC,A7.L),-$2304(A6)         ; $2A02BA
+        MOVE.L  $2A02F9(PC,A7.L),-$2304(A6)     ; $2A02BA
         MOVE.W  -$0123(A7),(A4)                 ; $2A02C0
         ADDA.W  #$3648,A6                       ; $2A02C4
-        MOVE.W  (A5)+,(A7)+                     ; $2A02C8
+        DC.W    $FEDD                           ; $2A02C8
         ROR.B  D4,D1                            ; $2A02CA
         MOVEA.W A0,A3                           ; $2A02CC
-        MOVE.W  (A5)+,(A7)+                     ; $2A02CE
+        DC.W    $FEDD                           ; $2A02CE
         ROR.B  D4,D1                            ; $2A02D0
         MOVE.W  -$0123(A7),(A4)                 ; $2A02D2
         ROR.W  $38AFFEDD                        ; $2A02D6
         ROR.W  $3048FEDD                        ; $2A02DC
         ROL.W  D4,D0                            ; $2A02E2
         MOVEA.W A0,A0                           ; $2A02E4
-        MOVE.W  (A4)+,(A7)+                     ; $2A02E6
+        DC.W    $FEDC                           ; $2A02E6
         ROL.W  D4,D0                            ; $2A02E8
         MOVE.W  -$0124(A7),(A4)                 ; $2A02EA
         ADDA.W  #$3EAF,A6                       ; $2A02EE
-        MOVE.W  (A5)+,(A7)+                     ; $2A02F2
-        ADD.W  D7,$48(PC,D3.W)                  ; $2A02F4
-        MOVE.W  (A5)+,(A7)+                     ; $2A02F8
-        ADD.W  D7,-$51(PC,D3.L)                 ; $2A02FA
-        MOVE.W  (A5)+,(A7)+                     ; $2A02FE
+        DC.W    $FEDD                           ; $2A02F2
+        DC.W    $DF7B                           ; $2A02F4
+        MOVEA.W A0,A3                           ; $2A02F6
+        DC.W    $FEDD                           ; $2A02F8
+        DC.W    $DF7B                           ; $2A02FA
+        MOVE.W  -$0123(A7),(A7)                 ; $2A02FC
         ADDA.W  #$32AF,A6                       ; $2A0300
-        MOVE.W  (A5)+,(A7)+                     ; $2A0304
+        DC.W    $FEDD                           ; $2A0304
         ADDA.W  #$3048,A6                       ; $2A0306
-        MOVE.W  (A5)+,(A7)+                     ; $2A030A
+        DC.W    $FEDD                           ; $2A030A
         ROL.W  D4,D0                            ; $2A030C
         MOVE.W  -$0124(A7),(A1)                 ; $2A030E
         LSL.W  -$51(A7,D3.L)                    ; $2A0312
-        MOVE.W  (A3)+,(A7)+                     ; $2A0316
+        DC.W    $FEDB                           ; $2A0316
         LSL.W  $48(A7,D3.L)                     ; $2A0318
-        MOVE.W  (A3)+,(A7)+                     ; $2A031C
-        MOVEA.W $48(A3,D3.L),A4                 ; $2A031E
-        MOVE.W  D6,(A7)+                        ; $2A0322
-        MOVEA.W -$51(A3,D3.L),A4                ; $2A0324
-        MOVE.W  D6,(A7)+                        ; $2A0328
-        MOVE.W  $7B(A6,D3.L),(A0)+              ; $2A032A
-        MOVE.W  (A5),(A7)+                      ; $2A032E
-        MOVE.W  $48(A6,D3.W),(A0)+              ; $2A0330
-        MOVE.W  (A5),(A7)+                      ; $2A0334
-        MOVE.W  $48(A5,D3.W),-$012F(A1)         ; $2A0336
-        MOVE.W  $7B(A5,D3.L),-$012F(A1)         ; $2A033C
-        DC.W    $1DD8                           ; $2A0342
-        MOVE.W  -$0C(PC,A7.L),$1DD8(A6)         ; $2A0344
+        DC.W    $FEDB                           ; $2A031C
+        DC.W    $F873                           ; $2A031E
+        MOVEA.W A0,A6                           ; $2A0320
+        DC.W    $FEC6                           ; $2A0322
+        DC.W    $F873                           ; $2A0324
+        MOVE.W  -$013A(A7),(A7)                 ; $2A0326
+        DC.W    $F0F6                           ; $2A032A
+        MOVE.W  $2A0303(PC,A7.L),-$0F0A(A6)     ; $2A032C
+        MOVEA.W A0,A0                           ; $2A0332
+        DC.W    $FED5                           ; $2A0334
+        DC.W    $F375                           ; $2A0336
+        MOVEA.W A0,A0                           ; $2A0338
+        DC.W    $FED1                           ; $2A033A
+        DC.W    $F375                           ; $2A033C
+        MOVE.W  $2A0311(PC,A7.L),$1DD8(A6)      ; $2A033E
+        MOVE.W  $2A033A(PC,A7.L),$1DD8(A6)      ; $2A0344
         MOVEA.W A0,A0                           ; $2A034A
-        MOVE.W  $52(A4,D2.W),(A6)+              ; $2A034C
+        DC.W    $FCF4                           ; $2A034C
+        MOVEA.L (A2),A0                         ; $2A034E
         MOVEA.W A0,A0                           ; $2A0350
-        MOVE.W  $2052(A1),(A6)                  ; $2A0352
-        MOVE.W  -$57(PC,A7.L),$18E0(A6)         ; $2A0356
+        DC.W    $FCA9                           ; $2A0352
+        MOVEA.L (A2),A0                         ; $2A0354
+        MOVE.W  $2A0301(PC,A7.L),$18E0(A6)      ; $2A0356
         MOVE.W  -$028F(A7),(A7)                 ; $2A035C
         MOVE.B  -(A0),(A4)+                     ; $2A0360
         MOVEA.W A0,A6                           ; $2A0362
-        MOVE.W  $45(A1,D2.W),$3C48(A6)          ; $2A0364
+        DC.W    $FD71                           ; $2A0364
+        MOVE.L  D5,$3C48(A2)                    ; $2A0366
         DC.W    $FBFA                           ; $2A036A
         MOVE.L  D5,$3EAF(A2)                    ; $2A036C
         DC.W    $FBFA                           ; $2A0370
@@ -115,19 +124,21 @@
         MOVE.B  -(A5),$3048FDD2                 ; $2A0378
         DC.W    $1663                           ; $2A037E
         MOVEA.W A0,A0                           ; $2A0380
-        MOVE.W  -(A5),-$1B(A6,D1.W)             ; $2A0382
-        MOVE.W  -$2E(PC,A7.L),$0B2B(A3)         ; $2A0386
-        MOVE.W  -$01B4(A7),(A4)                 ; $2A038C
+        DC.W    $FDA5                           ; $2A0382
+        MOVE.B  -(A5),$377BFDD2                 ; $2A0384
+        BTST    D5,$38AF(A3)                    ; $2A038A
+        DC.W    $FE4C                           ; $2A038E
         BTST    D5,$3648(A3)                    ; $2A0390
-        MOVEA.W A4,A7                           ; $2A0394
+        DC.W    $FE4C                           ; $2A0394
         DC.W    $1663                           ; $2A0396
         MOVEA.W A0,A3                           ; $2A0398
-        MOVE.W  -(A5),$63(A6,D1.W)              ; $2A039A
+        DC.W    $FDA5                           ; $2A039A
+        DC.W    $1663                           ; $2A039C
         MOVE.W  -$025B(A7),(A4)                 ; $2A039E
         BTST    D5,$3EAF(A3)                    ; $2A03A2
-        MOVEA.W A4,A7                           ; $2A03A6
+        DC.W    $FE4C                           ; $2A03A6
         BTST    D5,$3C48(A3)                    ; $2A03A8
-        MOVEA.W A4,A7                           ; $2A03AC
+        DC.W    $FE4C                           ; $2A03AC
         MOVE.B  -(A3),-(A2)                     ; $2A03AE
         MOVEA.W A0,A6                           ; $2A03B0
         DC.W    $FDBD                           ; $2A03B2
@@ -135,76 +146,81 @@
         MOVE.W  -$0243(A7),(A7)                 ; $2A03B6
         MOVE.B  -(A5),$3EAFFDD2                 ; $2A03BA
         DC.W    $1663                           ; $2A03C0
-        MOVE.W  -$5B(PC,A7.L),$1663(A3)         ; $2A03C2
+        MOVE.W  $2A0369(PC,A7.L),$1663(A3)      ; $2A03C2
         MOVE.W  -$025B(A7),(A7)                 ; $2A03C8
         BSET    D4,$3EAF(A4)                    ; $2A03CC
-        MOVEA.W (A2)+,A7                        ; $2A03D0
+        DC.W    $FE5A                           ; $2A03D0
         BSET    D4,$3048(A4)                    ; $2A03D2
-        MOVEA.W (A2)+,A7                        ; $2A03D6
+        DC.W    $FE5A                           ; $2A03D6
         CMPI.W  #$3048,-$01C2(A2)               ; $2A03D8
         CMPI.W  #$3EAF,-$01C2(A2)               ; $2A03DE
-        MOVE.W  -$51(A3,D3.L),D6                ; $2A03E4
-        MOVE.W  $FC33.W,(A7)                    ; $2A03E8
+        DC.W    $FC33                           ; $2A03E4
+        MOVE.W  -$0148(A7),(A4)                 ; $2A03E6
+        DC.W    $FC33                           ; $2A03EA
         MOVEA.W A0,A3                           ; $2A03EC
-        MOVE.W  $062E.W,(A7)                    ; $2A03EE
-        MOVEA.W A0,A3                           ; $2A03F2
-        MOVEA.W $2E(PC,D0.W),A7                 ; $2A03F4
-        MOVE.W  -$0185(A7),(A4)                 ; $2A03F8
-        MOVE.W  -$51(A3,D3.L),D6                ; $2A03FC
-        MOVE.W  $FC33.W,(A7)                    ; $2A0400
+        DC.W    $FEB8                           ; $2A03EE
+        ADDI.B  #$48,-$0185(A6)                 ; $2A03F0
+        ADDI.B  #$AF,-$0185(A6)                 ; $2A03F6
+        DC.W    $FC33                           ; $2A03FC
+        MOVE.W  -$0148(A7),(A7)                 ; $2A03FE
+        DC.W    $FC33                           ; $2A0402
         MOVEA.W A0,A6                           ; $2A0404
-        MOVE.W  $062E.W,(A7)                    ; $2A0406
-        MOVEA.W A0,A6                           ; $2A040A
-        MOVEA.W $2E(PC,D0.W),A7                 ; $2A040C
-        MOVE.W  -$0185(A7),(A7)                 ; $2A0410
+        DC.W    $FEB8                           ; $2A0406
+        ADDI.B  #$48,-$0185(A6)                 ; $2A0408
+        ADDI.B  #$AF,-$0185(A6)                 ; $2A040E
         DC.W    $04EE                           ; $2A0414
         MOVE.W  -$017A(A7),(A7)                 ; $2A0416
         DC.W    $04EE                           ; $2A041A
         MOVEA.W A0,A0                           ; $2A041C
-        MOVE.W  D6,(A7)                         ; $2A041E
+        DC.W    $FE86                           ; $2A041E
         BCHG    D3,$3048(A5)                    ; $2A0420
-        MOVEA.W $6D(A1,D0.W),A7                 ; $2A0424
-        MOVE.W  -$018F(A7),(A7)                 ; $2A0428
+        DC.W    $FE71                           ; $2A0424
+        BCHG    D3,$3EAF(A5)                    ; $2A0426
+        DC.W    $FE71                           ; $2A042A
         ADDA.W  #$3C48,A6                       ; $2A042C
-        MOVE.W  (A5)+,(A7)+                     ; $2A0430
+        DC.W    $FEDD                           ; $2A0430
         ROL.W  D4,D0                            ; $2A0432
         MOVEA.W A0,A6                           ; $2A0434
-        MOVE.W  (A4)+,(A7)+                     ; $2A0436
+        DC.W    $FEDC                           ; $2A0436
         ROL.W  D4,D0                            ; $2A0438
         MOVE.W  -$0124(A7),(A7)                 ; $2A043A
-        MOVE.W  -$51(A2,D3.L),(A5)+             ; $2A043E
-        DC.W    $FEBD                           ; $2A0442
-        MOVE.W  $48(A3,D3.W),(A5)+              ; $2A0444
+        DC.W    $FAF2                           ; $2A043E
+        MOVE.W  -$0143(A7),(A7)                 ; $2A0440
+        DC.W    $FAF3                           ; $2A0444
+        MOVEA.W A0,A0                           ; $2A0446
         DC.W    $FEBD                           ; $2A0448
-        MOVE.W  $48(A2,D3.W),-$014D(A6)         ; $2A044A
-        MOVE.W  -$51(A2,D3.L),-$014D(A6)        ; $2A0450
-        ORI.B  #$2000,D4                        ; $2A0456
+        DC.W    $FD72                           ; $2A044A
+        MOVEA.W A0,A0                           ; $2A044C
+        DC.W    $FEB3                           ; $2A044E
+        DC.W    $FD72                           ; $2A0450
+        MOVE.W  -$014D(A7),(A7)                 ; $2A0452
+        ORI.B  #$00,D4                          ; $2A0456
         BCLR    D0,D0                           ; $2A045A
         BCHG    D0,$20(A0,D0.W)                 ; $2A045C
         BCLR    D0,(A0)                         ; $2A0460
-        ANDI.B  #$2000,D4                       ; $2A0462
+        ANDI.B  #$00,D4                         ; $2A0462
         BSET    D0,D0                           ; $2A0466
         BCLR    D0,$04(A0,D0.W)                 ; $2A0468
         MOVE.L  D0,D0                           ; $2A046C
         BSET    D0,(A0)                         ; $2A046E
         BCLR    D0,-(A0)                        ; $2A0470
-        SUBI.B  #$2000,D4                       ; $2A0472
+        SUBI.B  #$00,D4                         ; $2A0472
         BSET    D0,-$20(A0,D0.W)                ; $2A0476
-        SUBI.B  #$2000,D4                       ; $2A047A
+        SUBI.B  #$00,D4                         ; $2A047A
         ORI.L  #$00C00000,(A0)                  ; $2A047E
         BTST    D2,D0                           ; $2A0484
-        ORI.B  #$0010,D0                        ; $2A0486
-        ORI.B  #$0030,-(A0)                     ; $2A048A
-        ORI.B  #$0500,D0                        ; $2A048E
+        ORI.B  #$10,D0                          ; $2A0486
+        ORI.B  #$30,-(A0)                       ; $2A048A
+        ORI.B  #$00,D0                          ; $2A048E
         ORI.W  #$0050,D0                        ; $2A0492
         ORI.W  #$0070,-(A0)                     ; $2A0496
-        ORI.B  #$2000,D4                        ; $2A049A
+        ORI.B  #$00,D4                          ; $2A049A
         ORI.L  #$009000A0,D0                    ; $2A049E
         ORI.L  #$00042000,-$40(A0,D0.W)         ; $2A04A4
         DC.W    $00D0                           ; $2A04AC
         DC.W    $00E0                           ; $2A04AE
         DC.W    $00F0                           ; $2A04B0
-        ORI.B  #$2000,D4                        ; $2A04B2
+        ORI.B  #$00,D4                          ; $2A04B2
         BTST    D0,D0                           ; $2A04B6
         BTST    D0,(A0)                         ; $2A04B8
         BTST    D0,-(A0)                        ; $2A04BA
@@ -215,218 +231,236 @@
         BCHG    D0,-(A0)                        ; $2A04C6
         BCHG    D0,$12(A0,D0.W)                 ; $2A04C8
         MOVE.W  D0,-(A4)                        ; $2A04CC
-        ANDI.B  #$0210,D0                       ; $2A04CE
-        ANDI.B  #$0230,-(A0)                    ; $2A04D2
-        ORI.B  #$7900,(A2)                      ; $2A04D6
+        ANDI.B  #$10,D0                         ; $2A04CE
+        ANDI.B  #$30,-(A0)                      ; $2A04D2
+        ORI.B  #$00,(A2)                        ; $2A04D6
         ANDI.W  #$0250,D0                       ; $2A04DA
         ANDI.W  #$0270,-(A0)                    ; $2A04DE
-        ORI.B  #$7900,(A2)                      ; $2A04E2
+        ORI.B  #$00,(A2)                        ; $2A04E2
         ANDI.L  #$02100290,D0                   ; $2A04E6
         ANDI.L  #$00127900,-(A0)                ; $2A04EC
         ANDI.L  #$02C00260,-$30(A0,D0.W)        ; $2A04F2
-        ORI.B  #$7900,(A2)                      ; $2A04FA
+        ORI.B  #$00,(A2)                        ; $2A04FA
         DC.W    $02E0                           ; $2A04FE
         DC.W    $02F0                           ; $2A0500
         BTST    D1,D0                           ; $2A0502
         BTST    D1,(A0)                         ; $2A0504
-        ORI.B  #$7900,(A2)                      ; $2A0506
+        ORI.B  #$00,(A2)                        ; $2A0506
         BTST    D1,-(A0)                        ; $2A050A
         BTST    D1,$40(A0,D0.W)                 ; $2A050C
         BCHG    D1,(A0)                         ; $2A0510
-        ORI.B  #$7900,(A2)                      ; $2A0512
+        ORI.B  #$00,(A2)                        ; $2A0512
         BCHG    D1,-(A0)                        ; $2A0516
         BCHG    D1,-$80(A0,D0.W)                ; $2A0518
         BCLR    D1,(A0)                         ; $2A051C
-        ORI.B  #$7900,(A2)                      ; $2A051E
+        ORI.B  #$00,(A2)                        ; $2A051E
         BCLR    D1,-(A0)                        ; $2A0522
         BCLR    D1,-$40(A0,D0.W)                ; $2A0524
         BSET    D1,(A0)                         ; $2A0528
-        ORI.B  #$7900,(A2)                      ; $2A052A
+        ORI.B  #$00,(A2)                        ; $2A052A
         BSET    D1,-(A0)                        ; $2A052E
         BSET    D1,$00(A0,D0.W)                 ; $2A0530
-        SUBI.B  #$0012,(A0)                     ; $2A0534
+        SUBI.B  #$12,(A0)                       ; $2A0534
         MOVE.W  D0,-(A4)                        ; $2A0538
-        SUBI.B  #$0430,-(A0)                    ; $2A053A
+        SUBI.B  #$30,-(A0)                      ; $2A053A
         SUBI.W  #$0450,D0                       ; $2A053E
-        ORI.B  #$7900,(A2)                      ; $2A0542
+        ORI.B  #$00,(A2)                        ; $2A0542
         SUBI.W  #$0470,-(A0)                    ; $2A0546
         SUBI.L  #$04900012,D0                   ; $2A054A
         MOVE.W  D0,-(A4)                        ; $2A0550
         SUBI.L  #$041004B0,-(A0)                ; $2A0552
         DC.W    $04C0                           ; $2A0558
-        ORI.B  #$7900,(A2)                      ; $2A055A
+        ORI.B  #$00,(A2)                        ; $2A055A
         DC.W    $04D0                           ; $2A055E
         DC.W    $04E0                           ; $2A0560
         DC.W    $04F0                           ; $2A0562
         BTST    D2,D0                           ; $2A0564
-        ORI.B  #$7900,(A2)                      ; $2A0566
+        ORI.B  #$00,(A2)                        ; $2A0566
         BTST    D2,(A0)                         ; $2A056A
         BTST    D2,-(A0)                        ; $2A056C
         BTST    D2,$40(A0,D0.W)                 ; $2A056E
-        ORI.B  #$7900,(A2)                      ; $2A0572
+        ORI.B  #$00,(A2)                        ; $2A0572
         BCHG    D2,(A0)                         ; $2A0576
         BCHG    D2,-(A0)                        ; $2A0578
         BCHG    D2,-$80(A0,D0.W)                ; $2A057A
-        ORI.B  #$7900,(A2)                      ; $2A057E
+        ORI.B  #$00,(A2)                        ; $2A057E
         BCLR    D2,(A0)                         ; $2A0582
         BCLR    D2,-(A0)                        ; $2A0584
         BCLR    D2,-$40(A0,D0.W)                ; $2A0586
-        ORI.B  #$7900,(A2)                      ; $2A058A
+        ORI.B  #$00,(A2)                        ; $2A058A
         ANDI.L  #$05D005E0,D0                   ; $2A058E
         BSET    D2,$12(A0,D0.W)                 ; $2A0594
         MOVE.W  D0,-(A4)                        ; $2A0598
-        ADDI.B  #$0610,D0                       ; $2A059A
-        ADDI.B  #$0630,-(A0)                    ; $2A059E
-        CMPI.B  #$0044,D0                       ; $2A05A2
+        ADDI.B  #$10,D0                         ; $2A059A
+        ADDI.B  #$30,-(A0)                      ; $2A059E
+        CMPI.B  #$44,D0                         ; $2A05A2
         ORI.W  #$0E04,D4                        ; $2A05A6
-        MOVE.W  $14(PC,A7.L),$0E04(A6)          ; $2A05AA
+        MOVE.W  $2A05C0(PC,A7.L),$0E04(A6)      ; $2A05AA
         MOVEA.W A0,A3                           ; $2A05B0
-        MOVE.W  (A4),-(A4)                      ; $2A05B2
+        DC.W    $F914                           ; $2A05B2
         DC.W    $1071                           ; $2A05B4
         MOVEA.W A0,A3                           ; $2A05B6
-        MOVEA.W $1071(A1),A4                    ; $2A05B8
-        MOVE.W  $69(PC,A7.L),$057A(A6)          ; $2A05BC
-        MOVE.W  $3B(PC,A7.L),$057A(A3)          ; $2A05C2
+        DC.W    $F869                           ; $2A05B8
+        DC.W    $1071                           ; $2A05BA
+        MOVE.W  $2A0627(PC,A7.L),$057A(A6)      ; $2A05BC
+        MOVE.W  $2A05FF(PC,A7.L),$057A(A3)      ; $2A05C2
         MOVE.W  (A5),-(A2)                      ; $2A05C8
-        MOVE.W  $71(PC,D1.W),-(A5)              ; $2A05CA
+        DC.W    $FB3B                           ; $2A05CA
+        DC.W    $1071                           ; $2A05CC
         MOVE.W  (A5),-(A2)                      ; $2A05CE
-        MOVEA.W $1071(A1),A4                    ; $2A05D0
-        MOVE.W  $69(PC,A7.L),$057A(A3)          ; $2A05D4
+        DC.W    $F869                           ; $2A05D0
+        DC.W    $1071                           ; $2A05D2
+        MOVE.W  $2A063F(PC,A7.L),$057A(A3)      ; $2A05D4
         MOVE.W  -$04C5(A7),(A7)                 ; $2A05DA
-        BCHG    D2,$3C48(PC)                    ; $2A05DE
-        MOVE.W  $71(PC,D1.W),-(A5)              ; $2A05E2
+        DC.W    $057A                           ; $2A05DE
+        MOVEA.W A0,A6                           ; $2A05E0
+        DC.W    $FB3B                           ; $2A05E2
+        DC.W    $1071                           ; $2A05E4
         MOVEA.W A0,A6                           ; $2A05E6
-        MOVEA.W $1071(A1),A4                    ; $2A05E8
+        DC.W    $F869                           ; $2A05E8
+        DC.W    $1071                           ; $2A05EA
         MOVE.W  -$0797(A7),(A7)                 ; $2A05EC
         SUBI.W  #$3EAF,D0                       ; $2A05F0
-        MOVE.W  D3,$40(A5,D0.W)                 ; $2A05F4
-        MOVEA.W A0,A0                           ; $2A05F8
-        MOVE.W  D3,-$4C(A5,D0.W)                ; $2A05FA
-        MOVEA.W A0,A0                           ; $2A05FE
-        MOVE.W  -$4C(A2,D0.W),(A5)+             ; $2A0600
+        DC.W    $FB83                           ; $2A05F4
+        SUBI.W  #$3048,D0                       ; $2A05F6
+        DC.W    $FB83                           ; $2A05FA
+        ADDI.L  #$3048FAF2,-$4C(A4,D0.W)        ; $2A05FC
         MOVE.W  -$050E(A7),(A7)                 ; $2A0604
         ASL.B  D7,D0                            ; $2A0608
         MOVE.W  -$014D(A7),(A1)                 ; $2A060A
         ASL.B  D7,D0                            ; $2A060E
         MOVEA.W A0,A0                           ; $2A0610
-        MOVE.W  $5F(A3,A7.L),(A7)               ; $2A0612
+        DC.W    $FEB3                           ; $2A0612
+        DC.W    $FA5F                           ; $2A0614
         MOVEA.W A0,A0                           ; $2A0616
-        MOVE.W  -(A1),-$05A1(A6)                ; $2A0618
+        DC.W    $FD61                           ; $2A0618
+        DC.W    $FA5F                           ; $2A061A
         MOVE.W  -$029F(A7),(A1)                 ; $2A061C
         ASL.B  D7,D0                            ; $2A0620
         MOVE.W  -$014D(A7),(A7)                 ; $2A0622
         ASL.B  D7,D0                            ; $2A0626
         MOVEA.W A0,A6                           ; $2A0628
-        MOVE.W  $5F(A3,A7.L),(A7)               ; $2A062A
+        DC.W    $FEB3                           ; $2A062A
+        DC.W    $FA5F                           ; $2A062C
         MOVEA.W A0,A6                           ; $2A062E
-        MOVE.W  -(A1),-$05A1(A6)                ; $2A0630
+        DC.W    $FD61                           ; $2A0630
+        DC.W    $FA5F                           ; $2A0632
         MOVE.W  -$029F(A7),(A7)                 ; $2A0634
         ROXL.W  -(A0)                           ; $2A0638
         MOVE.W  -$0133(A7),(A7)                 ; $2A063A
         ROXL.W  -(A0)                           ; $2A063E
         MOVEA.W A0,A0                           ; $2A0640
-        MOVE.W  A5,(A7)+                        ; $2A0642
-        MOVEA.W -(A1),A0                        ; $2A0644
+        DC.W    $FECD                           ; $2A0642
+        DC.W    $F061                           ; $2A0644
         MOVEA.W A0,A0                           ; $2A0646
-        MOVE.W  (A7),(A7)                       ; $2A0648
-        MOVEA.W -(A1),A0                        ; $2A064A
+        DC.W    $FE97                           ; $2A0648
+        DC.W    $F061                           ; $2A064A
         MOVE.W  -$0169(A7),(A7)                 ; $2A064C
-        MOVE.W  (A2)+,(A6)+                     ; $2A0650
+        DC.W    $FCDA                           ; $2A0650
         MOVE.W  -$0307(A7),(A1)                 ; $2A0652
-        MOVE.W  (A2)+,(A6)+                     ; $2A0656
+        DC.W    $FCDA                           ; $2A0656
         MOVEA.W A0,A0                           ; $2A0658
-        MOVE.W  $FF533048,(A6)+                 ; $2A065A
-        MOVE.W  D6,(A6)                         ; $2A0660
-        MOVE.W  (A3),$32AF(A7)                  ; $2A0662
-        MOVE.W  D6,(A6)                         ; $2A0666
+        DC.W    $FCF9                           ; $2A065A
+        DC.W    $FF53                           ; $2A065C
+        MOVEA.W A0,A0                           ; $2A065E
+        DC.W    $FC86                           ; $2A0660
+        DC.W    $FF53                           ; $2A0662
+        MOVE.W  -$037A(A7),(A1)                 ; $2A0664
         MOVE.B  (A5)+,(A1)+                     ; $2A0668
         MOVE.W  -$0846(A7),(A1)                 ; $2A066A
         MOVE.B  (A5)+,(A1)+                     ; $2A066E
         MOVEA.W A0,A0                           ; $2A0670
-        MOVE.W  $1548(PC),$48(A3,D3.W)          ; $2A0672
-        MOVE.W  A0,-(A3)                        ; $2A0678
+        DC.W    $F7BA                           ; $2A0672
+        DC.W    $1548                           ; $2A0674
+        MOVEA.W A0,A0                           ; $2A0676
+        DC.W    $F708                           ; $2A0678
         DC.W    $1548                           ; $2A067A
         MOVE.W  -$08F8(A7),(A1)                 ; $2A067C
         MOVE.W  $7B(A2,D3.W),-(A7)              ; $2A0680
-        MOVE.W  $32(A0,D3.L),$2D7B(A2)          ; $2A0684
-        MOVE.W  -$10(A0,D5.W),$2D7B(A2)         ; $2A068A
-        ORI.B  #$57F0,D0                        ; $2A0690
-        MOVE.W  $00(PC,D0.W),$3F32(A0)          ; $2A0694
+        DC.W    $F570                           ; $2A0684
+        MOVE.W  $7B(A2,D2.L),-(A7)              ; $2A0686
+        DC.W    $F570                           ; $2A068A
+        SEQ     $7B(A0,D2.L)                    ; $2A068C
+        ORI.B  #$F0,D0                          ; $2A0690
+        MOVE.W  $2A0696(PC,D0.W),$3F32(A0)      ; $2A0694
         DC.W    $417B                           ; $2A069A
-        MOVE.W  $32(A0,D3.L),$3D7B(A2)          ; $2A069C
-        MOVE.W  -$10(A0,D5.W),$3D7B(A2)         ; $2A06A2
-        ORI.B  #$57F0,D0                        ; $2A06A8
+        DC.W    $F570                           ; $2A069C
+        MOVE.W  $7B(A2,D3.L),-(A7)              ; $2A069E
+        DC.W    $F570                           ; $2A06A2
+        SEQ     $7B(A0,D3.L)                    ; $2A06A4
+        ORI.B  #$F0,D0                          ; $2A06A8
         DC.W    $417B                           ; $2A06AC
-        ORI.B  #$A7FF,D0                        ; $2A06AE
-        MOVE.W  -$01(PC,A7.L),-$5801(A0)        ; $2A06B2
-        MOVE.L  -$01(PC,A7.L),-$3CE0(A6)        ; $2A06B8
-        MOVE.L  $1A(PC,D0.W),-$3CE0(A6)         ; $2A06BE
-        MOVE.W  $1A(PC,D0.W),-$5801(A0)         ; $2A06C4
+        ORI.B  #$FF,D0                          ; $2A06AE
+        MOVE.W  $2A06B3(PC,A7.L),-$5801(A0)     ; $2A06B2
+        MOVE.L  $2A06B9(PC,A7.L),-$3CE0(A6)     ; $2A06B8
+        MOVE.L  $2A06DA(PC,D0.W),-$3CE0(A6)     ; $2A06BE
+        MOVE.W  $2A06E0(PC,D0.W),-$5801(A0)     ; $2A06C4
         DC.W    $417B                           ; $2A06CA
         DC.W    $FFFF                           ; $2A06CC
         DC.W    $A7FF                           ; $2A06CE
-        MOVE.W  -$01(PC,A7.L),-$3CE0(A6)        ; $2A06D0
-        MOVE.W  $1A(PC,D0.W),-$3CE0(A6)         ; $2A06D6
+        MOVE.W  $2A06D1(PC,A7.L),-$3CE0(A6)     ; $2A06D0
+        MOVE.W  $2A06F2(PC,D0.W),-$3CE0(A6)     ; $2A06D6
         DC.W    $417B                           ; $2A06DC
         BTST    D0,(A2)+                        ; $2A06DE
         ADD.L  (A6)+,D1                         ; $2A06E0
         DC.W    $417B                           ; $2A06E2
         BCHG    D0,-$2D62(A1)                   ; $2A06E4
-        MOVE.L  $69(PC,D0.W),$17B2(A6)          ; $2A06E8
+        MOVE.L  $2A0753(PC,D0.W),$17B2(A6)      ; $2A06E8
         DC.W    $417B                           ; $2A06EE
-        MOVE.W  -(A2),D4                        ; $2A06F0
+        DC.W    $F822                           ; $2A06F0
         ROL.W  #5,D6                            ; $2A06F2
         DC.W    $417B                           ; $2A06F4
         DC.W    $00C8                           ; $2A06F6
         ROL.W  #5,D6                            ; $2A06F8
-        MOVE.L  -$38(PC,D0.W),$17B2(A6)         ; $2A06FA
-        MOVE.L  $22(PC,A7.L),$2FE8(A6)          ; $2A0700
+        MOVE.L  $2A06C4(PC,D0.W),$17B2(A6)      ; $2A06FA
+        MOVE.L  $2A0724(PC,A7.L),$2FE8(A6)      ; $2A0700
         DC.W    $417B                           ; $2A0706
-        MOVE.W  A4,$2FE8(A1)                    ; $2A0708
-        MOVE.L  $4C(PC,A7.W),$57EE(A6)          ; $2A070C
+        DC.W    $F34C                           ; $2A0708
+        DC.W    $2FE8                           ; $2A070A
+        MOVE.L  $2A075A(PC,A7.W),$57EE(A6)      ; $2A070C
         CLR.B  D0                               ; $2A0712
-        ORI.B  #$57EE,D0                        ; $2A0714
-        ORI.B  #$0000,D0                        ; $2A0718
+        ORI.B  #$EE,D0                          ; $2A0714
+        ORI.B  #$00,D0                          ; $2A0718
         SUBQ.B  #5,-(A1)                        ; $2A071C
-        ORI.B  #$0000,D0                        ; $2A071E
+        ORI.B  #$00,D0                          ; $2A071E
         SUBQ.B  #5,-(A1)                        ; $2A0722
         CLR.B  D0                               ; $2A0724
-        ORI.B  #$A4CE,D0                        ; $2A0726
+        ORI.B  #$CE,D0                          ; $2A0726
         CLR.B  D0                               ; $2A072A
-        ORI.B  #$A4CE,D0                        ; $2A072C
-        ORI.B  #$0000,D0                        ; $2A0730
-        MOVE.L  D2,D4                           ; $2A0734
-        ORI.B  #$0000,D0                        ; $2A0736
-        MOVE.L  D2,D4                           ; $2A073A
+        ORI.B  #$CE,D0                          ; $2A072C
+        ORI.B  #$00,D0                          ; $2A0730
+        DC.W    $A802                           ; $2A0734
+        ORI.B  #$00,D0                          ; $2A0736
+        DC.W    $A802                           ; $2A073A
         CLR.B  D0                               ; $2A073C
-        ORI.B  #$0004,D0                        ; $2A073E
+        ORI.B  #$04,D0                          ; $2A073E
         MOVE.L  D0,D0                           ; $2A0742
         BCHG    D1,D0                           ; $2A0744
         BTST    D1,-$20(A0,D0.W)                ; $2A0746
         BCHG    D1,(A0)                         ; $2A074A
-        ANDI.B  #$2000,D4                       ; $2A074C
+        ANDI.B  #$00,D4                         ; $2A074C
         BCLR    D1,D0                           ; $2A0750
         BCHG    D1,$04(A0,D0.W)                 ; $2A0752
         MOVE.L  D0,D0                           ; $2A0756
         BCLR    D1,(A0)                         ; $2A0758
         BCHG    D1,-(A0)                        ; $2A075A
-        SUBI.B  #$2000,D4                       ; $2A075C
+        SUBI.B  #$00,D4                         ; $2A075C
         BCLR    D1,-$60(A0,D0.W)                ; $2A0760
-        SUBI.B  #$2000,D4                       ; $2A0764
+        SUBI.B  #$00,D4                         ; $2A0764
         ANDI.W  #$0280,(A0)                     ; $2A0768
-        ORI.B  #$7900,(A2)                      ; $2A076C
-        ORI.B  #$0010,D0                        ; $2A0770
-        ORI.B  #$0030,-(A0)                     ; $2A0774
-        ORI.B  #$7900,(A2)                      ; $2A0778
+        ORI.B  #$00,(A2)                        ; $2A076C
+        ORI.B  #$10,D0                          ; $2A0770
+        ORI.B  #$30,-(A0)                       ; $2A0774
+        ORI.B  #$00,(A2)                        ; $2A0778
         ORI.W  #$0050,D0                        ; $2A077C
         ORI.W  #$0070,-(A0)                     ; $2A0780
-        ORI.B  #$7900,(A2)                      ; $2A0784
+        ORI.B  #$00,(A2)                        ; $2A0784
         ORI.L  #$009000A0,D0                    ; $2A0788
         ORI.L  #$00127900,-$40(A0,D0.W)         ; $2A078E
         DC.W    $00D0                           ; $2A0796
         DC.W    $00E0                           ; $2A0798
         DC.W    $00F0                           ; $2A079A
-        ORI.B  #$7900,(A2)                      ; $2A079C
+        ORI.B  #$00,(A2)                        ; $2A079C
         BTST    D0,D0                           ; $2A07A0
         BTST    D0,(A0)                         ; $2A07A2
         BTST    D0,-(A0)                        ; $2A07A4
@@ -447,18 +481,18 @@
         BSET    D0,-(A0)                        ; $2A07C8
         BSET    D0,$12(A0,D0.W)                 ; $2A07CA
         MOVE.W  D0,-(A4)                        ; $2A07CE
-        ANDI.B  #$0210,D0                       ; $2A07D0
-        ANDI.B  #$0230,-(A0)                    ; $2A07D4
-        ORI.B  #$2000,D4                        ; $2A07D8
+        ANDI.B  #$10,D0                         ; $2A07D0
+        ANDI.B  #$30,-(A0)                      ; $2A07D4
+        ORI.B  #$00,D4                          ; $2A07D8
         ANDI.W  #$0250,D0                       ; $2A07DC
         ANDI.W  #$0270,-(A0)                    ; $2A07E0
-        ORI.B  #$2000,D4                        ; $2A07E4
+        ORI.B  #$00,D4                          ; $2A07E4
         ANDI.L  #$029002A0,D0                   ; $2A07E8
         ANDI.L  #$00042000,-$40(A0,D0.W)        ; $2A07EE
         DC.W    $02D0                           ; $2A07F6
         DC.W    $02E0                           ; $2A07F8
         DC.W    $02F0                           ; $2A07FA
-        ORI.B  #$2000,D4                        ; $2A07FC
+        ORI.B  #$00,D4                          ; $2A07FC
         BTST    D1,D0                           ; $2A0800
         BTST    D1,(A0)                         ; $2A0802
         BTST    D1,-(A0)                        ; $2A0804
@@ -469,30 +503,36 @@
         BSET    D1,-(A0)                        ; $2A0810
         BSET    D1,$00(A0,D0.W)                 ; $2A0812
         BTST    D2,D0                           ; $2A0816
-        SUBI.B  #$0410,D0                       ; $2A0818
-        SUBI.B  #$0430,-(A0)                    ; $2A081C
-        CMPI.B  #$0044,D0                       ; $2A0820
+        SUBI.B  #$10,D0                         ; $2A0818
+        SUBI.B  #$30,-(A0)                      ; $2A081C
+        CMPI.B  #$44,D0                         ; $2A0820
         ORI.W  #$0C36,D4                        ; $2A0824
-        MOVE.W  -$27(PC,A7.W),$0C36(A6)         ; $2A0828
+        MOVE.W  $2A0803(PC,A7.W),$0C36(A6)      ; $2A0828
         MOVEA.W A0,A3                           ; $2A082E
-        MOVE.W  (A1)+,$0EBC3648                 ; $2A0830
-        MOVE.W  #$0EBC,$3D7BF3FC                ; $2A0836
-        BCHG    D1,$377B(A2)                    ; $2A083E
-        MOVE.W  (A2),(A2)                       ; $2A0842
-        BCHG    D1,$3515(A2)                    ; $2A0844
-        MOVE.W  (A2),(A2)                       ; $2A0848
+        DC.W    $F3D9                           ; $2A0830
+        DC.W    $0EBC                           ; $2A0832
+        MOVEA.W A0,A3                           ; $2A0834
+        DC.W    $F3FC                           ; $2A0836
+        DC.W    $0EBC                           ; $2A0838
+        MOVE.W  $2A0838(PC,A7.W),$036A(A6)      ; $2A083A
+        MOVE.W  $2A07D4(PC,A7.W),$036A(A3)      ; $2A0840
+        MOVE.W  (A5),-(A2)                      ; $2A0846
+        DC.W    $F492                           ; $2A0848
         DC.W    $0EBC                           ; $2A084A
         MOVE.W  (A5),-(A2)                      ; $2A084C
-        MOVE.W  #$0EBC,$377BF3FC                ; $2A084E
-        BCHG    D1,$3EAF(A2)                    ; $2A0856
-        MOVE.W  (A2),(A2)                       ; $2A085A
+        DC.W    $F3FC                           ; $2A084E
+        DC.W    $0EBC                           ; $2A0850
+        MOVE.W  $2A0850(PC,A7.W),$036A(A3)      ; $2A0852
+        MOVE.W  -$0B6E(A7),(A7)                 ; $2A0858
         BCHG    D1,$3C48(A2)                    ; $2A085C
-        MOVE.W  (A2),(A2)                       ; $2A0860
+        DC.W    $F492                           ; $2A0860
         DC.W    $0EBC                           ; $2A0862
         MOVEA.W A0,A6                           ; $2A0864
-        MOVE.W  #$0EBC,$3EAFF3FC                ; $2A0866
-        ANDI.B  #$3EAF,-$0B2E(A6)               ; $2A086E
-        ANDI.B  #$3048,-$0B2E(A6)               ; $2A0874
+        DC.W    $F3FC                           ; $2A0866
+        DC.W    $0EBC                           ; $2A0868
+        MOVE.W  -$0C04(A7),(A7)                 ; $2A086A
+        ANDI.B  #$AF,-$0B2E(A6)                 ; $2A086E
+        ANDI.B  #$48,-$0B2E(A6)                 ; $2A0874
         SUBI.L  #$3048F45A,$04A8(A0)            ; $2A087A
         MOVE.W  -$0BA6(A7),(A7)                 ; $2A0882
         ROXL.W  -(A4)                           ; $2A0886
@@ -502,127 +542,134 @@
         DC.W    $FBC6                           ; $2A0890
         DC.W    $F87F                           ; $2A0892
         MOVEA.W A0,A0                           ; $2A0894
-        MOVE.W  $7F(A2,A7.L),-$51(A3,D3.W)      ; $2A0896
-        MOVE.W  -$1C(A2,A6.L),-$51(A3,D3.L)     ; $2A089C
-        DC.W    $FBC6                           ; $2A08A2
+        DC.W    $F7B2                           ; $2A0896
+        DC.W    $F87F                           ; $2A0898
+        MOVE.W  -$084E(A7),(A1)                 ; $2A089A
+        ROXL.W  -(A4)                           ; $2A089E
+        MOVE.W  -$043A(A7),(A7)                 ; $2A08A0
         ROXL.W  -(A4)                           ; $2A08A4
         MOVEA.W A0,A6                           ; $2A08A6
         DC.W    $FBC6                           ; $2A08A8
         DC.W    $F87F                           ; $2A08AA
         MOVEA.W A0,A6                           ; $2A08AC
-        MOVE.W  $7F(A2,A7.L),-$51(A3,D3.L)      ; $2A08AE
-        MOVE.W  -$49(A2,A6.L),-$51(A3,D3.L)     ; $2A08B4
-        DC.W    $FC3D                           ; $2A08BA
+        DC.W    $F7B2                           ; $2A08AE
+        DC.W    $F87F                           ; $2A08B0
+        MOVE.W  -$084E(A7),(A7)                 ; $2A08B2
+        ROXR.L  D6,D7                           ; $2A08B6
+        MOVE.W  -$03C3(A7),(A7)                 ; $2A08B8
         ROXR.L  D6,D7                           ; $2A08BC
         MOVEA.W A0,A0                           ; $2A08BE
         DC.W    $FC3D                           ; $2A08C0
         ROXL.B  #7,D1                           ; $2A08C2
         MOVEA.W A0,A0                           ; $2A08C4
-        MOVE.W  (A0),-$10EF(A5)                 ; $2A08C6
+        DC.W    $FB50                           ; $2A08C6
+        ROXL.B  #7,D1                           ; $2A08C8
         MOVE.W  -$04B0(A7),(A7)                 ; $2A08CA
-        MOVE.W  -(A3),(A5)+                     ; $2A08CE
+        DC.W    $FAE3                           ; $2A08CE
         MOVE.W  -$0922(A7),(A1)                 ; $2A08D0
-        MOVE.W  -(A3),(A5)+                     ; $2A08D4
+        DC.W    $FAE3                           ; $2A08D4
         MOVEA.W A0,A0                           ; $2A08D6
-        MOVE.W  (A6)+,(A3)+                     ; $2A08D8
-        MOVE.W  A3,$3048(A6)                    ; $2A08DA
-        MOVE.W  (A2)+,D3                        ; $2A08DE
-        MOVE.W  A3,$32AF(A6)                    ; $2A08E0
-        MOVE.W  (A2)+,D3                        ; $2A08E4
+        DC.W    $F6DE                           ; $2A08D8
+        DC.W    $FD4B                           ; $2A08DA
+        MOVEA.W A0,A0                           ; $2A08DC
+        DC.W    $F61A                           ; $2A08DE
+        DC.W    $FD4B                           ; $2A08E0
+        MOVE.W  -$09E6(A7),(A1)                 ; $2A08E2
         DC.W    $113E                           ; $2A08E6
         MOVE.W  -$0BBE(A7),(A1)                 ; $2A08E8
         DC.W    $113E                           ; $2A08EC
         MOVEA.W A0,A0                           ; $2A08EE
-        MOVEA.W D2,A2                           ; $2A08F0
+        DC.W    $F442                           ; $2A08F0
         DC.W    $13BD                           ; $2A08F2
         MOVEA.W A0,A0                           ; $2A08F4
-        MOVE.W  -(A6),(A2)                      ; $2A08F6
+        DC.W    $F4A6                           ; $2A08F6
         DC.W    $13BD                           ; $2A08F8
         MOVE.W  -$0B5A(A7),(A1)                 ; $2A08FA
         MOVE.W  (A7),$317B(A6)                  ; $2A08FE
-        MOVE.W  D4,-(A7)                        ; $2A0902
+        DC.W    $FF04                           ; $2A0902
         MOVE.W  (A7),$2D7B(A6)                  ; $2A0904
-        MOVE.W  D4,-(A7)                        ; $2A0908
+        DC.W    $FF04                           ; $2A0908
         SEQ     $7B(A0,D2.L)                    ; $2A090A
-        ORI.B  #$57F0,D0                        ; $2A090E
-        MOVE.W  $00(PC,D0.W),$3D57(A0)          ; $2A0912
+        ORI.B  #$F0,D0                          ; $2A090E
+        MOVE.W  $2A0914(PC,D0.W),$3D57(A0)      ; $2A0912
         DC.W    $417B                           ; $2A0918
-        MOVE.W  D4,-(A7)                        ; $2A091A
+        DC.W    $FF04                           ; $2A091A
         MOVE.W  (A7),$3D7B(A6)                  ; $2A091C
-        MOVE.W  D4,-(A7)                        ; $2A0920
+        DC.W    $FF04                           ; $2A0920
         SEQ     $7B(A0,D3.L)                    ; $2A0922
-        ORI.B  #$57F0,D0                        ; $2A0926
+        ORI.B  #$F0,D0                          ; $2A0926
         DC.W    $417B                           ; $2A092A
-        ORI.B  #$A7FF,D0                        ; $2A092C
-        MOVE.W  -$01(PC,A7.L),-$5801(A0)        ; $2A0930
-        MOVE.L  -$01(PC,A7.L),-$3D35(A6)        ; $2A0936
-        MOVE.L  $4F(PC,D0.W),-$3D35(A6)         ; $2A093C
-        MOVE.W  $4F(PC,D0.W),-$5801(A0)         ; $2A0942
+        ORI.B  #$FF,D0                          ; $2A092C
+        MOVE.W  $2A0931(PC,A7.L),-$5801(A0)     ; $2A0930
+        MOVE.L  $2A0937(PC,A7.L),-$3D35(A6)     ; $2A0936
+        MOVE.L  $2A098D(PC,D0.W),-$3D35(A6)     ; $2A093C
+        MOVE.W  $2A0993(PC,D0.W),-$5801(A0)     ; $2A0942
         DC.W    $417B                           ; $2A0948
         DC.W    $FFFF                           ; $2A094A
         DC.W    $A7FF                           ; $2A094C
-        MOVE.W  -$01(PC,A7.L),-$3D35(A6)        ; $2A094E
-        MOVE.W  $4F(PC,D0.W),-$3D35(A6)         ; $2A0954
+        MOVE.W  $2A094F(PC,A7.L),-$3D35(A6)     ; $2A094E
+        MOVE.W  $2A09A5(PC,D0.W),-$3D35(A6)     ; $2A0954
         DC.W    $417B                           ; $2A095A
-        BCHG    D1,A7                           ; $2A095C
+        DC.W    $034F                           ; $2A095C
         ADD.W  (A7),D1                          ; $2A095E
         DC.W    $417B                           ; $2A0960
         BTST    D1,$57(A7,A5.W)                 ; $2A0962
-        MOVE.L  $37(PC,D0.W),$1637(A6)          ; $2A0966
+        MOVE.L  $2A099F(PC,D0.W),$1637(A6)      ; $2A0966
         DC.W    $417B                           ; $2A096C
-        MOVE.W  -(A4),-(A2)                     ; $2A096E
+        DC.W    $F524                           ; $2A096E
         ROR.W  #5,D5                            ; $2A0970
         DC.W    $417B                           ; $2A0972
-        MOVE.W  -(A5),-(A6)                     ; $2A0974
+        DC.W    $FD25                           ; $2A0974
         ROR.W  #5,D5                            ; $2A0976
-        MOVE.L  $25(PC,A7.L),$1637(A6)          ; $2A0978
-        MOVE.L  $24(PC,A7.W),$2E0F(A6)          ; $2A097E
+        MOVE.L  $2A099F(PC,A7.L),$1637(A6)      ; $2A0978
+        MOVE.L  $2A09A4(PC,A7.W),$2E0F(A6)      ; $2A097E
         DC.W    $417B                           ; $2A0984
-        MOVE.W  $2E0F(A1),D6                    ; $2A0986
-        MOVE.L  $29(PC,A7.L),$57EE(A6)          ; $2A098A
+        DC.W    $FC29                           ; $2A0986
+        MOVE.L  A7,D7                           ; $2A0988
+        MOVE.L  $2A09B5(PC,A7.L),$57EE(A6)      ; $2A098A
         CLR.B  D0                               ; $2A0990
-        ORI.B  #$57EE,D0                        ; $2A0992
-        ORI.B  #$0000,D0                        ; $2A0996
+        ORI.B  #$EE,D0                          ; $2A0992
+        ORI.B  #$00,D0                          ; $2A0996
         SUBQ.B  #5,-(A1)                        ; $2A099A
-        ORI.B  #$0000,D0                        ; $2A099C
+        ORI.B  #$00,D0                          ; $2A099C
         SUBQ.B  #5,-(A1)                        ; $2A09A0
         CLR.B  D0                               ; $2A09A2
-        ORI.B  #$A4CE,D0                        ; $2A09A4
+        ORI.B  #$CE,D0                          ; $2A09A4
         CLR.B  D0                               ; $2A09A8
-        ORI.B  #$A4CE,D0                        ; $2A09AA
-        ORI.B  #$0000,D0                        ; $2A09AE
-        MOVE.L  D2,D4                           ; $2A09B2
-        ORI.B  #$0000,D0                        ; $2A09B4
-        MOVE.L  D2,D4                           ; $2A09B8
+        ORI.B  #$CE,D0                          ; $2A09AA
+        ORI.B  #$00,D0                          ; $2A09AE
+        DC.W    $A802                           ; $2A09B2
+        ORI.B  #$00,D0                          ; $2A09B4
+        DC.W    $A802                           ; $2A09B8
         CLR.B  D0                               ; $2A09BA
-        ORI.B  #$0004,D0                        ; $2A09BC
+        ORI.B  #$04,D0                          ; $2A09BC
         MOVE.L  D0,D0                           ; $2A09C0
         BCHG    D1,D0                           ; $2A09C2
         BTST    D1,-$20(A0,D0.W)                ; $2A09C4
         BCHG    D1,(A0)                         ; $2A09C8
-        ANDI.B  #$2000,D4                       ; $2A09CA
+        ANDI.B  #$00,D4                         ; $2A09CA
         BCLR    D1,D0                           ; $2A09CE
         BCHG    D1,$04(A0,D0.W)                 ; $2A09D0
         MOVE.L  D0,D0                           ; $2A09D4
         BCLR    D1,(A0)                         ; $2A09D6
         BCHG    D1,-(A0)                        ; $2A09D8
-        SUBI.B  #$2000,D4                       ; $2A09DA
+        SUBI.B  #$00,D4                         ; $2A09DA
         BCLR    D1,-$60(A0,D0.W)                ; $2A09DE
-        SUBI.B  #$2000,D4                       ; $2A09E2
+        SUBI.B  #$00,D4                         ; $2A09E2
         ANDI.W  #$0280,(A0)                     ; $2A09E6
-        ORI.B  #$7900,(A2)                      ; $2A09EA
-        ORI.B  #$0010,D0                        ; $2A09EE
-        ORI.B  #$0030,-(A0)                     ; $2A09F2
-        ORI.B  #$7900,(A2)                      ; $2A09F6
+        ORI.B  #$00,(A2)                        ; $2A09EA
+        ORI.B  #$10,D0                          ; $2A09EE
+        ORI.B  #$30,-(A0)                       ; $2A09F2
+        ORI.B  #$00,(A2)                        ; $2A09F6
         ORI.W  #$0050,D0                        ; $2A09FA
         ORI.W  #$0070,-(A0)                     ; $2A09FE
-        ORI.B  #$7900,(A2)                      ; $2A0A02
+        ORI.B  #$00,(A2)                        ; $2A0A02
         ORI.L  #$009000A0,D0                    ; $2A0A06
         ORI.L  #$00127900,-$40(A0,D0.W)         ; $2A0A0C
         DC.W    $00D0                           ; $2A0A14
         DC.W    $00E0                           ; $2A0A16
         DC.W    $00F0                           ; $2A0A18
-        ORI.B  #$7900,(A2)                      ; $2A0A1A
+        ORI.B  #$00,(A2)                        ; $2A0A1A
         BTST    D0,D0                           ; $2A0A1E
         BTST    D0,(A0)                         ; $2A0A20
         BTST    D0,-(A0)                        ; $2A0A22
@@ -643,18 +690,18 @@
         BSET    D0,-(A0)                        ; $2A0A46
         BSET    D0,$12(A0,D0.W)                 ; $2A0A48
         MOVE.W  D0,-(A4)                        ; $2A0A4C
-        ANDI.B  #$0210,D0                       ; $2A0A4E
-        ANDI.B  #$0230,-(A0)                    ; $2A0A52
-        ORI.B  #$2000,D4                        ; $2A0A56
+        ANDI.B  #$10,D0                         ; $2A0A4E
+        ANDI.B  #$30,-(A0)                      ; $2A0A52
+        ORI.B  #$00,D4                          ; $2A0A56
         ANDI.W  #$0250,D0                       ; $2A0A5A
         ANDI.W  #$0270,-(A0)                    ; $2A0A5E
-        ORI.B  #$2000,D4                        ; $2A0A62
+        ORI.B  #$00,D4                          ; $2A0A62
         ANDI.L  #$029002A0,D0                   ; $2A0A66
         ANDI.L  #$00042000,-$40(A0,D0.W)        ; $2A0A6C
         DC.W    $02D0                           ; $2A0A74
         DC.W    $02E0                           ; $2A0A76
         DC.W    $02F0                           ; $2A0A78
-        ORI.B  #$2000,D4                        ; $2A0A7A
+        ORI.B  #$00,D4                          ; $2A0A7A
         BTST    D1,D0                           ; $2A0A7E
         BTST    D1,(A0)                         ; $2A0A80
         BTST    D1,-(A0)                        ; $2A0A82
@@ -665,165 +712,173 @@
         BSET    D1,-(A0)                        ; $2A0A8E
         BSET    D1,$00(A0,D0.W)                 ; $2A0A90
         BTST    D2,D0                           ; $2A0A94
-        SUBI.B  #$0410,D0                       ; $2A0A96
-        SUBI.B  #$0430,-(A0)                    ; $2A0A9A
-        CMPI.B  #$0044,D0                       ; $2A0A9E
+        SUBI.B  #$10,D0                         ; $2A0A96
+        SUBI.B  #$30,-(A0)                      ; $2A0A9A
+        CMPI.B  #$44,D0                         ; $2A0A9E
         ORI.W  #$0BAF,D4                        ; $2A0AA2
-        MOVE.W  $26(PC,A7.L),$0BAF(A6)          ; $2A0AA6
+        MOVE.W  $2A0ACE(PC,A7.L),$0BAF(A6)      ; $2A0AA6
         MOVEA.W A0,A3                           ; $2A0AAC
-        MOVE.W  -(A6),D6                        ; $2A0AAE
+        DC.W    $FC26                           ; $2A0AAE
         DC.W    $0E19                           ; $2A0AB0
         MOVEA.W A0,A3                           ; $2A0AB2
-        MOVE.W  (A5)+,(A6)+                     ; $2A0AB4
+        DC.W    $FCDD                           ; $2A0AB4
         DC.W    $0E19                           ; $2A0AB6
-        MOVE.W  -$23(PC,A7.L),$033F(A6)         ; $2A0AB8
-        MOVE.W  -$62(PC,A7.L),$033F(A3)         ; $2A0ABE
+        MOVE.W  $2A0A97(PC,A7.L),$033F(A6)      ; $2A0AB8
+        MOVE.W  $2A0A5E(PC,A7.L),$033F(A3)      ; $2A0ABE
         MOVE.W  (A5),-(A2)                      ; $2A0AC4
-        MOVE.W  (A6)+,$19(A4,D0.L)              ; $2A0AC6
+        DC.W    $F99E                           ; $2A0AC6
+        DC.W    $0E19                           ; $2A0AC8
         MOVE.W  (A5),-(A2)                      ; $2A0ACA
-        MOVE.W  (A5)+,(A6)+                     ; $2A0ACC
+        DC.W    $FCDD                           ; $2A0ACC
         DC.W    $0E19                           ; $2A0ACE
-        MOVE.W  -$23(PC,A7.L),$033F(A3)         ; $2A0AD0
+        MOVE.W  $2A0AAF(PC,A7.L),$033F(A3)      ; $2A0AD0
         MOVE.W  -$0662(A7),(A7)                 ; $2A0AD6
-        BTST    D1,<EA:3F>                      ; $2A0ADA
+        DC.W    $033F                           ; $2A0ADA
         MOVEA.W A0,A6                           ; $2A0ADC
-        MOVE.W  (A6)+,$19(A4,D0.L)              ; $2A0ADE
+        DC.W    $F99E                           ; $2A0ADE
+        DC.W    $0E19                           ; $2A0AE0
         MOVEA.W A0,A6                           ; $2A0AE2
-        MOVE.W  (A5)+,(A6)+                     ; $2A0AE4
+        DC.W    $FCDD                           ; $2A0AE4
         DC.W    $0E19                           ; $2A0AE6
         MOVE.W  -$0323(A7),(A7)                 ; $2A0AE8
         DC.W    $020B                           ; $2A0AEC
         MOVE.W  -$06BE(A7),(A7)                 ; $2A0AEE
         DC.W    $020B                           ; $2A0AF2
         MOVEA.W A0,A0                           ; $2A0AF4
-        MOVE.W  D2,$0474(A4)                    ; $2A0AF6
-        MOVEA.W A0,A0                           ; $2A0AFA
-        DC.W    $F9FA                           ; $2A0AFC
+        DC.W    $F942                           ; $2A0AF6
+        SUBI.W  #$3048,-$06(A4,A7.L)            ; $2A0AF8
         SUBI.W  #$3EAF,-$06(A4,A7.L)            ; $2A0AFE
         LSL.W  #6,D4                            ; $2A0B04
         MOVE.W  -$0B9D(A7),(A1)                 ; $2A0B06
         LSL.W  #6,D4                            ; $2A0B0A
         MOVEA.W A0,A0                           ; $2A0B0C
-        MOVEA.W -(A3),A2                        ; $2A0B0E
-        MOVEA.W (A5)+,A4                        ; $2A0B10
+        DC.W    $F463                           ; $2A0B0E
+        DC.W    $F85D                           ; $2A0B10
         MOVEA.W A0,A0                           ; $2A0B12
-        MOVE.W  A0,(A3)+                        ; $2A0B14
-        MOVEA.W (A5)+,A4                        ; $2A0B16
+        DC.W    $F6C8                           ; $2A0B14
+        DC.W    $F85D                           ; $2A0B16
         MOVE.W  -$0938(A7),(A1)                 ; $2A0B18
         LSL.W  #6,D4                            ; $2A0B1C
         MOVE.W  -$0B9D(A7),(A7)                 ; $2A0B1E
         LSL.W  #6,D4                            ; $2A0B22
         MOVEA.W A0,A6                           ; $2A0B24
-        MOVEA.W -(A3),A2                        ; $2A0B26
-        MOVEA.W (A5)+,A4                        ; $2A0B28
+        DC.W    $F463                           ; $2A0B26
+        DC.W    $F85D                           ; $2A0B28
         MOVEA.W A0,A6                           ; $2A0B2A
-        MOVE.W  A0,(A3)+                        ; $2A0B2C
-        MOVEA.W (A5)+,A4                        ; $2A0B2E
+        DC.W    $F6C8                           ; $2A0B2C
+        DC.W    $F85D                           ; $2A0B2E
         MOVE.W  -$0938(A7),(A7)                 ; $2A0B30
         LSR.B  #6,D6                            ; $2A0B34
         MOVE.W  -$0BCC(A7),(A7)                 ; $2A0B36
         LSR.B  #6,D6                            ; $2A0B3A
         MOVEA.W A0,A0                           ; $2A0B3C
-        MOVE.W  -$76(A4,A6.L),D2                ; $2A0B3E
+        DC.W    $F434                           ; $2A0B3E
+        LSR.L  #7,D2                            ; $2A0B40
         MOVEA.W A0,A0                           ; $2A0B42
-        MOVE.W  (A7),(A2)                       ; $2A0B44
+        DC.W    $F497                           ; $2A0B44
         LSR.L  #7,D2                            ; $2A0B46
         MOVE.W  -$0B69(A7),(A7)                 ; $2A0B48
-        MOVE.W  A2,(A5)+                        ; $2A0B4C
+        DC.W    $FACA                           ; $2A0B4C
         MOVE.W  -$0890(A7),(A1)                 ; $2A0B4E
-        MOVE.W  A2,(A5)+                        ; $2A0B52
+        DC.W    $FACA                           ; $2A0B52
         MOVEA.W A0,A0                           ; $2A0B54
-        MOVE.W  $37(A0,A7.L),$3048(A3)          ; $2A0B56
-        MOVE.W  (A5)+,D4                        ; $2A0B5C
-        MOVE.W  -$51(A7,D3.W),-(A6)             ; $2A0B5E
-        MOVE.W  (A5)+,D4                        ; $2A0B62
+        DC.W    $F770                           ; $2A0B56
+        DC.W    $FD37                           ; $2A0B58
+        MOVEA.W A0,A0                           ; $2A0B5A
+        DC.W    $F81D                           ; $2A0B5C
+        DC.W    $FD37                           ; $2A0B5E
+        MOVE.W  -$07E3(A7),(A1)                 ; $2A0B60
         MOVE.B  D4,(A0)                         ; $2A0B64
         MOVE.W  -$029A(A7),(A1)                 ; $2A0B66
         MOVE.B  D4,(A0)                         ; $2A0B6A
         MOVEA.W A0,A0                           ; $2A0B6C
-        MOVE.W  -(A6),$12F0(A6)                 ; $2A0B6E
-        MOVEA.W A0,A0                           ; $2A0B72
-        MOVE.W  (A4),D7                         ; $2A0B74
+        DC.W    $FD66                           ; $2A0B6E
+        MOVE.B  $48(A0,D3.W),(A1)+              ; $2A0B70
+        DC.W    $FE14                           ; $2A0B74
         MOVE.B  -$51(A0,D3.W),(A1)+             ; $2A0B76
-        MOVE.W  (A4),D7                         ; $2A0B7A
+        DC.W    $FE14                           ; $2A0B7A
         MOVE.W  $317B0348,-(A6)                 ; $2A0B7C
         MOVE.W  $2D7B0348,-(A6)                 ; $2A0B82
         SEQ     $7B(A0,D2.L)                    ; $2A0B88
-        ORI.B  #$57F0,D0                        ; $2A0B8C
-        MOVE.W  $00(PC,D0.W),$3D39(A0)          ; $2A0B90
+        ORI.B  #$F0,D0                          ; $2A0B8C
+        MOVE.W  $2A0B92(PC,D0.W),$3D39(A0)      ; $2A0B90
         DC.W    $417B                           ; $2A0B96
-        BCHG    D1,A0                           ; $2A0B98
+        DC.W    $0348                           ; $2A0B98
         MOVE.W  $3D7B0348,-(A6)                 ; $2A0B9A
         SEQ     $7B(A0,D3.L)                    ; $2A0BA0
-        ORI.B  #$57F0,D0                        ; $2A0BA4
+        ORI.B  #$F0,D0                          ; $2A0BA4
         DC.W    $417B                           ; $2A0BA8
-        ORI.B  #$A7FF,D0                        ; $2A0BAA
-        MOVE.W  -$01(PC,A7.L),-$5801(A0)        ; $2A0BAE
-        MOVE.L  -$01(PC,A7.L),-$3D45(A6)        ; $2A0BB4
-        MOVE.L  -$2D(PC,A7.L),-$3D45(A6)        ; $2A0BBA
-        MOVE.W  -$2D(PC,A7.L),-$5801(A0)        ; $2A0BC0
+        ORI.B  #$FF,D0                          ; $2A0BAA
+        MOVE.W  $2A0BAF(PC,A7.L),-$5801(A0)     ; $2A0BAE
+        MOVE.L  $2A0BB5(PC,A7.L),-$3D45(A6)     ; $2A0BB4
+        MOVE.L  $2A0B8F(PC,A7.L),-$3D45(A6)     ; $2A0BBA
+        MOVE.W  $2A0B95(PC,A7.L),-$5801(A0)     ; $2A0BC0
         DC.W    $417B                           ; $2A0BC6
         DC.W    $FFFF                           ; $2A0BC8
         DC.W    $A7FF                           ; $2A0BCA
-        MOVE.W  -$01(PC,A7.L),-$3D45(A6)        ; $2A0BCC
-        MOVE.W  -$2D(PC,A7.L),-$3D45(A6)        ; $2A0BD2
+        MOVE.W  $2A0BCD(PC,A7.L),-$3D45(A6)     ; $2A0BCC
+        MOVE.W  $2A0BA7(PC,A7.L),-$3D45(A6)     ; $2A0BD2
         DC.W    $417B                           ; $2A0BD8
-        MOVE.W  (A3),(A6)+                      ; $2A0BDA
+        DC.W    $FCD3                           ; $2A0BDA
         ADD.W  D0,D3                            ; $2A0BDC
         DC.W    $417B                           ; $2A0BDE
-        MOVE.W  $43(A0,A5.W),$2D7B(A3)          ; $2A0BE0
-        MOVE.W  $5D(A0,D1.W),$417B(A3)          ; $2A0BE6
-        MOVE.W  -$1671(A4),-(A7)                ; $2A0BEC
+        DC.W    $F770                           ; $2A0BE0
+        ADD.W  D0,D3                            ; $2A0BE2
+        MOVE.L  $2A0C56(PC,A7.W),$155D(A6)      ; $2A0BE4
+        DC.W    $417B                           ; $2A0BEA
+        DC.W    $FF2C                           ; $2A0BEC
+        LSL.L  #4,D7                            ; $2A0BEE
         DC.W    $417B                           ; $2A0BF0
-        MOVE.W  -$1671(A1),$2D7BF3E9            ; $2A0BF2
-        MOVE.B  (A5)+,$2D7B(A2)                 ; $2A0BFA
-        MOVE.W  $2DBB(A4),-(A7)                 ; $2A0BFE
+        DC.W    $F3E9                           ; $2A0BF2
+        LSL.L  #4,D7                            ; $2A0BF4
+        MOVE.L  $2A0BE1(PC,A7.W),$155D(A6)      ; $2A0BF6
+        MOVE.L  $2A0C2A(PC,A7.L),$2DBB(A6)      ; $2A0BFC
         DC.W    $417B                           ; $2A0C02
         BCHG    D1,(A1)+                        ; $2A0C04
-        MOVE.L  $7B(PC,D2.L),$59(A6,D0.W)       ; $2A0C06
+        MOVE.L  $2A0C83(PC,D2.L),$59(A6,D0.W)   ; $2A0C06
         SEQ     $4200(A6)                       ; $2A0C0C
-        ORI.B  #$57EE,D0                        ; $2A0C10
-        ORI.B  #$0000,D0                        ; $2A0C14
+        ORI.B  #$EE,D0                          ; $2A0C10
+        ORI.B  #$00,D0                          ; $2A0C14
         SUBQ.B  #5,-(A1)                        ; $2A0C18
-        ORI.B  #$0000,D0                        ; $2A0C1A
+        ORI.B  #$00,D0                          ; $2A0C1A
         SUBQ.B  #5,-(A1)                        ; $2A0C1E
         CLR.B  D0                               ; $2A0C20
-        ORI.B  #$A4CE,D0                        ; $2A0C22
+        ORI.B  #$CE,D0                          ; $2A0C22
         CLR.B  D0                               ; $2A0C26
-        ORI.B  #$A4CE,D0                        ; $2A0C28
-        ORI.B  #$0000,D0                        ; $2A0C2C
-        MOVE.L  D2,D4                           ; $2A0C30
-        ORI.B  #$0000,D0                        ; $2A0C32
-        MOVE.L  D2,D4                           ; $2A0C36
+        ORI.B  #$CE,D0                          ; $2A0C28
+        ORI.B  #$00,D0                          ; $2A0C2C
+        DC.W    $A802                           ; $2A0C30
+        ORI.B  #$00,D0                          ; $2A0C32
+        DC.W    $A802                           ; $2A0C36
         CLR.B  D0                               ; $2A0C38
-        ORI.B  #$0004,D0                        ; $2A0C3A
+        ORI.B  #$04,D0                          ; $2A0C3A
         MOVE.L  D0,D0                           ; $2A0C3E
         BCHG    D1,D0                           ; $2A0C40
         BTST    D1,-$20(A0,D0.W)                ; $2A0C42
         BCHG    D1,(A0)                         ; $2A0C46
-        ANDI.B  #$2000,D4                       ; $2A0C48
+        ANDI.B  #$00,D4                         ; $2A0C48
         BCLR    D1,D0                           ; $2A0C4C
         BCHG    D1,$04(A0,D0.W)                 ; $2A0C4E
         MOVE.L  D0,D0                           ; $2A0C52
         BCLR    D1,(A0)                         ; $2A0C54
         BCHG    D1,-(A0)                        ; $2A0C56
-        SUBI.B  #$2000,D4                       ; $2A0C58
+        SUBI.B  #$00,D4                         ; $2A0C58
         BCLR    D1,-$60(A0,D0.W)                ; $2A0C5C
-        SUBI.B  #$2000,D4                       ; $2A0C60
+        SUBI.B  #$00,D4                         ; $2A0C60
         ANDI.W  #$0280,(A0)                     ; $2A0C64
-        ORI.B  #$7900,(A2)                      ; $2A0C68
-        ORI.B  #$0010,D0                        ; $2A0C6C
-        ORI.B  #$0030,-(A0)                     ; $2A0C70
-        ORI.B  #$7900,(A2)                      ; $2A0C74
+        ORI.B  #$00,(A2)                        ; $2A0C68
+        ORI.B  #$10,D0                          ; $2A0C6C
+        ORI.B  #$30,-(A0)                       ; $2A0C70
+        ORI.B  #$00,(A2)                        ; $2A0C74
         ORI.W  #$0050,D0                        ; $2A0C78
         ORI.W  #$0070,-(A0)                     ; $2A0C7C
-        ORI.B  #$7900,(A2)                      ; $2A0C80
+        ORI.B  #$00,(A2)                        ; $2A0C80
         ORI.L  #$009000A0,D0                    ; $2A0C84
         ORI.L  #$00127900,-$40(A0,D0.W)         ; $2A0C8A
         DC.W    $00D0                           ; $2A0C92
         DC.W    $00E0                           ; $2A0C94
         DC.W    $00F0                           ; $2A0C96
-        ORI.B  #$7900,(A2)                      ; $2A0C98
+        ORI.B  #$00,(A2)                        ; $2A0C98
         BTST    D0,D0                           ; $2A0C9C
         BTST    D0,(A0)                         ; $2A0C9E
         BTST    D0,-(A0)                        ; $2A0CA0
@@ -844,18 +899,18 @@
         BSET    D0,-(A0)                        ; $2A0CC4
         BSET    D0,$12(A0,D0.W)                 ; $2A0CC6
         MOVE.W  D0,-(A4)                        ; $2A0CCA
-        ANDI.B  #$0210,D0                       ; $2A0CCC
-        ANDI.B  #$0230,-(A0)                    ; $2A0CD0
-        ORI.B  #$2000,D4                        ; $2A0CD4
+        ANDI.B  #$10,D0                         ; $2A0CCC
+        ANDI.B  #$30,-(A0)                      ; $2A0CD0
+        ORI.B  #$00,D4                          ; $2A0CD4
         ANDI.W  #$0250,D0                       ; $2A0CD8
         ANDI.W  #$0270,-(A0)                    ; $2A0CDC
-        ORI.B  #$2000,D4                        ; $2A0CE0
+        ORI.B  #$00,D4                          ; $2A0CE0
         ANDI.L  #$029002A0,D0                   ; $2A0CE4
         ANDI.L  #$00042000,-$40(A0,D0.W)        ; $2A0CEA
         DC.W    $02D0                           ; $2A0CF2
         DC.W    $02E0                           ; $2A0CF4
         DC.W    $02F0                           ; $2A0CF6
-        ORI.B  #$2000,D4                        ; $2A0CF8
+        ORI.B  #$00,D4                          ; $2A0CF8
         BTST    D1,D0                           ; $2A0CFC
         BTST    D1,(A0)                         ; $2A0CFE
         BTST    D1,-(A0)                        ; $2A0D00
@@ -866,33 +921,36 @@
         BSET    D1,-(A0)                        ; $2A0D0C
         BSET    D1,$00(A0,D0.W)                 ; $2A0D0E
         BTST    D2,D0                           ; $2A0D12
-        SUBI.B  #$0410,D0                       ; $2A0D14
-        SUBI.B  #$0430,-(A0)                    ; $2A0D18
-        CMPI.B  #$0044,D0                       ; $2A0D1C
+        SUBI.B  #$10,D0                         ; $2A0D14
+        SUBI.B  #$30,-(A0)                      ; $2A0D18
+        CMPI.B  #$44,D0                         ; $2A0D1C
         ORI.W  #$090E,D4                        ; $2A0D20
-        MOVE.W  -$2A(PC,D0.W),$090E(A6)         ; $2A0D24
+        MOVE.W  $2A0CFC(PC,D0.W),$090E(A6)      ; $2A0D24
         MOVEA.W A0,A3                           ; $2A0D2A
         DC.W    $02D6                           ; $2A0D2C
-        BCLR    D5,A1                           ; $2A0D2E
+        DC.W    $0B89                           ; $2A0D2E
         MOVEA.W A0,A3                           ; $2A0D30
         BCHG    D1,-(A0)                        ; $2A0D32
-        BCLR    D5,A1                           ; $2A0D34
-        MOVE.W  $60(PC,D0.W),$0070(A6)          ; $2A0D36
-        MOVE.W  -$4E(PC,D0.W),$0070(A3)         ; $2A0D3C
+        DC.W    $0B89                           ; $2A0D34
+        MOVE.W  $2A0D98(PC,D0.W),$0070(A6)      ; $2A0D36
+        MOVE.W  $2A0CF0(PC,D0.W),$0070(A3)      ; $2A0D3C
         MOVE.W  (A5),-(A2)                      ; $2A0D42
         ORI.L  #$0B893515,$60(A2,D0.W)          ; $2A0D44
-        BCLR    D5,A1                           ; $2A0D4C
-        MOVE.W  $60(PC,D0.W),$0070(A3)          ; $2A0D4E
+        DC.W    $0B89                           ; $2A0D4C
+        MOVE.W  $2A0DB0(PC,D0.W),$0070(A3)      ; $2A0D4E
         MOVE.W  $00B2(A7),(A7)                  ; $2A0D54
         ORI.W  #$3C48,-$4E(A0,D0.W)             ; $2A0D58
-        BCLR    D5,A1                           ; $2A0D5E
+        DC.W    $0B89                           ; $2A0D5E
         MOVEA.W A0,A6                           ; $2A0D60
         BCHG    D1,-(A0)                        ; $2A0D62
-        BCLR    D5,A1                           ; $2A0D64
+        DC.W    $0B89                           ; $2A0D64
         MOVE.W  $0360(A7),(A7)                  ; $2A0D66
-        MOVE.W  $3EAF005D,-(A7)                 ; $2A0D6A
-        MOVE.W  $3048005D,-(A7)                 ; $2A0D70
-        BCLR    D0,$3048(A3)                    ; $2A0D76
+        DC.W    $FF39                           ; $2A0D6A
+        MOVE.W  $005D(A7),(A7)                  ; $2A0D6C
+        DC.W    $FF39                           ; $2A0D70
+        MOVEA.W A0,A0                           ; $2A0D72
+        ORI.W  #$01AB,(A5)+                     ; $2A0D74
+        MOVEA.W A0,A0                           ; $2A0D78
         BTST    D0,D6                           ; $2A0D7A
         BCLR    D0,$3EAF(A3)                    ; $2A0D7C
         BTST    D0,D6                           ; $2A0D80
@@ -903,7 +961,9 @@
         DC.W    $F9E1                           ; $2A0D8C
         DC.W    $F57E                           ; $2A0D8E
         MOVEA.W A0,A0                           ; $2A0D90
-        MOVE.W  $F57E32AF,-$0287(A6)            ; $2A0D92
+        DC.W    $FD79                           ; $2A0D92
+        DC.W    $F57E                           ; $2A0D94
+        MOVE.W  -$0287(A7),(A1)                 ; $2A0D96
         LSR.L  D5,D1                            ; $2A0D9A
         MOVE.W  -$061F(A7),(A7)                 ; $2A0D9C
         LSR.L  D5,D1                            ; $2A0DA0
@@ -911,22 +971,28 @@
         DC.W    $F9E1                           ; $2A0DA4
         DC.W    $F57E                           ; $2A0DA6
         MOVEA.W A0,A6                           ; $2A0DA8
-        MOVE.W  $F57E3EAF,-$0287(A6)            ; $2A0DAA
+        DC.W    $FD79                           ; $2A0DAA
+        DC.W    $F57E                           ; $2A0DAC
+        MOVE.W  -$0287(A7),(A7)                 ; $2A0DAE
         ROXL.W  D4,D6                           ; $2A0DB2
         MOVE.W  -$0688(A7),(A7)                 ; $2A0DB4
         ROXL.W  D4,D6                           ; $2A0DB8
         MOVEA.W A0,A0                           ; $2A0DBA
-        MOVE.W  $EBDE.W,$3048(A4)               ; $2A0DBC
-        MOVEA.W A2,A5                           ; $2A0DC2
+        DC.W    $F978                           ; $2A0DBC
+        LSL.W  (A6)+                            ; $2A0DBE
+        MOVEA.W A0,A0                           ; $2A0DC0
+        DC.W    $FA4A                           ; $2A0DC2
         LSL.W  (A6)+                            ; $2A0DC4
         MOVE.W  -$05B6(A7),(A7)                 ; $2A0DC6
         DC.W    $F7EB                           ; $2A0DCA
         MOVE.W  -$01C5(A7),(A1)                 ; $2A0DCC
         DC.W    $F7EB                           ; $2A0DD0
         MOVEA.W A0,A0                           ; $2A0DD2
-        MOVE.W  $59(PC,A7.L),D7                 ; $2A0DD4
+        DC.W    $FE3B                           ; $2A0DD4
+        DC.W    $FA59                           ; $2A0DD6
         MOVEA.W A0,A0                           ; $2A0DD8
-        MOVE.W  $59(A7,A7.L),(A7)+              ; $2A0DDA
+        DC.W    $FEF7                           ; $2A0DDA
+        DC.W    $FA59                           ; $2A0DDC
         MOVE.W  -$0109(A7),(A1)                 ; $2A0DDE
         DC.W    $0E05                           ; $2A0DE2
         MOVE.W  $03E1(A7),(A1)                  ; $2A0DE4
@@ -939,82 +1005,86 @@
         MOVE.W  $0459(A7),(A1)                  ; $2A0DF6
         MOVE.W  -(A6),$317B(A5)                 ; $2A0DFA
         ADDI.W  #$3B66,D7                       ; $2A0DFE
-        MOVE.L  $47(PC,D0.W),$57F0(A6)          ; $2A0E02
-        MOVE.L  $00(PC,D0.W),$57F0(A6)          ; $2A0E08
-        MOVE.W  $00(PC,D0.W),$3B66(A0)          ; $2A0E0E
+        MOVE.L  $2A0E4B(PC,D0.W),$57F0(A6)      ; $2A0E02
+        MOVE.L  $2A0E0A(PC,D0.W),$57F0(A6)      ; $2A0E08
+        MOVE.W  $2A0E10(PC,D0.W),$3B66(A0)      ; $2A0E0E
         DC.W    $417B                           ; $2A0E14
         ADDI.W  #$3B66,D7                       ; $2A0E16
-        MOVE.W  $47(PC,D0.W),$57F0(A6)          ; $2A0E1A
-        MOVE.W  $00(PC,D0.W),$57F0(A6)          ; $2A0E20
+        MOVE.W  $2A0E63(PC,D0.W),$57F0(A6)      ; $2A0E1A
+        MOVE.W  $2A0E22(PC,D0.W),$57F0(A6)      ; $2A0E20
         DC.W    $417B                           ; $2A0E26
-        ORI.B  #$A7FF,D0                        ; $2A0E28
-        MOVE.W  -$01(PC,A7.L),-$5801(A0)        ; $2A0E2C
-        MOVE.L  -$01(PC,A7.L),-$4074(A6)        ; $2A0E32
-        MOVE.L  -$76(PC,A7.W),-$4074(A6)        ; $2A0E38
-        MOVE.W  -$76(PC,A7.W),-$5801(A0)        ; $2A0E3E
+        ORI.B  #$FF,D0                          ; $2A0E28
+        MOVE.W  $2A0E2D(PC,A7.L),-$5801(A0)     ; $2A0E2C
+        MOVE.L  $2A0E33(PC,A7.L),-$4074(A6)     ; $2A0E32
+        MOVE.L  $2A0DC4(PC,A7.W),-$4074(A6)     ; $2A0E38
+        MOVE.W  $2A0DCA(PC,A7.W),-$5801(A0)     ; $2A0E3E
         DC.W    $417B                           ; $2A0E44
         DC.W    $FFFF                           ; $2A0E46
         DC.W    $A7FF                           ; $2A0E48
-        MOVE.W  -$01(PC,A7.L),-$4074(A6)        ; $2A0E4A
-        MOVE.W  -$76(PC,A7.W),-$4074(A6)        ; $2A0E50
+        MOVE.W  $2A0E4B(PC,A7.L),-$4074(A6)     ; $2A0E4A
+        MOVE.W  $2A0DDC(PC,A7.W),-$4074(A6)     ; $2A0E50
         DC.W    $417B                           ; $2A0E56
-        MOVE.W  A2,$10(A1,A4.L)                 ; $2A0E58
+        DC.W    $F38A                           ; $2A0E58
+        AND.B  D7,(A0)                          ; $2A0E5A
         DC.W    $417B                           ; $2A0E5C
-        MOVE.W  (A5)+,-$30F0(A1)                ; $2A0E5E
-        MOVE.L  $5D(PC,A7.W),$1302(A6)          ; $2A0E62
+        DC.W    $F35D                           ; $2A0E5E
+        AND.B  D7,(A0)                          ; $2A0E60
+        MOVE.L  $2A0EC1(PC,A7.W),$1302(A6)      ; $2A0E62
         DC.W    $417B                           ; $2A0E68
-        ADDI.B  #$E711,#$417B                   ; $2A0E6A
-        MOVE.W  (A5)+,D5                        ; $2A0E70
+        DC.W    $063C                           ; $2A0E6A
+        ROXL.B  #3,D1                           ; $2A0E6C
+        DC.W    $417B                           ; $2A0E6E
+        DC.W    $FA1D                           ; $2A0E70
         ROXL.B  #3,D1                           ; $2A0E72
-        MOVE.L  $1D(PC,A7.L),$1302(A6)          ; $2A0E74
-        MOVE.L  $3C(PC,D0.W),$2BDF(A6)          ; $2A0E7A
+        MOVE.L  $2A0E93(PC,A7.L),$1302(A6)      ; $2A0E74
+        MOVE.L  $2A0EB8(PC,D0.W),$2BDF(A6)      ; $2A0E7A
         DC.W    $417B                           ; $2A0E80
         BSET    D3,-(A7)                        ; $2A0E82
         DC.W    $2BDF                           ; $2A0E84
-        MOVE.L  -$19(PC,D0.W),$57EE(A6)         ; $2A0E86
+        MOVE.L  $2A0E6F(PC,D0.W),$57EE(A6)      ; $2A0E86
         CLR.B  D0                               ; $2A0E8C
-        ORI.B  #$57EE,D0                        ; $2A0E8E
-        ORI.B  #$0000,D0                        ; $2A0E92
+        ORI.B  #$EE,D0                          ; $2A0E8E
+        ORI.B  #$00,D0                          ; $2A0E92
         SUBQ.B  #5,-(A1)                        ; $2A0E96
-        ORI.B  #$0000,D0                        ; $2A0E98
+        ORI.B  #$00,D0                          ; $2A0E98
         SUBQ.B  #5,-(A1)                        ; $2A0E9C
         CLR.B  D0                               ; $2A0E9E
-        ORI.B  #$A4CE,D0                        ; $2A0EA0
+        ORI.B  #$CE,D0                          ; $2A0EA0
         CLR.B  D0                               ; $2A0EA4
-        ORI.B  #$A4CE,D0                        ; $2A0EA6
-        ORI.B  #$0000,D0                        ; $2A0EAA
-        MOVE.L  D2,D4                           ; $2A0EAE
-        ORI.B  #$0000,D0                        ; $2A0EB0
-        MOVE.L  D2,D4                           ; $2A0EB4
+        ORI.B  #$CE,D0                          ; $2A0EA6
+        ORI.B  #$00,D0                          ; $2A0EAA
+        DC.W    $A802                           ; $2A0EAE
+        ORI.B  #$00,D0                          ; $2A0EB0
+        DC.W    $A802                           ; $2A0EB4
         CLR.B  D0                               ; $2A0EB6
-        ORI.B  #$0004,D0                        ; $2A0EB8
+        ORI.B  #$04,D0                          ; $2A0EB8
         MOVE.L  D0,D0                           ; $2A0EBC
         BCHG    D1,D0                           ; $2A0EBE
         BTST    D1,-$20(A0,D0.W)                ; $2A0EC0
         BCHG    D1,(A0)                         ; $2A0EC4
-        ANDI.B  #$2000,D4                       ; $2A0EC6
+        ANDI.B  #$00,D4                         ; $2A0EC6
         BCLR    D1,D0                           ; $2A0ECA
         BCHG    D1,$04(A0,D0.W)                 ; $2A0ECC
         MOVE.L  D0,D0                           ; $2A0ED0
         BCLR    D1,(A0)                         ; $2A0ED2
         BCHG    D1,-(A0)                        ; $2A0ED4
-        SUBI.B  #$2000,D4                       ; $2A0ED6
+        SUBI.B  #$00,D4                         ; $2A0ED6
         BCLR    D1,-$60(A0,D0.W)                ; $2A0EDA
-        SUBI.B  #$2000,D4                       ; $2A0EDE
+        SUBI.B  #$00,D4                         ; $2A0EDE
         ANDI.W  #$0280,(A0)                     ; $2A0EE2
-        ORI.B  #$7900,(A2)                      ; $2A0EE6
-        ORI.B  #$0010,D0                        ; $2A0EEA
-        ORI.B  #$0030,-(A0)                     ; $2A0EEE
-        ORI.B  #$7900,(A2)                      ; $2A0EF2
+        ORI.B  #$00,(A2)                        ; $2A0EE6
+        ORI.B  #$10,D0                          ; $2A0EEA
+        ORI.B  #$30,-(A0)                       ; $2A0EEE
+        ORI.B  #$00,(A2)                        ; $2A0EF2
         ORI.W  #$0050,D0                        ; $2A0EF6
         ORI.W  #$0070,-(A0)                     ; $2A0EFA
-        ORI.B  #$7900,(A2)                      ; $2A0EFE
+        ORI.B  #$00,(A2)                        ; $2A0EFE
         ORI.L  #$009000A0,D0                    ; $2A0F02
         ORI.L  #$00127900,-$40(A0,D0.W)         ; $2A0F08
         DC.W    $00D0                           ; $2A0F10
         DC.W    $00E0                           ; $2A0F12
         DC.W    $00F0                           ; $2A0F14
-        ORI.B  #$7900,(A2)                      ; $2A0F16
+        ORI.B  #$00,(A2)                        ; $2A0F16
         BTST    D0,D0                           ; $2A0F1A
         BTST    D0,(A0)                         ; $2A0F1C
         BTST    D0,-(A0)                        ; $2A0F1E
@@ -1035,18 +1105,18 @@
         BSET    D0,-(A0)                        ; $2A0F42
         BSET    D0,$12(A0,D0.W)                 ; $2A0F44
         MOVE.W  D0,-(A4)                        ; $2A0F48
-        ANDI.B  #$0210,D0                       ; $2A0F4A
-        ANDI.B  #$0230,-(A0)                    ; $2A0F4E
-        ORI.B  #$2000,D4                        ; $2A0F52
+        ANDI.B  #$10,D0                         ; $2A0F4A
+        ANDI.B  #$30,-(A0)                      ; $2A0F4E
+        ORI.B  #$00,D4                          ; $2A0F52
         ANDI.W  #$0250,D0                       ; $2A0F56
         ANDI.W  #$0270,-(A0)                    ; $2A0F5A
-        ORI.B  #$2000,D4                        ; $2A0F5E
+        ORI.B  #$00,D4                          ; $2A0F5E
         ANDI.L  #$029002A0,D0                   ; $2A0F62
         ANDI.L  #$00042000,-$40(A0,D0.W)        ; $2A0F68
         DC.W    $02D0                           ; $2A0F70
         DC.W    $02E0                           ; $2A0F72
         DC.W    $02F0                           ; $2A0F74
-        ORI.B  #$2000,D4                        ; $2A0F76
+        ORI.B  #$00,D4                          ; $2A0F76
         BTST    D1,D0                           ; $2A0F7A
         BTST    D1,(A0)                         ; $2A0F7C
         BTST    D1,-(A0)                        ; $2A0F7E
@@ -1057,29 +1127,29 @@
         BSET    D1,-(A0)                        ; $2A0F8A
         BSET    D1,$00(A0,D0.W)                 ; $2A0F8C
         BTST    D2,D0                           ; $2A0F90
-        SUBI.B  #$0410,D0                       ; $2A0F92
-        SUBI.B  #$0430,-(A0)                    ; $2A0F96
-        CMPI.B  #$0044,D0                       ; $2A0F9A
+        SUBI.B  #$10,D0                         ; $2A0F92
+        SUBI.B  #$30,-(A0)                      ; $2A0F96
+        CMPI.B  #$44,D0                         ; $2A0F9A
         ORI.W  #$0B8C,D4                        ; $2A0F9E
-        MOVE.W  -$30(PC,D0.W),$0B8C(A6)         ; $2A0FA2
+        MOVE.W  $2A0F74(PC,D0.W),$0B8C(A6)      ; $2A0FA2
         MOVEA.W A0,A3                           ; $2A0FA8
         DC.W    $02D0                           ; $2A0FAA
         DC.W    $0E0A                           ; $2A0FAC
         MOVEA.W A0,A3                           ; $2A0FAE
         DC.W    $02F5                           ; $2A0FB0
         DC.W    $0E0A                           ; $2A0FB2
-        MOVE.W  -$0B(PC,D0.W),$02D6(A6)         ; $2A0FB4
-        MOVE.W  $23(PC,D0.W),$02D6(A3)          ; $2A0FBA
+        MOVE.W  $2A0FAB(PC,D0.W),$02D6(A6)      ; $2A0FB4
+        MOVE.W  $2A0FDF(PC,D0.W),$02D6(A3)      ; $2A0FBA
         MOVE.W  (A5),-(A2)                      ; $2A0FC0
-        ANDI.B  #$0E0A,-(A3)                    ; $2A0FC2
+        ANDI.B  #$0A,-(A3)                      ; $2A0FC2
         MOVE.W  (A5),-(A2)                      ; $2A0FC6
         DC.W    $02F5                           ; $2A0FC8
         DC.W    $0E0A                           ; $2A0FCA
-        MOVE.W  -$0B(PC,D0.W),$02D6(A3)         ; $2A0FCC
+        MOVE.W  $2A0FC3(PC,D0.W),$02D6(A3)      ; $2A0FCC
         MOVE.W  $0223(A7),(A7)                  ; $2A0FD2
         DC.W    $02D6                           ; $2A0FD6
         MOVEA.W A0,A6                           ; $2A0FD8
-        ANDI.B  #$0E0A,-(A3)                    ; $2A0FDA
+        ANDI.B  #$0A,-(A3)                      ; $2A0FDA
         MOVEA.W A0,A6                           ; $2A0FDE
         DC.W    $02F5                           ; $2A0FE0
         DC.W    $0E0A                           ; $2A0FE2
@@ -1088,7 +1158,7 @@
         MOVE.W  $0207(A7),(A7)                  ; $2A0FEA
         BCLR    D0,(A7)                         ; $2A0FEE
         MOVEA.W A0,A0                           ; $2A0FF0
-        ANDI.B  #$0414,D7                       ; $2A0FF2
+        ANDI.B  #$14,D7                         ; $2A0FF2
         MOVEA.W A0,A0                           ; $2A0FF6
         ANDI.W  #$0414,D0                       ; $2A0FF8
         MOVE.W  $0240(A7),(A7)                  ; $2A0FFC
@@ -1096,34 +1166,41 @@
         MOVE.W  -$0058(A7),(A1)                 ; $2A1002
         ASR.L  #6,D2                            ; $2A1006
         MOVEA.W A0,A0                           ; $2A1008
-        MOVE.W  -$0857(A0),$48(A7,D3.W)         ; $2A100A
+        DC.W    $FFA8                           ; $2A100A
+        DC.W    $F7A9                           ; $2A100C
+        MOVEA.W A0,A0                           ; $2A100E
         DC.W    $00FE                           ; $2A1010
-        MOVE.W  $32AF(A1),-$02(A3,D0.W)         ; $2A1012
+        DC.W    $F7A9                           ; $2A1012
+        MOVE.W  $00FE(A7),(A1)                  ; $2A1014
         ASR.L  #6,D2                            ; $2A1018
         MOVE.W  -$0058(A7),(A7)                 ; $2A101A
         ASR.L  #6,D2                            ; $2A101E
         MOVEA.W A0,A6                           ; $2A1020
-        MOVE.W  -$0857(A0),$48(A7,D3.L)         ; $2A1022
+        DC.W    $FFA8                           ; $2A1022
+        DC.W    $F7A9                           ; $2A1024
+        MOVEA.W A0,A6                           ; $2A1026
         DC.W    $00FE                           ; $2A1028
-        MOVE.W  $3EAF(A1),-$02(A3,D0.W)         ; $2A102A
+        DC.W    $F7A9                           ; $2A102A
+        MOVE.W  $00FE(A7),(A7)                  ; $2A102C
         ASL.W  #5,D4                            ; $2A1030
         MOVE.W  -$0080(A7),(A7)                 ; $2A1032
         ASL.W  #5,D4                            ; $2A1036
         MOVEA.W A0,A0                           ; $2A1038
-        MOVE.W  D0,-$41(A7,A6.L)                ; $2A103A
+        DC.W    $FF80                           ; $2A103A
+        ROL.L  D6,D7                            ; $2A103C
         MOVEA.W A0,A0                           ; $2A103E
         DC.W    $FFD0                           ; $2A1040
         ROL.L  D6,D7                            ; $2A1042
         MOVE.W  -$0030(A7),(A7)                 ; $2A1044
-        MOVE.W  -(A4),D5                        ; $2A1048
+        DC.W    $FA24                           ; $2A1048
         MOVE.W  $0144(A7),(A1)                  ; $2A104A
-        MOVE.W  -(A4),D5                        ; $2A104E
+        DC.W    $FA24                           ; $2A104E
         MOVEA.W A0,A0                           ; $2A1050
         BCHG    D0,D4                           ; $2A1052
-        MOVE.W  -(A0),(A6)                      ; $2A1054
+        DC.W    $FCA0                           ; $2A1054
         MOVEA.W A0,A0                           ; $2A1056
-        BCLR    D0,A1                           ; $2A1058
-        MOVE.W  -(A0),(A6)                      ; $2A105A
+        DC.W    $0189                           ; $2A1058
+        DC.W    $FCA0                           ; $2A105A
         MOVE.W  $0189(A7),(A1)                  ; $2A105C
         DC.W    $1089                           ; $2A1060
         MOVE.W  $0313(A7),(A1)                  ; $2A1062
@@ -1139,84 +1216,85 @@
         MOVE.W  (A4)+,$2D7B(A6)                 ; $2A107E
         BSET    D0,-(A6)                        ; $2A1082
         SEQ     $7B(A0,D2.L)                    ; $2A1084
-        ORI.B  #$57F0,D0                        ; $2A1088
-        MOVE.W  $00(PC,D0.W),$3D5C(A0)          ; $2A108C
+        ORI.B  #$F0,D0                          ; $2A1088
+        MOVE.W  $2A108E(PC,D0.W),$3D5C(A0)      ; $2A108C
         DC.W    $417B                           ; $2A1092
         BSET    D0,-(A6)                        ; $2A1094
         MOVE.W  (A4)+,$3D7B(A6)                 ; $2A1096
         BSET    D0,-(A6)                        ; $2A109A
         SEQ     $7B(A0,D3.L)                    ; $2A109C
-        ORI.B  #$57F0,D0                        ; $2A10A0
+        ORI.B  #$F0,D0                          ; $2A10A0
         DC.W    $417B                           ; $2A10A4
-        ORI.B  #$A7FF,D0                        ; $2A10A6
-        MOVE.W  -$01(PC,A7.L),-$5801(A0)        ; $2A10AA
-        MOVE.L  -$01(PC,A7.L),-$3EE5(A6)        ; $2A10B0
-        MOVE.L  -$38(PC,A7.L),-$3EE5(A6)        ; $2A10B6
-        MOVE.W  -$38(PC,A7.L),-$5801(A0)        ; $2A10BC
+        ORI.B  #$FF,D0                          ; $2A10A6
+        MOVE.W  $2A10AB(PC,A7.L),-$5801(A0)     ; $2A10AA
+        MOVE.L  $2A10B1(PC,A7.L),-$3EE5(A6)     ; $2A10B0
+        MOVE.L  $2A1080(PC,A7.L),-$3EE5(A6)     ; $2A10B6
+        MOVE.W  $2A1086(PC,A7.L),-$5801(A0)     ; $2A10BC
         DC.W    $417B                           ; $2A10C2
         DC.W    $FFFF                           ; $2A10C4
         DC.W    $A7FF                           ; $2A10C6
-        MOVE.W  -$01(PC,A7.L),-$3EE5(A6)        ; $2A10C8
-        MOVE.W  -$38(PC,A7.L),-$3EE5(A6)        ; $2A10CE
+        MOVE.W  $2A10C9(PC,A7.L),-$3EE5(A6)     ; $2A10C8
+        MOVE.W  $2A1098(PC,A7.L),-$3EE5(A6)     ; $2A10CE
         DC.W    $417B                           ; $2A10D4
         DC.W    $FBC8                           ; $2A10D6
         ADD.W  $417B(A3),D0                     ; $2A10D8
-        MOVE.W  -$2F95(A4),-(A6)                ; $2A10DC
-        MOVE.L  $2C(PC,A7.L),$1585(A6)          ; $2A10E0
-        DC.W    $417B                           ; $2A10E6
+        DC.W    $FD2C                           ; $2A10DC
+        ADD.W  $2D7B(A3),D0                     ; $2A10DE
+        DC.W    $FD2C                           ; $2A10E2
+        MOVE.B  D5,$7B(A2,D4.W)                 ; $2A10E4
         DC.W    $044F                           ; $2A10E8
-        ASR.W  A3                               ; $2A10EA
+        DC.W    $E8CB                           ; $2A10EA
         DC.W    $417B                           ; $2A10EC
         ORI.W  #$E8CB,D3                        ; $2A10EE
-        MOVE.L  $43(PC,D0.W),$1585(A6)          ; $2A10F2
-        MOVE.L  $4F(PC,D0.W),$2E12(A6)          ; $2A10F8
+        MOVE.L  $2A1137(PC,D0.W),$1585(A6)      ; $2A10F2
+        MOVE.L  $2A1149(PC,D0.W),$2E12(A6)      ; $2A10F8
         DC.W    $417B                           ; $2A10FE
-        BCLR    D1,A1                           ; $2A1100
+        DC.W    $0389                           ; $2A1100
         MOVE.L  (A2),D7                         ; $2A1102
-        MOVE.L  -$77(PC,D0.W),$57EE(A6)         ; $2A1104
+        MOVE.L  $2A108F(PC,D0.W),$57EE(A6)      ; $2A1104
         CLR.B  D0                               ; $2A110A
-        ORI.B  #$57EE,D0                        ; $2A110C
-        ORI.B  #$0000,D0                        ; $2A1110
+        ORI.B  #$EE,D0                          ; $2A110C
+        ORI.B  #$00,D0                          ; $2A1110
         SUBQ.B  #5,-(A1)                        ; $2A1114
-        ORI.B  #$0000,D0                        ; $2A1116
+        ORI.B  #$00,D0                          ; $2A1116
         SUBQ.B  #5,-(A1)                        ; $2A111A
         CLR.B  D0                               ; $2A111C
-        ORI.B  #$A4CE,D0                        ; $2A111E
+        ORI.B  #$CE,D0                          ; $2A111E
         CLR.B  D0                               ; $2A1122
-        ORI.B  #$A4CE,D0                        ; $2A1124
-        ORI.B  #$0000,D0                        ; $2A1128
-        MOVE.L  D2,D4                           ; $2A112C
-        ORI.B  #$0000,D0                        ; $2A112E
-        MOVE.L  D2,D4                           ; $2A1132
+        ORI.B  #$CE,D0                          ; $2A1124
+        ORI.B  #$00,D0                          ; $2A1128
+        DC.W    $A802                           ; $2A112C
+        ORI.B  #$00,D0                          ; $2A112E
+        DC.W    $A802                           ; $2A1132
         CLR.B  D0                               ; $2A1134
-        ORI.B  #$0004,D0                        ; $2A1136
+        ORI.B  #$04,D0                          ; $2A1136
         MOVE.L  D0,D0                           ; $2A113A
         BCHG    D1,D0                           ; $2A113C
         BTST    D1,-$20(A0,D0.W)                ; $2A113E
         BCHG    D1,(A0)                         ; $2A1142
-        ANDI.B  #$2000,D4                       ; $2A1144
+        ANDI.B  #$00,D4                         ; $2A1144
         BCLR    D1,D0                           ; $2A1148
         BCHG    D1,$04(A0,D0.W)                 ; $2A114A
         MOVE.L  D0,D0                           ; $2A114E
         BCLR    D1,(A0)                         ; $2A1150
         BCHG    D1,-(A0)                        ; $2A1152
-        SUBI.B  #$2000,D4                       ; $2A1154
+        SUBI.B  #$00,D4                         ; $2A1154
         BCLR    D1,-$60(A0,D0.W)                ; $2A1158
-        SUBI.B  #$2000,D4                       ; $2A115C
+        SUBI.B  #$00,D4                         ; $2A115C
         ANDI.W  #$0280,(A0)                     ; $2A1160
-        ORI.B  #$7900,(A2)                      ; $2A1164
-        ORI.B  #$0010,D0                        ; $2A1168
-        ORI.B  #$0030,-(A0)                     ; $2A116C
-        ORI.B  #$7900,(A2)                      ; $2A1170
+        ORI.B  #$00,(A2)                        ; $2A1164
+        ORI.B  #$10,D0                          ; $2A1168
+        ORI.B  #$30,-(A0)                       ; $2A116C
+        ORI.B  #$00,(A2)                        ; $2A1170
         ORI.W  #$0050,D0                        ; $2A1174
         ORI.W  #$0070,-(A0)                     ; $2A1178
-        ORI.B  #$7900,(A2)                      ; $2A117C
+        ORI.B  #$00,(A2)                        ; $2A117C
         ORI.L  #$009000A0,D0                    ; $2A1180
         ORI.L  #$00127900,-$40(A0,D0.W)         ; $2A1186
         DC.W    $00D0                           ; $2A118E
         DC.W    $00E0                           ; $2A1190
         DC.W    $00F0                           ; $2A1192
-        ORI.B  #$7900,(A2)                      ; $2A1194
+        ORI.B  #$00,(A2)                        ; $2A1194
         BTST    D0,D0                           ; $2A1198
         BTST    D0,(A0)                         ; $2A119A
         BTST    D0,-(A0)                        ; $2A119C
@@ -1237,18 +1315,18 @@
         BSET    D0,-(A0)                        ; $2A11C0
         BSET    D0,$12(A0,D0.W)                 ; $2A11C2
         MOVE.W  D0,-(A4)                        ; $2A11C6
-        ANDI.B  #$0210,D0                       ; $2A11C8
-        ANDI.B  #$0230,-(A0)                    ; $2A11CC
-        ORI.B  #$2000,D4                        ; $2A11D0
+        ANDI.B  #$10,D0                         ; $2A11C8
+        ANDI.B  #$30,-(A0)                      ; $2A11CC
+        ORI.B  #$00,D4                          ; $2A11D0
         ANDI.W  #$0250,D0                       ; $2A11D4
         ANDI.W  #$0270,-(A0)                    ; $2A11D8
-        ORI.B  #$2000,D4                        ; $2A11DC
+        ORI.B  #$00,D4                          ; $2A11DC
         ANDI.L  #$029002A0,D0                   ; $2A11E0
         ANDI.L  #$00042000,-$40(A0,D0.W)        ; $2A11E6
         DC.W    $02D0                           ; $2A11EE
         DC.W    $02E0                           ; $2A11F0
         DC.W    $02F0                           ; $2A11F2
-        ORI.B  #$2000,D4                        ; $2A11F4
+        ORI.B  #$00,D4                          ; $2A11F4
         BTST    D1,D0                           ; $2A11F8
         BTST    D1,(A0)                         ; $2A11FA
         BTST    D1,-(A0)                        ; $2A11FC
@@ -1259,163 +1337,170 @@
         BSET    D1,-(A0)                        ; $2A1208
         BSET    D1,$00(A0,D0.W)                 ; $2A120A
         BTST    D2,D0                           ; $2A120E
-        SUBI.B  #$0410,D0                       ; $2A1210
-        SUBI.B  #$0430,-(A0)                    ; $2A1214
-        CMPI.B  #$0044,D0                       ; $2A1218
+        SUBI.B  #$10,D0                         ; $2A1210
+        SUBI.B  #$30,-(A0)                      ; $2A1214
+        CMPI.B  #$44,D0                         ; $2A1218
         ORI.W  #$0CFA,D4                        ; $2A121C
-        MOVE.W  $70(PC,A7.L),$0CFA(A6)          ; $2A1220
+        MOVE.W  $2A1292(PC,A7.L),$0CFA(A6)      ; $2A1220
         MOVEA.W A0,A3                           ; $2A1226
-        MOVEA.W $76(A0,D0.L),A7                 ; $2A1228
-        MOVEA.W A0,A3                           ; $2A122C
-        MOVEA.W (A0),A7                         ; $2A122E
+        DC.W    $FE70                           ; $2A1228
+        BCHG    D7,$48(A6,D3.W)                 ; $2A122A
+        DC.W    $FE50                           ; $2A122E
         BCHG    D7,$7B(A6,D3.L)                 ; $2A1230
-        MOVEA.W (A0),A7                         ; $2A1234
+        DC.W    $FE50                           ; $2A1234
         DC.W    $0449                           ; $2A1236
-        MOVE.W  -$3D(PC,A7.L),$0449(A3)         ; $2A1238
+        MOVE.W  $2A11FD(PC,A7.L),$0449(A3)      ; $2A1238
         MOVE.W  (A5),-(A2)                      ; $2A123E
-        MOVE.W  D3,(A7)+                        ; $2A1240
+        DC.W    $FEC3                           ; $2A1240
         BCHG    D7,$15(A6,D3.W)                 ; $2A1242
-        MOVEA.W (A0),A7                         ; $2A1246
+        DC.W    $FE50                           ; $2A1246
         BCHG    D7,$7B(A6,D3.W)                 ; $2A1248
-        MOVEA.W (A0),A7                         ; $2A124C
+        DC.W    $FE50                           ; $2A124C
         DC.W    $0449                           ; $2A124E
         MOVE.W  -$013D(A7),(A7)                 ; $2A1250
         DC.W    $0449                           ; $2A1254
         MOVEA.W A0,A6                           ; $2A1256
-        MOVE.W  D3,(A7)+                        ; $2A1258
+        DC.W    $FEC3                           ; $2A1258
         BCHG    D7,$48(A6,D3.L)                 ; $2A125A
-        MOVEA.W (A0),A7                         ; $2A125E
+        DC.W    $FE50                           ; $2A125E
         BCHG    D7,-$51(A6,D3.L)                ; $2A1260
-        MOVEA.W (A0),A7                         ; $2A1264
-        BTST    D1,A4                           ; $2A1266
+        DC.W    $FE50                           ; $2A1264
+        DC.W    $030C                           ; $2A1266
         MOVE.W  -$0134(A7),(A7)                 ; $2A1268
-        BTST    D1,A4                           ; $2A126C
+        DC.W    $030C                           ; $2A126C
         MOVEA.W A0,A0                           ; $2A126E
-        MOVE.W  A4,(A7)+                        ; $2A1270
-        BCLR    D2,A0                           ; $2A1272
+        DC.W    $FECC                           ; $2A1270
+        DC.W    $0588                           ; $2A1272
         MOVEA.W A0,A0                           ; $2A1274
-        MOVE.W  $0588(PC),(A7)                  ; $2A1276
+        DC.W    $FEBA                           ; $2A1276
+        DC.W    $0588                           ; $2A1278
         MOVE.W  -$0146(A7),(A7)                 ; $2A127A
         ROXL.W  $32AF(A5)                       ; $2A127E
-        MOVE.W  (A2),-(A7)                      ; $2A1282
+        DC.W    $FF12                           ; $2A1282
         ROXL.W  $3048(A5)                       ; $2A1284
-        MOVE.W  (A2),-(A7)                      ; $2A1288
-        MOVE.W  (A4)+,-(A4)                     ; $2A128A
+        DC.W    $FF12                           ; $2A1288
+        DC.W    $F91C                           ; $2A128A
         MOVEA.W A0,A0                           ; $2A128C
-        MOVE.W  #$F91C,(A7)+                    ; $2A128E
+        DC.W    $FEFC                           ; $2A128E
+        DC.W    $F91C                           ; $2A1290
         MOVE.W  -$0104(A7),(A1)                 ; $2A1292
         ROXL.W  $3EAF(A5)                       ; $2A1296
-        MOVE.W  (A2),-(A7)                      ; $2A129A
+        DC.W    $FF12                           ; $2A129A
         ROXL.W  $3C48(A5)                       ; $2A129C
-        MOVE.W  (A2),-(A7)                      ; $2A12A0
-        MOVE.W  (A4)+,-(A4)                     ; $2A12A2
+        DC.W    $FF12                           ; $2A12A0
+        DC.W    $F91C                           ; $2A12A2
         MOVEA.W A0,A6                           ; $2A12A4
-        MOVE.W  #$F91C,(A7)+                    ; $2A12A6
+        DC.W    $FEFC                           ; $2A12A6
+        DC.W    $F91C                           ; $2A12A8
         MOVE.W  -$0104(A7),(A7)                 ; $2A12AA
         ROXR.L  D6,D0                           ; $2A12AE
         MOVE.W  -$00ED(A7),(A7)                 ; $2A12B0
         ROXR.L  D6,D0                           ; $2A12B4
         MOVEA.W A0,A0                           ; $2A12B6
-        MOVE.W  (A3),-(A7)                      ; $2A12B8
+        DC.W    $FF13                           ; $2A12B8
         LSL.B  D7,D4                            ; $2A12BA
         MOVEA.W A0,A0                           ; $2A12BC
-        MOVE.W  (A1),-(A7)                      ; $2A12BE
+        DC.W    $FF11                           ; $2A12BE
         LSL.B  D7,D4                            ; $2A12C0
         MOVE.W  -$00EF(A7),(A7)                 ; $2A12C2
-        MOVE.W  (A0)+,-$51(A5,D3.W)             ; $2A12C6
-        MOVE.W  -$68(A4,A7.L),(A7)+             ; $2A12CA
+        DC.W    $FB98                           ; $2A12C6
+        MOVE.W  -$010C(A7),(A1)                 ; $2A12C8
+        DC.W    $FB98                           ; $2A12CC
         MOVEA.W A0,A0                           ; $2A12CE
-        MOVE.W  $14(A4,A7.L),(A7)+              ; $2A12D0
+        DC.W    $FEF4                           ; $2A12D0
+        DC.W    $FE14                           ; $2A12D2
         MOVEA.W A0,A0                           ; $2A12D4
-        MOVE.W  -$01EC(A1),(A7)+                ; $2A12D6
+        DC.W    $FEE9                           ; $2A12D6
+        DC.W    $FE14                           ; $2A12D8
         MOVE.W  -$0117(A7),(A1)                 ; $2A12DA
-        MOVE.B  -$51(A1,D3.W),$FE2D.W           ; $2A12DE
-        MOVE.B  $48(A1,D3.W),$FE2D.W            ; $2A12E4
+        MOVE.B  -$51(A1,D3.W),(-467).W          ; $2A12DE
+        MOVE.B  $48(A1,D3.W),(-467).W           ; $2A12E4
         DC.W    $146C                           ; $2A12EA
         MOVEA.W A0,A0                           ; $2A12EC
-        MOVE.W  D3,D7                           ; $2A12EE
+        DC.W    $FE03                           ; $2A12EE
         DC.W    $146C                           ; $2A12F0
         MOVE.W  -$01FD(A7),(A1)                 ; $2A12F2
         MOVE.W  -(A6),D7                        ; $2A12F6
-        MOVE.W  -$70(PC,A7.L),$3E26(A0)         ; $2A12F8
-        MOVE.L  -$70(PC,A7.L),$57F0(A6)         ; $2A12FE
-        MOVE.L  $00(PC,D0.W),$57F0(A6)          ; $2A1304
-        MOVE.W  $00(PC,D0.W),$3E26(A0)          ; $2A130A
+        MOVE.W  $2A128A(PC,A7.L),$3E26(A0)      ; $2A12F8
+        MOVE.L  $2A1290(PC,A7.L),$57F0(A6)      ; $2A12FE
+        MOVE.L  $2A1306(PC,D0.W),$57F0(A6)      ; $2A1304
+        MOVE.W  $2A130C(PC,D0.W),$3E26(A0)      ; $2A130A
         DC.W    $417B                           ; $2A1310
-        MOVE.W  (A0),(A4)                       ; $2A1312
+        DC.W    $F890                           ; $2A1312
         MOVE.W  -(A6),D7                        ; $2A1314
-        MOVE.W  -$70(PC,A7.L),$57F0(A6)         ; $2A1316
-        MOVE.W  $00(PC,D0.W),$57F0(A6)          ; $2A131C
+        MOVE.W  $2A12A8(PC,A7.L),$57F0(A6)      ; $2A1316
+        MOVE.W  $2A131E(PC,D0.W),$57F0(A6)      ; $2A131C
         DC.W    $417B                           ; $2A1322
-        ORI.B  #$A7FF,D0                        ; $2A1324
-        MOVE.W  -$01(PC,A7.L),-$5801(A0)        ; $2A1328
-        MOVE.L  -$01(PC,A7.L),-$3D90(A6)        ; $2A132E
-        MOVE.L  $00(PC,D0.W),-$3D90(A6)         ; $2A1334
-        MOVE.W  $00(PC,D0.W),-$5801(A0)         ; $2A133A
+        ORI.B  #$FF,D0                          ; $2A1324
+        MOVE.W  $2A1329(PC,A7.L),-$5801(A0)     ; $2A1328
+        MOVE.L  $2A132F(PC,A7.L),-$3D90(A6)     ; $2A132E
+        MOVE.L  $2A1336(PC,D0.W),-$3D90(A6)     ; $2A1334
+        MOVE.W  $2A133C(PC,D0.W),-$5801(A0)     ; $2A133A
         DC.W    $417B                           ; $2A1340
         DC.W    $FFFF                           ; $2A1342
         DC.W    $A7FF                           ; $2A1344
-        MOVE.W  -$01(PC,A7.L),-$3D90(A6)        ; $2A1346
-        MOVE.W  $00(PC,D0.W),-$3D90(A6)         ; $2A134C
+        MOVE.W  $2A1347(PC,A7.L),-$3D90(A6)     ; $2A1346
+        MOVE.W  $2A134E(PC,D0.W),-$3D90(A6)     ; $2A134C
         DC.W    $417B                           ; $2A1352
-        ORI.B  #$D1BF,D0                        ; $2A1354
+        ORI.B  #$BF,D0                          ; $2A1354
         DC.W    $417B                           ; $2A1358
-        ORI.B  #$D1BF,D0                        ; $2A135A
-        MOVE.L  $00(PC,D0.W),$16E5(A6)          ; $2A135E
+        ORI.B  #$BF,D0                          ; $2A135A
+        MOVE.L  $2A1360(PC,D0.W),$16E5(A6)      ; $2A135E
         DC.W    $417B                           ; $2A1364
         DC.W    $FEBF                           ; $2A1366
         ROXR.B  D5,D4                           ; $2A1368
         DC.W    $417B                           ; $2A136A
         DC.W    $FFFF                           ; $2A136C
         ROXR.B  D5,D4                           ; $2A136E
-        MOVE.L  -$01(PC,A7.L),$16E5(A6)         ; $2A1370
-        MOVE.L  -$41(PC,A7.L),$2F1C(A6)         ; $2A1376
+        MOVE.L  $2A1371(PC,A7.L),$16E5(A6)      ; $2A1370
+        MOVE.L  $2A1337(PC,A7.L),$2F1C(A6)      ; $2A1376
         DC.W    $417B                           ; $2A137C
-        MOVE.W  -(A7),$2F1C(A5)                 ; $2A137E
-        MOVE.L  $67(PC,A7.L),$57EE(A6)          ; $2A1382
+        DC.W    $FB67                           ; $2A137E
+        MOVE.L  (A4)+,-(A7)                     ; $2A1380
+        MOVE.L  $2A13EB(PC,A7.L),$57EE(A6)      ; $2A1382
         CLR.B  D0                               ; $2A1388
-        ORI.B  #$57EE,D0                        ; $2A138A
-        ORI.B  #$0000,D0                        ; $2A138E
+        ORI.B  #$EE,D0                          ; $2A138A
+        ORI.B  #$00,D0                          ; $2A138E
         SUBQ.B  #5,-(A1)                        ; $2A1392
-        ORI.B  #$0000,D0                        ; $2A1394
+        ORI.B  #$00,D0                          ; $2A1394
         SUBQ.B  #5,-(A1)                        ; $2A1398
         CLR.B  D0                               ; $2A139A
-        ORI.B  #$A4CE,D0                        ; $2A139C
+        ORI.B  #$CE,D0                          ; $2A139C
         CLR.B  D0                               ; $2A13A0
-        ORI.B  #$A4CE,D0                        ; $2A13A2
-        ORI.B  #$0000,D0                        ; $2A13A6
-        MOVE.L  D2,D4                           ; $2A13AA
-        ORI.B  #$0000,D0                        ; $2A13AC
-        MOVE.L  D2,D4                           ; $2A13B0
+        ORI.B  #$CE,D0                          ; $2A13A2
+        ORI.B  #$00,D0                          ; $2A13A6
+        DC.W    $A802                           ; $2A13AA
+        ORI.B  #$00,D0                          ; $2A13AC
+        DC.W    $A802                           ; $2A13B0
         CLR.B  D0                               ; $2A13B2
-        ORI.B  #$0004,D0                        ; $2A13B4
+        ORI.B  #$04,D0                          ; $2A13B4
         MOVE.L  D0,D0                           ; $2A13B8
         BCHG    D1,D0                           ; $2A13BA
         BTST    D1,-$20(A0,D0.W)                ; $2A13BC
         BCHG    D1,(A0)                         ; $2A13C0
-        ANDI.B  #$2000,D4                       ; $2A13C2
+        ANDI.B  #$00,D4                         ; $2A13C2
         BCLR    D1,D0                           ; $2A13C6
         BCHG    D1,$04(A0,D0.W)                 ; $2A13C8
         MOVE.L  D0,D0                           ; $2A13CC
         BCLR    D1,(A0)                         ; $2A13CE
         BCHG    D1,-(A0)                        ; $2A13D0
-        SUBI.B  #$2000,D4                       ; $2A13D2
+        SUBI.B  #$00,D4                         ; $2A13D2
         BCLR    D1,-$60(A0,D0.W)                ; $2A13D6
-        SUBI.B  #$2000,D4                       ; $2A13DA
+        SUBI.B  #$00,D4                         ; $2A13DA
         ANDI.W  #$0280,(A0)                     ; $2A13DE
-        ORI.B  #$7900,(A2)                      ; $2A13E2
-        ORI.B  #$0010,D0                        ; $2A13E6
-        ORI.B  #$0030,-(A0)                     ; $2A13EA
-        ORI.B  #$7900,(A2)                      ; $2A13EE
+        ORI.B  #$00,(A2)                        ; $2A13E2
+        ORI.B  #$10,D0                          ; $2A13E6
+        ORI.B  #$30,-(A0)                       ; $2A13EA
+        ORI.B  #$00,(A2)                        ; $2A13EE
         ORI.W  #$0050,D0                        ; $2A13F2
         ORI.W  #$0070,-(A0)                     ; $2A13F6
-        ORI.B  #$7900,(A2)                      ; $2A13FA
+        ORI.B  #$00,(A2)                        ; $2A13FA
         ORI.L  #$009000A0,D0                    ; $2A13FE
         ORI.L  #$00127900,-$40(A0,D0.W)         ; $2A1404
         DC.W    $00D0                           ; $2A140C
         DC.W    $00E0                           ; $2A140E
         DC.W    $00F0                           ; $2A1410
-        ORI.B  #$7900,(A2)                      ; $2A1412
+        ORI.B  #$00,(A2)                        ; $2A1412
         BTST    D0,D0                           ; $2A1416
         BTST    D0,(A0)                         ; $2A1418
         BTST    D0,-(A0)                        ; $2A141A
@@ -1436,18 +1521,18 @@
         BSET    D0,-(A0)                        ; $2A143E
         BSET    D0,$12(A0,D0.W)                 ; $2A1440
         MOVE.W  D0,-(A4)                        ; $2A1444
-        ANDI.B  #$0210,D0                       ; $2A1446
-        ANDI.B  #$0230,-(A0)                    ; $2A144A
-        ORI.B  #$2000,D4                        ; $2A144E
+        ANDI.B  #$10,D0                         ; $2A1446
+        ANDI.B  #$30,-(A0)                      ; $2A144A
+        ORI.B  #$00,D4                          ; $2A144E
         ANDI.W  #$0250,D0                       ; $2A1452
         ANDI.W  #$0270,-(A0)                    ; $2A1456
-        ORI.B  #$2000,D4                        ; $2A145A
+        ORI.B  #$00,D4                          ; $2A145A
         ANDI.L  #$029002A0,D0                   ; $2A145E
         ANDI.L  #$00042000,-$40(A0,D0.W)        ; $2A1464
         DC.W    $02D0                           ; $2A146C
         DC.W    $02E0                           ; $2A146E
         DC.W    $02F0                           ; $2A1470
-        ORI.B  #$2000,D4                        ; $2A1472
+        ORI.B  #$00,D4                          ; $2A1472
         BTST    D1,D0                           ; $2A1476
         BTST    D1,(A0)                         ; $2A1478
         BTST    D1,-(A0)                        ; $2A147A
@@ -1458,29 +1543,34 @@
         BSET    D1,-(A0)                        ; $2A1486
         BSET    D1,$00(A0,D0.W)                 ; $2A1488
         BTST    D2,D0                           ; $2A148C
-        SUBI.B  #$0410,D0                       ; $2A148E
-        SUBI.B  #$0430,-(A0)                    ; $2A1492
-        CMPI.B  #$0027,D0                       ; $2A1496
-        ORI.B  #$0D65,-(A7)                     ; $2A149A
+        SUBI.B  #$10,D0                         ; $2A148E
+        SUBI.B  #$30,-(A0)                      ; $2A1492
+        CMPI.B  #$27,D0                         ; $2A1496
+        ORI.B  #$65,-(A7)                       ; $2A149A
         MOVEQ   #$50,D2                         ; $2A149E
-        MOVE.W  (A4),-$6E(A3,D0.L)              ; $2A14A0
-        MOVEQ   #-$44,D1                        ; $2A14A4
-        MOVE.W  (A0),$71(A1,D5.W)               ; $2A14A6
-        ADD.B  D0,D4                            ; $2A14AA
+        DC.W    $F794                           ; $2A14A0
+        EORI.L  #$72BCF390,(A2)                 ; $2A14A2
+        ADDQ.W  #3,$00(A1,A5.L)                 ; $2A14A8
         ADD.L  D3,D3                            ; $2A14AC
         ADDQ.W  #5,-(A3)                        ; $2A14AE
         ADD.B  D0,D4                            ; $2A14B0
         ADD.L  D5,D7                            ; $2A14B2
-        MOVE.L  (A5),$00(A2,A5.L)               ; $2A14B4
+        DC.W    $A595                           ; $2A14B4
+        ADD.B  D0,D4                            ; $2A14B6
         ADD.L  D5,D7                            ; $2A14B8
-        MOVE.L  (A7)+,$00(A4,A5.L)              ; $2A14BA
+        DC.W    $A99F                           ; $2A14BA
+        ADD.B  D0,D4                            ; $2A14BC
         ADD.L  D3,D3                            ; $2A14BE
-        MOVE.W  $72DCF390,-(A2)                 ; $2A14C0
-        MOVEA.W $66(A0,D7.W),A1                 ; $2A14C6
-        MOVE.W  (A4),-$40(A3,D0.L)              ; $2A14CA
+        DC.W    $F539                           ; $2A14C0
+        MOVEQ   #-$24,D1                        ; $2A14C2
+        DC.W    $F390                           ; $2A14C4
+        DC.W    $F270                           ; $2A14C6
+        MOVEQ   #$66,D2                         ; $2A14C8
+        DC.W    $F794                           ; $2A14CA
+        DC.W    $0AC0                           ; $2A14CC
         MOVEQ   #-$24,D1                        ; $2A14CE
         BTST    D5,(A0)+                        ; $2A14D0
-        BCLR    D6,A1                           ; $2A14D2
+        DC.W    $0D89                           ; $2A14D2
         MOVEQ   #$66,D2                         ; $2A14D4
         BTST    D3,(A4)                         ; $2A14D6
         ADDQ.W  #5,-(A3)                        ; $2A14D8
@@ -1489,14 +1579,17 @@
         ADDQ.W  #3,(A1)+                        ; $2A14DE
         ADD.B  D0,D4                            ; $2A14E0
         MOVE.L  -(A4),-(A3)                     ; $2A14E2
-        MOVE.L  A0,$00(A4,A5.L)                 ; $2A14E4
+        DC.W    $A988                           ; $2A14E4
+        ADD.B  D0,D4                            ; $2A14E6
         MOVE.L  -(A4),-(A3)                     ; $2A14E8
-        MOVE.L  (A5),$00(A2,A5.L)               ; $2A14EA
+        DC.W    $A595                           ; $2A14EA
+        ADD.B  D0,D4                            ; $2A14EC
         MOVE.L  -(A0),-(A1)                     ; $2A14EE
-        MOVE.W  (A4),(A1)                       ; $2A14F0
+        DC.W    $F294                           ; $2A14F0
         MOVEQ   #$50,D2                         ; $2A14F2
         BTST    D3,(A4)                         ; $2A14F4
-        MOVE.W  -(A7),$72BC(A2)                 ; $2A14F6
+        DC.W    $F567                           ; $2A14F6
+        MOVEQ   #-$44,D1                        ; $2A14F8
         BTST    D5,(A0)+                        ; $2A14FA
         MOVE.L  A5,$0A(A0,D4.W)                 ; $2A14FC
         DC.W    $10CB                           ; $2A1500
@@ -1504,11 +1597,11 @@
         MOVE.B  (A3),$79(A0,A5.L)               ; $2A1506
         NEGX.B D5                               ; $2A150A
         MOVE.B  (A3),-$7E(A0,A5.L)              ; $2A150C
-        NEG.B  A2                               ; $2A1510
-        MOVE.B  -$11(PC,D4.W),(A0)              ; $2A1512
+        DC.W    $440A                           ; $2A1510
+        MOVE.B  $2A1503(PC,D4.W),(A0)           ; $2A1512
         DC.W    $FFEF                           ; $2A1516
         MOVE.B  -(A0),-(A6)                     ; $2A1518
-        NEG    (A2)                             ; $2A151A
+        MOVE    (A2),CCR                        ; $2A151A
         DC.W    $FBEA                           ; $2A151C
         DC.W    $1DFE                           ; $2A151E
         EOR.B  D5,(A3)+                         ; $2A1520
@@ -1518,7 +1611,7 @@
         DC.W    $FFFB                           ; $2A1528
         MOVE.B  -(A0),-(A6)                     ; $2A152A
         ADD.L  D2,D7                            ; $2A152C
-        NEG.B  A2                               ; $2A152E
+        DC.W    $440A                           ; $2A152E
         ASL.W  #7,D5                            ; $2A1530
         ADD.W  $4005EE6D,D6                     ; $2A1532
         MOVE.L  (A5),-$1D(A1,D3.L)              ; $2A1538
@@ -1531,7 +1624,7 @@
         EOR.B  D5,(A3)+                         ; $2A154A
         DC.W    $FBEA                           ; $2A154C
         ASR.B  #1,D2                            ; $2A154E
-        NEG    (A2)                             ; $2A1550
+        MOVE    (A2),CCR                        ; $2A1550
         DC.W    $FBEA                           ; $2A1552
         ASR.B  #1,D2                            ; $2A1554
         CLR    -$0011(A7)                       ; $2A1556
@@ -1540,11 +1633,11 @@
         DC.W    $3FF4                           ; $2A155E
         DC.W    $104B                           ; $2A1560
         ADDA.W  -(A6),A7                        ; $2A1562
-        NEG.B  A2                               ; $2A1564
+        DC.W    $440A                           ; $2A1564
         BCHG    D7,-$1B(A3,D4.W)                ; $2A1566
         BSET    D1,(A5)+                        ; $2A156A
         DC.W    $1B0D                           ; $2A156C
-        NEG    (A5)+                            ; $2A156E
+        MOVE    (A5)+,CCR                       ; $2A156E
         DC.W    $FBEA                           ; $2A1570
         MOVE.B  -(A6),(A6)                      ; $2A1572
         EOR.B  D7,(A3)                          ; $2A1574
@@ -1554,69 +1647,69 @@
         DC.W    $3FF4                           ; $2A157C
         ROR.W  #7,D5                            ; $2A157E
         MOVE.L  (A2),-(A0)                      ; $2A1580
-        NEG.B  A2                               ; $2A1582
+        DC.W    $440A                           ; $2A1582
         ROXL.B  D7,D5                           ; $2A1584
-        ORI.B  #$AC00,D0                        ; $2A1586
+        ORI.B  #$00,D0                          ; $2A1586
         BCHG    D0,D0                           ; $2A158A
         BCHG    D0,(A0)                         ; $2A158C
         BCHG    D0,-(A0)                        ; $2A158E
         BCHG    D0,$00(A0,D0.W)                 ; $2A1590
-        MOVE.L  D0,D6                           ; $2A1594
+        DC.W    $AC00                           ; $2A1594
         BSET    D0,(A0)                         ; $2A1596
         BSET    D0,D0                           ; $2A1598
-        SUBI.B  #$AC00,D0                       ; $2A159A
+        SUBI.B  #$00,D0                         ; $2A159A
         BSET    D0,-(A0)                        ; $2A159E
         BSET    D0,$00(A0,D0.W)                 ; $2A15A0
-        MOVE.L  D0,D6                           ; $2A15A4
+        DC.W    $AC00                           ; $2A15A4
         BCHG    D0,(A0)                         ; $2A15A6
         BCHG    D0,D0                           ; $2A15A8
-        ORI.B  #$B000,D0                        ; $2A15AA
-        ORI.B  #$0010,D0                        ; $2A15AE
-        ORI.B  #$0030,-(A0)                     ; $2A15B2
-        ORI.B  #$B000,D0                        ; $2A15B6
+        ORI.B  #$00,D0                          ; $2A15AA
+        ORI.B  #$10,D0                          ; $2A15AE
+        ORI.B  #$30,-(A0)                       ; $2A15B2
+        ORI.B  #$00,D0                          ; $2A15B6
         ORI.W  #$0050,D0                        ; $2A15BA
         ORI.W  #$0070,-(A0)                     ; $2A15BE
-        ORI.B  #$B000,D0                        ; $2A15C2
+        ORI.B  #$00,D0                          ; $2A15C2
         ORI.L  #$009000A0,D0                    ; $2A15C6
         ORI.L  #$0000B000,-$40(A0,D0.W)         ; $2A15CC
         DC.W    $00D0                           ; $2A15D4
         DC.W    $00E0                           ; $2A15D6
         DC.W    $00F0                           ; $2A15D8
-        ORI.B  #$AC00,D0                        ; $2A15DA
+        ORI.B  #$00,D0                          ; $2A15DA
         BTST    D0,D0                           ; $2A15DE
         BTST    D0,(A0)                         ; $2A15E0
         BTST    D0,-(A0)                        ; $2A15E2
         BTST    D0,$00(A0,D0.W)                 ; $2A15E4
-        MOVE.L  D0,D6                           ; $2A15E8
+        DC.W    $AC00                           ; $2A15E8
         BCLR    D0,D0                           ; $2A15EA
         BCLR    D0,(A0)                         ; $2A15EC
         BCLR    D0,-(A0)                        ; $2A15EE
         BCLR    D0,$00(A0,D0.W)                 ; $2A15F0
-        MOVE.L  D0,D7                           ; $2A15F4
-        ANDI.B  #$0210,D0                       ; $2A15F6
-        ANDI.B  #$0230,-(A0)                    ; $2A15FA
-        ORI.B  #$AE00,D0                        ; $2A15FE
+        DC.W    $AE00                           ; $2A15F4
+        ANDI.B  #$10,D0                         ; $2A15F6
+        ANDI.B  #$30,-(A0)                      ; $2A15FA
+        ORI.B  #$00,D0                          ; $2A15FE
         ANDI.W  #$01D0,D0                       ; $2A1602
         ANDI.W  #$0260,(A0)                     ; $2A1606
-        CMPI.B  #$00D8,D0                       ; $2A160A
+        CMPI.B  #$D8,D0                         ; $2A160A
         DC.W    $00D8                           ; $2A160E
         ASL.B  D6,D7                            ; $2A1610
         LSL.B  D6,D4                            ; $2A1612
-        ORI.B  #$0008,D0                        ; $2A1614
+        ORI.B  #$08,D0                          ; $2A1614
         ASL.W  D2,D5                            ; $2A1618
-        ORI.B  #$12DD,D0                        ; $2A161A
+        ORI.B  #$DD,D0                          ; $2A161A
         ROXL.B  D6,D2                           ; $2A161E
-        ORI.B  #$1AA1,D0                        ; $2A1620
-        ORI.B  #$0000,D2                        ; $2A1624
+        ORI.B  #$A1,D0                          ; $2A1620
+        ORI.B  #$00,D2                          ; $2A1624
         ROL.W  #2,D4                            ; $2A1628
         DC.W    $FFFD                           ; $2A162A
-        ORI.B  #$12D6,D0                        ; $2A162C
+        ORI.B  #$D6,D0                          ; $2A162C
         MOVE.B  (A3),(A1)+                      ; $2A1630
-        ORI.B  #$0002,D0                        ; $2A1632
+        ORI.B  #$02,D0                          ; $2A1632
         MOVE.B  (A7)+,(A5)                      ; $2A1636
-        ORI.B  #$ED36,D0                        ; $2A1638
+        ORI.B  #$36,D0                          ; $2A1638
         MOVE.B  (A7),(A1)+                      ; $2A163C
-        ORI.B  #$E039,D0                        ; $2A163E
+        ORI.B  #$39,D0                          ; $2A163E
         ADDQ.W  #1,(A1)                         ; $2A1642
         BCLR    D0,$79(A1,D2.L)                 ; $2A1644
         BLT.S  loc_2A166E                       ; $2A1648
@@ -1625,17 +1718,17 @@
         BCLR    D0,-$2C(A1,A5.L)                ; $2A1650
         SUBQ.B  #1,(A0)+                        ; $2A1654
         BCLR    D0,$36(A1,A5.W)                 ; $2A1656
-        BLT.S  loc_2A168E                       ; $2A165A
+        BLT.S  $2A168E                          ; $2A165A
         BCLR    D0,$0B(A1,D2.W)                 ; $2A165C
         SUBQ.W  #8,-$4F(A3,D0.W)                ; $2A1660
         MOVE.L  A6,-$7A(A0,D5.W)                ; $2A1664
         BCLR    D0,-$61(A1,A5.W)                ; $2A1668
-        BGT.S  loc_2A162D                       ; $2A166C
+        DC.W    $6EBF                           ; $2A166C
 loc_2A166E:
         BCLR    D0,-$43(A1,D2.W)                ; $2A166E
         ADDQ.L  #8,$01B1(A6)                    ; $2A1672
-        BGE.S  loc_2A1617                       ; $2A1676
-        MOVE.L  $01B1(PC),-$42(A6,D6.L)         ; $2A1678
+        DC.W    $6C9F                           ; $2A1676
+        MOVE.L  $2A182B(PC),-$42(A6,D6.L)       ; $2A1678
         MOVE.L  (A6)+,D7                        ; $2A167E
         BCLR    D0,$02(A1,D2.W)                 ; $2A1680
         SUBQ.L  #8,D2                           ; $2A1684
@@ -1643,11 +1736,11 @@ loc_2A1686:
         BCLR    D0,-$0C(A1,D2.L)                ; $2A1686
         BMI.S  loc_2A1704                       ; $2A168A
         BCLR    D0,-$0A(A1,D5.W)                ; $2A168C
-        MOVE.L  -$4F(PC,D0.W),D1                ; $2A1690
+        MOVE.L  $2A1643(PC,D0.W),D1             ; $2A1690
         ADDQ.B  #1,(A5)                         ; $2A1694
         MOVE.L  (A7)+,(A1)                      ; $2A1696
         BCLR    D0,-$5E(A1,D2.L)                ; $2A1698
-        BGE.S  loc_2A1699                       ; $2A169C
+        DC.W    $6CFB                           ; $2A169C
         BCLR    D0,$51(A1,D5.W)                 ; $2A169E
         DC.W    $1FC7                           ; $2A16A2
         BCLR    D0,$24(A1,D6.L)                 ; $2A16A4
@@ -1662,7 +1755,7 @@ loc_2A1686:
         ADDA.W  -$4F(A5,D0.W),A7                ; $2A16C0
         ADDQ.L  #1,D6                           ; $2A16C4
         ADD.W  -$4F(A2,D0.W),D7                 ; $2A16C6
-        BGT.S  loc_2A168B                       ; $2A16CA
+        DC.W    $6EBF                           ; $2A16CA
         MOVE.L  -(A1),$01B1(A5)                 ; $2A16CC
         ADDQ.L  #8,-$23BD(A6)                   ; $2A16D0
         BCLR    D0,-$46(A1,D2.L)                ; $2A16D4
@@ -1670,33 +1763,36 @@ loc_2A1686:
         BCLR    D0,$1E(A1,D2.L)                 ; $2A16DA
         SUB.W  D2,D1                            ; $2A16DE
         BCLR    D0,-$7E(A1,D5.W)                ; $2A16E0
-        ADDA.L  <EA:3E>,A5                      ; $2A16E4
+        DC.W    $DBFE                           ; $2A16E4
         BCLR    D0,$78(A1,D6.L)                 ; $2A16E6
-        ADD.B  D0,A4                            ; $2A16EA
+        DC.W    $D10C                           ; $2A16EA
 loc_2A16EC:
         BCLR    D0,$3B(A1,D2.W)                 ; $2A16EC
-        MOVE.L  A2,-(A7)                        ; $2A16F0
+        DC.W    $AF0A                           ; $2A16F0
         BCLR    D0,-$61(A1,D2.W)                ; $2A16F2
         DC.W    $ADEB                           ; $2A16F6
         BCLR    D0,-$05(A1,D6.L)                ; $2A16F8
         ADD.W  (A6)+,D0                         ; $2A16FC
         BCLR    D0,-$39(A1,D1.L)                ; $2A16FE
-        MOVE.L  $01B1(A7),-$79(A6,A5.W)         ; $2A1702
+        DC.W    $ADAF                           ; $2A1702
+loc_2A1704:
+        BCLR    D0,-$79(A1,A5.W)                ; $2A1704
         SUBA.W  (A4)+,A1                        ; $2A1708
         BCLR    D0,$04(A1,A5.W)                 ; $2A170A
         SUBA.L  A2,A0                           ; $2A170E
         BCLR    D0,$2C(A1,D2.W)                 ; $2A1710
-        MOVE.L  $01B1(A0),(A6)+                 ; $2A1714
-        MOVE.L  A2,(A5)+                        ; $2A1718
+        DC.W    $ACE8                           ; $2A1714
+        BCLR    D0,-$36(A1,D2.L)                ; $2A1716
         SUBA.W  A6,A1                           ; $2A171A
         BCLR    D0,-$0B(A1,A5.L)                ; $2A171C
-        MOVE.L  A5,(A7)                         ; $2A1720
+        DC.W    $AE8D                           ; $2A1720
         BCLR    D0,$72(A1,A5.L)                 ; $2A1722
-        MOVE.L  $01B1(PC),$2B61(A6)             ; $2A1726
+        DC.W    $AD7A                           ; $2A1726
+        BCLR    D0,$61(A1,D2.L)                 ; $2A1728
         SUB.W  D0,D1                            ; $2A172C
         BCLR    D0,$43(A1,A5.L)                 ; $2A172E
-        MOVE.L  (A2),$01B1(A7)                  ; $2A1732
-        SUB.W  D1,-(A1)                         ; $2A1736
+        DC.W    $AF52                           ; $2A1732
+        BCLR    D0,$61(A1,A1.W)                 ; $2A1734
         ADD.W  D6,D1                            ; $2A1738
         BCLR    D0,$42(A1,A1.W)                 ; $2A173A
         ADDA.L  -(A2),A0                        ; $2A173E
@@ -1719,7 +1815,7 @@ loc_2A175E:
         ADDA.L  (A4),A7                         ; $2A1774
         BCLR    D0,-$32(A1,A1.W)                ; $2A1776
         ADD.B  D2,-$4F(A6,D0.W)                 ; $2A177A
-        MOVE.L  A5,(A7)                         ; $2A177E
+        DC.W    $AE8D                           ; $2A177E
         MOVE.L  A3,-(A0)                        ; $2A1780
         BCLR    D0,$7A(A1,A2.L)                 ; $2A1782
         MOVE.L  A6,-$4F(A0,D0.W)                ; $2A1786
@@ -1728,7 +1824,7 @@ loc_2A175E:
         BCLR    D0,$52(A1,A2.L)                 ; $2A178E
         DC.W    $23BD                           ; $2A1792
         BCLR    D0,$46(A1,A5.W)                 ; $2A1794
-        BGE.S  loc_2A1739                       ; $2A1798
+        DC.W    $6C9F                           ; $2A1798
         BCLR    D0,-$1E(A1,A5.W)                ; $2A179A
         BLT.S  loc_2A175E                       ; $2A179E
         BCLR    D0,$7E(A1,A2.L)                 ; $2A17A0
@@ -1742,35 +1838,35 @@ loc_2A175E:
         BCLR    D0,$05(A1,A1.W)                 ; $2A17B8
         MOVE.L  -(A2),-$4F(A7,D0.W)             ; $2A17BC
         ADD.B  (A3),D1                          ; $2A17C0
-        BGT.S  loc_2A17A5                       ; $2A17C2
+        DC.W    $6EE1                           ; $2A17C2
         BCLR    D0,-$66(A1,A7.W)                ; $2A17C4
-        MOVE.B  $01B1(PC),(A3)                  ; $2A17C8
-        MOVE.W  (A0)+,(A4)                      ; $2A17CC
+        MOVE.B  $2A197B(PC),(A3)                ; $2A17C8
+        DC.W    $F898                           ; $2A17CC
         MOVE.B  -$4F(A3,D0.W),-$2BFE(A3)        ; $2A17CE
-        BLE.S  loc_2A1795                       ; $2A17D4
+        DC.W    $6FBF                           ; $2A17D4
         BCLR    D0,-$13(A1,D2.L)                ; $2A17D6
-        BGT.S  loc_2A17BD                       ; $2A17DA
+        DC.W    $6EE1                           ; $2A17DA
         BCLR    D0,$6C(A1,D0.L)                 ; $2A17DC
-        MOVE.B  $01B1.W,(A3)                    ; $2A17E0
+        MOVE.B  ($01B1).W,(A3)                  ; $2A17E0
         BCHG    D5,(A0)+                        ; $2A17E4
         DC.W    $15D1                           ; $2A17E6
         BCLR    D0,-$18(A1,D2.L)                ; $2A17E8
-        BGT.S  loc_2A180E                       ; $2A17EC
+        BGT.S  $2A180E                          ; $2A17EC
         BCLR    D0,-$1F(A1,D6.L)                ; $2A17EE
         DC.W    $2DED                           ; $2A17F2
         BCLR    D0,-$46(A1,D1.W)                ; $2A17F4
         BCHG    D4,-(A6)                        ; $2A17F8
         BCLR    D0,$73(A1,D1.W)                 ; $2A17FA
         BCHG    D3,$01B1(A0)                    ; $2A17FE
-        BLE.S  loc_2A17C3                       ; $2A1802
+        DC.W    $6FBF                           ; $2A1802
         DC.W    $2BFE                           ; $2A1804
         BCLR    D0,-$1F(A1,D6.L)                ; $2A1806
         ADD.B  (A3),D1                          ; $2A180A
         BCLR    D0,-$48(A1,D1.W)                ; $2A180C
-        MOVE.W  (A4),(A3)                       ; $2A1810
+        DC.W    $F694                           ; $2A1810
         BCLR    D0,-$2F(A1,D1.W)                ; $2A1812
-        MOVE.W  $01B1(A0),(A2)                  ; $2A1816
-        BGT.S  loc_2A183C                       ; $2A181A
+        DC.W    $F4A8                           ; $2A1816
+        BCLR    D0,$20(A1,D6.L)                 ; $2A1818
         ADD.B  (A0)+,D0                         ; $2A181C
         BCLR    D0,-$13(A1,D2.L)                ; $2A181E
         SUB.B  D0,(A7)+                         ; $2A1822
@@ -1782,7 +1878,6 @@ loc_2A175E:
         SUB.W  D1,D0                            ; $2A1834
         BCLR    D0,$13(A1,A5.W)                 ; $2A1836
         SUB.B  D0,(A7)+                         ; $2A183A
-loc_2A183C:
         BCLR    D0,-$6C(A1,A7.W)                ; $2A183C
         LSL.W  #4,D0                            ; $2A1840
         BCLR    D0,-$58(A1,A7.W)                ; $2A1842
@@ -1792,9 +1887,9 @@ loc_2A183C:
         BCLR    D0,$1F(A1,A1.W)                 ; $2A184E
         ADD.B  (A3),D1                          ; $2A1852
         BCLR    D0,$46(A1,A6.L)                 ; $2A1854
-        MOVE.W  (A2)+,(A3)                      ; $2A1858
+        DC.W    $F69A                           ; $2A1858
         BCLR    D0,-$73(A1,A6.L)                ; $2A185A
-        MOVE.W  (A0)+,(A4)                      ; $2A185E
+        DC.W    $F898                           ; $2A185E
         BCLR    D0,$41(A1,A1.W)                 ; $2A1860
         ADD.B  D2,D2                            ; $2A1864
         BCLR    D0,$1F(A1,A1.W)                 ; $2A1866
@@ -1808,121 +1903,124 @@ loc_2A1874:
         DC.W    $2FE8                           ; $2A187C
         BCLR    D0,$45(A1,A6.W)                 ; $2A187E
         ADDQ.B  #1,-(A3)                        ; $2A1882
-        ORI.B  #$E0EA,D0                        ; $2A1884
-        DBT     D4,loc_2A188A                   ; $2A1888
+        ORI.B  #$EA,D0                          ; $2A1884
+        DBT     D4,$2A188A                      ; $2A1888
         MOVEA.L $4FD8(A4),A0                    ; $2A188C
-        ORI.B  #$2112,D0                        ; $2A1890
+        ORI.B  #$12,D0                          ; $2A1890
         SUBQ.W  #8,$0000(A0)                    ; $2A1894
         ADD.B  -$3F(A1,D6.L),D2                 ; $2A1898
-        ORI.B  #$D489,D0                        ; $2A189C
+        ORI.B  #$89,D0                          ; $2A189C
         BGT.S  loc_2A1874                       ; $2A18A0
-        ORI.B  #$2D03,D0                        ; $2A18A2
+        ORI.B  #$03,D0                          ; $2A18A2
         BGT.S  loc_2A18EA                       ; $2A18A6
-        ORI.B  #$2D57,D0                        ; $2A18A8
-        BLE.S  loc_2A18C4                       ; $2A18AC
-        ORI.B  #$23A4,D0                        ; $2A18AE
+        ORI.B  #$57,D0                          ; $2A18A8
+        BLE.S  $2A18C4                          ; $2A18AC
+        ORI.B  #$A4,D0                          ; $2A18AE
         ADDQ.L  #8,D5                           ; $2A18B2
-        ORI.B  #$2326,D0                        ; $2A18B4
+        ORI.B  #$26,D0                          ; $2A18B4
         DC.W    $4F1D                           ; $2A18B8
-        ORI.B  #$4F62,D0                        ; $2A18BA
+        ORI.B  #$62,D0                          ; $2A18BA
         MOVE.L  D7,$00(A0,D0.W)                 ; $2A18BE
         ST      $2E(A2,D2.W)                    ; $2A18C2
-        ORI.B  #$300B,D0                        ; $2A18C6
-        BGT.S  loc_2A18CD                       ; $2A18CA
-        ORI.B  #$2FA0,D0                        ; $2A18CC
-        BLT.S  loc_2A18EC                       ; $2A18D0
-        ORI.B  #$6DCA,D0                        ; $2A18D2
+        ORI.B  #$0B,D0                          ; $2A18C6
+        DC.W    $6E01                           ; $2A18CA
+        ORI.B  #$A0,D0                          ; $2A18CC
+        BLT.S  $2A18EC                          ; $2A18D0
+        ORI.B  #$CA,D0                          ; $2A18D2
         MOVE.L  -(A2),D7                        ; $2A18D6
-        ORI.B  #$6E9C,D0                        ; $2A18D8
+        ORI.B  #$9C,D0                          ; $2A18D8
         MOVEA.L #$00005223,A7                   ; $2A18DC
-        MOVE.B  $00(PC,D0.W),-$34(A7,D5.W)      ; $2A18E2
+        MOVE.B  $2A18E4(PC,D0.W),-$34(A7,D5.W)  ; $2A18E2
         MOVE.B  (A6),-(A7)                      ; $2A18E8
 loc_2A18EA:
-        ORI.B  #$4FD8,D0                        ; $2A18EA
+        ORI.B  #$D8,D0                          ; $2A18EA
         ADD.L  D7,(A4)                          ; $2A18EE
-        ORI.B  #$5168,D0                        ; $2A18F0
+        ORI.B  #$68,D0                          ; $2A18F0
         ADDA.W  $0000(A6),A7                    ; $2A18F4
-        BLE.S  loc_2A18BB                       ; $2A18F8
+        DC.W    $6FC1                           ; $2A18F8
         DC.W    $2BCF                           ; $2A18FA
-        ORI.B  #$6ED2,D0                        ; $2A18FC
+        ORI.B  #$D2,D0                          ; $2A18FC
         MOVE.L  $00(A7,D0.W),$6E42(A5)          ; $2A1900
-        ADDA.W  <EA:3D>,A1                      ; $2A1906
-        ORI.B  #$6F16,D0                        ; $2A1908
+        DC.W    $D2FD                           ; $2A1906
+        ORI.B  #$16,D0                          ; $2A1908
         ADD.L  $0000(A1),D1                     ; $2A190C
         ADDQ.L  #8,D5                           ; $2A1910
         ADD.W  (A4)+,D6                         ; $2A1912
-        ORI.B  #$4F1D,D0                        ; $2A1914
+        ORI.B  #$1D,D0                          ; $2A1914
         ADDA.W  (A2)+,A6                        ; $2A1918
-        ORI.B  #$2187,D0                        ; $2A191A
+        ORI.B  #$87,D0                          ; $2A191A
         CMP.L  (A6)+,D0                         ; $2A191E
-        ORI.B  #$222E,D0                        ; $2A1920
-        MOVE.L  A6,-(A7)                        ; $2A1924
-        ORI.B  #$6E01,D0                        ; $2A1926
+        ORI.B  #$2E,D0                          ; $2A1920
+        DC.W    $AF0E                           ; $2A1924
+        ORI.B  #$01,D0                          ; $2A1926
         MULS    $00(A5,D0.W),D7                 ; $2A192A
         BLT.S  loc_2A194A                       ; $2A192E
         ADD.W  -(A0),D0                         ; $2A1930
-        ORI.B  #$2E22,D0                        ; $2A1932
+        ORI.B  #$22,D0                          ; $2A1932
         SUB.B  $00(A6,D0.W),D1                  ; $2A1936
         MOVEA.L #$91640000,A7                   ; $2A193A
-        MOVE.B  -$23(PC,A2.L),$00(A7,D0.W)      ; $2A1940
+        MOVE.B  $2A191F(PC,A2.L),$00(A7,D0.W)   ; $2A1940
         MOVE.B  (A6),-(A7)                      ; $2A1946
-        MOVE.L  $00(A4,D0.W),-(A7)              ; $2A1948
-        ADD.L  D7,(A4)                          ; $2A194C
+        DC.W    $AF34                           ; $2A1948
+loc_2A194A:
+        ORI.B  #$94,D0                          ; $2A194A
         CMP.B  $0000(A0),D0                     ; $2A194E
         ADDA.W  -$5168(A6),A7                   ; $2A1952
-        ORI.B  #$2BCF,D0                        ; $2A1956
-        SUB.B  <EA:3F>,D0                       ; $2A195A
-        ORI.B  #$2B77,D0                        ; $2A195C
+        ORI.B  #$CF,D0                          ; $2A1956
+        DC.W    $903F                           ; $2A195A
+        ORI.B  #$77,D0                          ; $2A195C
         SUB.B  D0,$0000(A6)                     ; $2A1960
-        ADDA.W  <EA:3D>,A1                      ; $2A1964
-        SUB.L  D0,<EA:3E>                       ; $2A1966
-        ORI.B  #$D2A9,D0                        ; $2A1968
+        DC.W    $D2FD                           ; $2A1964
+        DC.W    $91BE                           ; $2A1966
+        ORI.B  #$A9,D0                          ; $2A1968
         SUBA.W  $0000(A2),A0                    ; $2A196C
         ADD.W  (A4)+,D6                         ; $2A1970
-        MOVE.L  $00(PC,D0.W),-$2326(A7)         ; $2A1972
+        DC.W    $AF7B                           ; $2A1972
+        ORI.B  #$DA,D0                          ; $2A1974
         CMPA.W  -(A3),A0                        ; $2A1978
-        ORI.B  #$B09E,D0                        ; $2A197A
+        ORI.B  #$9E,D0                          ; $2A197A
         ADD.W  $0000AF0E,D7                     ; $2A197E
         ADDA.L  (A2),A6                         ; $2A1984
-        ORI.B  #$CFF5,D0                        ; $2A1986
-        SUBA.L  <EA:3F>,A0                      ; $2A198A
-        ORI.B  #$D060,D0                        ; $2A198C
+        ORI.B  #$F5,D0                          ; $2A1986
+        DC.W    $91FF                           ; $2A198A
+        ORI.B  #$60,D0                          ; $2A198C
         SUBA.W  -(A6),A1                        ; $2A1990
-        ORI.B  #$9236,D0                        ; $2A1992
+        ORI.B  #$36,D0                          ; $2A1992
         ADDA.L  (A6)+,A0                        ; $2A1996
-        ORI.B  #$9164,D0                        ; $2A1998
+        ORI.B  #$64,D0                          ; $2A1998
         ADD.L  D0,D4                            ; $2A199C
-        ORI.B  #$ADDD,D0                        ; $2A199E
+        ORI.B  #$DD,D0                          ; $2A199E
         ASR.W  #8,D5                            ; $2A19A2
-        ORI.B  #$AF34,D0                        ; $2A19A4
+        ORI.B  #$34,D0                          ; $2A19A4
         ASR.W  $0000(A2)                        ; $2A19A8
         CMP.B  $206C(A0),D0                     ; $2A19AC
-        ORI.B  #$AE98,D0                        ; $2A19B0
+        ORI.B  #$98,D0                          ; $2A19B0
         MOVE.L  (A2),-(A0)                      ; $2A19B4
-        ORI.B  #$903F,D0                        ; $2A19B6
+        ORI.B  #$3F,D0                          ; $2A19B6
         ADD.B  $00(A1,D0.W),D2                  ; $2A19BA
         SUB.B  D0,-$2B77(A6)                    ; $2A19BE
 loc_2A19C2:
-        ORI.B  #$91BE,D0                        ; $2A19C2
+        ORI.B  #$BE,D0                          ; $2A19C2
         MOVE.L  D3,-(A6)                        ; $2A19C6
-        ORI.B  #$90EA,D0                        ; $2A19C8
+        ORI.B  #$EA,D0                          ; $2A19C8
         MOVE.L  (A7),$0000(A6)                  ; $2A19CC
-        MOVE.L  -$5C(PC,D2.W),$0000(A7)         ; $2A19D0
+        DC.W    $AF7B                           ; $2A19D0
+        MOVE.L  -(A4),$00(A1,D0.W)              ; $2A19D2
         CMPA.W  -(A3),A0                        ; $2A19D6
         MOVE.L  -(A6),-(A1)                     ; $2A19D8
-        ORI.B  #$DE79,D0                        ; $2A19DA
+        ORI.B  #$79,D0                          ; $2A19DA
         DC.W    $4F62                           ; $2A19DE
-        ORI.B  #$DDD2,D0                        ; $2A19E0
+        ORI.B  #$D2,D0                          ; $2A19E0
         ST      $00(A2,D0.W)                    ; $2A19E4
-        SUBA.L  <EA:3F>,A0                      ; $2A19E8
+        DC.W    $91FF                           ; $2A19E8
         MOVE.W  A3,D0                           ; $2A19EA
-        ORI.B  #$92E6,D0                        ; $2A19EC
+        ORI.B  #$E6,D0                          ; $2A19EC
         MOVE.L  -(A0),$00(A7,D0.W)              ; $2A19F0
         ADDA.L  (A6)+,A0                        ; $2A19F4
         BLT.S  loc_2A19C2                       ; $2A19F6
-        ORI.B  #$D184,D0                        ; $2A19F8
-        BGT.S  loc_2A199A                       ; $2A19FC
-        ORI.B  #$64CC,D0                        ; $2A19FE
+        ORI.B  #$84,D0                          ; $2A19F8
+        BGT.S  $2A199A                          ; $2A19FC
+        ORI.B  #$CC,D0                          ; $2A19FE
         DC.W    $2DC6                           ; $2A1A02
         BCHG    D1,$6939(A4)                    ; $2A1A04
         MOVE.L  $036C(A3),D3                    ; $2A1A08
@@ -1942,10 +2040,10 @@ loc_2A19C2:
         ADD.L  D1,(A1)                          ; $2A1A38
         BCHG    D1,$7231(A4)                    ; $2A1A3A
         ADD.B  D5,$036C(A4)                     ; $2A1A3E
-        BVS.S  loc_2A1AA8                       ; $2A1A42
+        BVS.S  $2A1AA8                          ; $2A1A42
         ADD.B  D5,-(A4)                         ; $2A1A44
         BCHG    D1,$24D8(A4)                    ; $2A1A46
-        SUB.W  D0,A0                            ; $2A1A4A
+        DC.W    $9148                           ; $2A1A4A
         BCHG    D1,$2945(A4)                    ; $2A1A4C
         OR.L   D4,$036C(A5)                     ; $2A1A50
         MOVE.W  (A2),D1                         ; $2A1A54
@@ -1953,18 +2051,18 @@ loc_2A19C2:
         MOVEA.W $58(A1,A1.W),A3                 ; $2A1A5A
         BCHG    D1,$3205(A4)                    ; $2A1A5E
         SUBA.W  $6C(A2,D0.W),A4                 ; $2A1A62
-        MOVE.L  $98EB.W,-(A4)                   ; $2A1A66
+        MOVE.L  (-26389).W,-(A4)                ; $2A1A66
         BCHG    D1,-$3640(A4)                   ; $2A1A6A
         SUBA.L  (A0),A0                         ; $2A1A6E
 loc_2A1A70:
         BCHG    D1,-$31D2(A4)                   ; $2A1A70
         OR.B   $6C(A6,D0.W),D5                  ; $2A1A74
-        ADDA.W  -$75C3(PC),A3                   ; $2A1A78
+        ADDA.W  $29A4B7(PC),A3                  ; $2A1A78
         BCHG    D1,-$24A6(A4)                   ; $2A1A7C
         SUBA.L  -(A0),A0                        ; $2A1A80
         BCHG    D1,-$2913(A4)                   ; $2A1A82
-        SUB.W  D4,$6C(PC,D0.W)                  ; $2A1A86
-        AND.B  -(A0),D7                         ; $2A1A8A
+        DC.W    $997B                           ; $2A1A86
+        BCHG    D1,-$31E0(A4)                   ; $2A1A88
         SUB.W  D4,$6C(A3,D0.W)                  ; $2A1A8C
         DIVS    -$2E09(A1),D4                   ; $2A1A90
         BCHG    D1,-$71A9(A4)                   ; $2A1A94
@@ -1980,8 +2078,9 @@ loc_2A1A70:
         BCHG    D1,-$7781(A4)                   ; $2A1AB2
         MOVE.L  (A6),D7                         ; $2A1AB6
         BCHG    D1,-$7313(A4)                   ; $2A1AB8
-        MOVEA.L $036C(PC),A3                    ; $2A1ABC
-        SUB.L  D2,$2683(PC)                     ; $2A1AC0
+        MOVEA.L $2A1E2A(PC),A3                  ; $2A1ABC
+        DC.W    $95BA                           ; $2A1AC0
+        MOVE.L  D3,(A3)                         ; $2A1AC2
         BCHG    D1,-$65E7(A4)                   ; $2A1AC4
         MOVE.L  -(A5),D7                        ; $2A1AC8
         BCHG    D1,-$6A54(A4)                   ; $2A1ACA
@@ -1989,22 +2088,22 @@ loc_2A1A70:
         BCHG    D1,-$7321(A4)                   ; $2A1AD0
         MOVE.W  $036CCA18,$1B(A2,D6.L)          ; $2A1AD4
         BCHG    D1,-$317B(A4)                   ; $2A1ADC
-        BNE.S  loc_2A1A63                       ; $2A1AE0
+        DC.W    $6681                           ; $2A1AE0
         BCHG    D1,-$28AF(A4)                   ; $2A1AE2
         BNE.S  loc_2A1A70                       ; $2A1AE6
         BCHG    D1,-$244E(A4)                   ; $2A1AE8
-        BGT.S  loc_2A1B19                       ; $2A1AEC
+        DC.W    $6E2B                           ; $2A1AEC
         BCHG    D1,-$28BC(A4)                   ; $2A1AEE
         DC.W    $75C6                           ; $2A1AF2
         BCHG    D1,-$3189(A4)                   ; $2A1AF4
         DC.W    $75BE                           ; $2A1AF8
 loc_2A1AFA:
         BCHG    D1,$24D8(A4)                    ; $2A1AFA
-        BGT.S  loc_2A1AD9                       ; $2A1AFE
+        DC.W    $6ED9                           ; $2A1AFE
         BCHG    D1,$2944(A4)                    ; $2A1B00
-        BEQ.S  loc_2A1B44                       ; $2A1B04
+        BEQ.S  $2A1B44                          ; $2A1B04
         BCHG    D1,$3211(A4)                    ; $2A1B06
-        BEQ.S  loc_2A1B51                       ; $2A1B0A
+        DC.W    $6745                           ; $2A1B0A
         BCHG    D1,$3671(A4)                    ; $2A1B0C
         BGT.S  loc_2A1AFA                       ; $2A1B10
         BCHG    D1,$3204(A4)                    ; $2A1B12
@@ -2012,23 +2111,23 @@ loc_2A1AFA:
         BCHG    D1,$2937(A4)                    ; $2A1B18
         MOVEQ   #$7B,D3                         ; $2A1B1C
         BCHG    D1,$0000(A4)                    ; $2A1B1E
-        MOVE.L  D0,D0                           ; $2A1B22
-        ORI.B  #$0010,D0                        ; $2A1B24
-        ORI.B  #$0030,-(A0)                     ; $2A1B28
-        ANDI.B  #$9E00,D0                       ; $2A1B2C
+        DC.W    $A000                           ; $2A1B22
+        ORI.B  #$10,D0                          ; $2A1B24
+        ORI.B  #$30,-(A0)                       ; $2A1B28
+        ANDI.B  #$00,D0                         ; $2A1B2C
         ORI.W  #$0040,(A0)                      ; $2A1B30
-        SUBI.B  #$A000,D0                       ; $2A1B34
+        SUBI.B  #$00,D0                         ; $2A1B34
         ORI.W  #$0070,-(A0)                     ; $2A1B38
-        ORI.B  #$2000,D0                        ; $2A1B3C
+        ORI.B  #$00,D0                          ; $2A1B3C
         EORI.L  #$0A900AA0,D0                   ; $2A1B40
         EORI.L  #$02002000,-$40(A0,D0.L)        ; $2A1B46
         DC.W    $0AD0                           ; $2A1B4E
-        ORI.B  #$2000,D0                        ; $2A1B50
+        ORI.B  #$00,D0                          ; $2A1B50
         DC.W    $0AE0                           ; $2A1B54
         DC.W    $0AF0                           ; $2A1B56
         BTST    D5,D0                           ; $2A1B58
         BTST    D5,(A0)                         ; $2A1B5A
-        ANDI.B  #$2000,D0                       ; $2A1B5C
+        ANDI.B  #$00,D0                         ; $2A1B5C
         BTST    D5,-(A0)                        ; $2A1B60
         BTST    D5,$00(A0,D0.W)                 ; $2A1B62
         MOVE.L  D0,D0                           ; $2A1B66
@@ -2039,19 +2138,19 @@ loc_2A1AFA:
         MOVE.L  D0,D0                           ; $2A1B72
         BCLR    D5,D0                           ; $2A1B74
         BCLR    D5,(A0)                         ; $2A1B76
-        ORI.B  #$2000,D0                        ; $2A1B78
+        ORI.B  #$00,D0                          ; $2A1B78
         BCLR    D5,-(A0)                        ; $2A1B7C
         BCLR    D5,-$40(A0,D0.L)                ; $2A1B7E
         BSET    D5,(A0)                         ; $2A1B82
-        ANDI.B  #$2000,D0                       ; $2A1B84
+        ANDI.B  #$00,D0                         ; $2A1B84
         BSET    D5,-(A0)                        ; $2A1B88
         BSET    D5,$00(A0,D0.W)                 ; $2A1B8A
         MOVE.L  D0,D0                           ; $2A1B8E
-        CMPI.B  #$0C10,D0                       ; $2A1B90
-        CMPI.B  #$0C30,-(A0)                    ; $2A1B94
-        ANDI.B  #$2000,D0                       ; $2A1B98
+        CMPI.B  #$10,D0                         ; $2A1B90
+        CMPI.B  #$30,-(A0)                      ; $2A1B94
+        ANDI.B  #$00,D0                         ; $2A1B98
         CMPI.W  #$0C50,D0                       ; $2A1B9C
-        ORI.B  #$2000,D0                        ; $2A1BA0
+        ORI.B  #$00,D0                          ; $2A1BA0
         CMPI.W  #$0C70,-(A0)                    ; $2A1BA4
         CMPI.L  #$0C900200,D0                   ; $2A1BA8
         MOVE.L  D0,D0                           ; $2A1BAE
@@ -2061,14 +2160,14 @@ loc_2A1AFA:
         DC.W    $0CD0                           ; $2A1BBA
         DC.W    $0CE0                           ; $2A1BBC
         DC.W    $0CF0                           ; $2A1BBE
-        ANDI.B  #$2000,D0                       ; $2A1BC0
+        ANDI.B  #$00,D0                         ; $2A1BC0
         BTST    D6,D0                           ; $2A1BC4
         BTST    D6,(A0)                         ; $2A1BC6
-        ORI.B  #$2000,D0                        ; $2A1BC8
+        ORI.B  #$00,D0                          ; $2A1BC8
         BTST    D6,-(A0)                        ; $2A1BCC
         BTST    D6,$40(A0,D0.L)                 ; $2A1BCE
         BCHG    D6,(A0)                         ; $2A1BD2
-        ANDI.B  #$2000,D0                       ; $2A1BD4
+        ANDI.B  #$00,D0                         ; $2A1BD4
         BCHG    D6,-(A0)                        ; $2A1BD8
         BCHG    D6,$00(A0,D0.W)                 ; $2A1BDA
         SUB.B  D0,D6                            ; $2A1BDE
@@ -2077,7 +2176,7 @@ loc_2A1AFA:
         DC.W    $00D0                           ; $2A1BEE
         DC.W    $00E0                           ; $2A1BF0
         DC.W    $00F0                           ; $2A1BF2
-        ORI.B  #$B600,D0                        ; $2A1BF4
+        ORI.B  #$00,D0                          ; $2A1BF4
         BTST    D0,D0                           ; $2A1BF8
         BTST    D0,(A0)                         ; $2A1BFA
         BTST    D0,-(A0)                        ; $2A1BFC
@@ -2098,18 +2197,18 @@ loc_2A1AFA:
         BSET    D0,-(A0)                        ; $2A1C20
         BSET    D0,$00(A0,D0.W)                 ; $2A1C22
         SUB.B  D0,D6                            ; $2A1C26
-        ANDI.B  #$0210,D0                       ; $2A1C28
-        ANDI.B  #$0230,-(A0)                    ; $2A1C2C
-        ORI.B  #$9C00,D0                        ; $2A1C30
+        ANDI.B  #$10,D0                         ; $2A1C28
+        ANDI.B  #$30,-(A0)                      ; $2A1C2C
+        ORI.B  #$00,D0                          ; $2A1C30
         ANDI.W  #$0250,D0                       ; $2A1C34
         ANDI.W  #$0270,-(A0)                    ; $2A1C38
-        ORI.B  #$B400,D0                        ; $2A1C3C
+        ORI.B  #$00,D0                          ; $2A1C3C
         ANDI.L  #$029002A0,D0                   ; $2A1C40
         ANDI.L  #$0000B400,-$40(A0,D0.W)        ; $2A1C46
         DC.W    $02D0                           ; $2A1C4E
         DC.W    $02E0                           ; $2A1C50
         DC.W    $02F0                           ; $2A1C52
-        ORI.B  #$B700,D0                        ; $2A1C54
+        ORI.B  #$00,D0                          ; $2A1C54
         BTST    D1,D0                           ; $2A1C58
         BTST    D1,(A0)                         ; $2A1C5A
         BTST    D1,-(A0)                        ; $2A1C5C
@@ -2130,18 +2229,18 @@ loc_2A1AFA:
         BSET    D1,-(A0)                        ; $2A1C80
         BSET    D1,$00(A0,D0.W)                 ; $2A1C82
         EOR.B  D2,D0                            ; $2A1C86
-        SUBI.B  #$0410,D0                       ; $2A1C88
-        SUBI.B  #$0430,-(A0)                    ; $2A1C8C
-        ORI.B  #$B500,D0                        ; $2A1C90
+        SUBI.B  #$10,D0                         ; $2A1C88
+        SUBI.B  #$30,-(A0)                      ; $2A1C8C
+        ORI.B  #$00,D0                          ; $2A1C90
         SUBI.W  #$0450,D0                       ; $2A1C94
         SUBI.W  #$0470,-(A0)                    ; $2A1C98
-        ORI.B  #$B500,D0                        ; $2A1C9C
+        ORI.B  #$00,D0                          ; $2A1C9C
         SUBI.L  #$049004A0,D0                   ; $2A1CA0
         SUBI.L  #$00009C00,-$40(A0,D0.W)        ; $2A1CA6
         DC.W    $04D0                           ; $2A1CAE
         DC.W    $04E0                           ; $2A1CB0
         DC.W    $04F0                           ; $2A1CB2
-        ORI.B  #$B600,D0                        ; $2A1CB4
+        ORI.B  #$00,D0                          ; $2A1CB4
         BTST    D2,D0                           ; $2A1CB8
         BTST    D2,(A0)                         ; $2A1CBA
         BTST    D2,-(A0)                        ; $2A1CBC
@@ -2162,18 +2261,18 @@ loc_2A1AFA:
         BSET    D2,-(A0)                        ; $2A1CE0
         BSET    D2,$00(A0,D0.W)                 ; $2A1CE2
         EOR.B  D3,D0                            ; $2A1CE6
-        ADDI.B  #$0610,D0                       ; $2A1CE8
-        ADDI.B  #$0630,-(A0)                    ; $2A1CEC
-        ORI.B  #$B600,D0                        ; $2A1CF0
+        ADDI.B  #$10,D0                         ; $2A1CE8
+        ADDI.B  #$30,-(A0)                      ; $2A1CEC
+        ORI.B  #$00,D0                          ; $2A1CF0
         ADDI.W  #$0650,D0                       ; $2A1CF4
         ADDI.W  #$0670,-(A0)                    ; $2A1CF8
-        ORI.B  #$1C00,D0                        ; $2A1CFC
+        ORI.B  #$00,D0                          ; $2A1CFC
         ADDI.L  #$069006A0,D0                   ; $2A1D00
         ADDI.L  #$00001C00,-$40(A0,D0.W)        ; $2A1D06
         DC.W    $06D0                           ; $2A1D0E
         DC.W    $06E0                           ; $2A1D10
         DC.W    $06F0                           ; $2A1D12
-        ORI.B  #$1C00,D0                        ; $2A1D14
+        ORI.B  #$00,D0                          ; $2A1D14
         BTST    D3,D0                           ; $2A1D18
         BTST    D3,(A0)                         ; $2A1D1A
         BTST    D3,-(A0)                        ; $2A1D1C
@@ -2196,16 +2295,16 @@ loc_2A1AFA:
         MOVE.B  D0,D6                           ; $2A1D46
         BTST    #16,D0                          ; $2A1D48
         BTST    #16,-(A0)                       ; $2A1D4C
-        ORI.B  #$1C00,D0                        ; $2A1D50
+        ORI.B  #$00,D0                          ; $2A1D50
         BCHG    #16,D0                          ; $2A1D54
         BCHG    #16,-(A0)                       ; $2A1D58
-        ORI.B  #$1C00,D0                        ; $2A1D5C
+        ORI.B  #$00,D0                          ; $2A1D5C
         BCLR    #16,D0                          ; $2A1D60
         BCLR    #16,-(A0)                       ; $2A1D64
-        ORI.B  #$1C00,D0                        ; $2A1D68
+        ORI.B  #$00,D0                          ; $2A1D68
         BSET    #16,D0                          ; $2A1D6C
         BSET    #16,-(A0)                       ; $2A1D70
-        ORI.B  #$1C00,D0                        ; $2A1D74
+        ORI.B  #$00,D0                          ; $2A1D74
         BTST    D4,D0                           ; $2A1D78
         BTST    D4,(A0)                         ; $2A1D7A
         BTST    D4,-(A0)                        ; $2A1D7C
@@ -2226,35 +2325,36 @@ loc_2A1AFA:
         BSET    D4,-(A0)                        ; $2A1DA0
         BSET    D4,$00(A0,D0.W)                 ; $2A1DA2
         MOVE.B  D0,D6                           ; $2A1DA6
-        EORI.B  #$0A10,D0                       ; $2A1DA8
-        EORI.B  #$0A30,-(A0)                    ; $2A1DAC
-        ORI.B  #$1C00,D0                        ; $2A1DB0
+        EORI.B  #$10,D0                         ; $2A1DA8
+        EORI.B  #$30,-(A0)                      ; $2A1DAC
+        ORI.B  #$00,D0                          ; $2A1DB0
         EORI.W  #$0A50,D0                       ; $2A1DB4
         EORI.W  #$0A70,-(A0)                    ; $2A1DB8
-        CMPI.B  #$001A,D0                       ; $2A1DBC
-        ORI.B  #$0000,(A2)+                     ; $2A1DC0
-        BVS.S  loc_2A1D5E                       ; $2A1DC4
+        CMPI.B  #$1A,D0                         ; $2A1DBC
+        ORI.B  #$00,(A2)+                       ; $2A1DC0
+        BVS.S  $2A1D5E                          ; $2A1DC4
         BCHG    D4,D2                           ; $2A1DC6
-        ORI.B  #$6998,D0                        ; $2A1DC8
-        MOVE.W  A1,(A3)                         ; $2A1DCC
-        ORI.B  #$6C03,D0                        ; $2A1DCE
-        MOVE.W  $00(A3,D0.W),(A3)+              ; $2A1DD2
-        BGE.S  loc_2A1DDB                       ; $2A1DD6
+        ORI.B  #$98,D0                          ; $2A1DC8
+        DC.W    $F689                           ; $2A1DCC
+        ORI.B  #$03,D0                          ; $2A1DCE
+        DC.W    $F6F3                           ; $2A1DD2
+        ORI.B  #$03,D0                          ; $2A1DD4
         BSET    #25,(A2)+                       ; $2A1DD8
         DC.W    $4533                           ; $2A1DDC
-        MOVEA.W -(A3),A0                        ; $2A1DDE
+        DC.W    $F063                           ; $2A1DDE
         CMP.B  D4,D1                            ; $2A1DE0
-        ORI.B  #$E4B0,D2                        ; $2A1DE2
+        ORI.B  #$B0,D2                          ; $2A1DE2
         CMP.B  D4,D1                            ; $2A1DE6
-        BTST    D0,A5                           ; $2A1DE8
+        DC.W    $010D                           ; $2A1DE8
         ADDA.W  D4,A7                           ; $2A1DEA
         LSL.W  $4592EA69                        ; $2A1DEC
         BCHG    D6,$5972(A0)                    ; $2A1DF2
-        MOVE.W  A7,$00006C03                    ; $2A1DF6
-        MOVE.W  $68(A1,D0.L),(A0)+              ; $2A1DFC
-        SUBQ.L  #4,-(A0)                        ; $2A1E00
+        DC.W    $F3CF                           ; $2A1DF6
+        ORI.B  #$03,D0                          ; $2A1DF8
+        DC.W    $F0F1                           ; $2A1DFC
+        BCHG    D6,$59A0(A0)                    ; $2A1DFE
         ROXL.W  (A1)                            ; $2A1E02
-        ORI.B  #$6C03,D0                        ; $2A1E04
+        ORI.B  #$03,D0                          ; $2A1E04
         DC.W    $0EFB                           ; $2A1E08
         CMP.B  D4,D1                            ; $2A1E0A
         BTST    D0,D2                           ; $2A1E0C
@@ -2271,17 +2371,18 @@ loc_2A1AFA:
         ASR.W  D6,D6                            ; $2A1E26
         ASR.L  #6,D2                            ; $2A1E28
         SUBQ.B  #8,D3                           ; $2A1E2A
-        MOVEA.W -(A2),A1                        ; $2A1E2C
+        DC.W    $F262                           ; $2A1E2C
         MOVE.B  $4C42(A1),-(A3)                 ; $2A1E2E
         LSL.L  #5,D4                            ; $2A1E32
         DC.W    $4E05                           ; $2A1E34
-        BTST    D0,A5                           ; $2A1E36
+        DC.W    $010D                           ; $2A1E36
         ADDA.W  D4,A7                           ; $2A1E38
         DC.W    $4E05                           ; $2A1E3A
-        ORI.B  #$E4B0,D2                        ; $2A1E3C
+        ORI.B  #$B0,D2                          ; $2A1E3C
         MOVE.B  $4BF2(A1),-(A3)                 ; $2A1E40
-        MOVE.W  D7,$2F(A0,A6.W)                 ; $2A1E44
-        JSR     A0                              ; $2A1E48
+        DC.W    $F187                           ; $2A1E44
+        LSR.B  D0,D7                            ; $2A1E46
+        DC.W    $4E88                           ; $2A1E48
         LSR.L  D5,D1                            ; $2A1E4A
         LSL.B  #4,D2                            ; $2A1E4C
         DC.W    $41A8                           ; $2A1E4E
@@ -2292,48 +2393,48 @@ loc_2A1AFA:
         DC.W    $1C6B                           ; $2A1E58
         ADDQ.L  #6,D7                           ; $2A1E5A
         LSL.L  #6,D6                            ; $2A1E5C
-        ORI.B  #$AB00,D0                        ; $2A1E5E
+        ORI.B  #$00,D0                          ; $2A1E5E
         ORI.L  #$00200090,D0                    ; $2A1E62
         ORI.L  #$0600AB00,-(A0)                 ; $2A1E68
         BTST    D0,(A0)                         ; $2A1E6E
         BTST    D0,D0                           ; $2A1E70
-        ORI.B  #$AB00,D0                        ; $2A1E72
+        ORI.B  #$00,D0                          ; $2A1E72
         ORI.L  #$00C000D0,$30(A0,D0.W)          ; $2A1E76
-        ANDI.B  #$AB00,D0                       ; $2A1E7E
+        ANDI.B  #$00,D0                         ; $2A1E7E
         DC.W    $00E0                           ; $2A1E82
         DC.W    $00F0                           ; $2A1E84
-        ORI.B  #$AE00,D0                        ; $2A1E86
-        ORI.B  #$0010,D0                        ; $2A1E8A
-        ORI.B  #$0030,-(A0)                     ; $2A1E8E
-        ORI.B  #$AB00,D0                        ; $2A1E92
+        ORI.B  #$00,D0                          ; $2A1E86
+        ORI.B  #$10,D0                          ; $2A1E8A
+        ORI.B  #$30,-(A0)                       ; $2A1E8E
+        ORI.B  #$00,D0                          ; $2A1E92
         ORI.W  #$0050,D0                        ; $2A1E96
         ORI.W  #$0070,-(A0)                     ; $2A1E9A
-        ORI.B  #$AB00,D0                        ; $2A1E9E
+        ORI.B  #$00,D0                          ; $2A1E9E
         BTST    D0,-(A0)                        ; $2A1EA2
         BTST    D0,$40(A0,D0.W)                 ; $2A1EA4
         BCHG    D0,(A0)                         ; $2A1EA8
-        ORI.B  #$1A00,D4                        ; $2A1EAA
+        ORI.B  #$00,D4                          ; $2A1EAA
         BCHG    D0,-(A0)                        ; $2A1EAE
         BCHG    D0,-$80(A0,D0.W)                ; $2A1EB0
         BCLR    D0,(A0)                         ; $2A1EB4
-        CMPI.B  #$0032,D0                       ; $2A1EB6
-        ORI.B  #$0004,$09(A2,D0.W)              ; $2A1EBA
+        CMPI.B  #$32,D0                         ; $2A1EB6
+        ORI.B  #$04,$09(A2,D0.W)                ; $2A1EBA
         DC.W    $F9FB                           ; $2A1EC0
-        ORI.B  #$0009,D4                        ; $2A1EC2
-        MOVE.W  (A5)+,(A4)+                     ; $2A1EC6
+        ORI.B  #$09,D4                          ; $2A1EC2
+        DC.W    $F8DD                           ; $2A1EC6
         MOVE.L  $20(A7,A2.L),-(A2)              ; $2A1EC8
-        MOVE.W  $37(A1,D2.W),(A4)+              ; $2A1ECC
-        MOVE.L  -(A0),D7                        ; $2A1ED0
+        DC.W    $F8F1                           ; $2A1ECC
+        MOVE.L  $20(A7,A2.L),-(A2)              ; $2A1ECE
         DC.W    $F9FB                           ; $2A1ED2
         ADD.L  -$03(A4,A3.W),D6                 ; $2A1ED4
         DC.W    $F9FB                           ; $2A1ED8
         ADD.L  -$03(A4,A3.W),D6                 ; $2A1EDA
-        MOVE.W  $04(A0,D0.W),(A4)+              ; $2A1EDE
-        DC.W    $0009                           ; $2A1EE2
+        DC.W    $F8F0                           ; $2A1EDE
+        ORI.B  #$09,D4                          ; $2A1EE0
         BTST    D3,(A6)                         ; $2A1EE4
-        ORI.B  #$0009,D4                        ; $2A1EE6
+        ORI.B  #$09,D4                          ; $2A1EE6
         BSET    D2,$37(A7,D2.W)                 ; $2A1EEA
-        MOVE.L  -(A0),D7                        ; $2A1EEE
+        DC.W    $AE20                           ; $2A1EEE
         DC.W    $060C                           ; $2A1EF0
         MOVE.L  $20(A7,A2.L),-(A2)              ; $2A1EF2
         BTST    D3,(A6)                         ; $2A1EF6
@@ -2342,161 +2443,182 @@ loc_2A1AFA:
         ADD.L  -$03(A4,A3.W),D6                 ; $2A1EFE
         DC.W    $060B                           ; $2A1F02
         MOVE.L  -$54CB(A4),D2                   ; $2A1F04
-        MOVE.W  A5,(A4)+                        ; $2A1F08
+        DC.W    $F8CD                           ; $2A1F08
         MOVE.L  -$587D(A4),D2                   ; $2A1F0A
-        ORI.B  #$2CB6,D0                        ; $2A1F0E
+        ORI.B  #$B6,D0                          ; $2A1F0E
         CMP.B  (A7)+,D2                         ; $2A1F12
-        ORI.B  #$0DD0,D0                        ; $2A1F14
-        MOVE.L  $5B(A1,A7.W),-$30(A2,D0.L)      ; $2A1F18
+        ORI.B  #$D0,D0                          ; $2A1F14
+        DC.W    $A5B1                           ; $2A1F18
+        DC.W    $F45B                           ; $2A1F1A
+        BSET    D6,(A0)                         ; $2A1F1C
         SUB.L  D7,$00(A7,D0.W)                  ; $2A1F1E
-        MOVE.W  -$4F(A0,A2.W),D1                ; $2A1F22
-        MOVEA.W (A3)+,A2                        ; $2A1F26
-        MOVE.W  -$49(A0,A1.L),D1                ; $2A1F28
-        ORI.B  #$DBD4,D0                        ; $2A1F2C
-        MOVE.L  -$33(A5,A7.L),-(A5)             ; $2A1F30
+        DC.W    $F230                           ; $2A1F22
+        DC.W    $A5B1                           ; $2A1F24
+        DC.W    $F45B                           ; $2A1F26
+        DC.W    $F230                           ; $2A1F28
+        SUB.L  D7,$00(A7,D0.W)                  ; $2A1F2A
+        ADDA.L  (A4),A5                         ; $2A1F2E
+        DC.W    $AB35                           ; $2A1F30
+        DC.W    $F8CD                           ; $2A1F32
         ADDA.L  (A4),A5                         ; $2A1F34
-        MOVE.L  D3,$00(A3,D0.W)                 ; $2A1F36
-        ADD.W  D1,A2                            ; $2A1F3A
+        DC.W    $A783                           ; $2A1F36
+        ORI.B  #$4A,D0                          ; $2A1F38
         CMP.B  (A7)+,D2                         ; $2A1F3C
-        ORI.B  #$242C,D0                        ; $2A1F3E
+        ORI.B  #$2C,D0                          ; $2A1F3E
         CMPA.L  -(A5),A0                        ; $2A1F42
-        MOVE.W  (A1),(A3)                       ; $2A1F44
+        DC.W    $F691                           ; $2A1F44
         BSET    D6,(A0)                         ; $2A1F46
         CMP.L  D4,D0                            ; $2A1F48
-        MOVE.W  #$F230,(A0)                     ; $2A1F4A
+        DC.W    $F0BC                           ; $2A1F4A
+        DC.W    $F230                           ; $2A1F4C
         CMP.L  D4,D0                            ; $2A1F4E
-        MOVE.W  #$DBD4,(A0)                     ; $2A1F50
+        DC.W    $F0BC                           ; $2A1F50
+        ADDA.L  (A4),A5                         ; $2A1F52
         CMPA.L  -(A5),A0                        ; $2A1F54
-        MOVE.W  (A1),(A3)                       ; $2A1F56
+        DC.W    $F691                           ; $2A1F56
         MOVE.L  -$54CB(A4),D2                   ; $2A1F58
         BTST    D3,$2C(A3,D2.W)                 ; $2A1F5C
         CMPA.L  -(A5),A0                        ; $2A1F60
         BCHG    D4,$0DD0(A7)                    ; $2A1F62
-        MOVE.L  -$5B(A1,D0.L),-$30(A2,D0.L)     ; $2A1F66
+        DC.W    $A5B1                           ; $2A1F66
+        BCLR    D5,-(A5)                        ; $2A1F68
+        BSET    D6,(A0)                         ; $2A1F6A
         CMP.L  D4,D0                            ; $2A1F6C
         BCHG    D7,D4                           ; $2A1F6E
-        MOVE.W  -$4F(A0,A2.W),D1                ; $2A1F70
+        DC.W    $F230                           ; $2A1F70
+        DC.W    $A5B1                           ; $2A1F72
         BCLR    D5,-(A5)                        ; $2A1F74
-        MOVE.W  -$7C(A0,A3.W),D1                ; $2A1F76
+        DC.W    $F230                           ; $2A1F76
+        CMP.L  D4,D0                            ; $2A1F78
         BCHG    D7,D4                           ; $2A1F7A
         ADDA.L  (A4),A5                         ; $2A1F7C
-        MOVE.L  $33(A5,D0.W),-(A5)              ; $2A1F7E
-        ADDA.L  (A4),A5                         ; $2A1F82
+        DC.W    $AB35                           ; $2A1F7E
+        BTST    D3,-$2C(A3,A5.L)                ; $2A1F80
         CMPA.L  -(A5),A0                        ; $2A1F84
         BCHG    D4,-$0199(A7)                   ; $2A1F86
         ADD.B  D3,(A6)+                         ; $2A1F8A
-        ORI.B  #$FE67,D0                        ; $2A1F8C
+        ORI.B  #$67,D0                          ; $2A1F8C
         CMP.W  A2,D0                            ; $2A1F90
-        ORI.B  #$0199,D0                        ; $2A1F92
+        ORI.B  #$99,D0                          ; $2A1F92
         CMP.W  A2,D0                            ; $2A1F96
-        ORI.B  #$0199,D0                        ; $2A1F98
+        ORI.B  #$99,D0                          ; $2A1F98
         ADD.B  D3,(A6)+                         ; $2A1F9C
-        ORI.B  #$F693,D0                        ; $2A1F9E
+        ORI.B  #$93,D0                          ; $2A1F9E
         CMP.B  (A4),D7                          ; $2A1FA2
-        MOVE.W  -$078D(A5),D7                   ; $2A1FA4
+        DC.W    $FE2D                           ; $2A1FA4
+        DC.W    $F873                           ; $2A1FA6
         CMP.B  -$01D3(A6),D5                    ; $2A1FA8
         BCHG    D3,$2E(A2,A3.L)                 ; $2A1FAC
-        MOVE.W  $0952(A5),D7                    ; $2A1FB0
+        DC.W    $FE2D                           ; $2A1FB0
+        BCHG    D4,(A2)                         ; $2A1FB2
         CMP.B  (A4),D7                          ; $2A1FB4
-        MOVE.W  -$07CD(A5),D7                   ; $2A1FB6
+        DC.W    $FE2D                           ; $2A1FB6
+        DC.W    $F833                           ; $2A1FB8
         AND.L  $2D(A7,A7.L),D6                  ; $2A1FBA
-        MOVE.W  (A3),D5                         ; $2A1FBE
+        DC.W    $FA13                           ; $2A1FBE
         MULU    (A0),D4                         ; $2A1FC0
-        MOVE.W  $0551(A5),D7                    ; $2A1FC2
+        DC.W    $FE2D                           ; $2A1FC2
+        BCHG    D2,(A1)                         ; $2A1FC4
         MULU    (A0),D4                         ; $2A1FC6
-        MOVE.W  $0732(A5),D7                    ; $2A1FC8
-        AND.L  $2D(A7,A7.L),D6                  ; $2A1FCC
-        MOVEA.W (A3),A5                         ; $2A1FD0
-        ADDA.L  -$01D3(PC),A0                   ; $2A1FD2
-        MOVE.W  $14(A3,A4.L),D6                 ; $2A1FD6
-        MOVE.W  $03B2(A5),D7                    ; $2A1FDA
-        AND.B  (A4),D7                          ; $2A1FDE
-        MOVE.W  $0592(A5),D7                    ; $2A1FE0
-        ADDA.L  -$01D3(PC),A0                   ; $2A1FE4
-        ORI.B  #$BA00,D0                        ; $2A1FE8
+        DC.W    $FE2D                           ; $2A1FC8
+        BTST    D3,-$49(A2,A4.L)                ; $2A1FCA
+        DC.W    $FE2D                           ; $2A1FCE
+        DC.W    $FA53                           ; $2A1FD0
+        ADDA.L  $2A1E01(PC),A0                  ; $2A1FD2
+        DC.W    $FC33                           ; $2A1FD6
+        AND.B  (A4),D7                          ; $2A1FD8
+        DC.W    $FE2D                           ; $2A1FDA
+        BCLR    D1,$14(A2,A4.L)                 ; $2A1FDC
+        DC.W    $FE2D                           ; $2A1FE0
+        BCLR    D2,(A2)                         ; $2A1FE2
+        ADDA.L  $2A1E13(PC),A0                  ; $2A1FE4
+        ORI.B  #$00,D0                          ; $2A1FE8
         DC.W    $00F0                           ; $2A1FEC
         BTST    D0,D0                           ; $2A1FEE
         DC.W    $00D0                           ; $2A1FF0
         DC.W    $00C0                           ; $2A1FF2
-        SUBI.B  #$B901,D1                       ; $2A1FF4
+        SUBI.B  #$01,D1                         ; $2A1FF4
         DC.W    $00E0                           ; $2A1FF8
-        ANDI.B  #$B801,D1                       ; $2A1FFA
+        ANDI.B  #$01,D1                         ; $2A1FFA
         BCHG    D0,-(A0)                        ; $2A1FFE
-        ANDI.B  #$B900,D0                       ; $2A2000
+        ANDI.B  #$00,D0                         ; $2A2000
         BCHG    D0,-$10(A0,D0.W)                ; $2A2004
-        SUBI.B  #$BA00,D0                       ; $2A2008
+        SUBI.B  #$00,D0                         ; $2A2008
         BCLR    D0,D0                           ; $2A200C
         BTST    D0,(A0)                         ; $2A200E
-        ANDI.B  #$BB00,D0                       ; $2A2010
+        ANDI.B  #$00,D0                         ; $2A2010
         BTST    D0,-(A0)                        ; $2A2014
         BTST    D0,D0                           ; $2A2016
-        ADDI.B  #$BA00,D0                       ; $2A2018
+        ADDI.B  #$00,D0                         ; $2A2018
         BTST    D0,$40(A0,D0.W)                 ; $2A201C
-        ADDI.B  #$B900,D0                       ; $2A2020
+        ADDI.B  #$00,D0                         ; $2A2020
         BCLR    D0,D0                           ; $2A2024
         BCLR    D0,(A0)                         ; $2A2026
-        ANDI.B  #$B801,D1                       ; $2A2028
+        ANDI.B  #$01,D1                         ; $2A2028
         BCHG    D0,(A0)                         ; $2A202C
-        ANDI.B  #$B901,D1                       ; $2A202E
+        ANDI.B  #$01,D1                         ; $2A202E
         BCHG    D0,D0                           ; $2A2032
-        ADDI.B  #$BA01,D1                       ; $2A2034
-        ANDI.B  #$0601,D0                       ; $2A2038
+        ADDI.B  #$01,D1                         ; $2A2034
+        ANDI.B  #$01,D0                         ; $2A2038
         EOR.B  D5,D1                            ; $2A203C
-        ANDI.B  #$0200,(A0)                     ; $2A203E
+        ANDI.B  #$00,(A0)                       ; $2A203E
         CMP.B  D0,D6                            ; $2A2042
         BSET    D0,-$20(A0,D0.W)                ; $2A2044
-        SUBI.B  #$BD00,D0                       ; $2A2048
+        SUBI.B  #$00,D0                         ; $2A2048
         BSET    D0,(A0)                         ; $2A204C
         BSET    D0,D0                           ; $2A204E
-        SUBI.B  #$BC00,D0                       ; $2A2050
+        SUBI.B  #$00,D0                         ; $2A2050
         BCLR    D0,-$60(A0,D0.W)                ; $2A2054
-        SUBI.B  #$BB01,D1                       ; $2A2058
+        SUBI.B  #$01,D1                         ; $2A2058
         DC.W    $00E0                           ; $2A205C
-        ANDI.B  #$BA01,D1                       ; $2A205E
+        ANDI.B  #$01,D1                         ; $2A205E
         DC.W    $00D0                           ; $2A2062
-        ANDI.B  #$BB00,D0                       ; $2A2064
+        ANDI.B  #$00,D0                         ; $2A2064
         BTST    D0,D0                           ; $2A2068
         BSET    D0,D0                           ; $2A206A
-        SUBI.B  #$BC00,D0                       ; $2A206C
+        SUBI.B  #$00,D0                         ; $2A206C
         BTST    D0,-(A0)                        ; $2A2070
         BSET    D0,-(A0)                        ; $2A2072
-        SUBI.B  #$BB00,D0                       ; $2A2074
+        SUBI.B  #$00,D0                         ; $2A2074
         BCHG    D0,D0                           ; $2A2078
-        ANDI.B  #$0000,D0                       ; $2A207A
+        ANDI.B  #$00,D0                         ; $2A207A
         MOVE.B  D0,-(A5)                        ; $2A207E
-        ORI.B  #$0010,D0                        ; $2A2080
-        ORI.B  #$0030,-(A0)                     ; $2A2084
-        ORI.B  #$1B00,D0                        ; $2A2088
-        ORI.B  #$0000,(A0)                      ; $2A208C
+        ORI.B  #$10,D0                          ; $2A2080
+        ORI.B  #$30,-(A0)                       ; $2A2084
+        ORI.B  #$00,D0                          ; $2A2088
+        ORI.B  #$00,(A0)                        ; $2A208C
         ORI.W  #$0050,D0                        ; $2A2090
-        ORI.B  #$1B00,D0                        ; $2A2094
+        ORI.B  #$00,D0                          ; $2A2094
         ORI.W  #$0070,-(A0)                     ; $2A2098
         ORI.L  #$00900000,D0                    ; $2A209C
         MOVE.B  D0,-(A5)                        ; $2A20A2
         ORI.W  #$0060,-$60(A0,D0.W)             ; $2A20A4
         ORI.L  #$0000A300,$20(A0,D0.W)          ; $2A20AA
-        ANDI.B  #$0240,$50(A0,D0.W)             ; $2A20B2
-        ORI.B  #$2000,D0                        ; $2A20B8
+        ANDI.B  #$40,$50(A0,D0.W)               ; $2A20B2
+        ORI.B  #$00,D0                          ; $2A20B8
         ANDI.W  #$0270,-(A0)                    ; $2A20BC
         ANDI.L  #$02900000,D0                   ; $2A20C0
         MOVE.L  D0,D0                           ; $2A20C6
         ANDI.L  #$02B002C0,-(A0)                ; $2A20C8
         DC.W    $02D0                           ; $2A20CE
-        ORI.B  #$2000,D0                        ; $2A20D0
+        ORI.B  #$00,D0                          ; $2A20D0
         DC.W    $02E0                           ; $2A20D4
         DC.W    $02F0                           ; $2A20D6
         BTST    D1,D0                           ; $2A20D8
         BTST    D1,(A0)                         ; $2A20DA
-        CMPI.B  #$000D,D0                       ; $2A20DC
-        ORI.B  #$F16A,D0                        ; $2A20E0
+        CMPI.B  #$0D,D0                         ; $2A20DC
+        ORI.B  #$6A,D0                          ; $2A20E0
         ROXL.L  #5,D3                           ; $2A20E4
         DC.W    $0E7A                           ; $2A20E6
-        MOVE.W  #$EB93,-(A0)                    ; $2A20E8
-        MOVE.W  D6,-(A0)                        ; $2A20EC
+        DC.W    $F13C                           ; $2A20E8
+        ROXL.L  #5,D3                           ; $2A20EA
+        DC.W    $F106                           ; $2A20EC
         DC.W    $F3FE                           ; $2A20EE
         DC.W    $020C                           ; $2A20F0
-        MOVE.W  $24(A3,A7.W),$020C(A1)          ; $2A20F2
-        CMPI.B  #$EBEF,D5                       ; $2A20F8
+        DC.W    $F373                           ; $2A20F2
+        DC.W    $F424                           ; $2A20F4
+        DC.W    $020C                           ; $2A20F6
+        CMPI.B  #$EF,D5                         ; $2A20F8
         ADD.B  (A7),D4                          ; $2A20FC
         MOVE.B  -(A0),D2                        ; $2A20FE
         ROXL.L  D5,D1                           ; $2A2100
@@ -2504,75 +2626,90 @@ loc_2A1AFA:
         ROXL.W  D5,D1                           ; $2A2104
         DC.W    $0EBD                           ; $2A2106
         ROXL.L  #5,D3                           ; $2A2108
-        MOVE.W  (A1)+,(A0)+                     ; $2A210A
-        CMPI.B  #$020C,D3                       ; $2A210C
-        MOVE.W  A6,$1438(A1)                    ; $2A2110
-        ADD.B  (A7),D4                          ; $2A2114
+        DC.W    $F0D9                           ; $2A210A
+        CMPI.B  #$0C,D3                         ; $2A210C
+        DC.W    $F34E                           ; $2A2110
+        MOVE.B  (-10217).W,D2                   ; $2A2112
         ROXL.B  D5,D3                           ; $2A2116
         DC.W    $0EEA                           ; $2A2118
         ROXL.L  #5,D3                           ; $2A211A
         DC.W    $0E4D                           ; $2A211C
-        CMPI.B  #$020C,$0BE0(A0)                ; $2A211E
+        CMPI.B  #$0C,$0BE0(A0)                  ; $2A211E
         DC.W    $1476                           ; $2A2124
         ADD.B  (A7),D4                          ; $2A2126
         MOVE.B  -(A2),$00130D5D                 ; $2A2128
-        MOVE.W  $0050(A2),$00(A7,A2.L)          ; $2A212E
-        ORI.B  #$0010,D0                        ; $2A2134
-        ORI.B  #$0030,-(A0)                     ; $2A2138
+        DC.W    $FFAA                           ; $2A212E
+        ORI.W  #$AA00,(A0)                      ; $2A2130
+        ORI.B  #$10,D0                          ; $2A2134
+        ORI.B  #$30,-(A0)                       ; $2A2138
         ADDI.W  #$A900,(A0)                     ; $2A213C
         ORI.W  #$0070,-(A0)                     ; $2A2140
         ADDI.W  #$8400,(A0)                     ; $2A2144
         ORI.W  #$0080,(A0)                      ; $2A2148
         ADDI.W  #$8600,(A0)                     ; $2A214C
-        ORI.B  #$0040,D0                        ; $2A2150
+        ORI.B  #$40,D0                          ; $2A2150
         SUBI.W  #$B900,(A0)                     ; $2A2154
         ORI.L  #$00B00450,(A0)                  ; $2A2158
         OR.B   D0,D3                            ; $2A215E
         ORI.W  #$0080,-(A0)                     ; $2A2160
         ADDI.W  #$AA00,(A0)                     ; $2A2164
         ORI.L  #$00700650,-(A0)                 ; $2A2168
-        MOVE.L  D0,-(A5)                        ; $2A216E
-        ORI.B  #$0030,D0                        ; $2A2170
+        DC.W    $AB00                           ; $2A216E
+        ORI.B  #$30,D0                          ; $2A2170
         ANDI.W  #$1001,(A1)                     ; $2A2174
         DC.W    $00C0                           ; $2A2178
         ANDI.W  #$1201,(A1)                     ; $2A217A
         ORI.W  #$0651,$01(A0,D1.W)              ; $2A217E
-        ORI.B  #$0651,-(A0)                     ; $2A2184
+        ORI.B  #$51,-(A0)                       ; $2A2184
         MOVE.B  D1,D1                           ; $2A2188
-        ORI.B  #$0C00,$15(A0,D0.W)              ; $2A218A
-        ORI.B  #$F13F,D0                        ; $2A2190
+        ORI.B  #$00,$15(A0,D0.W)                ; $2A218A
+        ORI.B  #$3F,D0                          ; $2A2190
         DC.W    $37F4                           ; $2A2194
-        MOVE.W  $3F(A6,A7.W),$37F4(A5)          ; $2A2196
+        DC.W    $FB76                           ; $2A2196
+        DC.W    $F13F                           ; $2A2198
+        DC.W    $37F4                           ; $2A219A
         DC.W    $048A                           ; $2A219C
         DC.W    $F13F                           ; $2A219E
         MOVE.W  -(A6),(A0)                      ; $2A21A0
         DC.W    $048A                           ; $2A21A2
         DC.W    $F13F                           ; $2A21A4
         MOVE.W  -(A6),(A0)                      ; $2A21A6
-        MOVE.W  -$3F(A6,D0.L),$30A6(A5)         ; $2A21A8
-        MOVE.W  -$3F(A6,D0.L),$30A6(A5)         ; $2A21AE
+        DC.W    $FB76                           ; $2A21A8
+        DC.W    $0EC1                           ; $2A21AA
+        MOVE.W  -(A6),(A0)                      ; $2A21AC
+        DC.W    $FB76                           ; $2A21AE
+        DC.W    $0EC1                           ; $2A21B0
+        MOVE.W  -(A6),(A0)                      ; $2A21B2
         DC.W    $048A                           ; $2A21B4
         DC.W    $0EC1                           ; $2A21B6
         DC.W    $37F4                           ; $2A21B8
         DC.W    $048A                           ; $2A21BA
         DC.W    $0EC1                           ; $2A21BC
         DC.W    $37F4                           ; $2A21BE
-        MOVE.W  -$22(A6,D0.W),$37F4(A5)         ; $2A21C0
-        MOVE.W  A0,-$04DE(A1)                   ; $2A21C6
+        DC.W    $FB76                           ; $2A21C0
+        DC.W    $04DE                           ; $2A21C2
+        DC.W    $37F4                           ; $2A21C4
+        DC.W    $F348                           ; $2A21C6
+        DC.W    $FB22                           ; $2A21C8
         DC.W    $37F4                           ; $2A21CA
-        MOVE.W  A0,-$04DE(A1)                   ; $2A21CC
+        DC.W    $F348                           ; $2A21CC
+        DC.W    $FB22                           ; $2A21CE
         MOVE.W  -(A6),(A0)                      ; $2A21D0
-        MOVE.W  A0,$04DE(A1)                    ; $2A21D2
+        DC.W    $F348                           ; $2A21D2
+        DC.W    $04DE                           ; $2A21D4
         MOVE.W  -(A6),(A0)                      ; $2A21D6
-        MOVE.W  A0,-$0EC1(A1)                   ; $2A21D8
-        ORI.B  #$0CB8,D0                        ; $2A21DC
+        DC.W    $F348                           ; $2A21D8
+        DC.W    $F13F                           ; $2A21DA
+        ORI.B  #$B8,D0                          ; $2A21DC
         DC.W    $F13F                           ; $2A21E0
-        ORI.B  #$F348,D0                        ; $2A21E2
+        ORI.B  #$48,D0                          ; $2A21E2
         DC.W    $F13F                           ; $2A21E6
         DC.W    $4383                           ; $2A21E8
-        MOVE.W  A0,-$0EC1(A1)                   ; $2A21EA
+        DC.W    $F348                           ; $2A21EA
+        DC.W    $F13F                           ; $2A21EC
         DC.W    $4383                           ; $2A21EE
-        CMPI.L  #$0EC10000,$F348.W              ; $2A21F0
+        CMPI.L  #$0EC10000,(-3256).W            ; $2A21F0
         DC.W    $0EC1                           ; $2A21F8
         DC.W    $4383                           ; $2A21FA
-        MOVE.W  A0,$0EC1(A1)                    ; $2A21FC
+        DC.W    $F348                           ; $2A21FC
+        DC.W    $0EC1                           ; $2A21FE

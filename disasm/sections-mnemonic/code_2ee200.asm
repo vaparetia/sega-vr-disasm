@@ -6,1436 +6,1436 @@
         org     $2EE200
 
         BTST    D0,D1                           ; $2EE200
-        ORI.B  #$0101,D1                        ; $2EE202
-        MOVE.W  D4,D4                           ; $2EE206
+        ORI.B  #$01,D1                          ; $2EE202
+        DC.W    $F804                           ; $2EE206
         BTST    D0,D1                           ; $2EE208
-        ORI.B  #$0101,D1                        ; $2EE20A
+        ORI.B  #$01,D1                          ; $2EE20A
         MOVEQ   #$01,D1                         ; $2EE20E
-        MOVE.W  D3,D4                           ; $2EE210
+        DC.W    $F803                           ; $2EE210
         MOVEQ   #$01,D1                         ; $2EE212
         BTST    D0,D1                           ; $2EE214
-        ORI.B  #$0101,D2                        ; $2EE216
+        ORI.B  #$01,D2                          ; $2EE216
         MOVEQ   #$01,D1                         ; $2EE21A
-        MOVE.W  D3,D4                           ; $2EE21C
+        DC.W    $F803                           ; $2EE21C
         MOVEQ   #$01,D1                         ; $2EE21E
         BTST    D0,D1                           ; $2EE220
-        ORI.B  #$0101,D1                        ; $2EE222
-        MOVE.W  D4,D4                           ; $2EE226
+        ORI.B  #$01,D1                          ; $2EE222
+        DC.W    $F804                           ; $2EE226
         BTST    D0,D1                           ; $2EE228
-        ORI.B  #$0101,D1                        ; $2EE22A
+        ORI.B  #$01,D1                          ; $2EE22A
         MOVEQ   #$01,D1                         ; $2EE22E
-        MOVE.W  D3,D4                           ; $2EE230
+        DC.W    $F803                           ; $2EE230
         MOVEQ   #$01,D1                         ; $2EE232
         BTST    D0,D1                           ; $2EE234
-        ORI.B  #$0101,D3                        ; $2EE236
+        ORI.B  #$01,D3                          ; $2EE236
         MOVEQ   #$01,D1                         ; $2EE23A
-        MOVE.W  D4,D4                           ; $2EE23C
+        DC.W    $F804                           ; $2EE23C
         MOVEQ   #$01,D4                         ; $2EE23E
         BTST    D0,D1                           ; $2EE240
-        ORI.B  #$0101,D3                        ; $2EE242
+        ORI.B  #$01,D3                          ; $2EE242
         MOVEQ   #$01,D1                         ; $2EE246
-        MOVE.W  D3,D4                           ; $2EE248
+        DC.W    $F803                           ; $2EE248
         MOVEQ   #$01,D1                         ; $2EE24A
         BTST    D0,D1                           ; $2EE24C
-        ORI.B  #$0101,D1                        ; $2EE24E
-        MOVE.W  D4,D4                           ; $2EE252
+        ORI.B  #$01,D1                          ; $2EE24E
+        DC.W    $F804                           ; $2EE252
         BTST    D0,D2                           ; $2EE254
         MOVEQ   #$01,D1                         ; $2EE256
-        MOVE.W  D3,D4                           ; $2EE258
+        DC.W    $F803                           ; $2EE258
         MOVEQ   #$01,D1                         ; $2EE25A
         BTST    D0,D1                           ; $2EE25C
-        ORI.B  #$0101,D1                        ; $2EE25E
-        MOVE.W  D4,D4                           ; $2EE262
+        ORI.B  #$01,D1                          ; $2EE25E
+        DC.W    $F804                           ; $2EE262
         BTST    D0,D1                           ; $2EE264
-        ORI.B  #$0006,D0                        ; $2EE266
+        ORI.B  #$06,D0                          ; $2EE266
         BTST    D0,D4                           ; $2EE26A
-        MOVE.W  A3,D4                           ; $2EE26C
+        DC.W    $F80B                           ; $2EE26C
         MOVE.W  D1,-(A6)                        ; $2EE26E
         BTST    D0,D1                           ; $2EE270
-        ORI.B  #$0101,D4                        ; $2EE272
+        ORI.B  #$01,D4                          ; $2EE272
         MOVEQ   #$01,D2                         ; $2EE276
-        MOVE.W  A4,D4                           ; $2EE278
+        DC.W    $F80C                           ; $2EE278
         MOVEQ   #$01,D1                         ; $2EE27A
         BTST    D0,D1                           ; $2EE27C
-        ORI.B  #$0101,D2                        ; $2EE27E
+        ORI.B  #$01,D2                          ; $2EE27E
         MOVEQ   #$01,D4                         ; $2EE282
-        MOVE.W  D3,D4                           ; $2EE284
+        DC.W    $F803                           ; $2EE284
         MOVE.W  D1,-(A6)                        ; $2EE286
         BTST    D0,D1                           ; $2EE288
-        ORI.B  #$0101,D1                        ; $2EE28A
-        MOVE.W  D4,D4                           ; $2EE28E
+        ORI.B  #$01,D1                          ; $2EE28A
+        DC.W    $F804                           ; $2EE28E
         BTST    D0,D1                           ; $2EE290
-        ORI.B  #$0102,D1                        ; $2EE292
-        MOVE.W  D3,D4                           ; $2EE296
+        ORI.B  #$02,D1                          ; $2EE292
+        DC.W    $F803                           ; $2EE296
         MOVEQ   #$01,D2                         ; $2EE298
         BTST    D0,D1                           ; $2EE29A
-        ORI.B  #$0101,D2                        ; $2EE29C
+        ORI.B  #$01,D2                          ; $2EE29C
         MOVEQ   #$01,D4                         ; $2EE2A0
-        MOVE.W  D3,D4                           ; $2EE2A2
+        DC.W    $F803                           ; $2EE2A2
         MOVE.W  D1,-(A6)                        ; $2EE2A4
         BTST    D0,D1                           ; $2EE2A6
-        ORI.B  #$0101,D1                        ; $2EE2A8
-        MOVE.W  D4,D4                           ; $2EE2AC
+        ORI.B  #$01,D1                          ; $2EE2A8
+        DC.W    $F804                           ; $2EE2AC
         BTST    D0,D1                           ; $2EE2AE
-        ORI.B  #$0101,D1                        ; $2EE2B0
+        ORI.B  #$01,D1                          ; $2EE2B0
         MOVEQ   #$01,D4                         ; $2EE2B4
-        MOVE.W  D3,D4                           ; $2EE2B6
+        DC.W    $F803                           ; $2EE2B6
         MOVEQ   #$01,D2                         ; $2EE2B8
         BTST    D0,D1                           ; $2EE2BA
-        ORI.B  #$0101,D3                        ; $2EE2BC
+        ORI.B  #$01,D3                          ; $2EE2BC
         MOVEQ   #$01,D4                         ; $2EE2C0
-        MOVE.W  D4,D4                           ; $2EE2C2
+        DC.W    $F804                           ; $2EE2C2
         MOVEQ   #$01,D1                         ; $2EE2C4
         BTST    D0,D1                           ; $2EE2C6
-        ORI.B  #$0101,D3                        ; $2EE2C8
+        ORI.B  #$01,D3                          ; $2EE2C8
         MOVEQ   #$01,D4                         ; $2EE2CC
         MOVEQ   #$01,D6                         ; $2EE2CE
-        MOVE.W  D2,D4                           ; $2EE2D0
+        DC.W    $F802                           ; $2EE2D0
         MOVEQ   #$01,D6                         ; $2EE2D2
         BTST    D0,D1                           ; $2EE2D4
-        ORI.B  #$0101,D1                        ; $2EE2D6
-        MOVE.W  D4,D4                           ; $2EE2DA
+        ORI.B  #$01,D1                          ; $2EE2D6
+        DC.W    $F804                           ; $2EE2DA
         BTST    D0,D2                           ; $2EE2DC
         MOVEQ   #$01,D4                         ; $2EE2DE
         MOVEQ   #$01,D6                         ; $2EE2E0
-        MOVE.W  D2,D4                           ; $2EE2E2
+        DC.W    $F802                           ; $2EE2E2
         MOVEQ   #$01,D2                         ; $2EE2E4
         BTST    D0,D1                           ; $2EE2E6
-        ORI.B  #$0101,D1                        ; $2EE2E8
-        MOVE.W  D4,D4                           ; $2EE2EC
+        ORI.B  #$01,D1                          ; $2EE2E8
+        DC.W    $F804                           ; $2EE2EC
         BTST    D0,D1                           ; $2EE2EE
-        ORI.B  #$0007,D0                        ; $2EE2F0
+        ORI.B  #$07,D0                          ; $2EE2F0
         BTST    D0,D1                           ; $2EE2F4
         MOVEQ   #$01,D4                         ; $2EE2F6
         MOVEQ   #$01,D1                         ; $2EE2F8
         MOVEQ   #$01,D2                         ; $2EE2FA
-        MOVE.W  A3,D4                           ; $2EE2FC
+        DC.W    $F80B                           ; $2EE2FC
         MOVEQ   #$01,D4                         ; $2EE2FE
         BTST    D0,D1                           ; $2EE300
-        ORI.B  #$010A,D3                        ; $2EE302
+        ORI.B  #$0A,D3                          ; $2EE302
         MOVEQ   #$01,D2                         ; $2EE306
-        MOVE.W  D3,D4                           ; $2EE308
+        DC.W    $F803                           ; $2EE308
         MOVE.W  D1,-(A6)                        ; $2EE30A
         BTST    D0,D1                           ; $2EE30C
-        ORI.B  #$0101,D3                        ; $2EE30E
+        ORI.B  #$01,D3                          ; $2EE30E
         MOVE.W  D1,-(A6)                        ; $2EE312
-        MOVE.W  D3,D4                           ; $2EE314
+        DC.W    $F803                           ; $2EE314
         MOVEQ   #$01,D4                         ; $2EE316
         BTST    D0,D2                           ; $2EE318
-        MOVE.W  D4,D4                           ; $2EE31A
+        DC.W    $F804                           ; $2EE31A
         BTST    D0,D1                           ; $2EE31C
-        ORI.B  #$0101,D2                        ; $2EE31E
+        ORI.B  #$01,D2                          ; $2EE31E
         MOVE.W  D1,-(A6)                        ; $2EE322
-        MOVE.W  D2,D4                           ; $2EE324
+        DC.W    $F802                           ; $2EE324
         MOVE.W  D1,-(A6)                        ; $2EE326
         BTST    D0,D1                           ; $2EE328
-        ORI.B  #$0101,D3                        ; $2EE32A
+        ORI.B  #$01,D3                          ; $2EE32A
         MOVE.W  D1,-(A6)                        ; $2EE32E
-        MOVE.W  D3,D4                           ; $2EE330
+        DC.W    $F803                           ; $2EE330
         MOVEQ   #$01,D4                         ; $2EE332
         BTST    D0,D2                           ; $2EE334
-        MOVE.W  D4,D4                           ; $2EE336
+        DC.W    $F804                           ; $2EE336
         BTST    D0,D1                           ; $2EE338
-        ORI.B  #$0101,D2                        ; $2EE33A
+        ORI.B  #$01,D2                          ; $2EE33A
         MOVE.W  D1,-(A6)                        ; $2EE33E
-        MOVE.W  D2,D4                           ; $2EE340
+        DC.W    $F802                           ; $2EE340
         MOVE.W  D1,-(A6)                        ; $2EE342
         BTST    D0,D1                           ; $2EE344
-        ORI.B  #$0101,D4                        ; $2EE346
+        ORI.B  #$01,D4                          ; $2EE346
         MOVE.W  D1,-(A6)                        ; $2EE34A
-        MOVE.W  D3,D4                           ; $2EE34C
+        DC.W    $F803                           ; $2EE34C
         MOVEQ   #$01,D2                         ; $2EE34E
         BTST    D0,D1                           ; $2EE350
-        ORI.B  #$0101,D4                        ; $2EE352
+        ORI.B  #$01,D4                          ; $2EE352
         MOVEQ   #$01,D1                         ; $2EE356
-        MOVE.W  D3,D4                           ; $2EE358
+        DC.W    $F803                           ; $2EE358
         MOVEQ   #$01,D4                         ; $2EE35A
         BTST    D0,D2                           ; $2EE35C
-        MOVE.W  D4,D4                           ; $2EE35E
+        DC.W    $F804                           ; $2EE35E
         BTST    D0,D1                           ; $2EE360
-        ORI.B  #$0101,D1                        ; $2EE362
+        ORI.B  #$01,D1                          ; $2EE362
         MOVEQ   #$01,D1                         ; $2EE366
-        MOVE.W  D2,D4                           ; $2EE368
+        DC.W    $F802                           ; $2EE368
         MOVEQ   #$01,D6                         ; $2EE36A
         MOVEQ   #$01,D4                         ; $2EE36C
         BTST    D0,D2                           ; $2EE36E
-        MOVE.W  D4,D4                           ; $2EE370
+        DC.W    $F804                           ; $2EE370
         BTST    D0,D1                           ; $2EE372
-        ORI.B  #$0006,D0                        ; $2EE374
+        ORI.B  #$06,D0                          ; $2EE374
         BTST    D0,D1                           ; $2EE378
         MOVEQ   #$01,D4                         ; $2EE37A
         MOVEQ   #$01,D2                         ; $2EE37C
-        MOVE.W  D4,D4                           ; $2EE37E
+        DC.W    $F804                           ; $2EE37E
         MOVE.W  D1,-(A6)                        ; $2EE380
         MOVEQ   #$04,D2                         ; $2EE382
-        MOVE.W  D4,D4                           ; $2EE384
+        DC.W    $F804                           ; $2EE384
         MOVEQ   #$01,D1                         ; $2EE386
         BTST    D0,D1                           ; $2EE388
         DC.W    $000C                           ; $2EE38A
         BTST    D0,D1                           ; $2EE38C
         MOVEQ   #$01,D1                         ; $2EE38E
-        MOVE.W  D4,D4                           ; $2EE390
+        DC.W    $F804                           ; $2EE390
         MOVEQ   #$01,D4                         ; $2EE392
         BTST    D0,D1                           ; $2EE394
-        ORI.B  #$0101,D2                        ; $2EE396
+        ORI.B  #$01,D2                          ; $2EE396
         MOVEQ   #$01,D2                         ; $2EE39A
-        MOVE.W  D3,D4                           ; $2EE39C
+        DC.W    $F803                           ; $2EE39C
         MOVEQ   #$01,D1                         ; $2EE39E
         BTST    D0,D2                           ; $2EE3A0
-        MOVE.W  D4,D4                           ; $2EE3A2
+        DC.W    $F804                           ; $2EE3A2
         BTST    D0,D1                           ; $2EE3A4
-        ORI.B  #$0101,D2                        ; $2EE3A6
+        ORI.B  #$01,D2                          ; $2EE3A6
         MOVEQ   #$01,D2                         ; $2EE3AA
-        MOVE.W  D3,D4                           ; $2EE3AC
+        DC.W    $F803                           ; $2EE3AC
         MOVEQ   #$01,D4                         ; $2EE3AE
         BTST    D0,D1                           ; $2EE3B0
-        ORI.B  #$0101,D2                        ; $2EE3B2
+        ORI.B  #$01,D2                          ; $2EE3B2
         MOVEQ   #$01,D2                         ; $2EE3B6
-        MOVE.W  D3,D4                           ; $2EE3B8
+        DC.W    $F803                           ; $2EE3B8
         MOVEQ   #$01,D1                         ; $2EE3BA
         BTST    D0,D2                           ; $2EE3BC
-        MOVE.W  D4,D4                           ; $2EE3BE
+        DC.W    $F804                           ; $2EE3BE
         BTST    D0,D1                           ; $2EE3C0
-        ORI.B  #$0101,D2                        ; $2EE3C2
+        ORI.B  #$01,D2                          ; $2EE3C2
         MOVEQ   #$01,D2                         ; $2EE3C6
-        MOVE.W  D3,D4                           ; $2EE3C8
+        DC.W    $F803                           ; $2EE3C8
         MOVEQ   #$01,D4                         ; $2EE3CA
         BTST    D0,D1                           ; $2EE3CC
-        ORI.B  #$0101,D3                        ; $2EE3CE
+        ORI.B  #$01,D3                          ; $2EE3CE
         MOVEQ   #$01,D2                         ; $2EE3D2
-        MOVE.W  D3,D4                           ; $2EE3D4
+        DC.W    $F803                           ; $2EE3D4
         MOVE.W  D1,-(A6)                        ; $2EE3D6
         BTST    D0,D1                           ; $2EE3D8
-        ORI.B  #$0101,D4                        ; $2EE3DA
+        ORI.B  #$01,D4                          ; $2EE3DA
         MOVEQ   #$01,D4                         ; $2EE3DE
-        MOVE.W  D3,D4                           ; $2EE3E0
+        DC.W    $F803                           ; $2EE3E0
         MOVEQ   #$01,D1                         ; $2EE3E2
         BTST    D0,D2                           ; $2EE3E4
-        MOVE.W  D4,D4                           ; $2EE3E6
+        DC.W    $F804                           ; $2EE3E6
         BTST    D0,D1                           ; $2EE3E8
-        ORI.B  #$0101,D1                        ; $2EE3EA
+        ORI.B  #$01,D1                          ; $2EE3EA
         MOVEQ   #$01,D4                         ; $2EE3EE
-        MOVE.W  D3,D4                           ; $2EE3F0
+        DC.W    $F803                           ; $2EE3F0
         MOVEQ   #$01,D1                         ; $2EE3F2
         BTST    D0,D2                           ; $2EE3F4
-        MOVE.W  D4,D4                           ; $2EE3F6
+        DC.W    $F804                           ; $2EE3F6
         BTST    D0,D1                           ; $2EE3F8
-        ORI.B  #$0006,D0                        ; $2EE3FA
+        ORI.B  #$06,D0                          ; $2EE3FA
         BTST    D0,D1                           ; $2EE3FE
         MOVEQ   #$01,D1                         ; $2EE400
-        MOVE.W  D4,D4                           ; $2EE402
+        DC.W    $F804                           ; $2EE402
         MOVEQ   #$01,D2                         ; $2EE404
         MOVEQ   #$01,D4                         ; $2EE406
         BTST    D0,D4                           ; $2EE408
         MOVEQ   #$01,D2                         ; $2EE40A
-        MOVE.W  D3,D4                           ; $2EE40C
+        DC.W    $F803                           ; $2EE40C
         MOVE.W  D1,-(A6)                        ; $2EE40E
         BTST    D0,D1                           ; $2EE410
         DC.W    $000C                           ; $2EE412
         BTST    D0,D2                           ; $2EE414
-        MOVE.W  D4,D4                           ; $2EE416
+        DC.W    $F804                           ; $2EE416
         MOVEQ   #$01,D1                         ; $2EE418
         BTST    D0,D1                           ; $2EE41A
-        ORI.B  #$0101,D2                        ; $2EE41C
+        ORI.B  #$01,D2                          ; $2EE41C
         MOVEQ   #$01,D1                         ; $2EE420
-        MOVE.W  D3,D4                           ; $2EE422
+        DC.W    $F803                           ; $2EE422
         MOVEQ   #$01,D2                         ; $2EE424
         BTST    D0,D2                           ; $2EE426
-        MOVE.W  D4,D4                           ; $2EE428
+        DC.W    $F804                           ; $2EE428
         BTST    D0,D1                           ; $2EE42A
-        ORI.B  #$0101,D2                        ; $2EE42C
+        ORI.B  #$01,D2                          ; $2EE42C
         MOVEQ   #$01,D1                         ; $2EE430
-        MOVE.W  D3,D4                           ; $2EE432
+        DC.W    $F803                           ; $2EE432
         MOVEQ   #$01,D1                         ; $2EE434
         BTST    D0,D1                           ; $2EE436
-        ORI.B  #$0101,D2                        ; $2EE438
+        ORI.B  #$01,D2                          ; $2EE438
         MOVEQ   #$01,D1                         ; $2EE43C
-        MOVE.W  D3,D4                           ; $2EE43E
+        DC.W    $F803                           ; $2EE43E
         MOVEQ   #$01,D2                         ; $2EE440
         BTST    D0,D2                           ; $2EE442
-        MOVE.W  D4,D4                           ; $2EE444
+        DC.W    $F804                           ; $2EE444
         BTST    D0,D1                           ; $2EE446
-        ORI.B  #$0101,D2                        ; $2EE448
+        ORI.B  #$01,D2                          ; $2EE448
         MOVEQ   #$01,D1                         ; $2EE44C
-        MOVE.W  D3,D4                           ; $2EE44E
+        DC.W    $F803                           ; $2EE44E
         MOVEQ   #$01,D1                         ; $2EE450
         BTST    D0,D1                           ; $2EE452
-        ORI.B  #$0101,D3                        ; $2EE454
+        ORI.B  #$01,D3                          ; $2EE454
         MOVEQ   #$01,D1                         ; $2EE458
-        MOVE.W  D4,D4                           ; $2EE45A
+        DC.W    $F804                           ; $2EE45A
         MOVEQ   #$01,D4                         ; $2EE45C
         BTST    D0,D1                           ; $2EE45E
-        ORI.B  #$0101,D4                        ; $2EE460
+        ORI.B  #$01,D4                          ; $2EE460
         MOVEQ   #$01,D6                         ; $2EE464
-        MOVE.W  D2,D4                           ; $2EE466
+        DC.W    $F802                           ; $2EE466
         MOVEQ   #$01,D6                         ; $2EE468
         MOVEQ   #$01,D4                         ; $2EE46A
         BTST    D0,D1                           ; $2EE46C
-        MOVE.W  D4,D4                           ; $2EE46E
+        DC.W    $F804                           ; $2EE46E
         BTST    D0,D1                           ; $2EE470
-        ORI.B  #$0101,D2                        ; $2EE472
+        ORI.B  #$01,D2                          ; $2EE472
         MOVEQ   #$01,D6                         ; $2EE476
-        MOVE.W  D2,D4                           ; $2EE478
+        DC.W    $F802                           ; $2EE478
         MOVEQ   #$01,D6                         ; $2EE47A
         MOVEQ   #$01,D4                         ; $2EE47C
         BTST    D0,D1                           ; $2EE47E
-        MOVE.W  D4,D4                           ; $2EE480
+        DC.W    $F804                           ; $2EE480
         BTST    D0,D1                           ; $2EE482
-        ORI.B  #$0006,D0                        ; $2EE484
+        ORI.B  #$06,D0                          ; $2EE484
         BTST    D0,D1                           ; $2EE488
         MOVEQ   #$01,D2                         ; $2EE48A
-        MOVE.W  D3,D4                           ; $2EE48C
+        DC.W    $F803                           ; $2EE48C
         MOVEQ   #$01,D6                         ; $2EE48E
         MOVEQ   #$01,D4                         ; $2EE490
         BTST    D0,D1                           ; $2EE492
-        ORI.B  #$0101,D3                        ; $2EE494
+        ORI.B  #$01,D3                          ; $2EE494
         MOVEQ   #$01,D1                         ; $2EE498
-        MOVE.W  D4,D4                           ; $2EE49A
+        DC.W    $F804                           ; $2EE49A
         MOVEQ   #$01,D4                         ; $2EE49C
         BTST    D0,D1                           ; $2EE49E
         DC.W    $000C                           ; $2EE4A0
         BTST    D0,D1                           ; $2EE4A2
         MOVE.W  D1,-(A6)                        ; $2EE4A4
-        MOVE.W  D3,D4                           ; $2EE4A6
+        DC.W    $F803                           ; $2EE4A6
         MOVEQ   #$01,D2                         ; $2EE4A8
         BTST    D0,D1                           ; $2EE4AA
-        ORI.B  #$0101,D2                        ; $2EE4AC
+        ORI.B  #$01,D2                          ; $2EE4AC
         MOVEQ   #$01,D4                         ; $2EE4B0
-        MOVE.W  D3,D4                           ; $2EE4B2
+        DC.W    $F803                           ; $2EE4B2
         MOVE.W  D1,-(A6)                        ; $2EE4B4
         BTST    D0,D2                           ; $2EE4B6
-        MOVE.W  D4,D4                           ; $2EE4B8
+        DC.W    $F804                           ; $2EE4B8
         BTST    D0,D1                           ; $2EE4BA
-        ORI.B  #$0102,D2                        ; $2EE4BC
-        MOVE.W  D3,D4                           ; $2EE4C0
+        ORI.B  #$02,D2                          ; $2EE4BC
+        DC.W    $F803                           ; $2EE4C0
         MOVE.W  D1,-(A6)                        ; $2EE4C2
         BTST    D0,D1                           ; $2EE4C4
-        ORI.B  #$0101,D2                        ; $2EE4C6
+        ORI.B  #$01,D2                          ; $2EE4C6
         MOVEQ   #$01,D4                         ; $2EE4CA
-        MOVE.W  D3,D4                           ; $2EE4CC
+        DC.W    $F803                           ; $2EE4CC
         MOVE.W  D1,-(A6)                        ; $2EE4CE
         BTST    D0,D2                           ; $2EE4D0
-        MOVE.W  D4,D4                           ; $2EE4D2
+        DC.W    $F804                           ; $2EE4D2
         BTST    D0,D1                           ; $2EE4D4
-        ORI.B  #$0101,D2                        ; $2EE4D6
+        ORI.B  #$01,D2                          ; $2EE4D6
         MOVEQ   #$01,D4                         ; $2EE4DA
-        MOVE.W  D3,D4                           ; $2EE4DC
+        DC.W    $F803                           ; $2EE4DC
         MOVE.W  D1,-(A6)                        ; $2EE4DE
         BTST    D0,D1                           ; $2EE4E0
-        ORI.B  #$0101,D3                        ; $2EE4E2
+        ORI.B  #$01,D3                          ; $2EE4E2
         MOVEQ   #$01,D4                         ; $2EE4E6
-        MOVE.W  D4,D4                           ; $2EE4E8
+        DC.W    $F804                           ; $2EE4E8
         MOVEQ   #$01,D1                         ; $2EE4EA
         BTST    D0,D1                           ; $2EE4EC
-        ORI.B  #$0101,D4                        ; $2EE4EE
+        ORI.B  #$01,D4                          ; $2EE4EE
         MOVEQ   #$01,D1                         ; $2EE4F2
-        MOVE.W  D3,D4                           ; $2EE4F4
+        DC.W    $F803                           ; $2EE4F4
         MOVEQ   #$01,D1                         ; $2EE4F6
         BTST    D0,D1                           ; $2EE4F8
-        MOVE.W  D4,D4                           ; $2EE4FA
+        DC.W    $F804                           ; $2EE4FA
         BTST    D0,D1                           ; $2EE4FC
-        ORI.B  #$0101,D2                        ; $2EE4FE
+        ORI.B  #$01,D2                          ; $2EE4FE
         MOVEQ   #$01,D1                         ; $2EE502
-        MOVE.W  D3,D4                           ; $2EE504
+        DC.W    $F803                           ; $2EE504
         MOVEQ   #$01,D1                         ; $2EE506
         BTST    D0,D1                           ; $2EE508
-        MOVE.W  D4,D4                           ; $2EE50A
+        DC.W    $F804                           ; $2EE50A
         BTST    D0,D1                           ; $2EE50C
-        ORI.B  #$0006,D0                        ; $2EE50E
+        ORI.B  #$06,D0                          ; $2EE50E
         BTST    D0,D1                           ; $2EE512
         MOVEQ   #$01,D6                         ; $2EE514
-        MOVE.W  D3,D4                           ; $2EE516
+        DC.W    $F803                           ; $2EE516
         MOVEQ   #$01,D2                         ; $2EE518
         BTST    D0,D1                           ; $2EE51A
-        ORI.B  #$0101,D4                        ; $2EE51C
+        ORI.B  #$01,D4                          ; $2EE51C
         MOVEQ   #$01,D4                         ; $2EE520
-        MOVE.W  D4,D4                           ; $2EE522
+        DC.W    $F804                           ; $2EE522
         MOVEQ   #$01,D1                         ; $2EE524
         BTST    D0,D1                           ; $2EE526
         DC.W    $000C                           ; $2EE528
         BTST    D0,D1                           ; $2EE52A
         MOVEQ   #$01,D1                         ; $2EE52C
-        MOVE.W  D3,D4                           ; $2EE52E
+        DC.W    $F803                           ; $2EE52E
         MOVE.W  D1,-(A6)                        ; $2EE530
         BTST    D0,D1                           ; $2EE532
-        ORI.B  #$0101,D3                        ; $2EE534
+        ORI.B  #$01,D3                          ; $2EE534
         MOVE.W  D1,-(A6)                        ; $2EE538
-        MOVE.W  D3,D4                           ; $2EE53A
+        DC.W    $F803                           ; $2EE53A
         MOVEQ   #$01,D4                         ; $2EE53C
         BTST    D0,D1                           ; $2EE53E
-        MOVE.W  D4,D4                           ; $2EE540
+        DC.W    $F804                           ; $2EE540
         BTST    D0,D1                           ; $2EE542
-        ORI.B  #$0101,D3                        ; $2EE544
+        ORI.B  #$01,D3                          ; $2EE544
         MOVE.W  D1,-(A6)                        ; $2EE548
-        MOVE.W  D3,D4                           ; $2EE54A
+        DC.W    $F803                           ; $2EE54A
         MOVEQ   #$01,D4                         ; $2EE54C
         BTST    D0,D1                           ; $2EE54E
-        ORI.B  #$0101,D2                        ; $2EE550
+        ORI.B  #$01,D2                          ; $2EE550
         MOVE.W  D1,-(A6)                        ; $2EE554
-        MOVE.W  D3,D4                           ; $2EE556
+        DC.W    $F803                           ; $2EE556
         MOVEQ   #$01,D4                         ; $2EE558
         BTST    D0,D1                           ; $2EE55A
-        MOVE.W  D4,D4                           ; $2EE55C
+        DC.W    $F804                           ; $2EE55C
         BTST    D0,D1                           ; $2EE55E
-        ORI.B  #$0101,D3                        ; $2EE560
+        ORI.B  #$01,D3                          ; $2EE560
         MOVE.W  D1,-(A6)                        ; $2EE564
-        MOVE.W  D3,D4                           ; $2EE566
+        DC.W    $F803                           ; $2EE566
         MOVEQ   #$01,D4                         ; $2EE568
         BTST    D0,D1                           ; $2EE56A
-        ORI.B  #$0101,D3                        ; $2EE56C
+        ORI.B  #$01,D3                          ; $2EE56C
         MOVE.W  D1,-(A6)                        ; $2EE570
-        MOVE.W  D3,D4                           ; $2EE572
+        DC.W    $F803                           ; $2EE572
         MOVE.W  D1,-(A6)                        ; $2EE574
         BTST    D0,D1                           ; $2EE576
-        ORI.B  #$0101,D4                        ; $2EE578
+        ORI.B  #$01,D4                          ; $2EE578
         MOVEQ   #$01,D4                         ; $2EE57C
         MOVEQ   #$01,D6                         ; $2EE57E
-        MOVE.W  D2,D4                           ; $2EE580
+        DC.W    $F802                           ; $2EE580
         MOVEQ   #$01,D6                         ; $2EE582
         BTST    D0,D1                           ; $2EE584
-        MOVE.W  D4,D4                           ; $2EE586
+        DC.W    $F804                           ; $2EE586
         BTST    D0,D1                           ; $2EE588
-        ORI.B  #$0101,D2                        ; $2EE58A
+        ORI.B  #$01,D2                          ; $2EE58A
         MOVEQ   #$01,D4                         ; $2EE58E
         MOVEQ   #$01,D6                         ; $2EE590
-        MOVE.W  D2,D4                           ; $2EE592
+        DC.W    $F802                           ; $2EE592
         MOVEQ   #$01,D6                         ; $2EE594
         BTST    D0,D1                           ; $2EE596
-        MOVE.W  D4,D4                           ; $2EE598
+        DC.W    $F804                           ; $2EE598
         BTST    D0,D1                           ; $2EE59A
-        ORI.B  #$0006,D0                        ; $2EE59C
+        ORI.B  #$06,D0                          ; $2EE59C
         BTST    D0,D1                           ; $2EE5A0
         MOVEQ   #$01,D2                         ; $2EE5A2
-        MOVE.W  D3,D4                           ; $2EE5A4
+        DC.W    $F803                           ; $2EE5A4
         MOVEQ   #$01,D2                         ; $2EE5A6
         BTST    D0,D1                           ; $2EE5A8
-        ORI.B  #$0101,D5                        ; $2EE5AA
+        ORI.B  #$01,D5                          ; $2EE5AA
         MOVE.W  D1,-(A6)                        ; $2EE5AE
-        MOVE.W  D3,D4                           ; $2EE5B0
+        DC.W    $F803                           ; $2EE5B0
         MOVEQ   #$01,D2                         ; $2EE5B2
         BTST    D0,D1                           ; $2EE5B4
         DC.W    $000C                           ; $2EE5B6
         BTST    D0,D2                           ; $2EE5B8
-        MOVE.W  D4,D4                           ; $2EE5BA
+        DC.W    $F804                           ; $2EE5BA
         MOVEQ   #$01,D4                         ; $2EE5BC
         BTST    D0,D1                           ; $2EE5BE
-        ORI.B  #$0101,D2                        ; $2EE5C0
+        ORI.B  #$01,D2                          ; $2EE5C0
         MOVEQ   #$01,D1                         ; $2EE5C4
-        MOVE.W  D3,D4                           ; $2EE5C6
+        DC.W    $F803                           ; $2EE5C6
         MOVEQ   #$01,D1                         ; $2EE5C8
         BTST    D0,D1                           ; $2EE5CA
-        MOVE.W  D4,D4                           ; $2EE5CC
+        DC.W    $F804                           ; $2EE5CC
         BTST    D0,D1                           ; $2EE5CE
-        ORI.B  #$0101,D3                        ; $2EE5D0
+        ORI.B  #$01,D3                          ; $2EE5D0
         MOVEQ   #$01,D1                         ; $2EE5D4
-        MOVE.W  D3,D4                           ; $2EE5D6
+        DC.W    $F803                           ; $2EE5D6
         MOVEQ   #$01,D1                         ; $2EE5D8
         BTST    D0,D1                           ; $2EE5DA
-        ORI.B  #$0101,D2                        ; $2EE5DC
+        ORI.B  #$01,D2                          ; $2EE5DC
         MOVEQ   #$01,D1                         ; $2EE5E0
-        MOVE.W  D3,D4                           ; $2EE5E2
+        DC.W    $F803                           ; $2EE5E2
         MOVEQ   #$01,D1                         ; $2EE5E4
         BTST    D0,D1                           ; $2EE5E6
-        MOVE.W  D4,D4                           ; $2EE5E8
+        DC.W    $F804                           ; $2EE5E8
         BTST    D0,D1                           ; $2EE5EA
-        ORI.B  #$0101,D3                        ; $2EE5EC
+        ORI.B  #$01,D3                          ; $2EE5EC
         MOVEQ   #$01,D1                         ; $2EE5F0
-        MOVE.W  D3,D4                           ; $2EE5F2
+        DC.W    $F803                           ; $2EE5F2
         MOVEQ   #$01,D1                         ; $2EE5F4
         BTST    D0,D1                           ; $2EE5F6
-        ORI.B  #$0101,D3                        ; $2EE5F8
+        ORI.B  #$01,D3                          ; $2EE5F8
         MOVEQ   #$01,D1                         ; $2EE5FC
-        MOVE.W  D4,D4                           ; $2EE5FE
+        DC.W    $F804                           ; $2EE5FE
         MOVEQ   #$01,D4                         ; $2EE600
         BTST    D0,D1                           ; $2EE602
-        ORI.B  #$0101,D4                        ; $2EE604
+        ORI.B  #$01,D4                          ; $2EE604
         MOVEQ   #$01,D1                         ; $2EE608
-        MOVE.W  D3,D4                           ; $2EE60A
+        DC.W    $F803                           ; $2EE60A
         BTST    D0,D1                           ; $2EE60C
-        MOVE.W  D4,D4                           ; $2EE60E
+        DC.W    $F804                           ; $2EE60E
         BTST    D0,D1                           ; $2EE610
-        ORI.B  #$0101,D3                        ; $2EE612
+        ORI.B  #$01,D3                          ; $2EE612
         MOVEQ   #$01,D1                         ; $2EE616
-        MOVE.W  D3,D4                           ; $2EE618
+        DC.W    $F803                           ; $2EE618
         BTST    D0,D1                           ; $2EE61A
-        MOVE.W  D4,D4                           ; $2EE61C
+        DC.W    $F804                           ; $2EE61C
         BTST    D0,D1                           ; $2EE61E
-        ORI.B  #$0006,D0                        ; $2EE620
+        ORI.B  #$06,D0                          ; $2EE620
         BTST    D0,D1                           ; $2EE624
         MOVEQ   #$01,D1                         ; $2EE626
-        MOVE.W  D3,D4                           ; $2EE628
+        DC.W    $F803                           ; $2EE628
         MOVEQ   #$01,D6                         ; $2EE62A
         BTST    D0,D1                           ; $2EE62C
-        ORI.B  #$0101,D5                        ; $2EE62E
+        ORI.B  #$01,D5                          ; $2EE62E
         MOVEQ   #$01,D1                         ; $2EE632
-        MOVE.W  D3,D4                           ; $2EE634
+        DC.W    $F803                           ; $2EE634
         MOVE.W  D1,-(A6)                        ; $2EE636
         BTST    D0,D1                           ; $2EE638
         DC.W    $000D                           ; $2EE63A
         BTST    D0,D1                           ; $2EE63C
-        MOVE.W  D4,D4                           ; $2EE63E
+        DC.W    $F804                           ; $2EE63E
         MOVEQ   #$01,D1                         ; $2EE640
         BTST    D0,D1                           ; $2EE642
-        ORI.B  #$0101,D2                        ; $2EE644
+        ORI.B  #$01,D2                          ; $2EE644
         MOVEQ   #$01,D4                         ; $2EE648
-        MOVE.W  D3,D4                           ; $2EE64A
+        DC.W    $F803                           ; $2EE64A
         MOVE.W  D1,-(A6)                        ; $2EE64C
         BTST    D0,D1                           ; $2EE64E
-        MOVE.W  D4,D4                           ; $2EE650
+        DC.W    $F804                           ; $2EE650
         BTST    D0,D1                           ; $2EE652
-        ORI.B  #$0102,D3                        ; $2EE654
-        MOVE.W  D3,D4                           ; $2EE658
+        ORI.B  #$02,D3                          ; $2EE654
+        DC.W    $F803                           ; $2EE658
         MOVEQ   #$01,D2                         ; $2EE65A
         BTST    D0,D1                           ; $2EE65C
-        ORI.B  #$0101,D2                        ; $2EE65E
+        ORI.B  #$01,D2                          ; $2EE65E
         MOVEQ   #$01,D4                         ; $2EE662
-        MOVE.W  D3,D4                           ; $2EE664
+        DC.W    $F803                           ; $2EE664
         MOVE.W  D1,-(A6)                        ; $2EE666
         BTST    D0,D1                           ; $2EE668
-        MOVE.W  D4,D4                           ; $2EE66A
+        DC.W    $F804                           ; $2EE66A
         BTST    D0,D1                           ; $2EE66C
-        ORI.B  #$0101,D3                        ; $2EE66E
+        ORI.B  #$01,D3                          ; $2EE66E
         MOVEQ   #$01,D4                         ; $2EE672
-        MOVE.W  D3,D4                           ; $2EE674
+        DC.W    $F803                           ; $2EE674
         MOVEQ   #$01,D2                         ; $2EE676
         BTST    D0,D1                           ; $2EE678
-        ORI.B  #$0101,D3                        ; $2EE67A
+        ORI.B  #$01,D3                          ; $2EE67A
         MOVEQ   #$01,D4                         ; $2EE67E
-        MOVE.W  D4,D4                           ; $2EE680
+        DC.W    $F804                           ; $2EE680
         MOVEQ   #$01,D1                         ; $2EE682
         BTST    D0,D1                           ; $2EE684
-        ORI.B  #$0101,D4                        ; $2EE686
+        ORI.B  #$01,D4                          ; $2EE686
         MOVEQ   #$01,D4                         ; $2EE68A
-        MOVE.W  A0,D4                           ; $2EE68C
+        DC.W    $F808                           ; $2EE68C
         BTST    D0,D1                           ; $2EE68E
-        ORI.B  #$0101,D3                        ; $2EE690
+        ORI.B  #$01,D3                          ; $2EE690
         MOVEQ   #$01,D4                         ; $2EE694
-        MOVE.W  A0,D4                           ; $2EE696
+        DC.W    $F808                           ; $2EE696
         BTST    D0,D1                           ; $2EE698
-        ORI.B  #$0006,D0                        ; $2EE69A
+        ORI.B  #$06,D0                          ; $2EE69A
         BTST    D0,D1                           ; $2EE69E
         MOVEQ   #$01,D4                         ; $2EE6A0
-        MOVE.W  D4,D4                           ; $2EE6A2
+        DC.W    $F804                           ; $2EE6A2
         MOVEQ   #$01,D4                         ; $2EE6A4
         BTST    D0,D1                           ; $2EE6A6
-        ORI.B  #$0101,D4                        ; $2EE6A8
+        ORI.B  #$01,D4                          ; $2EE6A8
         MOVEQ   #$01,D4                         ; $2EE6AC
-        MOVE.W  D4,D4                           ; $2EE6AE
+        DC.W    $F804                           ; $2EE6AE
         MOVEQ   #$01,D4                         ; $2EE6B0
         BTST    D0,D1                           ; $2EE6B2
         DC.W    $000C                           ; $2EE6B4
         BTST    D0,D1                           ; $2EE6B6
         MOVE.W  D1,-(A6)                        ; $2EE6B8
-        MOVE.W  D3,D4                           ; $2EE6BA
+        DC.W    $F803                           ; $2EE6BA
         MOVEQ   #$01,D2                         ; $2EE6BC
         BTST    D0,D1                           ; $2EE6BE
-        ORI.B  #$0101,D3                        ; $2EE6C0
+        ORI.B  #$01,D3                          ; $2EE6C0
         MOVE.W  D1,-(A6)                        ; $2EE6C4
-        MOVE.W  A0,D4                           ; $2EE6C6
+        DC.W    $F808                           ; $2EE6C6
         BTST    D0,D1                           ; $2EE6C8
-        ORI.B  #$0101,D4                        ; $2EE6CA
+        ORI.B  #$01,D4                          ; $2EE6CA
         MOVE.W  D1,-(A6)                        ; $2EE6CE
-        MOVE.W  D2,D4                           ; $2EE6D0
+        DC.W    $F802                           ; $2EE6D0
         MOVE.W  D1,-(A6)                        ; $2EE6D2
         BTST    D0,D1                           ; $2EE6D4
-        ORI.B  #$0101,D3                        ; $2EE6D6
+        ORI.B  #$01,D3                          ; $2EE6D6
         MOVE.W  D1,-(A6)                        ; $2EE6DA
-        MOVE.W  A0,D4                           ; $2EE6DC
+        DC.W    $F808                           ; $2EE6DC
         BTST    D0,D1                           ; $2EE6DE
-        ORI.B  #$0101,D4                        ; $2EE6E0
+        ORI.B  #$01,D4                          ; $2EE6E0
         MOVE.W  D1,-(A6)                        ; $2EE6E4
-        MOVE.W  D2,D4                           ; $2EE6E6
+        DC.W    $F802                           ; $2EE6E6
         MOVE.W  D1,-(A6)                        ; $2EE6E8
         BTST    D0,D1                           ; $2EE6EA
-        ORI.B  #$0101,D4                        ; $2EE6EC
+        ORI.B  #$01,D4                          ; $2EE6EC
         MOVE.W  D1,-(A6)                        ; $2EE6F0
-        MOVE.W  D3,D4                           ; $2EE6F2
+        DC.W    $F803                           ; $2EE6F2
         MOVEQ   #$01,D2                         ; $2EE6F4
         BTST    D0,D1                           ; $2EE6F6
-        ORI.B  #$0101,D5                        ; $2EE6F8
+        ORI.B  #$01,D5                          ; $2EE6F8
         MOVEQ   #$01,D6                         ; $2EE6FC
-        MOVE.W  D7,D4                           ; $2EE6FE
+        DC.W    $F807                           ; $2EE6FE
         BTST    D0,D1                           ; $2EE700
-        ORI.B  #$0101,D4                        ; $2EE702
+        ORI.B  #$01,D4                          ; $2EE702
         MOVEQ   #$01,D6                         ; $2EE706
-        MOVE.W  D7,D4                           ; $2EE708
+        DC.W    $F807                           ; $2EE708
         BTST    D0,D1                           ; $2EE70A
-        ORI.B  #$0007,D0                        ; $2EE70C
+        ORI.B  #$07,D0                          ; $2EE70C
         BTST    D0,D1                           ; $2EE710
         MOVEQ   #$01,D6                         ; $2EE712
-        MOVE.W  D3,D4                           ; $2EE714
+        DC.W    $F803                           ; $2EE714
         MOVEQ   #$01,D1                         ; $2EE716
         BTST    D0,D1                           ; $2EE718
-        ORI.B  #$0101,D5                        ; $2EE71A
+        ORI.B  #$01,D5                          ; $2EE71A
         MOVE.W  D1,-(A6)                        ; $2EE71E
-        MOVE.W  D3,D4                           ; $2EE720
+        DC.W    $F803                           ; $2EE720
         MOVEQ   #$01,D1                         ; $2EE722
         BTST    D0,D1                           ; $2EE724
-        ORI.B  #$010A,D3                        ; $2EE726
+        ORI.B  #$0A,D3                          ; $2EE726
         MOVEQ   #$01,D1                         ; $2EE72A
-        MOVE.W  D3,D4                           ; $2EE72C
+        DC.W    $F803                           ; $2EE72C
         MOVE.W  D1,-(A6)                        ; $2EE72E
         BTST    D0,D1                           ; $2EE730
-        ORI.B  #$0101,D3                        ; $2EE732
+        ORI.B  #$01,D3                          ; $2EE732
         MOVEQ   #$01,D2                         ; $2EE736
-        MOVE.W  A0,D4                           ; $2EE738
+        DC.W    $F808                           ; $2EE738
         BTST    D0,D1                           ; $2EE73A
-        ORI.B  #$0101,D4                        ; $2EE73C
+        ORI.B  #$01,D4                          ; $2EE73C
         MOVEQ   #$01,D2                         ; $2EE740
-        MOVE.W  D3,D4                           ; $2EE742
+        DC.W    $F803                           ; $2EE742
         MOVEQ   #$01,D4                         ; $2EE744
         BTST    D0,D1                           ; $2EE746
-        ORI.B  #$0101,D2                        ; $2EE748
+        ORI.B  #$01,D2                          ; $2EE748
         MOVEQ   #$01,D2                         ; $2EE74C
-        MOVE.W  A0,D4                           ; $2EE74E
+        DC.W    $F808                           ; $2EE74E
         BTST    D0,D1                           ; $2EE750
-        ORI.B  #$0101,D4                        ; $2EE752
+        ORI.B  #$01,D4                          ; $2EE752
         MOVEQ   #$01,D2                         ; $2EE756
-        MOVE.W  D3,D4                           ; $2EE758
+        DC.W    $F803                           ; $2EE758
         MOVEQ   #$01,D4                         ; $2EE75A
         BTST    D0,D1                           ; $2EE75C
-        ORI.B  #$0101,D3                        ; $2EE75E
+        ORI.B  #$01,D3                          ; $2EE75E
         MOVEQ   #$01,D2                         ; $2EE762
-        MOVE.W  D3,D4                           ; $2EE764
+        DC.W    $F803                           ; $2EE764
         MOVE.W  D1,-(A6)                        ; $2EE766
         BTST    D0,D1                           ; $2EE768
-        ORI.B  #$0101,D5                        ; $2EE76A
+        ORI.B  #$01,D5                          ; $2EE76A
         MOVEQ   #$01,D1                         ; $2EE76E
-        MOVE.W  D7,D4                           ; $2EE770
+        DC.W    $F807                           ; $2EE770
         BTST    D0,D1                           ; $2EE772
-        ORI.B  #$0101,D4                        ; $2EE774
+        ORI.B  #$01,D4                          ; $2EE774
         MOVEQ   #$01,D1                         ; $2EE778
-        MOVE.W  D7,D4                           ; $2EE77A
+        DC.W    $F807                           ; $2EE77A
         BTST    D0,D1                           ; $2EE77C
-        ORI.B  #$0007,D0                        ; $2EE77E
+        ORI.B  #$07,D0                          ; $2EE77E
         BTST    D0,D1                           ; $2EE782
         MOVEQ   #$01,D2                         ; $2EE784
-        MOVE.W  D3,D4                           ; $2EE786
+        DC.W    $F803                           ; $2EE786
         MOVEQ   #$01,D6                         ; $2EE788
         BTST    D0,D1                           ; $2EE78A
-        ORI.B  #$0101,D5                        ; $2EE78C
+        ORI.B  #$01,D5                          ; $2EE78C
         MOVEQ   #$01,D1                         ; $2EE790
-        MOVE.W  D3,D4                           ; $2EE792
+        DC.W    $F803                           ; $2EE792
         MOVE.W  D1,-(A6)                        ; $2EE794
         BTST    D0,D1                           ; $2EE796
-        ORI.B  #$0101,D3                        ; $2EE798
+        ORI.B  #$01,D3                          ; $2EE798
         MOVE.W  D1,-(A6)                        ; $2EE79C
-        MOVE.W  A5,D4                           ; $2EE79E
+        DC.W    $F80D                           ; $2EE79E
         MOVEQ   #$01,D4                         ; $2EE7A0
         BTST    D0,D1                           ; $2EE7A2
-        ORI.B  #$0101,D2                        ; $2EE7A4
+        ORI.B  #$01,D2                          ; $2EE7A4
         MOVEQ   #$01,D1                         ; $2EE7A8
-        MOVE.W  A0,D4                           ; $2EE7AA
+        DC.W    $F808                           ; $2EE7AA
         BTST    D0,D1                           ; $2EE7AC
-        ORI.B  #$0101,D4                        ; $2EE7AE
+        ORI.B  #$01,D4                          ; $2EE7AE
         MOVEQ   #$01,D1                         ; $2EE7B2
-        MOVE.W  D3,D4                           ; $2EE7B4
+        DC.W    $F803                           ; $2EE7B4
         MOVEQ   #$01,D1                         ; $2EE7B6
         BTST    D0,D1                           ; $2EE7B8
-        ORI.B  #$0101,D2                        ; $2EE7BA
+        ORI.B  #$01,D2                          ; $2EE7BA
         MOVEQ   #$01,D1                         ; $2EE7BE
-        MOVE.W  A0,D4                           ; $2EE7C0
+        DC.W    $F808                           ; $2EE7C0
         BTST    D0,D1                           ; $2EE7C2
-        ORI.B  #$0101,D4                        ; $2EE7C4
+        ORI.B  #$01,D4                          ; $2EE7C4
         MOVEQ   #$01,D1                         ; $2EE7C8
-        MOVE.W  D3,D4                           ; $2EE7CA
+        DC.W    $F803                           ; $2EE7CA
         MOVEQ   #$01,D1                         ; $2EE7CC
         BTST    D0,D1                           ; $2EE7CE
-        ORI.B  #$0101,D3                        ; $2EE7D0
+        ORI.B  #$01,D3                          ; $2EE7D0
         MOVEQ   #$01,D1                         ; $2EE7D4
-        MOVE.W  D4,D4                           ; $2EE7D6
+        DC.W    $F804                           ; $2EE7D6
         MOVEQ   #$01,D4                         ; $2EE7D8
         BTST    D0,D1                           ; $2EE7DA
-        ORI.B  #$0101,D4                        ; $2EE7DC
+        ORI.B  #$01,D4                          ; $2EE7DC
         MOVEQ   #$01,D4                         ; $2EE7E0
         MOVEQ   #$01,D6                         ; $2EE7E2
-        MOVE.W  D6,D4                           ; $2EE7E4
+        DC.W    $F806                           ; $2EE7E4
         BTST    D0,D1                           ; $2EE7E6
-        ORI.B  #$0101,D4                        ; $2EE7E8
+        ORI.B  #$01,D4                          ; $2EE7E8
         MOVEQ   #$01,D4                         ; $2EE7EC
         MOVEQ   #$01,D6                         ; $2EE7EE
-        MOVE.W  D6,D4                           ; $2EE7F0
+        DC.W    $F806                           ; $2EE7F0
         BTST    D0,D1                           ; $2EE7F2
-        ORI.B  #$0007,D0                        ; $2EE7F4
+        ORI.B  #$07,D0                          ; $2EE7F4
         BTST    D0,D1                           ; $2EE7F8
         MOVEQ   #$01,D1                         ; $2EE7FA
-        MOVE.W  D4,D4                           ; $2EE7FC
+        DC.W    $F804                           ; $2EE7FC
         MOVEQ   #$01,D4                         ; $2EE7FE
         BTST    D0,D1                           ; $2EE800
-        ORI.B  #$0101,D4                        ; $2EE802
+        ORI.B  #$01,D4                          ; $2EE802
         MOVEQ   #$01,D4                         ; $2EE806
-        MOVE.W  D4,D4                           ; $2EE808
+        DC.W    $F804                           ; $2EE808
         MOVEQ   #$01,D4                         ; $2EE80A
         BTST    D0,D1                           ; $2EE80C
-        ORI.B  #$0101,D2                        ; $2EE80E
+        ORI.B  #$01,D2                          ; $2EE80E
         MOVEQ   #$01,D1                         ; $2EE812
-        MOVE.W  A5,D4                           ; $2EE814
+        DC.W    $F80D                           ; $2EE814
         MOVEQ   #$01,D1                         ; $2EE816
         BTST    D0,D1                           ; $2EE818
-        ORI.B  #$0101,D2                        ; $2EE81A
+        ORI.B  #$01,D2                          ; $2EE81A
         MOVEQ   #$01,D4                         ; $2EE81E
-        MOVE.W  A0,D4                           ; $2EE820
+        DC.W    $F808                           ; $2EE820
         BTST    D0,D1                           ; $2EE822
-        ORI.B  #$0102,D4                        ; $2EE824
-        MOVE.W  D3,D4                           ; $2EE828
+        ORI.B  #$02,D4                          ; $2EE824
+        DC.W    $F803                           ; $2EE828
         MOVE.W  D1,-(A6)                        ; $2EE82A
         BTST    D0,D1                           ; $2EE82C
-        ORI.B  #$0101,D2                        ; $2EE82E
+        ORI.B  #$01,D2                          ; $2EE82E
         MOVEQ   #$01,D4                         ; $2EE832
-        MOVE.W  A0,D4                           ; $2EE834
+        DC.W    $F808                           ; $2EE834
         BTST    D0,D1                           ; $2EE836
-        ORI.B  #$0101,D4                        ; $2EE838
+        ORI.B  #$01,D4                          ; $2EE838
         MOVEQ   #$01,D4                         ; $2EE83C
-        MOVE.W  D3,D4                           ; $2EE83E
+        DC.W    $F803                           ; $2EE83E
         MOVE.W  D1,-(A6)                        ; $2EE840
         BTST    D0,D1                           ; $2EE842
-        ORI.B  #$0101,D3                        ; $2EE844
+        ORI.B  #$01,D3                          ; $2EE844
         MOVEQ   #$01,D4                         ; $2EE848
-        MOVE.W  D4,D4                           ; $2EE84A
+        DC.W    $F804                           ; $2EE84A
         MOVEQ   #$01,D1                         ; $2EE84C
         BTST    D0,D1                           ; $2EE84E
-        ORI.B  #$0101,D5                        ; $2EE850
+        ORI.B  #$01,D5                          ; $2EE850
         MOVEQ   #$01,D1                         ; $2EE854
-        MOVE.W  D6,D4                           ; $2EE856
+        DC.W    $F806                           ; $2EE856
         BTST    D0,D1                           ; $2EE858
-        ORI.B  #$0101,D5                        ; $2EE85A
+        ORI.B  #$01,D5                          ; $2EE85A
         MOVEQ   #$01,D1                         ; $2EE85E
-        MOVE.W  D6,D4                           ; $2EE860
+        DC.W    $F806                           ; $2EE860
         BTST    D0,D1                           ; $2EE862
-        ORI.B  #$0007,D0                        ; $2EE864
+        ORI.B  #$07,D0                          ; $2EE864
         BTST    D0,D1                           ; $2EE868
         MOVEQ   #$01,D4                         ; $2EE86A
-        MOVE.W  D4,D4                           ; $2EE86C
+        DC.W    $F804                           ; $2EE86C
         MOVEQ   #$01,D1                         ; $2EE86E
         BTST    D0,D1                           ; $2EE870
-        ORI.B  #$0101,D5                        ; $2EE872
+        ORI.B  #$01,D5                          ; $2EE872
         MOVE.W  D1,-(A6)                        ; $2EE876
-        MOVE.W  D3,D4                           ; $2EE878
+        DC.W    $F803                           ; $2EE878
         MOVEQ   #$01,D1                         ; $2EE87A
         BTST    D0,D1                           ; $2EE87C
-        ORI.B  #$0101,D2                        ; $2EE87E
+        ORI.B  #$01,D2                          ; $2EE87E
         MOVEQ   #$01,D4                         ; $2EE882
         MOVE.W  D1,-(A6)                        ; $2EE884
-        MOVE.W  A4,D4                           ; $2EE886
+        DC.W    $F80C                           ; $2EE886
         MOVEQ   #$01,D2                         ; $2EE888
         BTST    D0,D1                           ; $2EE88A
-        ORI.B  #$0101,D3                        ; $2EE88C
+        ORI.B  #$01,D3                          ; $2EE88C
         MOVE.W  D1,-(A6)                        ; $2EE890
-        MOVE.W  D7,D4                           ; $2EE892
+        DC.W    $F807                           ; $2EE892
         BTST    D0,D1                           ; $2EE894
-        ORI.B  #$0101,D5                        ; $2EE896
+        ORI.B  #$01,D5                          ; $2EE896
         MOVE.W  D1,-(A6)                        ; $2EE89A
-        MOVE.W  D3,D4                           ; $2EE89C
+        DC.W    $F803                           ; $2EE89C
         MOVEQ   #$01,D4                         ; $2EE89E
         BTST    D0,D1                           ; $2EE8A0
-        ORI.B  #$0101,D2                        ; $2EE8A2
+        ORI.B  #$01,D2                          ; $2EE8A2
         MOVE.W  D1,-(A6)                        ; $2EE8A6
-        MOVE.W  D7,D4                           ; $2EE8A8
+        DC.W    $F807                           ; $2EE8A8
         BTST    D0,D1                           ; $2EE8AA
-        ORI.B  #$0101,D5                        ; $2EE8AC
+        ORI.B  #$01,D5                          ; $2EE8AC
         MOVE.W  D1,-(A6)                        ; $2EE8B0
-        MOVE.W  D3,D4                           ; $2EE8B2
+        DC.W    $F803                           ; $2EE8B2
         MOVEQ   #$01,D4                         ; $2EE8B4
         BTST    D0,D1                           ; $2EE8B6
-        ORI.B  #$0101,D3                        ; $2EE8B8
+        ORI.B  #$01,D3                          ; $2EE8B8
         MOVE.W  D1,-(A6)                        ; $2EE8BC
-        MOVE.W  D3,D4                           ; $2EE8BE
+        DC.W    $F803                           ; $2EE8BE
         MOVE.W  D1,-(A6)                        ; $2EE8C0
         BTST    D0,D1                           ; $2EE8C2
-        ORI.B  #$0101,D5                        ; $2EE8C4
+        ORI.B  #$01,D5                          ; $2EE8C4
         MOVEQ   #$01,D4                         ; $2EE8C8
         MOVEQ   #$01,D6                         ; $2EE8CA
-        MOVE.W  D5,D4                           ; $2EE8CC
+        DC.W    $F805                           ; $2EE8CC
         BTST    D0,D1                           ; $2EE8CE
-        ORI.B  #$0101,D5                        ; $2EE8D0
+        ORI.B  #$01,D5                          ; $2EE8D0
         MOVEQ   #$01,D4                         ; $2EE8D4
         MOVEQ   #$01,D6                         ; $2EE8D6
-        MOVE.W  D5,D4                           ; $2EE8D8
+        DC.W    $F805                           ; $2EE8D8
         BTST    D0,D1                           ; $2EE8DA
-        ORI.B  #$0008,D0                        ; $2EE8DC
+        ORI.B  #$08,D0                          ; $2EE8DC
         BTST    D0,D1                           ; $2EE8E0
         MOVEQ   #$01,D2                         ; $2EE8E2
-        MOVE.W  D3,D4                           ; $2EE8E4
+        DC.W    $F803                           ; $2EE8E4
         MOVEQ   #$01,D2                         ; $2EE8E6
         BTST    D0,D1                           ; $2EE8E8
-        ORI.B  #$0101,D5                        ; $2EE8EA
+        ORI.B  #$01,D5                          ; $2EE8EA
         MOVEQ   #$01,D1                         ; $2EE8EE
-        MOVE.W  D3,D4                           ; $2EE8F0
+        DC.W    $F803                           ; $2EE8F0
         MOVE.W  D1,-(A6)                        ; $2EE8F2
         BTST    D0,D1                           ; $2EE8F4
-        ORI.B  #$0101,D3                        ; $2EE8F6
+        ORI.B  #$01,D3                          ; $2EE8F6
         MOVEQ   #$01,D1                         ; $2EE8FA
-        MOVE.W  A4,D4                           ; $2EE8FC
+        DC.W    $F80C                           ; $2EE8FC
         MOVE.W  D1,-(A6)                        ; $2EE8FE
         BTST    D0,D1                           ; $2EE900
-        ORI.B  #$0101,D3                        ; $2EE902
+        ORI.B  #$01,D3                          ; $2EE902
         MOVEQ   #$01,D1                         ; $2EE906
-        MOVE.W  D7,D4                           ; $2EE908
+        DC.W    $F807                           ; $2EE908
         BTST    D0,D1                           ; $2EE90A
-        ORI.B  #$0101,D5                        ; $2EE90C
+        ORI.B  #$01,D5                          ; $2EE90C
         MOVEQ   #$01,D1                         ; $2EE910
-        MOVE.W  D3,D4                           ; $2EE912
+        DC.W    $F803                           ; $2EE912
         MOVEQ   #$01,D1                         ; $2EE914
         BTST    D0,D1                           ; $2EE916
-        ORI.B  #$0101,D2                        ; $2EE918
+        ORI.B  #$01,D2                          ; $2EE918
         MOVEQ   #$01,D1                         ; $2EE91C
-        MOVE.W  D7,D4                           ; $2EE91E
+        DC.W    $F807                           ; $2EE91E
         BTST    D0,D1                           ; $2EE920
-        ORI.B  #$0101,D5                        ; $2EE922
+        ORI.B  #$01,D5                          ; $2EE922
         MOVEQ   #$01,D1                         ; $2EE926
-        MOVE.W  D3,D4                           ; $2EE928
+        DC.W    $F803                           ; $2EE928
         MOVEQ   #$01,D1                         ; $2EE92A
         BTST    D0,D1                           ; $2EE92C
-        ORI.B  #$0101,D3                        ; $2EE92E
+        ORI.B  #$01,D3                          ; $2EE92E
         MOVEQ   #$01,D1                         ; $2EE932
-        MOVE.W  D4,D4                           ; $2EE934
+        DC.W    $F804                           ; $2EE934
         BTST    D0,D1                           ; $2EE936
-        ORI.B  #$0101,D6                        ; $2EE938
+        ORI.B  #$01,D6                          ; $2EE938
         MOVEQ   #$01,D1                         ; $2EE93C
-        MOVE.W  D5,D4                           ; $2EE93E
+        DC.W    $F805                           ; $2EE93E
         BTST    D0,D1                           ; $2EE940
-        ORI.B  #$0101,D6                        ; $2EE942
+        ORI.B  #$01,D6                          ; $2EE942
         MOVEQ   #$01,D1                         ; $2EE946
-        MOVE.W  D5,D4                           ; $2EE948
+        DC.W    $F805                           ; $2EE948
         BTST    D0,D1                           ; $2EE94A
-        ORI.B  #$0008,D0                        ; $2EE94C
+        ORI.B  #$08,D0                          ; $2EE94C
         BTST    D0,D7                           ; $2EE950
-        ORI.B  #$0107,D5                        ; $2EE952
-        ORI.B  #$0110,D3                        ; $2EE956
-        ORI.B  #$010A,D3                        ; $2EE95A
-        ORI.B  #$0107,D5                        ; $2EE95E
-        ORI.B  #$010A,D2                        ; $2EE962
-        ORI.B  #$0107,D5                        ; $2EE966
-        ORI.B  #$0107,D3                        ; $2EE96A
-        ORI.B  #$0108,D6                        ; $2EE96E
-        ORI.B  #$0108,D6                        ; $2EE972
-        ORI.B  #$0000,D0                        ; $2EE976
-        ORI.B  #$0001,(A3)                      ; $2EE97A
+        ORI.B  #$07,D5                          ; $2EE952
+        ORI.B  #$10,D3                          ; $2EE956
+        ORI.B  #$0A,D3                          ; $2EE95A
+        ORI.B  #$07,D5                          ; $2EE95E
+        ORI.B  #$0A,D2                          ; $2EE962
+        ORI.B  #$07,D5                          ; $2EE966
+        ORI.B  #$07,D3                          ; $2EE96A
+        ORI.B  #$08,D6                          ; $2EE96E
+        ORI.B  #$08,D6                          ; $2EE972
+        ORI.B  #$00,D0                          ; $2EE976
+        ORI.B  #$01,(A3)                        ; $2EE97A
         BTST    D0,D5                           ; $2EE97E
         DC.W    $0008                           ; $2EE980
         BTST    D0,D5                           ; $2EE982
-        ORI.B  #$0106,D1                        ; $2EE984
+        ORI.B  #$06,D1                          ; $2EE984
         DC.W    $0009                           ; $2EE988
         BTST    D0,D6                           ; $2EE98A
-        ORI.B  #$010A,D4                        ; $2EE98C
-        ORI.B  #$010B,D1                        ; $2EE990
-        ORI.B  #$0109,D5                        ; $2EE994
-        ORI.B  #$0001,D0                        ; $2EE998
+        ORI.B  #$0A,D4                          ; $2EE98C
+        ORI.B  #$0B,D1                          ; $2EE990
+        ORI.B  #$09,D5                          ; $2EE994
+        ORI.B  #$01,D0                          ; $2EE998
         BTST    D0,D1                           ; $2EE99C
         MOVEQ   #$01,D2                         ; $2EE99E
-        MOVE.W  D2,D4                           ; $2EE9A0
+        DC.W    $F802                           ; $2EE9A0
         MOVEQ   #$01,D2                         ; $2EE9A2
         BTST    D0,D1                           ; $2EE9A4
-        ORI.B  #$0101,D7                        ; $2EE9A6
-        MOVE.W  D3,D4                           ; $2EE9AA
+        ORI.B  #$01,D7                          ; $2EE9A6
+        DC.W    $F803                           ; $2EE9AA
         BTST    D0,D1                           ; $2EE9AC
-        ORI.B  #$0101,D1                        ; $2EE9AE
-        MOVE.W  D5,D4                           ; $2EE9B2
+        ORI.B  #$01,D1                          ; $2EE9AE
+        DC.W    $F805                           ; $2EE9B2
         BTST    D0,D1                           ; $2EE9B4
         DC.W    $0008                           ; $2EE9B6
         BTST    D0,D1                           ; $2EE9B8
         MOVEQ   #$01,D1                         ; $2EE9BA
-        MOVE.W  D2,D4                           ; $2EE9BC
+        DC.W    $F802                           ; $2EE9BC
         MOVEQ   #$01,D2                         ; $2EE9BE
         BTST    D0,D1                           ; $2EE9C0
-        ORI.B  #$0101,D3                        ; $2EE9C2
+        ORI.B  #$01,D3                          ; $2EE9C2
         MOVEQ   #$01,D1                         ; $2EE9C6
         MOVEQ   #$01,D2                         ; $2EE9C8
-        MOVE.W  D6,D4                           ; $2EE9CA
+        DC.W    $F806                           ; $2EE9CA
         MOVEQ   #$01,D1                         ; $2EE9CC
         BTST    D0,D1                           ; $2EE9CE
-        ORI.B  #$0101,D1                        ; $2EE9D0
+        ORI.B  #$01,D1                          ; $2EE9D0
         MOVEQ   #$01,D1                         ; $2EE9D4
-        MOVE.W  D7,D4                           ; $2EE9D6
+        DC.W    $F807                           ; $2EE9D6
         MOVEQ   #$01,D1                         ; $2EE9D8
         BTST    D0,D1                           ; $2EE9DA
-        ORI.B  #$0102,D3                        ; $2EE9DC
+        ORI.B  #$02,D3                          ; $2EE9DC
         MOVEQ   #$01,D1                         ; $2EE9E0
         MOVEQ   #$01,D2                         ; $2EE9E2
-        MOVE.W  D5,D4                           ; $2EE9E4
+        DC.W    $F805                           ; $2EE9E4
         MOVEQ   #$01,D1                         ; $2EE9E6
         BTST    D0,D1                           ; $2EE9E8
-        ORI.B  #$0002,D0                        ; $2EE9EA
+        ORI.B  #$02,D0                          ; $2EE9EA
         BTST    D0,D1                           ; $2EE9EE
         MOVEQ   #$01,D2                         ; $2EE9F0
-        MOVE.W  D2,D4                           ; $2EE9F2
+        DC.W    $F802                           ; $2EE9F2
         MOVEQ   #$01,D2                         ; $2EE9F4
         BTST    D0,D1                           ; $2EE9F6
-        ORI.B  #$0101,D5                        ; $2EE9F8
+        ORI.B  #$01,D5                          ; $2EE9F8
         MOVEQ   #$01,D1                         ; $2EE9FC
-        MOVE.W  D2,D4                           ; $2EE9FE
+        DC.W    $F802                           ; $2EE9FE
         MOVEQ   #$01,D1                         ; $2EEA00
         BTST    D0,D1                           ; $2EEA02
-        ORI.B  #$0101,D1                        ; $2EEA04
-        MOVE.W  D5,D4                           ; $2EEA08
+        ORI.B  #$01,D1                          ; $2EEA04
+        DC.W    $F805                           ; $2EEA08
         MOVEQ   #$01,D1                         ; $2EEA0A
         BTST    D0,D1                           ; $2EEA0C
         DC.W    $0008                           ; $2EEA0E
         MOVEQ   #$01,D0                         ; $2EEA10
-        MOVE.W  D3,D4                           ; $2EEA12
+        DC.W    $F803                           ; $2EEA12
         BTST    D0,D1                           ; $2EEA14
-        ORI.B  #$0101,D2                        ; $2EEA16
+        ORI.B  #$01,D2                          ; $2EEA16
         MOVEQ   #$01,D1                         ; $2EEA1A
-        MOVE.W  A0,D4                           ; $2EEA1C
+        DC.W    $F808                           ; $2EEA1C
         MOVEQ   #$01,D2                         ; $2EEA1E
         BTST    D0,D1                           ; $2EEA20
-        ORI.B  #$0101,D2                        ; $2EEA22
-        MOVE.W  D7,D4                           ; $2EEA26
+        ORI.B  #$01,D2                          ; $2EEA22
+        DC.W    $F807                           ; $2EEA26
         MOVEQ   #$01,D2                         ; $2EEA28
         BTST    D0,D1                           ; $2EEA2A
-        ORI.B  #$0101,D3                        ; $2EEA2C
+        ORI.B  #$01,D3                          ; $2EEA2C
         MOVEQ   #$01,D1                         ; $2EEA30
-        MOVE.W  D7,D4                           ; $2EEA32
+        DC.W    $F807                           ; $2EEA32
         MOVEQ   #$01,D2                         ; $2EEA34
         BTST    D0,D1                           ; $2EEA36
-        ORI.B  #$0003,D0                        ; $2EEA38
+        ORI.B  #$03,D0                          ; $2EEA38
         BTST    D0,D1                           ; $2EEA3C
         MOVEQ   #$01,D2                         ; $2EEA3E
-        MOVE.W  D2,D4                           ; $2EEA40
+        DC.W    $F802                           ; $2EEA40
         MOVEQ   #$01,D2                         ; $2EEA42
         BTST    D0,D1                           ; $2EEA44
-        ORI.B  #$0101,D4                        ; $2EEA46
-        MOVE.W  D3,D4                           ; $2EEA4A
+        ORI.B  #$01,D4                          ; $2EEA46
+        DC.W    $F803                           ; $2EEA4A
         BTST    D0,D1                           ; $2EEA4C
-        ORI.B  #$0101,D2                        ; $2EEA4E
-        MOVE.W  D6,D4                           ; $2EEA52
+        ORI.B  #$01,D2                          ; $2EEA4E
+        DC.W    $F806                           ; $2EEA52
         BTST    D0,D1                           ; $2EEA54
         DC.W    $0008                           ; $2EEA56
         BTST    D0,D1                           ; $2EEA58
         MOVEQ   #$01,D6                         ; $2EEA5A
-        MOVE.W  D2,D4                           ; $2EEA5C
+        DC.W    $F802                           ; $2EEA5C
         MOVEQ   #$01,D0                         ; $2EEA5E
-        ORI.B  #$0101,D2                        ; $2EEA60
+        ORI.B  #$01,D2                          ; $2EEA60
         MOVEQ   #$01,D2                         ; $2EEA64
-        MOVE.W  D2,D4                           ; $2EEA66
+        DC.W    $F802                           ; $2EEA66
         MOVEQ   #$01,D2                         ; $2EEA68
         BTST    D0,D3                           ; $2EEA6A
-        MOVE.W  D3,D4                           ; $2EEA6C
+        DC.W    $F803                           ; $2EEA6C
         BTST    D0,D1                           ; $2EEA6E
-        ORI.B  #$0106,D2                        ; $2EEA70
+        ORI.B  #$06,D2                          ; $2EEA70
         MOVEQ   #$01,D2                         ; $2EEA74
-        MOVE.W  D2,D4                           ; $2EEA76
+        DC.W    $F802                           ; $2EEA76
         MOVEQ   #$01,D0                         ; $2EEA78
-        ORI.B  #$0101,D2                        ; $2EEA7A
+        ORI.B  #$01,D2                          ; $2EEA7A
         MOVEQ   #$01,D1                         ; $2EEA7E
-        MOVE.W  D2,D4                           ; $2EEA80
+        DC.W    $F802                           ; $2EEA80
         MOVEQ   #$01,D2                         ; $2EEA82
         BTST    D0,D3                           ; $2EEA84
-        MOVE.W  D3,D4                           ; $2EEA86
+        DC.W    $F803                           ; $2EEA86
         MOVEQ   #$01,D0                         ; $2EEA88
-        ORI.B  #$0004,D0                        ; $2EEA8A
+        ORI.B  #$04,D0                          ; $2EEA8A
         BTST    D0,D1                           ; $2EEA8E
         MOVEQ   #$01,D2                         ; $2EEA90
-        MOVE.W  D2,D4                           ; $2EEA92
+        DC.W    $F802                           ; $2EEA92
         MOVEQ   #$01,D2                         ; $2EEA94
         BTST    D0,D1                           ; $2EEA96
-        ORI.B  #$0101,D2                        ; $2EEA98
+        ORI.B  #$01,D2                          ; $2EEA98
         MOVEQ   #$01,D1                         ; $2EEA9C
-        MOVE.W  D2,D4                           ; $2EEA9E
+        DC.W    $F802                           ; $2EEA9E
         MOVEQ   #$01,D1                         ; $2EEAA0
         BTST    D0,D1                           ; $2EEAA2
-        ORI.B  #$0101,D2                        ; $2EEAA4
-        MOVE.W  D3,D4                           ; $2EEAA8
+        ORI.B  #$01,D2                          ; $2EEAA4
+        DC.W    $F803                           ; $2EEAA8
         BTST    D0,D1                           ; $2EEAAA
         MOVEQ   #$01,D2                         ; $2EEAAC
-        MOVE.W  D1,D4                           ; $2EEAAE
+        DC.W    $F801                           ; $2EEAAE
         MOVEQ   #$01,D1                         ; $2EEAB0
         BTST    D0,D1                           ; $2EEAB2
-        ORI.B  #$0101,D7                        ; $2EEAB4
+        ORI.B  #$01,D7                          ; $2EEAB4
         MOVEQ   #$01,D2                         ; $2EEAB8
-        MOVE.W  D2,D4                           ; $2EEABA
+        DC.W    $F802                           ; $2EEABA
         MOVEQ   #$01,D1                         ; $2EEABC
         BTST    D0,D1                           ; $2EEABE
-        ORI.B  #$0101,D1                        ; $2EEAC0
-        MOVE.W  D3,D4                           ; $2EEAC4
+        ORI.B  #$01,D1                          ; $2EEAC0
+        DC.W    $F803                           ; $2EEAC4
         BTST    D0,D1                           ; $2EEAC6
-        ORI.B  #$0101,D2                        ; $2EEAC8
+        ORI.B  #$01,D2                          ; $2EEAC8
         MOVEQ   #$01,D2                         ; $2EEACC
-        MOVE.W  D2,D4                           ; $2EEACE
+        DC.W    $F802                           ; $2EEACE
         MOVEQ   #$01,D1                         ; $2EEAD0
         BTST    D0,D1                           ; $2EEAD2
-        ORI.B  #$0101,D6                        ; $2EEAD4
+        ORI.B  #$01,D6                          ; $2EEAD4
         MOVEQ   #$01,D1                         ; $2EEAD8
-        MOVE.W  D2,D4                           ; $2EEADA
+        DC.W    $F802                           ; $2EEADA
         MOVEQ   #$01,D1                         ; $2EEADC
         BTST    D0,D1                           ; $2EEADE
-        ORI.B  #$0101,D1                        ; $2EEAE0
+        ORI.B  #$01,D1                          ; $2EEAE0
         MOVEQ   #$01,D2                         ; $2EEAE4
-        MOVE.W  D2,D4                           ; $2EEAE6
+        DC.W    $F802                           ; $2EEAE6
         BTST    D0,D2                           ; $2EEAE8
-        ORI.B  #$0101,D1                        ; $2EEAEA
+        ORI.B  #$01,D1                          ; $2EEAEA
         MOVEQ   #$01,D2                         ; $2EEAEE
-        MOVE.W  D2,D4                           ; $2EEAF0
+        DC.W    $F802                           ; $2EEAF0
         MOVEQ   #$01,D1                         ; $2EEAF2
         BTST    D0,D1                           ; $2EEAF4
-        ORI.B  #$0005,D0                        ; $2EEAF6
+        ORI.B  #$05,D0                          ; $2EEAF6
         BTST    D0,D1                           ; $2EEAFA
         MOVEQ   #$01,D2                         ; $2EEAFC
-        MOVE.W  D2,D4                           ; $2EEAFE
+        DC.W    $F802                           ; $2EEAFE
         MOVEQ   #$01,D2                         ; $2EEB00
         BTST    D0,D1                           ; $2EEB02
-        ORI.B  #$0101,D1                        ; $2EEB04
-        MOVE.W  D3,D4                           ; $2EEB08
+        ORI.B  #$01,D1                          ; $2EEB04
+        DC.W    $F803                           ; $2EEB08
         BTST    D0,D1                           ; $2EEB0A
-        ORI.B  #$0101,D3                        ; $2EEB0C
-        MOVE.W  D3,D4                           ; $2EEB10
+        ORI.B  #$01,D3                          ; $2EEB0C
+        DC.W    $F803                           ; $2EEB10
         BTST    D0,D2                           ; $2EEB12
-        MOVE.W  D2,D4                           ; $2EEB14
+        DC.W    $F802                           ; $2EEB14
         BTST    D0,D1                           ; $2EEB16
-        ORI.B  #$0101,D7                        ; $2EEB18
+        ORI.B  #$01,D7                          ; $2EEB18
         MOVEQ   #$01,D1                         ; $2EEB1C
-        MOVE.W  D2,D4                           ; $2EEB1E
+        DC.W    $F802                           ; $2EEB1E
         MOVEQ   #$01,D2                         ; $2EEB20
         BTST    D0,D1                           ; $2EEB22
-        ORI.B  #$0101,D1                        ; $2EEB24
+        ORI.B  #$01,D1                          ; $2EEB24
         MOVEQ   #$01,D2                         ; $2EEB28
-        MOVE.W  D2,D4                           ; $2EEB2A
+        DC.W    $F802                           ; $2EEB2A
         BTST    D0,D1                           ; $2EEB2C
-        ORI.B  #$0101,D2                        ; $2EEB2E
+        ORI.B  #$01,D2                          ; $2EEB2E
         MOVEQ   #$01,D1                         ; $2EEB32
-        MOVE.W  D2,D4                           ; $2EEB34
+        DC.W    $F802                           ; $2EEB34
         MOVEQ   #$01,D2                         ; $2EEB36
         BTST    D0,D1                           ; $2EEB38
-        ORI.B  #$7001,D7                        ; $2EEB3A
-        MOVE.W  D2,D4                           ; $2EEB3E
+        ORI.B  #$01,D7                          ; $2EEB3A
+        DC.W    $F802                           ; $2EEB3E
         MOVEQ   #$01,D2                         ; $2EEB40
         BTST    D0,D1                           ; $2EEB42
-        ORI.B  #$0101,D1                        ; $2EEB44
+        ORI.B  #$01,D1                          ; $2EEB44
         MOVEQ   #$01,D1                         ; $2EEB48
-        MOVE.W  D2,D4                           ; $2EEB4A
+        DC.W    $F802                           ; $2EEB4A
         BTST    D0,D1                           ; $2EEB4C
-        ORI.B  #$0101,D2                        ; $2EEB4E
+        ORI.B  #$01,D2                          ; $2EEB4E
         MOVEQ   #$01,D1                         ; $2EEB52
-        MOVE.W  D2,D4                           ; $2EEB54
+        DC.W    $F802                           ; $2EEB54
         MOVEQ   #$01,D2                         ; $2EEB56
         BTST    D0,D1                           ; $2EEB58
-        ORI.B  #$0006,D0                        ; $2EEB5A
+        ORI.B  #$06,D0                          ; $2EEB5A
         BTST    D0,D1                           ; $2EEB5E
         MOVEQ   #$01,D2                         ; $2EEB60
-        MOVE.W  D2,D4                           ; $2EEB62
+        DC.W    $F802                           ; $2EEB62
         MOVEQ   #$01,D2                         ; $2EEB64
         BTST    D0,D1                           ; $2EEB66
         MOVEQ   #$01,D2                         ; $2EEB68
-        MOVE.W  D2,D4                           ; $2EEB6A
+        DC.W    $F802                           ; $2EEB6A
         MOVEQ   #$01,D1                         ; $2EEB6C
         BTST    D0,D1                           ; $2EEB6E
-        ORI.B  #$0101,D3                        ; $2EEB70
-        MOVE.W  D3,D4                           ; $2EEB74
+        ORI.B  #$01,D3                          ; $2EEB70
+        DC.W    $F803                           ; $2EEB74
         BTST    D0,D2                           ; $2EEB76
         MOVEQ   #$01,D1                         ; $2EEB78
-        MOVE.W  D1,D4                           ; $2EEB7A
+        DC.W    $F801                           ; $2EEB7A
         MOVEQ   #$01,D1                         ; $2EEB7C
         BTST    D0,D1                           ; $2EEB7E
-        ORI.B  #$7001,D7                        ; $2EEB80
-        MOVE.W  D3,D4                           ; $2EEB84
+        ORI.B  #$01,D7                          ; $2EEB80
+        DC.W    $F803                           ; $2EEB84
         BTST    D0,D1                           ; $2EEB86
-        ORI.B  #$0101,D1                        ; $2EEB88
+        ORI.B  #$01,D1                          ; $2EEB88
         MOVEQ   #$01,D1                         ; $2EEB8C
-        MOVE.W  D2,D4                           ; $2EEB8E
+        DC.W    $F802                           ; $2EEB8E
         BTST    D0,D1                           ; $2EEB90
-        ORI.B  #$0101,D3                        ; $2EEB92
-        MOVE.W  D3,D4                           ; $2EEB96
+        ORI.B  #$01,D3                          ; $2EEB92
+        DC.W    $F803                           ; $2EEB96
         BTST    D0,D1                           ; $2EEB98
-        ORI.B  #$0101,D7                        ; $2EEB9A
+        ORI.B  #$01,D7                          ; $2EEB9A
         MOVEQ   #$01,D2                         ; $2EEB9E
-        MOVE.W  D2,D4                           ; $2EEBA0
+        DC.W    $F802                           ; $2EEBA0
         BTST    D0,D1                           ; $2EEBA2
-        ORI.B  #$0102,D1                        ; $2EEBA4
-        MOVE.W  D2,D4                           ; $2EEBA8
+        ORI.B  #$02,D1                          ; $2EEBA4
+        DC.W    $F802                           ; $2EEBA8
         BTST    D0,D1                           ; $2EEBAA
-        ORI.B  #$0101,D3                        ; $2EEBAC
-        MOVE.W  D3,D4                           ; $2EEBB0
+        ORI.B  #$01,D3                          ; $2EEBAC
+        DC.W    $F803                           ; $2EEBB0
         BTST    D0,D1                           ; $2EEBB2
-        ORI.B  #$0007,D0                        ; $2EEBB4
+        ORI.B  #$07,D0                          ; $2EEBB4
         BTST    D0,D1                           ; $2EEBB8
         MOVEQ   #$01,D2                         ; $2EEBBA
-        MOVE.W  D6,D4                           ; $2EEBBC
+        DC.W    $F806                           ; $2EEBBC
         BTST    D0,D1                           ; $2EEBBE
-        ORI.B  #$0101,D4                        ; $2EEBC0
-        MOVE.W  D3,D4                           ; $2EEBC4
+        ORI.B  #$01,D4                          ; $2EEBC0
+        DC.W    $F803                           ; $2EEBC4
         BTST    D0,D1                           ; $2EEBC6
-        ORI.B  #$0101,D1                        ; $2EEBC8
-        MOVE.W  D2,D4                           ; $2EEBCC
+        ORI.B  #$01,D1                          ; $2EEBC8
+        DC.W    $F802                           ; $2EEBCC
         BTST    D0,D1                           ; $2EEBCE
-        ORI.B  #$0101,D7                        ; $2EEBD0
+        ORI.B  #$01,D7                          ; $2EEBD0
         MOVEQ   #$01,D2                         ; $2EEBD4
-        MOVE.W  D2,D4                           ; $2EEBD6
+        DC.W    $F802                           ; $2EEBD6
         MOVEQ   #$01,D0                         ; $2EEBD8
-        ORI.B  #$7001,D2                        ; $2EEBDA
-        MOVE.W  D2,D4                           ; $2EEBDE
+        ORI.B  #$01,D2                          ; $2EEBDA
+        DC.W    $F802                           ; $2EEBDE
         MOVEQ   #$01,D2                         ; $2EEBE0
         BTST    D0,D1                           ; $2EEBE2
-        ORI.B  #$0101,D2                        ; $2EEBE4
+        ORI.B  #$01,D2                          ; $2EEBE4
         MOVEQ   #$01,D2                         ; $2EEBE8
-        MOVE.W  D2,D4                           ; $2EEBEA
+        DC.W    $F802                           ; $2EEBEA
         BTST    D0,D1                           ; $2EEBEC
-        ORI.B  #$0106,D2                        ; $2EEBEE
+        ORI.B  #$06,D2                          ; $2EEBEE
         MOVEQ   #$01,D1                         ; $2EEBF2
-        MOVE.W  D2,D4                           ; $2EEBF4
+        DC.W    $F802                           ; $2EEBF4
         MOVEQ   #$01,D0                         ; $2EEBF6
-        ORI.B  #$0101,D2                        ; $2EEBF8
+        ORI.B  #$01,D2                          ; $2EEBF8
         MOVEQ   #$01,D2                         ; $2EEBFC
-        MOVE.W  D1,D4                           ; $2EEBFE
+        DC.W    $F801                           ; $2EEBFE
         MOVEQ   #$01,D2                         ; $2EEC00
         BTST    D0,D1                           ; $2EEC02
-        ORI.B  #$0101,D2                        ; $2EEC04
+        ORI.B  #$01,D2                          ; $2EEC04
         MOVEQ   #$01,D2                         ; $2EEC08
-        MOVE.W  D2,D4                           ; $2EEC0A
+        DC.W    $F802                           ; $2EEC0A
         MOVEQ   #$01,D0                         ; $2EEC0C
-        ORI.B  #$0008,D0                        ; $2EEC0E
+        ORI.B  #$08,D0                          ; $2EEC0E
         BTST    D0,D1                           ; $2EEC12
         MOVEQ   #$01,D2                         ; $2EEC14
-        MOVE.W  D4,D4                           ; $2EEC16
+        DC.W    $F804                           ; $2EEC16
         MOVEQ   #$01,D1                         ; $2EEC18
         BTST    D0,D1                           ; $2EEC1A
-        ORI.B  #$0101,D4                        ; $2EEC1C
-        MOVE.W  D3,D4                           ; $2EEC20
+        ORI.B  #$01,D4                          ; $2EEC1C
+        DC.W    $F803                           ; $2EEC20
         BTST    D0,D1                           ; $2EEC22
-        ORI.B  #$0101,D1                        ; $2EEC24
+        ORI.B  #$01,D1                          ; $2EEC24
         MOVEQ   #$01,D1                         ; $2EEC28
-        MOVE.W  D1,D4                           ; $2EEC2A
+        DC.W    $F801                           ; $2EEC2A
         MOVEQ   #$01,D1                         ; $2EEC2C
         BTST    D0,D1                           ; $2EEC2E
-        ORI.B  #$0101,D6                        ; $2EEC30
+        ORI.B  #$01,D6                          ; $2EEC30
         MOVEQ   #$01,D1                         ; $2EEC34
-        MOVE.W  D2,D4                           ; $2EEC36
+        DC.W    $F802                           ; $2EEC36
         MOVEQ   #$01,D1                         ; $2EEC38
         BTST    D0,D1                           ; $2EEC3A
-        ORI.B  #$0101,D1                        ; $2EEC3C
+        ORI.B  #$01,D1                          ; $2EEC3C
         MOVEQ   #$01,D2                         ; $2EEC40
-        MOVE.W  D2,D4                           ; $2EEC42
+        DC.W    $F802                           ; $2EEC42
         MOVEQ   #$01,D2                         ; $2EEC44
         BTST    D0,D3                           ; $2EEC46
         MOVEQ   #$01,D1                         ; $2EEC48
-        MOVE.W  D2,D4                           ; $2EEC4A
+        DC.W    $F802                           ; $2EEC4A
         MOVEQ   #$01,D1                         ; $2EEC4C
         BTST    D0,D1                           ; $2EEC4E
-        ORI.B  #$0101,D1                        ; $2EEC50
+        ORI.B  #$01,D1                          ; $2EEC50
         MOVEQ   #$01,D1                         ; $2EEC54
-        MOVE.W  D7,D4                           ; $2EEC56
+        DC.W    $F807                           ; $2EEC56
         MOVEQ   #$01,D1                         ; $2EEC58
         BTST    D0,D1                           ; $2EEC5A
-        ORI.B  #$0102,D1                        ; $2EEC5C
-        MOVE.W  D2,D4                           ; $2EEC60
+        ORI.B  #$02,D1                          ; $2EEC5C
+        DC.W    $F802                           ; $2EEC60
         MOVEQ   #$01,D2                         ; $2EEC62
         BTST    D0,D3                           ; $2EEC64
         MOVEQ   #$01,D1                         ; $2EEC66
-        MOVE.W  D2,D4                           ; $2EEC68
+        DC.W    $F802                           ; $2EEC68
         MOVEQ   #$01,D1                         ; $2EEC6A
         BTST    D0,D1                           ; $2EEC6C
-        ORI.B  #$0009,D0                        ; $2EEC6E
+        ORI.B  #$09,D0                          ; $2EEC6E
         BTST    D0,D1                           ; $2EEC72
         MOVEQ   #$01,D2                         ; $2EEC74
-        MOVE.W  D3,D4                           ; $2EEC76
+        DC.W    $F803                           ; $2EEC76
         BTST    D0,D1                           ; $2EEC78
-        ORI.B  #$0101,D5                        ; $2EEC7A
-        MOVE.W  D3,D4                           ; $2EEC7E
+        ORI.B  #$01,D5                          ; $2EEC7A
+        DC.W    $F803                           ; $2EEC7E
         BTST    D0,D1                           ; $2EEC80
-        ORI.B  #$0101,D2                        ; $2EEC82
-        MOVE.W  D2,D4                           ; $2EEC86
+        ORI.B  #$01,D2                          ; $2EEC82
+        DC.W    $F802                           ; $2EEC86
         BTST    D0,D1                           ; $2EEC88
-        ORI.B  #$7001,D7                        ; $2EEC8A
-        MOVE.W  D2,D4                           ; $2EEC8E
+        ORI.B  #$01,D7                          ; $2EEC8A
+        DC.W    $F802                           ; $2EEC8E
         MOVEQ   #$01,D2                         ; $2EEC90
         BTST    D0,D1                           ; $2EEC92
-        ORI.B  #$0101,D2                        ; $2EEC94
+        ORI.B  #$01,D2                          ; $2EEC94
         MOVEQ   #$01,D2                         ; $2EEC98
-        MOVE.W  A0,D4                           ; $2EEC9A
+        DC.W    $F808                           ; $2EEC9A
         MOVEQ   #$01,D2                         ; $2EEC9C
         BTST    D0,D1                           ; $2EEC9E
-        ORI.B  #$0101,D2                        ; $2EECA0
-        MOVE.W  D7,D4                           ; $2EECA4
+        ORI.B  #$01,D2                          ; $2EECA0
+        DC.W    $F807                           ; $2EECA4
         MOVEQ   #$01,D2                         ; $2EECA6
         BTST    D0,D1                           ; $2EECA8
-        ORI.B  #$0102,D2                        ; $2EECAA
-        MOVE.W  A0,D4                           ; $2EECAE
+        ORI.B  #$02,D2                          ; $2EECAA
+        DC.W    $F808                           ; $2EECAE
         MOVEQ   #$01,D2                         ; $2EECB0
         BTST    D0,D1                           ; $2EECB2
-        ORI.B  #$000A,D0                        ; $2EECB4
+        ORI.B  #$0A,D0                          ; $2EECB4
         BTST    D0,D1                           ; $2EECB8
-        MOVE.W  D3,D4                           ; $2EECBA
+        DC.W    $F803                           ; $2EECBA
         MOVEQ   #$01,D1                         ; $2EECBC
         BTST    D0,D1                           ; $2EECBE
-        ORI.B  #$0101,D4                        ; $2EECC0
-        MOVE.W  D3,D4                           ; $2EECC4
+        ORI.B  #$01,D4                          ; $2EECC0
+        DC.W    $F803                           ; $2EECC4
         BTST    D0,D1                           ; $2EECC6
-        ORI.B  #$0101,D2                        ; $2EECC8
+        ORI.B  #$01,D2                          ; $2EECC8
         MOVEQ   #$01,D1                         ; $2EECCC
-        MOVE.W  D1,D4                           ; $2EECCE
+        DC.W    $F801                           ; $2EECCE
         MOVEQ   #$01,D1                         ; $2EECD0
         BTST    D0,D1                           ; $2EECD2
-        ORI.B  #$0101,D6                        ; $2EECD4
-        MOVE.W  D3,D4                           ; $2EECD8
+        ORI.B  #$01,D6                          ; $2EECD4
+        DC.W    $F803                           ; $2EECD8
         BTST    D0,D1                           ; $2EECDA
-        ORI.B  #$0102,D3                        ; $2EECDC
+        ORI.B  #$02,D3                          ; $2EECDC
         MOVEQ   #$01,D1                         ; $2EECE0
         MOVEQ   #$01,D2                         ; $2EECE2
-        MOVE.W  D6,D4                           ; $2EECE4
+        DC.W    $F806                           ; $2EECE4
         BTST    D0,D1                           ; $2EECE6
-        ORI.B  #$0106,D2                        ; $2EECE8
+        ORI.B  #$06,D2                          ; $2EECE8
         MOVEQ   #$01,D2                         ; $2EECEC
-        MOVE.W  D2,D4                           ; $2EECEE
+        DC.W    $F802                           ; $2EECEE
         MOVEQ   #$01,D0                         ; $2EECF0
-        ORI.B  #$0101,D2                        ; $2EECF2
+        ORI.B  #$01,D2                          ; $2EECF2
         MOVEQ   #$01,D1                         ; $2EECF6
-        MOVE.W  A1,D4                           ; $2EECF8
+        DC.W    $F809                           ; $2EECF8
         MOVEQ   #$01,D0                         ; $2EECFA
-        ORI.B  #$000A,D0                        ; $2EECFC
+        ORI.B  #$0A,D0                          ; $2EECFC
         BTST    D0,D1                           ; $2EED00
         MOVEQ   #$01,D2                         ; $2EED02
-        MOVE.W  D2,D4                           ; $2EED04
+        DC.W    $F802                           ; $2EED04
         MOVEQ   #$01,D2                         ; $2EED06
         BTST    D0,D1                           ; $2EED08
-        ORI.B  #$0101,D4                        ; $2EED0A
-        MOVE.W  D3,D4                           ; $2EED0E
+        ORI.B  #$01,D4                          ; $2EED0A
+        DC.W    $F803                           ; $2EED0E
         BTST    D0,D5                           ; $2EED10
-        MOVE.W  D2,D4                           ; $2EED12
+        DC.W    $F802                           ; $2EED12
         BTST    D0,D1                           ; $2EED14
-        ORI.B  #$0101,D6                        ; $2EED16
+        ORI.B  #$01,D6                          ; $2EED16
         MOVEQ   #$01,D2                         ; $2EED1A
-        MOVE.W  D2,D4                           ; $2EED1C
+        DC.W    $F802                           ; $2EED1C
         MOVEQ   #$01,D0                         ; $2EED1E
-        ORI.B  #$0105,D5                        ; $2EED20
+        ORI.B  #$05,D5                          ; $2EED20
         MOVEQ   #$01,D1                         ; $2EED24
-        MOVE.W  D2,D4                           ; $2EED26
+        DC.W    $F802                           ; $2EED26
         MOVEQ   #$01,D1                         ; $2EED28
         BTST    D0,D1                           ; $2EED2A
-        ORI.B  #$0101,D6                        ; $2EED2C
+        ORI.B  #$01,D6                          ; $2EED2C
         MOVEQ   #$01,D1                         ; $2EED30
-        MOVE.W  D2,D4                           ; $2EED32
+        DC.W    $F802                           ; $2EED32
         MOVEQ   #$01,D1                         ; $2EED34
         BTST    D0,D1                           ; $2EED36
-        ORI.B  #$0101,D1                        ; $2EED38
+        ORI.B  #$01,D1                          ; $2EED38
         MOVEQ   #$01,D2                         ; $2EED3C
-        MOVE.W  D2,D4                           ; $2EED3E
+        DC.W    $F802                           ; $2EED3E
         MOVEQ   #$01,D1                         ; $2EED40
         BTST    D0,D4                           ; $2EED42
-        MOVE.W  D2,D4                           ; $2EED44
+        DC.W    $F802                           ; $2EED44
         MOVEQ   #$01,D1                         ; $2EED46
         BTST    D0,D1                           ; $2EED48
-        ORI.B  #$000A,D0                        ; $2EED4A
+        ORI.B  #$0A,D0                          ; $2EED4A
         BTST    D0,D1                           ; $2EED4E
         MOVEQ   #$01,D1                         ; $2EED50
-        MOVE.W  D3,D4                           ; $2EED52
+        DC.W    $F803                           ; $2EED52
         BTST    D0,D1                           ; $2EED54
-        ORI.B  #$0101,D4                        ; $2EED56
-        MOVE.W  A2,D4                           ; $2EED5A
+        ORI.B  #$01,D4                          ; $2EED56
+        DC.W    $F80A                           ; $2EED5A
         MOVEQ   #$01,D1                         ; $2EED5C
         BTST    D0,D1                           ; $2EED5E
-        ORI.B  #$0101,D5                        ; $2EED60
+        ORI.B  #$01,D5                          ; $2EED60
         MOVEQ   #$01,D1                         ; $2EED64
-        MOVE.W  D2,D4                           ; $2EED66
+        DC.W    $F802                           ; $2EED66
         MOVEQ   #$01,D1                         ; $2EED68
         BTST    D0,D1                           ; $2EED6A
         DC.W    $0009                           ; $2EED6C
         BTST    D0,D1                           ; $2EED6E
-        MOVE.W  D2,D4                           ; $2EED70
+        DC.W    $F802                           ; $2EED70
         MOVEQ   #$01,D2                         ; $2EED72
         BTST    D0,D1                           ; $2EED74
-        ORI.B  #$7001,D7                        ; $2EED76
-        MOVE.W  D2,D4                           ; $2EED7A
+        ORI.B  #$01,D7                          ; $2EED76
+        DC.W    $F802                           ; $2EED7A
         MOVEQ   #$01,D2                         ; $2EED7C
         BTST    D0,D1                           ; $2EED7E
-        ORI.B  #$0101,D1                        ; $2EED80
+        ORI.B  #$01,D1                          ; $2EED80
         MOVEQ   #$01,D6                         ; $2EED84
-        MOVE.W  D2,D4                           ; $2EED86
+        DC.W    $F802                           ; $2EED86
         BTST    D0,D2                           ; $2EED88
-        ORI.B  #$0101,D2                        ; $2EED8A
-        MOVE.W  D2,D4                           ; $2EED8E
+        ORI.B  #$01,D2                          ; $2EED8A
+        DC.W    $F802                           ; $2EED8E
         MOVEQ   #$01,D2                         ; $2EED90
         BTST    D0,D1                           ; $2EED92
-        ORI.B  #$000B,D0                        ; $2EED94
+        ORI.B  #$0B,D0                          ; $2EED94
         BTST    D0,D1                           ; $2EED98
-        MOVE.W  D3,D4                           ; $2EED9A
+        DC.W    $F803                           ; $2EED9A
         MOVEQ   #$01,D1                         ; $2EED9C
         BTST    D0,D1                           ; $2EED9E
-        ORI.B  #$0101,D3                        ; $2EEDA0
-        MOVE.W  A3,D4                           ; $2EEDA4
+        ORI.B  #$01,D3                          ; $2EEDA0
+        DC.W    $F80B                           ; $2EEDA4
         BTST    D0,D1                           ; $2EEDA6
-        ORI.B  #$7001,D6                        ; $2EEDA8
-        MOVE.W  D2,D4                           ; $2EEDAC
+        ORI.B  #$01,D6                          ; $2EEDA8
+        DC.W    $F802                           ; $2EEDAC
         MOVEQ   #$01,D2                         ; $2EEDAE
         BTST    D0,D1                           ; $2EEDB0
         DC.W    $0009                           ; $2EEDB2
         BTST    D0,D1                           ; $2EEDB4
         MOVEQ   #$01,D2                         ; $2EEDB6
-        MOVE.W  D2,D4                           ; $2EEDB8
+        DC.W    $F802                           ; $2EEDB8
         BTST    D0,D1                           ; $2EEDBA
-        ORI.B  #$0101,D7                        ; $2EEDBC
+        ORI.B  #$01,D7                          ; $2EEDBC
         MOVEQ   #$01,D2                         ; $2EEDC0
-        MOVE.W  D2,D4                           ; $2EEDC2
+        DC.W    $F802                           ; $2EEDC2
         BTST    D0,D1                           ; $2EEDC4
-        ORI.B  #$0101,D1                        ; $2EEDC6
+        ORI.B  #$01,D1                          ; $2EEDC6
         MOVEQ   #$01,D2                         ; $2EEDCA
-        MOVE.W  D2,D4                           ; $2EEDCC
+        DC.W    $F802                           ; $2EEDCC
         BTST    D0,D1                           ; $2EEDCE
-        ORI.B  #$0101,D3                        ; $2EEDD0
+        ORI.B  #$01,D3                          ; $2EEDD0
         MOVEQ   #$01,D2                         ; $2EEDD4
-        MOVE.W  D2,D4                           ; $2EEDD6
+        DC.W    $F802                           ; $2EEDD6
         BTST    D0,D1                           ; $2EEDD8
-        ORI.B  #$000B,D0                        ; $2EEDDA
+        ORI.B  #$0B,D0                          ; $2EEDDA
         BTST    D0,D1                           ; $2EEDDE
         MOVEQ   #$01,D2                         ; $2EEDE0
-        MOVE.W  D2,D4                           ; $2EEDE2
+        DC.W    $F802                           ; $2EEDE2
         MOVEQ   #$01,D2                         ; $2EEDE4
         BTST    D0,D1                           ; $2EEDE6
-        ORI.B  #$0101,D3                        ; $2EEDE8
-        MOVE.W  D3,D4                           ; $2EEDEC
+        ORI.B  #$01,D3                          ; $2EEDE8
+        DC.W    $F803                           ; $2EEDEC
         BTST    D0,D6                           ; $2EEDEE
-        MOVE.W  D2,D4                           ; $2EEDF0
+        DC.W    $F802                           ; $2EEDF0
         MOVEQ   #$01,D1                         ; $2EEDF2
         BTST    D0,D1                           ; $2EEDF4
-        ORI.B  #$0101,D5                        ; $2EEDF6
-        MOVE.W  D3,D4                           ; $2EEDFA
+        ORI.B  #$01,D5                          ; $2EEDF6
+        DC.W    $F803                           ; $2EEDFA
         MOVEQ   #$01,D0                         ; $2EEDFC
         DC.W    $0009                           ; $2EEDFE
         BTST    D0,D1                           ; $2EEE00
         MOVEQ   #$01,D1                         ; $2EEE02
-        MOVE.W  D2,D4                           ; $2EEE04
+        DC.W    $F802                           ; $2EEE04
         BTST    D0,D1                           ; $2EEE06
-        ORI.B  #$0101,D7                        ; $2EEE08
+        ORI.B  #$01,D7                          ; $2EEE08
         MOVEQ   #$01,D1                         ; $2EEE0C
-        MOVE.W  D2,D4                           ; $2EEE0E
+        DC.W    $F802                           ; $2EEE0E
         MOVEQ   #$01,D0                         ; $2EEE10
-        ORI.B  #$0101,D1                        ; $2EEE12
+        ORI.B  #$01,D1                          ; $2EEE12
         MOVEQ   #$01,D1                         ; $2EEE16
-        MOVE.W  D2,D4                           ; $2EEE18
+        DC.W    $F802                           ; $2EEE18
         BTST    D0,D1                           ; $2EEE1A
-        ORI.B  #$0101,D3                        ; $2EEE1C
+        ORI.B  #$01,D3                          ; $2EEE1C
         MOVEQ   #$01,D1                         ; $2EEE20
-        MOVE.W  D2,D4                           ; $2EEE22
+        DC.W    $F802                           ; $2EEE22
         MOVEQ   #$01,D0                         ; $2EEE24
-        ORI.B  #$000B,D0                        ; $2EEE26
+        ORI.B  #$0B,D0                          ; $2EEE26
         BTST    D0,D1                           ; $2EEE2A
         MOVEQ   #$01,D1                         ; $2EEE2C
-        MOVE.W  D3,D4                           ; $2EEE2E
+        DC.W    $F803                           ; $2EEE2E
         BTST    D0,D1                           ; $2EEE30
-        ORI.B  #$0101,D3                        ; $2EEE32
-        MOVE.W  D3,D4                           ; $2EEE36
+        ORI.B  #$01,D3                          ; $2EEE32
+        DC.W    $F803                           ; $2EEE36
         BTST    D0,D1                           ; $2EEE38
-        ORI.B  #$0101,D4                        ; $2EEE3A
+        ORI.B  #$01,D4                          ; $2EEE3A
         MOVEQ   #$01,D1                         ; $2EEE3E
-        MOVE.W  D2,D4                           ; $2EEE40
+        DC.W    $F802                           ; $2EEE40
         BTST    D0,D7                           ; $2EEE42
         MOVEQ   #$01,D2                         ; $2EEE44
-        MOVE.W  D2,D4                           ; $2EEE46
+        DC.W    $F802                           ; $2EEE46
         MOVEQ   #$01,D1                         ; $2EEE48
         BTST    D0,D1                           ; $2EEE4A
         DC.W    $0009                           ; $2EEE4C
         BTST    D0,D1                           ; $2EEE4E
-        MOVE.W  D2,D4                           ; $2EEE50
+        DC.W    $F802                           ; $2EEE50
         MOVEQ   #$01,D1                         ; $2EEE52
         BTST    D0,D1                           ; $2EEE54
-        ORI.B  #$0106,D1                        ; $2EEE56
+        ORI.B  #$06,D1                          ; $2EEE56
         MOVEQ   #$01,D0                         ; $2EEE5A
-        MOVE.W  D2,D4                           ; $2EEE5C
+        DC.W    $F802                           ; $2EEE5C
         MOVEQ   #$01,D1                         ; $2EEE5E
         BTST    D0,D1                           ; $2EEE60
-        ORI.B  #$0101,D1                        ; $2EEE62
-        MOVE.W  D2,D4                           ; $2EEE66
+        ORI.B  #$01,D1                          ; $2EEE62
+        DC.W    $F802                           ; $2EEE66
         MOVEQ   #$01,D1                         ; $2EEE68
         BTST    D0,D1                           ; $2EEE6A
-        ORI.B  #$0101,D3                        ; $2EEE6C
-        MOVE.W  D2,D4                           ; $2EEE70
+        ORI.B  #$01,D3                          ; $2EEE6C
+        DC.W    $F802                           ; $2EEE70
         MOVEQ   #$01,D1                         ; $2EEE72
         BTST    D0,D1                           ; $2EEE74
-        ORI.B  #$000C,D0                        ; $2EEE76
+        ORI.B  #$0C,D0                          ; $2EEE76
         BTST    D0,D1                           ; $2EEE7A
-        MOVE.W  D3,D4                           ; $2EEE7C
+        DC.W    $F803                           ; $2EEE7C
         MOVEQ   #$01,D1                         ; $2EEE7E
         BTST    D0,D1                           ; $2EEE80
-        ORI.B  #$0101,D2                        ; $2EEE82
-        MOVE.W  D3,D4                           ; $2EEE86
+        ORI.B  #$01,D2                          ; $2EEE82
+        DC.W    $F803                           ; $2EEE86
         BTST    D0,D1                           ; $2EEE88
-        ORI.B  #$0101,D5                        ; $2EEE8A
-        MOVE.W  D2,D4                           ; $2EEE8E
+        ORI.B  #$01,D5                          ; $2EEE8A
+        DC.W    $F802                           ; $2EEE8E
         MOVEQ   #$01,D1                         ; $2EEE90
         BTST    D0,D1                           ; $2EEE92
         MOVEQ   #$01,D1                         ; $2EEE94
-        MOVE.W  D7,D4                           ; $2EEE96
+        DC.W    $F807                           ; $2EEE96
         MOVEQ   #$01,D2                         ; $2EEE98
         BTST    D0,D1                           ; $2EEE9A
         DC.W    $0009                           ; $2EEE9C
         BTST    D0,D1                           ; $2EEE9E
         MOVEQ   #$01,D2                         ; $2EEEA0
-        MOVE.W  D1,D4                           ; $2EEEA2
+        DC.W    $F801                           ; $2EEEA2
         MOVEQ   #$01,D2                         ; $2EEEA4
         BTST    D0,D1                           ; $2EEEA6
-        ORI.B  #$0101,D1                        ; $2EEEA8
+        ORI.B  #$01,D1                          ; $2EEEA8
         MOVEQ   #$01,D1                         ; $2EEEAC
-        MOVE.W  D7,D4                           ; $2EEEAE
+        DC.W    $F807                           ; $2EEEAE
         MOVEQ   #$01,D2                         ; $2EEEB0
         BTST    D0,D1                           ; $2EEEB2
-        ORI.B  #$0101,D1                        ; $2EEEB4
+        ORI.B  #$01,D1                          ; $2EEEB4
         MOVEQ   #$01,D2                         ; $2EEEB8
-        MOVE.W  D1,D4                           ; $2EEEBA
+        DC.W    $F801                           ; $2EEEBA
         MOVEQ   #$01,D2                         ; $2EEEBC
         BTST    D0,D1                           ; $2EEEBE
-        ORI.B  #$0101,D3                        ; $2EEEC0
+        ORI.B  #$01,D3                          ; $2EEEC0
         MOVEQ   #$01,D2                         ; $2EEEC4
-        MOVE.W  D1,D4                           ; $2EEEC6
+        DC.W    $F801                           ; $2EEEC6
         MOVEQ   #$01,D2                         ; $2EEEC8
         BTST    D0,D1                           ; $2EEECA
-        ORI.B  #$000C,D0                        ; $2EEECC
+        ORI.B  #$0C,D0                          ; $2EEECC
         BTST    D0,D1                           ; $2EEED0
         MOVEQ   #$01,D2                         ; $2EEED2
-        MOVE.W  D2,D4                           ; $2EEED4
+        DC.W    $F802                           ; $2EEED4
         MOVEQ   #$01,D2                         ; $2EEED6
         BTST    D0,D1                           ; $2EEED8
-        ORI.B  #$0101,D2                        ; $2EEEDA
-        MOVE.W  D3,D4                           ; $2EEEDE
+        ORI.B  #$01,D2                          ; $2EEEDA
+        DC.W    $F803                           ; $2EEEDE
         BTST    D0,D1                           ; $2EEEE0
-        ORI.B  #$0101,D5                        ; $2EEEE2
+        ORI.B  #$01,D5                          ; $2EEEE2
         MOVEQ   #$01,D1                         ; $2EEEE6
-        MOVE.W  D2,D4                           ; $2EEEE8
+        DC.W    $F802                           ; $2EEEE8
         BTST    D0,D2                           ; $2EEEEA
-        MOVE.W  A0,D4                           ; $2EEEEC
+        DC.W    $F808                           ; $2EEEEC
         BTST    D0,D1                           ; $2EEEEE
         DC.W    $0009                           ; $2EEEF0
         BTST    D0,D1                           ; $2EEEF2
         MOVEQ   #$01,D1                         ; $2EEEF4
-        MOVE.W  D2,D4                           ; $2EEEF6
+        DC.W    $F802                           ; $2EEEF6
         BTST    D0,D1                           ; $2EEEF8
-        ORI.B  #$0101,D2                        ; $2EEEFA
-        MOVE.W  A0,D4                           ; $2EEEFE
+        ORI.B  #$01,D2                          ; $2EEEFA
+        DC.W    $F808                           ; $2EEEFE
         BTST    D0,D1                           ; $2EEF00
-        ORI.B  #$0101,D1                        ; $2EEF02
+        ORI.B  #$01,D1                          ; $2EEF02
         MOVEQ   #$01,D1                         ; $2EEF06
-        MOVE.W  D2,D4                           ; $2EEF08
+        DC.W    $F802                           ; $2EEF08
         BTST    D0,D1                           ; $2EEF0A
-        ORI.B  #$0101,D3                        ; $2EEF0C
+        ORI.B  #$01,D3                          ; $2EEF0C
         MOVEQ   #$01,D1                         ; $2EEF10
-        MOVE.W  D2,D4                           ; $2EEF12
+        DC.W    $F802                           ; $2EEF12
         BTST    D0,D1                           ; $2EEF14
-        ORI.B  #$000C,D0                        ; $2EEF16
+        ORI.B  #$0C,D0                          ; $2EEF16
         BTST    D0,D6                           ; $2EEF1A
-        ORI.B  #$0105,D2                        ; $2EEF1C
-        ORI.B  #$0104,D6                        ; $2EEF20
-        ORI.B  #$0109,D1                        ; $2EEF24
+        ORI.B  #$05,D2                          ; $2EEF1C
+        ORI.B  #$04,D6                          ; $2EEF20
+        ORI.B  #$09,D1                          ; $2EEF24
         DC.W    $0009                           ; $2EEF28
         BTST    D0,D5                           ; $2EEF2A
-        ORI.B  #$010A,D2                        ; $2EEF2C
-        ORI.B  #$0105,D1                        ; $2EEF30
-        ORI.B  #$0105,D3                        ; $2EEF34
-        ORI.B  #$0050,D0                        ; $2EEF38
-        ORI.B  #$0000,D0                        ; $2EEF3C
-        ORI.B  #$0000,D0                        ; $2EEF40
-        ORI.B  #$0006,D0                        ; $2EEF44
+        ORI.B  #$0A,D2                          ; $2EEF2C
+        ORI.B  #$05,D1                          ; $2EEF30
+        ORI.B  #$05,D3                          ; $2EEF34
+        ORI.B  #$50,D0                          ; $2EEF38
+        ORI.B  #$00,D0                          ; $2EEF3C
+        ORI.B  #$00,D0                          ; $2EEF40
+        ORI.B  #$06,D0                          ; $2EEF44
         BTST    D0,D6                           ; $2EEF48
-        ORI.B  #$0109,$003D(A7)                 ; $2EEF4A
+        ORI.B  #$09,$003D(A7)                   ; $2EEF4A
         BTST    D0,(A0)                         ; $2EEF50
-        ORI.B  #$0004,D0                        ; $2EEF52
+        ORI.B  #$04,D0                          ; $2EEF52
         BTST    D0,D2                           ; $2EEF56
         BTST    #1,D1                           ; $2EEF58
         MOVE.B  D1,D4                           ; $2EEF5C
         MOVE.B  D1,-(A1)                        ; $2EEF5E
         BTST    D7,D1                           ; $2EEF60
         BTST    #2,D1                           ; $2EEF62
-        ORI.B  #$0105,$0801(A0)                 ; $2EEF66
-        CMPI.B  #$0F05,D1                       ; $2EEF6C
-        CMPI.B  #$0801,D1                       ; $2EEF70
+        ORI.B  #$05,$0801(A0)                   ; $2EEF66
+        CMPI.B  #$05,D1                         ; $2EEF6C
+        CMPI.B  #$01,D1                         ; $2EEF70
         BTST    D0,D5                           ; $2EEF74
-        ORI.B  #$0105,$01(A3,D0.L)              ; $2EEF76
+        ORI.B  #$05,$01(A3,D0.L)                ; $2EEF76
         BTST    D7,D2                           ; $2EEF7C
         MOVE.B  D2,D3                           ; $2EEF7E
         MOVE.B  D2,D5                           ; $2EEF80
@@ -1444,7 +1444,7 @@
         MOVE.B  D2,D3                           ; $2EEF86
         BTST    D7,D2                           ; $2EEF88
         BTST    #4,D2                           ; $2EEF8A
-        ORI.B  #$0003,D0                        ; $2EEF8E
+        ORI.B  #$03,D0                          ; $2EEF8E
         BTST    D0,D1                           ; $2EEF92
         BTST    D7,D1                           ; $2EEF94
         MOVE.B  D1,-(A1)                        ; $2EEF96
@@ -1452,7 +1452,7 @@
         MOVE.B  D1,-(A1)                        ; $2EEF9A
         BTST    D7,D1                           ; $2EEF9C
         BTST    D0,D1                           ; $2EEF9E
-        ORI.B  #$0104,-(A3)                     ; $2EEFA0
+        ORI.B  #$04,-(A3)                       ; $2EEFA0
         BTST    #1,D1                           ; $2EEFA4
         MOVE.B  D1,D2                           ; $2EEFA8
         MOVE.B  D2,-(A4)                        ; $2EEFAA
@@ -1461,7 +1461,7 @@
         MOVE.B  D1,D2                           ; $2EEFB0
         BTST    D7,D1                           ; $2EEFB2
         BTST    #4,D1                           ; $2EEFB4
-        ORI.B  #$0103,$0801(A4)                 ; $2EEFB8
+        ORI.B  #$03,$0801(A4)                   ; $2EEFB8
         BTST    D7,D1                           ; $2EEFBE
         MOVE.B  D1,D3                           ; $2EEFC0
         MOVE.B  D1,D5                           ; $2EEFC2
@@ -1470,7 +1470,7 @@
         MOVE.B  D1,D3                           ; $2EEFC8
         BTST    D7,D1                           ; $2EEFCA
         BTST    #3,D1                           ; $2EEFCC
-        ORI.B  #$0002,D0                        ; $2EEFD0
+        ORI.B  #$02,D0                          ; $2EEFD0
         BTST    D0,D1                           ; $2EEFD4
         BTST    D7,D1                           ; $2EEFD6
         MOVE.B  D1,D5                           ; $2EEFD8
@@ -1478,46 +1478,46 @@
         MOVE.B  D1,D5                           ; $2EEFDC
         BTST    D7,D1                           ; $2EEFDE
         BTST    D0,D1                           ; $2EEFE0
-        ORI.B  #$0103,(A7)+                     ; $2EEFE2
+        ORI.B  #$03,(A7)+                       ; $2EEFE2
         BTST    #1,D1                           ; $2EEFE6
         MOVE.B  D1,D3                           ; $2EEFEA
         MOVE.L  (A5),D0                         ; $2EEFEC
         MOVE.B  D1,D3                           ; $2EEFEE
         BTST    D7,D1                           ; $2EEFF0
         BTST    #3,D1                           ; $2EEFF2
-        ORI.B  #$0102,-(A7)                     ; $2EEFF6
+        ORI.B  #$02,-(A7)                       ; $2EEFF6
         BTST    #1,D1                           ; $2EEFFA
         MOVE.B  D1,D3                           ; $2EEFFE
         MOVE.L  (A1)+,D0                        ; $2EF000
         MOVE.B  D1,D3                           ; $2EF002
         BTST    D7,D1                           ; $2EF004
         BTST    #3,D1                           ; $2EF006
-        ORI.B  #$0002,D0                        ; $2EF00A
+        ORI.B  #$02,D0                          ; $2EF00A
         BTST    D0,D1                           ; $2EF00E
         MOVE.B  D1,-(A1)                        ; $2EF010
         MOVE.L  A2,D0                           ; $2EF012
         MOVE.B  D1,-(A1)                        ; $2EF014
         BTST    D0,D1                           ; $2EF016
-        ORI.B  #$0102,(A5)+                     ; $2EF018
+        ORI.B  #$02,(A5)+                       ; $2EF018
         BTST    #1,D1                           ; $2EF01C
         MOVE.B  D1,D3                           ; $2EF020
         MOVE.L  (A3)+,D0                        ; $2EF022
         MOVE.B  D1,D3                           ; $2EF024
         BTST    D7,D1                           ; $2EF026
         BTST    #2,D1                           ; $2EF028
-        ORI.B  #$0102,-(A3)                     ; $2EF02C
+        ORI.B  #$02,-(A3)                       ; $2EF02C
         BTST    #1,D1                           ; $2EF030
         MOVE.L  (A7)+,D0                        ; $2EF034
         MOVE.B  D1,D3                           ; $2EF036
         BTST    D7,D1                           ; $2EF038
         BTST    #2,D1                           ; $2EF03A
-        ORI.B  #$0001,D0                        ; $2EF03E
+        ORI.B  #$01,D0                          ; $2EF03E
         BTST    D0,D1                           ; $2EF042
         BTST    #1,D1                           ; $2EF044
         MOVE.L  A2,D0                           ; $2EF048
         MOVE.B  D1,D5                           ; $2EF04A
         BTST    #1,D1                           ; $2EF04C
-        ORI.B  #$0102,(A2)+                     ; $2EF050
+        ORI.B  #$02,(A2)+                       ; $2EF050
         BTST    #1,D1                           ; $2EF054
         MOVE.L  A4,D0                           ; $2EF058
         MOVE.B  D1,D3                           ; $2EF05A
@@ -1528,7 +1528,7 @@
         MOVE.L  A4,D0                           ; $2EF064
         BTST    D7,D1                           ; $2EF066
         BTST    #2,D1                           ; $2EF068
-        ORI.B  #$0102,(A7)+                     ; $2EF06C
+        ORI.B  #$02,(A7)+                       ; $2EF06C
         BTST    #1,D1                           ; $2EF070
         MOVE.L  A3,D0                           ; $2EF074
         MOVE.B  D2,D5                           ; $2EF076
@@ -1539,13 +1539,13 @@
         MOVE.L  A4,D0                           ; $2EF080
         BTST    D7,D1                           ; $2EF082
         BTST    #2,D1                           ; $2EF084
-        ORI.B  #$0001,D0                        ; $2EF088
+        ORI.B  #$01,D0                          ; $2EF088
         BTST    D0,D1                           ; $2EF08C
         BTST    D7,D1                           ; $2EF08E
         MOVE.L  A4,D0                           ; $2EF090
         BTST    D7,D1                           ; $2EF092
         BTST    D0,D1                           ; $2EF094
-        ORI.B  #$0101,(A1)+                     ; $2EF096
+        ORI.B  #$01,(A1)+                       ; $2EF096
         BTST    #1,D1                           ; $2EF09A
         MOVE.L  A3,D0                           ; $2EF09E
         MOVE.B  D1,D2                           ; $2EF0A0
@@ -1556,7 +1556,7 @@
         MOVE.L  A3,D0                           ; $2EF0AE
         MOVE.B  D1,D2                           ; $2EF0B0
         BTST    #1,D1                           ; $2EF0B2
-        ORI.B  #$0101,(A5)+                     ; $2EF0B6
+        ORI.B  #$01,(A5)+                       ; $2EF0B6
         BTST    #1,D1                           ; $2EF0BA
         MOVE.L  A3,D0                           ; $2EF0BE
         MOVE.B  D1,D2                           ; $2EF0C0
@@ -1567,13 +1567,13 @@
         MOVE.L  A3,D0                           ; $2EF0CE
         MOVE.B  D1,D2                           ; $2EF0D0
         BTST    #1,D1                           ; $2EF0D2
-        ORI.B  #$0001,D0                        ; $2EF0D6
+        ORI.B  #$01,D0                          ; $2EF0D6
         BTST    D0,D1                           ; $2EF0DA
         BTST    D7,D1                           ; $2EF0DC
         MOVE.L  A4,D0                           ; $2EF0DE
         BTST    D7,D1                           ; $2EF0E0
         BTST    D0,D1                           ; $2EF0E2
-        ORI.B  #$0101,(A0)+                     ; $2EF0E4
+        ORI.B  #$01,(A0)+                       ; $2EF0E4
         BTST    D7,D1                           ; $2EF0E8
         MOVE.L  A3,D0                           ; $2EF0EA
         MOVE.B  D1,D2                           ; $2EF0EC
@@ -1584,7 +1584,7 @@
         MOVE.L  A3,D0                           ; $2EF0FA
         BTST    D7,D1                           ; $2EF0FC
         BTST    D0,D1                           ; $2EF0FE
-        ORI.B  #$0101,(A3)+                     ; $2EF100
+        ORI.B  #$01,(A3)+                       ; $2EF100
         BTST    D7,D1                           ; $2EF104
         MOVE.L  A3,D0                           ; $2EF106
         MOVE.B  D1,D2                           ; $2EF108
@@ -1596,13 +1596,13 @@
         MOVE.B  D1,D2                           ; $2EF118
         BTST    D7,D1                           ; $2EF11A
         BTST    D0,D1                           ; $2EF11C
-        ORI.B  #$0001,D0                        ; $2EF11E
+        ORI.B  #$01,D0                          ; $2EF11E
         BTST    D0,D1                           ; $2EF122
         MOVE.B  D1,-(A1)                        ; $2EF124
         MOVE.L  A4,D0                           ; $2EF126
         MOVE.B  D1,-(A1)                        ; $2EF128
         BTST    D0,D1                           ; $2EF12A
-        ORI.B  #$0102,(A6)                      ; $2EF12C
+        ORI.B  #$02,(A6)                        ; $2EF12C
         MOVE.B  D1,D3                           ; $2EF130
         MOVE.L  A3,D0                           ; $2EF132
         MOVE.B  D1,-(A0)                        ; $2EF134
@@ -1613,236 +1613,236 @@
         MOVE.L  A3,D0                           ; $2EF13E
         MOVE.B  D1,D3                           ; $2EF140
         BTST    D0,D2                           ; $2EF142
-        ORI.B  #$0101,(A0)+                     ; $2EF144
+        ORI.B  #$01,(A0)+                       ; $2EF144
         BTST    D7,D1                           ; $2EF148
         MOVE.L  A2,D0                           ; $2EF14A
         MOVE.B  D1,D2                           ; $2EF14C
         BTST    #2,D1                           ; $2EF14E
-        ORI.B  #$0102,(A2)                      ; $2EF152
+        ORI.B  #$02,(A2)                        ; $2EF152
         MOVE.B  D1,-(A0)                        ; $2EF156
         MOVE.L  A3,D0                           ; $2EF158
         BTST    D7,D1                           ; $2EF15A
         BTST    D0,D2                           ; $2EF15C
-        ORI.B  #$0001,D0                        ; $2EF15E
+        ORI.B  #$01,D0                          ; $2EF15E
         BTST    D0,D1                           ; $2EF162
         MOVE.B  D1,D4                           ; $2EF164
         MOVE.L  A4,D0                           ; $2EF166
         MOVE.B  D1,D4                           ; $2EF168
         BTST    D0,D1                           ; $2EF16A
-        ORI.B  #$0101,(A5)                      ; $2EF16C
-        CMPI.B  #$1401,D1                       ; $2EF170
+        ORI.B  #$01,(A5)                        ; $2EF16C
+        CMPI.B  #$01,D1                         ; $2EF170
         MOVE.L  A2,D0                           ; $2EF174
         MOVE.B  D1,D2                           ; $2EF176
         BTST    #1,D1                           ; $2EF178
-        ORI.B  #$0101,(A3)                      ; $2EF17C
+        ORI.B  #$01,(A3)                        ; $2EF17C
         BTST    #1,D1                           ; $2EF180
         MOVE.L  A2,D0                           ; $2EF184
         MOVE.B  D1,D2                           ; $2EF186
-        CMPI.B  #$0101,D1                       ; $2EF188
-        ORI.B  #$0101,(A6)                      ; $2EF18C
+        CMPI.B  #$01,D1                         ; $2EF188
+        ORI.B  #$01,(A6)                        ; $2EF18C
         MOVE.B  D1,D2                           ; $2EF190
         MOVE.L  A1,D0                           ; $2EF192
         MOVE.B  D1,-(A4)                        ; $2EF194
         BTST    D7,D1                           ; $2EF196
         BTST    D0,D2                           ; $2EF198
-        ORI.B  #$0101,(A6)                      ; $2EF19A
+        ORI.B  #$01,(A6)                        ; $2EF19A
         BTST    #1,D1                           ; $2EF19E
         MOVE.L  A2,D0                           ; $2EF1A2
         MOVE.B  D1,D3                           ; $2EF1A4
-        CMPI.B  #$0101,D1                       ; $2EF1A6
-        ORI.B  #$0001,D0                        ; $2EF1AA
+        CMPI.B  #$01,D1                         ; $2EF1A6
+        ORI.B  #$01,D0                          ; $2EF1AA
         BTST    D0,D1                           ; $2EF1AE
         MOVE.B  D1,D4                           ; $2EF1B0
         MOVE.L  A4,D0                           ; $2EF1B2
         MOVE.B  D1,D4                           ; $2EF1B4
         BTST    D0,D1                           ; $2EF1B6
-        ORI.B  #$0101,(A4)                      ; $2EF1B8
+        ORI.B  #$01,(A4)                        ; $2EF1B8
         BTST    D7,D1                           ; $2EF1BC
         MOVE.B  D1,-(A3)                        ; $2EF1BE
         MOVE.L  A2,D0                           ; $2EF1C0
         MOVE.B  D1,D2                           ; $2EF1C2
         BTST    D0,D2                           ; $2EF1C4
-        ORI.B  #$0102,(A5)                      ; $2EF1C6
+        ORI.B  #$02,(A5)                        ; $2EF1C6
         MOVE.B  D1,D2                           ; $2EF1CA
         MOVE.L  A2,D0                           ; $2EF1CC
         MOVE.B  D1,-(A3)                        ; $2EF1CE
         BTST    D7,D1                           ; $2EF1D0
         BTST    D0,D1                           ; $2EF1D2
-        ORI.B  #$0101,(A5)                      ; $2EF1D4
+        ORI.B  #$01,(A5)                        ; $2EF1D4
         MOVE.B  D1,D5                           ; $2EF1D8
         MOVE.L  A0,D0                           ; $2EF1DA
         MOVE.B  D1,-(A4)                        ; $2EF1DC
         BTST    D7,D1                           ; $2EF1DE
         BTST    D0,D1                           ; $2EF1E0
-        ORI.B  #$0102,(A1)+                     ; $2EF1E2
+        ORI.B  #$02,(A1)+                       ; $2EF1E2
         MOVE.B  D1,D2                           ; $2EF1E6
         MOVE.L  A2,D0                           ; $2EF1E8
         MOVE.B  D1,-(A3)                        ; $2EF1EA
         BTST    D5,D1                           ; $2EF1EC
         BTST    D0,D1                           ; $2EF1EE
-        ORI.B  #$0001,D0                        ; $2EF1F0
+        ORI.B  #$01,D0                          ; $2EF1F0
         BTST    D0,D1                           ; $2EF1F4
         MOVE.B  D1,-(A1)                        ; $2EF1F6
         MOVE.L  A4,D0                           ; $2EF1F8
         MOVE.B  D1,-(A1)                        ; $2EF1FA
         BTST    D0,D1                           ; $2EF1FC
-        ORI.B  #$0101,(A3)                      ; $2EF1FE
+        ORI.B  #$01,(A3)                        ; $2EF1FE
         BTST    D7,D1                           ; $2EF202
         MOVE.L  A3,D0                           ; $2EF204
         MOVE.B  D1,D2                           ; $2EF206
         BTST    D0,D1                           ; $2EF208
-        ORI.B  #$0101,(A1)+                     ; $2EF20A
+        ORI.B  #$01,(A1)+                       ; $2EF20A
         MOVE.B  D1,D2                           ; $2EF20E
         MOVE.L  A3,D0                           ; $2EF210
         BTST    D7,D1                           ; $2EF212
         BTST    D0,D1                           ; $2EF214
-        ORI.B  #$0101,(A4)                      ; $2EF216
+        ORI.B  #$01,(A4)                        ; $2EF216
         MOVE.L  A0,D0                           ; $2EF21A
         MOVE.B  D1,-(A4)                        ; $2EF21C
         BTST    D7,D1                           ; $2EF21E
         BTST    D0,D1                           ; $2EF220
-        ORI.B  #$0101,(A4)+                     ; $2EF222
+        ORI.B  #$01,(A4)+                       ; $2EF222
         MOVE.B  D1,D2                           ; $2EF226
         MOVE.L  A3,D0                           ; $2EF228
         BTST    D7,D1                           ; $2EF22A
         BTST    D0,D1                           ; $2EF22C
-        ORI.B  #$0001,D0                        ; $2EF22E
+        ORI.B  #$01,D0                          ; $2EF22E
         BTST    D0,D1                           ; $2EF232
         BTST    D7,D1                           ; $2EF234
         MOVE.L  A4,D0                           ; $2EF236
         BTST    D7,D1                           ; $2EF238
         BTST    D0,D1                           ; $2EF23A
-        ORI.B  #$0101,(A2)                      ; $2EF23C
+        ORI.B  #$01,(A2)                        ; $2EF23C
         BTST    D5,D1                           ; $2EF240
         MOVE.L  A3,D0                           ; $2EF242
         MOVE.B  D1,D2                           ; $2EF244
         BTST    D0,D1                           ; $2EF246
-        ORI.B  #$0101,(A3)+                     ; $2EF248
+        ORI.B  #$01,(A3)+                       ; $2EF248
         MOVE.B  D1,D2                           ; $2EF24C
         MOVE.L  A3,D0                           ; $2EF24E
         BTST    D5,D1                           ; $2EF250
         BTST    D0,D1                           ; $2EF252
-        ORI.B  #$0101,(A3)                      ; $2EF254
+        ORI.B  #$01,(A3)                        ; $2EF254
         MOVE.L  A0,D0                           ; $2EF258
         BTST    D7,D1                           ; $2EF25A
         BTST    D0,D1                           ; $2EF25C
-        ORI.B  #$0101,(A6)+                     ; $2EF25E
+        ORI.B  #$01,(A6)+                       ; $2EF25E
         MOVE.B  D1,D2                           ; $2EF262
         MOVE.L  A3,D0                           ; $2EF264
         BTST    D5,D1                           ; $2EF266
         BTST    D0,D1                           ; $2EF268
-        ORI.B  #$0001,D0                        ; $2EF26A
+        ORI.B  #$01,D0                          ; $2EF26A
         BTST    D0,D1                           ; $2EF26E
         BTST    D7,D1                           ; $2EF270
         MOVE.L  A4,D0                           ; $2EF272
         BTST    D7,D1                           ; $2EF274
         BTST    D0,D1                           ; $2EF276
-        ORI.B  #$0101,(A1)                      ; $2EF278
+        ORI.B  #$01,(A1)                        ; $2EF278
         BTST    #12,D1                          ; $2EF27C
         BTST    #1,D1                           ; $2EF280
-        ORI.B  #$0101,(A3)+                     ; $2EF284
+        ORI.B  #$01,(A3)+                       ; $2EF284
         BTST    #12,D1                          ; $2EF288
         BTST    #1,D1                           ; $2EF28C
-        ORI.B  #$0101,(A2)                      ; $2EF290
+        ORI.B  #$01,(A2)                        ; $2EF290
         MOVE.L  D7,D0                           ; $2EF294
         BTST    D7,D1                           ; $2EF296
         BTST    D0,D1                           ; $2EF298
-        ORI.B  #$0101,(A7)+                     ; $2EF29A
+        ORI.B  #$01,(A7)+                       ; $2EF29A
         BTST    #11,D1                          ; $2EF29E
         MOVE.B  D1,-(A3)                        ; $2EF2A2
         BTST    #1,D1                           ; $2EF2A4
-        ORI.B  #$0001,D0                        ; $2EF2A8
+        ORI.B  #$01,D0                          ; $2EF2A8
         BTST    D0,D1                           ; $2EF2AC
         BTST    #12,D1                          ; $2EF2AE
         BTST    #1,D1                           ; $2EF2B2
-        ORI.B  #$0101,(A1)                      ; $2EF2B6
+        ORI.B  #$01,(A1)                        ; $2EF2B6
         MOVE.B  D1,D2                           ; $2EF2BA
         MOVE.L  A3,D0                           ; $2EF2BC
         MOVE.B  D1,-(A0)                        ; $2EF2BE
         BTST    D0,D1                           ; $2EF2C0
-        ORI.B  #$0101,(A5)+                     ; $2EF2C2
+        ORI.B  #$01,(A5)+                       ; $2EF2C2
         MOVE.B  D1,-(A0)                        ; $2EF2C6
         MOVE.L  A3,D0                           ; $2EF2C8
         MOVE.B  D1,D2                           ; $2EF2CA
         BTST    D0,D1                           ; $2EF2CC
-        ORI.B  #$0101,(A2)                      ; $2EF2CE
+        ORI.B  #$01,(A2)                        ; $2EF2CE
         MOVE.L  D6,D0                           ; $2EF2D2
         MOVE.B  D1,D2                           ; $2EF2D4
         BTST    D0,D1                           ; $2EF2D6
-        ORI.B  #$0101,-(A1)                     ; $2EF2D8
+        ORI.B  #$01,-(A1)                       ; $2EF2D8
         MOVE.B  D1,-(A0)                        ; $2EF2DC
         MOVE.L  A3,D0                           ; $2EF2DE
         MOVE.B  D1,D2                           ; $2EF2E0
         BTST    D0,D1                           ; $2EF2E2
-        ORI.B  #$0002,D0                        ; $2EF2E4
+        ORI.B  #$02,D0                          ; $2EF2E4
         BTST    D0,D1                           ; $2EF2E8
         MOVE.B  D1,-(A5)                        ; $2EF2EA
         MOVE.L  A2,D0                           ; $2EF2EC
         MOVE.B  D1,-(A5)                        ; $2EF2EE
         BTST    D0,D1                           ; $2EF2F0
-        ORI.B  #$0101,(A1)                      ; $2EF2F2
+        ORI.B  #$01,(A1)                        ; $2EF2F2
         BTST    D7,D1                           ; $2EF2F6
         MOVE.L  A3,D0                           ; $2EF2F8
         MOVE.B  D1,D2                           ; $2EF2FA
         BTST    D0,D1                           ; $2EF2FC
-        ORI.B  #$0101,(A7)+                     ; $2EF2FE
+        ORI.B  #$01,(A7)+                       ; $2EF2FE
         MOVE.B  D1,D2                           ; $2EF302
         MOVE.L  A3,D0                           ; $2EF304
         BTST    D7,D1                           ; $2EF306
         BTST    D0,D1                           ; $2EF308
-        ORI.B  #$0101,(A1)                      ; $2EF30A
+        ORI.B  #$01,(A1)                        ; $2EF30A
         MOVE.L  D6,D0                           ; $2EF30E
         BTST    #1,D1                           ; $2EF310
-        ORI.B  #$0101,-(A2)                     ; $2EF314
+        ORI.B  #$01,-(A2)                       ; $2EF314
         MOVE.B  D1,D2                           ; $2EF318
         MOVE.L  A3,D0                           ; $2EF31A
         BTST    D7,D1                           ; $2EF31C
         BTST    D0,D1                           ; $2EF31E
-        ORI.B  #$0002,D0                        ; $2EF320
+        ORI.B  #$02,D0                          ; $2EF320
         BTST    D0,D1                           ; $2EF324
         MOVE.B  D1,D4                           ; $2EF326
         MOVE.L  A2,D0                           ; $2EF328
         MOVE.B  D1,D4                           ; $2EF32A
         BTST    D0,D1                           ; $2EF32C
-        ORI.B  #$0101,(A0)                      ; $2EF32E
+        ORI.B  #$01,(A0)                        ; $2EF32E
         BTST    #12,D1                          ; $2EF332
         BTST    #1,D1                           ; $2EF336
-        ORI.B  #$0101,(A7)+                     ; $2EF33A
+        ORI.B  #$01,(A7)+                       ; $2EF33A
         BTST    #12,D1                          ; $2EF33E
         BTST    #1,D1                           ; $2EF342
-        ORI.B  #$0101,(A0)                      ; $2EF346
+        ORI.B  #$01,(A0)                        ; $2EF346
         MOVE.L  D5,D0                           ; $2EF34A
         MOVE.B  D1,D2                           ; $2EF34C
         BTST    D0,D1                           ; $2EF34E
-        ORI.B  #$0101,-(A3)                     ; $2EF350
+        ORI.B  #$01,-(A3)                       ; $2EF350
         BTST    #12,D1                          ; $2EF354
         BTST    #1,D1                           ; $2EF358
-        ORI.B  #$0002,D0                        ; $2EF35C
+        ORI.B  #$02,D0                          ; $2EF35C
         BTST    D0,D1                           ; $2EF360
         MOVE.B  D1,D4                           ; $2EF362
         MOVE.L  A2,D0                           ; $2EF364
         MOVE.B  D1,D4                           ; $2EF366
         BTST    D0,D1                           ; $2EF368
-        ORI.B  #$0101,(A0)                      ; $2EF36A
+        ORI.B  #$01,(A0)                        ; $2EF36A
         MOVE.B  D1,D2                           ; $2EF36E
         MOVE.L  A3,D0                           ; $2EF370
         MOVE.B  D1,D2                           ; $2EF372
         BTST    D0,D1                           ; $2EF374
-        ORI.B  #$0101,-(A1)                     ; $2EF376
+        ORI.B  #$01,-(A1)                       ; $2EF376
         MOVE.B  D1,D2                           ; $2EF37A
         MOVE.L  A3,D0                           ; $2EF37C
         MOVE.B  D1,D2                           ; $2EF37E
         BTST    D0,D1                           ; $2EF380
-        ORI.B  #$0101,(A0)                      ; $2EF382
+        ORI.B  #$01,(A0)                        ; $2EF382
         MOVE.L  D5,D0                           ; $2EF386
         BTST    D7,D1                           ; $2EF388
         BTST    D0,D1                           ; $2EF38A
-        ORI.B  #$0101,-(A4)                     ; $2EF38C
+        ORI.B  #$01,-(A4)                       ; $2EF38C
         MOVE.B  D1,D2                           ; $2EF390
         MOVE.L  A3,D0                           ; $2EF392
         MOVE.B  D1,D2                           ; $2EF394
         BTST    D0,D1                           ; $2EF396
-        ORI.B  #$0002,D0                        ; $2EF398
+        ORI.B  #$02,D0                          ; $2EF398
         BTST    D0,D1                           ; $2EF39C
         MOVE.B  D1,-(A2)                        ; $2EF39E
         MOVE.L  A2,D0                           ; $2EF3A0
@@ -1852,17 +1852,17 @@
         BTST    D0,D1                           ; $2EF3A8
         BTST    #12,D1                          ; $2EF3AA
         BTST    #1,D1                           ; $2EF3AE
-        ORI.B  #$0101,-(A1)                     ; $2EF3B2
+        ORI.B  #$01,-(A1)                       ; $2EF3B2
         BTST    #12,D1                          ; $2EF3B6
         BTST    #1,D1                           ; $2EF3BA
         DC.W    $000F                           ; $2EF3BE
         BTST    D0,D1                           ; $2EF3C0
         MOVE.L  D5,D0                           ; $2EF3C2
         BTST    #1,D1                           ; $2EF3C4
-        ORI.B  #$0101,-(A4)                     ; $2EF3C8
+        ORI.B  #$01,-(A4)                       ; $2EF3C8
         BTST    #12,D1                          ; $2EF3CC
         BTST    #1,D1                           ; $2EF3D0
-        ORI.B  #$0002,D0                        ; $2EF3D4
+        ORI.B  #$02,D0                          ; $2EF3D4
         BTST    D0,D1                           ; $2EF3D8
         MOVE.B  D1,-(A2)                        ; $2EF3DA
         MOVE.L  A2,D0                           ; $2EF3DC
@@ -1874,7 +1874,7 @@
         MOVE.L  A3,D0                           ; $2EF3E8
         MOVE.B  D1,D2                           ; $2EF3EA
         BTST    D0,D1                           ; $2EF3EC
-        ORI.B  #$0101,-(A3)                     ; $2EF3EE
+        ORI.B  #$01,-(A3)                       ; $2EF3EE
         MOVE.B  D1,D2                           ; $2EF3F2
         MOVE.L  A3,D0                           ; $2EF3F4
         MOVE.B  D1,D3                           ; $2EF3F6
@@ -1883,12 +1883,12 @@
         BTST    D0,D1                           ; $2EF3FC
         MOVE.L  D5,D0                           ; $2EF3FE
         BTST    D0,D1                           ; $2EF400
-        ORI.B  #$0101,-(A6)                     ; $2EF402
+        ORI.B  #$01,-(A6)                       ; $2EF402
         MOVE.B  D1,D2                           ; $2EF406
         MOVE.L  A3,D0                           ; $2EF408
         MOVE.B  D1,D3                           ; $2EF40A
         BTST    D0,D1                           ; $2EF40C
-        ORI.B  #$0002,D0                        ; $2EF40E
+        ORI.B  #$02,D0                          ; $2EF40E
         BTST    D0,D1                           ; $2EF412
         MOVE.B  D1,-(A1)                        ; $2EF414
         MOVE.L  A2,D0                           ; $2EF416
@@ -1899,7 +1899,7 @@
         BTST    #12,D1                          ; $2EF420
         BTST    D7,D1                           ; $2EF424
         BTST    D0,D1                           ; $2EF426
-        ORI.B  #$0101,-(A3)                     ; $2EF428
+        ORI.B  #$01,-(A3)                       ; $2EF428
         BTST    D7,D1                           ; $2EF42C
         MOVE.L  A4,D0                           ; $2EF42E
         BTST    #1,D1                           ; $2EF430
@@ -1908,11 +1908,11 @@
         MOVE.L  D4,D0                           ; $2EF438
         BTST    D7,D1                           ; $2EF43A
         BTST    D0,D1                           ; $2EF43C
-        ORI.B  #$0101,-(A6)                     ; $2EF43E
+        ORI.B  #$01,-(A6)                       ; $2EF43E
         BTST    D7,D1                           ; $2EF442
         MOVE.L  A4,D0                           ; $2EF444
         BTST    #1,D1                           ; $2EF446
-        ORI.B  #$0002,D0                        ; $2EF44A
+        ORI.B  #$02,D0                          ; $2EF44A
         BTST    D0,D1                           ; $2EF44E
         MOVE.B  D1,-(A1)                        ; $2EF450
         MOVE.L  A2,D0                           ; $2EF452
@@ -1923,7 +1923,7 @@
         MOVE.B  D1,D3                           ; $2EF45C
         MOVE.L  A4,D0                           ; $2EF45E
         BTST    #1,D1                           ; $2EF460
-        ORI.B  #$0101,-(A3)                     ; $2EF464
+        ORI.B  #$01,-(A3)                       ; $2EF464
         BTST    #12,D1                          ; $2EF468
         MOVE.B  D1,D3                           ; $2EF46C
         BTST    D0,D1                           ; $2EF46E
@@ -1933,11 +1933,11 @@
         MOVE.L  D2,D0                           ; $2EF476
         BTST    D7,D1                           ; $2EF478
         BTST    D0,D1                           ; $2EF47A
-        ORI.B  #$0101,-(A7)                     ; $2EF47C
+        ORI.B  #$01,-(A7)                       ; $2EF47C
         BTST    #12,D1                          ; $2EF480
         MOVE.B  D1,D3                           ; $2EF484
         BTST    D0,D1                           ; $2EF486
-        ORI.B  #$0002,D0                        ; $2EF488
+        ORI.B  #$02,D0                          ; $2EF488
         BTST    D0,D1                           ; $2EF48C
         BTST    D7,D1                           ; $2EF48E
         MOVE.L  A2,D0                           ; $2EF490
@@ -1949,18 +1949,18 @@
         MOVE.L  A3,D0                           ; $2EF49E
         MOVE.B  D1,D2                           ; $2EF4A0
         BTST    D0,D1                           ; $2EF4A2
-        ORI.B  #$0101,-(A5)                     ; $2EF4A4
+        ORI.B  #$01,-(A5)                       ; $2EF4A4
         MOVE.B  D1,D2                           ; $2EF4A8
         MOVE.L  A3,D0                           ; $2EF4AA
         MOVE.B  D1,-(A3)                        ; $2EF4AC
         BTST    #1,D1                           ; $2EF4AE
         DC.W    $000D                           ; $2EF4B2
         BTST    D0,D5                           ; $2EF4B4
-        ORI.B  #$0101,$1401(A1)                 ; $2EF4B6
+        ORI.B  #$01,$1401(A1)                   ; $2EF4B6
         MOVE.L  A3,D0                           ; $2EF4BC
         MOVE.B  D1,-(A3)                        ; $2EF4BE
         BTST    #1,D1                           ; $2EF4C0
-        ORI.B  #$0002,D0                        ; $2EF4C4
+        ORI.B  #$02,D0                          ; $2EF4C4
         BTST    D0,D1                           ; $2EF4C8
         BTST    D7,D1                           ; $2EF4CA
         MOVE.L  A2,D0                           ; $2EF4CC
@@ -1972,16 +1972,18 @@
         MOVE.L  A4,D0                           ; $2EF4D8
         BTST    D7,D1                           ; $2EF4DA
         BTST    D0,D1                           ; $2EF4DC
-        ORI.B  #$0101,-(A5)                     ; $2EF4DE
+        ORI.B  #$01,-(A5)                       ; $2EF4DE
         BTST    D7,D1                           ; $2EF4E2
         MOVE.L  A4,D0                           ; $2EF4E4
         BTST    D7,D1                           ; $2EF4E6
         BTST    D0,D1                           ; $2EF4E8
-        ORI.B  #$0101,$01(PC,D0.L)              ; $2EF4EA
+        DC.W    $003B                           ; $2EF4EA
+        BTST    D0,D1                           ; $2EF4EC
+        BTST    D7,D1                           ; $2EF4EE
         MOVE.L  A4,D0                           ; $2EF4F0
         BTST    D7,D1                           ; $2EF4F2
         BTST    D0,D1                           ; $2EF4F4
-        ORI.B  #$0002,D0                        ; $2EF4F6
+        ORI.B  #$02,D0                          ; $2EF4F6
         BTST    D0,D1                           ; $2EF4FA
         BTST    #10,D1                          ; $2EF4FC
         BTST    #1,D1                           ; $2EF500
@@ -1990,15 +1992,16 @@
         MOVE.B  D1,D3                           ; $2EF508
         MOVE.L  A4,D0                           ; $2EF50A
         BTST    #1,D1                           ; $2EF50C
-        ORI.B  #$0101,-(A5)                     ; $2EF510
+        ORI.B  #$01,-(A5)                       ; $2EF510
         BTST    #12,D1                          ; $2EF514
         MOVE.B  D1,D3                           ; $2EF518
         BTST    D0,D1                           ; $2EF51A
-        ORI.B  #$0101,$01(PC,D0.L)              ; $2EF51C
-        MOVE.L  A4,D0                           ; $2EF522
+        DC.W    $003B                           ; $2EF51C
+        BTST    D0,D1                           ; $2EF51E
+        BTST    #12,D1                          ; $2EF520
         MOVE.B  D1,D3                           ; $2EF524
         BTST    D0,D1                           ; $2EF526
-        ORI.B  #$0003,D0                        ; $2EF528
+        ORI.B  #$03,D0                          ; $2EF528
         BTST    D0,D1                           ; $2EF52C
         MOVE.B  D1,-(A5)                        ; $2EF52E
         MOVE.L  A0,D0                           ; $2EF530
@@ -2010,16 +2013,18 @@
         MOVE.L  A3,D0                           ; $2EF53E
         MOVE.B  D1,D4                           ; $2EF540
         BTST    D0,D1                           ; $2EF542
-        ORI.B  #$0101,-(A7)                     ; $2EF544
+        ORI.B  #$01,-(A7)                       ; $2EF544
         MOVE.B  D1,D4                           ; $2EF548
         MOVE.L  A3,D0                           ; $2EF54A
         MOVE.B  D1,-(A3)                        ; $2EF54C
         BTST    #1,D1                           ; $2EF54E
-        ORI.B  #$0101,$01(PC,D1.L)              ; $2EF552
+        DC.W    $003B                           ; $2EF552
+        BTST    D0,D1                           ; $2EF554
+        MOVE.B  D1,D4                           ; $2EF556
         MOVE.L  A3,D0                           ; $2EF558
         MOVE.B  D1,-(A3)                        ; $2EF55A
         BTST    #1,D1                           ; $2EF55C
-        ORI.B  #$0003,D0                        ; $2EF560
+        ORI.B  #$03,D0                          ; $2EF560
         BTST    D0,D1                           ; $2EF564
         MOVE.B  D1,D4                           ; $2EF566
         MOVE.L  A0,D0                           ; $2EF568
@@ -2031,16 +2036,18 @@
         MOVE.L  A4,D0                           ; $2EF574
         MOVE.B  D1,D3                           ; $2EF576
         BTST    D0,D1                           ; $2EF578
-        ORI.B  #$0101,-(A7)                     ; $2EF57A
+        ORI.B  #$01,-(A7)                       ; $2EF57A
         MOVE.B  D1,D3                           ; $2EF57E
         MOVE.L  A4,D0                           ; $2EF580
         BTST    D7,D1                           ; $2EF582
         BTST    D0,D1                           ; $2EF584
-        ORI.B  #$0101,$01(PC,D1.W)              ; $2EF586
+        DC.W    $003B                           ; $2EF586
+        BTST    D0,D1                           ; $2EF588
+        MOVE.B  D1,D3                           ; $2EF58A
         MOVE.L  A4,D0                           ; $2EF58C
         BTST    D7,D1                           ; $2EF58E
         BTST    D0,D1                           ; $2EF590
-        ORI.B  #$0003,D0                        ; $2EF592
+        ORI.B  #$03,D0                          ; $2EF592
         BTST    D0,D1                           ; $2EF596
         MOVE.B  D1,D4                           ; $2EF598
         MOVE.L  A0,D0                           ; $2EF59A
@@ -2052,16 +2059,18 @@
         MOVE.L  A4,D0                           ; $2EF5A6
         MOVE.B  D1,D2                           ; $2EF5A8
         BTST    D0,D1                           ; $2EF5AA
-        ORI.B  #$0101,-(A7)                     ; $2EF5AC
+        ORI.B  #$01,-(A7)                       ; $2EF5AC
         MOVE.B  D1,D2                           ; $2EF5B0
         MOVE.L  A4,D0                           ; $2EF5B2
         MOVE.B  D1,D3                           ; $2EF5B4
         BTST    D0,D1                           ; $2EF5B6
-        ORI.B  #$0101,$01(PC,D1.W)              ; $2EF5B8
+        DC.W    $003B                           ; $2EF5B8
+        BTST    D0,D1                           ; $2EF5BA
+        MOVE.B  D1,D2                           ; $2EF5BC
         MOVE.L  A4,D0                           ; $2EF5BE
         MOVE.B  D1,D3                           ; $2EF5C0
         BTST    D0,D1                           ; $2EF5C2
-        ORI.B  #$0003,D0                        ; $2EF5C4
+        ORI.B  #$03,D0                          ; $2EF5C4
         BTST    D0,D1                           ; $2EF5C8
         MOVE.B  D1,-(A2)                        ; $2EF5CA
         MOVE.L  A0,D0                           ; $2EF5CC
@@ -2073,16 +2082,18 @@
         MOVE.L  A4,D0                           ; $2EF5D8
         BTST    D7,D1                           ; $2EF5DA
         BTST    D0,D1                           ; $2EF5DC
-        ORI.B  #$0101,-(A7)                     ; $2EF5DE
+        ORI.B  #$01,-(A7)                       ; $2EF5DE
         BTST    D7,D1                           ; $2EF5E2
         MOVE.L  A4,D0                           ; $2EF5E4
         MOVE.B  D1,-(A3)                        ; $2EF5E6
         BTST    D0,D1                           ; $2EF5E8
-        ORI.B  #$0101,$01(PC,D0.L)              ; $2EF5EA
+        DC.W    $003B                           ; $2EF5EA
+        BTST    D0,D1                           ; $2EF5EC
+        BTST    D7,D1                           ; $2EF5EE
         MOVE.L  A4,D0                           ; $2EF5F0
         MOVE.B  D1,-(A3)                        ; $2EF5F2
         BTST    D0,D1                           ; $2EF5F4
-        ORI.B  #$0003,D0                        ; $2EF5F6
+        ORI.B  #$03,D0                          ; $2EF5F6
         BTST    D0,D1                           ; $2EF5FA
         MOVE.B  D1,-(A1)                        ; $2EF5FC
         MOVE.L  A0,D0                           ; $2EF5FE
@@ -2094,16 +2105,18 @@
         MOVE.L  A4,D0                           ; $2EF60C
         BTST    D7,D1                           ; $2EF60E
         BTST    D0,D1                           ; $2EF610
-        ORI.B  #$0101,-(A7)                     ; $2EF612
+        ORI.B  #$01,-(A7)                       ; $2EF612
         BTST    D7,D1                           ; $2EF616
         MOVE.L  A4,D0                           ; $2EF618
         MOVE.B  D1,-(A4)                        ; $2EF61A
         BTST    #1,D1                           ; $2EF61C
-        ORI.B  #$0101,$0F01(PC)                 ; $2EF620
+        DC.W    $003A                           ; $2EF620
+        BTST    D0,D1                           ; $2EF622
+        BTST    D7,D1                           ; $2EF624
         MOVE.L  A4,D0                           ; $2EF626
         MOVE.B  D1,-(A4)                        ; $2EF628
         BTST    #1,D1                           ; $2EF62A
-        ORI.B  #$0003,D0                        ; $2EF62E
+        ORI.B  #$03,D0                          ; $2EF62E
         BTST    D0,D1                           ; $2EF632
         MOVE.B  D1,-(A1)                        ; $2EF634
         MOVE.L  A0,D0                           ; $2EF636
@@ -2114,15 +2127,16 @@
         BTST    D7,D1                           ; $2EF640
         MOVE.L  A5,D0                           ; $2EF642
         BTST    #1,D1                           ; $2EF644
-        ORI.B  #$0101,-(A7)                     ; $2EF648
+        ORI.B  #$01,-(A7)                       ; $2EF648
         BTST    #13,D1                          ; $2EF64C
         BTST    D7,D1                           ; $2EF650
         BTST    D0,D1                           ; $2EF652
-        ORI.B  #$0101,$0801(PC)                 ; $2EF654
-        MOVE.L  A5,D0                           ; $2EF65A
+        DC.W    $003A                           ; $2EF654
+        BTST    D0,D1                           ; $2EF656
+        BTST    #13,D1                          ; $2EF658
         BTST    D7,D1                           ; $2EF65C
         BTST    D0,D1                           ; $2EF65E
-        ORI.B  #$0003,D0                        ; $2EF660
+        ORI.B  #$03,D0                          ; $2EF660
         BTST    D0,D1                           ; $2EF664
         BTST    D7,D1                           ; $2EF666
         MOVE.L  A0,D0                           ; $2EF668
@@ -2133,13 +2147,15 @@
         BTST    D7,D1                           ; $2EF672
         MOVE.L  A5,D0                           ; $2EF674
         BTST    D0,D1                           ; $2EF676
-        ORI.B  #$0101,$200D(A1)                 ; $2EF678
+        ORI.B  #$01,$200D(A1)                   ; $2EF678
         BTST    D7,D1                           ; $2EF67E
         BTST    D0,D1                           ; $2EF680
-        ORI.B  #$0101,$0D(PC,D2.W)              ; $2EF682
+        DC.W    $003B                           ; $2EF682
+        BTST    D0,D1                           ; $2EF684
+        MOVE.L  A5,D0                           ; $2EF686
         BTST    D7,D1                           ; $2EF688
         BTST    D0,D1                           ; $2EF68A
-        ORI.B  #$0003,D0                        ; $2EF68C
+        ORI.B  #$03,D0                          ; $2EF68C
         BTST    D0,D1                           ; $2EF690
         BTST    D7,D1                           ; $2EF692
         MOVE.L  A0,D0                           ; $2EF694
@@ -2150,13 +2166,15 @@
         MOVE.B  D1,D3                           ; $2EF69E
         MOVE.L  A5,D0                           ; $2EF6A0
         BTST    D0,D1                           ; $2EF6A2
-        ORI.B  #$0101,$200D(A1)                 ; $2EF6A4
+        ORI.B  #$01,$200D(A1)                   ; $2EF6A4
         MOVE.B  D1,D3                           ; $2EF6AA
         BTST    D0,D1                           ; $2EF6AC
-        ORI.B  #$0101,$0D(PC,D2.W)              ; $2EF6AE
+        DC.W    $003B                           ; $2EF6AE
+        BTST    D0,D1                           ; $2EF6B0
+        MOVE.L  A5,D0                           ; $2EF6B2
         MOVE.B  D1,D3                           ; $2EF6B4
         BTST    D0,D1                           ; $2EF6B6
-        ORI.B  #$0003,D0                        ; $2EF6B8
+        ORI.B  #$03,D0                          ; $2EF6B8
         BTST    D0,D1                           ; $2EF6BC
         BTST    #8,D1                           ; $2EF6BE
         BTST    #1,D1                           ; $2EF6C2
@@ -2165,13 +2183,15 @@
         MOVE.B  D1,D3                           ; $2EF6CA
         MOVE.L  A5,D0                           ; $2EF6CC
         BTST    D0,D1                           ; $2EF6CE
-        ORI.B  #$0101,$200D(A1)                 ; $2EF6D0
+        ORI.B  #$01,$200D(A1)                   ; $2EF6D0
         MOVE.B  D1,D3                           ; $2EF6D6
         BTST    D0,D1                           ; $2EF6D8
-        ORI.B  #$0101,$0D(PC,D2.W)              ; $2EF6DA
+        DC.W    $003B                           ; $2EF6DA
+        BTST    D0,D1                           ; $2EF6DC
+        MOVE.L  A5,D0                           ; $2EF6DE
         MOVE.B  D1,D3                           ; $2EF6E0
         BTST    D0,D1                           ; $2EF6E2
-        ORI.B  #$0004,D0                        ; $2EF6E4
+        ORI.B  #$04,D0                          ; $2EF6E4
         BTST    D0,D1                           ; $2EF6E8
         MOVE.B  D1,D7                           ; $2EF6EA
         MOVE.L  D6,D0                           ; $2EF6EC
@@ -2182,13 +2202,15 @@
         MOVE.B  D1,-(A4)                        ; $2EF6F6
         MOVE.L  A5,D0                           ; $2EF6F8
         BTST    D0,D1                           ; $2EF6FA
-        ORI.B  #$0101,$200D(A1)                 ; $2EF6FC
+        ORI.B  #$01,$200D(A1)                   ; $2EF6FC
         MOVE.B  D1,-(A4)                        ; $2EF702
         BTST    D0,D1                           ; $2EF704
-        ORI.B  #$0101,$0D(PC,D2.W)              ; $2EF706
+        DC.W    $003B                           ; $2EF706
+        BTST    D0,D1                           ; $2EF708
+        MOVE.L  A5,D0                           ; $2EF70A
         MOVE.B  D1,-(A4)                        ; $2EF70C
         BTST    D0,D1                           ; $2EF70E
-        ORI.B  #$0004,D0                        ; $2EF710
+        ORI.B  #$04,D0                          ; $2EF710
         BTST    D0,D1                           ; $2EF714
         MOVE.B  D1,D4                           ; $2EF716
         MOVE.L  D6,D0                           ; $2EF718
@@ -2199,13 +2221,15 @@
         MOVE.B  D1,-(A4)                        ; $2EF722
         MOVE.L  A5,D0                           ; $2EF724
         BTST    D0,D1                           ; $2EF726
-        ORI.B  #$0101,$200D(A1)                 ; $2EF728
+        ORI.B  #$01,$200D(A1)                   ; $2EF728
         MOVE.B  D1,-(A4)                        ; $2EF72E
         BTST    D0,D1                           ; $2EF730
-        ORI.B  #$0101,$0D(PC,D2.W)              ; $2EF732
+        DC.W    $003B                           ; $2EF732
+        BTST    D0,D1                           ; $2EF734
+        MOVE.L  A5,D0                           ; $2EF736
         MOVE.B  D1,-(A4)                        ; $2EF738
         BTST    D0,D1                           ; $2EF73A
-        ORI.B  #$0004,D0                        ; $2EF73C
+        ORI.B  #$04,D0                          ; $2EF73C
         BTST    D0,D1                           ; $2EF740
         MOVE.B  D1,-(A2)                        ; $2EF742
         MOVE.L  D6,D0                           ; $2EF744
@@ -2215,13 +2239,13 @@
         BTST    D0,D1                           ; $2EF74C
         MOVE.L  A6,D0                           ; $2EF74E
         BTST    D0,D1                           ; $2EF750
-        ORI.B  #$0101,$200E(A1)                 ; $2EF752
+        ORI.B  #$01,$200E(A1)                   ; $2EF752
         BTST    D0,D1                           ; $2EF758
-        ORI.B  #$011E,D7                        ; $2EF75A
-        ORI.B  #$0101,(A6)                      ; $2EF75E
+        ORI.B  #$1E,D7                          ; $2EF75A
+        ORI.B  #$01,(A6)                        ; $2EF75E
         MOVE.L  A6,D0                           ; $2EF762
         BTST    D0,D1                           ; $2EF764
-        ORI.B  #$0004,D0                        ; $2EF766
+        ORI.B  #$04,D0                          ; $2EF766
         BTST    D0,D1                           ; $2EF76A
         MOVE.B  D1,-(A2)                        ; $2EF76C
         MOVE.L  D6,D0                           ; $2EF76E
@@ -2231,17 +2255,17 @@
         BTST    D0,D1                           ; $2EF776
         MOVE.L  A6,D0                           ; $2EF778
         BTST    D0,D1                           ; $2EF77A
-        ORI.B  #$0101,$200E(A1)                 ; $2EF77C
+        ORI.B  #$01,$200E(A1)                   ; $2EF77C
         BTST    D0,D1                           ; $2EF782
-        ORI.B  #$0101,D7                        ; $2EF784
+        ORI.B  #$01,D7                          ; $2EF784
         MOVE.B  D1,D2                           ; $2EF788
         MOVE.L  (A2)+,D0                        ; $2EF78A
         MOVE.B  D1,D2                           ; $2EF78C
         BTST    D0,D1                           ; $2EF78E
-        ORI.B  #$0101,(A6)                      ; $2EF790
+        ORI.B  #$01,(A6)                        ; $2EF790
         MOVE.L  A6,D0                           ; $2EF794
         BTST    D0,D1                           ; $2EF796
-        ORI.B  #$0004,D0                        ; $2EF798
+        ORI.B  #$04,D0                          ; $2EF798
         BTST    D0,D1                           ; $2EF79C
         MOVE.B  D1,-(A2)                        ; $2EF79E
         MOVE.L  D6,D0                           ; $2EF7A0
@@ -2251,15 +2275,15 @@
         BTST    D0,D1                           ; $2EF7A8
         MOVE.L  A6,D0                           ; $2EF7AA
         BTST    D0,D1                           ; $2EF7AC
-        ORI.B  #$0101,$200E(A1)                 ; $2EF7AE
+        ORI.B  #$01,$200E(A1)                   ; $2EF7AE
         BTST    D0,D1                           ; $2EF7B4
-        ORI.B  #$0101,D7                        ; $2EF7B6
+        ORI.B  #$01,D7                          ; $2EF7B6
         MOVE.L  (A4)+,D0                        ; $2EF7BA
         BTST    D0,D1                           ; $2EF7BC
-        ORI.B  #$0101,(A6)                      ; $2EF7BE
+        ORI.B  #$01,(A6)                        ; $2EF7BE
         MOVE.L  A6,D0                           ; $2EF7C2
         BTST    D0,D1                           ; $2EF7C4
-        ORI.B  #$0004,D0                        ; $2EF7C6
+        ORI.B  #$04,D0                          ; $2EF7C6
         BTST    D0,D1                           ; $2EF7CA
         MOVE.B  D1,-(A1)                        ; $2EF7CC
         MOVE.L  D6,D0                           ; $2EF7CE
@@ -2270,16 +2294,16 @@
         MOVE.B  D1,-(A4)                        ; $2EF7D8
         MOVE.L  A5,D0                           ; $2EF7DA
         BTST    D0,D1                           ; $2EF7DC
-        ORI.B  #$0101,$200D(A1)                 ; $2EF7DE
+        ORI.B  #$01,$200D(A1)                   ; $2EF7DE
         MOVE.B  D1,-(A4)                        ; $2EF7E4
         BTST    D0,D1                           ; $2EF7E6
-        ORI.B  #$0101,D7                        ; $2EF7E8
+        ORI.B  #$01,D7                          ; $2EF7E8
         MOVE.L  (A4)+,D0                        ; $2EF7EC
         BTST    D0,D1                           ; $2EF7EE
-        ORI.B  #$0101,(A6)                      ; $2EF7F0
+        ORI.B  #$01,(A6)                        ; $2EF7F0
         MOVE.L  A6,D0                           ; $2EF7F4
         BTST    D0,D1                           ; $2EF7F6
-        ORI.B  #$0004,D0                        ; $2EF7F8
+        ORI.B  #$04,D0                          ; $2EF7F8
         BTST    D0,D1                           ; $2EF7FC
         MOVE.B  D1,-(A1)                        ; $2EF7FE
         MOVE.L  D6,D0                           ; $2EF800
@@ -2290,17 +2314,17 @@
         MOVE.B  D1,-(A4)                        ; $2EF80A
         MOVE.L  A5,D0                           ; $2EF80C
         BTST    D0,D1                           ; $2EF80E
-        ORI.B  #$0101,$200D(A1)                 ; $2EF810
+        ORI.B  #$01,$200D(A1)                   ; $2EF810
         MOVE.B  D1,-(A4)                        ; $2EF816
         BTST    D0,D1                           ; $2EF818
-        ORI.B  #$0101,D7                        ; $2EF81A
+        ORI.B  #$01,D7                          ; $2EF81A
         MOVE.L  (A4)+,D0                        ; $2EF81E
         BTST    D0,D1                           ; $2EF820
-        ORI.B  #$0101,(A6)                      ; $2EF822
+        ORI.B  #$01,(A6)                        ; $2EF822
         MOVE.L  A5,D0                           ; $2EF826
         MOVE.B  D1,-(A4)                        ; $2EF828
         BTST    D0,D1                           ; $2EF82A
-        ORI.B  #$0004,D0                        ; $2EF82C
+        ORI.B  #$04,D0                          ; $2EF82C
         BTST    D0,D1                           ; $2EF830
         BTST    D7,D1                           ; $2EF832
         MOVE.L  D6,D0                           ; $2EF834
@@ -2311,18 +2335,18 @@
         MOVE.B  D1,D3                           ; $2EF83E
         MOVE.L  A5,D0                           ; $2EF840
         BTST    D0,D1                           ; $2EF842
-        ORI.B  #$0101,$200D(A1)                 ; $2EF844
+        ORI.B  #$01,$200D(A1)                   ; $2EF844
         MOVE.B  D1,D3                           ; $2EF84A
         BTST    D0,D1                           ; $2EF84C
-        ORI.B  #$0101,D7                        ; $2EF84E
+        ORI.B  #$01,D7                          ; $2EF84E
         MOVE.L  (A3)+,D0                        ; $2EF852
         MOVE.B  D1,D2                           ; $2EF854
         BTST    D0,D1                           ; $2EF856
-        ORI.B  #$0101,(A6)                      ; $2EF858
+        ORI.B  #$01,(A6)                        ; $2EF858
         MOVE.L  A5,D0                           ; $2EF85C
         MOVE.B  D1,-(A4)                        ; $2EF85E
         BTST    D0,D1                           ; $2EF860
-        ORI.B  #$0004,D0                        ; $2EF862
+        ORI.B  #$04,D0                          ; $2EF862
         BTST    D0,D1                           ; $2EF866
         BTST    D7,D1                           ; $2EF868
         MOVE.L  D6,D0                           ; $2EF86A
@@ -2333,20 +2357,20 @@
         MOVE.B  D1,D3                           ; $2EF874
         MOVE.L  A5,D0                           ; $2EF876
         BTST    D0,D1                           ; $2EF878
-        ORI.B  #$0101,$200D(A1)                 ; $2EF87A
+        ORI.B  #$01,$200D(A1)                   ; $2EF87A
         MOVE.B  D1,D3                           ; $2EF880
         BTST    D0,D1                           ; $2EF882
-        ORI.B  #$0101,D7                        ; $2EF884
+        ORI.B  #$01,D7                          ; $2EF884
         MOVE.B  D1,D2                           ; $2EF888
         MOVE.L  A7,D0                           ; $2EF88A
         MOVE.B  D1,-(A4)                        ; $2EF88C
         MOVE.B  D1,D2                           ; $2EF88E
         BTST    #10,D1                          ; $2EF890
-        ORI.B  #$0101,(A6)                      ; $2EF894
+        ORI.B  #$01,(A6)                        ; $2EF894
         MOVE.L  A5,D0                           ; $2EF898
         MOVE.B  D1,D3                           ; $2EF89A
         BTST    D0,D1                           ; $2EF89C
-        ORI.B  #$0004,D0                        ; $2EF89E
+        ORI.B  #$04,D0                          ; $2EF89E
         BTST    D0,D1                           ; $2EF8A2
         BTST    #6,D1                           ; $2EF8A4
         BTST    #1,D1                           ; $2EF8A8
@@ -2355,19 +2379,19 @@
         BTST    D7,D1                           ; $2EF8B0
         MOVE.L  A5,D0                           ; $2EF8B2
         BTST    D0,D1                           ; $2EF8B4
-        ORI.B  #$0101,$200D(A1)                 ; $2EF8B6
+        ORI.B  #$01,$200D(A1)                   ; $2EF8B6
         BTST    D7,D1                           ; $2EF8BC
         BTST    D0,D1                           ; $2EF8BE
-        ORI.B  #$0101,D7                        ; $2EF8C0
+        ORI.B  #$01,D7                          ; $2EF8C0
         MOVE.B  D1,D2                           ; $2EF8C4
         MOVE.L  A6,D0                           ; $2EF8C6
         MOVE.B  D1,D2                           ; $2EF8C8
         BTST    #2,D1                           ; $2EF8CA
-        ORI.B  #$0101,(A7)+                     ; $2EF8CE
+        ORI.B  #$01,(A7)+                       ; $2EF8CE
         BTST    #13,D1                          ; $2EF8D2
         MOVE.B  D1,D3                           ; $2EF8D6
         BTST    D0,D1                           ; $2EF8D8
-        ORI.B  #$0005,D0                        ; $2EF8DA
+        ORI.B  #$05,D0                          ; $2EF8DA
         BTST    D0,D1                           ; $2EF8DE
         MOVE.L  D6,D0                           ; $2EF8E0
         BTST    D0,D1                           ; $2EF8E2
@@ -2376,21 +2400,21 @@
         BTST    D7,D1                           ; $2EF8E8
         MOVE.L  A5,D0                           ; $2EF8EA
         BTST    #1,D1                           ; $2EF8EC
-        ORI.B  #$0101,-(A7)                     ; $2EF8F0
+        ORI.B  #$01,-(A7)                       ; $2EF8F0
         BTST    #13,D1                          ; $2EF8F4
         BTST    D7,D1                           ; $2EF8F8
         BTST    D0,D1                           ; $2EF8FA
-        ORI.B  #$0101,D7                        ; $2EF8FC
+        ORI.B  #$01,D7                          ; $2EF8FC
         BTST    D7,D1                           ; $2EF900
         MOVE.L  A5,D0                           ; $2EF902
         MOVE.B  D1,D2                           ; $2EF904
         BTST    #1,D1                           ; $2EF906
-        ORI.B  #$0101,-(A1)                     ; $2EF90A
+        ORI.B  #$01,-(A1)                       ; $2EF90A
         BTST    D7,D1                           ; $2EF90E
         MOVE.L  A5,D0                           ; $2EF910
         BTST    D7,D1                           ; $2EF912
         BTST    D0,D1                           ; $2EF914
-        ORI.B  #$0005,D0                        ; $2EF916
+        ORI.B  #$05,D0                          ; $2EF916
         BTST    D0,D1                           ; $2EF91A
         MOVE.B  D1,-(A5)                        ; $2EF91C
         MOVE.L  D4,D0                           ; $2EF91E
@@ -2402,22 +2426,22 @@
         MOVE.L  A4,D0                           ; $2EF92C
         BTST    D7,D1                           ; $2EF92E
         BTST    D0,D1                           ; $2EF930
-        ORI.B  #$0101,-(A7)                     ; $2EF932
+        ORI.B  #$01,-(A7)                       ; $2EF932
         BTST    D7,D1                           ; $2EF936
         MOVE.L  A4,D0                           ; $2EF938
         MOVE.B  D1,-(A4)                        ; $2EF93A
         BTST    #1,D1                           ; $2EF93C
-        ORI.B  #$0101,D7                        ; $2EF940
+        ORI.B  #$01,D7                          ; $2EF940
         BTST    D7,D1                           ; $2EF944
         MOVE.L  A5,D0                           ; $2EF946
         BTST    D7,D1                           ; $2EF948
         BTST    D0,D1                           ; $2EF94A
-        ORI.B  #$0101,-(A2)                     ; $2EF94C
+        ORI.B  #$01,-(A2)                       ; $2EF94C
         BTST    D7,D1                           ; $2EF950
         MOVE.L  A5,D0                           ; $2EF952
         BTST    D7,D1                           ; $2EF954
         BTST    D0,D1                           ; $2EF956
-        ORI.B  #$0005,D0                        ; $2EF958
+        ORI.B  #$05,D0                          ; $2EF958
         BTST    D0,D1                           ; $2EF95C
         MOVE.B  D1,D4                           ; $2EF95E
         MOVE.L  D4,D0                           ; $2EF960
@@ -2429,7 +2453,7 @@
         MOVE.L  A4,D0                           ; $2EF96C
         BTST    D7,D1                           ; $2EF96E
         BTST    D0,D1                           ; $2EF970
-        ORI.B  #$0101,-(A7)                     ; $2EF972
+        ORI.B  #$01,-(A7)                       ; $2EF972
         BTST    D7,D1                           ; $2EF976
         MOVE.L  A4,D0                           ; $2EF978
         MOVE.B  D1,-(A3)                        ; $2EF97A
@@ -2439,11 +2463,11 @@
         BTST    #1,D1                           ; $2EF982
         MOVE.L  A4,D0                           ; $2EF986
         BTST    #1,D1                           ; $2EF988
-        ORI.B  #$0101,-(A2)                     ; $2EF98C
+        ORI.B  #$01,-(A2)                       ; $2EF98C
         MOVE.B  D1,D2                           ; $2EF990
         MOVE.L  A5,D0                           ; $2EF992
         BTST    #1,D1                           ; $2EF994
-        ORI.B  #$0005,D0                        ; $2EF998
+        ORI.B  #$05,D0                          ; $2EF998
         BTST    D0,D1                           ; $2EF99C
         MOVE.B  D1,-(A2)                        ; $2EF99E
         MOVE.L  D4,D0                           ; $2EF9A0
@@ -2455,7 +2479,7 @@
         MOVE.L  A4,D0                           ; $2EF9AC
         MOVE.B  D1,D2                           ; $2EF9AE
         BTST    D0,D1                           ; $2EF9B0
-        ORI.B  #$0101,-(A7)                     ; $2EF9B2
+        ORI.B  #$01,-(A7)                       ; $2EF9B2
         MOVE.B  D1,D2                           ; $2EF9B6
         MOVE.L  A4,D0                           ; $2EF9B8
         MOVE.B  D1,D3                           ; $2EF9BA
@@ -2466,12 +2490,12 @@
         MOVE.L  A3,D0                           ; $2EF9C4
         MOVE.B  D1,-(A4)                        ; $2EF9C6
         BTST    D0,D1                           ; $2EF9C8
-        ORI.B  #$0101,-(A3)                     ; $2EF9CA
+        ORI.B  #$01,-(A3)                       ; $2EF9CA
         MOVE.B  D1,D2                           ; $2EF9CE
         MOVE.L  A4,D0                           ; $2EF9D0
         MOVE.B  D1,-(A4)                        ; $2EF9D2
         BTST    D0,D1                           ; $2EF9D4
-        ORI.B  #$0005,D0                        ; $2EF9D6
+        ORI.B  #$05,D0                          ; $2EF9D6
         BTST    D0,D1                           ; $2EF9DA
         MOVE.B  D1,-(A1)                        ; $2EF9DC
         MOVE.L  D4,D0                           ; $2EF9DE
@@ -2483,7 +2507,7 @@
         MOVE.L  A4,D0                           ; $2EF9EA
         MOVE.B  D1,D3                           ; $2EF9EC
         BTST    D0,D1                           ; $2EF9EE
-        ORI.B  #$0101,-(A7)                     ; $2EF9F0
+        ORI.B  #$01,-(A7)                       ; $2EF9F0
         MOVE.B  D1,D3                           ; $2EF9F4
         MOVE.L  A4,D0                           ; $2EF9F6
         BTST    D7,D1                           ; $2EF9F8
@@ -2494,12 +2518,12 @@
         MOVE.L  A3,D0                           ; $2EFA02
         MOVE.B  D1,-(A4)                        ; $2EFA04
         BTST    D0,D1                           ; $2EFA06
-        ORI.B  #$0101,-(A3)                     ; $2EFA08
+        ORI.B  #$01,-(A3)                       ; $2EFA08
         MOVE.B  D1,-(A4)                        ; $2EFA0C
         MOVE.L  A4,D0                           ; $2EFA0E
         MOVE.B  D1,D3                           ; $2EFA10
         BTST    D0,D1                           ; $2EFA12
-        ORI.B  #$0005,D0                        ; $2EFA14
+        ORI.B  #$05,D0                          ; $2EFA14
         BTST    D0,D1                           ; $2EFA18
         MOVE.B  D1,-(A0)                        ; $2EFA1A
         MOVE.L  D4,D0                           ; $2EFA1C
@@ -2511,7 +2535,7 @@
         MOVE.L  A3,D0                           ; $2EFA2A
         MOVE.B  D1,D4                           ; $2EFA2C
         BTST    D0,D1                           ; $2EFA2E
-        ORI.B  #$0101,-(A7)                     ; $2EFA30
+        ORI.B  #$01,-(A7)                       ; $2EFA30
         MOVE.B  D1,D4                           ; $2EFA34
         MOVE.L  A3,D0                           ; $2EFA36
         MOVE.B  D1,-(A3)                        ; $2EFA38
@@ -2522,21 +2546,21 @@
         MOVE.L  A3,D0                           ; $2EFA44
         MOVE.B  D1,D2                           ; $2EFA46
         BTST    D0,D1                           ; $2EFA48
-        ORI.B  #$0101,-(A2)                     ; $2EFA4A
+        ORI.B  #$01,-(A2)                       ; $2EFA4A
         BTST    #13,D1                          ; $2EFA4E
         MOVE.B  D1,D3                           ; $2EFA52
         BTST    D0,D1                           ; $2EFA54
-        ORI.B  #$0005,D0                        ; $2EFA56
+        ORI.B  #$05,D0                          ; $2EFA56
         BTST    D0,D1                           ; $2EFA5A
         BTST    D7,D1                           ; $2EFA5C
         MOVE.L  D4,D0                           ; $2EFA5E
         BTST    D7,D1                           ; $2EFA60
         BTST    D0,D1                           ; $2EFA62
-        ORI.B  #$0101,(A0)                      ; $2EFA64
+        ORI.B  #$01,(A0)                        ; $2EFA64
         MOVE.B  D1,D3                           ; $2EFA68
         MOVE.L  A4,D0                           ; $2EFA6A
         BTST    #1,D1                           ; $2EFA6C
-        ORI.B  #$0101,-(A5)                     ; $2EFA70
+        ORI.B  #$01,-(A5)                       ; $2EFA70
         BTST    #12,D1                          ; $2EFA74
         MOVE.B  D1,D3                           ; $2EFA78
         BTST    D0,D1                           ; $2EFA7A
@@ -2546,21 +2570,21 @@
         MOVE.L  A3,D0                           ; $2EFA82
         MOVE.B  D1,D2                           ; $2EFA84
         BTST    D0,D1                           ; $2EFA86
-        ORI.B  #$0101,-(A2)                     ; $2EFA88
+        ORI.B  #$01,-(A2)                       ; $2EFA88
         BTST    D7,D1                           ; $2EFA8C
         MOVE.L  A5,D0                           ; $2EFA8E
         BTST    D7,D1                           ; $2EFA90
         BTST    D0,D1                           ; $2EFA92
-        ORI.B  #$0005,D0                        ; $2EFA94
+        ORI.B  #$05,D0                          ; $2EFA94
         BTST    D0,D1                           ; $2EFA98
         BTST    #4,D1                           ; $2EFA9A
         BTST    #1,D1                           ; $2EFA9E
-        ORI.B  #$0101,(A0)                      ; $2EFAA2
+        ORI.B  #$01,(A0)                        ; $2EFAA2
         BTST    D7,D1                           ; $2EFAA6
         MOVE.L  A4,D0                           ; $2EFAA8
         BTST    D7,D1                           ; $2EFAAA
         BTST    D0,D1                           ; $2EFAAC
-        ORI.B  #$0101,-(A5)                     ; $2EFAAE
+        ORI.B  #$01,-(A5)                       ; $2EFAAE
         BTST    D7,D1                           ; $2EFAB2
         MOVE.L  A4,D0                           ; $2EFAB4
         BTST    D7,D1                           ; $2EFAB6
@@ -2571,22 +2595,22 @@
         MOVE.L  A3,D0                           ; $2EFAC0
         BTST    D7,D1                           ; $2EFAC2
         BTST    D0,D1                           ; $2EFAC4
-        ORI.B  #$0101,-(A2)                     ; $2EFAC6
+        ORI.B  #$01,-(A2)                       ; $2EFAC6
         MOVE.B  D1,D2                           ; $2EFACA
         MOVE.L  A5,D0                           ; $2EFACC
         BTST    #1,D1                           ; $2EFACE
-        ORI.B  #$0006,D0                        ; $2EFAD2
+        ORI.B  #$06,D0                          ; $2EFAD2
         BTST    D0,D1                           ; $2EFAD6
         MOVE.B  D1,-(A2)                        ; $2EFAD8
         MOVE.L  D2,D0                           ; $2EFADA
         MOVE.B  D1,-(A2)                        ; $2EFADC
         BTST    D0,D1                           ; $2EFADE
-        ORI.B  #$0101,(A1)                      ; $2EFAE0
+        ORI.B  #$01,(A1)                        ; $2EFAE0
         BTST    #1,D1                           ; $2EFAE4
         MOVE.L  A3,D0                           ; $2EFAE8
         MOVE.B  D1,D2                           ; $2EFAEA
         BTST    D0,D1                           ; $2EFAEC
-        ORI.B  #$0101,-(A5)                     ; $2EFAEE
+        ORI.B  #$01,-(A5)                       ; $2EFAEE
         MOVE.B  D1,D2                           ; $2EFAF2
         MOVE.L  A3,D0                           ; $2EFAF4
         MOVE.B  D1,-(A3)                        ; $2EFAF6
@@ -2597,22 +2621,22 @@
         MOVE.L  A3,D0                           ; $2EFB02
         BTST    D7,D1                           ; $2EFB04
         BTST    D0,D1                           ; $2EFB06
-        ORI.B  #$0101,-(A2)                     ; $2EFB08
+        ORI.B  #$01,-(A2)                       ; $2EFB08
         MOVE.B  D1,-(A4)                        ; $2EFB0C
         MOVE.L  A4,D0                           ; $2EFB0E
         MOVE.B  D1,D3                           ; $2EFB10
         BTST    D0,D1                           ; $2EFB12
-        ORI.B  #$0006,D0                        ; $2EFB14
+        ORI.B  #$06,D0                          ; $2EFB14
         BTST    D0,D1                           ; $2EFB18
         BTST    D7,D1                           ; $2EFB1A
         MOVE.B  D2,-(A2)                        ; $2EFB1C
         BTST    D7,D1                           ; $2EFB1E
         BTST    D0,D1                           ; $2EFB20
-        ORI.B  #$0101,(A2)                      ; $2EFB22
+        ORI.B  #$01,(A2)                        ; $2EFB22
         MOVE.B  D1,D3                           ; $2EFB26
         MOVE.L  A4,D0                           ; $2EFB28
         BTST    #1,D1                           ; $2EFB2A
-        ORI.B  #$0101,-(A3)                     ; $2EFB2E
+        ORI.B  #$01,-(A3)                       ; $2EFB2E
         BTST    #12,D1                          ; $2EFB32
         MOVE.B  D1,D3                           ; $2EFB36
         BTST    D0,D1                           ; $2EFB38
@@ -2622,17 +2646,17 @@
         MOVE.L  A3,D0                           ; $2EFB40
         BTST    D7,D1                           ; $2EFB42
         BTST    D0,D1                           ; $2EFB44
-        ORI.B  #$0101,-(A1)                     ; $2EFB46
+        ORI.B  #$01,-(A1)                       ; $2EFB46
         BTST    #13,D1                          ; $2EFB4A
         BTST    D7,D1                           ; $2EFB4E
         BTST    D0,D1                           ; $2EFB50
-        ORI.B  #$0007,D0                        ; $2EFB52
+        ORI.B  #$07,D0                          ; $2EFB52
         BTST    D0,D4                           ; $2EFB56
-        ORI.B  #$0101,(A3)                      ; $2EFB58
+        ORI.B  #$01,(A3)                        ; $2EFB58
         BTST    #12,D1                          ; $2EFB5C
         BTST    D7,D1                           ; $2EFB60
         BTST    D0,D1                           ; $2EFB62
-        ORI.B  #$0101,-(A3)                     ; $2EFB64
+        ORI.B  #$01,-(A3)                       ; $2EFB64
         BTST    D7,D1                           ; $2EFB68
         MOVE.L  A4,D0                           ; $2EFB6A
         BTST    #1,D1                           ; $2EFB6C
@@ -2642,17 +2666,17 @@
         MOVE.L  A3,D0                           ; $2EFB76
         BTST    D7,D1                           ; $2EFB78
         BTST    D0,D1                           ; $2EFB7A
-        ORI.B  #$0101,-(A1)                     ; $2EFB7C
+        ORI.B  #$01,-(A1)                       ; $2EFB7C
         BTST    D7,D1                           ; $2EFB80
         MOVE.L  A5,D0                           ; $2EFB82
         BTST    #1,D1                           ; $2EFB84
-        ORI.B  #$001F,D0                        ; $2EFB88
+        ORI.B  #$1F,D0                          ; $2EFB88
         BTST    D0,D1                           ; $2EFB8C
         MOVE.B  D1,D3                           ; $2EFB8E
         MOVE.L  A3,D0                           ; $2EFB90
         MOVE.B  D1,D2                           ; $2EFB92
         BTST    D0,D1                           ; $2EFB94
-        ORI.B  #$0101,-(A3)                     ; $2EFB96
+        ORI.B  #$01,-(A3)                       ; $2EFB96
         MOVE.B  D1,D2                           ; $2EFB9A
         MOVE.L  A3,D0                           ; $2EFB9C
         MOVE.B  D1,D3                           ; $2EFB9E
@@ -2663,16 +2687,16 @@
         MOVE.L  A3,D0                           ; $2EFBA8
         MOVE.B  D1,D2                           ; $2EFBAA
         BTST    D0,D1                           ; $2EFBAC
-        ORI.B  #$0101,-(A1)                     ; $2EFBAE
+        ORI.B  #$01,-(A1)                       ; $2EFBAE
         MOVE.B  D1,D2                           ; $2EFBB2
         MOVE.L  A4,D0                           ; $2EFBB4
         MOVE.B  D1,D2                           ; $2EFBB6
         BTST    D0,D1                           ; $2EFBB8
-        ORI.B  #$001F,D0                        ; $2EFBBA
+        ORI.B  #$1F,D0                          ; $2EFBBA
         BTST    D0,D1                           ; $2EFBBE
         BTST    #12,D1                          ; $2EFBC0
         BTST    #1,D1                           ; $2EFBC4
-        ORI.B  #$0101,-(A1)                     ; $2EFBC8
+        ORI.B  #$01,-(A1)                       ; $2EFBC8
         BTST    #12,D1                          ; $2EFBCC
         BTST    #1,D1                           ; $2EFBD0
         DC.W    $000C                           ; $2EFBD4
@@ -2681,16 +2705,16 @@
         MOVE.L  A3,D0                           ; $2EFBDA
         MOVE.B  D1,-(A4)                        ; $2EFBDC
         BTST    D0,D1                           ; $2EFBDE
-        ORI.B  #$0101,-(A0)                     ; $2EFBE0
+        ORI.B  #$01,-(A0)                       ; $2EFBE0
         BTST    #13,D1                          ; $2EFBE4
         BTST    #1,D1                           ; $2EFBE8
-        ORI.B  #$0020,D0                        ; $2EFBEC
+        ORI.B  #$20,D0                          ; $2EFBEC
         BTST    D0,D1                           ; $2EFBF0
         MOVE.B  D1,D2                           ; $2EFBF2
         MOVE.L  A3,D0                           ; $2EFBF4
         MOVE.B  D1,D2                           ; $2EFBF6
         BTST    D0,D1                           ; $2EFBF8
-        ORI.B  #$0101,-(A1)                     ; $2EFBFA
+        ORI.B  #$01,-(A1)                       ; $2EFBFA
         MOVE.B  D1,D2                           ; $2EFBFE
         MOVE.L  A3,D0                           ; $2EFC00
         MOVE.B  D1,D2                           ; $2EFC02
@@ -2700,16 +2724,16 @@
         BTST    #12,D1                          ; $2EFC0A
         MOVE.B  D1,-(A5)                        ; $2EFC0E
         BTST    D0,D1                           ; $2EFC10
-        ORI.B  #$0101,-(A0)                     ; $2EFC12
+        ORI.B  #$01,-(A0)                       ; $2EFC12
         MOVE.B  D1,D2                           ; $2EFC16
         MOVE.L  A4,D0                           ; $2EFC18
         MOVE.B  D1,D2                           ; $2EFC1A
         BTST    D0,D1                           ; $2EFC1C
-        ORI.B  #$0020,D0                        ; $2EFC1E
+        ORI.B  #$20,D0                          ; $2EFC1E
         BTST    D0,D1                           ; $2EFC22
         BTST    #12,D1                          ; $2EFC24
         BTST    #1,D1                           ; $2EFC28
-        ORI.B  #$0101,(A7)+                     ; $2EFC2C
+        ORI.B  #$01,(A7)+                       ; $2EFC2C
         BTST    #12,D1                          ; $2EFC30
         BTST    #1,D1                           ; $2EFC34
         DC.W    $000C                           ; $2EFC38
@@ -2718,16 +2742,16 @@
         MOVE.L  A4,D0                           ; $2EFC3E
         MOVE.B  D1,-(A5)                        ; $2EFC40
         BTST    #1,D1                           ; $2EFC42
-        ORI.B  #$0101,(A6)+                     ; $2EFC46
+        ORI.B  #$01,(A6)+                       ; $2EFC46
         BTST    #13,D1                          ; $2EFC4A
         BTST    #1,D1                           ; $2EFC4E
-        ORI.B  #$0021,D0                        ; $2EFC52
+        ORI.B  #$21,D0                          ; $2EFC52
         BTST    D0,D1                           ; $2EFC56
         BTST    D7,D1                           ; $2EFC58
         MOVE.L  A3,D0                           ; $2EFC5A
         MOVE.B  D1,D2                           ; $2EFC5C
         BTST    D0,D1                           ; $2EFC5E
-        ORI.B  #$0101,(A7)+                     ; $2EFC60
+        ORI.B  #$01,(A7)+                       ; $2EFC60
         MOVE.B  D1,D2                           ; $2EFC64
         MOVE.L  A3,D0                           ; $2EFC66
         BTST    D7,D1                           ; $2EFC68
@@ -2738,19 +2762,19 @@
         MOVE.L  A5,D0                           ; $2EFC72
         BTST    D7,D1                           ; $2EFC74
         BTST    D0,D1                           ; $2EFC76
-        ORI.B  #$0101,(A6)+                     ; $2EFC78
+        ORI.B  #$01,(A6)+                       ; $2EFC78
         MOVE.B  D1,D2                           ; $2EFC7C
         MOVE.L  A4,D0                           ; $2EFC7E
         MOVE.B  D1,D2                           ; $2EFC80
         BTST    D0,D1                           ; $2EFC82
-        ORI.B  #$0007,D0                        ; $2EFC84
+        ORI.B  #$07,D0                          ; $2EFC84
         BTST    D0,D5                           ; $2EFC88
-        ORI.B  #$0101,(A6)                      ; $2EFC8A
+        ORI.B  #$01,(A6)                        ; $2EFC8A
         MOVE.B  D1,D2                           ; $2EFC8E
         MOVE.L  A3,D0                           ; $2EFC90
         MOVE.B  D1,-(A0)                        ; $2EFC92
         BTST    D0,D1                           ; $2EFC94
-        ORI.B  #$0101,(A5)+                     ; $2EFC96
+        ORI.B  #$01,(A5)+                       ; $2EFC96
         MOVE.B  D1,-(A0)                        ; $2EFC9A
         MOVE.L  A3,D0                           ; $2EFC9C
         MOVE.B  D1,D2                           ; $2EFC9E
@@ -2761,11 +2785,11 @@
         MOVE.L  A5,D0                           ; $2EFCA8
         MOVE.B  D1,D2                           ; $2EFCAA
         BTST    D0,D1                           ; $2EFCAC
-        ORI.B  #$0101,(A5)+                     ; $2EFCAE
+        ORI.B  #$01,(A5)+                       ; $2EFCAE
         BTST    D6,D1                           ; $2EFCB2
         MOVE.L  A5,D0                           ; $2EFCB4
         BTST    #1,D1                           ; $2EFCB6
-        ORI.B  #$0005,D0                        ; $2EFCBA
+        ORI.B  #$05,D0                          ; $2EFCBA
         BTST    D0,D2                           ; $2EFCBE
         BTST    D7,D1                           ; $2EFCC0
         MOVE.B  D1,-(A2)                        ; $2EFCC2
@@ -2773,10 +2797,10 @@
         MOVE.B  D1,-(A2)                        ; $2EFCC6
         BTST    D7,D1                           ; $2EFCC8
         BTST    D0,D2                           ; $2EFCCA
-        ORI.B  #$0101,(A4)                      ; $2EFCCC
+        ORI.B  #$01,(A4)                        ; $2EFCCC
         BTST    #12,D1                          ; $2EFCD0
         BTST    #1,D1                           ; $2EFCD4
-        ORI.B  #$0101,(A3)+                     ; $2EFCD8
+        ORI.B  #$01,(A3)+                       ; $2EFCD8
         BTST    #12,D1                          ; $2EFCDC
         BTST    #1,D1                           ; $2EFCE0
         DC.W    $000E                           ; $2EFCE4
@@ -2785,12 +2809,12 @@
         MOVE.L  A5,D0                           ; $2EFCEA
         MOVE.B  D1,-(A4)                        ; $2EFCEC
         BTST    D0,D1                           ; $2EFCEE
-        ORI.B  #$0101,(A5)+                     ; $2EFCF0
+        ORI.B  #$01,(A5)+                       ; $2EFCF0
         MOVE.B  D1,D3                           ; $2EFCF4
         MOVE.L  A4,D0                           ; $2EFCF6
         BTST    D7,D1                           ; $2EFCF8
         BTST    D0,D1                           ; $2EFCFA
-        ORI.B  #$0004,D0                        ; $2EFCFC
+        ORI.B  #$04,D0                          ; $2EFCFC
         BTST    D0,D1                           ; $2EFD00
         BTST    D7,D1                           ; $2EFD02
         MOVE.B  D1,D4                           ; $2EFD04
@@ -2798,12 +2822,12 @@
         MOVE.B  D1,D4                           ; $2EFD08
         BTST    D7,D1                           ; $2EFD0A
         BTST    D0,D1                           ; $2EFD0C
-        ORI.B  #$0101,(A4)                      ; $2EFD0E
+        ORI.B  #$01,(A4)                        ; $2EFD0E
         BTST    D5,D1                           ; $2EFD12
         MOVE.L  A3,D0                           ; $2EFD14
         MOVE.B  D1,D2                           ; $2EFD16
         BTST    D0,D1                           ; $2EFD18
-        ORI.B  #$0101,(A3)+                     ; $2EFD1A
+        ORI.B  #$01,(A3)+                       ; $2EFD1A
         MOVE.B  D1,D2                           ; $2EFD1E
         MOVE.L  A3,D0                           ; $2EFD20
         BTST    D5,D1                           ; $2EFD22
@@ -2813,12 +2837,12 @@
         MOVE.B  D1,D2                           ; $2EFD2A
         MOVE.L  A6,D0                           ; $2EFD2C
         BTST    #1,D1                           ; $2EFD2E
-        ORI.B  #$0101,(A3)+                     ; $2EFD32
+        ORI.B  #$01,(A3)+                       ; $2EFD32
         MOVE.B  D1,D2                           ; $2EFD36
         MOVE.L  A4,D0                           ; $2EFD38
         MOVE.B  D1,D2                           ; $2EFD3A
         BTST    D0,D1                           ; $2EFD3C
-        ORI.B  #$0003,D0                        ; $2EFD3E
+        ORI.B  #$03,D0                          ; $2EFD3E
         BTST    D0,D1                           ; $2EFD42
         BTST    D7,D1                           ; $2EFD44
         MOVE.B  D1,D4                           ; $2EFD46
@@ -2826,88 +2850,88 @@
         MOVE.B  D1,D4                           ; $2EFD4A
         BTST    D7,D1                           ; $2EFD4C
         BTST    D0,D1                           ; $2EFD4E
-        ORI.B  #$0101,(A4)                      ; $2EFD50
+        ORI.B  #$01,(A4)                        ; $2EFD50
         BTST    D7,D1                           ; $2EFD54
         MOVE.L  A3,D0                           ; $2EFD56
         MOVE.B  D1,D2                           ; $2EFD58
         BTST    D0,D1                           ; $2EFD5A
-        ORI.B  #$0101,(A1)+                     ; $2EFD5C
+        ORI.B  #$01,(A1)+                       ; $2EFD5C
         MOVE.B  D1,D2                           ; $2EFD60
         MOVE.L  A3,D0                           ; $2EFD62
         BTST    D7,D1                           ; $2EFD64
         BTST    D0,D1                           ; $2EFD66
-        ORI.B  #$0101,(A0)                      ; $2EFD68
+        ORI.B  #$01,(A0)                        ; $2EFD68
         MOVE.B  D1,D2                           ; $2EFD6C
         MOVE.L  A6,D0                           ; $2EFD6E
         MOVE.B  D1,D2                           ; $2EFD70
         BTST    D0,D1                           ; $2EFD72
-        ORI.B  #$0101,(A2)+                     ; $2EFD74
+        ORI.B  #$01,(A2)+                       ; $2EFD74
         MOVE.B  D1,D2                           ; $2EFD78
         MOVE.L  A4,D0                           ; $2EFD7A
         MOVE.B  D1,D2                           ; $2EFD7C
         BTST    D0,D1                           ; $2EFD7E
-        ORI.B  #$0003,D0                        ; $2EFD80
+        ORI.B  #$03,D0                          ; $2EFD80
         BTST    D0,D1                           ; $2EFD84
         MOVE.B  D1,D4                           ; $2EFD86
         MOVE.L  A1,D0                           ; $2EFD88
         MOVE.B  D1,D4                           ; $2EFD8A
         BTST    D0,D1                           ; $2EFD8C
-        ORI.B  #$0101,(A5)                      ; $2EFD8E
+        ORI.B  #$01,(A5)                        ; $2EFD8E
         BTST    D7,D1                           ; $2EFD92
         MOVE.B  D1,-(A3)                        ; $2EFD94
         MOVE.L  A2,D0                           ; $2EFD96
         MOVE.B  D1,D2                           ; $2EFD98
         BTST    D0,D2                           ; $2EFD9A
-        ORI.B  #$0102,(A5)                      ; $2EFD9C
+        ORI.B  #$02,(A5)                        ; $2EFD9C
         MOVE.B  D1,D2                           ; $2EFDA0
         MOVE.L  A2,D0                           ; $2EFDA2
         MOVE.B  D1,-(A3)                        ; $2EFDA4
         BTST    D7,D1                           ; $2EFDA6
         BTST    D0,D1                           ; $2EFDA8
-        ORI.B  #$0101,(A1)                      ; $2EFDAA
+        ORI.B  #$01,(A1)                        ; $2EFDAA
         BTST    D7,D1                           ; $2EFDAE
         MOVE.L  A7,D0                           ; $2EFDB0
         MOVE.B  D1,D2                           ; $2EFDB2
         BTST    D0,D1                           ; $2EFDB4
-        ORI.B  #$0101,(A0)+                     ; $2EFDB6
+        ORI.B  #$01,(A0)+                       ; $2EFDB6
         MOVE.B  D1,D2                           ; $2EFDBA
         MOVE.L  A4,D0                           ; $2EFDBC
         MOVE.B  D1,D2                           ; $2EFDBE
         BTST    D0,D1                           ; $2EFDC0
-        ORI.B  #$0002,D0                        ; $2EFDC2
+        ORI.B  #$02,D0                          ; $2EFDC2
         BTST    D0,D1                           ; $2EFDC6
         BTST    D7,D1                           ; $2EFDC8
         MOVE.L  A3,D0                           ; $2EFDCA
         BTST    D7,D1                           ; $2EFDCC
         BTST    D0,D1                           ; $2EFDCE
-        ORI.B  #$0101,(A5)                      ; $2EFDD0
-        CMPI.B  #$1401,D1                       ; $2EFDD4
+        ORI.B  #$01,(A5)                        ; $2EFDD0
+        CMPI.B  #$01,D1                         ; $2EFDD4
         MOVE.L  A2,D0                           ; $2EFDD8
         MOVE.B  D1,D2                           ; $2EFDDA
         BTST    #1,D1                           ; $2EFDDC
-        ORI.B  #$0101,(A3)                      ; $2EFDE0
+        ORI.B  #$01,(A3)                        ; $2EFDE0
         BTST    #1,D1                           ; $2EFDE4
         MOVE.L  A2,D0                           ; $2EFDE8
         MOVE.B  D1,D2                           ; $2EFDEA
-        CMPI.B  #$0101,D1                       ; $2EFDEC
-        ORI.B  #$0102,(A2)                      ; $2EFDF0
+        CMPI.B  #$01,D1                         ; $2EFDEC
+        ORI.B  #$02,(A2)                        ; $2EFDF0
         BTST    D7,D1                           ; $2EFDF4
         MOVE.B  D1,D2                           ; $2EFDF6
         MOVE.L  A6,D0                           ; $2EFDF8
         MOVE.B  D1,D2                           ; $2EFDFA
         BTST    D0,D1                           ; $2EFDFC
-        ORI.B  #$0102,(A5)                      ; $2EFDFE
+        ORI.B  #$02,(A5)                        ; $2EFDFE
         MOVE.B  D1,D2                           ; $2EFE02
         MOVE.L  A4,D0                           ; $2EFE04
         MOVE.B  D1,D2                           ; $2EFE06
         BTST    D0,D1                           ; $2EFE08
-        ORI.B  #$0002,D0                        ; $2EFE0A
+        ORI.B  #$02,D0                          ; $2EFE0A
         BTST    D0,D1                           ; $2EFE0E
         MOVE.B  D1,-(A2)                        ; $2EFE10
         MOVE.L  A3,D0                           ; $2EFE12
         MOVE.B  D1,-(A2)                        ; $2EFE14
         BTST    D0,D1                           ; $2EFE16
-        ORI.B  #$0102,(A6)                      ; $2EFE18
+        ORI.B  #$02,(A6)                        ; $2EFE18
         MOVE.B  D1,D3                           ; $2EFE1C
         MOVE.L  A3,D0                           ; $2EFE1E
         MOVE.B  D1,-(A0)                        ; $2EFE20
@@ -2918,23 +2942,23 @@
         MOVE.L  A3,D0                           ; $2EFE2A
         MOVE.B  D1,D3                           ; $2EFE2C
         BTST    D0,D2                           ; $2EFE2E
-        ORI.B  #$0101,(A5)                      ; $2EFE30
+        ORI.B  #$01,(A5)                        ; $2EFE30
         BTST    #1,D1                           ; $2EFE34
         MOVE.L  A6,D0                           ; $2EFE38
         MOVE.B  D1,D2                           ; $2EFE3A
         BTST    D0,D2                           ; $2EFE3C
-        ORI.B  #$0102,(A1)                      ; $2EFE3E
+        ORI.B  #$02,(A1)                        ; $2EFE3E
         BTST    #1,D1                           ; $2EFE42
         MOVE.L  A4,D0                           ; $2EFE46
         MOVE.B  D1,D2                           ; $2EFE48
         BTST    D0,D1                           ; $2EFE4A
-        ORI.B  #$0002,D0                        ; $2EFE4C
+        ORI.B  #$02,D0                          ; $2EFE4C
         BTST    D0,D1                           ; $2EFE50
         MOVE.B  D1,D4                           ; $2EFE52
         MOVE.L  A3,D0                           ; $2EFE54
         MOVE.B  D1,D4                           ; $2EFE56
         BTST    D0,D1                           ; $2EFE58
-        ORI.B  #$0101,(A0)+                     ; $2EFE5A
+        ORI.B  #$01,(A0)+                       ; $2EFE5A
         BTST    D7,D1                           ; $2EFE5E
         MOVE.L  A3,D0                           ; $2EFE60
         MOVE.B  D1,D2                           ; $2EFE62
@@ -2945,7 +2969,7 @@
         MOVE.L  A3,D0                           ; $2EFE70
         BTST    D7,D1                           ; $2EFE72
         BTST    D0,D1                           ; $2EFE74
-        ORI.B  #$0102,(A0)+                     ; $2EFE76
+        ORI.B  #$02,(A0)+                       ; $2EFE76
         BTST    #1,D1                           ; $2EFE7A
         MOVE.L  A5,D0                           ; $2EFE7E
         MOVE.B  D1,D2                           ; $2EFE80
@@ -2956,13 +2980,13 @@
         MOVE.L  A5,D0                           ; $2EFE8E
         BTST    D7,D1                           ; $2EFE90
         BTST    D0,D1                           ; $2EFE92
-        ORI.B  #$0002,D0                        ; $2EFE94
+        ORI.B  #$02,D0                          ; $2EFE94
         BTST    D0,D1                           ; $2EFE98
         MOVE.B  D1,-(A2)                        ; $2EFE9A
         MOVE.L  A3,D0                           ; $2EFE9C
         MOVE.B  D1,-(A2)                        ; $2EFE9E
         BTST    D0,D1                           ; $2EFEA0
-        ORI.B  #$0101,(A1)+                     ; $2EFEA2
+        ORI.B  #$01,(A1)+                       ; $2EFEA2
         BTST    #1,D1                           ; $2EFEA6
         MOVE.L  A3,D0                           ; $2EFEAA
         MOVE.B  D1,D2                           ; $2EFEAC
@@ -2973,7 +2997,7 @@
         MOVE.L  A3,D0                           ; $2EFEBA
         MOVE.B  D1,D2                           ; $2EFEBC
         BTST    #1,D1                           ; $2EFEBE
-        ORI.B  #$0102,(A3)+                     ; $2EFEC2
+        ORI.B  #$02,(A3)+                       ; $2EFEC2
         BTST    #1,D1                           ; $2EFEC6
         MOVE.L  A5,D0                           ; $2EFECA
         MOVE.B  D2,D2                           ; $2EFECC
@@ -2984,13 +3008,13 @@
         MOVE.L  A5,D0                           ; $2EFEDA
         MOVE.B  D1,D2                           ; $2EFEDC
         BTST    #1,D1                           ; $2EFEDE
-        ORI.B  #$0002,D0                        ; $2EFEE2
+        ORI.B  #$02,D0                          ; $2EFEE2
         BTST    D0,D1                           ; $2EFEE6
         BTST    D7,D1                           ; $2EFEE8
         MOVE.L  A3,D0                           ; $2EFEEA
         BTST    D7,D1                           ; $2EFEEC
         BTST    D0,D1                           ; $2EFEEE
-        ORI.B  #$0102,(A2)+                     ; $2EFEF0
+        ORI.B  #$02,(A2)+                       ; $2EFEF0
         BTST    #1,D1                           ; $2EFEF4
         MOVE.L  A4,D0                           ; $2EFEF8
         MOVE.B  D1,D3                           ; $2EFEFA
@@ -3001,7 +3025,7 @@
         MOVE.L  A4,D0                           ; $2EFF04
         BTST    D7,D1                           ; $2EFF06
         BTST    #2,D1                           ; $2EFF08
-        ORI.B  #$0102,(A6)+                     ; $2EFF0C
+        ORI.B  #$02,(A6)+                       ; $2EFF0C
         BTST    #1,D1                           ; $2EFF10
         MOVE.L  A5,D0                           ; $2EFF14
         MOVE.B  D2,-(A4)                        ; $2EFF16
@@ -3015,27 +3039,27 @@
         MOVE.L  A6,D0                           ; $2EFF26
         MOVE.B  D1,D2                           ; $2EFF28
         BTST    #2,D1                           ; $2EFF2A
-        ORI.B  #$0003,D0                        ; $2EFF2E
+        ORI.B  #$03,D0                          ; $2EFF2E
         BTST    D0,D1                           ; $2EFF32
         MOVE.B  D1,D4                           ; $2EFF34
         MOVE.L  A1,D0                           ; $2EFF36
         MOVE.B  D1,D4                           ; $2EFF38
         BTST    D0,D1                           ; $2EFF3A
-        ORI.B  #$0102,(A5)+                     ; $2EFF3C
+        ORI.B  #$02,(A5)+                       ; $2EFF3C
         BTST    #1,D1                           ; $2EFF40
         MOVE.B  D1,D3                           ; $2EFF44
         MOVE.L  (A3)+,D0                        ; $2EFF46
         MOVE.B  D1,D3                           ; $2EFF48
         BTST    D7,D1                           ; $2EFF4A
         BTST    #2,D1                           ; $2EFF4C
-        ORI.B  #$0102,-(A2)                     ; $2EFF50
+        ORI.B  #$02,-(A2)                       ; $2EFF50
         BTST    #1,D1                           ; $2EFF54
         MOVE.B  D1,D3                           ; $2EFF58
         MOVE.L  -(A1),D0                        ; $2EFF5A
         MOVE.B  D1,D3                           ; $2EFF5C
         BTST    D7,D1                           ; $2EFF5E
         BTST    #2,D1                           ; $2EFF60
-        ORI.B  #$0003,D0                        ; $2EFF64
+        ORI.B  #$03,D0                          ; $2EFF64
         BTST    D0,D1                           ; $2EFF68
         BTST    D7,D1                           ; $2EFF6A
         MOVE.B  D1,D4                           ; $2EFF6C
@@ -3043,14 +3067,14 @@
         MOVE.B  D1,D4                           ; $2EFF70
         BTST    D7,D1                           ; $2EFF72
         BTST    D0,D1                           ; $2EFF74
-        ORI.B  #$0103,(A7)+                     ; $2EFF76
+        ORI.B  #$03,(A7)+                       ; $2EFF76
         BTST    #1,D1                           ; $2EFF7A
         MOVE.B  D1,D3                           ; $2EFF7E
         MOVE.L  (A5),D0                         ; $2EFF80
         MOVE.B  D1,D3                           ; $2EFF82
         BTST    D7,D1                           ; $2EFF84
         BTST    #3,D1                           ; $2EFF86
-        ORI.B  #$0103,-(A6)                     ; $2EFF8A
+        ORI.B  #$03,-(A6)                       ; $2EFF8A
         BTST    #1,D1                           ; $2EFF8E
         MOVE.B  D1,D3                           ; $2EFF92
         MOVE.B  D1,-(A4)                        ; $2EFF94
@@ -3058,7 +3082,7 @@
         MOVE.B  D1,D3                           ; $2EFF98
         BTST    D7,D1                           ; $2EFF9A
         BTST    #3,D1                           ; $2EFF9C
-        ORI.B  #$0004,D0                        ; $2EFFA0
+        ORI.B  #$04,D0                          ; $2EFFA0
         BTST    D0,D1                           ; $2EFFA4
         BTST    D7,D1                           ; $2EFFA6
         MOVE.B  D1,D4                           ; $2EFFA8
@@ -3066,7 +3090,7 @@
         MOVE.B  D1,D4                           ; $2EFFAC
         BTST    D7,D1                           ; $2EFFAE
         BTST    D0,D1                           ; $2EFFB0
-        ORI.B  #$0104,-(A3)                     ; $2EFFB2
+        ORI.B  #$04,-(A3)                       ; $2EFFB2
         BTST    #1,D1                           ; $2EFFB6
         MOVE.B  D1,D2                           ; $2EFFBA
         MOVE.B  D2,-(A4)                        ; $2EFFBC
@@ -3075,7 +3099,7 @@
         MOVE.B  D1,D2                           ; $2EFFC2
         BTST    D7,D1                           ; $2EFFC4
         BTST    #4,D1                           ; $2EFFC6
-        ORI.B  #$0104,$0801(A4)                 ; $2EFFCA
+        ORI.B  #$04,$0801(A4)                   ; $2EFFCA
         BTST    D7,D1                           ; $2EFFD0
         MOVE.B  D1,D3                           ; $2EFFD2
         MOVE.B  D1,-(A4)                        ; $2EFFD4
@@ -3084,7 +3108,7 @@
         MOVE.B  D1,D3                           ; $2EFFDA
         BTST    D7,D1                           ; $2EFFDC
         BTST    #3,D1                           ; $2EFFDE
-        ORI.B  #$0005,D0                        ; $2EFFE2
+        ORI.B  #$05,D0                          ; $2EFFE2
         BTST    D0,D2                           ; $2EFFE6
         BTST    D7,D1                           ; $2EFFE8
         MOVE.B  D1,-(A2)                        ; $2EFFEA
@@ -3092,11 +3116,11 @@
         MOVE.B  D1,-(A2)                        ; $2EFFEE
         BTST    D7,D1                           ; $2EFFF0
         BTST    D0,D2                           ; $2EFFF2
-        ORI.B  #$0105,$0801(A0)                 ; $2EFFF4
-        CMPI.B  #$0F05,D1                       ; $2EFFFA
-        CMPI.B  #$0801,D1                       ; $2EFFFE
+        ORI.B  #$05,$0801(A0)                   ; $2EFFF4
+        CMPI.B  #$05,D1                         ; $2EFFFA
+        CMPI.B  #$01,D1                         ; $2EFFFE
         BTST    D0,D5                           ; $2F0002
-        ORI.B  #$0105,$01(A4,D0.L)              ; $2F0004
+        ORI.B  #$05,$01(A4,D0.L)                ; $2F0004
         BTST    D7,D2                           ; $2F000A
         MOVE.B  D2,D3                           ; $2F000C
         MOVE.B  D2,-(A4)                        ; $2F000E
@@ -3105,16 +3129,16 @@
         MOVE.B  D3,D3                           ; $2F0014
         BTST    D7,D2                           ; $2F0016
         BTST    #4,D1                           ; $2F0018
-        ORI.B  #$0007,D0                        ; $2F001C
+        ORI.B  #$07,D0                          ; $2F001C
         BTST    D0,D5                           ; $2F0020
-        ORI.B  #$0109,$003E(A7)                 ; $2F0022
+        ORI.B  #$09,$003E(A7)                   ; $2F0022
         BTST    D0,(A1)                         ; $2F0028
-        ORI.B  #$0050,D0                        ; $2F002A
-        ORI.B  #$0000,D0                        ; $2F002E
-        ORI.B  #$0000,D0                        ; $2F0032
-        ORI.B  #$0000,D0                        ; $2F0036
+        ORI.B  #$50,D0                          ; $2F002A
+        ORI.B  #$00,D0                          ; $2F002E
+        ORI.B  #$00,D0                          ; $2F0032
+        ORI.B  #$00,D0                          ; $2F0036
         ORI.W  #$0106,(A1)                      ; $2F003A
-        ORI.B  #$0050,D0                        ; $2F003E
+        ORI.B  #$50,D0                          ; $2F003E
         BTST    D0,D1                           ; $2F0042
         MOVE.B  D1,D1                           ; $2F0044
         MOVE.B  D1,D4                           ; $2F0046
@@ -3122,176 +3146,176 @@
         MOVE.B  D1,D2                           ; $2F004A
         BTST    D6,D1                           ; $2F004C
         BTST    D0,D2                           ; $2F004E
-        ORI.B  #$0050,D0                        ; $2F0050
+        ORI.B  #$50,D0                          ; $2F0050
         BTST    D0,D1                           ; $2F0054
         MOVE.L  D6,D0                           ; $2F0056
         MOVE.B  D1,-(A2)                        ; $2F0058
         BTST    D6,D1                           ; $2F005A
         BTST    D0,D2                           ; $2F005C
-        ORI.B  #$0050,D0                        ; $2F005E
+        ORI.B  #$50,D0                          ; $2F005E
         BTST    D0,D1                           ; $2F0062
         MOVE.L  A0,D0                           ; $2F0064
         MOVE.B  D1,-(A2)                        ; $2F0066
         BTST    D6,D1                           ; $2F0068
         BTST    D0,D2                           ; $2F006A
-        ORI.B  #$0050,D0                        ; $2F006C
+        ORI.B  #$50,D0                          ; $2F006C
         BTST    D0,D1                           ; $2F0070
         MOVE.L  A2,D0                           ; $2F0072
         MOVE.B  D1,-(A2)                        ; $2F0074
         BTST    D6,D1                           ; $2F0076
         BTST    D0,D2                           ; $2F0078
-        ORI.B  #$0050,D0                        ; $2F007A
+        ORI.B  #$50,D0                          ; $2F007A
         BTST    D0,D1                           ; $2F007E
         MOVE.L  A4,D0                           ; $2F0080
         MOVE.B  D1,-(A2)                        ; $2F0082
         BTST    D6,D1                           ; $2F0084
         BTST    D0,D3                           ; $2F0086
-        ORI.B  #$0050,D0                        ; $2F0088
+        ORI.B  #$50,D0                          ; $2F0088
         BTST    D0,D1                           ; $2F008C
         MOVE.L  A6,D0                           ; $2F008E
         MOVE.B  D1,-(A2)                        ; $2F0090
         BTST    D6,D1                           ; $2F0092
         BTST    #2,D1                           ; $2F0094
-        ORI.B  #$0050,D0                        ; $2F0098
+        ORI.B  #$50,D0                          ; $2F0098
         BTST    D0,D1                           ; $2F009C
         MOVE.L  (A1),D0                         ; $2F009E
         MOVE.B  D1,-(A2)                        ; $2F00A0
         BTST    D6,D1                           ; $2F00A2
         BTST    #3,D1                           ; $2F00A4
-        ORI.B  #$0050,D0                        ; $2F00A8
+        ORI.B  #$50,D0                          ; $2F00A8
         BTST    D0,D1                           ; $2F00AC
         MOVE.L  (A5),D0                         ; $2F00AE
         MOVE.B  D1,-(A2)                        ; $2F00B0
         BTST    D6,D1                           ; $2F00B2
         BTST    #2,D1                           ; $2F00B4
-        ORI.B  #$0050,D0                        ; $2F00B8
+        ORI.B  #$50,D0                          ; $2F00B8
         BTST    D0,D1                           ; $2F00BC
         MOVE.L  (A0)+,D0                        ; $2F00BE
         MOVE.B  D1,D2                           ; $2F00C0
         BTST    #1,D1                           ; $2F00C2
-        ORI.B  #$0050,D0                        ; $2F00C6
+        ORI.B  #$50,D0                          ; $2F00C6
         BTST    D0,D1                           ; $2F00CA
         MOVE.L  (A1)+,D0                        ; $2F00CC
         MOVE.B  D1,D2                           ; $2F00CE
         BTST    D0,D1                           ; $2F00D0
-        ORI.B  #$0050,D0                        ; $2F00D2
+        ORI.B  #$50,D0                          ; $2F00D2
         BTST    D0,D1                           ; $2F00D6
         MOVE.L  (A1)+,D0                        ; $2F00D8
         MOVE.B  D1,D2                           ; $2F00DA
         BTST    D0,D1                           ; $2F00DC
-        ORI.B  #$0050,D0                        ; $2F00DE
+        ORI.B  #$50,D0                          ; $2F00DE
         BTST    D0,D1                           ; $2F00E2
         MOVE.L  (A0)+,D0                        ; $2F00E4
         MOVE.B  D1,D2                           ; $2F00E6
         BTST    #1,D1                           ; $2F00E8
-        ORI.B  #$0050,D0                        ; $2F00EC
+        ORI.B  #$50,D0                          ; $2F00EC
         BTST    D0,D1                           ; $2F00F0
         MOVE.L  A6,D0                           ; $2F00F2
         MOVE.B  D1,D4                           ; $2F00F4
         MOVE.B  D1,D0                           ; $2F00F6
-        BTST    D0,A2                           ; $2F00F8
-        ORI.B  #$0050,D0                        ; $2F00FA
+        DC.W    $010A                           ; $2F00F8
+        ORI.B  #$50,D0                          ; $2F00FA
         BTST    D0,D1                           ; $2F00FE
         MOVE.L  A6,D0                           ; $2F0100
         MOVE.B  D1,D0                           ; $2F0102
         BTST    D0,D1                           ; $2F0104
-        ORI.B  #$0050,D0                        ; $2F0106
+        ORI.B  #$50,D0                          ; $2F0106
         BTST    D0,D1                           ; $2F010A
         MOVE.L  A6,D0                           ; $2F010C
         BTST    D0,D1                           ; $2F010E
-        ORI.B  #$0050,D0                        ; $2F0110
+        ORI.B  #$50,D0                          ; $2F0110
         BTST    D0,D1                           ; $2F0114
         MOVE.L  A6,D0                           ; $2F0116
         BTST    D0,D1                           ; $2F0118
-        ORI.B  #$0050,D0                        ; $2F011A
+        ORI.B  #$50,D0                          ; $2F011A
         BTST    D0,D1                           ; $2F011E
         MOVE.L  A6,D0                           ; $2F0120
         BTST    D0,D1                           ; $2F0122
-        ORI.B  #$0050,D0                        ; $2F0124
+        ORI.B  #$50,D0                          ; $2F0124
         BTST    D0,D1                           ; $2F0128
         MOVE.L  A6,D0                           ; $2F012A
         BTST    D0,D1                           ; $2F012C
-        ORI.B  #$0050,D0                        ; $2F012E
+        ORI.B  #$50,D0                          ; $2F012E
         BTST    D0,D1                           ; $2F0132
         MOVE.L  A6,D0                           ; $2F0134
         BTST    D0,D1                           ; $2F0136
-        ORI.B  #$0050,D0                        ; $2F0138
+        ORI.B  #$50,D0                          ; $2F0138
         BTST    D0,D1                           ; $2F013C
         MOVE.L  A6,D0                           ; $2F013E
         BTST    D0,D1                           ; $2F0140
-        ORI.B  #$0050,D0                        ; $2F0142
+        ORI.B  #$50,D0                          ; $2F0142
         BTST    D0,D1                           ; $2F0146
         MOVE.L  A6,D0                           ; $2F0148
         BTST    D0,D1                           ; $2F014A
-        ORI.B  #$0050,D0                        ; $2F014C
+        ORI.B  #$50,D0                          ; $2F014C
         BTST    D0,D1                           ; $2F0150
         MOVE.L  A6,D0                           ; $2F0152
         BTST    D0,D1                           ; $2F0154
-        ORI.B  #$0050,D0                        ; $2F0156
+        ORI.B  #$50,D0                          ; $2F0156
         BTST    D0,D1                           ; $2F015A
         MOVE.L  A6,D0                           ; $2F015C
         BTST    D0,D1                           ; $2F015E
-        ORI.B  #$0050,D0                        ; $2F0160
+        ORI.B  #$50,D0                          ; $2F0160
         BTST    D0,D1                           ; $2F0164
         MOVE.L  A6,D0                           ; $2F0166
         BTST    D0,D1                           ; $2F0168
-        ORI.B  #$0050,D0                        ; $2F016A
+        ORI.B  #$50,D0                          ; $2F016A
         BTST    D0,D1                           ; $2F016E
         MOVE.L  A6,D0                           ; $2F0170
         BTST    D0,D1                           ; $2F0172
-        ORI.B  #$0050,D0                        ; $2F0174
+        ORI.B  #$50,D0                          ; $2F0174
         BTST    D0,D1                           ; $2F0178
         MOVE.L  A6,D0                           ; $2F017A
         BTST    D0,D1                           ; $2F017C
-        ORI.B  #$0050,D0                        ; $2F017E
+        ORI.B  #$50,D0                          ; $2F017E
         BTST    D0,D1                           ; $2F0182
         MOVE.L  A6,D0                           ; $2F0184
         BTST    D0,D1                           ; $2F0186
-        ORI.B  #$0050,D0                        ; $2F0188
+        ORI.B  #$50,D0                          ; $2F0188
         BTST    D0,D1                           ; $2F018C
         MOVE.L  A6,D0                           ; $2F018E
         BTST    D0,D1                           ; $2F0190
-        ORI.B  #$0050,D0                        ; $2F0192
+        ORI.B  #$50,D0                          ; $2F0192
         BTST    D0,D1                           ; $2F0196
         MOVE.L  A6,D0                           ; $2F0198
         BTST    D0,D1                           ; $2F019A
-        ORI.B  #$0050,D0                        ; $2F019C
+        ORI.B  #$50,D0                          ; $2F019C
         BTST    D0,D1                           ; $2F01A0
         MOVE.L  A6,D0                           ; $2F01A2
         BTST    D0,D1                           ; $2F01A4
-        ORI.B  #$0050,D0                        ; $2F01A6
+        ORI.B  #$50,D0                          ; $2F01A6
         BTST    D0,D1                           ; $2F01AA
         MOVE.L  A6,D0                           ; $2F01AC
         BTST    D0,D1                           ; $2F01AE
-        ORI.B  #$0050,D0                        ; $2F01B0
+        ORI.B  #$50,D0                          ; $2F01B0
         BTST    D0,D1                           ; $2F01B4
         MOVE.L  A6,D0                           ; $2F01B6
         BTST    D0,D1                           ; $2F01B8
-        ORI.B  #$0050,D0                        ; $2F01BA
+        ORI.B  #$50,D0                          ; $2F01BA
         BTST    D0,D1                           ; $2F01BE
         MOVE.L  A6,D0                           ; $2F01C0
         BTST    D0,D1                           ; $2F01C2
-        ORI.B  #$0050,D0                        ; $2F01C4
+        ORI.B  #$50,D0                          ; $2F01C4
         BTST    D0,D1                           ; $2F01C8
         MOVE.L  A6,D0                           ; $2F01CA
         BTST    D0,D1                           ; $2F01CC
-        ORI.B  #$0050,D0                        ; $2F01CE
+        ORI.B  #$50,D0                          ; $2F01CE
         BTST    D0,D1                           ; $2F01D2
         MOVE.L  A6,D0                           ; $2F01D4
         BTST    D0,D1                           ; $2F01D6
-        ORI.B  #$0050,D0                        ; $2F01D8
+        ORI.B  #$50,D0                          ; $2F01D8
         BTST    D0,D1                           ; $2F01DC
         MOVE.L  A6,D0                           ; $2F01DE
         BTST    D0,D1                           ; $2F01E0
-        ORI.B  #$0050,D0                        ; $2F01E2
+        ORI.B  #$50,D0                          ; $2F01E2
         BTST    D0,D1                           ; $2F01E6
         MOVE.L  A6,D0                           ; $2F01E8
         BTST    D0,D1                           ; $2F01EA
-        ORI.B  #$0050,D0                        ; $2F01EC
+        ORI.B  #$50,D0                          ; $2F01EC
         BTST    D0,D1                           ; $2F01F0
         MOVE.L  A6,D0                           ; $2F01F2
         BTST    D0,D1                           ; $2F01F4
-        ORI.B  #$0050,D0                        ; $2F01F6
+        ORI.B  #$50,D0                          ; $2F01F6
         BTST    D0,D1                           ; $2F01FA
         MOVE.L  A6,D0                           ; $2F01FC
         BTST    D0,D1                           ; $2F01FE

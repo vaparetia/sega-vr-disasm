@@ -3974,24 +3974,24 @@
         OR.L   D0,D0                            ; $2620FC
         OR.L   D0,D0                            ; $2620FE
         OR.L   D0,D0                            ; $262100
-        OR.W   <EA:3F>,D0                       ; $262102
-        OR.W   <EA:3F>,D0                       ; $262104
-        OR.W   <EA:3F>,D0                       ; $262106
-        OR.W   <EA:3F>,D0                       ; $262108
-        OR.W   <EA:3F>,D0                       ; $26210A
-        OR.W   <EA:3F>,D0                       ; $26210C
-        OR.W   <EA:3F>,D0                       ; $26210E
-        OR.W   <EA:3F>,D0                       ; $262110
-        OR.W   <EA:3F>,D0                       ; $262112
-        OR.W   <EA:3F>,D0                       ; $262114
-        OR.W   <EA:3F>,D0                       ; $262116
-        OR.W   <EA:3F>,D0                       ; $262118
-        OR.W   <EA:3F>,D0                       ; $26211A
-        OR.W   <EA:3F>,D0                       ; $26211C
-        OR.W   <EA:3F>,D0                       ; $26211E
+        DC.W    $807F                           ; $262102
+        DC.W    $807F                           ; $262104
+        DC.W    $807F                           ; $262106
+        DC.W    $807F                           ; $262108
+        DC.W    $807F                           ; $26210A
+        DC.W    $807F                           ; $26210C
+        DC.W    $807F                           ; $26210E
+        DC.W    $807F                           ; $262110
+        DC.W    $807F                           ; $262112
+        DC.W    $807F                           ; $262114
+        DC.W    $807F                           ; $262116
+        DC.W    $807F                           ; $262118
+        DC.W    $807F                           ; $26211A
+        DC.W    $807F                           ; $26211C
+        DC.W    $807F                           ; $26211E
         DC.W    $7F7F                           ; $262120
         DC.W    $7F7F                           ; $262122
-        OR.W   <EA:3F>,D0                       ; $262124
+        DC.W    $807F                           ; $262124
         DC.W    $7F7F                           ; $262126
         DC.W    $7F7F                           ; $262128
         DC.W    $7F7F                           ; $26212A
@@ -4006,7 +4006,7 @@
         DC.W    $7F7F                           ; $26213C
         DC.W    $7F7F                           ; $26213E
         DC.W    $7F7F                           ; $262140
-        OR.W   <EA:3F>,D0                       ; $262142
+        DC.W    $807F                           ; $262142
         MOVE.W  D0,-$80(A7,A0.W)                ; $262144
         MOVE.W  D0,-$80(A7,A0.W)                ; $262148
         OR.L   D0,D0                            ; $26214C
@@ -4023,12 +4023,12 @@
         DC.W    $7F7F                           ; $262164
         DC.W    $7F7F                           ; $262166
         DC.W    $7F7F                           ; $262168
-        OR.W   <EA:3F>,D0                       ; $26216A
-        OR.W   <EA:3F>,D0                       ; $26216C
-        OR.W   <EA:3F>,D0                       ; $26216E
-        OR.W   <EA:3F>,D0                       ; $262170
-        OR.W   <EA:3F>,D0                       ; $262172
-        OR.W   <EA:3F>,D0                       ; $262174
+        DC.W    $807F                           ; $26216A
+        DC.W    $807F                           ; $26216C
+        DC.W    $807F                           ; $26216E
+        DC.W    $807F                           ; $262170
+        DC.W    $807F                           ; $262172
+        DC.W    $807F                           ; $262174
         DC.W    $7F7F                           ; $262176
         DC.W    $7F7F                           ; $262178
         DC.W    $7F7F                           ; $26217A
@@ -4049,25 +4049,25 @@
         DC.W    $7F7F                           ; $26219E
         DC.W    $7F7F                           ; $2621A0
         DC.W    $7F7F                           ; $2621A2
-        OR.W   <EA:3F>,D0                       ; $2621A4
+        DC.W    $807F                           ; $2621A4
         MOVE.W  D0,-$80(A7,A0.W)                ; $2621A6
         OR.L   D0,D0                            ; $2621AA
         DC.W    $7F7F                           ; $2621AC
-        OR.W   <EA:3F>,D0                       ; $2621AE
-        OR.W   <EA:3F>,D0                       ; $2621B0
-        OR.W   <EA:3F>,D0                       ; $2621B2
-        OR.W   <EA:3F>,D0                       ; $2621B4
-        OR.W   <EA:3F>,D0                       ; $2621B6
-        OR.W   <EA:3F>,D0                       ; $2621B8
-        OR.W   <EA:3F>,D0                       ; $2621BA
-        OR.W   <EA:3F>,D0                       ; $2621BC
-        OR.W   <EA:3F>,D0                       ; $2621BE
-        OR.W   <EA:3F>,D0                       ; $2621C0
+        DC.W    $807F                           ; $2621AE
+        DC.W    $807F                           ; $2621B0
+        DC.W    $807F                           ; $2621B2
+        DC.W    $807F                           ; $2621B4
+        DC.W    $807F                           ; $2621B6
+        DC.W    $807F                           ; $2621B8
+        DC.W    $807F                           ; $2621BA
+        DC.W    $807F                           ; $2621BC
+        DC.W    $807F                           ; $2621BE
+        DC.W    $807F                           ; $2621C0
         DC.W    $7F7F                           ; $2621C2
-        OR.W   <EA:3F>,D0                       ; $2621C4
-        OR.W   <EA:3F>,D0                       ; $2621C6
-        OR.W   <EA:3F>,D0                       ; $2621C8
-        OR.W   <EA:3F>,D0                       ; $2621CA
+        DC.W    $807F                           ; $2621C4
+        DC.W    $807F                           ; $2621C6
+        DC.W    $807F                           ; $2621C8
+        DC.W    $807F                           ; $2621CA
         OR.L   D0,D0                            ; $2621CC
         OR.L   D0,D0                            ; $2621CE
         OR.L   D0,D0                            ; $2621D0
@@ -4089,4 +4089,3 @@
         DC.W    $7F7F                           ; $2621F8
         DC.W    $7F7F                           ; $2621FA
         DC.W    $7F7F                           ; $2621FC
-        MOVE.W  D0,-$80(A7,D7.L)                ; $2621FE

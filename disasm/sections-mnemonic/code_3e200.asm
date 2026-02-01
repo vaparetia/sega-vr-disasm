@@ -1797,16 +1797,18 @@
         DC.W    $FFFF                           ; $03EFFA
         DC.W    $FFFF                           ; $03EFFC
         DC.W    $FFFF                           ; $03EFFE
-        ORI.B  #$8004,(A0)                      ; $03F000
-        EORI.B  #$1C24,(A5)                     ; $03F004
-        CMPI.B  #$1A48,-$7B(A5,A7.L)            ; $03F008
+        ORI.B  #$04,(A0)                        ; $03F000
+        EORI.B  #$24,(A5)                       ; $03F004
+        CMPI.B  #$48,-$7B(A5,A7.L)              ; $03F008
         MOVE.B  D1,D1                           ; $03F00E
-        MOVE.L  $351B.W,(A4)+                   ; $03F010
+        MOVE.L  ($351B).W,(A4)+                 ; $03F010
         DC.W    $451D                           ; $03F014
-        ADDQ.B  #3,#$8F02                       ; $03F016
-        ORI.B  #$0428,(A3)                      ; $03F01A
-        MOVE.W  $56(A4,D0.L),-(A4)              ; $03F01E
-        MOVE.W  $FBFF.W,-$1A1F(A6)              ; $03F022
+        DC.W    $563C                           ; $03F016
+        OR.B   D7,D2                            ; $03F018
+        ORI.B  #$28,(A3)                        ; $03F01A
+        DC.W    $F934                           ; $03F01E
+        BCHG    D5,(A6)                         ; $03F020
+        MOVE.W  (-1025).W,-$1A1F(A6)            ; $03F022
         CMP.L  D6,D1                            ; $03F028
         DC.W    $313E                           ; $03F02A
         DC.W    $27C0                           ; $03F02C
@@ -1814,33 +1816,36 @@
         MOVE.B  -$42(A2,A7.L),-(A5)             ; $03F030
         MOVEQ   #$26,D2                         ; $03F034
         MOVE.B  D6,-(A7)                        ; $03F036
-        NEG    (A0)                             ; $03F038
+        MOVE    (A0),CCR                        ; $03F038
         SUB.B  (A3),D5                          ; $03F03A
         CLR.W  -$0A88(A2)                       ; $03F03C
-        BGE.S  loc_03EFE3                       ; $03F040
+        DC.W    $6CA1                           ; $03F040
         OR.W   D4,(A6)                          ; $03F042
         SUB.W  -$5E46(A4),D2                    ; $03F044
-        MOVE.W  $78(PC,D3.L),(A6)+              ; $03F048
-        BGE.S  loc_03EFEF                       ; $03F04C
+        MOVE.W  $03F0C2(PC,D3.L),(A6)+          ; $03F048
+        DC.W    $6CA1                           ; $03F04C
         OR.W   D4,(A3)                          ; $03F04E
         ASR.W  -(A5)                            ; $03F050
-        EOR.L  D0,A1                            ; $03F052
-        NOT    A4                               ; $03F054
+        DC.W    $B189                           ; $03F052
+        DC.W    $46CC                           ; $03F054
         EOR.L  D7,-$3C20(A3)                    ; $03F056
-        ASL.W  $5128.W                          ; $03F05A
-        MOVE.W  $4A3C(A4),D6                    ; $03F05E
-        MOVEA.W $684D(PC),A7                    ; $03F062
-        SUBQ.W  #6,<EA:3D>                      ; $03F066
+        ASL.W  ($5128).W                        ; $03F05A
+        DC.W    $FC2C                           ; $03F05E
+        DC.W    $4A3C                           ; $03F060
+        DC.W    $FE7A                           ; $03F062
+        DC.W    $684D                           ; $03F064
+        DC.W    $5D7D                           ; $03F066
         SUB.W  D6,D7                            ; $03F068
         ASR.W  -$349D(A1)                       ; $03F06A
         DC.W    $128D                           ; $03F06E
-        SUB.W  D4,-$43CA(PC)                    ; $03F070
-        ST      #$F0E9                          ; $03F074
+        DC.W    $997A                           ; $03F070
+        CMP.B  -$04(A6,D5.W),D6                 ; $03F072
+        DC.W    $F0E9                           ; $03F076
         DC.W    $4318                           ; $03F078
         AND.L  -(A3),D2                         ; $03F07A
         BNE.S  loc_03F0DC                       ; $03F07C
         MOVE.W  D7,-$7AA6(A5)                   ; $03F07E
-        BRA.S  loc_03F01C                       ; $03F082
+        BRA.S  $03F01C                          ; $03F082
         MOVE.L  D4,(A3)                         ; $03F084
         ADD.L  (A2)+,D0                         ; $03F086
         EOR.W  D6,(A6)+                         ; $03F088
@@ -1851,31 +1856,36 @@
         MOVE.B  $6318(A0),-(A5)                 ; $03F096
         SUB.W  -$36(A4,A6.W),D2                 ; $03F09A
         SUBQ.L  #8,$57(A3,D2.L)                 ; $03F09E
-        DIVU    A2,D3                           ; $03F0A2
+        DC.W    $86CA                           ; $03F0A2
         MOVE.B  D6,(A4)+                        ; $03F0A4
         MOVE.W  A0,$C6312A72                    ; $03F0A6
-        SUBQ.L  #3,#$3A50C674                   ; $03F0AC
-        MOVE.L  A4,$3A(A0,D6.W)                 ; $03F0B2
-        SUBQ.L  #3,-$43CA(PC)                   ; $03F0B6
-        ST      D6                              ; $03F0BA
+        DC.W    $57BC                           ; $03F0AC
+        MOVEA.W (A0),A5                         ; $03F0AE
+        AND.W  -$74(A4,A2.W),D3                 ; $03F0B0
+        BLS.S  loc_03F0F0                       ; $03F0B4
+        DC.W    $57BA                           ; $03F0B6
+        CMP.B  -$3A(A6,D5.W),D6                 ; $03F0B8
         MOVE.L  A2,$12A5(A2)                    ; $03F0BC
         DC.W    $0C4A                           ; $03F0C0
         MOVEA.W -(A5),A3                        ; $03F0C2
-        MOVE.W  (A6)+,$1D286318                 ; $03F0C4
+        DC.W    $F3DE                           ; $03F0C4
+        MOVE.B  $6318(A0),-(A6)                 ; $03F0C6
         AND.B  -$17(A1,A0.L),D3                 ; $03F0CA
         SGT     -$0C(A3,A7.L)                   ; $03F0CE
         MOVE.W  (A3)+,-(A4)                     ; $03F0D2
-        MOVE.L  -(A5),-$30(A1,D0.L)             ; $03F0D4
+        DC.W    $A3A5                           ; $03F0D4
+        BSET    D6,(A0)                         ; $03F0D6
         ADD.B  D6,(A6)+                         ; $03F0D8
         DC.W    $7DF3                           ; $03F0DA
 loc_03F0DC:
-        ADD.B  #$8DD1,D5                        ; $03F0DC
+        ADD.B  #$D1,D5                          ; $03F0DC
         EOR.L  D1,D3                            ; $03F0E0
         MOVEA.W A5,A0                           ; $03F0E2
         BCLR    D4,-$6060(A7)                   ; $03F0E4
         DC.W    $00CA                           ; $03F0E8
-        SUBI.B  #$24CE,D0                       ; $03F0EA
+        SUBI.B  #$CE,D0                         ; $03F0EA
         BCHG    D0,D0                           ; $03F0EE
+loc_03F0F0:
         DC.W    $FFFF                           ; $03F0F0
         DC.W    $FFFF                           ; $03F0F2
         DC.W    $FFFF                           ; $03F0F4
@@ -3804,9 +3814,9 @@ loc_03F0DC:
         DC.W    $FFFF                           ; $03FFFA
         DC.W    $FFFF                           ; $03FFFC
         DC.W    $FFFF                           ; $03FFFE
-        ORI.B  #$9191,D0                        ; $040000
+        ORI.B  #$91,D0                          ; $040000
         BTST    D4,D1                           ; $040004
-        SUB.B  D0,A1                            ; $040006
+        DC.W    $9109                           ; $040006
         BCLR    D0,(A0)                         ; $040008
 loc_04000A:
         MOVE.B  (A1),(A0)                       ; $04000A
@@ -3815,60 +3825,61 @@ loc_04000A:
         SUB.L  D0,(A1)                          ; $040010
         SUB.B  D0,D0                            ; $040012
         MOVE.B  D0,-(A4)                        ; $040014
-        ORI.B  #$1900,D0                        ; $040016
+        ORI.B  #$00,D0                          ; $040016
         MOVE.B  D0,-(A4)                        ; $04001A
-        ORI.B  #$265D,(A0)                      ; $04001C
+        ORI.B  #$5D,(A0)                        ; $04001C
         CMP.L  (A3)+,D5                         ; $040020
-        ADDQ.L  #3,#$BBBAC133                   ; $040022
-        MOVE.L  A3,-(A1)                        ; $040028
+        DC.W    $56BC                           ; $040022
+        DC.W    $BBBA                           ; $040024
+        AND.B  D0,$0B(A3,A2.W)                  ; $040026
         DC.W    $3DC4                           ; $04002A
         CMP.W  (A7)+,D6                         ; $04002C
         DIVU    -$7D7A(A0),D4                   ; $04002E
-        DIVU    <EA:3E>,D0                      ; $040032
+        DC.W    $80FE                           ; $040032
         CMP.B  D7,D5                            ; $040034
         ROXL.W  (A5)                            ; $040036
         BGT.S  loc_04000A                       ; $040038
         DC.W    $06E0                           ; $04003A
         DC.W    $04C3                           ; $04003C
         MOVE.W  -$0D(A0,D0.W),-$4B(A7,D6.L)     ; $04003E
-        BLT.S  loc_04008D                       ; $040044
-        ADDQ.W  #7,<EA:3E>                      ; $040046
+        DC.W    $6D47                           ; $040044
+        DC.W    $5E7E                           ; $040046
         MOVE.B  -(A4),(A3)                      ; $040048
         MOVEA.W $33F5(A4),A3                    ; $04004A
         MOVEQ   #$30,D2                         ; $04004E
         ADD.W  D4,(A1)                          ; $040050
-        AND.B  A4,D2                            ; $040052
+        DC.W    $C40C                           ; $040052
         NEGX.B D0                               ; $040054
-        ORI.B  #$0000,D0                        ; $040056
-        ORI.B  #$00D5,D0                        ; $04005A
+        ORI.B  #$00,D0                          ; $040056
+        ORI.B  #$D5,D0                          ; $04005A
         DC.W    $00DC                           ; $04005E
         SCC     -(A3)                           ; $040060
         AND.W  -(A4),D6                         ; $040062
         ADDA.L  (A4),A6                         ; $040064
         DC.W    $4B5E                           ; $040066
         ROXL.W  -(A5)                           ; $040068
-        BGT.S  loc_040051                       ; $04006A
-        BNE.S  loc_04004C                       ; $04006C
-        ADD.B  <EA:3D>,D6                       ; $04006E
-        AND.W  D2,A4                            ; $040070
+        DC.W    $6EE5                           ; $04006A
+        BNE.S  $04004C                          ; $04006C
+        DC.W    $DC3D                           ; $04006E
+        DC.W    $C54C                           ; $040070
         CMP.L  (A6),D7                          ; $040072
-        JMP     D1                              ; $040074
+        DC.W    $4EC1                           ; $040074
         CMPA.L  (A6),A6                         ; $040076
         SLT     (A1)+                           ; $040078
         MOVE.B  (A4)+,(A2)+                     ; $04007A
         SCS     (A4)+                           ; $04007C
         MOVE.W  D5,(A7)+                        ; $04007E
         SUBQ.W  #2,A5                           ; $040080
-        MOVE.L  D1,(A6)+                        ; $040082
+        DC.W    $ACC1                           ; $040082
         AND.W  D2,(A3)                          ; $040084
-        NEG    (A6)+                            ; $040086
+        MOVE    (A6)+,CCR                       ; $040086
         MULS    $65ED(A2),D2                    ; $040088
         SUBQ.W  #2,(A3)                         ; $04008C
         ROL.B  #6,D3                            ; $04008E
         SUB.B  $00(A5,A3.L),D0                  ; $040090
 loc_040094:
         ORI.W  #$B51C,D0                        ; $040094
-        MOVE.W  $4555(PC),(A2)                  ; $040098
+        MOVE.W  $0445EF(PC),(A2)                ; $040098
         CMP.W  D5,D6                            ; $04009C
         EOR.W  D0,(A4)                          ; $04009E
         SUBQ.B  #1,$45(A4,A2.L)                 ; $0400A0
@@ -3878,51 +3889,55 @@ loc_040094:
         DC.W    $435E                           ; $0400AC
         LSR.W  D3,D7                            ; $0400AE
         ASL.W  D3,D3                            ; $0400B0
-        MOVE.W  $5B(A2,D5.W),(A7)               ; $0400B2
+        DC.W    $FEB2                           ; $0400B2
+        SUBQ.W  #2,(A3)+                        ; $0400B4
         BHI.S  loc_040094                       ; $0400B6
         ADD.W  D1,(A5)+                         ; $0400B8
         AND.W  (A1),D2                          ; $0400BA
         ADD.W  D6,D3                            ; $0400BC
         MOVE.W  (A3)+,(A2)                      ; $0400BE
-        NEG    A5                               ; $0400C0
+        DC.W    $44CD                           ; $0400C0
         NEG.W  (A4)                             ; $0400C2
         MULS    (A4),D6                         ; $0400C4
         DC.W    $453B                           ; $0400C6
         ADD.W  D0,D3                            ; $0400C8
         EORI.L  #$BD2341DC,-(A4)                ; $0400CA
-        MOVE.L  -$3D(A3,A3.L),-$2C(A1,A2.L)     ; $0400D0
+        DC.W    $A3B3                           ; $0400D0
+        CMPA.W  D3,A6                           ; $0400D2
+        DC.W    $ABD4                           ; $0400D4
         MOVEM.L $2CBD(A4),D2/D6/D7/A2/A5/A6     ; $0400D6
         CLR    D3                               ; $0400DC
-        BLT.S  loc_0400BD                       ; $0400DE
+        DC.W    $6DDD                           ; $0400DE
         AND.W  D1,D3                            ; $0400E0
         ROXL.W  #8,D5                           ; $0400E2
-        LEA     (A6)+,A1                        ; $0400E4
+        DC.W    $43DE                           ; $0400E4
         EOR.W  D5,-(A5)                         ; $0400E6
         ADDA.W  (A3),A7                         ; $0400E8
         BNE.S  loc_04013A                       ; $0400EA
         ROR.B  D2,D2                            ; $0400EC
-        MOVEA.L (A0),A5                         ; $0400EE
-        AND.W  A4,D1                            ; $0400F0
-        AND.L  D1,$53BC(PC)                     ; $0400F2
+        DC.W    $AA50                           ; $0400EE
+        DC.W    $C24C                           ; $0400F0
+        DC.W    $C3BA                           ; $0400F2
+        DC.W    $53BC                           ; $0400F4
         MOVE.W  $3423(A4),-(A4)                 ; $0400F6
         SUBQ.L  #2,-$422B(A3)                   ; $0400FA
         SGE     (A3)                            ; $0400FE
-        NEGX   D5                               ; $040100
+        MOVE    SR,D5                           ; $040100
         DBGE    D1,$044551                      ; $040102
         ADD.L  -$49D3(A5),D6                    ; $040106
         ROXR.W  #2,D4                           ; $04010A
-        AND.B  #$24CD,D0                        ; $04010C
+        AND.B  #$CD,D0                          ; $04010C
         ADD.W  -(A2),D5                         ; $040110
         MULS    (A4),D6                         ; $040112
-        SUBQ.B  #2,<EA:3D>                      ; $040114
+        DC.W    $553D                           ; $040114
         AND.B  -$54(A5,A3.L),D6                 ; $040116
         MOVE.L  D3,(A5)+                        ; $04011A
-        TST.B  A2                               ; $04011C
+        DC.W    $4A0A                           ; $04011C
         ANDI.W  #$DB9B,(A5)                     ; $04011E
-        BNE.S  loc_040111                       ; $040122
-        LEA     A3,A2                           ; $040124
-        BSR.S  loc_0400FC                       ; $040126
-        BGT.S  loc_04010D                       ; $040128
+        DC.W    $66ED                           ; $040122
+        DC.W    $45CB                           ; $040124
+        BSR.S  $0400FC                          ; $040126
+        DC.W    $6EE3                           ; $040128
         SUBQ.W  #3,(A4)+                        ; $04012A
         ASL.L  D7,D5                            ; $04012C
         MOVEA.W D5,A5                           ; $04012E
@@ -3940,59 +3955,60 @@ loc_04013A:
         CLR.W  (A4)+                            ; $040146
         MOVE.W  -$2ABF(A3),$31(A4,A4.W)         ; $040148
         ADD.L  D6,-(A3)                         ; $04014E
-        NEG.W  A5                               ; $040150
+        DC.W    $444D                           ; $040150
         ADD.L  D6,$63(A5,A4.W)                  ; $040152
-        AND.B  D5,A3                            ; $040156
+        DC.W    $CB0B                           ; $040156
         MOVE.W  $045CE444,D2                    ; $040158
         ADDQ.L  #2,-(A3)                        ; $04015E
         MOVEA.L A1,A1                           ; $040160
-        NEG.B  -$42E3(PC)                       ; $040162
+        DC.W    $443A                           ; $040162
+        EOR.B  D6,(A5)+                         ; $040164
         SCC     (A3)                            ; $040166
-        NEG.L  <EA:3D>                          ; $040168
+        DC.W    $44BD                           ; $040168
         MULS    (A4),D6                         ; $04016A
         MOVE.W  A4,$AA3DDD55                    ; $04016C
-        MOVE.L  A5,$4DDA.W                      ; $040172
-        SUBQ.L  #2,<EA:3D>                      ; $040176
+        MOVE.L  A5,($4DDA).W                    ; $040172
+        DC.W    $55BD                           ; $040176
         AND.W  D4,D3                            ; $040178
         CMP.L  -(A2),D6                         ; $04017A
         DC.W    $353D                           ; $04017C
         ADD.B  D0,$2431(A2)                     ; $04017E
-        CLR    A4                               ; $040182
+        DC.W    $42CC                           ; $040182
         ADD.W  D1,(A5)                          ; $040184
         SUB.L  D6,$0BC0(A4)                     ; $040186
         DC.W    $4B44                           ; $04018A
-        AND.L  $4C(PC,A4.W),D6                  ; $04018C
-        MULU    A4,D5                           ; $040190
-        CLR.B  A3                               ; $040192
+        AND.L  $0401DA(PC,A4.W),D6              ; $04018C
+        DC.W    $CACC                           ; $040190
+        DC.W    $420B                           ; $040192
         MOVE.B  $3A(A0,D4.W),-$4C(A1,A3.L)      ; $040194
         DC.W    $4B1B                           ; $04019A
-        MOVE.L  $4C(PC,D4.W),-(A1)              ; $04019C
+        MOVE.L  $0401EA(PC,D4.W),-(A1)          ; $04019C
         EOR.W  D0,D5                            ; $0401A0
-        MOVE.W  $65CD(A2),$C54D.W               ; $0401A2
+        MOVE.W  $65CD(A2),(-15027).W            ; $0401A2
         ADD.W  D4,D6                            ; $0401A8
         SLT     (A3)+                           ; $0401AA
-        LEA     A1,A4                           ; $0401AC
+        DC.W    $49C9                           ; $0401AC
         CMP.W  D4,D5                            ; $0401AE
         MOVE.W  (A0),(A1)                       ; $0401B0
         CMPA.L  D1,A6                           ; $0401B2
-        MOVE.W  -$5CAE(PC),D2                   ; $0401B4
+        MOVE.W  $03A508(PC),D2                  ; $0401B4
         CMP.L  (A3)+,D0                         ; $0401B8
         ADDQ.B  #2,-$6CBC(A3)                   ; $0401BA
         ADDQ.W  #2,D3                           ; $0401BE
         AND.L  D6,-(A5)                         ; $0401C0
-        LEA     (A3)+,A5                        ; $0401C2
+        DC.W    $4BDB                           ; $0401C2
         DBCS    D3,$039B82                      ; $0401C4
         AND.B  $2044(A4),D5                     ; $0401C8
         CMPI.L  #$CB3CC344,-(A3)                ; $0401CC
         AND.B  D6,$33(A4,A1.W)                  ; $0401D2
-        NEGX   A4                               ; $0401D6
+        DC.W    $40CC                           ; $0401D6
         DC.W    $1443                           ; $0401D8
-        NEG    (A4)+                            ; $0401DA
-        SUB.L  -$47(PC,D3.L),D2                 ; $0401DC
-        BTST    D2,$12B2(PC)                    ; $0401E0
+        MOVE    (A4)+,CCR                       ; $0401DA
+        SUB.L  $040197(PC,D3.L),D2              ; $0401DC
+        BTST    D2,$041494(PC)                  ; $0401E0
         AND.W  D4,D6                            ; $0401E4
-        MOVE.L  A3,(A6)+                        ; $0401E6
-        MOVE.L  A3,-(A5)                        ; $0401E8
+        DC.W    $ACCB                           ; $0401E6
+        DC.W    $AB0B                           ; $0401E8
         AND.W  (A2)+,D2                         ; $0401EA
         BCLR    D0,$4D(A2,D2.W)                 ; $0401EC
         ADD.L  (A4),D6                          ; $0401F0
@@ -4000,4 +4016,3 @@ loc_04013A:
         EOR.L  D1,(A3)+                         ; $0401F4
         SUB.W  D3,D5                            ; $0401F6
         CMP.L  #$249B54BC,D0                    ; $0401F8
-        MOVE.W  -$445B(A2),(A2)                 ; $0401FE

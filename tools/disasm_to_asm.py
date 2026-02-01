@@ -66,15 +66,22 @@ class AssemblyGenerator:
             instruction = result['asm']
             size = result['size']
 
+            # Don't include instructions that extend past section boundary
+            if offset + size > self.end:
+                break
+
             # Track branch/jump targets
             self._extract_targets(addr, size)
 
             self.instructions.append((addr, size, instruction, False))
             offset += size
 
-        # Create labels for branch targets within our range
+        # Collect all instruction addresses
+        instruction_addresses = {addr for addr, _, _, _ in self.instructions}
+
+        # Create labels only for branch targets that match instruction boundaries
         for target in sorted(self.branch_targets):
-            if self.start <= target < self.end:
+            if self.start <= target < self.end and target in instruction_addresses:
                 self.labels[target] = f"loc_{target:06X}"
 
     def _extract_targets(self, addr, instr_size):
@@ -195,6 +202,14 @@ class ProperDisassembler:
         self.rom = rom_data
         self.fallbacks = []  # Track DC.W fallbacks: (offset, opcode, reason)
 
+    def _is_valid_ea(self, ea_mode):
+        """Check if an EA mode is valid. Mode 7 reg 5/6/7 are invalid."""
+        mode_bits = (ea_mode >> 3) & 7
+        reg_bits = ea_mode & 7
+        if mode_bits == 7 and reg_bits > 4:
+            return False
+        return True
+
     def read_word(self, offset):
         if offset + 2 > len(self.rom):
             return 0
@@ -231,6 +246,11 @@ class ProperDisassembler:
             labels = {}
 
         opcode = self.read_word(offset)
+
+        # A-line (0xAxxx) and F-line (0xFxxx) are traps on 68000 - not valid instructions
+        if (opcode & 0xF000) in (0xA000, 0xF000):
+            self.fallbacks.append((offset, opcode, 'A-line or F-line trap'))
+            return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
 
         # RTS
         if opcode == 0x4E75:
@@ -288,12 +308,36 @@ class ProperDisassembler:
         # JSR with other EA modes (4E80-4EBF, except the specific patterns above)
         if (opcode & 0xFFC0) == 0x4E80:
             ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # JSR uses control addressing only: no Dn, An, (An)+, -(An), #imm
+            if ea_mode_type in (0, 1, 3, 4):
+                self.fallbacks.append((offset, opcode, 'JSR non-control addr'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                self.fallbacks.append((offset, opcode, 'JSR imm invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'JSR invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.L')
             return {'asm': f'JSR     {ea}', 'size': 2 + ea_size}
 
         # JMP with other EA modes (4EC0-4EFF, except the specific patterns above)
         if (opcode & 0xFFC0) == 0x4EC0:
             ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # JMP uses control addressing only: no Dn, An, (An)+, -(An), #imm
+            if ea_mode_type in (0, 1, 3, 4):
+                self.fallbacks.append((offset, opcode, 'JMP non-control addr'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                self.fallbacks.append((offset, opcode, 'JMP imm invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'JMP invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.L')
             return {'asm': f'JMP     {ea}', 'size': 2 + ea_size}
 
@@ -329,10 +373,9 @@ class ProperDisassembler:
                 size = 4
                 suffix = '.W'
             elif disp == 0xFF:
-                # 32-bit displacement (68020+)
-                disp = self.read_long(offset + 2)
-                size = 6
-                suffix = '.L'
+                # 32-bit displacement (68020+ only, not valid on 68000)
+                self.fallbacks.append((offset, opcode, 'Bcc.L not valid on 68000'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             else:
                 # 8-bit displacement
                 if disp & 0x80:
@@ -341,13 +384,35 @@ class ProperDisassembler:
                 suffix = '.S'
 
             target = offset + 2 + disp
-            label = labels.get(target, f"${target:06X}")
+            # 68000 requires word alignment - odd target is invalid
+            if target & 1:
+                self.fallbacks.append((offset, opcode, 'Bcc target not word-aligned'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            label = labels.get(target)
+            if label is None:
+                # Target not at instruction boundary - fall back to raw address
+                # This can happen when disassembling data as code
+                return {'asm': f'{cond}{suffix:4s}${target:06X}', 'size': size}
             return {'asm': f'{cond}{suffix:4s}{label}', 'size': size}
 
         # LEA (41C0-41FF with valid EA modes)
         if (opcode & 0xF1C0) == 0x41C0:
             reg = (opcode >> 9) & 7
             ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # LEA only accepts control addressing modes:
+            # (An)=010, (d16,An)=101, (d8,An,Xn)=110, abs.W=111/000, abs.L=111/001, (d16,PC)=111/010, (d8,PC,Xn)=111/011
+            # NOT valid: Dn=000, An=001, (An)+=011, -(An)=100, #imm=111/100
+            if ea_mode_type in (0, 1, 3, 4):  # Dn, An, (An)+, -(An)
+                self.fallbacks.append((offset, opcode, 'LEA invalid source mode'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if ea_mode_type == 7 and ea_mode_reg == 4:  # #imm
+                self.fallbacks.append((offset, opcode, 'LEA immediate source invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'LEA invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.L')
             return {'asm': f'LEA     {ea},A{reg}', 'size': 2 + ea_size}
 
@@ -360,8 +425,26 @@ class ProperDisassembler:
         # TST.B/W/L
         if (opcode & 0xFF00) == 0x4A00:
             size_code = (opcode >> 6) & 3
+            # size_code == 3 is invalid for TST
+            if size_code == 3:
+                self.fallbacks.append((offset, opcode, 'TST size 3 invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             sizes = ['.B', '.W', '.L', '']
             ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # TST can't use An as operand
+            if ea_mode_type == 1:
+                self.fallbacks.append((offset, opcode, 'TST An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # Check for invalid EA modes (mode 7 reg 5/6/7)
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'TST invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # On 68000, TST only supports data alterable - no PC-relative or #imm
+            if ea_mode_type == 7 and ea_mode_reg in (2, 3, 4):
+                self.fallbacks.append((offset, opcode, 'TST PC-rel/imm invalid 68000'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[size_code])
             return {'asm': f'TST{sizes[size_code]:4s}{ea}', 'size': 2 + ea_size}
 
@@ -370,30 +453,102 @@ class ProperDisassembler:
             size_code = (opcode >> 6) & 3
             sizes = ['.B', '.W', '.L', '']
             ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # Check for invalid EA modes (mode 7 reg 5/6/7)
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'CLR invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # CLR can't use An as destination
+            if ea_mode_type == 1:
+                self.fallbacks.append((offset, opcode, 'CLR An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # CLR can't use PC-relative as destination
+            if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                self.fallbacks.append((offset, opcode, 'CLR PC-relative dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # CLR can't use #imm as destination
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                self.fallbacks.append((offset, opcode, 'CLR imm dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[size_code])
             return {'asm': f'CLR{sizes[size_code]:4s}{ea}', 'size': 2 + ea_size}
 
-        # NEG.B/W/L (4400-44FF)
-        if (opcode & 0xFF00) == 0x4400:
+        # NEG.B/W/L (4400-44BF) - excludes 44C0-44FF which is MOVE to CCR
+        if (opcode & 0xFF00) == 0x4400 and (opcode & 0x00C0) != 0x00C0:
             size_code = (opcode >> 6) & 3
             sizes = ['.B', '.W', '.L', '']
             ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # Check for invalid EA modes (mode 7 reg 5/6/7)
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'NEG invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # NEG can't use An as destination
+            if ea_mode_type == 1:
+                self.fallbacks.append((offset, opcode, 'NEG An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # NEG can't use #imm as operand
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                self.fallbacks.append((offset, opcode, 'NEG imm invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # NEG can't use PC-relative as destination
+            if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                self.fallbacks.append((offset, opcode, 'NEG PC-relative invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[size_code])
             return {'asm': f'NEG{sizes[size_code]:4s}{ea}', 'size': 2 + ea_size}
 
-        # NOT.B/W/L (4600-46FF)
-        if (opcode & 0xFF00) == 0x4600:
+        # NOT.B/W/L (4600-46BF) - excludes 46C0-46FF which is MOVE to SR
+        if (opcode & 0xFF00) == 0x4600 and (opcode & 0x00C0) != 0x00C0:
             size_code = (opcode >> 6) & 3
             sizes = ['.B', '.W', '.L', '']
             ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # Check for invalid EA modes (mode 7 reg 5/6/7)
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'NOT invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # NOT can't use An as destination
+            if ea_mode_type == 1:
+                self.fallbacks.append((offset, opcode, 'NOT An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # NOT can't use #imm as operand
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                self.fallbacks.append((offset, opcode, 'NOT imm invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # NOT can't use PC-relative as destination
+            if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                self.fallbacks.append((offset, opcode, 'NOT PC-relative invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[size_code])
             return {'asm': f'NOT{sizes[size_code]:4s}{ea}', 'size': 2 + ea_size}
 
-        # NEGX.B/W/L (4000-40FF)
-        if (opcode & 0xFF00) == 0x4000:
+        # NEGX.B/W/L (4000-40BF) - excludes 40C0-40FF which is MOVE from SR
+        if (opcode & 0xFF00) == 0x4000 and (opcode & 0x00C0) != 0x00C0:
             size_code = (opcode >> 6) & 3
             sizes = ['.B', '.W', '.L', '']
             ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # Check for invalid EA modes (mode 7 reg 5/6/7)
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'NEGX invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # NEGX can't use An as destination
+            if ea_mode_type == 1:
+                self.fallbacks.append((offset, opcode, 'NEGX An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # NEGX can't use #imm as operand
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                self.fallbacks.append((offset, opcode, 'NEGX imm invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # NEGX can't use PC-relative as destination
+            if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                self.fallbacks.append((offset, opcode, 'NEGX PC-relative invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[size_code])
             return {'asm': f'NEGX{sizes[size_code]:3s}{ea}', 'size': 2 + ea_size}
 
@@ -411,7 +566,21 @@ class ProperDisassembler:
 
         # PEA (4840-487F) - excluding SWAP
         if (opcode & 0xFFC0) == 0x4840 and (opcode & 0x38) != 0:
-            ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.L')
+            ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # PEA only accepts control addressing modes (like LEA)
+            # NOT valid: Dn=000, An=001, (An)+=011, -(An)=100, #imm=111/100
+            if ea_mode_type in (0, 1, 3, 4):  # Dn, An, (An)+, -(An)
+                self.fallbacks.append((offset, opcode, 'PEA invalid source mode'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if ea_mode_type == 7 and ea_mode_reg == 4:  # #imm
+                self.fallbacks.append((offset, opcode, 'PEA immediate source invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'PEA invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.L')
             return {'asm': f'PEA     {ea}', 'size': 2 + ea_size}
 
         # ADDQ/SUBQ/Scc/DBcc (5xxx)
@@ -431,10 +600,29 @@ class ProperDisassembler:
 
             # Check for Scc (5xC0-5xC7, 5xD0-5xFF except DBcc)
             if (opcode & 0x00C0) == 0x00C0:
+                ea_mode = opcode & 0x3F
+                ea_mode_type = (ea_mode >> 3) & 7
+                ea_mode_reg = ea_mode & 7
+                # Check for invalid EA
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'Scc invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # Scc can't use An as destination
+                if ea_mode_type == 1:
+                    self.fallbacks.append((offset, opcode, 'Scc An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # Scc can't use #imm as destination
+                if ea_mode_type == 7 and ea_mode_reg == 4:
+                    self.fallbacks.append((offset, opcode, 'Scc imm invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # Scc can't use PC-relative as destination
+                if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                    self.fallbacks.append((offset, opcode, 'Scc PC-relative dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 cond = (opcode >> 8) & 0xF
                 cond_names = ['ST', 'SF', 'SHI', 'SLS', 'SCC', 'SCS', 'SNE', 'SEQ',
                              'SVC', 'SVS', 'SPL', 'SMI', 'SGE', 'SLT', 'SGT', 'SLE']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.B')
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.B')
                 return {'asm': f'{cond_names[cond]:8s}{ea}', 'size': 2 + ea_size}
 
             # ADDQ/SUBQ
@@ -444,46 +632,105 @@ class ProperDisassembler:
             data = (opcode >> 9) & 7
             if data == 0:
                 data = 8
-            ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[size_code])
+            ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # Check for invalid destinations
+            if ea_mode_type == 7 and ea_mode_reg == 4:  # #imm
+                self.fallbacks.append((offset, opcode, 'ADDQ/SUBQ imm dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if ea_mode_type == 7 and ea_mode_reg in (2, 3):  # PC-relative
+                self.fallbacks.append((offset, opcode, 'ADDQ/SUBQ PC-relative dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # ADDQ/SUBQ.B can't use An (only .W/.L allowed with An)
+            if ea_mode_type == 1 and size_code == 0:  # An with .B
+                self.fallbacks.append((offset, opcode, 'ADDQ/SUBQ.B An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'ADDQ/SUBQ invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[size_code])
             op = 'SUBQ' if is_sub else 'ADDQ'
             return {'asm': f'{op}{sizes[size_code]:4s}#{data},{ea}', 'size': 2 + ea_size}
 
         # ADD (Dxxx)
         if (opcode & 0xF000) == 0xD000:
+            # Check for invalid EA mode before decoding
+            ea_mode = opcode & 0x3F
+            if (ea_mode >> 3) == 7 and (ea_mode & 7) > 4:
+                self.fallbacks.append((offset, opcode, 'ADD invalid EA mode'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             reg = (opcode >> 9) & 7
             opmode = (opcode >> 6) & 7
-            if opmode < 3:
+            if opmode < 3:  # ADD <ea>,Dn
+                # ADD.B can't use An as source (only .W/.L can)
+                if opmode == 0 and ((ea_mode >> 3) & 7) == 1:
+                    self.fallbacks.append((offset, opcode, 'ADD.B An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode])
                 return {'asm': f'ADD{sizes[opmode]:4s}{ea},D{reg}', 'size': 2 + ea_size}
             elif opmode == 3:
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
                 return {'asm': f'ADDA.W  {ea},A{reg}', 'size': 2 + ea_size}
             elif opmode == 7:
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.L')
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.L')
                 return {'asm': f'ADDA.L  {ea},A{reg}', 'size': 2 + ea_size}
-            else:
+            else:  # ADD Dn,<ea>
+                ea_mode_type = (ea_mode >> 3) & 7
+                ea_mode_reg = ea_mode & 7
+                # ADD Dn,<ea> can't use An or #imm as destination
+                if ea_mode_type == 1:
+                    self.fallbacks.append((offset, opcode, 'ADD Dn to An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                if ea_mode_type == 7 and ea_mode_reg == 4:
+                    self.fallbacks.append((offset, opcode, 'ADD Dn imm dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                    self.fallbacks.append((offset, opcode, 'ADD Dn PC-relative dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['', '.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode - 3])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode - 3])
                 return {'asm': f'ADD{sizes[opmode-3]:4s}D{reg},{ea}', 'size': 2 + ea_size}
 
         # SUB (9xxx)
         if (opcode & 0xF000) == 0x9000:
+            # Check for invalid EA mode before decoding
+            ea_mode = opcode & 0x3F
+            if (ea_mode >> 3) == 7 and (ea_mode & 7) > 4:
+                self.fallbacks.append((offset, opcode, 'SUB invalid EA mode'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             reg = (opcode >> 9) & 7
             opmode = (opcode >> 6) & 7
-            if opmode < 3:
+            if opmode < 3:  # SUB <ea>,Dn
+                # SUB.B can't use An as source (only .W/.L can)
+                if opmode == 0 and ((ea_mode >> 3) & 7) == 1:
+                    self.fallbacks.append((offset, opcode, 'SUB.B An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode])
                 return {'asm': f'SUB{sizes[opmode]:4s}{ea},D{reg}', 'size': 2 + ea_size}
             elif opmode == 3:
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
                 return {'asm': f'SUBA.W  {ea},A{reg}', 'size': 2 + ea_size}
             elif opmode == 7:
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.L')
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.L')
                 return {'asm': f'SUBA.L  {ea},A{reg}', 'size': 2 + ea_size}
-            else:
+            else:  # SUB Dn,<ea>
+                ea_mode_type = (ea_mode >> 3) & 7
+                ea_mode_reg = ea_mode & 7
+                # SUB Dn,<ea> can't use An or #imm as destination
+                if ea_mode_type == 1:
+                    self.fallbacks.append((offset, opcode, 'SUB Dn to An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                if ea_mode_type == 7 and ea_mode_reg == 4:
+                    self.fallbacks.append((offset, opcode, 'SUB Dn imm dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                    self.fallbacks.append((offset, opcode, 'SUB Dn PC-relative dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['', '.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode - 3])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode - 3])
                 return {'asm': f'SUB{sizes[opmode-3]:4s}D{reg},{ea}', 'size': 2 + ea_size}
 
         # CMP (Bxxx) - must check before CMPA/EOR
@@ -491,56 +738,178 @@ class ProperDisassembler:
             reg = (opcode >> 9) & 7
             opmode = (opcode >> 6) & 7
             if opmode < 3:  # CMP <ea>,Dn
+                ea_mode = opcode & 0x3F
+                # Check for invalid EA mode
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'CMP invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # CMP.B can't use An as source (only .W/.L can)
+                if opmode == 0 and ((ea_mode >> 3) & 7) == 1:
+                    self.fallbacks.append((offset, opcode, 'CMP.B An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode])
                 return {'asm': f'CMP{sizes[opmode]:4s}{ea},D{reg}', 'size': 2 + ea_size}
             elif opmode == 3:  # CMPA.W <ea>,An
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+                ea_mode = opcode & 0x3F
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'CMPA.W invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
                 return {'asm': f'CMPA.W  {ea},A{reg}', 'size': 2 + ea_size}
             elif opmode == 7:  # CMPA.L <ea>,An
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.L')
+                ea_mode = opcode & 0x3F
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'CMPA.L invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.L')
                 return {'asm': f'CMPA.L  {ea},A{reg}', 'size': 2 + ea_size}
             else:  # EOR Dn,<ea>
+                ea_mode = opcode & 0x3F
+                ea_mode_type = (ea_mode >> 3) & 7
+                ea_mode_reg = ea_mode & 7
+                # Check for invalid EA mode first
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'EOR Dn invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # EOR Dn,<ea> can't use An as destination
+                if ea_mode_type == 1:
+                    self.fallbacks.append((offset, opcode, 'EOR Dn to An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # PC-relative can't be destination
+                if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                    self.fallbacks.append((offset, opcode, 'EOR PC-relative dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # Immediate can't be destination
+                if ea_mode_type == 7 and ea_mode_reg == 4:
+                    self.fallbacks.append((offset, opcode, 'EOR imm dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['', '.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode - 3])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode - 3])
                 return {'asm': f'EOR{sizes[opmode-3]:4s}D{reg},{ea}', 'size': 2 + ea_size}
 
         # AND (Cxxx)
         if (opcode & 0xF000) == 0xC000:
             reg = (opcode >> 9) & 7
             opmode = (opcode >> 6) & 7
+            ea_mode = opcode & 0x3F
             if opmode < 3:  # AND <ea>,Dn
+                # Check for invalid EA mode
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'AND invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # AND <ea>,Dn can't use An as source
+                if ((ea_mode >> 3) & 7) == 1:
+                    self.fallbacks.append((offset, opcode, 'AND An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode])
                 return {'asm': f'AND{sizes[opmode]:4s}{ea},D{reg}', 'size': 2 + ea_size}
             elif opmode == 3:  # MULU <ea>,Dn
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+                # Check for invalid EA mode
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'MULU invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # MULU can't use An as source
+                if ((ea_mode >> 3) & 7) == 1:
+                    self.fallbacks.append((offset, opcode, 'MULU An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
                 return {'asm': f'MULU    {ea},D{reg}', 'size': 2 + ea_size}
             elif opmode == 7:  # MULS <ea>,Dn
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+                # Check for invalid EA mode
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'MULS invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # MULS can't use An as source
+                if ((ea_mode >> 3) & 7) == 1:
+                    self.fallbacks.append((offset, opcode, 'MULS An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
                 return {'asm': f'MULS    {ea},D{reg}', 'size': 2 + ea_size}
             else:  # AND Dn,<ea>
+                ea_mode_type = (ea_mode >> 3) & 7
+                ea_mode_reg = ea_mode & 7
+                # Check for invalid EA mode first
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'AND Dn invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # AND Dn,<ea> can't use An as destination
+                if ea_mode_type == 1:
+                    self.fallbacks.append((offset, opcode, 'AND Dn to An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # Immediate can't be destination
+                if ea_mode_type == 7 and ea_mode_reg == 4:
+                    self.fallbacks.append((offset, opcode, 'AND Dn imm dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # PC-relative can't be destination
+                if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                    self.fallbacks.append((offset, opcode, 'AND PC-relative dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['', '.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode - 3])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode - 3])
                 return {'asm': f'AND{sizes[opmode-3]:4s}D{reg},{ea}', 'size': 2 + ea_size}
 
         # OR (8xxx)
         if (opcode & 0xF000) == 0x8000:
             reg = (opcode >> 9) & 7
             opmode = (opcode >> 6) & 7
+            ea_mode = opcode & 0x3F
             if opmode < 3:  # OR <ea>,Dn
+                # Check for invalid EA mode
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'OR invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # OR <ea>,Dn can't use An as source
+                if ((ea_mode >> 3) & 7) == 1:
+                    self.fallbacks.append((offset, opcode, 'OR An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode])
                 return {'asm': f'OR{sizes[opmode]:5s}{ea},D{reg}', 'size': 2 + ea_size}
             elif opmode == 3:  # DIVU <ea>,Dn
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+                # Check for invalid EA mode
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'DIVU invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # DIVU can't use An as source
+                if ((ea_mode >> 3) & 7) == 1:
+                    self.fallbacks.append((offset, opcode, 'DIVU An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
                 return {'asm': f'DIVU    {ea},D{reg}', 'size': 2 + ea_size}
             elif opmode == 7:  # DIVS <ea>,Dn
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+                # Check for invalid EA mode
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'DIVS invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # DIVS can't use An as source
+                if ((ea_mode >> 3) & 7) == 1:
+                    self.fallbacks.append((offset, opcode, 'DIVS An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
                 return {'asm': f'DIVS    {ea},D{reg}', 'size': 2 + ea_size}
             else:  # OR Dn,<ea>
+                ea_mode_type = (ea_mode >> 3) & 7
+                ea_mode_reg = ea_mode & 7
+                # Check for invalid EA mode first
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'OR Dn invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # OR Dn,<ea> can't use An as destination
+                if ea_mode_type == 1:
+                    self.fallbacks.append((offset, opcode, 'OR Dn to An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # Immediate can't be destination
+                if ea_mode_type == 7 and ea_mode_reg == 4:
+                    self.fallbacks.append((offset, opcode, 'OR Dn imm dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # PC-relative can't be destination
+                if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                    self.fallbacks.append((offset, opcode, 'OR PC-relative dest invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['', '.B', '.W', '.L']
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, sizes[opmode - 3])
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode - 3])
                 return {'asm': f'OR{sizes[opmode-3]:5s}D{reg},{ea}', 'size': 2 + ea_size}
 
         # LINK (4E50-4E57)
@@ -572,9 +941,35 @@ class ProperDisassembler:
         # Bit 10 (0x0400): 0 = Register to Memory (48xx), 1 = Memory to Register (4Cxx)
         if (opcode & 0xFB80) == 0x4880:
             mem_to_reg = bool(opcode & 0x0400)  # True = Memory to Register (4Cxx)
+            ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # MOVEM can't use Dn or An as EA mode (needs memory)
+            if ea_mode_type in (0, 1):
+                self.fallbacks.append((offset, opcode, 'MOVEM Dn/An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # MOVEM can't use #imm (mode 7 reg 4)
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                self.fallbacks.append((offset, opcode, 'MOVEM imm source invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # MOVEM mem→reg can't use predecrement -(An); only postincrement (An)+ allowed
+            if mem_to_reg and ea_mode_type == 4:  # -(An) with mem_to_reg
+                self.fallbacks.append((offset, opcode, 'MOVEM mem to reg with predecrement invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # MOVEM reg→mem can't use postincrement (An)+; only predecrement -(An) allowed
+            if not mem_to_reg and ea_mode_type == 3:  # (An)+ with reg_to_mem
+                self.fallbacks.append((offset, opcode, 'MOVEM reg to mem with postincrement invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # MOVEM reg→mem can't use PC-relative as destination
+            if not mem_to_reg and ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                self.fallbacks.append((offset, opcode, 'MOVEM reg to mem PC-relative dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'MOVEM invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             size = '.L' if opcode & 0x0040 else '.W'
             mask = self.read_word(offset + 2)
-            ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 4, size)
+            ea, ea_size = self._decode_ea(ea_mode, offset + 4, size)
 
             # Build register list from mask
             regs = []
@@ -613,8 +1008,22 @@ class ProperDisassembler:
 
             if size_code == 3:
                 # Memory shift (size 3 = word memory operations)
+                ea_mode = opcode & 0x3F
+                ea_mode_type = (ea_mode >> 3) & 7
+                ea_mode_reg = ea_mode & 7
+                # Memory shifts can't use Dn or An
+                if ea_mode_type in (0, 1):
+                    self.fallbacks.append((offset, opcode, 'Shift mem form with Dn/An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                if not self._is_valid_ea(ea_mode):
+                    self.fallbacks.append((offset, opcode, 'Shift mem form invalid EA'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # Memory shifts can't use #imm or PC-relative (not real memory)
+                if ea_mode_type == 7 and ea_mode_reg in (2, 3, 4):
+                    self.fallbacks.append((offset, opcode, 'Shift mem form with imm/PC invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 shift_type = (opcode >> 9) & 3
-                ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+                ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
                 return {'asm': f'{shift_names[shift_type]}{direction}.W  {ea}', 'size': 2 + ea_size}
             else:
                 # Register shift
@@ -629,18 +1038,56 @@ class ProperDisassembler:
 
         # BTST/BCHG/BCLR/BSET with immediate bit number (08xx)
         if (opcode & 0xFF00) == 0x0800:
+            ea_mode = opcode & 0x3F
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'BTST/BCHG/BCLR/BSET invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # BTST/BCHG/BCLR/BSET can't use An as destination (mode 1)
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            if ea_mode_type == 1:
+                self.fallbacks.append((offset, opcode, 'BTST/BCHG/BCLR/BSET An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # Can't use #imm as destination
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                self.fallbacks.append((offset, opcode, 'BTST/BCHG/BCLR/BSET imm invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             bit_op = (opcode >> 6) & 3
+            # BCHG/BCLR/BSET can't use PC-relative as destination (but BTST can read from it)
+            if bit_op != 0 and ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                bit_ops = ['BTST', 'BCHG', 'BCLR', 'BSET']
+                self.fallbacks.append((offset, opcode, f'{bit_ops[bit_op]} PC-relative dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             bit_ops = ['BTST', 'BCHG', 'BCLR', 'BSET']
             bit = self.read_word(offset + 2)
-            ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 4, '.B')
+            ea, ea_size = self._decode_ea(ea_mode, offset + 4, '.B')
             return {'asm': f'{bit_ops[bit_op]:8s}#{bit & 31},{ea}', 'size': 4 + ea_size}
 
         # BTST/BCHG/BCLR/BSET with register bit number (0xxx, not 08xx)
         if (opcode & 0xF000) == 0x0000 and (opcode & 0x0100):
+            ea_mode = opcode & 0x3F
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'BTST/BCHG/BCLR/BSET invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # BTST/BCHG/BCLR/BSET can't use An as destination (mode 1)
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            if ea_mode_type == 1:
+                self.fallbacks.append((offset, opcode, 'BTST/BCHG/BCLR/BSET An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # Can't use #imm as destination
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                self.fallbacks.append((offset, opcode, 'BTST/BCHG/BCLR/BSET imm invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             bit_op = (opcode >> 6) & 3
+            # BCHG/BCLR/BSET can't use PC-relative as destination (but BTST can read from it)
+            if bit_op != 0 and ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                bit_ops = ['BTST', 'BCHG', 'BCLR', 'BSET']
+                self.fallbacks.append((offset, opcode, f'{bit_ops[bit_op]} PC-relative dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             bit_ops = ['BTST', 'BCHG', 'BCLR', 'BSET']
             reg = (opcode >> 9) & 7
-            ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.B')
+            ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.B')
             return {'asm': f'{bit_ops[bit_op]:8s}D{reg},{ea}', 'size': 2 + ea_size}
 
         # Immediate instructions ORI/ANDI/SUBI/ADDI/EORI/CMPI (00xx)
@@ -649,12 +1096,25 @@ class ProperDisassembler:
             imm_ops = ['ORI', 'ANDI', 'SUBI', 'ADDI', None, 'EORI', 'CMPI', None]
             size_code = (opcode >> 6) & 3
             sizes = ['.B', '.W', '.L', '']
+            ea_mode_full = opcode & 0x3F
 
-            # Check for valid EA mode - immediate ops cannot target An (mode 1)
-            ea_mode = (opcode >> 3) & 7
-            if ea_mode == 1:
+            # Check for valid EA mode
+            ea_mode_type = (ea_mode_full >> 3) & 7
+            ea_mode_reg = ea_mode_full & 7
+            if ea_mode_type == 1:
                 # Address register direct - invalid for ORI/ANDI/etc
                 self.fallbacks.append((offset, opcode, f'{imm_ops[imm_op]} to An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if ea_mode_type == 7 and ea_mode_reg == 4:
+                # Immediate as destination - invalid (unless it's ORI/ANDI/EORI to CCR/SR)
+                self.fallbacks.append((offset, opcode, f'{imm_ops[imm_op]} imm dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if ea_mode_type == 7 and ea_mode_reg in (2, 3):
+                # PC-relative as destination - invalid
+                self.fallbacks.append((offset, opcode, f'{imm_ops[imm_op]} PC-relative dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if not self._is_valid_ea(ea_mode_full):
+                self.fallbacks.append((offset, opcode, f'{imm_ops[imm_op]} invalid EA'))
                 return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
 
             if imm_ops[imm_op] and size_code < 3:
@@ -666,7 +1126,11 @@ class ProperDisassembler:
                     imm = self.read_long(offset + 2)
                     imm_str = f'#${imm:08X}'
                     imm_size = 4
-                else:
+                elif size_code == 0:  # .B (word in memory, only low 8 bits used)
+                    imm = self.read_word(offset + 2) & 0xFF
+                    imm_str = f'#${imm:02X}'
+                    imm_size = 2
+                else:  # .W
                     imm = self.read_word(offset + 2)
                     imm_str = f'#${imm:04X}'
                     imm_size = 2
@@ -681,17 +1145,48 @@ class ProperDisassembler:
 
         # MOVE to CCR (44C0-44FF)
         if (opcode & 0xFFC0) == 0x44C0:
-            ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+            ea_mode = opcode & 0x3F
+            # MOVE to CCR can't use An as source
+            if ((ea_mode >> 3) & 7) == 1:
+                self.fallbacks.append((offset, opcode, 'MOVE An to CCR invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'MOVE to CCR invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
             return {'asm': f'MOVE    {ea},CCR', 'size': 2 + ea_size}
 
         # MOVE to SR (46C0-46FF)
         if (opcode & 0xFFC0) == 0x46C0:
-            ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+            ea_mode = opcode & 0x3F
+            # MOVE to SR can't use An as source
+            if ((ea_mode >> 3) & 7) == 1:
+                self.fallbacks.append((offset, opcode, 'MOVE An to SR invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'MOVE to SR invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
             return {'asm': f'MOVE    {ea},SR', 'size': 2 + ea_size}
 
         # MOVE from SR (40C0-40FF)
         if (opcode & 0xFFC0) == 0x40C0:
-            ea, ea_size = self._decode_ea(opcode & 0x3F, offset + 2, '.W')
+            ea_mode = opcode & 0x3F
+            ea_mode_type = (ea_mode >> 3) & 7
+            ea_mode_reg = ea_mode & 7
+            # Check for invalid EA modes
+            if not self._is_valid_ea(ea_mode):
+                self.fallbacks.append((offset, opcode, 'MOVE SR invalid EA'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # MOVE from SR can only go to Dn or memory, not An
+            if ea_mode_type == 1:
+                self.fallbacks.append((offset, opcode, 'MOVE SR to An invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            # Can't store to PC-relative or immediate
+            if ea_mode_type == 7 and ea_mode_reg in (2, 3, 4):
+                self.fallbacks.append((offset, opcode, 'MOVE SR dest invalid'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+            ea, ea_size = self._decode_ea(ea_mode, offset + 2, '.W')
             return {'asm': f'MOVE    SR,{ea}', 'size': 2 + ea_size}
 
         # MOVE.B/W/L (1xxx/3xxx/2xxx) - Note: 00=invalid, 01=.B, 10=.L, 11=.W
@@ -781,31 +1276,43 @@ class ProperDisassembler:
         elif mode_type == 7:
             if reg == 0:  # abs.w
                 addr = self.read_word(ext_offset)
-                return f'${addr:04X}.W', 2
+                # For absolute short, use signed interpretation for vasm
+                if addr >= 0x8000:
+                    # Negative: convert to signed value
+                    signed_addr = addr - 0x10000  # e.g., $C9A0 -> -13920
+                    return f'({signed_addr}).W', 2
+                else:
+                    return f'(${addr:04X}).W', 2
             elif reg == 1:  # abs.l
                 addr = self.read_long(ext_offset)
                 return f'${addr:08X}', 4
             elif reg == 2:  # (d16,PC)
                 disp = self.read_word(ext_offset)
                 if disp & 0x8000:
-                    return f'-${(65536-disp):04X}(PC)', 2
-                return f'${disp:04X}(PC)', 2
+                    disp = disp - 0x10000  # Sign-extend
+                # Calculate target address: PC (at ext_offset) + displacement
+                target = ext_offset + disp
+                return f'${target:06X}(PC)', 2
             elif reg == 3:  # (d8,PC,Xn)
                 ext = self.read_word(ext_offset)
                 disp = ext & 0xFF
                 if disp & 0x80:
-                    disp_str = f'-${(256-disp):02X}'
-                else:
-                    disp_str = f'${disp:02X}'
+                    disp = disp - 0x100  # Sign-extend
+                # Calculate target base: PC (at ext_offset) + displacement
+                target = ext_offset + disp
                 xn_reg = (ext >> 12) & 7
                 xn_type = 'A' if ext & 0x8000 else 'D'
                 xn_size = '.L' if ext & 0x0800 else '.W'
-                return f'{disp_str}(PC,{xn_type}{xn_reg}{xn_size})', 2
+                return f'${target:06X}(PC,{xn_type}{xn_reg}{xn_size})', 2
             elif reg == 4:  # #imm
                 if size_suffix == '.L':
                     imm = self.read_long(ext_offset)
                     return f'#${imm:08X}', 4
-                else:
+                elif size_suffix == '.B':
+                    # For byte operations, only lower 8 bits are valid
+                    imm = self.read_word(ext_offset) & 0xFF
+                    return f'#${imm:02X}', 2
+                else:  # .W
                     imm = self.read_word(ext_offset)
                     return f'#${imm:04X}', 2
 

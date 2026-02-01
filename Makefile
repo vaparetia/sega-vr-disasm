@@ -27,10 +27,12 @@ ASMFLAGS = -Fbin -m68000 -no-opt -spaces -quiet
 M68K_SRC = $(DISASM_DIR)/vrd.asm
 M68K_SRC_RAW = $(DISASM_DIR)/vrd_raw.asm
 M68K_SRC_MODULAR = $(DISASM_DIR)/vrd_modular.asm
+M68K_SRC_MNEMONIC = $(DISASM_DIR)/vrd_mnemonic.asm
 OUTPUT_ROM_RAW = $(BUILD_DIR)/vr_rebuild_raw.32x
 OUTPUT_ROM_MODULAR = $(BUILD_DIR)/vr_rebuild_modular.32x
+OUTPUT_ROM_MNEMONIC = $(BUILD_DIR)/vr_rebuild_mnemonic.32x
 
-.PHONY: all clean disasm compare tools test modular compare-modular raw compare-raw
+.PHONY: all clean disasm compare tools test modular compare-modular raw compare-raw mnemonic compare-mnemonic
 
 # ============================================================================
 # Main targets
@@ -41,6 +43,8 @@ all: dirs sh2-assembly $(OUTPUT_ROM)
 raw: dirs $(OUTPUT_ROM_RAW)
 
 modular: dirs $(OUTPUT_ROM_MODULAR)
+
+mnemonic: dirs $(OUTPUT_ROM_MNEMONIC)
 
 dirs:
 	@mkdir -p $(BUILD_DIR)
@@ -63,6 +67,13 @@ $(OUTPUT_ROM_RAW): $(M68K_SRC_RAW)
 # Build the ROM from modular structure
 $(OUTPUT_ROM_MODULAR): $(M68K_SRC_MODULAR)
 	@echo "==> Assembling 68000 code (from modules/)..."
+	$(ASM) $(ASMFLAGS) -o $@ $<
+	@echo "==> Build complete: $@"
+	@ls -lh $@
+
+# Build the ROM from mnemonic sections (proper assembly, not DC.W)
+$(OUTPUT_ROM_MNEMONIC): $(M68K_SRC_MNEMONIC)
+	@echo "==> Assembling 68000 code (from sections-mnemonic/)..."
 	$(ASM) $(ASMFLAGS) -o $@ $<
 	@echo "==> Build complete: $@"
 	@ls -lh $@
@@ -155,6 +166,30 @@ compare-modular: $(OUTPUT_ROM_MODULAR)
 			echo "✓✓✓ PERFECT MATCH! ROMs are identical! ✓✓✓"; \
 		else \
 			echo "⚠ Found $$DIFF_COUNT differing bytes"; \
+		fi; \
+	else \
+		echo "✗ Size mismatch!"; \
+	fi
+
+# Compare mnemonic ROM build with DC.W build (both 4MB with expansion)
+compare-mnemonic: $(OUTPUT_ROM_MNEMONIC) $(OUTPUT_ROM)
+	@echo "==> Comparing mnemonic build vs DC.W build..."
+	@MNEMONIC_SIZE=$$(stat -c%s "$(OUTPUT_ROM_MNEMONIC)"); \
+	DCW_SIZE=$$(stat -c%s "$(OUTPUT_ROM)"); \
+	echo "Mnemonic build size: $$MNEMONIC_SIZE bytes"; \
+	echo "DC.W build size:     $$DCW_SIZE bytes"; \
+	if [ $$MNEMONIC_SIZE -eq $$DCW_SIZE ]; then \
+		echo "✓ Sizes match!"; \
+		echo "==> Comparing bytes (first 3MB = 68K region)..."; \
+		dd if="$(OUTPUT_ROM)" bs=1 count=3145728 2>/dev/null > /tmp/dcw_3mb.bin; \
+		dd if="$(OUTPUT_ROM_MNEMONIC)" bs=1 count=3145728 2>/dev/null > /tmp/mnemonic_3mb.bin; \
+		cmp -l /tmp/dcw_3mb.bin /tmp/mnemonic_3mb.bin | head -20; \
+		DIFF_COUNT=$$(cmp -l /tmp/dcw_3mb.bin /tmp/mnemonic_3mb.bin | wc -l); \
+		rm -f /tmp/dcw_3mb.bin /tmp/mnemonic_3mb.bin; \
+		if [ $$DIFF_COUNT -eq 0 ]; then \
+			echo "✓✓✓ PERFECT MATCH! Mnemonic build is byte-identical! ✓✓✓"; \
+		else \
+			echo "⚠ Found $$DIFF_COUNT differing bytes in 68K region"; \
 		fi; \
 	else \
 		echo "✗ Size mismatch!"; \
