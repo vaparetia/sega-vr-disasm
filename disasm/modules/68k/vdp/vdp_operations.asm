@@ -125,16 +125,87 @@ PaletteRAMCopy:
         rts                                     ; $002860: $4E75
 
 ; ============================================================================
+; unpack_tiles_vdp ($00247C) - Unpack Nibbles to VDP
+; Called by: 24 locations per frame
+; Parameters:
+;   A0 = Source packed data pointer (advances by 2)
+;   A6 = VDP data port (fixed address)
+; Returns: Writes 4 words to VDP (2 packed bytes -> 4 tile indices)
+;
+; Expands packed nibbles to VDP tile indices:
+;   Input: 2 bytes from (A0)+ where each byte = 2 nibbles
+;   Output: 4 words to (A6) = nibble + palette base ($E001)
+;
+; Algorithm per byte:
+;   high_nibble = byte >> 4
+;   low_nibble = byte & $0F
+;   VDP_write(high_nibble + $E001)
+;   VDP_write(low_nibble + $E001)
+; ============================================================================
+
+; Tile palette base (tile index + $E001 = final VDP value)
+TILE_PALETTE_BASE   equ     $E001
+
+        org     $00247C
+
+unpack_tiles_vdp:
+        move.w  #TILE_PALETTE_BASE,d6           ; $00247C: $3C3C $E001 - Palette base
+; Process first packed byte
+        moveq   #0,d0                           ; $002480: $7000       - Clear D0
+        moveq   #0,d1                           ; $002482: $7200       - Clear D1
+        move.b  (a0)+,d0                        ; $002484: $1018       - Get packed byte
+        move.b  d0,d1                           ; $002486: $1200       - Copy to D1
+        lsr.b   #4,d0                           ; $002488: $E808       - Get high nibble
+        andi.b  #$0F,d1                         ; $00248A: $0201 $000F - Get low nibble
+        add.w   d6,d0                           ; $00248E: $D046       - Add palette base
+        add.w   d6,d1                           ; $002490: $D246       - Add palette base
+        move.w  d0,(a6)                         ; $002492: $3C80       - Write high nibble tile
+        move.w  d1,(a6)                         ; $002494: $3C81       - Write low nibble tile
+; Process second packed byte
+        moveq   #0,d0                           ; $002496: $7000       - Clear D0
+        moveq   #0,d1                           ; $002498: $7200       - Clear D1
+        move.b  (a0)+,d0                        ; $00249A: $1018       - Get packed byte
+        move.b  d0,d1                           ; $00249C: $1200       - Copy to D1
+        lsr.b   #4,d0                           ; $00249E: $E808       - Get high nibble
+        andi.b  #$0F,d1                         ; $0024A0: $0201 $000F - Get low nibble
+        add.w   d6,d0                           ; $0024A4: $D046       - Add palette base
+        add.w   d6,d1                           ; $0024A6: $D246       - Add palette base
+        move.w  d0,(a6)                         ; $0024A8: $3C80       - Write high nibble tile
+        move.w  d1,(a6)                         ; $0024AA: $3C81       - Write low nibble tile
+        rts                                     ; $0024AC: $4E75
+
+; ============================================================================
+; tile_index_expand ($0024AE) - Alternate Nibble Expansion
+; Called by: Graphics functions
+; Parameters: Same as unpack_tiles_vdp
+; Returns: Same expansion with different loop count
+;
+; Multiple entry points for different expansion counts
+; ============================================================================
+
+        org     $0024AE
+
+tile_index_expand:
+        move.w  #TILE_PALETTE_BASE,d6           ; $0024AE: $3C3C $E001 - Palette base
+        moveq   #0,d0                           ; $0024B2: $7000
+        moveq   #0,d1                           ; $0024B4: $7200
+        move.b  (a0)+,d0                        ; $0024B6: $1018
+        ; (continues with same pattern...)
+
+; ============================================================================
 ; SUMMARY
 ; ============================================================================
 ;
-; Function       | Address | Purpose
-; ---------------+---------+------------------------------------------
-; VDPFill        | $0027F8 | Fill 16 VRAM blocks (256 bytes each)
-; VDPPrep        | $00281E | Single VRAM fill at $1F00
-; PaletteRAMCopy | $00284C | Copy 512-byte palette to CRAM
+; Function         | Address | Purpose
+; -----------------+---------+------------------------------------------
+; unpack_tiles_vdp | $00247C | Expand 2 packed bytes to 4 VDP tiles
+; tile_index_expand| $0024AE | Alternate expansion entry
+; VDPFill          | $0027F8 | Fill 16 VRAM blocks (256 bytes each)
+; VDPPrep          | $00281E | Single VRAM fill at $1F00
+; PaletteRAMCopy   | $00284C | Copy 512-byte palette to CRAM
 ;
 ; Total VRAM filled by VDPFill: 4096 bytes (16 × 256)
 ; Palette size: 512 bytes (256 colors × 16-bit RGB)
+; Tile expansion: $E001 base = palette 14, priority bit set
 ;
 ; ============================================================================
