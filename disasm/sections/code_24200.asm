@@ -172,74 +172,51 @@
 ; Initializes a structure with values from literal pool
 ; ============================================================================
         include "sh2/generated/func_088.inc"
-; Literal pool for func_088 ($02446A-$024480)
+; Literal pool for func_088 ($02446A-$02447E)
         dc.w    $FF80        ; $02446A: word constant
         dc.w    $2000        ; $02446C: base addr high ($20004000)
-        dc.w    $4000        ; $02446E
-        dc.w    $2000        ; $024470
-        dc.w    $4012        ; $024472
-        dc.w    $0000        ; $024474
-        dc.w    $44E1        ; $024476
-        dc.w    $0000        ; $024478
-        dc.w    $0001        ; $02447A
-        dc.w    $2000        ; $02447C
-        dc.w    $4023        ; $02447E
-        dc.w    $DE03        ; $024480
-        dc.w    $50E3        ; $024482
-        dc.w    $C802        ; $024484
-        dc.w    $89FC        ; $024486
-        dc.w    $E000        ; $024488
-        dc.w    $A09F        ; $02448A
-        dc.w    $1E0C        ; $02448C
-        dc.w    $0000        ; $02448E
-        dc.w    $FFFF        ; $024490
-        dc.w    $FF80        ; $024492
-        dc.w    $D806        ; $024494
-        dc.w    $9007        ; $024496
-        dc.w    $9107        ; $024498
-        dc.w    $9707        ; $02449A
-        dc.w    $2805        ; $02449C
-        dc.w    $3018        ; $02449E
-        dc.w    $4710        ; $0244A0
-        dc.w    $8BFB        ; $0244A2
-        dc.w    $000B        ; $0244A4
-        dc.w    $0009        ; $0244A6
-        dc.w    $FF00        ; $0244A8
-        dc.w    $0100        ; $0244AA
-        dc.w    $00E0        ; $0244AC
-        dc.w    $0000        ; $0244AE
-        dc.w    $2400        ; $0244B0
-        dc.w    $01C0        ; $0244B2
-        dc.w    $DE05        ; $0244B4
-        dc.w    $D106        ; $0244B6
-        dc.w    $85E5        ; $0244B8
-        dc.w    $2018        ; $0244BA
-        dc.w    $89FC        ; $0244BC
-        dc.w    $C801        ; $0244BE
-        dc.w    $E000        ; $0244C0
-        dc.w    $8B00        ; $0244C2
-        dc.w    $E001        ; $0244C4
-        dc.w    $81E5        ; $0244C6
-        dc.w    $000B        ; $0244C8
-        dc.w    $0009        ; $0244CA
-        dc.w    $2000        ; $0244CC
-        dc.w    $4100        ; $0244CE
-        dc.w    $0000        ; $0244D0
-        dc.w    $8000        ; $0244D2
-        dc.w    $DE04        ; $0244D4
-        dc.w    $D205        ; $0244D6
-        dc.w    $85E5        ; $0244D8
-        dc.w    $2028        ; $0244DA
-        dc.w    $89FC        ; $0244DC
-        dc.w    $6013        ; $0244DE
-        dc.w    $81E5        ; $0244E0
-        dc.w    $000B        ; $0244E2
-        dc.w    $0009        ; $0244E4
-        dc.w    $0000        ; $0244E6
-        dc.w    $2000        ; $0244E8
-        dc.w    $4100        ; $0244EA
-        dc.w    $0000        ; $0244EC
-        dc.w    $8000        ; $0244EE
+        dc.w    $4000        ; $02446E: base addr low
+        dc.w    $2000        ; $024470: value high ($20004012)
+        dc.w    $4012        ; $024472: value low
+        dc.w    $0000        ; $024474: value high ($000044E1)
+        dc.w    $44E1        ; $024476: value low
+        dc.w    $0000        ; $024478: value high ($00000001)
+        dc.w    $0001        ; $02447A: value low
+        dc.w    $2000        ; $02447C: control reg high ($20004023)
+        dc.w    $4023        ; $02447E: control reg low
+; ============================================================================
+; func_089: Poll and Branch with Loop (40 bytes: $024480-$0244A7)
+; Complex polling routine with embedded data and secondary loop
+; ============================================================================
+        include "sh2/generated/func_089.inc"
+; Literal pool for func_089 ($0244A8-$0244B2)
+        dc.w    $FF00        ; $0244A8: word constant
+        dc.w    $0100        ; $0244AA: word constant
+        dc.w    $00E0        ; $0244AC: word constant
+        dc.w    $0000        ; $0244AE: padding
+        dc.w    $2400        ; $0244B0: buffer addr high ($240001C0)
+        dc.w    $01C0        ; $0244B2: buffer addr low
+; ============================================================================
+; func_090: Poll Wait with Flag Set (24 bytes: $0244B4-$0244CB)
+; Polling loop that waits for condition, then sets/clears flag
+; ============================================================================
+        include "sh2/generated/func_090.inc"
+; Literal pool for func_090 ($0244CC-$0244D2)
+        dc.w    $2000        ; $0244CC: control reg high ($20004100)
+        dc.w    $4100        ; $0244CE: control reg low
+        dc.w    $0000        ; $0244D0: flag value high ($00008000)
+        dc.w    $8000        ; $0244D2: flag value low
+; ============================================================================
+; func_091: Poll and Copy (18 bytes: $0244D4-$0244E5)
+; Polling loop that waits for condition, then copies value
+; ============================================================================
+        include "sh2/generated/func_091.inc"
+; Literal pool for func_091 ($0244E6-$0244EE)
+        dc.w    $0000        ; $0244E6: padding
+        dc.w    $2000        ; $0244E8: control reg high ($20004100)
+        dc.w    $4100        ; $0244EA: control reg low
+        dc.w    $0000        ; $0244EC: flag value high ($00008000)
+        dc.w    $8000        ; $0244EE: flag value low
         dc.w    $9116        ; $0244F0
         dc.w    $9216        ; $0244F2
         dc.w    $9316        ; $0244F4
