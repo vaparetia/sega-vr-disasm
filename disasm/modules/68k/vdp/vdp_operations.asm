@@ -246,9 +246,62 @@ sh2_comm_sync:
 ; VDPPrep          | $00281E | Single VRAM fill at $1F00
 ; PaletteRAMCopy   | $00284C | Copy 512-byte palette to CRAM
 ; sh2_comm_sync    | $002890 | SH2 communication handshake
+; vdp_block_load   | $00E2F0 | Load 7KB data block to VRAM at $6000
 ;
 ; Total VRAM filled by VDPFill: 4096 bytes (16 × 256)
 ; Palette size: 512 bytes (256 colors × 16-bit RGB)
 ; Tile expansion: $E001 base = palette 14, priority bit set
 ;
+; ============================================================================
+
+; ============================================================================
+; vdp_block_load ($00E2F0) - Load Data Block to VDP
+; Called by: 10 locations per session (graphics loading)
+; Parameters:
+;   A0 = Source data pointer (advances)
+;   A5 = VDP control port
+;   A6 = VDP data port
+; Returns: Data copied to VRAM starting at $6000
+;
+; Writes 28 rows of data to VDP:
+;   - Each row: 32 longwords from source + 32 longwords of zeros
+;   - Total: 28 × 64 × 4 = 7168 bytes to VDP
+;   - VDP address: $6000 (set via command $60000002)
+;
+; The zero padding may be for clearing unused tile space.
+; ============================================================================
+
+; VDP command for VRAM write at address $6000
+; Format: CD1 A13-A0 0 0 0 0 0 0 CD0 0 A15-A14 0 0 0 0 0
+; $60000002 = VRAM write at $6000
+VDP_CMD_WRITE_6000  equ     $60000002
+
+; Loop counts
+VDP_ROWS            equ     $001B       ; 27 (DBRA = 28 iterations)
+VDP_LONGS_PER_ROW   equ     $001F       ; 31 (DBRA = 32 iterations)
+
+        org     $00E2F0
+
+vdp_block_load:
+        move.l  #VDP_CMD_WRITE_6000,(a5)        ; $00E2F0: $2ABC $6000 $0002 - Set VDP address
+        moveq   #VDP_ROWS,d0                    ; $00E2F6: $701B       - 28 rows
+
+.row_loop:
+        move.w  #VDP_LONGS_PER_ROW,d1           ; $00E2F8: $323C $001F - 32 longs per section
+
+.copy_data:
+        move.l  (a0)+,(a6)                      ; $00E2FC: $2C98       - Copy data to VDP
+        dbra    d1,.copy_data                   ; $00E2FE: $51C9 $FFFC - Loop 32 times
+
+        move.w  #VDP_LONGS_PER_ROW,d1           ; $00E302: $323C $001F - Reset counter
+
+.write_zeros:
+        move.l  #$00000000,(a6)                 ; $00E306: $2CBC $0000 $0000 - Write zero
+        dbra    d1,.write_zeros                 ; $00E30C: $51C9 $FFF8 - Loop 32 times
+
+        dbra    d0,.row_loop                    ; $00E310: $51C8 $FFE6 - Next row
+        rts                                     ; $00E314: $4E75
+
+; ============================================================================
+; End of vdp_block_load
 ; ============================================================================
