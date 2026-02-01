@@ -28,6 +28,7 @@
 ; | $005C  | W    | steer_angle_1  | Steering delta 1               |
 ; | $005E  | W    | steer_angle_2  | Steering delta 2               |
 ; | $006E  | W    | angular_vel    | Angular velocity (turn rate)   |
+; | $0088  | W    | frame_timer    | Frame countdown timer          |
 ; | $008E  | W    | damping        | Velocity damping factor        |
 ; | $0092  | W    | type_flags     | Object type and state flags    |
 ; | $0094  | W    | turn_rate      | Maximum turn rate              |
@@ -53,8 +54,33 @@
 ; Dependencies: Trig tables in ROM, object memory pool
 ; Related: HIGH_FREQUENCY_FUNCTIONS.md, DATA_STRUCTURES.md
 ; ============================================================================
-; Format: DC.W with decoded mnemonics as comments (byte-perfect rebuild)
+; Format: Proper mnemonics with original bytes in comments for verification
 ; ============================================================================
+
+; Object structure offset constants
+OBJ_Y_POS       equ     $0030   ; Y position (long)
+OBJ_X_POS       equ     $0034   ; X position (long)
+OBJ_COSINE      equ     $003A   ; Cosine result (word)
+OBJ_SINE        equ     $003E   ; Sine result (word)
+OBJ_Y_VEL       equ     $0044   ; Y velocity (word)
+OBJ_X_VEL       equ     $0046   ; X velocity (word)
+OBJ_Y_ACCEL     equ     $004E   ; Y acceleration (word)
+OBJ_X_ACCEL     equ     $0050   ; X acceleration (word)
+OBJ_BASE_ANGLE  equ     $005A   ; Base heading angle (word)
+OBJ_STEER1      equ     $005C   ; Steering angle 1 (word)
+OBJ_STEER2      equ     $005E   ; Steering angle 2 (word)
+OBJ_TIMER       equ     $0088   ; Frame timer (word)
+OBJ_TURN_RATE   equ     $0094   ; Max turn rate (word)
+
+; ROM table addresses
+SINE_TABLE      equ     $0093A02C
+COSINE_TABLE    equ     $0093A42C
+PARAM_TABLE     equ     $00930000
+
+; Angle constants
+ANGLE_MASK      equ     $03FF   ; 10-bit angle (1024 values)
+ANGLE_HALF      equ     $0200   ; 180 degrees
+ANGLE_FULL      equ     $0400   ; 360 degrees
 
         org     $006F98
 
@@ -62,36 +88,35 @@
 ; calc_steering ($006F98) - Calculate Steering Angle
 ; Called by: 19 locations per frame (all steerable objects)
 ; Parameters: A0 = object base
-; Returns: Updates object+$5A, $5C, $5E (angles)
+; Returns: Updates object angles at $5A, $5C, $5E
 ; Cycles: ~180 cycles typical
 ; ============================================================================
 
 calc_steering:
-        DC.W    $3028,$005C         ; $006F98 MOVE.W  $5C(A0),D0     ; Get steer_angle_1
-        DC.W    $9068,$005A         ; $006F9C SUB.W   $5A(A0),D0     ; Delta from base
-        DC.W    $0240,$03FF         ; $006FA0 ANDI.W  #$3FF,D0       ; Mask to 10 bits
-        DC.W    $3200               ; $006FA4 MOVE.W  D0,D1          ; Copy for limit
-        DC.W    $0C41,$0200         ; $006FA6 CMPI.W  #$200,D1       ; > 180°?
-        DC.W    $6D04               ; $006FAA BLT.S   .no_wrap
-        DC.W    $0440,$0400         ; $006FAC SUBI.W  #$400,D0       ; Wrap negative
+        move.w  OBJ_STEER1(a0),d0               ; $006F98: $3028 $005C - Get target angle
+        sub.w   OBJ_BASE_ANGLE(a0),d0           ; $006F9C: $9068 $005A - Delta from base
+        andi.w  #ANGLE_MASK,d0                  ; $006FA0: $0240 $03FF - Mask to 10 bits
+        move.w  d0,d1                           ; $006FA4: $3200       - Copy for comparison
+        cmpi.w  #ANGLE_HALF,d1                  ; $006FA6: $0C41 $0200 - > 180°?
+        blt.s   .no_wrap                        ; $006FAA: $6D04       - Skip if < 180
+        subi.w  #ANGLE_FULL,d0                  ; $006FAC: $0440 $0400 - Wrap to negative
 .no_wrap:
-        DC.W    $3228,$0094         ; $006FB0 MOVE.W  $94(A0),D1     ; turn_rate max
-        DC.W    $B240               ; $006FB4 CMP.W   D0,D1          ; Compare delta
-        DC.W    $6D06               ; $006FB6 BLT.S   .limit_pos
-        DC.W    $4441               ; $006FB8 NEG.W   D1             ; -turn_rate
-        DC.W    $B240               ; $006FBA CMP.W   D0,D1          ; Compare neg
-        DC.W    $6E02               ; $006FBC BGT.S   .apply_delta
+        move.w  OBJ_TURN_RATE(a0),d1            ; $006FB0: $3228 $0094 - Get max turn rate
+        cmp.w   d0,d1                           ; $006FB4: $B240       - Compare delta vs max
+        blt.s   .limit_pos                      ; $006FB6: $6D06       - Clamp if > max
+        neg.w   d1                              ; $006FB8: $4441       - Negate for min check
+        cmp.w   d0,d1                           ; $006FBA: $B240       - Compare delta vs -max
+        bgt.s   .apply_delta                    ; $006FBC: $6E02       - Skip if within range
 .limit_pos:
-        DC.W    $3001               ; $006FBE MOVE.W  D1,D0          ; Clamp to limit
+        move.w  d1,d0                           ; $006FBE: $3001       - Clamp to limit
 .apply_delta:
-        DC.W    $D168,$005A         ; $006FC0 ADD.W   D0,$5A(A0)     ; Update base_angle
-        DC.W    $3028,$005E         ; $006FC4 MOVE.W  $5E(A0),D0     ; steer_angle_2
-        DC.W    $9068,$005A         ; $006FC8 SUB.W   $5A(A0),D0
-        DC.W    $0240,$03FF         ; $006FCC ANDI.W  #$3FF,D0
-        DC.W    $3168,$005A,$005C   ; $006FD0 MOVE.W  $5A(A0),$5C(A0) ; Copy angles
-        DC.W    $3168,$005A,$005E   ; $006FD6 MOVE.W  $5A(A0),$5E(A0)
-        ; Falls through to angle_to_sine
-        DC.W    $4E75               ; $006FDC RTS
+        add.w   d0,OBJ_BASE_ANGLE(a0)           ; $006FC0: $D168 $005A - Apply delta to angle
+        move.w  OBJ_STEER2(a0),d0               ; $006FC4: $3028 $005E - Get steer_angle_2
+        sub.w   OBJ_BASE_ANGLE(a0),d0           ; $006FC8: $9068 $005A - (unused calculation)
+        andi.w  #ANGLE_MASK,d0                  ; $006FCC: $0240 $03FF
+        move.w  OBJ_BASE_ANGLE(a0),OBJ_STEER1(a0) ; $006FD0: $3168 $005A $005C - Sync angles
+        move.w  OBJ_BASE_ANGLE(a0),OBJ_STEER2(a0) ; $006FD6: $3168 $005A $005E
+        rts                                     ; $006FDC: $4E75
 
 ; (Gap for other code $006FDE-$0070A9)
 
@@ -101,62 +126,72 @@ calc_steering:
 ; Parameters: A0 = object base
 ; Returns: Updates object+$3A (cosine), object+$3E (sine)
 ; Cycles: ~120 cycles
+;
+; Algorithm:
+;   1. Calculate angle delta = steer_angle - base_angle
+;   2. If negative, negate angle and negate result
+;   3. Mask to 10 bits (0-1023 range)
+;   4. Look up in table (word index = angle * 2)
+;   5. Store result to object structure
 ; ============================================================================
 
         org     $0070AA
 
 angle_to_sine:
-        DC.W    $43F9,$0093,$A02C   ; $0070AA LEA     $0093A02C,A1   ; Sine table
-        DC.W    $3028,$005C         ; $0070B0 MOVE.W  $5C(A0),D0     ; steer_angle_1
-        DC.W    $9068,$005A         ; $0070B4 SUB.W   $5A(A0),D0     ; - base_angle
-        DC.W    $6B08               ; $0070B8 BMI.S   .negative
-        DC.W    $0240,$03FF         ; $0070BA ANDI.W  #$3FF,D0       ; Mask 10 bits
-        DC.W    $D040               ; $0070BE ADD.W   D0,D0          ; * 2 for word
-        DC.W    $3231,$0000         ; $0070C0 MOVE.W  0(A1,D0.W),D1  ; Lookup sine
-        DC.W    $6008               ; $0070C4 BRA.S   .store_sine
-.negative:
-        DC.W    $4440               ; $0070C6 NEG.W   D0             ; Make positive
-        DC.W    $0240,$03FF         ; $0070C8 ANDI.W  #$3FF,D0
-        DC.W    $D040               ; $0070CC ADD.W   D0,D0
-        DC.W    $3231,$0000         ; $0070CE MOVE.W  0(A1,D0.W),D1
-        DC.W    $4441               ; $0070D2 NEG.W   D1             ; Negate result
+        lea     SINE_TABLE,a1                   ; $0070AA: $43F9 $0093 $A02C - Point to sine table
+        move.w  OBJ_STEER1(a0),d0               ; $0070B0: $3028 $005C - Get steering angle
+        sub.w   OBJ_BASE_ANGLE(a0),d0           ; $0070B4: $9068 $005A - Delta from base
+        bmi.s   .sine_negative                  ; $0070B8: $6B08       - Handle negative
+        andi.w  #ANGLE_MASK,d0                  ; $0070BA: $0240 $03FF - Mask to 10 bits
+        add.w   d0,d0                           ; $0070BE: $D040       - *2 for word index
+        move.w  (a1,d0.w),d1                    ; $0070C0: $3231 $0000 - Lookup sine value
+        bra.s   .store_sine                     ; $0070C4: $6008       - Store result
+.sine_negative:
+        neg.w   d0                              ; $0070C6: $4440       - Make positive
+        andi.w  #ANGLE_MASK,d0                  ; $0070C8: $0240 $03FF - Mask
+        add.w   d0,d0                           ; $0070CC: $D040       - *2 for index
+        move.w  (a1,d0.w),d1                    ; $0070CE: $3231 $0000 - Lookup
+        neg.w   d1                              ; $0070D2: $4441       - Negate result
 .store_sine:
-        DC.W    $3141,$003E         ; $0070D4 MOVE.W  D1,$3E(A0)     ; Store sine
+        move.w  d1,OBJ_SINE(a0)                 ; $0070D4: $3141 $003E - Store sine
 
 ; Cosine lookup (similar pattern)
-        DC.W    $43F9,$0093,$A42C   ; $0070D8 LEA     $0093A42C,A1   ; Cosine table
-        DC.W    $3028,$005E         ; $0070DE MOVE.W  $5E(A0),D0     ; steer_angle_2
-        DC.W    $9068,$005A         ; $0070E2 SUB.W   $5A(A0),D0
-        DC.W    $6B08               ; $0070E6 BMI.S   .cos_negative
-        DC.W    $0240,$03FF         ; $0070E8 ANDI.W  #$3FF,D0
-        DC.W    $D040               ; $0070EC ADD.W   D0,D0
-        DC.W    $3231,$0000         ; $0070EE MOVE.W  0(A1,D0.W),D1
-        DC.W    $6008               ; $0070F2 BRA.S   .store_cosine
+        lea     COSINE_TABLE,a1                 ; $0070D8: $43F9 $0093 $A42C - Cosine table
+        move.w  OBJ_STEER2(a0),d0               ; $0070DE: $3028 $005E - Get angle 2
+        sub.w   OBJ_BASE_ANGLE(a0),d0           ; $0070E2: $9068 $005A - Delta from base
+        bmi.s   .cos_negative                   ; $0070E6: $6B08       - Handle negative
+        andi.w  #ANGLE_MASK,d0                  ; $0070E8: $0240 $03FF - Mask
+        add.w   d0,d0                           ; $0070EC: $D040       - *2 for index
+        move.w  (a1,d0.w),d1                    ; $0070EE: $3231 $0000 - Lookup
+        bra.s   .store_cosine                   ; $0070F2: $6008       - Store result
 .cos_negative:
-        DC.W    $4440               ; $0070F4 NEG.W   D0
-        DC.W    $0240,$03FF         ; $0070F6 ANDI.W  #$3FF,D0
-        DC.W    $D040               ; $0070FA ADD.W   D0,D0
-        DC.W    $3231,$0000         ; $0070FC MOVE.W  0(A1,D0.W),D1
+        neg.w   d0                              ; $0070F4: $4440       - Make positive
+        andi.w  #ANGLE_MASK,d0                  ; $0070F6: $0240 $03FF - Mask
+        add.w   d0,d0                           ; $0070FA: $D040       - *2 for index
+        move.w  (a1,d0.w),d1                    ; $0070FC: $3231 $0000 - Lookup
 .store_cosine:
-        DC.W    $3141,$003A         ; $007100 MOVE.W  D1,$3A(A0)     ; Store cosine
-        DC.W    $4E75               ; $007104 RTS
+        move.w  d1,OBJ_COSINE(a0)               ; $007100: $3141 $003A - Store cosine
+        rts                                     ; $007104: $4E75
 
 ; ============================================================================
 ; obj_position_y ($007C4E) - Update Y Position from Velocity
 ; Called by: 18 locations per frame
 ; Parameters: A0 = object base
 ; Returns: Updates object+$30 (y_position)
+;
+; Formula: y_position += sign_extend(y_velocity)
+; Uses 16.16 fixed point: high word = integer, low word = fraction
 ; ============================================================================
 
         org     $007C4E
 
 obj_position_y:
-        DC.W    $2028,$0030         ; $007C4E MOVE.L  $30(A0),D0     ; y_position
-        DC.W    $3228,$0044         ; $007C52 MOVE.W  $44(A0),D1     ; y_velocity
-        DC.W    $48C1               ; $007C56 EXT.L   D1             ; Sign extend
-        DC.W    $D081               ; $007C58 ADD.L   D1,D0          ; position += vel
-        DC.W    $2140,$0030         ; $007C5A MOVE.L  D0,$30(A0)     ; Store result
-        DC.W    $4E75               ; $007C5E RTS
+        move.l  OBJ_Y_POS(a0),d0                ; $007C4E: $2028 $0030 - Get Y position
+        move.w  OBJ_Y_VEL(a0),d1                ; $007C52: $3228 $0044 - Get Y velocity
+        ext.l   d1                              ; $007C56: $48C1       - Sign extend to long
+        add.l   d1,d0                           ; $007C58: $D081       - Add velocity
+        move.l  d0,OBJ_Y_POS(a0)                ; $007C5A: $2140 $0030 - Store new position
+        rts                                     ; $007C5E: $4E75
 
 ; ============================================================================
 ; obj_position_x ($007CD8) - Update X Position from Velocity
@@ -168,27 +203,29 @@ obj_position_y:
         org     $007CD8
 
 obj_position_x:
-        DC.W    $2028,$0034         ; $007CD8 MOVE.L  $34(A0),D0     ; x_position
-        DC.W    $3228,$0046         ; $007CDC MOVE.W  $46(A0),D1     ; x_velocity
-        DC.W    $48C1               ; $007CE0 EXT.L   D1
-        DC.W    $D081               ; $007CE2 ADD.L   D1,D0
-        DC.W    $2140,$0034         ; $007CE4 MOVE.L  D0,$34(A0)
-        DC.W    $4E75               ; $007CE8 RTS
+        move.l  OBJ_X_POS(a0),d0                ; $007CD8: $2028 $0034 - Get X position
+        move.w  OBJ_X_VEL(a0),d1                ; $007CDC: $3228 $0046 - Get X velocity
+        ext.l   d1                              ; $007CE0: $48C1       - Sign extend
+        add.l   d1,d0                           ; $007CE2: $D081       - Add velocity
+        move.l  d0,OBJ_X_POS(a0)                ; $007CE4: $2140 $0034 - Store position
+        rts                                     ; $007CE8: $4E75
 
 ; ============================================================================
 ; obj_velocity_y ($007E7A) - Apply Acceleration to Y Velocity
 ; Called by: 18 locations per frame
 ; Parameters: A0 = object base
 ; Returns: Updates object+$44 (y_velocity)
+;
+; Formula: y_velocity += y_accel
 ; ============================================================================
 
         org     $007E7A
 
 obj_velocity_y:
-        DC.W    $3028,$0044         ; $007E7A MOVE.W  $44(A0),D0     ; y_velocity
-        DC.W    $D068,$004E         ; $007E7E ADD.W   $4E(A0),D0     ; + y_accel
-        DC.W    $3140,$0044         ; $007E82 MOVE.W  D0,$44(A0)     ; Store
-        DC.W    $4E75               ; $007E86 RTS
+        move.w  OBJ_Y_VEL(a0),d0                ; $007E7A: $3028 $0044 - Get velocity
+        add.w   OBJ_Y_ACCEL(a0),d0              ; $007E7E: $D068 $004E - Add acceleration
+        move.w  d0,OBJ_Y_VEL(a0)                ; $007E82: $3140 $0044 - Store result
+        rts                                     ; $007E86: $4E75
 
 ; ============================================================================
 ; obj_velocity_x ($007F50) - Apply Acceleration to X Velocity
@@ -200,52 +237,58 @@ obj_velocity_y:
         org     $007F50
 
 obj_velocity_x:
-        DC.W    $3028,$0046         ; $007F50 MOVE.W  $46(A0),D0     ; x_velocity
-        DC.W    $D068,$0050         ; $007F54 ADD.W   $50(A0),D0     ; + x_accel
-        DC.W    $3140,$0046         ; $007F58 MOVE.W  D0,$46(A0)
-        DC.W    $4E75               ; $007F5C RTS
+        move.w  OBJ_X_VEL(a0),d0                ; $007F50: $3028 $0046 - Get velocity
+        add.w   OBJ_X_ACCEL(a0),d0              ; $007F54: $D068 $0050 - Add acceleration
+        move.w  d0,OBJ_X_VEL(a0)                ; $007F58: $3140 $0046 - Store result
+        rts                                     ; $007F5C: $4E75
 
 ; ============================================================================
 ; load_object_params ($0080CC) - Load Object Parameters from ROM Table
 ; Called by: 27 locations per frame (second highest frequency)
-; Parameters: A0 = object base, D0 = object type index
-; Returns: Fills object structure from ROM table
+; Parameters: A0 = object destination, D0 = object type index
+; Returns: Copies 8 words from parameter table to object
+;
+; Table structure: 256 entries × 4 bytes (pointers) at $00930000
+; Each entry points to 16-byte parameter block
 ; ============================================================================
 
         org     $0080CC
 
 load_object_params:
-        DC.W    $48E7,$3000         ; $0080CC MOVEM.L D2-D3,-(A7)    ; Save regs
-        DC.W    $43F9,$0093,$0000   ; $0080D0 LEA     $00930000,A1   ; Param table
-        DC.W    $0240,$00FF         ; $0080D6 ANDI.W  #$FF,D0        ; Mask type
-        DC.W    $E548               ; $0080DA ASL.W   #2,D0          ; * 4
-        DC.W    $2271,$0000         ; $0080DC MOVEA.L 0(A1,D0.W),A1  ; Get entry ptr
-        DC.W    $7E07               ; $0080E0 MOVEQ   #7,D7          ; 8 words to copy
+        movem.l d2-d3,-(sp)                     ; $0080CC: $48E7 $3000 - Save registers
+        lea     PARAM_TABLE,a1                  ; $0080D0: $43F9 $0093 $0000 - Table base
+        andi.w  #$00FF,d0                       ; $0080D6: $0240 $00FF - Mask to byte
+        asl.w   #2,d0                           ; $0080DA: $E548       - *4 for pointer
+        movea.l (a1,d0.w),a1                    ; $0080DC: $2271 $0000 - Get param pointer
+        moveq   #7,d7                           ; $0080E0: $7E07       - 8 words to copy
 .copy_loop:
-        DC.W    $30D9               ; $0080E2 MOVE.W  (A1)+,(A0)+    ; Copy word
-        DC.W    $51CF,$FFFC         ; $0080E4 DBRA    D7,.copy_loop
-        DC.W    $4CDF,$000C         ; $0080E8 MOVEM.L (A7)+,D2-D3
-        DC.W    $4E75               ; $0080EC RTS
+        move.w  (a1)+,(a0)+                     ; $0080E2: $30D9       - Copy word
+        dbra    d7,.copy_loop                   ; $0080E4: $51CF $FFFC - Loop
+        movem.l (sp)+,d2-d3                     ; $0080E8: $4CDF $000C - Restore registers
+        rts                                     ; $0080EC: $4E75
 
 ; ============================================================================
 ; object_frame_timer ($008170) - Decrement Frame Countdown Timer
 ; Called by: 22 locations per frame (third highest frequency)
 ; Parameters: A0 = object base
 ; Returns: D0 = 0 if timer expired, nonzero otherwise
-;          Updates object timer field (offset varies)
+;          Updates object+$88 (frame_timer)
+;
+; Usage: Objects use timers for animations, state transitions, etc.
+; Timer decrements each frame until reaching zero.
 ; ============================================================================
 
         org     $008170
 
 object_frame_timer:
-        DC.W    $3028,$0088         ; $008170 MOVE.W  $88(A0),D0     ; Get timer
-        DC.W    $6706               ; $008174 BEQ.S   .already_zero
-        DC.W    $5340               ; $008176 SUBQ.W  #1,D0          ; Decrement
-        DC.W    $3140,$0088         ; $008178 MOVE.W  D0,$88(A0)     ; Store
-        DC.W    $4E75               ; $00817C RTS
+        move.w  OBJ_TIMER(a0),d0                ; $008170: $3028 $0088 - Get timer
+        beq.s   .already_zero                   ; $008174: $6706       - Skip if zero
+        subq.w  #1,d0                           ; $008176: $5340       - Decrement
+        move.w  d0,OBJ_TIMER(a0)                ; $008178: $3140 $0088 - Store back
+        rts                                     ; $00817C: $4E75       - Return (D0 = new value)
 .already_zero:
-        DC.W    $4280               ; $00817E CLR.L   D0             ; Return 0
-        DC.W    $4E75               ; $008180 RTS
+        clr.l   d0                              ; $00817E: $4280       - Return 0
+        rts                                     ; $008180: $4E75
 
 ; ============================================================================
 ; OPTIMIZATION NOTES

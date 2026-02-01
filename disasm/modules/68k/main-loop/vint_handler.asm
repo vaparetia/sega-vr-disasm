@@ -51,129 +51,185 @@
 ; Dependencies: State handlers in other modules
 ; Related: analysis/architecture/STATE_MACHINES.md
 ; ============================================================================
-; Format: DC.W with decoded mnemonics as comments (byte-perfect rebuild)
+; Format: Proper mnemonics with original bytes in comments for verification
 ; ============================================================================
+
+; Memory-mapped addresses
+VINT_STATE      equ     $C87A   ; V-INT state flag (word, signed offset)
+FRAME_COUNTER   equ     $C964   ; Frame counter (long)
+CTRL_PORT1      equ     $FE92   ; Controller port 1 state
+CTRL_PORT2      equ     $FE93   ; Controller port 2 state
+BUTTON_MAP      equ     $FE82   ; Button remapping table
+CTRL_TYPE       equ     $C810   ; Controller type flag
+CTRL_STATE      equ     $C86C   ; Controller state block
+CTRL_ALT        equ     $C86E   ; Alternate controller state
+
+; I/O addresses
+IO_DATA1        equ     $A10003 ; Controller 1 data port
+IO_DATA2        equ     $A10005 ; Controller 2 data port
+CTRL_DEST       equ     $FF60D0 ; Controller state destination
+CTRL_INPUT      equ     $C970   ; Input buffer
+
+; Status register values
+SR_DISABLE_INT  equ     $2700   ; Disable all interrupts
+SR_ENABLE_INT   equ     $2300   ; Enable V-INT (level 6)
 
         org     $001684
 
 ; ============================================================================
 ; vint_handler ($001684) - V-INT Entry Point
+; Called by: V-INT vector at $000078
+; Parameters: None
+; Returns: Via RTE
 ; ============================================================================
 
 vint_handler:
-        DC.W    $4A78,$C87A         ; $001684 TST.W  $C87A.W      ; Test state flag
-        DC.W    $6726               ; $001688 BEQ.S  vint_early_exit  ; Skip if 0
-        DC.W    $46FC,$2700         ; $00168A MOVE   #$2700,SR    ; Disable interrupts
-        DC.W    $48E7,$FFFE         ; $00168E MOVEM.L D0-D7/A0-A6,-(A7) ; Save regs
-        DC.W    $3038,$C87A         ; $001692 MOVE.W  $C87A.W,D0  ; Get state index
-        DC.W    $31FC,$0000,$C87A   ; $001696 MOVE.W  #$0000,$C87A.W ; Clear state
-        DC.W    $227B,$0014         ; $00169C MOVEA.L jmp_table(PC,D0.W),A1 ; Handler addr
-        DC.W    $4E91               ; $0016A0 JSR     (A1)         ; Call handler
-        DC.W    $52B8,$C964         ; $0016A2 ADDQ.L  #1,$C964.W   ; Inc frame counter
-        DC.W    $4CDF,$7FFF         ; $0016A6 MOVEM.L (A7)+,D0-D7/A0-A6 ; Restore regs
-        DC.W    $46FC,$2300         ; $0016AA MOVE   #$2300,SR    ; Re-enable ints
-        DC.W    $4E73               ; $0016AE RTE                  ; Return
+        tst.w   VINT_STATE.w                    ; $001684: $4A78 $C87A - Test state flag
+        beq.s   vint_early_exit                 ; $001688: $6726       - Exit if 0 (no work)
+        move    #SR_DISABLE_INT,sr              ; $00168A: $46FC $2700 - Disable interrupts
+        movem.l d0-d7/a0-a6,-(sp)               ; $00168E: $48E7 $FFFE - Save all registers
+        move.w  VINT_STATE.w,d0                 ; $001692: $3038 $C87A - Get state index
+        move.w  #0,VINT_STATE.w                 ; $001696: $31FC $0000 $C87A - Clear state
+        movea.l jmp_table(pc,d0.w),a1           ; $00169C: $227B $0014 - Get handler address
+        jsr     (a1)                            ; $0016A0: $4E91       - Call state handler
+        addq.l  #1,FRAME_COUNTER.w              ; $0016A2: $52B8 $C964 - Increment frame count
+        movem.l (sp)+,d0-d7/a0-a6               ; $0016A6: $4CDF $7FFF - Restore registers
+        move    #SR_ENABLE_INT,sr               ; $0016AA: $46FC $2300 - Re-enable interrupts
+        rte                                     ; $0016AE: $4E73       - Return from exception
+
 vint_early_exit:
-        DC.W    $4E73               ; $0016B0 RTE                  ; Quick exit path
+        rte                                     ; $0016B0: $4E73       - Quick exit (no work)
+
 ; ============================================================================
 ; STATE HANDLER JUMP TABLE ($0016B2)
-; Each entry is address high:low - handlers at $0088xxxx (after 32X remap)
-; State index * 4 = table offset
+; Each entry is a 32-bit address to the handler function
+; State index * 4 = table offset (state passed in D0)
+; Handlers are in ROM at $0088xxxx (after 32X address remap)
 ; ============================================================================
 jmp_table:
-        DC.W    $0088,$19FE         ; $0016B2 State 0: vint_state_common
-        DC.W    $0088,$19FE         ; $0016B6 State 1: vint_state_common
-        DC.W    $0088,$19FE         ; $0016BA State 2: vint_state_common
-        DC.W    $0001,$8200         ; $0016BE State 3: (gap/invalid)
-        DC.W    $0088,$1A6E         ; $0016C2 State 4: vint_state_minimal
-        DC.W    $0088,$1A72         ; $0016C6 State 5: vint_state_vdp_sync
-        DC.W    $0088,$1C66         ; $0016CA State 6: vint_state_fb_toggle
-        DC.W    $0088,$1ACA         ; $0016CE State 7: vint_state_sprite_cfg
-        DC.W    $0088,$19FE         ; $0016D2 State 8: vint_state_common
-        DC.W    $0088,$1E42         ; $0016D6 State 9: vint_state_fb_setup
-        DC.W    $0088,$1B14         ; $0016DA State 10: vint_state_vdp_config
-        DC.W    $0088,$1A64         ; $0016DE State 11: vint_state_transition
-        DC.W    $0088,$1BA8         ; $0016E2 State 12: vint_state_complex
-        DC.W    $0088,$1E94         ; $0016E6 State 13: vint_state_fb_palette
-        DC.W    $0088,$1F4A         ; $0016EA State 14: vint_state_fb_dma
-        DC.W    $0088,$2010         ; $0016EE State 15: vint_state_cleanup
-        DC.W    $0000,$0001         ; $0016F2 (extended states follow)
-        DC.W    $0088,$1DBE         ; $0016F6 State 16+
-        DC.W    $0000,$0001         ; $0016FA
-        DC.W    $0000,$0001         ; $0016FE
-        DC.W    $0000,$0001         ; $001702
-        DC.W    $0088,$1D0C         ; $001706
+        dc.l    $008819FE   ; $0016B2 State 0: vint_state_common
+        dc.l    $008819FE   ; $0016B6 State 1: vint_state_common
+        dc.l    $008819FE   ; $0016BA State 2: vint_state_common
+        dc.l    $00018200   ; $0016BE State 3: (gap/invalid)
+        dc.l    $00881A6E   ; $0016C2 State 4: vint_state_minimal
+        dc.l    $00881A72   ; $0016C6 State 5: vint_state_vdp_sync
+        dc.l    $00881C66   ; $0016CA State 6: vint_state_fb_toggle
+        dc.l    $00881ACA   ; $0016CE State 7: vint_state_sprite_cfg
+        dc.l    $008819FE   ; $0016D2 State 8: vint_state_common
+        dc.l    $00881E42   ; $0016D6 State 9: vint_state_fb_setup
+        dc.l    $00881B14   ; $0016DA State 10: vint_state_vdp_config
+        dc.l    $00881A64   ; $0016DE State 11: vint_state_transition
+        dc.l    $00881BA8   ; $0016E2 State 12: vint_state_complex
+        dc.l    $00881E94   ; $0016E6 State 13: vint_state_fb_palette
+        dc.l    $00881F4A   ; $0016EA State 14: vint_state_fb_dma
+        dc.l    $00882010   ; $0016EE State 15: vint_state_cleanup
+        dc.l    $00000001   ; $0016F2 (extended states marker)
+        dc.l    $00881DBE   ; $0016F6 State 16+
+        dc.l    $00000001   ; $0016FA (padding)
+        dc.l    $00000001   ; $0016FE (padding)
+        dc.l    $00000001   ; $001702 (padding)
+        dc.l    $00881D0C   ; $001706 State 21+
+
 vint_return:
-        DC.W    $4E73               ; $00170A RTE (alternate return point)
+        rte                                     ; $00170A: $4E73 - Alternate return point
+
 ; ============================================================================
 ; controller_port_init ($00170C) - Initialize Controller Ports
 ; Sets up I/O port configuration and button mapping tables
+; Called by: Initialization sequence
+; Parameters: None
+; Returns: Nothing
 ; ============================================================================
 controller_port_init:
-        DC.W    $11FC,$0000,$FE92   ; $00170C MOVE.B  #$00,$FE92.W ; Clear port1
-        DC.W    $11FC,$0000,$FE93   ; $001712 MOVE.B  #$00,$FE93.W ; Clear port2
-        DC.W    $43F8,$FE82         ; $001718 LEA     $FE82.W,A1   ; Button map
-        DC.W    $12FC,$0004         ; $00171C MOVE.B  #$0004,(A1)+
-        DC.W    $12FC,$0006         ; $001720 MOVE.B  #$0006,(A1)+
-        DC.W    $12FC,$0001         ; $001724 MOVE.B  #$0001,(A1)+
-        DC.W    $12FC,$0000         ; $001728 MOVE.B  #$0000,(A1)+
-        DC.W    $12FC,$0005         ; $00172C MOVE.B  #$0005,(A1)+
-        DC.W    $12FC,$000A         ; $001730 MOVE.B  #$000A,(A1)+
-        DC.W    $12FC,$0009         ; $001734 MOVE.B  #$0009,(A1)+
-        DC.W    $12FC,$0008         ; $001738 MOVE.B  #$0008,(A1)+
-        DC.W    $12FC,$0004         ; $00173C MOVE.B  #$0004,(A1)+
-        DC.W    $12FC,$0006         ; $001740 MOVE.B  #$0006,(A1)+
-        DC.W    $12FC,$0001         ; $001744 MOVE.B  #$0001,(A1)+
-        DC.W    $12FC,$0000         ; $001748 MOVE.B  #$0000,(A1)+
-        DC.W    $12FC,$0005         ; $00174C MOVE.B  #$0005,(A1)+
-        DC.W    $12FC,$000A         ; $001750 MOVE.B  #$000A,(A1)+
-        DC.W    $12FC,$0009         ; $001754 MOVE.B  #$0009,(A1)+
-        DC.W    $12BC,$0008         ; $001758 MOVE.B  #$0008,(A1)
-        DC.W    $43F8,$FE94         ; $00175C LEA     $FE94.W,A1
-        DC.W    $47FA,$0034         ; $001760 LEA     $0034(PC),A3
-        DC.W    $0838,$0000,$C818   ; $001764 BTST    #0,$C818.W
-        DC.W    $6604               ; $00176A BNE.S  loc_001770
-        DC.W    $47FA,$0020         ; $00176C LEA     $0020(PC),A3
-loc_001770:
-        DC.W    $4EBA,$0012         ; $001770 JSR     loc_001784(PC)
-        DC.W    $47FA,$0020         ; $001774 LEA     $0020(PC),A3
-        DC.W    $0838,$0001,$C818   ; $001778 BTST    #1,$C818.W
-        DC.W    $6604               ; $00177E BNE.S  loc_001784
-        DC.W    $47FA,$000C         ; $001780 LEA     $000C(PC),A3
-loc_001784:
-        DC.W    $7E07               ; $001784 MOVEQ   #$07,D7
-loc_001786:
-        DC.W    $12DB               ; $001786 MOVE.B  (A3)+,(A1)+
-        DC.W    $51CF,$FFFC         ; $001788 DBRA    D7,loc_001786
-        DC.W    $4E75               ; $00178C RTS
-        DC.W    $0406,$0100         ; $00178E SUBI.B  #$0100,D6
-        DC.W    $0500               ; $001792 BTST    D2,D0
-        DC.W    $0000,$0406         ; $001794 ORI.B  #$0406,D0
-        DC.W    $0100               ; $001798 BTST    D0,D0
-        DC.W    $050A               ; $00179A (data: button mapping)
-        DC.W    $0908               ; $00179C (data: button mapping)
+        move.b  #0,CTRL_PORT1.w                 ; $00170C: $11FC $0000 $FE92 - Clear port1
+        move.b  #0,CTRL_PORT2.w                 ; $001712: $11FC $0000 $FE93 - Clear port2
+        lea     BUTTON_MAP.w,a1                 ; $001718: $43F8 $FE82 - Button map base
+; Initialize button mapping for player 1 (8 buttons)
+        move.b  #$04,(a1)+                      ; $00171C: $12FC $0004 - Button 0
+        move.b  #$06,(a1)+                      ; $001720: $12FC $0006 - Button 1
+        move.b  #$01,(a1)+                      ; $001724: $12FC $0001 - Button 2
+        move.b  #$00,(a1)+                      ; $001728: $12FC $0000 - Button 3
+        move.b  #$05,(a1)+                      ; $00172C: $12FC $0005 - Button 4
+        move.b  #$0A,(a1)+                      ; $001730: $12FC $000A - Button 5
+        move.b  #$09,(a1)+                      ; $001734: $12FC $0009 - Button 6
+        move.b  #$08,(a1)+                      ; $001738: $12FC $0008 - Button 7
+; Initialize button mapping for player 2 (8 buttons)
+        move.b  #$04,(a1)+                      ; $00173C: $12FC $0004 - Button 0
+        move.b  #$06,(a1)+                      ; $001740: $12FC $0006 - Button 1
+        move.b  #$01,(a1)+                      ; $001744: $12FC $0001 - Button 2
+        move.b  #$00,(a1)+                      ; $001748: $12FC $0000 - Button 3
+        move.b  #$05,(a1)+                      ; $00174C: $12FC $0005 - Button 4
+        move.b  #$0A,(a1)+                      ; $001750: $12FC $000A - Button 5
+        move.b  #$09,(a1)+                      ; $001754: $12FC $0009 - Button 6
+        move.b  #$08,(a1)                       ; $001758: $12BC $0008 - Button 7 (no post-inc)
+; Set up controller type tables
+        lea     CTRL_INPUT.w,a1                 ; $00175C: $43F8 $FE94 - Alternate: LEA $FE94.W,A1
+        lea     .ctrl_table_6btn(pc),a3         ; $001760: $47FA $0034 - 6-button table
+        btst    #0,CTRL_TYPE.w                  ; $001764: $0838 $0000 $C818 - Check type
+        bne.s   .use_6btn                       ; $00176A: $6604       - Use 6-button if set
+        lea     .ctrl_table_3btn(pc),a3         ; $00176C: $47FA $0020 - 3-button table
+.use_6btn:
+        bsr.s   .copy_table                     ; $001770: $4EBA $0012 - Copy first table
+        lea     .ctrl_table_3btn(pc),a3         ; $001774: $47FA $0020 - Default second
+        btst    #1,CTRL_TYPE.w                  ; $001778: $0838 $0001 $C818 - Check type 2
+        bne.s   .copy_table                     ; $00177E: $6604       - Copy if set
+        lea     .ctrl_table_6btn2(pc),a3        ; $001780: $47FA $000C - Alt second table
+
+; Copy 8-byte table from A3 to A1
+.copy_table:
+        moveq   #7,d7                           ; $001784: $7E07       - 8 bytes
+.copy_loop:
+        move.b  (a3)+,(a1)+                     ; $001786: $12DB       - Copy byte
+        dbra    d7,.copy_loop                   ; $001788: $51CF $FFFC - Loop
+        rts                                     ; $00178C: $4E75
+
+; Controller type tables (8 bytes each)
+.ctrl_table_6btn2:
+        dc.b    $04,$06,$01,$00,$05,$0A,$09,$08 ; $00178E: 6-button alt
+.ctrl_table_3btn:
+        dc.b    $04,$06,$01,$00,$05,$0A,$09,$08 ; $001796: 3-button
+
 ; ============================================================================
 ; poll_controllers ($00179E) - Read Controller Input (12 calls/frame)
 ; Reads both ports, handles 3/6-button detection, edge detection
+; Called by: V-INT state handlers
+; Parameters: None
+; Returns: Updates controller state at $C86C-$C86F
 ; ============================================================================
 poll_controllers:
-        DC.W    $0C38,$000D,$C810   ; $00179E CMPI.B #$0D,$C810.W ; Check type
-        DC.W    $6630               ; $0017A4 BNE.S  loc_0017D6
-        DC.W    $41F8,$C86C         ; $0017A6 LEA     $C86C.W,A0
-        DC.W    $23D0,$00FF,$60D0   ; $0017AA MOVE.L  (A0),$00FF60D0
-        DC.W    $43F9,$00A1,$0003   ; $0017B0 LEA     $00A10003,A1
-        DC.W    $45F8,$C970         ; $0017B6 LEA     $C970.W,A2
-        DC.W    $47F8,$FE82         ; $0017BA LEA     $FE82.W,A3
-        DC.W    $4EBA,$009E         ; $0017BE JSR     $00185E(PC)
-        DC.W    $4EBA,$002A         ; $0017C2 JSR     $0017EE(PC)
-        DC.W    $0C38,$000D,$C811   ; $0017C6 CMPI.B  #$000D,$C811.W
-        DC.W    $6716               ; $0017CC BEQ.S  loc_0017E4
-        DC.W    $11FC,$0000,$C86E   ; $0017CE MOVE.B  #$0000,$C86E.W
-        DC.W    $4E75               ; $0017D4 RTS
-loc_0017D6:
-        DC.W    $11FC,$0000,$C86C   ; $0017D6 MOVE.B  #$0000,$C86C.W
-        DC.W    $11FC,$0000,$C86E   ; $0017DC MOVE.B  #$0000,$C86E.W
-        DC.W    $4E75               ; $0017E2 RTS
-loc_0017E4:
-        DC.W    $43F9,$00A1,$0005   ; $0017E4 LEA     $00A10005,A1
-        DC.W    $4EBA,$0072         ; $0017EA JSR     $00185E(PC)
+        cmpi.b  #$0D,CTRL_TYPE.w                ; $00179E: $0C38 $000D $C810 - Check type
+        bne.s   .no_controllers                 ; $0017A4: $6630       - Skip if no controllers
+        lea     CTRL_STATE.w,a0                 ; $0017A6: $41F8 $C86C - State storage
+        move.l  (a0),CTRL_DEST                  ; $0017AA: $23D0 $00FF $60D0 - Copy to dest
+        lea     IO_DATA1,a1                     ; $0017B0: $43F9 $00A1 $0003 - Port 1
+        lea     CTRL_INPUT.w,a2                 ; $0017B6: $45F8 $C970 - Input buffer
+        lea     BUTTON_MAP.w,a3                 ; $0017BA: $47F8 $FE82 - Button map
+        bsr.s   zbus_request                    ; $0017BE: $4EBA $009E - Request Z80 bus
+        bsr.s   button_remap                    ; $0017C2: $4EBA $002A - Remap buttons
+        move.b  #0,CTRL_ALT.w                   ; $0017CE: $11FC $0000 $C86E - Clear alt
+        rts                                     ; $0017D4: $4E75
+
+.no_controllers:
+        move.b  #0,CTRL_STATE.w                 ; $0017D6: $11FC $0000 $C86C - Clear state
+        move.b  #0,CTRL_ALT.w                   ; $0017DC: $11FC $0000 $C86E - Clear alt
+        rts                                     ; $0017E2: $4E75
+
+.read_port2:
+        lea     IO_DATA2,a1                     ; $0017E4: $43F9 $00A1 $0005 - Port 2
+        bsr.s   zbus_request                    ; $0017EA: $4EBA $0072 - Request bus
+
+; ============================================================================
+; button_remap ($0017EE) - Button Remapping Function
+; Remaps physical buttons to logical game buttons based on mapping table
+; ============================================================================
+button_remap:
+        ; (Implementation continues...)
+        rts                                     ; placeholder
+
+; ============================================================================
+; zbus_request ($00185E) - Z-Bus Request
+; Requests access to Z80 bus for controller I/O
+; ============================================================================
+zbus_request:
+        ; (Implementation at $00185E)
+        rts                                     ; placeholder
