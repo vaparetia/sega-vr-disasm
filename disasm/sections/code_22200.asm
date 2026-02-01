@@ -2166,74 +2166,20 @@
 ; Iterates through elements calling setup and process subroutines
 ; ============================================================================
         include "sh2/generated/func_070.inc"
-        dc.w    $DD1E        ; $024084
-        dc.w    $D11F        ; $024086
-        dc.w    $84E2        ; $024088
-        dc.w    $4008        ; $02408A
-        dc.w    $001E        ; $02408C
-        dc.w    $2D02        ; $02408E
-        dc.w    $E000        ; $024090
-        dc.w    $81D2        ; $024092
-        dc.w    $85E8        ; $024094
-        dc.w    $81D3        ; $024096
-        dc.w    $85E9        ; $024098
-        dc.w    $81D4        ; $02409A
-        dc.w    $E000        ; $02409C
-        dc.w    $80DA        ; $02409E
-        dc.w    $84EA        ; $0240A0
-        dc.w    $7030        ; $0240A2
-        dc.w    $80DB        ; $0240A4
-        dc.w    $E027        ; $0240A6
-        dc.w    $80DC        ; $0240A8
-        dc.w    $84EB        ; $0240AA
-        dc.w    $7030        ; $0240AC
-        dc.w    $80DD        ; $0240AE
-        dc.w    $84EC        ; $0240B0
-        dc.w    $7030        ; $0240B2
-        dc.w    $80DE        ; $0240B4
-        dc.w    $E022        ; $0240B6
-        dc.w    $80DF        ; $0240B8
-        dc.w    $7D10        ; $0240BA
-        dc.w    $84ED        ; $0240BC
-        dc.w    $7030        ; $0240BE
-        dc.w    $80D0        ; $0240C0
-        dc.w    $84EE        ; $0240C2
-        dc.w    $7030        ; $0240C4
-        dc.w    $80D1        ; $0240C6
-        dc.w    $84EF        ; $0240C8
-        dc.w    $7030        ; $0240CA
-        dc.w    $80D2        ; $0240CC
-        dc.w    $E000        ; $0240CE
-        dc.w    $80D3        ; $0240D0
-        dc.w    $80D4        ; $0240D2
-        dc.w    $84E3        ; $0240D4
-        dc.w    $D10C        ; $0240D6
-        dc.w    $4008        ; $0240D8
-        dc.w    $4000        ; $0240DA
-        dc.w    $310C        ; $0240DC
-        dc.w    $6014        ; $0240DE
-        dc.w    $80D5        ; $0240E0
-        dc.w    $6014        ; $0240E2
-        dc.w    $80D6        ; $0240E4
-        dc.w    $6014        ; $0240E6
-        dc.w    $80D7        ; $0240E8
-        dc.w    $6014        ; $0240EA
-        dc.w    $80D8        ; $0240EC
-        dc.w    $6014        ; $0240EE
-        dc.w    $80D9        ; $0240F0
-        dc.w    $6014        ; $0240F2
-        dc.w    $80DA        ; $0240F4
-        dc.w    $6014        ; $0240F6
-        dc.w    $80DB        ; $0240F8
-        dc.w    $000B        ; $0240FA
-        dc.w    $0009        ; $0240FC
-        dc.w    $0000        ; $0240FE
-        dc.w    $C000        ; $024100
-        dc.w    $0000        ; $024102
-        dc.w    $0600        ; $024104
-        dc.w    $410C        ; $024106
-        dc.w    $0600        ; $024108
-        dc.w    $4184        ; $02410A
+; ============================================================================
+; func_071: Context Setup / Parameter Initialization (122 bytes: $024084-$0240FD)
+; Initializes rendering context from R14 structure, formats display data
+; Called by func_070 via BSR. Note: $001E = MOV.L @(R0,R1),R0 (indexed load)
+; ============================================================================
+        include "sh2/generated/func_071.inc"
+; Literal pool for func_071
+        dc.w    $0000        ; $0240FE: padding
+        dc.w    $C000        ; $024100: VDP base high word
+        dc.w    $0000        ; $024102: VDP base low word ($C0000000)
+        dc.w    $0600        ; $024104: table 1 high word
+        dc.w    $410C        ; $024106: table 1 low word ($0600410C)
+        dc.w    $0600        ; $024108: table 2 high word
+        dc.w    $4184        ; $02410A: table 2 low word ($06004184)
         dc.w    $2020        ; $02410C
         dc.w    $2020        ; $02410E
         dc.w    $2031        ; $024110
