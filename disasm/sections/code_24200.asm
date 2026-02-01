@@ -33,74 +33,47 @@
         dc.w    $C0D5        ; $0242A6
         dc.w    $2400        ; $0242A8
         dc.w    $0000        ; $0242AA
-        dc.w    $660B        ; $0242AC
-        dc.w    $D50B        ; $0242AE
-        dc.w    $9410        ; $0242B0
-        dc.w    $9210        ; $0242B2
-        dc.w    $9310        ; $0242B4
-        dc.w    $E71C        ; $0242B6
-        dc.w    $6153        ; $0242B8
-        dc.w    $6843        ; $0242BA
-        dc.w    $6063        ; $0242BC
-        dc.w    $2181        ; $0242BE
-        dc.w    $382C        ; $0242C0
-        dc.w    $4010        ; $0242C2
-        dc.w    $8FFB        ; $0242C4
-        dc.w    $7102        ; $0242C6
-        dc.w    $343C        ; $0242C8
-        dc.w    $4710        ; $0242CA
-        dc.w    $8FF4        ; $0242CC
-        dc.w    $7510        ; $0242CE
-        dc.w    $000B        ; $0242D0
-        dc.w    $0009        ; $0242D2
-        dc.w    $2000        ; $0242D4
-        dc.w    $0100        ; $0242D6
-        dc.w    $0800        ; $0242D8
-        dc.w    $0000        ; $0242DA
-        dc.w    $2400        ; $0242DC
-        dc.w    $0000        ; $0242DE
-        dc.w    $D806        ; $0242E0
-        dc.w    $9007        ; $0242E2
-        dc.w    $9107        ; $0242E4
-        dc.w    $9707        ; $0242E6
-        dc.w    $2805        ; $0242E8
-        dc.w    $4710        ; $0242EA
-        dc.w    $8FFC        ; $0242EC
-        dc.w    $3018        ; $0242EE
-        dc.w    $000B        ; $0242F0
-        dc.w    $0009        ; $0242F2
-        dc.w    $FF00        ; $0242F4
-        dc.w    $0100        ; $0242F6
-        dc.w    $00E0        ; $0242F8
-        dc.w    $0000        ; $0242FA
-        dc.w    $2400        ; $0242FC
-        dc.w    $01C0        ; $0242FE
-        dc.w    $D108        ; $024300
-        dc.w    $D709        ; $024302
-        dc.w    $E000        ; $024304
-        dc.w    $2106        ; $024306
-        dc.w    $2106        ; $024308
-        dc.w    $2106        ; $02430A
-        dc.w    $4710        ; $02430C
-        dc.w    $8FFA        ; $02430E
-        dc.w    $2106        ; $024310
-        dc.w    $D106        ; $024312
-        dc.w    $D706        ; $024314
-        dc.w    $E000        ; $024316
-        dc.w    $4710        ; $024318
-        dc.w    $8FFD        ; $02431A
-        dc.w    $2106        ; $02431C
-        dc.w    $000B        ; $02431E
-        dc.w    $0009        ; $024320
-        dc.w    $0000        ; $024322
-        dc.w    $0603        ; $024324
-        dc.w    $3000        ; $024326
-        dc.w    $0000        ; $024328
-        dc.w    $1300        ; $02432A
-        dc.w    $0600        ; $02432C
-        dc.w    $EE00        ; $02432E
-        dc.w    $0000        ; $024330
-        dc.w    $04C0        ; $024332
+; ============================================================================
+; func_078: Negative Value Fill Handler (40 bytes: $0242AC-$0242D3)
+; Called when func_077 dispatches negative value (BF at $024282)
+; Fills buffer with incrementing pattern across 28 rows
+; ============================================================================
+        include "sh2/generated/func_078.inc"
+; Literal pool for func_078
+        dc.w    $2000        ; $0242D4: pattern start high
+        dc.w    $0100        ; $0242D6: increment value
+        dc.w    $0800        ; $0242D8: row stride
+        dc.w    $0000        ; $0242DA: padding
+        dc.w    $2400        ; $0242DC: base address high
+        dc.w    $0000        ; $0242DE: base address low ($24000000)
+; ============================================================================
+; func_079: Fill with Decrementing Pattern (20 bytes: $0242E0-$0242F3)
+; Called when func_077 dispatches 0x80 value (BT at $02427E)
+; Fills buffer with decrementing word pattern
+; ============================================================================
+        include "sh2/generated/func_079.inc"
+; Literal pool for func_079
+        dc.w    $FF00        ; $0242F4: initial pattern
+        dc.w    $0100        ; $0242F6: decrement value
+        dc.w    $00E0        ; $0242F8: loop count (224)
+        dc.w    $0000        ; $0242FA: padding
+        dc.w    $2400        ; $0242FC: destination high
+        dc.w    $01C0        ; $0242FE: destination low ($240001C0)
+; ============================================================================
+; func_080: Memory Clear (34 bytes: $024300-$024321)
+; Clears two memory regions by writing zeros
+; ============================================================================
+        include "sh2/generated/func_080.inc"
+; Literal pool for func_080
+        dc.w    $0000        ; $024322: padding
+        dc.w    $0603        ; $024324: region1 end high (0x06033000)
+        dc.w    $3000        ; $024326: region1 end low
+        dc.w    $0000        ; $024328: region1 count high (0x00001300)
+        dc.w    $1300        ; $02432A: region1 count low
+        dc.w    $0600        ; $02432C: region2 end high (0x0600EE00)
+        dc.w    $EE00        ; $02432E: region2 end low
+        dc.w    $0000        ; $024330: region2 count high (0x000004C0)
+        dc.w    $04C0        ; $024332: region2 count low
         dc.w    $4F22        ; $024334
         dc.w    $D00C        ; $024336
         dc.w    $400B        ; $024338
