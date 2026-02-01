@@ -4,23 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Current Development Status
 
-**Phase:** Real vertex transform offload operational - TRUE PARALLEL PROCESSING
+**Phase:** v4.2.0 - SH2 Translation Milestone Complete
 **Approach:** Full ROM rebuild from disassembly (NOT code injection)
-**Build:** `make all` produces complete 4MB ROM
+**Build:** `make all` produces complete 4MB ROM (byte-identical to original in translated regions)
 
 ### What's Working
 - 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
-- **Master SH2 hooked**: Dispatch at $02046A redirects to `master_dispatch_hook` at $300050
-- **Slave SH2 activated**: Runs `slave_work_wrapper` at $300200 (work dispatch)
-- **Real parameter capture**: func_021 trampoline captures R14/R7/R8/R5 to shared memory
-- **TRUE PARALLEL PROCESSING**: Master returns immediately, Slave executes vertex transform
-- **Architecture**:
-  ```
-  Game calls func_021 → Trampoline captures R14/R7/R8/R5 → COMM7=0x16
-                      → Master returns immediately (no work done)
-                      → Slave picks up work, executes func_021_optimized
-                      → Both CPUs running in parallel!
-  ```
+- **75 SH2 functions translated** to proper `.short` opcode assembly
+- **All translations verified** byte-identical to original ROM
+- **Build system integrated** with Makefile rules for all functions
+- **Expansion code ready** at $300000+ (parallel processing infrastructure)
+
+### What's Prepared (Not Yet Activated)
+- `master_dispatch_hook` at $300050 (needs dispatch redirect)
+- `slave_work_wrapper` at $300200 (needs activation)
+- `func_021_optimized` at $300100 (func_016 inlined)
+- Trampoline at $0234C8 (not yet patched into ROM)
 
 ### Expansion ROM Layout
 | Address | Size | Function |
@@ -40,11 +39,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | $2000402A | COMM5 (vertex transform counter, +101 per call) |
 
 ### Next Steps
-1. ~~Parameter passing infrastructure~~ ✅ Done
-2. ~~Real parameter capture~~ ✅ Done
-3. **Performance Testing**: Measure FPS improvement
-4. **Synchronization**: Ensure Slave completes before next frame
-5. **Load Balancing**: Split polygon workload between CPUs
+1. ~~SH2 function translation (major pass)~~ ✅ Done (75 functions)
+2. ~~Parallel processing infrastructure~~ ✅ Done (expansion code ready)
+3. **Activate hooks**: Patch dispatch at $02046A and trampoline at $0234C8
+4. **Performance Testing**: Measure FPS improvement
+5. **Synchronization**: Ensure Slave completes before next frame
+6. **Load Balancing**: Split polygon workload between CPUs
 
 ### Abandoned Approaches
 - **Code injection via `phase11_rom_patcher.py`**: Reached space/alignment limits

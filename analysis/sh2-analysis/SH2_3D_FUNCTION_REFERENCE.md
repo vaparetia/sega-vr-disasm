@@ -2,7 +2,7 @@
 
 **Virtua Racing Deluxe - Complete Function Catalog**
 **Analysis Date**: January 6, 2026
-**Updated**: January 31, 2026 (59 functions translated with annotations)
+**Updated**: January 31, 2026 (75 functions translated - v4.2.0 milestone)
 
 ---
 
@@ -16,7 +16,7 @@ Comprehensive reference for all 109 functions in the SH2 3D rendering engine. Fu
 
 ```
 Total Functions: 109
-├── Fully Translated: 59 (with detailed annotations)
+├── Fully Translated: 75 (with detailed annotations, byte-verified)
 ├── Entry Points: 74
 ├── Coordinators: 31
 ├── Leaf Functions: 78
@@ -25,7 +25,12 @@ Total Functions: 109
 └── Hardware Functions (VDP/register access): 12
 ```
 
-**Translation Directory**: All 59 translated functions are in `disasm/sh2/3d_engine/` with byte-accurate ROM verification.
+**Translation Directory**: All 75 translated functions are in `disasm/sh2/3d_engine/` with byte-accurate ROM verification.
+
+**Coverage by section:**
+- `code_22200.asm`: 57 functions (main 3D engine core)
+- `code_24200.asm`: 17 functions (utilities, polling, hardware init)
+- `expansion_300000.asm`: 1 function (optimized vertex transform)
 
 ---
 

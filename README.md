@@ -1,20 +1,17 @@
 # Virtua Racing Deluxe (32X) - Complete Disassembly & Analysis
 
-**Status: ✅ TRUE PARALLEL PROCESSING OPERATIONAL - Real vertex transform offload working**
+**Status: ✅ v4.2.0 - SH2 Translation Milestone Complete**
 
-A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **100% byte-identical** binary, with **4MB expansion ROM** containing working SH2 parallel processing hooks.
+A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **byte-identical** binary in all translated regions, with **4MB expansion ROM** containing SH2 parallel processing infrastructure.
 
 ## Key Features
 
-- **Near byte-perfect rebuild** - Only 2 expected differences (ROM size header, V-INT branch offset)
-- **TRUE PARALLEL PROCESSING** - Master returns immediately, Slave executes vertex transform
-- **Master SH2 hooked** - Dispatch at $02046A redirects to expansion ROM
-- **Slave SH2 activated** - Work dispatch wrapper operational at $300200
-- **Real parameter capture** - func_021 trampoline captures R14/R7/R8/R5 to shared memory
-- **4MB expansion ROM** - 1MB SH2 working space with custom hooks
+- **Byte-perfect rebuild** - All 75 translated SH2 functions verified identical to original ROM
+- **75 SH2 functions translated** - Proper `.short` opcode assembly with full annotations
+- **4MB expansion ROM** - 1MB SH2 working space with parallel processing infrastructure (not yet activated)
 - **503+ named 68K functions** - Categorized by subsystem
 - **107 named SH2 functions** - 3D engine fully mapped
-- **59 SH2 functions translated** - Proper assembly source with byte-accurate ROM verification
+- **Build system integrated** - Makefile rules for all translated functions
 
 ## Quick Start
 
@@ -72,21 +69,21 @@ picodrive build/vr_rebuild.32x
 The original game runs at ~20 FPS due to a **blocking synchronization model**, not hardware limitations:
 
 ```
-ORIGINAL:
+ORIGINAL (Current):
 68K: sh2_graphics_cmd → sh2_send_cmd_wait (BLOCKS) → sh2_wait_response
                                 ↑
                         Global serialization barrier
 
-NOW IMPLEMENTED:
-Game calls func_021 → Trampoline captures R14/R7/R8/R5 → COMM7=0x16
-                    → Master returns immediately (no work done)
+PLANNED OPTIMIZATION (Infrastructure Ready):
+Game calls func_021 → Trampoline captures params → COMM7=0x16
+                    → Master returns immediately
                     → Slave picks up work, executes func_021_optimized
-                    → Both CPUs running in parallel!
+                    → Both CPUs running in parallel
 ```
 
-- Frame production was serialized through blocking waits
-- **Now:** Vertex transform offloaded to Slave SH2, Master returns immediately
-- Both SH2 CPUs now execute in parallel
+- Frame production is serialized through blocking waits (current behavior)
+- **Optimization infrastructure prepared** in expansion ROM at $300000+
+- Parallel processing hooks ready but **not yet activated** in main ROM
 
 See [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) for full details.
 
@@ -134,11 +131,12 @@ You must provide your own legal ROM dump:
 
 ## Next Steps
 
-1. ~~Parameter passing infrastructure~~ ✅ Done
-2. ~~Real parameter capture~~ ✅ Done
-3. **Performance Testing** - Measure FPS improvement from parallel processing
-4. **Synchronization** - Ensure Slave completes before next frame
-5. **Load Balancing** - Split polygon workload between CPUs
+1. ~~SH2 function translation (major pass)~~ ✅ Done (75 functions)
+2. ~~Parallel processing infrastructure~~ ✅ Done (expansion ROM ready)
+3. **Activate parallel hooks** - Wire up dispatch redirect and func_021 trampoline
+4. **Performance Testing** - Measure FPS improvement from parallel processing
+5. **Synchronization** - Ensure Slave completes before next frame
+6. **Load Balancing** - Split polygon workload between CPUs
 
 ## Documentation
 
@@ -149,7 +147,7 @@ You must provide your own legal ROM dump:
 | **68K Functions** | [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) (503+ functions) |
 | **SH2 Functions** | [SH2_SYMBOL_MAP.md](disasm/SH2_SYMBOL_MAP.md) (107 functions) |
 | **SH2 3D Pipeline** | [SH2_3D_PIPELINE_ARCHITECTURE.md](analysis/sh2-analysis/SH2_3D_PIPELINE_ARCHITECTURE.md) |
-| **SH2 Function Ref** | [SH2_3D_FUNCTION_REFERENCE.md](analysis/sh2-analysis/SH2_3D_FUNCTION_REFERENCE.md) (53 translated) |
+| **SH2 Function Ref** | [SH2_3D_FUNCTION_REFERENCE.md](analysis/sh2-analysis/SH2_3D_FUNCTION_REFERENCE.md) (75 translated) |
 | **Communication** | [68K_SH2_COMMUNICATION.md](analysis/68K_SH2_COMMUNICATION.md) |
 | **Data Structures** | [DATA_STRUCTURES.md](analysis/architecture/DATA_STRUCTURES.md) |
 | **Hardware** | [32x-hardware-manual.md](docs/32x-hardware-manual.md) |
@@ -157,7 +155,7 @@ You must provide your own legal ROM dump:
 
 ### SH2 3D Engine Translations
 
-Complete annotated translations of 59 SH2 functions are in `disasm/sh2/3d_engine/`. Key findings:
+Complete annotated translations of 75 SH2 functions are in `disasm/sh2/3d_engine/`. All produce byte-identical output to the original ROM. Key findings:
 
 | Function | Size | Purpose |
 |----------|------|---------|
@@ -175,16 +173,16 @@ Complete annotated translations of 59 SH2 functions are in `disasm/sh2/3d_engine
 |-----------|---------|
 | Platform | Sega 32X (Mega Drive add-on) |
 | 68000 CPU | 12.5 MHz, game logic & coordination |
-| SH2 CPUs | 2x 23 MHz, 3D rendering (now both utilized in parallel) |
+| SH2 CPUs | 2x 23 MHz, 3D rendering |
 | Z80 CPU | Sound processing |
 | ROM Size | 4 MB (4,194,304 bytes) with 1MB SH2 expansion |
 | Original Size | 3 MB (3,145,728 bytes) |
 | Original Frame Rate | ~20 FPS (architectural limit due to blocking sync) |
-| Current Status | Parallel processing operational, performance testing pending |
+| Current Status | 75 SH2 functions translated, parallel hooks prepared (not activated) |
 
 ## 4MB Expansion ROM
 
-The project builds the full **4MB official cartridge size** with a dedicated 1MB expansion section containing working SH2 parallel processing hooks:
+The project builds the full **4MB official cartridge size** with a dedicated 1MB expansion section containing SH2 parallel processing infrastructure:
 
 ```
 Address Range    Size      Contents
@@ -214,12 +212,11 @@ Total            4.0 MB    Full Cartridge
 | $2000402E | COMM7 (Master→Slave signal) |
 | $2000402A | COMM5 (vertex transform counter, +101 per call) |
 
-**Key Features:**
-- ✅ **TRUE PARALLEL PROCESSING** - Both SH2 CPUs execute simultaneously
-- ✅ **Master SH2 hooked** - Dispatch redirected to expansion ROM
-- ✅ **Slave SH2 activated** - Work wrapper receives offloaded tasks
-- ✅ **Real parameter capture** - func_021 args passed via shared memory
-- ✅ **Backward compatible** - Original 3MB code section unchanged
+**Infrastructure Status:**
+- ✅ **Expansion code ready** - Parallel processing handlers implemented at $300000+
+- ✅ **func_021_optimized** - Vertex transform with func_016 inlined at $300100
+- ⏳ **Hooks not activated** - Dispatch redirect and trampoline not yet patched
+- ✅ **Backward compatible** - Original 3MB code section unchanged, plays identically
 
 **Critical Constraint:** The expansion section ($300000-$3FFFFF) is executed by SH2 processors only. It cannot contain 68K assembly mnemonics. Use raw SH2 opcodes in `dc.w` format or padding.
 
