@@ -20,11 +20,100 @@ import sys
 import argparse
 import subprocess
 import tempfile
+import json
 from pathlib import Path
 from collections import defaultdict
 
 sys.path.insert(0, str(Path(__file__).parent))
 from m68k_disasm import M68KDisassembler
+
+
+class MemoryMap:
+    """Load and query code/data boundary map for disassembler."""
+
+    def __init__(self, map_file=None):
+        self.entry_points = set()
+        self.data_regions = []   # [(start, end, name), ...]
+        self.code_regions = []   # [(start, end, name), ...]
+        self.options = {
+            'branch_reachable': True,
+            'string_detection': False,
+            'prefer_data_over_code': True,
+            'end_inclusive': False
+        }
+        self.reachable_set = set()  # Populated by branch walk
+
+        if map_file:
+            self.load(map_file)
+
+    def load(self, map_file):
+        """Load memory map from JSON file."""
+        with open(map_file, 'r') as f:
+            data = json.load(f)
+
+        # Load entry points
+        for ep in data.get('entry_points', []):
+            addr = int(ep['addr'], 16) if isinstance(ep['addr'], str) else ep['addr']
+            self.entry_points.add(addr)
+
+        # Load data regions
+        for region in data.get('data_regions', []):
+            start = int(region['start'], 16) if isinstance(region['start'], str) else region['start']
+            end = int(region['end'], 16) if isinstance(region['end'], str) else region['end']
+            name = region.get('name', '')
+            self.data_regions.append((start, end, name))
+
+        # Load code regions
+        for region in data.get('code_regions', []):
+            start = int(region['start'], 16) if isinstance(region['start'], str) else region['start']
+            end = int(region['end'], 16) if isinstance(region['end'], str) else region['end']
+            name = region.get('name', '')
+            self.code_regions.append((start, end, name))
+
+        # Load options
+        opts = data.get('options', {})
+        self.options.update(opts)
+
+        # Sort regions by start address for efficient lookup
+        self.data_regions.sort(key=lambda x: x[0])
+        self.code_regions.sort(key=lambda x: x[0])
+
+    def is_data(self, addr):
+        """Check if address is in a data region. Data always wins."""
+        end_adjust = 1 if self.options['end_inclusive'] else 0
+        for start, end, _ in self.data_regions:
+            if start <= addr < end + end_adjust:
+                return True
+        return False
+
+    def is_code(self, addr):
+        """Check if address is in an explicit code region."""
+        end_adjust = 1 if self.options['end_inclusive'] else 0
+        for start, end, _ in self.code_regions:
+            if start <= addr < end + end_adjust:
+                return True
+        return False
+
+    def is_reachable(self, addr):
+        """Check if address was reached via branch walk."""
+        return addr in self.reachable_set
+
+    def should_disassemble(self, addr):
+        """
+        Resolution strategy:
+        1. If in data region → False (dc.w)
+        2. If in code region → True (disassemble)
+        3. If branch reachable → True (disassemble)
+        4. Default → False (dc.w) - safer to assume data
+        """
+        if self.is_data(addr):
+            return False
+        if self.is_code(addr):
+            return True
+        if self.options['branch_reachable'] and self.is_reachable(addr):
+            return True
+        # Default to data if prefer_data_over_code is set
+        return not self.options['prefer_data_over_code']
 
 
 class AssemblyGenerator:
@@ -33,7 +122,7 @@ class AssemblyGenerator:
     # 32X ROM base address for 68K CPU
     ROM_BASE = 0x00880000
 
-    def __init__(self, rom_data, start_offset, end_offset, use_file_offsets=True):
+    def __init__(self, rom_data, start_offset, end_offset, use_file_offsets=True, memory_map=None):
         self.rom = rom_data
         self.start = start_offset
         self.end = end_offset
@@ -42,6 +131,7 @@ class AssemblyGenerator:
         self.branch_targets = set()  # addresses that are branch targets
         self.instructions = []  # (address, size, mnemonic, is_data)
         self.disasm = ProperDisassembler(rom_data)
+        self.memory_map = memory_map  # Optional code/data boundary map
 
     def read_word(self, offset):
         """Read 16-bit big-endian word."""
@@ -55,12 +145,130 @@ class AssemblyGenerator:
             return 0
         return struct.unpack('>I', self.rom[offset:offset+4])[0]
 
+    def branch_reachability_pass(self):
+        """
+        Walk from entry points to find all reachable code addresses.
+        Uses a work queue to avoid recursion depth issues.
+        Results are stored in memory_map.reachable_set.
+        """
+        if not self.memory_map:
+            return
+
+        worklist = list(self.memory_map.entry_points)
+        visited = set()
+
+        while worklist:
+            addr = worklist.pop()
+
+            # Skip if already visited or in data region
+            if addr in visited:
+                continue
+            if self.memory_map.is_data(addr):
+                continue
+            # Skip if outside ROM bounds
+            if addr < 0 or addr + 2 > len(self.rom):
+                continue
+
+            visited.add(addr)
+            self.memory_map.reachable_set.add(addr)
+
+            # Decode instruction to find size and targets
+            opcode = self.read_word(addr)
+
+            # Skip A-line/F-line traps (not valid code)
+            if (opcode & 0xF000) in (0xA000, 0xF000):
+                continue
+
+            # Get instruction size (simplified - use disassembler for accuracy)
+            result = self.disasm.disassemble_instruction(addr, {})
+            size = result['size']
+
+            # Mark all bytes of this instruction as reachable
+            for i in range(0, size, 2):
+                self.memory_map.reachable_set.add(addr + i)
+
+            # Check for control flow instructions
+            is_unconditional_branch = False
+            is_rts = opcode in (0x4E75, 0x4E73, 0x4E77)  # RTS, RTE, RTR
+
+            # Bcc (conditional branches) - 6xxx
+            if (opcode & 0xF000) == 0x6000:
+                cond = (opcode >> 8) & 0xF
+                disp = opcode & 0xFF
+                if disp == 0:
+                    disp = self.read_word(addr + 2)
+                    if disp & 0x8000:
+                        disp = disp - 0x10000
+                elif disp & 0x80:
+                    disp = disp - 256
+                target = addr + 2 + disp
+                worklist.append(target)
+                # BRA (cond=0) is unconditional
+                if cond == 0:
+                    is_unconditional_branch = True
+
+            # DBcc - 5xC8-5xCF
+            elif (opcode & 0xF0F8) == 0x50C8:
+                disp = self.read_word(addr + 2)
+                if disp & 0x8000:
+                    disp = disp - 0x10000
+                target = addr + 2 + disp
+                worklist.append(target)
+
+            # JMP abs.l (4EF9) - unconditional
+            elif opcode == 0x4EF9:
+                target = self.read_long(addr + 2)
+                worklist.append(target)
+                is_unconditional_branch = True
+
+            # JMP PC-relative (4EFA) - unconditional
+            elif opcode == 0x4EFA:
+                disp = self.read_word(addr + 2)
+                if disp & 0x8000:
+                    disp = disp - 0x10000
+                target = addr + 2 + disp
+                worklist.append(target)
+                is_unconditional_branch = True
+
+            # JSR abs.l (4EB9) - call, continues after return
+            elif opcode == 0x4EB9:
+                target = self.read_long(addr + 2)
+                worklist.append(target)
+
+            # JSR PC-relative (4EBA) - call, continues after return
+            elif opcode == 0x4EBA:
+                disp = self.read_word(addr + 2)
+                if disp & 0x8000:
+                    disp = disp - 0x10000
+                target = addr + 2 + disp
+                worklist.append(target)
+
+            # JMP (An) or JMP (d16,An) - indirect, can't follow statically
+            # Just continue to next instruction as fallback
+
+            # Continue to next instruction unless unconditional branch or return
+            if not is_unconditional_branch and not is_rts:
+                next_addr = addr + size
+                worklist.append(next_addr)
+
     def first_pass(self):
         """First pass: disassemble and collect branch targets."""
+        # Run branch reachability analysis if memory map is present
+        if self.memory_map and self.memory_map.options.get('branch_reachable', True):
+            self.branch_reachability_pass()
+
         offset = self.start
 
         while offset < self.end:
             addr = offset
+
+            # Check memory map for code/data resolution
+            if self.memory_map and not self.memory_map.should_disassemble(addr):
+                # Emit DC.W for data regions
+                opcode = self.read_word(offset)
+                self.instructions.append((addr, 2, f'DC.W    ${opcode:04X}', True))
+                offset += 2
+                continue
 
             result = self.disasm.disassemble_instruction(offset, {})
             instruction = result['asm']
@@ -132,8 +340,12 @@ class AssemblyGenerator:
         self.disasm.fallbacks.clear()
         new_instructions = []
         for addr, size, mnemonic, is_data in self.instructions:
-            result = self.disasm.disassemble_instruction(addr, self.labels)
-            new_instructions.append((addr, result['size'], result['asm'], False))
+            if is_data:
+                # Keep data entries as-is (don't re-disassemble)
+                new_instructions.append((addr, size, mnemonic, is_data))
+            else:
+                result = self.disasm.disassemble_instruction(addr, self.labels)
+                new_instructions.append((addr, result['size'], result['asm'], False))
         self.instructions = new_instructions
 
     def format_instruction(self, addr, size, mnemonic, is_data, use_dcw=False):
@@ -210,6 +422,14 @@ class ProperDisassembler:
             return False
         return True
 
+    def _needs_fallback(self, ea_str):
+        """Check if EA string contains markers that require DC.W fallback."""
+        return '<EA:' in ea_str or '<NONSTANDARD_EXT:' in ea_str
+
+    class EAFallbackNeeded(Exception):
+        """Raised when EA decoding encounters non-standard bits that require DC.W fallback."""
+        pass
+
     def read_word(self, offset):
         if offset + 2 > len(self.rom):
             return 0
@@ -247,6 +467,14 @@ class ProperDisassembler:
 
         opcode = self.read_word(offset)
 
+        try:
+            return self._disassemble_instruction_inner(offset, opcode, labels)
+        except self.EAFallbackNeeded as e:
+            self.fallbacks.append((offset, opcode, str(e)))
+            return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+
+    def _disassemble_instruction_inner(self, offset, opcode, labels):
+        """Inner disassembly logic - may raise EAFallbackNeeded."""
         # A-line (0xAxxx) and F-line (0xFxxx) are traps on 68000 - not valid instructions
         if (opcode & 0xF000) in (0xA000, 0xF000):
             self.fallbacks.append((offset, opcode, 'A-line or F-line trap'))
@@ -348,8 +576,12 @@ class ProperDisassembler:
                 return {'asm': f'MOVE    USP,A{reg}', 'size': 2}
             return {'asm': f'MOVE    A{reg},USP', 'size': 2}
 
-        # MOVEQ (7xxx)
-        if (opcode & 0xF100) == 0x7000:
+        # MOVEQ (7xxx with bit 8 = 0)
+        if (opcode & 0xF000) == 0x7000:
+            if opcode & 0x0100:
+                # Bit 8 = 1 is undefined on 68000 - likely data
+                self.fallbacks.append((offset, opcode, 'undefined 7xxx opcode (bit 8=1)'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             reg = (opcode >> 9) & 7
             imm = opcode & 0xFF
             if imm & 0x80:
@@ -663,9 +895,14 @@ class ProperDisassembler:
             reg = (opcode >> 9) & 7
             opmode = (opcode >> 6) & 7
             if opmode < 3:  # ADD <ea>,Dn
+                ea_mode_type = (ea_mode >> 3) & 7
                 # ADD.B can't use An as source (only .W/.L can)
-                if opmode == 0 and ((ea_mode >> 3) & 7) == 1:
+                if opmode == 0 and ea_mode_type == 1:
                     self.fallbacks.append((offset, opcode, 'ADD.B An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # ADD Dn,Dn has two equivalent encodings - vasm may pick different one
+                if ea_mode_type == 0:
+                    self.fallbacks.append((offset, opcode, 'ADD Dn,Dn ambiguous encoding'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['.B', '.W', '.L']
                 ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode])
@@ -682,6 +919,10 @@ class ProperDisassembler:
                 # ADD Dn,<ea> can't use An or #imm as destination
                 if ea_mode_type == 1:
                     self.fallbacks.append((offset, opcode, 'ADD Dn to An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # ADD Dn,Dn has two equivalent encodings - vasm may pick different one
+                if ea_mode_type == 0:
+                    self.fallbacks.append((offset, opcode, 'ADD Dn,Dn ambiguous encoding'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 if ea_mode_type == 7 and ea_mode_reg == 4:
                     self.fallbacks.append((offset, opcode, 'ADD Dn imm dest invalid'))
@@ -703,9 +944,14 @@ class ProperDisassembler:
             reg = (opcode >> 9) & 7
             opmode = (opcode >> 6) & 7
             if opmode < 3:  # SUB <ea>,Dn
+                ea_mode_type = (ea_mode >> 3) & 7
                 # SUB.B can't use An as source (only .W/.L can)
-                if opmode == 0 and ((ea_mode >> 3) & 7) == 1:
+                if opmode == 0 and ea_mode_type == 1:
                     self.fallbacks.append((offset, opcode, 'SUB.B An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # SUB Dn,Dn has two equivalent encodings - vasm may pick different one
+                if ea_mode_type == 0:
+                    self.fallbacks.append((offset, opcode, 'SUB Dn,Dn ambiguous encoding'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['.B', '.W', '.L']
                 ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode])
@@ -722,6 +968,10 @@ class ProperDisassembler:
                 # SUB Dn,<ea> can't use An or #imm as destination
                 if ea_mode_type == 1:
                     self.fallbacks.append((offset, opcode, 'SUB Dn to An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # SUB Dn,Dn has two equivalent encodings - vasm may pick different one
+                if ea_mode_type == 0:
+                    self.fallbacks.append((offset, opcode, 'SUB Dn,Dn ambiguous encoding'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 if ea_mode_type == 7 and ea_mode_reg == 4:
                     self.fallbacks.append((offset, opcode, 'SUB Dn imm dest invalid'))
@@ -776,6 +1026,10 @@ class ProperDisassembler:
                 if ea_mode_type == 1:
                     self.fallbacks.append((offset, opcode, 'EOR Dn to An invalid'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # EOR Dn,Dn - vasm may pick different encoding
+                if ea_mode_type == 0:
+                    self.fallbacks.append((offset, opcode, 'EOR Dn,Dn ambiguous encoding'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 # PC-relative can't be destination
                 if ea_mode_type == 7 and ea_mode_reg in (2, 3):
                     self.fallbacks.append((offset, opcode, 'EOR PC-relative dest invalid'))
@@ -799,8 +1053,13 @@ class ProperDisassembler:
                     self.fallbacks.append((offset, opcode, 'AND invalid EA'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 # AND <ea>,Dn can't use An as source
-                if ((ea_mode >> 3) & 7) == 1:
+                ea_mode_type = (ea_mode >> 3) & 7
+                if ea_mode_type == 1:
                     self.fallbacks.append((offset, opcode, 'AND An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # AND Dn,Dn has two equivalent encodings - vasm may pick different one
+                if ea_mode_type == 0:
+                    self.fallbacks.append((offset, opcode, 'AND Dn,Dn ambiguous encoding'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['.B', '.W', '.L']
                 ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode])
@@ -838,6 +1097,10 @@ class ProperDisassembler:
                 if ea_mode_type == 1:
                     self.fallbacks.append((offset, opcode, 'AND Dn to An invalid'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # AND Dn,Dn has two equivalent encodings - vasm may pick different one
+                if ea_mode_type == 0:
+                    self.fallbacks.append((offset, opcode, 'AND Dn,Dn ambiguous encoding'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 # Immediate can't be destination
                 if ea_mode_type == 7 and ea_mode_reg == 4:
                     self.fallbacks.append((offset, opcode, 'AND Dn imm dest invalid'))
@@ -861,8 +1124,13 @@ class ProperDisassembler:
                     self.fallbacks.append((offset, opcode, 'OR invalid EA'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 # OR <ea>,Dn can't use An as source
-                if ((ea_mode >> 3) & 7) == 1:
+                ea_mode_type = (ea_mode >> 3) & 7
+                if ea_mode_type == 1:
                     self.fallbacks.append((offset, opcode, 'OR An source invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # OR Dn,Dn has two equivalent encodings - vasm may pick different one
+                if ea_mode_type == 0:
+                    self.fallbacks.append((offset, opcode, 'OR Dn,Dn ambiguous encoding'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 sizes = ['.B', '.W', '.L']
                 ea, ea_size = self._decode_ea(ea_mode, offset + 2, sizes[opmode])
@@ -899,6 +1167,10 @@ class ProperDisassembler:
                 # OR Dn,<ea> can't use An as destination
                 if ea_mode_type == 1:
                     self.fallbacks.append((offset, opcode, 'OR Dn to An invalid'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                # OR Dn,Dn has two equivalent encodings - vasm may pick different one
+                if ea_mode_type == 0:
+                    self.fallbacks.append((offset, opcode, 'OR Dn,Dn ambiguous encoding'))
                     return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
                 # Immediate can't be destination
                 if ea_mode_type == 7 and ea_mode_reg == 4:
@@ -1060,8 +1332,13 @@ class ProperDisassembler:
                 return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             bit_ops = ['BTST', 'BCHG', 'BCLR', 'BSET']
             bit = self.read_word(offset + 2)
+            # Bit number should be 0-31, stored in low byte only. If high byte or
+            # bits 5-7 are non-zero, vasm will generate different bytes - fall back to DC.W
+            if bit > 31:
+                self.fallbacks.append((offset, opcode, f'{bit_ops[bit_op]} bit number ${bit:04X} not normalized'))
+                return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
             ea, ea_size = self._decode_ea(ea_mode, offset + 4, '.B')
-            return {'asm': f'{bit_ops[bit_op]:8s}#{bit & 31},{ea}', 'size': 4 + ea_size}
+            return {'asm': f'{bit_ops[bit_op]:8s}#{bit},{ea}', 'size': 4 + ea_size}
 
         # BTST/BCHG/BCLR/BSET with register bit number (0xxx, not 08xx)
         if (opcode & 0xF000) == 0x0000 and (opcode & 0x0100):
@@ -1127,7 +1404,13 @@ class ProperDisassembler:
                     imm_str = f'#${imm:08X}'
                     imm_size = 4
                 elif size_code == 0:  # .B (word in memory, only low 8 bits used)
-                    imm = self.read_word(offset + 2) & 0xFF
+                    imm_word = self.read_word(offset + 2)
+                    # On 68000, .B immediate uses only low 8 bits; high byte should be 0
+                    # If high byte is non-zero, this is likely data being misinterpreted as code
+                    if (imm_word & 0xFF00) != 0:
+                        self.fallbacks.append((offset, opcode, f'{op_name}.B with non-zero high byte ${imm_word:04X}'))
+                        return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+                    imm = imm_word & 0xFF
                     imm_str = f'#${imm:02X}'
                     imm_size = 2
                 else:  # .W
@@ -1190,8 +1473,9 @@ class ProperDisassembler:
             return {'asm': f'MOVE    SR,{ea}', 'size': 2 + ea_size}
 
         # MOVE.B/W/L (1xxx/3xxx/2xxx) - Note: 00=invalid, 01=.B, 10=.L, 11=.W
+        # Only $1xxx/$2xxx/$3xxx are MOVE - bits 15-14 must be 00
         size_bits = (opcode >> 12) & 3
-        if size_bits in (1, 2, 3):
+        if (opcode & 0xC000) == 0 and size_bits in (1, 2, 3):
             size_map = {1: '.B', 2: '.L', 3: '.W'}
             size_str = size_map[size_bits]
 
@@ -1220,12 +1504,21 @@ class ProperDisassembler:
                 self.fallbacks.append((offset, opcode, 'immediate cannot be destination'))
                 return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
 
+            # Check for MOVE.B #imm with non-zero high byte (likely data, not code)
+            src_reg = opcode & 7
+            if size_str == '.B' and src_mode_bits == 7 and src_reg == 4:
+                imm_word = self.read_word(offset + 2)
+                if (imm_word & 0xFF00) != 0:
+                    self.fallbacks.append((offset, opcode, f'MOVE.B #imm with non-zero high byte ${imm_word:04X}'))
+                    return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
+
             src, src_size = self._decode_ea(src_mode, offset + 2, size_str)
             dst, dst_size = self._decode_ea(dst_mode, offset + 2 + src_size, size_str)
 
-            # Check for invalid EA (unrecognized mode)
-            if '<EA:' in src or '<EA:' in dst:
-                self.fallbacks.append((offset, opcode, 'invalid EA mode'))
+            # Check for invalid EA (unrecognized mode) or non-standard extension word
+            if '<EA:' in src or '<EA:' in dst or '<NONSTANDARD_EXT:' in src or '<NONSTANDARD_EXT:' in dst:
+                reason = 'invalid EA mode' if '<EA:' in src or '<EA:' in dst else 'non-standard extension word'
+                self.fallbacks.append((offset, opcode, reason))
                 return {'asm': f'DC.W    ${opcode:04X}', 'size': 2}
 
             # Check if it's MOVEA (destination is An = mode 1)
@@ -1264,6 +1557,10 @@ class ProperDisassembler:
             return f'${disp:04X}(A{reg})', 2
         elif mode_type == 6:  # (d8,An,Xn)
             ext = self.read_word(ext_offset)
+            # Check for non-zero bits 10-8 (68020 scale field, unused on 68000)
+            # If set, vasm will clear them, causing byte mismatch
+            if ext & 0x0700:
+                raise self.EAFallbackNeeded(f'non-standard extension word ${ext:04X}')
             disp = ext & 0xFF
             if disp & 0x80:
                 disp_str = f'-${(256-disp):02X}'
@@ -1295,6 +1592,9 @@ class ProperDisassembler:
                 return f'${target:06X}(PC)', 2
             elif reg == 3:  # (d8,PC,Xn)
                 ext = self.read_word(ext_offset)
+                # Check for non-zero bits 10-8 (68020 scale field, unused on 68000)
+                if ext & 0x0700:
+                    raise self.EAFallbackNeeded(f'non-standard PC-indexed extension word ${ext:04X}')
                 disp = ext & 0xFF
                 if disp & 0x80:
                     disp = disp - 0x100  # Sign-extend
@@ -1423,6 +1723,8 @@ def main():
     parser.add_argument('--log-fallback', type=Path,
                        help='Log DC.W fallback cases to file')
     parser.add_argument('--vasm', default='vasm', help='Path to vasm binary')
+    parser.add_argument('--map', type=Path,
+                       help='Code/data boundary map JSON file')
     args = parser.parse_args()
 
     with open(args.rom_file, 'rb') as f:
@@ -1443,8 +1745,20 @@ def main():
     start = int(args.start, 16)
     end = int(args.end, 16)
 
-    gen = AssemblyGenerator(rom_data, start, end)
+    # Load memory map if specified
+    memory_map = None
+    if args.map:
+        memory_map = MemoryMap(args.map)
+        print(f"Loaded memory map: {len(memory_map.entry_points)} entry points, "
+              f"{len(memory_map.data_regions)} data regions, "
+              f"{len(memory_map.code_regions)} code regions")
+
+    gen = AssemblyGenerator(rom_data, start, end, memory_map=memory_map)
     output = gen.generate(use_dcw=args.dcw)
+
+    # Report reachability stats if memory map was used
+    if memory_map:
+        print(f"Branch reachability: {len(memory_map.reachable_set)} addresses marked reachable")
 
     # Log DC.W fallbacks if requested
     if args.log_fallback and gen.disasm.fallbacks:
