@@ -361,6 +361,88 @@ timer_countdown_all:
         rts                                     ; $008598: $4E75
 
 ; ============================================================================
+; obj_proximity_check ($009E6E) - Check Proximity to Tracked Object
+; Called by: 10 locations per frame (AI objects tracking player/target)
+; Parameters: A0 = object base
+; Returns: Updates proximity timer at object+$A8
+;
+; Algorithm:
+;   1. Decrement proximity timer if > 0
+;   2. Load tracked object index from object+$A4
+;   3. Calculate address of tracked object (base + index * 256)
+;   4. Compare Y positions - if delta > $30, exit (not close enough)
+;   5. Compare X+Z positions combined - if delta > $70, exit
+;   6. If within range, set proximity timer to 12 frames
+;
+; Object Structure Offsets:
+;   $00A4 - Tracked object index (word)
+;   $00A8 - Proximity timer (word)
+;   $0030 - X position (word)
+;   $0034 - Z position (word)
+;   $0072 - Y position (word)
+;
+; This function enables AI cars to detect when they're near the player
+; or other objects for draft/collision avoidance behavior.
+; ============================================================================
+
+; Proximity-related object offsets
+OBJ_TRACK_IDX   equ     $00A4       ; Tracked object index
+OBJ_PROX_TIMER  equ     $00A8       ; Proximity timer
+OBJ_Y_POS_W     equ     $0072       ; Y position (word)
+OBJ_X_POS_W     equ     $0030       ; X position (word)
+OBJ_Z_POS_W     equ     $0034       ; Z position (word)
+
+; Object pool base (sign-extended for .w addressing)
+OBJ_POOL_BASE   equ     $FFFF9000   ; Object pool base address
+
+; Proximity constants
+PROX_Y_THRESH   equ     $0030       ; Y distance threshold
+PROX_XZ_THRESH  equ     $0070       ; X+Z combined distance threshold
+PROX_TIMER_VAL  equ     $000C       ; 12 frames proximity timer
+
+        org     $009E6E
+
+obj_proximity_check:
+        tst.w   OBJ_PROX_TIMER(a0)              ; $009E6E: $4A68 $00A8 - Check proximity timer
+        beq.s   .timer_zero                     ; $009E72: $6704       - Skip decrement if zero
+        subq.w  #1,OBJ_PROX_TIMER(a0)           ; $009E74: $5368 $00A8 - Decrement timer
+.timer_zero:
+        move.w  OBJ_TRACK_IDX(a0),d0            ; $009E78: $3028 $00A4 - Get tracked object index
+        asl.w   #8,d0                           ; $009E7C: $E148       - Multiply by 256 (object size)
+        lea     OBJ_POOL_BASE.w,a1              ; $009E7E: $43F8 $9000 - Object pool base
+        lea     (a1,d0.w),a1                    ; $009E82: $43F1 $0000 - A1 = target object
+
+; Compare Y positions
+        move.w  OBJ_Y_POS_W(a1),d0              ; $009E86: $3029 $0072 - Get target Y
+        sub.w   OBJ_Y_POS_W(a0),d0              ; $009E8A: $9068 $0072 - Subtract our Y
+        bpl.s   .y_positive                     ; $009E8E: $6A02       - Skip if positive
+        neg.w   d0                              ; $009E90: $4440       - Make absolute
+.y_positive:
+        cmpi.w  #PROX_Y_THRESH,d0               ; $009E92: $0C40 $0030 - Compare vs threshold
+        bgt.s   .not_close                      ; $009E96: $6E26       - Too far in Y
+
+; Y is close - check X+Z combined distance
+        move.w  OBJ_X_POS_W(a1),d0              ; $009E98: $3029 $0030 - Get target X
+        sub.w   OBJ_X_POS_W(a0),d0              ; $009E9C: $9068 $0030 - Subtract our X
+        bpl.s   .x_positive                     ; $009EA0: $6A02       - Skip if positive
+        neg.w   d0                              ; $009EA2: $4440       - Make absolute
+.x_positive:
+        move.w  OBJ_Z_POS_W(a1),d1              ; $009EA4: $3229 $0034 - Get target Z
+        sub.w   OBJ_Z_POS_W(a0),d1              ; $009EA8: $9268 $0034 - Subtract our Z
+        bpl.s   .z_positive                     ; $009EAC: $6A02       - Skip if positive
+        neg.w   d1                              ; $009EAE: $4441       - Make absolute
+.z_positive:
+        add.w   d1,d0                           ; $009EB0: $D041       - D0 = |dx| + |dz|
+        cmpi.w  #PROX_XZ_THRESH,d0              ; $009EB2: $0C40 $0070 - Compare vs threshold
+        bgt.s   .not_close                      ; $009EB6: $6E06       - Too far in X+Z
+
+; Object is within proximity - set timer
+        move.w  #PROX_TIMER_VAL,OBJ_PROX_TIMER(a0) ; $009EB8: $317C $000C $00A8 - Set 12 frame timer
+
+.not_close:
+        rts                                     ; $009EBE: $4E75
+
+; ============================================================================
 ; OPTIMIZATION NOTES
 ; ------------------
 ; These functions consume ~40% of 68K frame budget (127,987 cycles total).

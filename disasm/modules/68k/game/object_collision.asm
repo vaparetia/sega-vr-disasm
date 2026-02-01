@@ -495,11 +495,159 @@ collision_effect_handler:
         rts                                     ; $007CD6: $4E75
 
 ; ============================================================================
+; sprite_list_process ($0074A4) - BSP/Visibility Culling Test
+; Called by: 6 locations per frame (one per visible object group)
+; Parameters:
+;   A1 = Sprite list data pointer
+;   D1 = Test X coordinate
+;   D2 = Test Y coordinate
+; Returns:
+;   D0 = 1 if point is inside visible region
+;   D0 = 0 if point is outside (culled)
+;
+; Algorithm:
+;   This function performs a BSP tree traversal for visibility testing.
+;   Each node in the tree has 4 half-plane tests using bit flags in D3.
+;
+;   For each sprite entry in the list:
+;     1. Read control word with 4 plane test flags
+;     2. For each plane (D6 = 0-3):
+;        - Bit 0: If set, test uses D2 (Y), else D1 (X)
+;        - Bit 1: If set, use simple comparison, else use weighted calc
+;        - Weighted calc: D0 = (coord * coeff + offset) >> D5
+;        - If test passes, go to next entry; if fails, continue plane tests
+;     3. If all 4 plane tests fail, point is inside (D0=1)
+;     4. If any plane passes, skip to next sprite entry
+;
+;   Entry format (28 bytes per entry):
+;     +$00: Control word (4 plane flags)
+;     +$02: Plane 0 data (coefficient + offset)
+;     +$06: Plane 1 data
+;     +$0A: Plane 2 data
+;     +$0E: Plane 3 data
+;     ... padding to $1C bytes
+;
+; This is part of the 3D visibility pipeline, determining which objects
+; fall within the view frustum for rendering.
+; ============================================================================
+
+        org     $0074A4
+
+sprite_list_process:
+        move.w  (a1)+,d7                        ; $0074A4: $3E19       - Get entry count
+        bpl.s   .has_entries                    ; $0074A6: $6A04       - Continue if >= 0
+        moveq   #0,d0                           ; $0074A8: $7000       - Return 0 (empty list)
+        rts                                     ; $0074AA: $4E75
+
+.has_entries:
+        movea.l a1,a2                           ; $0074AC: $2449       - Save list pointer
+        moveq   #9,d5                           ; $0074AE: $7A09       - Shift amount for weighted calc
+
+.entry_loop:
+        move.w  (a1)+,d3                        ; $0074B0: $3619       - Get plane control flags
+        moveq   #3,d6                           ; $0074B2: $7C03       - 4 planes to test
+
+.plane_loop:
+        asl.w   #1,d3                           ; $0074B4: $E343       - Shift out bit 0 (X/Y select)
+        bcs.s   .test_y_coord                   ; $0074B6: $6532       - Carry set = use Y (D2)
+
+; Test X coordinate (D1)
+        asl.w   #1,d3                           ; $0074B8: $E343       - Shift out bit 1 (simple/weighted)
+        bcs.s   .simple_x_test                  ; $0074BA: $651E       - Carry set = simple compare
+
+; Weighted X calculation: D0 = (D1 * coeff + offset) >> D5
+        move.w  d1,d0                           ; $0074BC: $3001       - D0 = X coord
+        muls.w  (a1)+,d0                        ; $0074BE: $C1D9       - D0 *= coefficient
+        move.w  (a1)+,d4                        ; $0074C0: $3819       - D4 = offset
+        ext.l   d4                              ; $0074C2: $48C4       - Sign extend
+        asl.l   d5,d4                           ; $0074C4: $EBA4       - Shift offset left
+        add.l   d4,d0                           ; $0074C6: $D084       - D0 += shifted offset
+        asr.l   d5,d0                           ; $0074C8: $EAA0       - D0 >>= D5 (normalize)
+        cmp.l   d0,d2                           ; $0074CA: $B480       - Compare Y vs result
+        blt.s   .next_plane_x_fail              ; $0074CC: $6D06       - D2 < D0: plane test fails
+
+; X weighted test passed - check result bit
+        asl.w   #1,d3                           ; $0074CE: $E343       - Shift out result bit
+        bcs.s   .skip_to_next_entry             ; $0074D0: $6552       - If set, go to next entry
+        bra.s   .next_plane                     ; $0074D2: $6048       - Continue with next plane
+
+.next_plane_x_fail:
+        asl.w   #1,d3                           ; $0074D4: $E343       - Shift out result bit
+        bcc.s   .skip_to_next_entry             ; $0074D6: $644C       - If clear, go to next entry
+        bra.s   .next_plane                     ; $0074D8: $6042       - Continue with next plane
+
+.simple_x_test:
+        cmp.w   (a1),d1                         ; $0074DA: $B251       - Compare X vs threshold
+        blt.s   .simple_x_fail                  ; $0074DC: $6D06       - D1 < threshold: fails
+        asl.w   #1,d3                           ; $0074DE: $E343       - Shift out result bit
+        bcc.s   .skip_to_next_entry             ; $0074E0: $6442       - If clear, next entry
+        bra.s   .skip_plane_data                ; $0074E2: $6036       - Skip data, next plane
+
+.simple_x_fail:
+        asl.w   #1,d3                           ; $0074E4: $E343       - Shift out result bit
+        bcs.s   .skip_to_next_entry             ; $0074E6: $653C       - If set, next entry
+        bra.s   .skip_plane_data                ; $0074E8: $6030       - Skip data, next plane
+
+.test_y_coord:
+; Test Y coordinate (D2)
+        asl.w   #1,d3                           ; $0074EA: $E343       - Shift out bit 1 (simple/weighted)
+        bcs.s   .simple_y_test                  ; $0074EC: $651E       - Carry set = simple compare
+
+; Weighted Y calculation: D0 = (D2 * coeff + offset) >> D5
+        move.w  d2,d0                           ; $0074EE: $3002       - D0 = Y coord
+        muls.w  (a1)+,d0                        ; $0074F0: $C1D9       - D0 *= coefficient
+        move.w  (a1)+,d4                        ; $0074F2: $3819       - D4 = offset
+        ext.l   d4                              ; $0074F4: $48C4       - Sign extend
+        asl.l   d5,d4                           ; $0074F6: $EBA4       - Shift offset left
+        add.l   d4,d0                           ; $0074F8: $D084       - D0 += shifted offset
+        asr.l   d5,d0                           ; $0074FA: $EAA0       - D0 >>= D5 (normalize)
+        cmp.l   d0,d1                           ; $0074FC: $B280       - Compare X vs result
+        blt.s   .next_plane_y_fail              ; $0074FE: $6D06       - D1 < D0: plane test fails
+
+; Y weighted test passed
+        asl.w   #1,d3                           ; $007500: $E343       - Shift out result bit
+        bcc.s   .skip_to_next_entry             ; $007502: $6420       - If clear, next entry
+        bra.s   .next_plane                     ; $007504: $6016       - Continue with next plane
+
+.next_plane_y_fail:
+        asl.w   #1,d3                           ; $007506: $E343       - Shift out result bit
+        bcs.s   .skip_to_next_entry             ; $007508: $651A       - If set, next entry
+        bra.s   .next_plane                     ; $00750A: $6010       - Continue with next plane
+
+.simple_y_test:
+        cmp.w   (a1),d2                         ; $00750C: $B452       - Compare Y vs threshold
+        blt.s   .simple_y_fail                  ; $00750E: $6D06       - D2 < threshold: fails
+        asl.w   #1,d3                           ; $007510: $E343       - Shift out result bit
+        bcs.s   .skip_to_next_entry             ; $007512: $6510       - If set, next entry
+        bra.s   .skip_plane_data                ; $007514: $6004       - Skip data, next plane
+
+.simple_y_fail:
+        asl.w   #1,d3                           ; $007516: $E343       - Shift out result bit
+        bcc.s   .skip_to_next_entry             ; $007518: $640A       - If clear, next entry
+
+.skip_plane_data:
+        addq.l  #4,a1                           ; $00751A: $5889       - Skip 4 bytes of plane data
+
+.next_plane:
+        dbra    d6,.plane_loop                  ; $00751C: $51CE $FF96 - Loop for 4 planes
+        moveq   #1,d0                           ; $007520: $7001       - All planes failed = inside
+        bra.s   .done                           ; $007522: $600E       - Return 1
+
+.skip_to_next_entry:
+        adda.l  #$1C,a2                         ; $007524: $D5FC $0000 $001C - Skip 28 bytes
+        movea.l a2,a1                           ; $00752A: $2249       - Reset read pointer
+        dbra    d7,.entry_loop                  ; $00752C: $51CF $FF82 - Loop for all entries
+        moveq   #0,d0                           ; $007530: $7000       - All entries passed = outside
+
+.done:
+        rts                                     ; $007532: $4E75
+
+; ============================================================================
 ; SUMMARY
 ; ============================================================================
 ;
-; Total calls per frame: 61 (11 + 11 + 11 + 10 + 18)
-; Estimated cycles: ~2500 per frame for all 5 functions
+; Total calls per frame: 67 (11 + 11 + 11 + 10 + 18 + 6)
+; Estimated cycles: ~3000 per frame for all 6 functions
 ;
 ; These collision functions are called after position updates to:
 ; 1. Calculate distances for sorting/culling
@@ -507,5 +655,6 @@ collision_effect_handler:
 ; 3. Enforce play area boundaries
 ; 4. Update headings for smooth rotation
 ; 5. Trigger collision effects (sounds, visual feedback)
+; 6. Perform visibility culling via BSP traversal (sprite_list_process)
 ;
 ; ============================================================================
