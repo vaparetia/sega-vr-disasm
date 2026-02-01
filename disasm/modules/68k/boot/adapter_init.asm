@@ -47,8 +47,27 @@
 ; Dependencies: None (first code to run after reset)
 ; Related: ROM header ($000100-$0001FF), entry_point ($000200)
 ; ============================================================================
-; Format: DC.W with decoded mnemonics as comments (byte-perfect rebuild)
+; Format: Proper mnemonics with original bytes in comments for verification
 ; ============================================================================
+
+; 32X Adapter registers
+ADAPTER_BASE    equ     $A15100 ; Adapter control register base
+ADAPTER_CTRL    equ     $A15100 ; Control register
+ADAPTER_STATUS  equ     $A15101 ; Status register (read FM bit here)
+ADAPTER_BANK    equ     $A1510A ; Bank select register
+ADAPTER_BANKDAT equ     $A1510C ; Bank data register
+COMM3           equ     $A1512C ; COMM3 - SH2 ready flag
+
+; VDP registers
+VDP_CTRL        equ     $C00000 ; VDP control port
+VDP_DATA        equ     $C00004 ; VDP data port
+
+; Work RAM locations
+VINT_STATE      equ     $C87A   ; V-INT state flag
+VINT_FLAG2      equ     $C87C   ; Secondary V-INT flag
+
+; ROM addresses
+VDP_INIT_TABLE  equ     $008808EE ; VDP register initialization table
 
         org     $000838
 
@@ -60,112 +79,125 @@
 ; ============================================================================
 
 adapter_init:
-        DC.W    $49F9,$00A1,$5100   ; $000838 LEA     $00A15100,A4   ; Adapter base
-        DC.W    $082C,$0000,$0001   ; $00083E BTST    #0,$0001(A4)   ; Test FM bit
-        DC.W    $6700,$0174         ; $000844 BEQ.W   loc_0009BA     ; Not in 32X mode?
-        DC.W    $42B8,$C87A         ; $000848 CLR.L   $C87A.W        ; Clear state flags
-        DC.W    $41F8,$C000         ; $00084C LEA     $C000.W,A0     ; VDP control base
-        DC.W    $2408               ; $000850 MOVE.L  A0,D2          ; Save for later
-        DC.W    $0682,$0000,$0004   ; $000852 ADDI.L  #4,D2          ; D2 = $C004 (data)
-        DC.W    $2040               ; $000858 MOVEA.L D0,A0          ; A0 = VDP control
-        DC.W    $2242               ; $00085A MOVEA.L D2,A1          ; A1 = VDP data
-        DC.W    $307C,$FFFE         ; $00085C MOVEA.W #$FFFE,A0      ; Stack init
-        DC.W    $33FC,$0000,$C87A   ; $000860 MOVE.W  #$0000,$C87A.W ; State = 0
-        DC.W    $33FC,$0000,$C87C   ; $000866 MOVE.W  #$0000,$C87C.W ; Flag2 = 0
+        lea     ADAPTER_BASE,a4                 ; $000838: $49F9 $00A1 $5100 - Load adapter base
+        btst    #0,$0001(a4)                    ; $00083E: $082C $0000 $0001 - Test FM bit
+        beq.w   loc_0009BA                      ; $000844: $6700 $0174       - Not in 32X mode?
+        clr.l   VINT_STATE.w                    ; $000848: $42B8 $C87A       - Clear state flags
+        lea     VDP_CTRL.w,a0                   ; $00084C: $41F8 $C000       - VDP control base
+        move.l  a0,d2                           ; $000850: $2408             - Save for later
+        addi.l  #4,d2                           ; $000852: $0682 $0000 $0004 - D2 = $C004 (data port)
+        movea.l d0,a0                           ; $000858: $2040             - A0 = VDP control
+        movea.l d2,a1                           ; $00085A: $2242             - A1 = VDP data
+        movea.w #$FFFE,a0                       ; $00085C: $307C $FFFE       - Stack init
+        move.w  #0,VINT_STATE.w                 ; $000860: $33FC $0000 $C87A - State = 0
+        move.w  #0,VINT_FLAG2.w                 ; $000866: $33FC $0000 $C87C - Flag2 = 0
 
 ; Wait for SH2 ready (polls COMM3 until non-zero)
 .wait_sh2_ready:
-        DC.W    $4A2C,$002C         ; $00086C TST.B   $002C(A4)      ; COMM3 ready?
-        DC.W    $67FA               ; $000870 BEQ.S   .wait_sh2_ready
-        DC.W    $422C,$002C         ; $000872 CLR.B   $002C(A4)      ; Acknowledge
+        tst.b   COMM3-ADAPTER_BASE(a4)          ; $00086C: $4A2C $002C       - COMM3 ready?
+        beq.s   .wait_sh2_ready                 ; $000870: $67FA             - Loop if not ready
+        clr.b   COMM3-ADAPTER_BASE(a4)          ; $000872: $422C $002C       - Acknowledge
 
-; VDP initialization
-        DC.W    $43F9,$00C0,$0000   ; $000876 LEA     $00C00000,A1   ; VDP control
-        DC.W    $45E9,$0004         ; $00087C LEA     $0004(A1),A2   ; VDP data
-        DC.W    $47F9,$0088,$08EE   ; $000880 LEA     $008808EE,A3   ; VDP init table
-        DC.W    $7E17               ; $000886 MOVEQ   #$17,D7        ; 24 entries
+; VDP initialization - load register values from ROM table
+        lea     VDP_CTRL,a1                     ; $000876: $43F9 $00C0 $0000 - VDP control
+        lea     $0004(a1),a2                    ; $00087C: $45E9 $0004       - VDP data
+        lea     VDP_INIT_TABLE,a3               ; $000880: $47F9 $0088 $08EE - Init table
+        moveq   #$17,d7                         ; $000886: $7E17             - 24 entries
 .vdp_init_loop:
-        DC.W    $32DB               ; $000888 MOVE.W  (A3)+,(A1)     ; Write VDP reg
-        DC.W    $51CF,$FFFC         ; $00088A DBRA    D7,.vdp_init_loop
+        move.w  (a3)+,(a1)                      ; $000888: $32DB             - Write VDP reg
+        dbra    d7,.vdp_init_loop               ; $00088A: $51CF $FFFC       - Loop
 
-; Configure adapter registers
-        DC.W    $197C,$0001,$000A   ; $00088E MOVE.B  #$01,$000A(A4) ; Bank register
-        DC.W    $396C,$0002,$000C   ; $000894 MOVE.W  $0002(A4),$000C(A4)
-        DC.W    $197C,$0002,$000A   ; $00089A MOVE.B  #$02,$000A(A4)
-        DC.W    $396C,$0002,$000C   ; $0008A0 MOVE.W  $0002(A4),$000C(A4)
-        DC.W    $197C,$0003,$000A   ; $0008A6 MOVE.B  #$03,$000A(A4)
-        DC.W    $396C,$0002,$000C   ; $0008AC MOVE.W  $0002(A4),$000C(A4)
-        DC.W    $197C,$0000,$000A   ; $0008B2 MOVE.B  #$00,$000A(A4)
-        DC.W    $396C,$0002,$000C   ; $0008B8 MOVE.W  $0002(A4),$000C(A4)
+; Configure 32X adapter bank registers
+; This sets up the ROM banking for 32X mode
+        move.b  #$01,ADAPTER_BANK-ADAPTER_BASE(a4) ; $00088E: $197C $0001 $000A - Bank 1
+        move.w  $0002(a4),ADAPTER_BANKDAT-ADAPTER_BASE(a4) ; $000894: $396C $0002 $000C
+        move.b  #$02,ADAPTER_BANK-ADAPTER_BASE(a4) ; $00089A: $197C $0002 $000A - Bank 2
+        move.w  $0002(a4),ADAPTER_BANKDAT-ADAPTER_BASE(a4) ; $0008A0: $396C $0002 $000C
+        move.b  #$03,ADAPTER_BANK-ADAPTER_BASE(a4) ; $0008A6: $197C $0003 $000A - Bank 3
+        move.w  $0002(a4),ADAPTER_BANKDAT-ADAPTER_BASE(a4) ; $0008AC: $396C $0002 $000C
+        move.b  #$00,ADAPTER_BANK-ADAPTER_BASE(a4) ; $0008B2: $197C $0000 $000A - Bank 0
+        move.w  $0002(a4),ADAPTER_BANKDAT-ADAPTER_BASE(a4) ; $0008B8: $396C $0002 $000C
 
-; More initialization
-        DC.W    $33FC,$8000,$C004   ; $0008BE MOVE.W  #$8000,$C004.W ; VDP flag
-        DC.W    $33FC,$8134,$C004   ; $0008C4 MOVE.W  #$8134,$C004.W
-        DC.W    $4EB9,$0088,$0C86   ; $0008CA JSR     $00880C86      ; Sub init
-        DC.W    $4279,$00FF,$C80C   ; $0008D0 CLR.W   $00FFC80C      ; Clear RAM
-        DC.W    $4279,$00FF,$C80E   ; $0008D6 CLR.W   $00FFC80E
-        DC.W    $4279,$00FF,$C82A   ; $0008DC CLR.W   $00FFC82A
-        DC.W    $4EF9,$0088,$0920   ; $0008E2 JMP     $00880920      ; Continue init
+; VDP mode configuration
+        move.w  #$8000,VDP_DATA.w               ; $0008BE: $33FC $8000 $C004 - VDP flag
+        move.w  #$8134,VDP_DATA.w               ; $0008C4: $33FC $8134 $C004 - Mode register
+        jsr     $00880C86                       ; $0008CA: $4EB9 $0088 $0C86 - Sub init routine
+        clr.w   $00FFC80C                       ; $0008D0: $4279 $00FF $C80C - Clear RAM
+        clr.w   $00FFC80E                       ; $0008D6: $4279 $00FF $C80E
+        clr.w   $00FFC82A                       ; $0008DC: $4279 $00FF $C82A
+        jmp     $00880920                       ; $0008E2: $4EF9 $0088 $0920 - Continue init
 
-; VDP initialization table data
-        DC.W    $8004,$8134         ; $0008E8 VDP regs
-        DC.W    $8230,$8328         ; $0008EC
-        DC.W    $8407,$8578         ; $0008F0
-        DC.W    $8600,$8700         ; $0008F4
-        DC.W    $8800,$8900         ; $0008F8
-        DC.W    $8A00,$8B00         ; $0008FC
-        DC.W    $8C81,$8D3F         ; $000900
-        DC.W    $8E00,$8F02         ; $000904
-        DC.W    $9000,$9100         ; $000908
-        DC.W    $9200,$93FF         ; $00090C
-        DC.W    $9400,$9500         ; $000910
-        DC.W    $9600,$9700         ; $000914
-        DC.W    $0000,$0000         ; $000918 (padding)
-        DC.W    $0000               ; $00091C
+; VDP initialization table data (24 register values)
+; Format: $8nXX where n = register number, XX = value
+vdp_init_data:
+        dc.w    $8004,$8134                     ; $0008E8: Mode 1, Mode 2
+        dc.w    $8230,$8328                     ; $0008EC: Scroll A, Window
+        dc.w    $8407,$8578                     ; $0008F0: Scroll B, Sprite
+        dc.w    $8600,$8700                     ; $0008F4: BG color, Mode 3
+        dc.w    $8800,$8900                     ; $0008F8: Mode 4, H-Int
+        dc.w    $8A00,$8B00                     ; $0008FC: Mode 5, ???
+        dc.w    $8C81,$8D3F                     ; $000900: H40 mode, HScroll
+        dc.w    $8E00,$8F02                     ; $000904: ???, Auto-inc
+        dc.w    $9000,$9100                     ; $000908: Scroll size, Window X
+        dc.w    $9200,$93FF                     ; $00090C: Window Y, DMA length L
+        dc.w    $9400,$9500                     ; $000910: DMA length H, DMA src L
+        dc.w    $9600,$9700                     ; $000914: DMA src M, DMA src H
+        dc.w    $0000,$0000                     ; $000918: (padding)
+        dc.w    $0000                           ; $00091C
 
 ; ============================================================================
 ; Main initialization continues ($000920)
 ; ============================================================================
 
 loc_000920:
-        DC.W    $46FC,$2700         ; $000920 MOVE   #$2700,SR      ; Disable ints
-        DC.W    $4BF9,$00A1,$5100   ; $000924 LEA     $00A15100,A5   ; Adapter base
-        DC.W    $4DF9,$00C0,$0000   ; $00092A LEA     $00C00000,A6   ; VDP base
-        DC.W    $4A2D,$002C         ; $000930 TST.B   $002C(A5)      ; SH2 ready?
-        DC.W    $67FA               ; $000934 BEQ.S   loc_000930
+        move    #$2700,sr                       ; $000920: $46FC $2700       - Disable interrupts
+        lea     ADAPTER_BASE,a5                 ; $000924: $4BF9 $00A1 $5100 - Adapter base in A5
+        lea     VDP_CTRL,a6                     ; $00092A: $4DF9 $00C0 $0000 - VDP base in A6
+.wait_sh2:
+        tst.b   COMM3-ADAPTER_BASE(a5)          ; $000930: $4A2D $002C       - SH2 ready?
+        beq.s   .wait_sh2                       ; $000934: $67FA             - Loop
 
-; Initialize work RAM
-        DC.W    $43F9,$00FF,$C800   ; $000936 LEA     $00FFC800,A1   ; Work RAM
-        DC.W    $7000               ; $00093C MOVEQ   #0,D0
-        DC.W    $3E3C,$1F3F         ; $00093E MOVE.W  #$1F3F,D7      ; Count
+; Initialize work RAM ($FFC800-$FFEFFF)
+        lea     $00FFC800,a1                    ; $000936: $43F9 $00FF $C800 - Work RAM start
+        moveq   #0,d0                           ; $00093C: $7000             - Zero value
+        move.w  #$1F3F,d7                       ; $00093E: $3E3C $1F3F       - 8000 longwords
 .clear_ram:
-        DC.W    $22C0               ; $000942 MOVE.L  D0,(A1)+       ; Clear
-        DC.W    $51CF,$FFFC         ; $000944 DBRA    D7,.clear_ram
+        move.l  d0,(a1)+                        ; $000942: $22C0             - Clear 4 bytes
+        dbra    d7,.clear_ram                   ; $000944: $51CF $FFFC       - Loop
 
-; Continue with system setup
-        DC.W    $4EB9,$0088,$170C   ; $000948 JSR     $0088170C      ; controller_port_init
-        DC.W    $33FC,$0002,$C816   ; $00094E MOVE.W  #$02,$C816.W
-        DC.W    $33FC,$0001,$C818   ; $000954 MOVE.W  #$01,$C818.W
-        DC.W    $4EB9,$0088,$18D8   ; $00095A JSR     $008818D8      ; io_port_init
-        DC.W    $4EB9,$0088,$0F12   ; $000960 JSR     $00880F12      ; VDP setup
-        DC.W    $33FC,$8174,$C004   ; $000966 MOVE.W  #$8174,$C004.W
-        DC.W    $4EB9,$0088,$0FEA   ; $00096C JSR     $00880FEA      ; z80_bus_vdp_init
-        DC.W    $33FC,$8134,$C004   ; $000972 MOVE.W  #$8134,$C004.W
+; System initialization calls
+        jsr     $0088170C                       ; $000948: $4EB9 $0088 $170C - controller_port_init
+        move.w  #$02,VDP_MODE.w                 ; $00094E: $33FC $0002 $C816 - (approximate)
+        move.w  #$01,VDP_MODE2.w                ; $000954: $33FC $0001 $C818
+        jsr     $008818D8                       ; $00095A: $4EB9 $0088 $18D8 - io_port_init
+        jsr     $00880F12                       ; $000960: $4EB9 $0088 $0F12 - VDP setup
+        move.w  #$8174,VDP_DATA.w               ; $000966: $33FC $8174 $C004 - VDP mode
+        jsr     $00880FEA                       ; $00096C: $4EB9 $0088 $0FEA - z80_bus_vdp_init
+        move.w  #$8134,VDP_DATA.w               ; $000972: $33FC $8134 $C004 - VDP mode
 
-; Set up for main loop
-        DC.W    $4EB9,$0088,$14BE   ; $000978 JSR     $008814BE      ; fm_write
-        DC.W    $4EB9,$0088,$091E   ; $00097E JSR     $0088091E      ; Additional init
-        DC.W    $33FC,$4000,$C004   ; $000984 MOVE.W  #$4000,$C004.W
-        DC.W    $33FC,$0002,$C00C   ; $00098A MOVE.W  #$0002,$C00C.W
+; Sound and final init
+        jsr     $008814BE                       ; $000978: $4EB9 $0088 $14BE - fm_write
+        jsr     $0088091E                       ; $00097E: $4EB9 $0088 $091E - Additional init
+        move.w  #$4000,VDP_DATA.w               ; $000984: $33FC $4000 $C004 - VDP control
+        move.w  #$0002,$C00C.w                  ; $00098A: $33FC $0002 $C00C - VDP test reg
 
-; Enable interrupts and enter main loop
-        DC.W    $46FC,$2300         ; $000990 MOVE   #$2300,SR      ; Enable V-INT
-        DC.W    $33FC,$0001,$C87A   ; $000994 MOVE.W  #$01,$C87A.W   ; Start state machine
-.main_loop_wait:
-        DC.W    $4A78,$C87A         ; $00099A TST.W   $C87A.W        ; Work pending?
-        DC.W    $67FA               ; $00099E BEQ.S   .main_loop_wait
-        DC.W    $4EB9,$0088,$0DA2   ; $0009A0 JSR     $00880DA2      ; Main work
-        DC.W    $60F4               ; $0009A6 BRA.S   .main_loop_wait
+; Enable interrupts and enter main polling loop
+        move    #$2300,sr                       ; $000990: $46FC $2300       - Enable V-INT
+        move.w  #$01,VINT_STATE.w               ; $000994: $33FC $0001 $C87A - Start state machine
+.main_loop:
+        tst.w   VINT_STATE.w                    ; $00099A: $4A78 $C87A       - Work pending?
+        beq.s   .main_loop                      ; $00099E: $67FA             - Wait for V-INT
+        jsr     $00880DA2                       ; $0009A0: $4EB9 $0088 $0DA2 - Main game work
+        bra.s   .main_loop                      ; $0009A6: $60F4             - Forever
+
+; Placeholder for non-32X mode handler
+loc_0009BA:
+        ; (Handles case when FM bit not set - loops or resets)
+        rts
+
+; Additional constants
+VDP_MODE        equ     $C816   ; VDP mode storage
+VDP_MODE2       equ     $C818   ; Secondary mode storage
 
 ; ============================================================================
 ; End of adapter_init module
