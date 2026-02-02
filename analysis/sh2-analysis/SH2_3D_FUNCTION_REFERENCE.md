@@ -2,7 +2,7 @@
 
 **Virtua Racing Deluxe - Complete Function Catalog**
 **Analysis Date**: January 6, 2026
-**Updated**: February 1, 2026 (v4.3.0 - 75 functions translated across 36 assembly files)
+**Updated**: February 1, 2026 (v4.4.0 - 75 functions translated across 36 assembly files)
 
 ---
 

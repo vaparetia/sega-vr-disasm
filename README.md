@@ -8,7 +8,7 @@ A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with
 
 - **Byte-perfect rebuild** - All translated functions verified identical to original ROM
 - **75 SH2 functions translated** - Proper `.short` opcode assembly across 36 files
-- **13 68K modules translated** - Boot, VDP, input, game logic, physics, collision, camera, sprites, utilities, trig, memory
+- **16 68K module categories** - boot, display, frame, game, graphics, hardware, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
 - **4MB expansion ROM** - 1MB SH2 working space with parallel processing infrastructure (not yet activated)
 - **503+ named 68K functions** - Categorized by subsystem with 200+ auto-injected labels
 - **107 named SH2 functions** - 3D engine fully mapped
@@ -36,11 +36,12 @@ picodrive build/vr_rebuild.32x
 │   ├── vrd.asm                    # Main build file
 │   ├── sections/                  # Pure DC.W (buildable)
 │   ├── sections-mnemonic/         # Readable mnemonics (reference)
-│   ├── modules/68k/               # Translated 68K assembly
+│   ├── modules/68k/               # Translated 68K assembly (16 categories)
 │   │   ├── boot/                  # Hardware initialization
 │   │   ├── main-loop/             # V-INT and state machines
-│   │   ├── game/                  # Game logic and physics
-│   │   └── sh2/                   # SH2 communication
+│   │   ├── game/                  # Game logic, physics, AI, collision
+│   │   ├── math/                  # Trig lookups, angle calculations
+│   │   └── sh2/                   # SH2 communication protocol
 │   ├── sh2/3d_engine/             # Translated SH2 functions
 │   ├── sh2_symbols.inc            # 107 SH2 function symbols
 │   └── SH2_SYMBOL_MAP.md          # SH2 symbol reference
@@ -227,7 +228,7 @@ vint_handler:
 | ROM Size | 4 MB (4,194,304 bytes) with 1MB SH2 expansion |
 | Original Size | 3 MB (3,145,728 bytes) |
 | Original Frame Rate | ~20 FPS (architectural limit due to blocking sync) |
-| Current Status | 75 SH2 + 13 68K modules translated, parallel hooks prepared |
+| Current Status | 75 SH2 + 16 68K module categories translated, parallel hooks prepared |
 
 ## 4MB Expansion ROM
 
@@ -317,7 +318,7 @@ python3 tools/disasm_to_asm.py build/vr_rebuild.32x 1000 5000 --map tools/vrd_me
 ```
 
 ### v4.3.1 - 68K Translation Progress
-- **13 68K modules** translated with full annotations
+- **16 68K module categories** translated with full annotations
 - **75 SH2 functions** converted to proper assembly
 - **Cross-validated documentation** - All analysis docs verified
 

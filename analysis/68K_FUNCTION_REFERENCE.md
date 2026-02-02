@@ -401,7 +401,7 @@ Entry point uses jump table for 7 initialization states:
 ## Summary Statistics
 
 - **Total named functions:** 503+
-- **Categories:** 15 major categories
+- **Categories:** 16 module categories
 - **Most called functions:**
   1. `angle_to_sine` - 29 calls (trig lookup)
   2. `load_object_params` - 27 calls (object table)
@@ -419,8 +419,9 @@ Entry point uses jump table for 7 initialization states:
 - [68K_SH2_COMMUNICATION.md](68K_SH2_COMMUNICATION.md) - Communication protocol (validated)
 - [DATA_STRUCTURES.md](architecture/DATA_STRUCTURES.md) - Memory structures
 - [VINT_HANDLER_ARCHITECTURE.md](architecture/VINT_HANDLER_ARCHITECTURE.md) - V-INT handler details
+- [HIGH_FREQUENCY_FUNCTIONS.md](../disasm/modules/68k/game/HIGH_FREQUENCY_FUNCTIONS.md) - Optimization targets
 
 ---
 
 **Document Status:** Reference catalog
-**Last Updated:** 2026-01-24
+**Last Updated:** 2026-02-01
