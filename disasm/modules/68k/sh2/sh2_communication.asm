@@ -1,11 +1,12 @@
 ; ============================================================================
-; SH2 Communication Functions ($00E316-$00E3B2)
+; SH2 Communication Functions ($00E22C-$00E464)
 ; ============================================================================
 ;
 ; PURPOSE
 ; -------
 ; These functions handle communication between the 68000 and SH2 processors
-; via the 32X communication registers (COMM0-COMM7).
+; via the 32X communication registers (COMM0-COMM7), plus graphics command
+; building and VDP data transfer routines.
 ;
 ; ARCHITECTURAL BOTTLENECK (CRITICAL)
 ; -----------------------------------
@@ -97,6 +98,179 @@ CMD_27          equ     $27         ; Frequently used command
 
 ; Handshake values
 HANDSHAKE_READY equ     $0101       ; Ready for next phase
+
+        org     $00E22C
+
+; ============================================================================
+; sh2_graphics_cmd ($00E22C) - Build Graphics Command Data
+; Called by: 14 locations per frame (sprite/graphics setup)
+; Parameters:
+;   A0 = Source data pointer
+;   D0 = Flags/mode value
+;   D1 = Initial offset
+;   D2 = Row count parameter
+;   D3 = Column count parameter
+;   D4 = Vertical loop count
+; Returns:
+;   A0 = Restored to original value (via A1)
+;   D6 = Last computed sprite index
+;
+; This function builds sprite command data for the SH2 to process.
+; It calculates sprite indices based on input parameters and writes
+; them to a buffer with $80-byte row stride.
+;
+; Algorithm:
+;   1. Calculate base sprite index from D0/D1/D2
+;   2. Build upper section (loop D4-3 times)
+;   3. Build center row
+;   4. Build lower section with mirrored indices
+;   5. Restore A0 and return
+; ============================================================================
+
+sh2_graphics_cmd:
+; Save original pointer
+        movea.l a0,a1                           ; $00E22C: $2248       - Save A0 in A1
+
+; Calculate table offset: D1 = D1*2 + D2*128 + base
+        asl.w   #1,d1                           ; $00E22E: $E349       - D1 *= 2
+        asl.w   #7,d2                           ; $00E230: $EF4A       - D2 *= 128
+        add.w   d2,d1                           ; $00E232: $D242       - D1 += D2
+        lea     (a0,d1.w),a0                    ; $00E234: $41F0 $1000 - A0 += D1 (indexed)
+
+; Build sprite base index from D0
+        andi.w  #$0003,d0                       ; $00E238: $0240 $0003 - Keep low 2 bits
+        asl.w   #8,d0                           ; $00E23C: $E148       - D0 *= 256
+        asl.w   #5,d0                           ; $00E23E: $EB48       - D0 *= 32 (total *8192)
+        addi.w  #$0100,d0                       ; $00E240: $0640 $0100 - Add base offset
+        bclr    #11,d0                          ; $00E244: $0880 $000B - Clear bit 11
+        bclr    #12,d0                          ; $00E248: $0880 $000C - Clear bit 12
+
+; Initialize counters
+        moveq   #0,d1                           ; $00E24C: $7200       - D1 = 0
+        move.w  #$0006,d2                       ; $00E24E: $343C $0006 - D2 = 6
+        add.w   d0,d2                           ; $00E252: $D440       - D2 += base index
+        move.w  d2,(a0)                         ; $00E254: $3082       - Store first index
+        adda.l  #$00000080,a0                   ; $00E256: $D1FC $0000 $0080 - Next row (+128)
+
+; Build upper section rows
+        move.w  #$0001,d2                       ; $00E25C: $343C $0001 - D2 = 1 (index offset)
+        move.w  d4,d5                           ; $00E260: $3A04       - D5 = row count
+        subq.w  #3,d5                           ; $00E262: $5745       - D5 -= 3 (loop count)
+
+.upper_loop:
+        bsr.s   sh2_sprite_calc                 ; $00E264: $4EBA $007E - Calculate sprite index
+        move.w  d6,(a0)                         ; $00E268: $3086       - Store index
+        adda.l  #$00000080,a0                   ; $00E26A: $D1FC $0000 $0080 - Next row
+        dbra    d5,.upper_loop                  ; $00E270: $51CD $FFF2 - Loop
+
+; Center row - special index
+        move.w  #$0007,d2                       ; $00E274: $343C $0007 - D2 = 7
+        bsr.s   sh2_sprite_calc                 ; $00E278: $4EBA $006A - Calculate
+        move.w  d6,(a0)+                        ; $00E27C: $30C6       - Store and advance
+
+; Build horizontal strip
+        move.w  #$0003,d2                       ; $00E27E: $343C $0003 - D2 = 3
+        move.w  d3,d5                           ; $00E282: $3A03       - D5 = column count
+        subq.w  #3,d5                           ; $00E284: $5745       - D5 -= 3
+
+.horiz_loop:
+        bsr.s   sh2_sprite_calc                 ; $00E286: $4EBA $005C - Calculate
+        move.w  d6,(a0)+                        ; $00E28A: $30C6       - Store and advance
+        dbra    d5,.horiz_loop                  ; $00E28C: $51CD $FFF8 - Loop
+
+; Set mirror bits for lower section
+        bset    #11,d0                          ; $00E290: $08C0 $000B - Set bit 11
+        bset    #12,d0                          ; $00E294: $08C0 $000C - Set bit 12
+
+; End of center row
+        move.w  #$0005,d2                       ; $00E298: $343C $0005 - D2 = 5
+        bsr.s   sh2_sprite_calc                 ; $00E29C: $4EBA $0046 - Calculate
+        move.w  d6,(a0)                         ; $00E2A0: $3086       - Store index
+        suba.l  #$00000080,a0                   ; $00E2A2: $91FC $0000 $0080 - Previous row
+
+; Build lower section rows (going backwards)
+        move.w  #$0001,d2                       ; $00E2A8: $343C $0001 - D2 = 1
+        move.w  d4,d5                           ; $00E2AC: $3A04       - D5 = row count
+        subq.w  #3,d5                           ; $00E2AE: $5745       - D5 -= 3
+
+.lower_loop:
+        bsr.s   sh2_sprite_calc                 ; $00E2B0: $4EBA $0032 - Calculate
+        move.w  d6,(a0)                         ; $00E2B4: $3086       - Store
+        suba.l  #$00000080,a0                   ; $00E2B6: $91FC $0000 $0080 - Previous row
+        dbra    d5,.lower_loop                  ; $00E2BC: $51CD $FFF2 - Loop
+
+; Final corner index
+        move.w  #$0007,d2                       ; $00E2C0: $343C $0007 - D2 = 7
+        bsr.s   sh2_sprite_calc                 ; $00E2C4: $4EBA $001E - Calculate
+        move.w  d6,(a0)                         ; $00E2C8: $3086       - Store
+        subq.l  #2,a0                           ; $00E2CA: $5588       - Back 2 bytes
+
+; Build final horizontal strip (backwards)
+        move.w  #$0003,d2                       ; $00E2CC: $343C $0003 - D2 = 3
+        move.w  d3,d5                           ; $00E2D0: $3A03       - D5 = column count
+        subq.w  #3,d5                           ; $00E2D2: $5745       - D5 -= 3
+
+.final_loop:
+        bsr.s   sh2_sprite_calc                 ; $00E2D4: $4EBA $000E - Calculate
+        move.w  d6,(a0)                         ; $00E2D8: $3086       - Store
+        subq.l  #2,a0                           ; $00E2DA: $5588       - Back 2 bytes
+        dbra    d5,.final_loop                  ; $00E2DC: $51CD $FFF6 - Loop
+
+; Restore original pointer and return
+        movea.l a1,a0                           ; $00E2E0: $2049       - Restore A0
+        rts                                     ; $00E2E2: $4E75
+
+; ============================================================================
+; sh2_sprite_calc ($00E2E4) - Calculate Sprite Index
+; Called by: sh2_graphics_cmd (internal helper)
+; Parameters:
+;   D0 = Base sprite index
+;   D1 = Offset accumulator
+;   D2 = Index offset to add
+; Returns:
+;   D6 = Calculated sprite index (D0 + D1 + D2)
+;   D1 = Bit 0 toggled (alternating pattern)
+; ============================================================================
+
+sh2_sprite_calc:
+        move.w  d2,d6                           ; $00E2E4: $3C02       - D6 = D2
+        add.w   d0,d6                           ; $00E2E6: $DC40       - D6 += D0 (base)
+        add.w   d1,d6                           ; $00E2E8: $DC41       - D6 += D1 (offset)
+        bchg    #0,d1                           ; $00E2EA: $0841 $0000 - Toggle D1 bit 0
+        rts                                     ; $00E2EE: $4E75
+
+; ============================================================================
+; sh2_load_data ($00E2F0) - Transfer Data to VDP
+; Called by: Graphics initialization, tile loading
+; Parameters:
+;   A0 = Source data pointer
+;   A5 = VDP control port ($C00004)
+;   A6 = VDP data port ($C00000)
+; Returns:
+;   Data copied to VDP, counter in D0
+;
+; This function sets up VDP VRAM write and copies tile data.
+; Writes 32 longs (128 bytes) per row, then pads with zeros.
+; Total: 28 rows × 64 longs = 1792 longs = 7168 bytes
+; ============================================================================
+
+sh2_load_data:
+        move.l  #$60000002,(a5)+                ; $00E2F0: $2ABC $6000 $0002 - VDP write command
+        moveq   #$1B,d0                         ; $00E2F6: $701B       - D0 = 27 (28 rows)
+
+.row_loop:
+        move.w  #$001F,d1                       ; $00E2F8: $323C $001F - D1 = 31 (32 longs)
+.copy_loop:
+        move.l  (a0)+,(a6)+                     ; $00E2FC: $2C98       - Copy long to VDP
+        dbra    d1,.copy_loop                   ; $00E2FE: $51C9 $FFFC - Loop 32 times
+
+        move.w  #$001F,d1                       ; $00E302: $323C $001F - D1 = 31
+.zero_loop:
+        move.l  #$00000000,(a6)+                ; $00E306: $2CBC $0000 $0000 - Write zeros
+        dbra    d1,.zero_loop                   ; $00E30C: $51C9 $FFF8 - Loop 32 times
+
+        dbra    d0,.row_loop                    ; $00E310: $51C8 $FFE6 - Loop 28 rows
+        rts                                     ; $00E314: $4E75
 
         org     $00E316
 
