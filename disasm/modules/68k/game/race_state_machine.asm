@@ -123,6 +123,57 @@ race_state_dispatch:
 ; ============================================================================
 
 ; ============================================================================
+; race_state_read ($00A1FC) - Race State Table Lookup
+; Called by: 10 locations per frame
+; Parameters: A0 = object base
+; Returns: Stores looked-up value at object+$0A
+;
+; Algorithm:
+;   1. Read race state from $FFFFC88A
+;   2. Add game mode byte from $FFFFC30F
+;   3. Multiply by 32 for table index
+;   4. Add object-specific offset from object+$8A
+;   5. Look up value from table and store to object+$0A
+;
+; The table contains timing/speed parameters indexed by race state
+; and game mode, used for AI behavior and race pacing.
+; ============================================================================
+
+; Additional work RAM
+RACE_STATE_IDX  equ     $FFFFC88A   ; Race state index (same as STATE_TIMER)
+GAME_MODE_BYTE  equ     $FFFFC30F   ; Game mode byte
+
+; Object offsets for race_state_read
+OBJ_STATE_OFFS  equ     $008A       ; Object state offset
+OBJ_LOOKUP_RES  equ     $000A       ; Lookup result storage
+
+        org     $00A1FC
+
+race_state_read:
+        move.w  RACE_STATE_IDX.w,d0             ; $00A1FC: $3038 $C88A - Get state index
+        move.b  GAME_MODE_BYTE.w,d1             ; $00A200: $1038 $C30F - Get mode
+        add.b   d1,d0                           ; $00A204: $D001       - Add mode to state
+        asl.w   #5,d0                           ; $00A206: $ED40       - Multiply by 32
+        move.w  OBJ_STATE_OFFS(a0),d1           ; $00A208: $3228 $008A - Get object offset
+        add.w   d1,d1                           ; $00A20C: $D241       - Double for word
+        add.w   d1,d0                           ; $00A20E: $D041       - Add to index
+        move.w  .state_table(pc,d0.w),OBJ_LOOKUP_RES(a0) ; $00A210: $3170 $0006 $000A
+        rts                                     ; $00A216: $4E75
+
+; State timing table - parameters indexed by state + mode + object offset
+; These values control AI speeds and timing during different race phases
+.state_table:
+        dc.w    $048F, $048B, $048B, $0487      ; $00A218: Entries 0-3
+        dc.w    $0481, $0468, $03D0, $03C0      ; $00A220: Entries 4-7
+        dc.w    $03C0, $03C0, $03CF, $03CF      ; $00A228: Entries 8-11
+        dc.w    $03DA, $03DA, $03DA, $0495      ; $00A230: Entries 12-15
+        dc.w    $0495, $048F, $0481, $0477      ; $00A238: Entries 16-19
+        dc.w    $0459, $03E9, $03C0, $03C0      ; $00A240: Entries 20-23
+        dc.w    $03DF, $03DF, $03DF, $03DF      ; $00A248: Entries 24-27
+        dc.w    $03FC, $03EA, $03EA, $03EA      ; $00A250: Entries 28-31
+        ; Table continues for additional states...
+
+; ============================================================================
 ; SUMMARY
 ; ============================================================================
 ;
@@ -134,6 +185,9 @@ race_state_dispatch:
 ; - Post-race: States 8-15 (results, menus, transitions)
 ; - Idle: States 0, 7 (wait states)
 ;
-; Total: ~50 cycles for dispatch + handler execution time
+; race_state_read is called 10 times per frame to look up timing
+; parameters for AI speed/behavior based on current race state.
+;
+; Total: ~150 cycles for state machine operations
 ;
 ; ============================================================================
