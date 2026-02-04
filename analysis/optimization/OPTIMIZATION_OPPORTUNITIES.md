@@ -720,18 +720,46 @@ func:
 ### Phase 0: Foundation - Interrupt-Driven Architecture (1-2 weeks)
 **This must come first - it unlocks the CPU headroom for all other optimizations.**
 
+**Implementation Tasks:**
 - Implement compliant V-INT handler with FRT TOCR toggle
-- Set up shared odd/even interrupt vectors
-- Replace primary frame-wait polling with `SLEEP` + interrupt wake
+- Set up shared interrupt dispatcher (single entry point for all external interrupts)
+- Configure FRT with mandatory initial settings
+- Replace primary frame-wait polling with interrupt-based synchronization
 - Convert remaining polling loops (H-INT, CMD-INT, FIFO)
 
 **Expected**: +50-100% gain (24 → 36-48 FPS)
 
-**Requirements from 32X Hardware Manual Supplement 2:**
-- FRT TOCR toggle (XOR bit 1) in every external interrupt handler
-- SR mask level ≥ 1 (never 0)
-- Synchronization read-back before RTE
-- 4-cycle gap between sync read and LDC SR (external interrupts)
+**Requirements from 32X Hardware Manual §1.15 + Supplement 2:**
+
+1. **Interrupt Levels** (§1.15):
+   - Use ONLY levels: 14 (VRES), 12 (V), 10 (H), 8 (CMD), 6 (PWM)
+   - NEVER use levels: 15, 13, 11, 9, 7, 1
+
+2. **FRT Initial Settings** (§1.15):
+   ```
+   TIER  = 01h    ; Timer interrupt enable register
+   OCRA  = 0002h  ; Output compare register A
+   FCTST = 01h    ; Free run timer control/status
+   TOCR  = E2h    ; Timer control register
+   ```
+
+3. **Shared Interrupt Vector** (§1.15):
+   - All external interrupts → single dispatcher routine
+   - Dispatcher checks SR status register to determine interrupt source
+   - Branch to specific handler based on interrupt level
+
+4. **FRT TOCR Toggle** (Supplement 2):
+   - XOR bit 1 of TOCR (h'fffffe17) in EVERY external interrupt handler
+   - Fixes hardware bug where interrupts can be missed
+
+5. **RTE Timing** (§1.15):
+   - Wait 2+ cycles after clearing interrupt before RTE
+   - SR mask level ≥ 1 (never 0)
+   - Synchronization read-back before RTE
+
+6. **DMA Restrictions** (§1.15):
+   - Cannot access VDP in H interrupt during DMA
+   - Must mask both Master/Slave interrupts during auto-request DMA
 
 ### Phase 1: Quick Wins (1-2 days)
 - ✅ Inline func_016 at 4 call sites

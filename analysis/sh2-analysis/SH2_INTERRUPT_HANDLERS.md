@@ -533,11 +533,30 @@ FrameReady:
 
 ## References
 
-- [32x-hardware-manual.md](/mnt/data/src/32x-playground/docs/32x-hardware-manual.md) - Interrupt controller documentation
+- [32x-hardware-manual.md](/mnt/data/src/32x-playground/docs/32x-hardware-manual.md) §1.15 - **Interrupt restrictions and FRT settings**
 - [32x-hardware-manual-supplement-2.md](/mnt/data/src/32x-playground/docs/32x-hardware-manual-supplement-2.md) - **SH2 interrupt bug and corrective action**
 - [SH2_CODE_LOCATION_CONFIRMED.md](/mnt/data/src/32x-playground/analysis/SH2_CODE_LOCATION_CONFIRMED.md) - SH2 code location
 - [BOTTLENECK_ANALYSIS.md](/mnt/data/src/32x-playground/analysis/BOTTLENECK_ANALYSIS.md) - CPU profiling data
 - [MASTER_SLAVE_ANALYSIS.md](/mnt/data/src/32x-playground/analysis/MASTER_SLAVE_ANALYSIS.md) - SH2 coordination
+
+## Important Restrictions (Official - Hardware Manual §1.15)
+
+When implementing interrupt-driven architecture, be aware of these official restrictions:
+
+1. **Interrupt Mask Levels**: Only use interrupt levels 14, 12, 10, 8, and 6. Do NOT use levels 15, 13, 11, 9, 7, or 1.
+
+2. **FRT Configuration**: The Free-Run Timer must be configured with these specific values:
+   - TIER = 01h, OCRA = 0002h, FCTST = 01h, TOCR = E2h
+
+3. **Shared Interrupt Vectors**: All external interrupts (except NMI) should jump to the same dispatcher routine, which then branches based on status register values to determine which interrupt occurred.
+
+4. **Invalid Interrupt Levels**: Return immediately from interrupt levels 15, 13, 11, 9, 7, and 1 without processing.
+
+5. **RTE Timing**: After clearing an external interrupt, wait 2+ cycles before executing RTE.
+
+6. **DMA Conflicts**: Mask both master and slave interrupts when performing auto-request DMA to avoid severe performance degradation.
+
+These restrictions complement the interrupt bug workaround documented in the Supplement 2.
 
 ---
 

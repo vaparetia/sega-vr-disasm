@@ -111,7 +111,7 @@ After power-on, the boot ROM coordinates startup between all three processors us
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-**Source:** [32x-hardware-manual.md](../docs/32x-hardware-manual.md) Section 3.3, [32x-technical-info-attachment-1.md](../docs/32x-technical-info-attachment-1.md)
+**Source:** [32x-hardware-manual.md](../docs/32x-hardware-manual.md) Chapter 5 §1.13 (Boot ROM), Section 3.3, [32x-technical-info-attachment-1.md](../docs/32x-technical-info-attachment-1.md)
 
 ### Magic Values
 

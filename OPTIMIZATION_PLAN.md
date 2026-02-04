@@ -171,12 +171,38 @@ vint:
     nop
 ```
 
-**Additional requirements:**
-- SR mask level ≥ 1 (never 0)
-- Shared odd/even interrupt vectors (levels 14+15 → same handler)
-- Synchronization read-back before RTE to ensure write completion
+**Additional requirements (Hardware Manual §1.15):**
 
-**Note:** Bug was fixed in EVA chip cut 2.5, but retail 32X units have earlier silicon.
+1. **Interrupt Levels**: Only use levels 14, 12, 10, 8, 6
+   - DO NOT use levels 15, 13, 11, 9, 7, or 1 (reserved/restricted)
+   - V interrupt: Level 12 (NOT 15 as might be expected)
+   - H interrupt: Level 10
+   - CMD interrupt: Level 8
+   - PWM interrupt: Level 6
+
+2. **FRT Configuration** (mandatory initial settings):
+   ```
+   TIER  = 01h    ; Timer interrupt enable register
+   OCRA  = 0002h  ; Output compare register A
+   FCTST = 01h    ; Free run timer control/status register
+   TOCR  = E2h    ; Timer control register
+   ```
+
+3. **Shared Interrupt Vectors**:
+   - All external interrupts must jump to same dispatcher routine
+   - Dispatcher branches based on SR status register values
+   - Cannot use separate handlers for each interrupt level
+
+4. **RTE Timing**:
+   - Wait 2+ cycles after clearing interrupt before executing RTE
+   - SR mask level ≥ 1 (never 0)
+   - Synchronization read-back before RTE to ensure write completion
+
+5. **DMA Restrictions**:
+   - Cannot access VDP in H interrupt during DMA operations
+   - Must mask both Master and Slave interrupts during auto-request DMA
+
+**Note:** Bug was fixed in EVA chip cut 2.5, but retail 32X units have earlier silicon. These restrictions apply to all production hardware.
 
 **Phases:**
 

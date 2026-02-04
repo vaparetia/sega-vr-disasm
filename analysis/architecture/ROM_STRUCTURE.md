@@ -32,9 +32,43 @@
 - Most vectors point to 0x00880832 (error handler)
 - **Exception**: Vector 0 (Reset SP) points to 0x00880838 (main init)
 
-### 0x0003C0: "MARS CHECK MODE" String
-- Contains: "MARS CHECK MODE " + padding
-- Indicates 32X-specific initialization code
+### 0x0003C0 - 0x0003ED: MARS User Header
+
+The **User Header** contains boot parameters for the 32X Boot ROM. This structure tells the Boot ROM how to load the application program into SDRAM.
+
+**Official Structure (per Hardware Manual §1.13):**
+
+```asm
+MARSInitHeader:
+    dc.b    'MARS CHECK MODE '    ; $3C0: module name (16 bytes)
+    dc.l    $0                     ; $3D0: version
+
+    dc.l    $0000c000              ; $3D4: source address (ROM offset)
+    dc.l    $0                     ; $3D8: destination address (SDRAM)
+    dc.l    $00004000              ; $3DC: size (bytes, must be multiple of 4)
+
+    dc.l    $06000120              ; $3E0: SH2 Master start address
+    dc.l    $06002000              ; $3E4: SH2 Slave start address
+
+    dc.l    $06000000              ; $3E8: SH2 Master vector base address
+    dc.l    $06002000              ; $3EC: SH2 Slave vector base address
+```
+
+**Purpose:**
+- Boot ROM reads this header to configure the initial data load
+- All addresses must be aligned to 4-byte boundaries (longword)
+- Source address is ROM offset, destination is SDRAM address
+- Size indicates how many bytes to copy from ROM to SDRAM
+
+**Security Note:** The Boot ROM validates that the initial program at $3F0 matches the expected Sega-provided ICD_MARS.PRG. If modified, the 32X becomes locked.
+
+### 0x0003F0: Initial Program Start
+
+**Official Requirement (per Hardware Manual §1.14):**
+- The initial program (ICD_MARS.PRG) **must** begin exactly at address 0x3F0
+- This is the Sega-provided security and initialization code
+- Modifying or omitting this code will cause the 32X to lock
+- The 68000 initial program counter (at $000004) points here
 
 ### Key Entry Points
 
@@ -42,7 +76,7 @@
 |---------------|-------------|---------|
 | 0x00880832 | 0x000832 | Default exception handler |
 | 0x00880838 | 0x000838 | Main initialization routine |
-| 0x000003F0 | 0x0003F0 | Initial program counter |
+| 0x000003F0 | 0x0003F0 | **Initial program (ICD_MARS.PRG)** - Security required |
 
 ## ROM Address Space Mapping
 
