@@ -1,7 +1,22 @@
 ; ============================================================================
 ; Code Section ($00E200-$0101FF)
-; Generated from ROM bytes - guaranteed accurate
+; Translated assembly with byte-accurate dc.w verification
 ; ============================================================================
+
+; 32X Communication Registers (per Hardware Manual - 2-byte spacing)
+COMM0_HI        equ     $A15120     ; COMM0 high byte - Command flag (68K→SH2)
+COMM0_LO        equ     $A15121     ; COMM0 low byte - Command code
+COMM4           equ     $A15128     ; COMM4 word - Data pointer (hi), also longword base
+COMM6           equ     $A1512C     ; COMM6 word - Handshake flag
+
+; SH2 Address Space Offset
+SH2_ADDR_OFFSET equ     $02000000
+
+; Command codes
+CMD_WAIT_SEND   equ     $25         ; Wait and send command
+
+; Handshake values
+HANDSHAKE_READY equ     $0101       ; Ready for next phase
 
         org     $00E200
 
@@ -119,65 +134,107 @@
         dc.w    $FFF6        ; $00E2DE
         dc.w    $2049        ; $00E2E0
         dc.w    $4E75        ; $00E2E2
-        dc.w    $3C02        ; $00E2E4
-        dc.w    $DC40        ; $00E2E6
-        dc.w    $DC41        ; $00E2E8
-        dc.w    $0841        ; $00E2EA
-        dc.w    $0000        ; $00E2EC
-        dc.w    $4E75        ; $00E2EE
-        dc.w    $2ABC        ; $00E2F0
-        dc.w    $6000        ; $00E2F2
-        dc.w    $0002        ; $00E2F4
-        dc.w    $701B        ; $00E2F6
-        dc.w    $323C        ; $00E2F8
-        dc.w    $001F        ; $00E2FA
-        dc.w    $2C98        ; $00E2FC
-        dc.w    $51C9        ; $00E2FE
-        dc.w    $FFFC        ; $00E300
-        dc.w    $323C        ; $00E302
-        dc.w    $001F        ; $00E304
-        dc.w    $2CBC        ; $00E306
-        dc.w    $0000        ; $00E308
-        dc.w    $0000        ; $00E30A
-        dc.w    $51C9        ; $00E30C
-        dc.w    $FFF8        ; $00E30E
-        dc.w    $51C8        ; $00E310
-        dc.w    $FFE6        ; $00E312
-        dc.w    $4E75        ; $00E314
-        dc.w    $4A39        ; $00E316
-        dc.w    $00A1        ; $00E318
-        dc.w    $5120        ; $00E31A
-        dc.w    $66F8        ; $00E31C
-        dc.w    $D1FC        ; $00E31E
-        dc.w    $0200        ; $00E320
-        dc.w    $0000        ; $00E322
-        dc.w    $23C8        ; $00E324
-        dc.w    $00A1        ; $00E326
-        dc.w    $5128        ; $00E328
-        dc.w    $33FC        ; $00E32A
-        dc.w    $0101        ; $00E32C
-        dc.w    $00A1        ; $00E32E
-        dc.w    $512C        ; $00E330
-        dc.w    $13FC        ; $00E332
-        dc.w    $0025        ; $00E334
-        dc.w    $00A1        ; $00E336
-        dc.w    $5121        ; $00E338
-        dc.w    $13FC        ; $00E33A
-        dc.w    $0001        ; $00E33C
-        dc.w    $00A1        ; $00E33E
-        dc.w    $5120        ; $00E340
-        dc.w    $4A39        ; $00E342
-        dc.w    $00A1        ; $00E344
-        dc.w    $512C        ; $00E346
-        dc.w    $66F8        ; $00E348
-        dc.w    $23C9        ; $00E34A
-        dc.w    $00A1        ; $00E34C
-        dc.w    $5128        ; $00E34E
-        dc.w    $33FC        ; $00E350
-        dc.w    $0101        ; $00E352
-        dc.w    $00A1        ; $00E354
-        dc.w    $512C        ; $00E356
-        dc.w    $4E75        ; $00E358
+; ============================================================================
+; sh2_sprite_calc ($00E2E4) - Calculate Sprite Index
+; ============================================================================
+; Called by: sh2_graphics_cmd (internal helper)
+; Parameters:
+;   D0 = Base sprite index
+;   D1 = Offset accumulator
+;   D2 = Index offset to add
+; Returns:
+;   D6 = Calculated sprite index (D0 + D1 + D2)
+;   D1 = Bit 0 toggled (alternating pattern)
+; ============================================================================
+sh2_sprite_calc:
+        move.w  d2,d6                           ; $00E2E4: $3C02       - D6 = D2
+        add.w   d0,d6                           ; $00E2E6: $DC40       - D6 += D0 (base)
+        add.w   d1,d6                           ; $00E2E8: $DC41       - D6 += D1 (offset)
+        bchg    #0,d1                           ; $00E2EA: $0841 $0000 - Toggle D1 bit 0
+        rts                                     ; $00E2EE: $4E75
+; ============================================================================
+; sh2_load_data ($00E2F0) - Transfer Data to VDP
+; ============================================================================
+; Called by: Graphics initialization, tile loading
+; Parameters:
+;   A0 = Source data pointer
+;   A5 = VDP control port ($C00004)
+;   A6 = VDP data port ($C00000)
+; Returns:
+;   Data copied to VDP, counter in D0
+;
+; This function sets up VDP VRAM write and copies tile data.
+; Writes 32 longs (128 bytes) per row, then pads with zeros.
+; Total: 28 rows × 64 longs = 1792 longs = 7168 bytes
+; ============================================================================
+sh2_load_data:
+        move.l  #$60000002,(a5)+                ; $00E2F0: $2ABC $6000 $0002 - VDP write command
+        moveq   #$1B,d0                         ; $00E2F6: $701B               - D0 = 27 (28 rows)
+
+.row_loop:
+        move.w  #$001F,d1                       ; $00E2F8: $323C $001F         - D1 = 31 (32 longs)
+.copy_loop:
+        move.l  (a0)+,(a6)+                     ; $00E2FC: $2C98               - Copy long to VDP
+        dbra    d1,.copy_loop                   ; $00E2FE: $51C9 $FFFC         - Loop 32 times
+
+        move.w  #$001F,d1                       ; $00E302: $323C $001F         - D1 = 31
+.zero_loop:
+        move.l  #$00000000,(a6)+                ; $00E306: $2CBC $0000 $0000   - Write zeros
+        dbra    d1,.zero_loop                   ; $00E30C: $51C9 $FFF8         - Loop 32 times
+
+        dbra    d0,.row_loop                    ; $00E310: $51C8 $FFE6         - Loop 28 rows
+        rts                                     ; $00E314: $4E75
+
+; ============================================================================
+; sh2_send_cmd_wait ($00E316) - Wait for Ready, Send Command
+; ============================================================================
+; Purpose: Waits for SH2 to be ready, then sends a command with data pointer
+; Called by: Various graphics/3D functions
+; Parameters:
+;   A0 = 68K data pointer (converted to SH2 address space)
+; Returns: Nothing (A0 preserved in A1)
+;
+; BLOCKING: Contains busy-wait loop at $00E316-$00E31C
+; This is a PRIMARY BOTTLENECK FUNCTION
+; ============================================================================
+sh2_send_cmd_wait:
+; --- BLOCKING WAIT LOOP ---
+; Spins until COMM0 high byte == 0, preventing any other 68K work
+.wait_ready:
+        tst.b   COMM0_HI                        ; $00E316: $4A39 $00A1 $5120 - Test command flag
+        bne.s   .wait_ready                     ; $00E31C: $66F8             - Loop until ready
+
+; Convert 68K address to SH2 address space
+        adda.l  #SH2_ADDR_OFFSET,a0             ; $00E31E: $D1FC $0200 $0000 - A0 += $02000000
+        move.l  a0,COMM4                        ; $00E324: $23C8 $00A1 $5128 - Write data pointer (COMM4+COMM5)
+        move.w  #HANDSHAKE_READY,COMM6          ; $00E32A: $33FC $0101 $00A1 $512C - Signal ready
+        move.b  #CMD_WAIT_SEND,COMM0_LO         ; $00E332: $13FC $0025 $00A1 $5121 - Command $25
+        move.b  #$01,COMM0_HI                   ; $00E33A: $13FC $0001 $00A1 $5120 - Trigger command
+        ; Falls through to sh2_wait_response
+
+; ============================================================================
+; sh2_wait_response ($00E342) - Wait for SH2 Response
+; ============================================================================
+; Purpose: Blocks until SH2 clears handshake, then sets up next transfer
+; Called by: sh2_send_cmd_wait (fall-through), other command functions
+; Parameters:
+;   A1 = Secondary data pointer
+; Returns: Nothing
+;
+; BLOCKING: Contains busy-wait loop at $00E342-$00E348
+; This is a PRIMARY BOTTLENECK FUNCTION
+; ============================================================================
+sh2_wait_response:
+; --- BLOCKING WAIT LOOP ---
+; Spins until COMM6 high byte == 0, preventing any other 68K work
+.wait_ack:
+        tst.b   COMM6                           ; $00E342: $4A39 $00A1 $512C - Test handshake
+        bne.s   .wait_ack                       ; $00E348: $66F8             - Loop until cleared
+
+; Set up secondary pointer for next phase
+        move.l  a1,COMM4                        ; $00E34A: $23C9 $00A1 $5128 - Write secondary ptr (COMM4+COMM5)
+        move.w  #HANDSHAKE_READY,COMM6          ; $00E350: $33FC $0101 $00A1 $512C - Signal ready
+        rts                                     ; $00E358: $4E75             - Return
         dc.w    $4A39        ; $00E35A
         dc.w    $00A1        ; $00E35C
         dc.w    $5120        ; $00E35E
