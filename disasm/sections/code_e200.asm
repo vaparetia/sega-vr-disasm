@@ -4,8 +4,10 @@
 ; ============================================================================
 
 ; 32X Communication Registers (per Hardware Manual - 2-byte spacing)
+COMM0           equ     $A15120     ; COMM0 byte - Master SH2 ready flag
 COMM0_HI        equ     $A15120     ; COMM0 high byte - Command flag (68K→SH2)
 COMM0_LO        equ     $A15121     ; COMM0 low byte - Command code
+COMM3           equ     $A15123     ; COMM3 byte - General purpose
 COMM4           equ     $A15128     ; COMM4 word - Data pointer (hi), also longword base
 COMM5           equ     $A1512A     ; COMM5 word - Data pointer (lo)
 COMM6           equ     $A1512C     ; COMM6 word - Handshake flag
@@ -86,14 +88,14 @@ sh2_graphics_cmd:
         movea.l a0,a1                           ; $00E22C: $2248       - Save A0 in A1
 
 ; Calculate table offset: D1 = D1*2 + D2*128 + base
-        asl.w   #1,d1                           ; $00E22E: $E349       - D1 *= 2
-        asl.w   #7,d2                           ; $00E230: $EF4A       - D2 *= 128
+        dc.w    $E349                           ; $00E22E: ASL.W #1,D1 - D1 *= 2
+        dc.w    $EF4A                           ; $00E230: ASL.W #7,D2 - D2 *= 128
         add.w   d2,d1                           ; $00E232: $D242       - D1 += D2
         lea     (a0,d1.w),a0                    ; $00E234: $41F0 $1000 - A0 += D1 (indexed)
 
 ; Build sprite base index from D0
         andi.w  #$0003,d0                       ; $00E238: $0240 $0003 - Keep low 2 bits
-        asl.w   #8,d0                           ; $00E23C: $E148       - D0 *= 256
+        dc.w    $E148                           ; $00E23C: ASL.W #8,D0 - D0 *= 256
         asl.w   #5,d0                           ; $00E23E: $EB48       - D0 *= 32 (total *8192)
         addi.w  #$0100,d0                       ; $00E240: $0640 $0100 - Add base offset
         bclr    #11,d0                          ; $00E244: $0880 $000B - Clear bit 11
@@ -468,9 +470,9 @@ sh2_cmd_2F:
 ; Parameters: D1 = digit value (0-15), A1 = destination pointer
 ; Uses: D0, A0
 ; ============================================================================
-        lsl.w   #6,d1                           ; $00E4BC: $ED49       - D1 <<= 6 (multiply by 64)
+        dc.w    $ED49                           ; $00E4BC: LSL.W #6,D1 - D1 <<= 6 (multiply by 64)
         move.w  d1,d0                           ; $00E4BE: $3001       - D0 = D1
-        lsl.w   #1,d1                           ; $00E4C0: $E349       - D1 <<= 1 (D1 *= 128)
+        dc.w    $E349                           ; $00E4C0: LSL.W #1,D1 - D1 <<= 1 (D1 *= 128)
         add.w   d0,d1                           ; $00E4C2: $D240       - D1 += D0 (D1 *= 192)
         movea.l #$00060300,a0                   ; $00E4C4: $207C $0603 $DA00 - Load table base
         add.w   d1,a0                           ; $00E4C8: $DA00       - A0 += D1 (offset)
@@ -529,9 +531,9 @@ sh2_cmd_21:
 ; Parameters: D0 = selector (0, 1, or other)
 ; Uses: A0, A1, A2, A3, D1, D2
 ; ============================================================================
-        lea     ($84A2).w,a0                    ; $00E52C: $41F8 $84A2 - Load address 1
-        lea     ($84C2).w,a1                    ; $00E530: $43F8 $84C2 - Load address 2
-        lea     ($84E2).w,a2                    ; $00E534: $45F8 $84E2 - Load address 3
+        dc.w    $41F8,$84A2                     ; $00E52C: LEA ($84A2).W,A0 - Load address 1
+        dc.w    $43F8,$84C2                     ; $00E530: LEA ($84C2).W,A1 - Load address 2
+        dc.w    $45F8,$84E2                     ; $00E534: LEA ($84E2).W,A2 - Load address 3
 
         clr.w   d2                              ; $00E538: $4242       - D2 = 0
         move.w  #$0007,d1                       ; $00E53A: $323C $0007 - D1 = 7 (loop counter)
@@ -546,24 +548,24 @@ sh2_cmd_21:
 ; Select address based on D0
         tst.w   d0                              ; $00E556: $4A40       - Test D0
         bne.s   .check_one                      ; $00E558: $6608       - Branch if != 0 (+8)
-        lea     ($84A2).w,a0                    ; $00E55A: $41F8 $84A2 - Use address 1
+        dc.w    $41F8,$84A2                     ; $00E55A: LEA ($84A2).W,A0 - Use address 1
         bra.s   .setup_table                    ; $00E55E: $6000 $0016 - Skip to setup (+22)
 
 .check_one:
         cmpi.w  #$0001,d0                       ; $00E562: $0C40 $0001 - Compare D0 with 1
         bne.s   .use_addr3                      ; $00E566: $6600 $000A - Branch if != 1 (+10)
-        lea     ($84C2).w,a0                    ; $00E56A: $41F8 $84C2 - Use address 2
+        dc.w    $41F8,$84C2                     ; $00E56A: LEA ($84C2).W,A0 - Use address 2
         bra.s   .setup_table                    ; $00E56E: $6000 $0006 - Skip to setup (+6)
 
 .use_addr3:
-        lea     ($84E2).w,a0                    ; $00E572: $41F8 $84E2 - Use address 3
+        dc.w    $41F8,$84E2                     ; $00E572: LEA ($84E2).W,A0 - Use address 3
 
 .setup_table:
         lea     ($0088E5AC).l,a3                ; $00E576: $47F9 $0088 $E5AC - Load table address
         moveq   #0,d1                           ; $00E57C: $7200       - D1 = 0
 
 .copy_loop:
-        move.w  ($A012).w,d1                    ; $00E57E: $3238 $A012 - Read VDP status
+        dc.w    $3238,$A012                     ; $00E57E: MOVE.W ($A012).W,D1 - Read VDP status
         add.w   d1,d0                           ; $00E582: $D241       - D0 += D1
         add.w   a3,d1                           ; $00E584: $D7C1       - D1 += A3
         clr.w   d2                              ; $00E586: $4242       - D2 = 0
@@ -580,13 +582,13 @@ sh2_cmd_21:
 ; Parameters: None
 ; Uses: D1, VDP control port ($A012)
 ; ============================================================================
-        move.w  ($A012).w,d1                    ; $00E596: $3238 $A012 - Read VDP control
+        dc.w    $3238,$A012                     ; $00E596: MOVE.W ($A012).W,D1 - Read VDP control
         roxr.w  #1,d1                           ; $00E59A: $5241       - Rotate right through X
         cmpi.w  #$0007,d1                       ; $00E59C: $0C41 $0007 - Compare with 7
         ble.s   .store_value                    ; $00E5A0: $6F00 $0004 - Branch if <= (+4)
         clr.w   d1                              ; $00E5A4: $4241       - Clear D1
 .store_value:
-        move.w  d1,($A012).w                    ; $00E5A6: $31C1 $A012 - Write to VDP control
+        dc.w    $31C1,$A012                     ; $00E5A6: MOVE.W D1,($A012).W - Write to VDP control
         rts                                     ; $00E5AA: $4E75
         dc.w    $0EEE        ; $00E5AC
         dc.w    $0EEE        ; $00E5AE
@@ -1020,6 +1022,20 @@ sh2_cmd_21:
         dc.w    $7FFF        ; $00E906
         dc.w    $7FFF        ; $00E908
         dc.w    $7FFF        ; $00E90A
+
+; ============================================================================
+; Function: Jump Table Dispatcher ($00E90C-$00E926)
+; ============================================================================
+; Calls initialization function, loads an index from ($C87E), and dispatches
+; to one of three handler functions via indexed jump table.
+;
+; Jump Table:
+;   Index 0 ($00E91C): $0088E93A
+;   Index 4 ($00E920): $0088EDDA
+;   Index 8 ($00E924): $0088EEF2
+;
+; Uses: D0 (jump table index), A1 (target address)
+; ============================================================================
         dc.w    $4EB9        ; $00E90C
         dc.w    $0088        ; $00E90E
         dc.w    $2080        ; $00E910
@@ -1034,15 +1050,22 @@ sh2_cmd_21:
         dc.w    $EDDA        ; $00E922
         dc.w    $0088        ; $00E924
         dc.w    $EEF2        ; $00E926
-        dc.w    $4EBA        ; $00E928
-        dc.w    $CD5A        ; $00E92A
-        dc.w    $0838        ; $00E92C
-        dc.w    $0006        ; $00E92E
-        dc.w    $C80E        ; $00E930
-        dc.w    $6604        ; $00E932
-        dc.w    $5878        ; $00E934
-        dc.w    $C87E        ; $00E936
-        dc.w    $4E75        ; $00E938
+
+; ============================================================================
+; Function: Post-Dispatch Callback ($00E928-$00E938)
+; ============================================================================
+; Called after handler completion. Checks bit 6 of ($C80E); if clear,
+; advances ($C87E) by 4 bytes.
+;
+; Uses: None (bit test and conditional increment only)
+; ============================================================================
+post_dispatch_callback:
+        jsr     (pc,$CD5A)                      ; $00E928 - JSR to $00B686
+        dc.w    $0838,$0006,$C80E               ; $00E92C: BTST #$06,($C80E).W - Test bit 6
+        bne.s   .skip_advance                   ; $00E932 - Skip if set
+        dc.w    $5878,$C87E                     ; $00E934: ADDQ.W #4,($C87E).W - Advance index
+.skip_advance:
+        rts                                     ; $00E938
         dc.w    $207C        ; $00E93A
         dc.w    $0603        ; $00E93C
         dc.w    $8000        ; $00E93E
@@ -1696,95 +1719,115 @@ sh2_cmd_21:
         dc.w    $0001        ; $00EEEC
         dc.w    $C821        ; $00EEEE
         dc.w    $4E75        ; $00EEF0
-        dc.w    $4A39        ; $00EEF2
-        dc.w    $00A1        ; $00EEF4
-        dc.w    $5120        ; $00EEF6
-        dc.w    $66F8        ; $00EEF8
-        dc.w    $4239        ; $00EEFA
-        dc.w    $00A1        ; $00EEFC
-        dc.w    $5123        ; $00EEFE
-        dc.w    $31FC        ; $00EF00
-        dc.w    $0000        ; $00EF02
-        dc.w    $C87E        ; $00EF04
-        dc.w    $23FC        ; $00EF06
-        dc.w    $0089        ; $00EF08
-        dc.w    $26D2        ; $00EF0A
-        dc.w    $00FF        ; $00EF0C
-        dc.w    $0002        ; $00EF0E
-        dc.w    $4A38        ; $00EF10
-        dc.w    $A018        ; $00EF12
-        dc.w    $661A        ; $00EF14
-        dc.w    $23FC        ; $00EF16
-        dc.w    $0088        ; $00EF18
-        dc.w    $D4A4        ; $00EF1A
-        dc.w    $00FF        ; $00EF1C
-        dc.w    $0002        ; $00EF1E
-        dc.w    $4A38        ; $00EF20
-        dc.w    $A01F        ; $00EF22
-        dc.w    $660A        ; $00EF24
-        dc.w    $23FC        ; $00EF26
-        dc.w    $0088        ; $00EF28
-        dc.w    $D48A        ; $00EF2A
-        dc.w    $00FF        ; $00EF2C
-        dc.w    $0002        ; $00EF2E
-        dc.w    $4E75        ; $00EF30
-        dc.w    $7000        ; $00EF32
-        dc.w    $4A38        ; $00EF34
-        dc.w    $A01A        ; $00EF36
-        dc.w    $6606        ; $00EF38
-        dc.w    $1038        ; $00EF3A
-        dc.w    $A019        ; $00EF3C
-        dc.w    $6004        ; $00EF3E
-        dc.w    $1038        ; $00EF40
-        dc.w    $A01E        ; $00EF42
-        dc.w    $43F9        ; $00EF44
-        dc.w    $0088        ; $00EF46
-        dc.w    $EFA4        ; $00EF48
-        dc.w    $D040        ; $00EF4A
-        dc.w    $3200        ; $00EF4C
-        dc.w    $D040        ; $00EF4E
-        dc.w    $D041        ; $00EF50
-        dc.w    $2071        ; $00EF52
-        dc.w    $0000        ; $00EF54
-        dc.w    $3031        ; $00EF56
-        dc.w    $0004        ; $00EF58
-        dc.w    $323C        ; $00EF5A
-        dc.w    $0030        ; $00EF5C
-        dc.w    $343C        ; $00EF5E
-        dc.w    $0010        ; $00EF60
-        dc.w    $4EBA        ; $00EF62
-        dc.w    $F450        ; $00EF64
-        dc.w    $7000        ; $00EF66
-        dc.w    $4A38        ; $00EF68
-        dc.w    $A01A        ; $00EF6A
-        dc.w    $6706        ; $00EF6C
-        dc.w    $1038        ; $00EF6E
-        dc.w    $A019        ; $00EF70
-        dc.w    $6004        ; $00EF72
-        dc.w    $1038        ; $00EF74
-        dc.w    $A01D        ; $00EF76
-        dc.w    $43F9        ; $00EF78
-        dc.w    $0088        ; $00EF7A
-        dc.w    $EFB6        ; $00EF7C
-        dc.w    $D040        ; $00EF7E
-        dc.w    $3200        ; $00EF80
-        dc.w    $D040        ; $00EF82
-        dc.w    $D041        ; $00EF84
-        dc.w    $2071        ; $00EF86
-        dc.w    $0000        ; $00EF88
-        dc.w    $3031        ; $00EF8A
-        dc.w    $0004        ; $00EF8C
-        dc.w    $323C        ; $00EF8E
-        dc.w    $0018        ; $00EF90
-        dc.w    $343C        ; $00EF92
-        dc.w    $0010        ; $00EF94
-        dc.w    $4A39        ; $00EF96
-        dc.w    $00A1        ; $00EF98
-        dc.w    $5120        ; $00EF9A
-        dc.w    $66F8        ; $00EF9C
-        dc.w    $4EBA        ; $00EF9E JSR sh2_cmd_27_enqueue_flush(PC) [PATCHED]
-        dc.w    $F414        ; $00EFA0 displacement to $00E3B4 (original sh2_cmd_27)
-        dc.w    $4E75        ; $00EFA2
+
+; ============================================================================
+; Function: SH2 Status Check and ROM Vector Setup ($00EEF2-$00EF30)
+; ============================================================================
+; Waits for SH2 Master CPU ready (COMM0 clear), clears COMM3, resets index
+; at ($C87E), and writes ROM function pointers to ($FF0002) based on VINT
+; enable flags.
+;
+; Memory writes:
+;   ($C87E).W = $0000                    - Reset jump table index
+;   ($FF0002).L = ROM function pointer   - Selected based on VINT flags
+;
+; BLOCKING: Polls COMM0 until clear (Master SH2 ready signal)
+; Uses: A0 (scratch)
+; ============================================================================
+sh2_status_check_and_vector_setup:
+.wait_master:
+        tst.b   COMM0                           ; $00EEF2 - Test Master ready
+        bne.s   .wait_master                    ; $00EEF8 - Loop until clear
+
+        clr.b   COMM3                           ; $00EEFA - Clear COMM3
+        dc.w    $31FC,$0000,$C87E               ; $00EF00: MOVE.W #$0000,($C87E).W - Reset index
+
+        ; Write first ROM vector ($008926D2)
+        dc.w    $23FC,$0089,$26D2,$00FF,$0002   ; $00EF06: MOVE.L #$008926D2,($FF0002).W
+
+        ; Check VINT enable flags and conditionally write alternate vectors
+        dc.w    $4A38,$A018                     ; $00EF10: TST.B ($A018).W - Test VINT enable 1
+        bne.s   .check_second_flag              ; $00EF14 - Skip if enabled
+
+        dc.w    $23FC,$0088,$D4A4,$00FF,$0002   ; $00EF16: MOVE.L #$0088D4A4,($FF0002).W - Alternate vector 1
+
+.check_second_flag:
+        dc.w    $4A38,$A01F                     ; $00EF20: TST.B ($A01F).W - Test VINT enable 2
+        bne.s   .done                           ; $00EF24 - Skip if enabled
+
+        dc.w    $23FC,$0088,$D48A,$00FF,$0002   ; $00EF26: MOVE.L #$0088D48A,($FF0002).W - Alternate vector 2
+
+.done:
+        rts                                     ; $00EF30
+
+; ============================================================================
+; Function: Table-Based Dual Dispatch with COMM Sync ($00EF32-$00EFA2)
+; ============================================================================
+; Selects data from two different tables based on flags, then dispatches to
+; rendering functions. Each table entry contains a 4-byte address and a 2-byte
+; parameter (6 bytes total). Index is computed as byte_value * 3 (for 6-byte
+; entries accessed as longword + word).
+;
+; First dispatch:  Uses table at $0088EFA4, calls function at $00E9B4
+; Second dispatch: Uses table at $0088EFB6, calls sh2_cmd_27 after COMM sync
+;
+; Parameters loaded from tables and passed to dispatch functions:
+;   A0 = Longword from table[index*6]
+;   D0 = Word from table[index*6 + 4]
+;   D1 = Width parameter (#$0030 or #$0018)
+;   D2 = Height parameter (#$0010)
+;
+; BLOCKING: Waits for COMM0 clear before second dispatch
+; Uses: D0-D2, A0-A1
+; ============================================================================
+table_dual_dispatch:
+        ; ---- First table dispatch ----
+        moveq   #$00,d0                         ; $00EF32 - Clear D0
+        dc.w    $4A38,$A01A                     ; $00EF34: TST.B ($A01A).W - Test flag 1
+        bne.s   .use_alt1_index                 ; $00EF38 - Branch if set
+        dc.w    $1038,$A019                     ; $00EF3A: MOVE.B ($A019).W,D0 - Load index A
+        bra.s   .dispatch1                      ; $00EF3E
+.use_alt1_index:
+        dc.w    $1038,$A01E                     ; $00EF40: MOVE.B ($A01E).W,D0 - Load index B
+
+.dispatch1:
+        lea     $0088EFA4.l,a1                  ; $00EF44 - Load table 1 base
+        add.w   d0,d0                           ; $00EF4A - D0 *= 2
+        move.w  d0,d1                           ; $00EF4C - D1 = D0
+        add.w   d0,d0                           ; $00EF4E - D0 *= 2 (now *= 4)
+        add.w   d1,d0                           ; $00EF50 - D0 = D0 + D1 (now *= 6)
+        movea.l (a1,d0.w),a0                    ; $00EF52 - Load address from table
+        move.w  ($04,a1,d0.w),d0                ; $00EF56 - Load word param
+        move.w  #$0030,d1                       ; $00EF5A - Width = $30
+        move.w  #$0010,d2                       ; $00EF5E - Height = $10
+        jsr     (pc,$F450)                      ; $00EF62 - Call $00E9B4
+
+        ; ---- Second table dispatch ----
+        moveq   #$00,d0                         ; $00EF66 - Clear D0
+        dc.w    $4A38,$A01A                     ; $00EF68: TST.B ($A01A).W - Test flag 1
+        beq.s   .use_alt2_index                 ; $00EF6C - Branch if clear
+        dc.w    $1038,$A019                     ; $00EF6E: MOVE.B ($A019).W,D0 - Load index A
+        bra.s   .dispatch2                      ; $00EF72
+.use_alt2_index:
+        dc.w    $1038,$A01D                     ; $00EF74: MOVE.B ($A01D).W,D0 - Load index B
+
+.dispatch2:
+        lea     $0088EFB6.l,a1                  ; $00EF78 - Load table 2 base
+        add.w   d0,d0                           ; $00EF7E - D0 *= 2
+        move.w  d0,d1                           ; $00EF80 - D1 = D0
+        add.w   d0,d0                           ; $00EF82 - D0 *= 4
+        add.w   d1,d0                           ; $00EF84 - D0 *= 6
+        movea.l (a1,d0.w),a0                    ; $00EF86 - Load address from table
+        move.w  ($04,a1,d0.w),d0                ; $00EF8A - Load word param
+        move.w  #$0018,d1                       ; $00EF8E - Width = $18
+        move.w  #$0010,d2                       ; $00EF92 - Height = $10
+
+.wait_comm_ready:
+        tst.b   COMM0                           ; $00EF96 - Check COMM0 clear
+        bne.s   .wait_comm_ready                ; $00EF9C - Wait until clear
+
+        jsr     (pc,$F414)                      ; $00EF9E - Call sh2_cmd_27 ($00E3B4)
+        rts                                     ; $00EFA2
         dc.w    $0401        ; $00EFA4
         dc.w    $2010        ; $00EFA6
         dc.w    $0060        ; $00EFA8

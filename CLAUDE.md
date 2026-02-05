@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### What's Working
 - 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
-- **75 SH2 functions translated** to proper `.short` opcode assembly
+- **75 SH2 functions integrated** into build system (92 source files exist, 17 kept as `dc.w` due to size constraints)
 - **16 68K module categories** - boot, display, frame, game, graphics, hardware, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
 - **All translations verified** byte-identical to original ROM
 - **Build system integrated** with Makefile rules for all functions
@@ -75,8 +75,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### 4. Proper Assembly, Not Binary Injection
 - **Always modify proper assembly code** - don't trust raw binary/hex patches
-- Convert `dc.w` sequences to mnemonics before modifying
+- Convert `dc.w` sequences to mnemonics **when possible** (see exceptions below)
 - Binary injection is error-prone and hard to maintain
+
+**SH2 Translation Exception:** Some SH2 functions must remain as `dc.w` due to assembler padding issues:
+- The `sh-elf-as` assembler adds implicit alignment padding that differs from the original ROM
+- Even 1-byte size mismatches cause section overlap errors in the fixed ROM layout
+- **Keep as `dc.w` when:** Complex coordinators with jump tables, multi-entry case handlers, or when byte-perfect size matching is required
+- **Safe to translate:** Standalone functions without PC-relative data, simple subroutines, functions with flexible space
+- See [SH2_TRANSLATION_INTEGRATION.md](analysis/sh2-analysis/SH2_TRANSLATION_INTEGRATION.md) for detailed guidelines
 
 ### 5. Clean Commits Only
 - **Never leave stale "PATCHED" comments** with old values - either fully revert or fully commit
@@ -161,6 +168,8 @@ picodrive build/vr_rebuild.32x  # Linux (recommended)
 |----------|----------|
 | [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) | **Root cause** - Blocking sync model causes ~20 FPS ceiling |
 | [ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md) | **4MB expansion** - 1MB SH2 working space implementation |
+| [SH2_TRANSLATION_INTEGRATION.md](analysis/sh2-analysis/SH2_TRANSLATION_INTEGRATION.md) | **SH2 translation** - Assembler challenges and integration guidelines |
+| [32X_REGISTERS.md](analysis/architecture/32X_REGISTERS.md) | **32X registers** - Complete register reference with behavioral hazards |
 | [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) | 503+ named 68K functions by category |
 | [68K_SH2_COMMUNICATION.md](analysis/68K_SH2_COMMUNICATION.md) | Communication protocol between processors |
 | [DATA_STRUCTURES.md](analysis/architecture/DATA_STRUCTURES.md) | Memory maps, object tables, structures |
