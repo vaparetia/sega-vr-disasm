@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**Last Updated**: February 6, 2026
+
 ## Current Development Status
 
 **Phase:** v4.4.0 - Disassembler Phase 1 Complete
@@ -10,8 +12,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### What's Working
 - 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
-- **75 SH2 functions integrated** into build system (92 source files exist, 17 kept as `dc.w` due to size constraints)
-- **16 68K module categories** - boot, display, frame, game, graphics, hardware, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
+- **75 SH2 functions integrated** into build system (78 total .inc files including 3 expansion ROM helpers)
+- **17 68K module categories** - boot, data, display, frame, game, graphics, hardware-regs, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
 - **All translations verified** byte-identical to original ROM
 - **Build system integrated** with Makefile rules for all functions
 - **Expansion code ready** at $300000+ (parallel processing infrastructure)
@@ -200,6 +202,19 @@ Historical session logs and phase reports preserved in `_archive/phase_logs/`.
 Convert between file offsets and CPU addresses:
 - **68000**: `cpu_addr = file_offset + 0x00880000`
 - **SH2**: `cpu_addr = file_offset + 0x02000000`
+
+### Technical Notes
+
+**Clock Speeds (Hardware Manual §1.14)**:
+- **68K**: 7.67 MHz exactly
+- **SH2 (NTSC)**: **23.01 MHz** (not 23.00 MHz)
+- **SH2 (PAL)**: 22.8 MHz
+
+**Frame Budgets @ 60 Hz**:
+- 68K: 127,833 cycles/frame (theoretical)
+- SH2: 383,500 cycles/frame (theoretical)
+
+Note: Some profiling documents use "23 MHz" and "383,333 cycles/frame" as approximations (0.04% error). Both values are valid depending on context (theoretical vs measured).
 
 ### 4MB Expansion ROM Architecture
 

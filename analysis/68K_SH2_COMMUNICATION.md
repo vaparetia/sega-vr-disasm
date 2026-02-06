@@ -1,5 +1,6 @@
 # 68K-SH2 Communication
 
+**Last Updated**: February 6, 2026
 **Purpose:** Communication protocol and coordination between 68000 and dual SH2 processors
 **Status:** Reference document with mixed confidence levels
 **Related:** [MASTER_SLAVE_ANALYSIS.md](architecture/MASTER_SLAVE_ANALYSIS.md) for validated v2.3 sync protocol
@@ -18,7 +19,7 @@
         |                   |                   |
 +-------v-------+   +-------v-------+   +-------v-------+
 |    68000      |   | SH2 Master    |   | SH2 Slave     |
-|   (7.67MHz)   |   |   (23MHz)     |   |   (23MHz)     |
+|  (7.67 MHz)   |   |  (23.01 MHz)  |   |  (23.01 MHz)  |
 +-------+-------+   +-------+-------+   +-------+-------+
         |                   |                   |
         v                   v                   v

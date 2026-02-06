@@ -1,5 +1,7 @@
 # Virtua Racing Deluxe - Data Structure Reference
 
+**Last Updated**: February 6, 2026
+
 This document consolidates all known data structures used by the 68K and SH2 CPUs.
 
 **Confidence Levels:**
@@ -53,7 +55,16 @@ This document consolidates all known data structures used by the 68K and SH2 CPU
 - **Critical for inter-CPU sharing:** Use cache-through ($22000000) for data shared between Master/Slave
 - **COMM register width:** SH2 reads/writes longwords (32-bit); 68K uses word pairs (16-bit). Writing COMM0 from 68K affects only the upper 16 bits of the SH2's longword view.
 
-**⚠️ Address Discrepancy:** The project's MEMORY_MAP.md and Phase 11 code use $06000000 for SDRAM (observed: Slave hook injected at 0x06000596 in PicoDrive). The hardware manual shows $06000000 as undefined. This may be an emulator-specific alias or undocumented hardware behavior. Use $02000000/$22000000 for portable code.
+**⚠️ CRITICAL - SDRAM Address Warning:**
+
+**$06000000 is EMULATOR-ONLY** (PicoDrive artifact) - **NOT in hardware manual!**
+
+- **Hardware Manual (§3.2)**: SDRAM is **only** at $02000000 (cached) or $22000000 (cache-through)
+- **$06000000 is UNDEFINED** on real 32X hardware
+- **Risk**: Code using $06000000 **will fail on real hardware**
+- **Action**: Use $02000000/$22000000 for all production code
+
+Historical note: Some legacy project code used $06000000 due to PicoDrive emulator behavior. This has been identified and should be migrated to standard addresses.
 
 ---
 
