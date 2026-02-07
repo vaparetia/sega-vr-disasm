@@ -5,19 +5,7 @@
 
         org     $030200
 
-        dc.w    $1B58        ; $030200
-        dc.w    $0018        ; $030202
-        dc.w    $1B58        ; $030204
-        dc.w    $0019        ; $030206
-        dc.w    $1B58        ; $030208
-        dc.w    $001A        ; $03020A
-        dc.w    $1018        ; $03020C
-        dc.w    $E208        ; $03020E
-        dc.w    $1B40        ; $030210
-        dc.w    $001B        ; $030212
-        dc.w    $426D        ; $030214
-        dc.w    $001C        ; $030216
-        dc.w    $4E75        ; $030218
+        include "modules/68k/sound/sound_stream_load.asm"
         dc.w    $4A2D        ; $03021A
         dc.w    $0012        ; $03021C
         dc.w    $6720        ; $03021E
@@ -38,52 +26,11 @@
         dc.w    $0D76        ; $03023C
         dc.w    $584F        ; $03023E
         dc.w    $4E75        ; $030240
-        dc.w    $082D        ; $030242
-        dc.w    $0007        ; $030244
-        dc.w    $000A        ; $030246
-        dc.w    $6746        ; $030248
-        dc.w    $4A2D        ; $03024A
-        dc.w    $0018        ; $03024C
-        dc.w    $6706        ; $03024E
-        dc.w    $532D        ; $030250
-        dc.w    $0018        ; $030252
-        dc.w    $4E75        ; $030254
-        dc.w    $532D        ; $030256
-        dc.w    $0019        ; $030258
-        dc.w    $6702        ; $03025A
-        dc.w    $4E75        ; $03025C
-        dc.w    $206D        ; $03025E
-        dc.w    $0014        ; $030260
-        dc.w    $1B68        ; $030262
-        dc.w    $0001        ; $030264
-        dc.w    $0019        ; $030266
-        dc.w    $4A2D        ; $030268
-        dc.w    $001B        ; $03026A
-        dc.w    $660C        ; $03026C
-        dc.w    $1B68        ; $03026E
-        dc.w    $0003        ; $030270
-        dc.w    $001B        ; $030272
-        dc.w    $442D        ; $030274
-        dc.w    $001A        ; $030276
-        dc.w    $4E75        ; $030278
-        dc.w    $532D        ; $03027A
-        dc.w    $001B        ; $03027C
-        dc.w    $1C2D        ; $03027E
-        dc.w    $001A        ; $030280
-        dc.w    $4886        ; $030282
-        dc.w    $DC6D        ; $030284
-        dc.w    $001C        ; $030286
-        dc.w    $3B46        ; $030288
-        dc.w    $001C        ; $03028A
-        dc.w    $DC6D        ; $03028C
-        dc.w    $0010        ; $03028E
-        dc.w    $4E75        ; $030290
-        dc.w    $3C2D        ; $030292
-        dc.w    $0010        ; $030294
-        dc.w    $660E        ; $030296
-        dc.w    $08D5        ; $030298
-        dc.w    $0001        ; $03029A
-        dc.w    $4E75        ; $03029C
+        include "modules/68k/sound/sound_timer_check.asm"
+        include "modules/68k/sound/sound_timer_dec.asm"
+        include "modules/68k/sound/sound_state_reload.asm"
+        include "modules/68k/sound/sound_accumulate.asm"
+        include "modules/68k/sound/sound_field_test.asm"
         dc.w    $4A2D        ; $03029E
         dc.w    $000A        ; $0302A0
         dc.w    $6700        ; $0302A2
@@ -1086,16 +1033,7 @@
         dc.w    $0005        ; $030A6C
         dc.w    $0004        ; $030A6E
         dc.w    $4E75        ; $030A70
-        dc.w    $7000        ; $030A72
-        dc.w    $102E        ; $030A74
-        dc.w    $0004        ; $030A76
-        dc.w    $670A        ; $030A78
-        dc.w    $102E        ; $030A7A
-        dc.w    $0006        ; $030A7C
-        dc.w    $6706        ; $030A7E
-        dc.w    $532E        ; $030A80
-        dc.w    $0006        ; $030A82
-        dc.w    $4E75        ; $030A84
+        include "modules/68k/sound/sound_counter_check.asm"
         dc.w    $532E        ; $030A86
         dc.w    $0004        ; $030A88
         dc.w    $6700        ; $030A8A
@@ -1153,24 +1091,7 @@
         dc.w    $51CF        ; $030AF2
         dc.w    $FFDC        ; $030AF4
         dc.w    $4E75        ; $030AF6
-        dc.w    $102E        ; $030AF8
-        dc.w    $0002        ; $030AFA
-        dc.w    $671C        ; $030AFC
-        dc.w    $D12E        ; $030AFE
-        dc.w    $0001        ; $030B00
-        dc.w    $6416        ; $030B02
-        dc.w    $41EE        ; $030B04
-        dc.w    $0040        ; $030B06
-        dc.w    $7030        ; $030B08
-        dc.w    $7209        ; $030B0A
-        dc.w    $4A10        ; $030B0C
-        dc.w    $6A04        ; $030B0E
-        dc.w    $5228        ; $030B10
-        dc.w    $000E        ; $030B12
-        dc.w    $D0C0        ; $030B14
-        dc.w    $51C9        ; $030B16
-        dc.w    $FFF4        ; $030B18
-        dc.w    $4E75        ; $030B1A
+        include "modules/68k/sound/sound_overflow_scan.asm"
         dc.w    $4EBA        ; $030B1C
         dc.w    $01FE        ; $030B1E
         dc.w    $7803        ; $030B20
@@ -1269,17 +1190,7 @@
         dc.w    $0080        ; $030BDA
         dc.w    $0009        ; $030BDC
         dc.w    $4E75        ; $030BDE
-        dc.w    $41EE        ; $030BE0
-        dc.w    $0040        ; $030BE2
-        dc.w    $303C        ; $030BE4
-        dc.w    $0077        ; $030BE6
-        dc.w    $4298        ; $030BE8
-        dc.w    $51C8        ; $030BEA
-        dc.w    $FFFC        ; $030BEC
-        dc.w    $1D7C        ; $030BEE
-        dc.w    $0080        ; $030BF0
-        dc.w    $0009        ; $030BF2
-        dc.w    $4E75        ; $030BF4
+        include "modules/68k/sound/sound_buffer_clear.asm"
         dc.w    $4DF9        ; $030BF6
         dc.w    $00FF        ; $030BF8
         dc.w    $8500        ; $030BFA
@@ -1427,31 +1338,7 @@
         dc.w    $1141        ; $030D16
         dc.w    $0003        ; $030D18
         dc.w    $4E75        ; $030D1A
-        dc.w    $33FC        ; $030D1C
-        dc.w    $0100        ; $030D1E
-        dc.w    $00A1        ; $030D20
-        dc.w    $1100        ; $030D22
-        dc.w    $0839        ; $030D24
-        dc.w    $0000        ; $030D26
-        dc.w    $00A1        ; $030D28
-        dc.w    $1100        ; $030D2A
-        dc.w    $66F6        ; $030D2C
-        dc.w    $0839        ; $030D2E
-        dc.w    $0007        ; $030D30
-        dc.w    $00A0        ; $030D32
-        dc.w    $0FFF        ; $030D34
-        dc.w    $6714        ; $030D36
-        dc.w    $33FC        ; $030D38
-        dc.w    $0000        ; $030D3A
-        dc.w    $00A1        ; $030D3C
-        dc.w    $1100        ; $030D3E
-        dc.w    $4E71        ; $030D40
-        dc.w    $4E71        ; $030D42
-        dc.w    $4E71        ; $030D44
-        dc.w    $4E71        ; $030D46
-        dc.w    $4E71        ; $030D48
-        dc.w    $60D0        ; $030D4A
-        dc.w    $4E75        ; $030D4C
+        include "modules/68k/sound/z80_bus_wait.asm"
         dc.w    $4A2E        ; $030D4E
         dc.w    $0038        ; $030D50
         dc.w    $6700        ; $030D52
@@ -1535,28 +1422,7 @@
         dc.w    $422E        ; $030DEE
         dc.w    $0038        ; $030DF0
         dc.w    $4E75        ; $030DF2
-        dc.w    $33FC        ; $030DF4
-        dc.w    $0100        ; $030DF6
-        dc.w    $00A1        ; $030DF8
-        dc.w    $1100        ; $030DFA
-        dc.w    $0839        ; $030DFC
-        dc.w    $0000        ; $030DFE
-        dc.w    $00A1        ; $030E00
-        dc.w    $1100        ; $030E02
-        dc.w    $66F6        ; $030E04
-        dc.w    $102D        ; $030E06
-        dc.w    $0009        ; $030E08
-        dc.w    $E608        ; $030E0A
-        dc.w    $0200        ; $030E0C
-        dc.w    $000F        ; $030E0E
-        dc.w    $13C0        ; $030E10
-        dc.w    $00A0        ; $030E12
-        dc.w    $0FFD        ; $030E14
-        dc.w    $33FC        ; $030E16
-        dc.w    $0000        ; $030E18
-        dc.w    $00A1        ; $030E1A
-        dc.w    $1100        ; $030E1C
-        dc.w    $4E75        ; $030E1E
+        include "modules/68k/sound/z80_sound_write.asm"
         dc.w    $025E        ; $030E20
         dc.w    $0284        ; $030E22
         dc.w    $02AB        ; $030E24
@@ -2009,14 +1875,7 @@
         dc.w    $1D81        ; $0311A2
         dc.w    $0010        ; $0311A4
         dc.w    $4E75        ; $0311A6
-        dc.w    $3236        ; $0311A8
-        dc.w    $0012        ; $0311AA
-        dc.w    $936D        ; $0311AC
-        dc.w    $001E        ; $0311AE
-        dc.w    $7200        ; $0311B0
-        dc.w    $1D81        ; $0311B2
-        dc.w    $0010        ; $0311B4
-        dc.w    $4E75        ; $0311B6
+        include "modules/68k/sound/sound_subtract_field.asm"
         dc.w    $121C        ; $0311B8
         dc.w    $4A2D        ; $0311BA
         dc.w    $0001        ; $0311BC
@@ -2033,11 +1892,7 @@
         dc.w    $6000        ; $0311D2
         dc.w    $FACE        ; $0311D4
         dc.w    $4E75        ; $0311D6
-        dc.w    $101C        ; $0311D8
-        dc.w    $4880        ; $0311DA
-        dc.w    $3B40        ; $0311DC
-        dc.w    $001E        ; $0311DE
-        dc.w    $4E75        ; $0311E0
+        include "modules/68k/sound/sound_set_position.asm"
         dc.w    $1D5C        ; $0311E2
         dc.w    $0003        ; $0311E4
         dc.w    $4E75        ; $0311E6
@@ -2085,11 +1940,7 @@
         dc.w    $08D5        ; $03123A
         dc.w    $0004        ; $03123C
         dc.w    $4E75        ; $03123E
-        dc.w    $1B54        ; $031240
-        dc.w    $0012        ; $031242
-        dc.w    $1B5C        ; $031244
-        dc.w    $0013        ; $031246
-        dc.w    $4E75        ; $031248
+        include "modules/68k/sound/sound_load_pair.asm"
         dc.w    $226E        ; $03124A
         dc.w    $0030        ; $03124C
         dc.w    $6704        ; $03124E
@@ -2139,10 +1990,7 @@
         dc.w    $1D5C        ; $0312A6
         dc.w    $000A        ; $0312A8
         dc.w    $4E75        ; $0312AA
-        dc.w    $101C        ; $0312AC
-        dc.w    $D12D        ; $0312AE
-        dc.w    $0009        ; $0312B0
-        dc.w    $4E75        ; $0312B2
+        include "modules/68k/sound/sound_add_transpose.asm"
         dc.w    $101C        ; $0312B4
         dc.w    $121C        ; $0312B6
         dc.w    $6000        ; $0312B8
@@ -2419,31 +2267,14 @@
         dc.w    $0011        ; $0314D6
         dc.w    $504F        ; $0314D8
         dc.w    $4E75        ; $0314DA
-        dc.w    $1B7C        ; $0314DC
-        dc.w    $00E0        ; $0314DE
-        dc.w    $0001        ; $0314E0
-        dc.w    $1B5C        ; $0314E2
-        dc.w    $0025        ; $0314E4
-        dc.w    $0815        ; $0314E6
-        dc.w    $0002        ; $0314E8
-        dc.w    $6608        ; $0314EA
-        dc.w    $13EC        ; $0314EC
-        dc.w    $FFFF        ; $0314EE
-        dc.w    $00C0        ; $0314F0
-        dc.w    $0011        ; $0314F2
-        dc.w    $4E75        ; $0314F4
+        include "modules/68k/sound/sound_psg_write.asm"
         dc.w    $1B5C        ; $0314F6
         dc.w    $000A        ; $0314F8
         dc.w    $4E75        ; $0314FA
         dc.w    $1B5C        ; $0314FC
         dc.w    $000B        ; $0314FE
         dc.w    $4E75        ; $031500
-        dc.w    $101C        ; $031502
-        dc.w    $E148        ; $031504
-        dc.w    $101C        ; $031506
-        dc.w    $D8C0        ; $031508
-        dc.w    $534C        ; $03150A
-        dc.w    $4E75        ; $03150C
+        include "modules/68k/sound/sound_stream_jump.asm"
         dc.w    $7000        ; $03150E
         dc.w    $101C        ; $031510
         dc.w    $121C        ; $031512
@@ -2479,22 +2310,10 @@
         dc.w    $1B5C        ; $03154E
         dc.w    $0002        ; $031550
         dc.w    $4E75        ; $031552
-        dc.w    $101C        ; $031554
-        dc.w    $D12D        ; $031556
-        dc.w    $0008        ; $031558
-        dc.w    $4E75        ; $03155A
-        dc.w    $08ED        ; $03155C
-        dc.w    $0007        ; $03155E
-        dc.w    $000A        ; $031560
-        dc.w    $4E75        ; $031562
-        dc.w    $08AD        ; $031564
-        dc.w    $0007        ; $031566
-        dc.w    $000A        ; $031568
-        dc.w    $4E75        ; $03156A
-        dc.w    $7000        ; $03156C
-        dc.w    $1D40        ; $03156E
-        dc.w    $0000        ; $031570
-        dc.w    $4E75        ; $031572
+        include "modules/68k/sound/sound_add_volume.asm"
+        include "modules/68k/sound/sound_flag_set.asm"
+        include "modules/68k/sound/sound_flag_clear.asm"
+        include "modules/68k/sound/sound_channel_mute.asm"
         dc.w    $43FA        ; $031574
         dc.w    $001A        ; $031576
         dc.w    $7603        ; $031578
@@ -2605,17 +2424,7 @@
         dc.w    $FFEE        ; $03164A
         dc.w    $2A4B        ; $03164C
         dc.w    $4E75        ; $03164E
-        dc.w    $41EE        ; $031650
-        dc.w    $0040        ; $031652
-        dc.w    $101C        ; $031654
-        dc.w    $7230        ; $031656
-        dc.w    $7409        ; $031658
-        dc.w    $1140        ; $03165A
-        dc.w    $0002        ; $03165C
-        dc.w    $D0C1        ; $03165E
-        dc.w    $51CA        ; $031660
-        dc.w    $FFF8        ; $031662
-        dc.w    $4E75        ; $031664
+        include "modules/68k/sound/sound_set_all_channels.asm"
         dc.w    $0C2E        ; $031666
         dc.w    $0002        ; $031668
         dc.w    $0038        ; $03166A
@@ -2629,10 +2438,7 @@
         dc.w    $1D5C        ; $03167A
         dc.w    $003B        ; $03167C
         dc.w    $4E75        ; $03167E
-        dc.w    $1D7C        ; $031680
-        dc.w    $0080        ; $031682
-        dc.w    $0038        ; $031684
-        dc.w    $4E75        ; $031686
+        include "modules/68k/sound/sound_master_flag.asm"
         dc.w    $F3F3        ; $031688
         dc.w    $0E00        ; $03168A
         dc.w    $0600        ; $03168C
