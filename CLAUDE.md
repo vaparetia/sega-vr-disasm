@@ -6,13 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Current Development Status
 
-**Phase:** v4.4.0 - Disassembler Phase 1 Complete
+**Phase:** v4.5.0 - 68K Translation Pass
 **Approach:** Full ROM rebuild from disassembly (NOT code injection)
 **Build:** `make all` produces complete 4MB ROM (byte-identical to original in translated regions)
 
 ### What's Working
 - 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
 - **75 SH2 functions integrated** into build system (78 total .inc files including 3 expansion ROM helpers)
+- **14 68K functions translated** in code_a200 section (1,306 bytes, game/AI/physics)
 - **17 68K module categories** - boot, data, display, frame, game, graphics, hardware-regs, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
 - **All translations verified** byte-identical to original ROM
 - **Build system integrated** with Makefile rules for all functions
@@ -44,10 +45,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Next Steps
 1. ~~SH2 function translation (major pass)~~ ✅ Done (75 functions)
 2. ~~Parallel processing infrastructure~~ ✅ Done (expansion code ready)
-3. **Activate hooks**: Patch dispatch at $02046A and trampoline at $0234C8
-4. **Performance Testing**: Measure FPS improvement
-5. **Synchronization**: Ensure Slave completes before next frame
-6. **Load Balancing**: Split polygon workload between CPUs
+3. ~~68K translation pass (code_a200)~~ ✅ Done (14 functions, 1,306 bytes)
+4. **Continue 68K translation**: Remaining sections (code_e200, other game sections)
+5. **Activate hooks**: Patch dispatch at $02046A and trampoline at $0234C8
+6. **Performance Testing**: Measure FPS improvement
+7. **Synchronization**: Ensure Slave completes before next frame
+8. **Load Balancing**: Split polygon workload between CPUs
 
 ### Abandoned Approaches
 - **Code injection via `phase11_rom_patcher.py`**: Reached space/alignment limits
