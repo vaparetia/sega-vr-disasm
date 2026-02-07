@@ -1,19 +1,19 @@
 # Virtua Racing Deluxe (32X) - Complete Disassembly & Analysis
 
-**Status: ✅ v4.5.0 - 68K Translation Pass**
+**Status: ✅ v5.0.0 - Full 68K Modularization & Translation**
 
-A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **byte-identical** binary in all translated regions, with **4MB expansion ROM** containing SH2 parallel processing infrastructure.
+A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **byte-identical** binary, with **693 68K functions modularized** (79,940 bytes), **571 auto-translated** to proper assembly mnemonics, and **4MB expansion ROM** containing SH2 parallel processing infrastructure.
 
 ## Key Features
 
 - **Byte-perfect rebuild** - All translated functions verified identical to original ROM
+- **693 68K functions modularized** - 79,940 bytes across all 12 code sections
+- **571 modules auto-translated** - dc.w to proper assembly mnemonics (80% translation rate, 16,022 instructions)
 - **75 SH2 functions translated** - Proper `.short` opcode assembly across 36 files
-- **14 68K game functions translated** - AI, physics, entity management in code_a200 (1,306 bytes)
 - **17 68K module categories** - boot, data, display, frame, game, graphics, hardware-regs, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
 - **4MB expansion ROM** - 1MB SH2 working space with parallel processing infrastructure (not yet activated)
 - **503+ named 68K functions** - Categorized by subsystem with 200+ auto-injected labels
 - **107 named SH2 functions** - 3D engine fully mapped
-- **Cross-validated documentation** - All analysis docs verified against disassembly
 
 ## Quick Start
 
@@ -62,11 +62,10 @@ picodrive build/vr_rebuild.32x
 │   └── ...
 │
 ├── tools/                         # Python analysis tools
+│   ├── translate_modules.py       # Batch dc.w→mnemonic translator (571 modules)
 │   ├── disasm_to_asm.py           # 68K ROM→ASM converter (byte-identical)
+│   ├── batch_convert_68k.py       # Batch module converter
 │   ├── vrd_memory_map.json        # Code/data boundary map (56 entry points)
-│   ├── build_symbol_table.py      # 68K symbol generator
-│   ├── build_sh2_symbol_table.py  # SH2 symbol generator
-│   ├── inject_function_labels.py  # Auto-inject labels from reference
 │   ├── m68k_disasm.py             # 68K disassembler
 │   ├── sh2_disasm.py              # SH2 disassembler
 │   └── generate_call_graph.py     # Call graph generator
@@ -102,22 +101,26 @@ See [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANA
 
 Two complementary formats for different use cases:
 
-### 1. Buildable (sections/)
+### 1. Buildable Modules (modules/68k/)
 ```asm
-dc.w    $4EBA        ; $01020A
-dc.w    $E14E        ; $01020C
-dc.w    $207C        ; $01020E
+fn_a200_001:
+        MOVEQ   #$00,D0                         ; $00A972
+        MOVE.B  $000D(A5),D0                    ; $00A974
+        LEA     (-24450).W,A1                   ; $00A978
+        BNE.S  .loc_0010                        ; $00A97E
+.loc_0010:
+        RTS                                     ; $00A980
 ```
-Pure DC.W - guaranteed byte-accurate builds.
+Proper assembly mnemonics - builds to byte-identical ROM. 693 modules across 12 sections.
 
-### 2. Readable (sections-mnemonic/)
+### 2. Reference (sections-mnemonic/)
 ```asm
 JSR     $00E35A(PC)                     ; $01020A
 MOVEA.L #$06020000,A0                   ; $01020E
 loc_010220:
 LEA     $00(A0,D0.W),A0                 ; $010220
 ```
-Decoded mnemonics with labels - for code analysis.
+Full decoded mnemonics with labels - for code analysis.
 
 ## Build Commands
 
@@ -144,11 +147,10 @@ You must provide your own legal ROM dump:
 
 1. ~~SH2 function translation (major pass)~~ ✅ Done (75 functions)
 2. ~~Parallel processing infrastructure~~ ✅ Done (expansion ROM ready)
-3. ~~68K translation pass (code_a200)~~ ✅ Done (14 functions, 1,306 bytes)
-4. **Continue 68K translation** - Remaining sections (code_e200, other game sections)
-5. **Activate parallel hooks** - Wire up dispatch redirect and func_021 trampoline
-6. **Performance Testing** - Measure FPS improvement from parallel processing
-7. **Synchronization** - Ensure Slave completes before next frame
+3. ~~68K modularization & translation~~ ✅ Done (693 modules, 571 translated, 79,940 bytes)
+4. **Activate parallel hooks** - Wire up dispatch redirect and func_021 trampoline
+5. **Performance Testing** - Measure FPS improvement from parallel processing
+6. **Synchronization** - Ensure Slave completes before next frame
 
 ## Documentation
 
@@ -244,7 +246,7 @@ vint_handler:
 | ROM Size | 4 MB (4,194,304 bytes) with 1MB SH2 expansion |
 | Original Size | 3 MB (3,145,728 bytes) |
 | Original Frame Rate | ~20 FPS (architectural limit due to blocking sync) |
-| Current Status | 75 SH2 + 14 68K game functions + 17 module categories translated, parallel hooks prepared |
+| Current Status | 75 SH2 + 693 68K modules (571 translated to assembly) + 17 module categories, parallel hooks prepared |
 
 ## 4MB Expansion ROM
 
@@ -322,12 +324,19 @@ python3 analyze_pc_profile.py profile.csv
 
 ## Recent Milestones
 
+### v5.0.0 - Full 68K Modularization & Translation (2026-02-07)
+- **693 68K functions modularized** across all 12 code sections (79,940 bytes)
+- **571 modules auto-translated** from dc.w to proper assembly mnemonics
+- **16,022 instructions** converted to readable mnemonics (80% rate)
+- **1,615 local labels** generated for internal branch targets
+- New `translate_modules.py` tool with two-pass disassembly and data-module detection
+- **All verified byte-identical** to original ROM
+
 ### v4.5.0 - 68K Translation Pass (2026-02-06)
-- **14 68K game functions translated** in code_a200 section (1,306 bytes)
+- **14 68K game functions hand-translated** in code_a200 section (1,306 bytes)
 - AI logic (opponent select, steering calc, target check)
 - Physics (integration, lookup tables, speed calc/interpolation)
 - Entity management (table load, bulk copy, state return, effect countdown)
-- **All verified byte-identical** to original ROM
 - **Key discoveries**: ASL vs LSL opcode differences, BSR.W vs JSR (d16,PC) encoding
 
 ### v4.4.0 - Disassembler Phase 1 Complete (2026-02-01)

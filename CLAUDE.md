@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Current Development Status
 
-**Phase:** v4.5.0 - 68K Translation Pass
+**Phase:** v5.0.0 - Full 68K Modularization & Translation
 **Approach:** Full ROM rebuild from disassembly (NOT code injection)
 **Build:** `make all` produces complete 4MB ROM (byte-identical to original in translated regions)
 
@@ -14,6 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
 - **75 SH2 functions integrated** into build system (78 total .inc files including 3 expansion ROM helpers)
 - **693 68K functions modularized** across 12 sections (79,940 bytes, all 12 code sections fully extracted)
+- **571 modules auto-translated** to proper assembly mnemonics (16,022 instructions, 80% rate)
 - **17 68K module categories** - boot, data, display, frame, game, graphics, hardware-regs, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
 - **All translations verified** byte-identical to original ROM
 - **Build system integrated** with Makefile rules for all functions
