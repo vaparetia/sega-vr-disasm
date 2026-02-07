@@ -853,264 +853,26 @@
 ; ============================================================================
         include "modules/68k/game/ai_target_check.asm"
 
-        dc.w    $11FC        ; $00AD14
-        dc.w    $00B8        ; $00AD16
-        dc.w    $C8A4        ; $00AD18
-        dc.w    $3028        ; $00AD1A
-        dc.w    $0004        ; $00AD1C
-        dc.w    $9069        ; $00AD1E
-        dc.w    $0004        ; $00AD20
-        dc.w    $6A02        ; $00AD22
-        dc.w    $4440        ; $00AD24
-        dc.w    $B078        ; $00AD26
-        dc.w    $C8CE        ; $00AD28
-        dc.w    $6F00        ; $00AD2A
-        dc.w    $0094        ; $00AD2C
-        dc.w    $3028        ; $00AD2E
-        dc.w    $0006        ; $00AD30
-        dc.w    $D069        ; $00AD32
-        dc.w    $0006        ; $00AD34
-        dc.w    $3400        ; $00AD36
-        dc.w    $E242        ; $00AD38
-        dc.w    $E440        ; $00AD3A
-        dc.w    $D440        ; $00AD3C
-        dc.w    $3200        ; $00AD3E
-        dc.w    $E241        ; $00AD40
-        dc.w    $D240        ; $00AD42
-        dc.w    $0C41        ; $00AD44
-        dc.w    $04DC        ; $00AD46
-        dc.w    $6F04        ; $00AD48
-        dc.w    $323C        ; $00AD4A
-        dc.w    $04DC        ; $00AD4C
-        dc.w    $0C42        ; $00AD4E
-        dc.w    $04DC        ; $00AD50
-        dc.w    $6F04        ; $00AD52
-        dc.w    $343C        ; $00AD54
-        dc.w    $04DC        ; $00AD56
-        dc.w    $3029        ; $00AD58
-        dc.w    $0006        ; $00AD5A
-        dc.w    $B068        ; $00AD5C
-        dc.w    $0006        ; $00AD5E
-        dc.w    $6F02        ; $00AD60
-        dc.w    $C342        ; $00AD62
-        dc.w    $3342        ; $00AD64
-        dc.w    $0006        ; $00AD66
-        dc.w    $3628        ; $00AD68
-        dc.w    $0004        ; $00AD6A
-        dc.w    $9669        ; $00AD6C
-        dc.w    $0004        ; $00AD6E
-        dc.w    $B678        ; $00AD70
-        dc.w    $C8D0        ; $00AD72
-        dc.w    $6F0E        ; $00AD74
-        dc.w    $0069        ; $00AD76
-        dc.w    $1000        ; $00AD78
-        dc.w    $0002        ; $00AD7A
-        dc.w    $0068        ; $00AD7C
-        dc.w    $0800        ; $00AD7E
-        dc.w    $0002        ; $00AD80
-        dc.w    $4E75        ; $00AD82
-        dc.w    $3141        ; $00AD84
-        dc.w    $0006        ; $00AD86
-        dc.w    $3028        ; $00AD88
-        dc.w    $0088        ; $00AD8A
-        dc.w    $7201        ; $00AD8C
-        dc.w    $C240        ; $00AD8E
-        dc.w    $661A        ; $00AD90
-        dc.w    $7204        ; $00AD92
-        dc.w    $C240        ; $00AD94
-        dc.w    $6614        ; $00AD96
-        dc.w    $0068        ; $00AD98
-        dc.w    $2000        ; $00AD9A
-        dc.w    $0002        ; $00AD9C
-        dc.w    $0069        ; $00AD9E
-        dc.w    $1000        ; $00ADA0
-        dc.w    $0002        ; $00ADA2
-        dc.w    $11FC        ; $00ADA4
-        dc.w    $00B2        ; $00ADA6
-        dc.w    $C8A4        ; $00ADA8
-        dc.w    $4E75        ; $00ADAA
-        dc.w    $0068        ; $00ADAC
-        dc.w    $1000        ; $00ADAE
-        dc.w    $0002        ; $00ADB0
-        dc.w    $0069        ; $00ADB2
-        dc.w    $2000        ; $00ADB4
-        dc.w    $0002        ; $00ADB6
-        dc.w    $11FC        ; $00ADB8
-        dc.w    $00B2        ; $00ADBA
-        dc.w    $C8A4        ; $00ADBC
-        dc.w    $4E75        ; $00ADBE
-        dc.w    $4EFA        ; $00ADC0
-        dc.w    $0116        ; $00ADC2
-        dc.w    $4269        ; $00ADC4
-        dc.w    $0088        ; $00ADC6
-        dc.w    $3029        ; $00ADC8
-        dc.w    $0032        ; $00ADCA
-        dc.w    $9068        ; $00ADCC
-        dc.w    $0032        ; $00ADCE
-        dc.w    $6A02        ; $00ADD0
-        dc.w    $4440        ; $00ADD2
-        dc.w    $0C40        ; $00ADD4
-        dc.w    $0200        ; $00ADD6
-        dc.w    $6C28        ; $00ADD8
-        dc.w    $3029        ; $00ADDA
-        dc.w    $0030        ; $00ADDC
-        dc.w    $9068        ; $00ADDE
-        dc.w    $0030        ; $00ADE0
-        dc.w    $6A02        ; $00ADE2
-        dc.w    $4440        ; $00ADE4
-        dc.w    $0C40        ; $00ADE6
-        dc.w    $0040        ; $00ADE8
-        dc.w    $6C16        ; $00ADEA
-        dc.w    $3029        ; $00ADEC
-        dc.w    $0034        ; $00ADEE
-        dc.w    $9068        ; $00ADF0
-        dc.w    $0034        ; $00ADF2
-        dc.w    $6A02        ; $00ADF4
-        dc.w    $4440        ; $00ADF6
-        dc.w    $0C40        ; $00ADF8
-        dc.w    $0040        ; $00ADFA
-        dc.w    $6C04        ; $00ADFC
-        dc.w    $4EFA        ; $00ADFE
-        dc.w    $000A        ; $00AE00
-        dc.w    $7000        ; $00AE02
-        dc.w    $4E75        ; $00AE04
-        dc.w    $0102        ; $00AE06
-        dc.w    $0408        ; $00AE08
-        dc.w    $3029        ; $00AE0A
-        dc.w    $003C        ; $00AE0C
-        dc.w    $9068        ; $00AE0E
-        dc.w    $0040        ; $00AE10
-        dc.w    $EA40        ; $00AE12
-        dc.w    $0640        ; $00AE14
-        dc.w    $0800        ; $00AE16
-        dc.w    $0240        ; $00AE18
-        dc.w    $07FE        ; $00AE1A
-        dc.w    $3628        ; $00AE1C
-        dc.w    $0030        ; $00AE1E
-        dc.w    $9669        ; $00AE20
-        dc.w    $0030        ; $00AE22
-        dc.w    $3828        ; $00AE24
-        dc.w    $0034        ; $00AE26
-        dc.w    $9869        ; $00AE28
-        dc.w    $0034        ; $00AE2A
-        dc.w    $2478        ; $00AE2C
-        dc.w    $C268        ; $00AE2E
-        dc.w    $45F2        ; $00AE30
-        dc.w    $0000        ; $00AE32
-        dc.w    $7403        ; $00AE34
-        dc.w    $1C12        ; $00AE36
-        dc.w    $4886        ; $00AE38
-        dc.w    $DC43        ; $00AE3A
-        dc.w    $1E2A        ; $00AE3C
-        dc.w    $0001        ; $00AE3E
-        dc.w    $4887        ; $00AE40
-        dc.w    $DE44        ; $00AE42
-        dc.w    $BC78        ; $00AE44
-        dc.w    $C8E4        ; $00AE46
-        dc.w    $6D1A        ; $00AE48
-        dc.w    $BC78        ; $00AE4A
-        dc.w    $C8E8        ; $00AE4C
-        dc.w    $6E14        ; $00AE4E
-        dc.w    $BE78        ; $00AE50
-        dc.w    $C8EA        ; $00AE52
-        dc.w    $6D0E        ; $00AE54
-        dc.w    $BE78        ; $00AE56
-        dc.w    $C8E6        ; $00AE58
-        dc.w    $6E08        ; $00AE5A
-        dc.w    $7003        ; $00AE5C
-        dc.w    $9042        ; $00AE5E
-        dc.w    $01E8        ; $00AE60
-        dc.w    $0089        ; $00AE62
-        dc.w    $45EA        ; $00AE64
-        dc.w    $0800        ; $00AE66
-        dc.w    $51CA        ; $00AE68
-        dc.w    $FFCC        ; $00AE6A
-        dc.w    $3028        ; $00AE6C
-        dc.w    $003C        ; $00AE6E
-        dc.w    $9069        ; $00AE70
-        dc.w    $003C        ; $00AE72
-        dc.w    $EA40        ; $00AE74
-        dc.w    $0640        ; $00AE76
-        dc.w    $0800        ; $00AE78
-        dc.w    $0240        ; $00AE7A
-        dc.w    $07FE        ; $00AE7C
-        dc.w    $3629        ; $00AE7E
-        dc.w    $0030        ; $00AE80
-        dc.w    $9668        ; $00AE82
-        dc.w    $0030        ; $00AE84
-        dc.w    $3829        ; $00AE86
-        dc.w    $0034        ; $00AE88
-        dc.w    $9868        ; $00AE8A
-        dc.w    $0034        ; $00AE8C
-        dc.w    $2478        ; $00AE8E
-        dc.w    $C268        ; $00AE90
-        dc.w    $45F2        ; $00AE92
-        dc.w    $0000        ; $00AE94
-        dc.w    $7403        ; $00AE96
-        dc.w    $1C12        ; $00AE98
-        dc.w    $4886        ; $00AE9A
-        dc.w    $DC43        ; $00AE9C
-        dc.w    $1E2A        ; $00AE9E
-        dc.w    $0001        ; $00AEA0
-        dc.w    $4887        ; $00AEA2
-        dc.w    $DE44        ; $00AEA4
-        dc.w    $BC78        ; $00AEA6
-        dc.w    $C8EC        ; $00AEA8
-        dc.w    $6D1E        ; $00AEAA
-        dc.w    $BC78        ; $00AEAC
-        dc.w    $C8EE        ; $00AEAE
-        dc.w    $6E18        ; $00AEB0
-        dc.w    $BE78        ; $00AEB2
-        dc.w    $C8F0        ; $00AEB4
-        dc.w    $6D12        ; $00AEB6
-        dc.w    $BE78        ; $00AEB8
-        dc.w    $C8F2        ; $00AEBA
-        dc.w    $6E0C        ; $00AEBC
-        dc.w    $45FA        ; $00AEBE
-        dc.w    $FF46        ; $00AEC0
-        dc.w    $7003        ; $00AEC2
-        dc.w    $9042        ; $00AEC4
-        dc.w    $01E9        ; $00AEC6
-        dc.w    $0089        ; $00AEC8
-        dc.w    $45EA        ; $00AECA
-        dc.w    $0800        ; $00AECC
-        dc.w    $51CA        ; $00AECE
-        dc.w    $FFC8        ; $00AED0
-        dc.w    $1028        ; $00AED2
-        dc.w    $0089        ; $00AED4
-        dc.w    $4E75        ; $00AED6
-        dc.w    $3028        ; $00AED8
-        dc.w    $0088        ; $00AEDA
-        dc.w    $7218        ; $00AEDC
-        dc.w    $0800        ; $00AEDE
-        dc.w    $0000        ; $00AEE0
-        dc.w    $6708        ; $00AEE2
-        dc.w    $D368        ; $00AEE4
-        dc.w    $0030        ; $00AEE6
-        dc.w    $9368        ; $00AEE8
-        dc.w    $0034        ; $00AEEA
-        dc.w    $0800        ; $00AEEC
-        dc.w    $0001        ; $00AEEE
-        dc.w    $6708        ; $00AEF0
-        dc.w    $9368        ; $00AEF2
-        dc.w    $0030        ; $00AEF4
-        dc.w    $9368        ; $00AEF6
-        dc.w    $0034        ; $00AEF8
-        dc.w    $0800        ; $00AEFA
-        dc.w    $0002        ; $00AEFC
-        dc.w    $6708        ; $00AEFE
-        dc.w    $D368        ; $00AF00
-        dc.w    $0030        ; $00AF02
-        dc.w    $D368        ; $00AF04
-        dc.w    $0034        ; $00AF06
-        dc.w    $0800        ; $00AF08
-        dc.w    $0003        ; $00AF0A
-        dc.w    $6708        ; $00AF0C
-        dc.w    $9368        ; $00AF0E
-        dc.w    $0030        ; $00AF10
-        dc.w    $D368        ; $00AF12
-        dc.w    $0034        ; $00AF14
-        dc.w    $4E75        ; $00AF16
+; ============================================================================
+; Entity Target Action ($00AD14-$00ADC2)
+; Translated from dc.w format - see disasm/modules/68k/game/entity_target_action.asm
+; ============================================================================
+        include "modules/68k/game/entity_target_action.asm"
+; ============================================================================
+; Proximity Distance Check ($00ADC4-$00AE04)
+; Translated from dc.w format - see disasm/modules/68k/game/proximity_distance_check.asm
+; ============================================================================
+        include "modules/68k/game/proximity_distance_check.asm"
+; ============================================================================
+; Zone Check Inner ($00AE06-$00AED6)
+; Translated from dc.w format - see disasm/modules/68k/game/zone_check_inner.asm
+; ============================================================================
+        include "modules/68k/game/zone_check_inner.asm"
+; ============================================================================
+; Entity Directional Push ($00AED8-$00AF16)
+; Translated from dc.w format - see disasm/modules/68k/game/entity_directional_push.asm
+; ============================================================================
+        include "modules/68k/game/entity_directional_push.asm"
         dc.w    $43F8        ; $00AF18
         dc.w    $9F00        ; $00AF1A
         dc.w    $4268        ; $00AF1C
@@ -1196,111 +958,34 @@
         dc.w    $0800        ; $00AFBC
         dc.w    $0002        ; $00AFBE
         dc.w    $4E75        ; $00AFC0
-        dc.w    $3141        ; $00AFC2
-        dc.w    $0006        ; $00AFC4
-        dc.w    $3028        ; $00AFC6
-        dc.w    $0088        ; $00AFC8
-        dc.w    $7201        ; $00AFCA
-        dc.w    $C240        ; $00AFCC
-        dc.w    $661A        ; $00AFCE
-        dc.w    $7204        ; $00AFD0
-        dc.w    $C240        ; $00AFD2
-        dc.w    $6614        ; $00AFD4
-        dc.w    $0068        ; $00AFD6
-        dc.w    $2000        ; $00AFD8
-        dc.w    $0002        ; $00AFDA
-        dc.w    $0069        ; $00AFDC
-        dc.w    $1000        ; $00AFDE
-        dc.w    $0002        ; $00AFE0
-        dc.w    $11FC        ; $00AFE2
-        dc.w    $00B2        ; $00AFE4
-        dc.w    $C8A4        ; $00AFE6
-        dc.w    $4E75        ; $00AFE8
-        dc.w    $0068        ; $00AFEA
-        dc.w    $1000        ; $00AFEC
-        dc.w    $0002        ; $00AFEE
-        dc.w    $0069        ; $00AFF0
-        dc.w    $2000        ; $00AFF2
-        dc.w    $0002        ; $00AFF4
-        dc.w    $11FC        ; $00AFF6
-        dc.w    $00B2        ; $00AFF8
-        dc.w    $C8A4        ; $00AFFA
-        dc.w    $4E75        ; $00AFFC
-        dc.w    $7210        ; $00AFFE
-        dc.w    $3028        ; $00B000
-        dc.w    $0030        ; $00B002
-        dc.w    $B069        ; $00B004
-        dc.w    $0030        ; $00B006
-        dc.w    $6E02        ; $00B008
-        dc.w    $4441        ; $00B00A
-        dc.w    $D368        ; $00B00C
-        dc.w    $0030        ; $00B00E
-        dc.w    $9369        ; $00B010
-        dc.w    $0030        ; $00B012
-        dc.w    $7210        ; $00B014
-        dc.w    $3028        ; $00B016
-        dc.w    $0034        ; $00B018
-        dc.w    $B069        ; $00B01A
-        dc.w    $0034        ; $00B01C
-        dc.w    $6E02        ; $00B01E
-        dc.w    $4441        ; $00B020
-        dc.w    $D368        ; $00B022
-        dc.w    $0034        ; $00B024
-        dc.w    $9369        ; $00B026
-        dc.w    $0034        ; $00B028
-        dc.w    $4E75        ; $00B02A
-        dc.w    $7000        ; $00B02C
-        dc.w    $3038        ; $00B02E
-        dc.w    $907E        ; $00B030
-        dc.w    $6136        ; $00B032
-        dc.w    $33C0        ; $00B034
-        dc.w    $00FF        ; $00B036
-        dc.w    $674C        ; $00B038
-        dc.w    $4E75        ; $00B03A
-        dc.w    $0838        ; $00B03C
-        dc.w    $0005        ; $00B03E
-        dc.w    $C30E        ; $00B040
-        dc.w    $660E        ; $00B042
-        dc.w    $7000        ; $00B044
-        dc.w    $3038        ; $00B046
-        dc.w    $907E        ; $00B048
-        dc.w    $611E        ; $00B04A
-        dc.w    $33C0        ; $00B04C
-        dc.w    $00FF        ; $00B04E
-        dc.w    $6328        ; $00B050
-        dc.w    $0838        ; $00B052
-        dc.w    $0005        ; $00B054
-        dc.w    $B4EE        ; $00B056
-        dc.w    $660E        ; $00B058
-        dc.w    $7000        ; $00B05A
-        dc.w    $3038        ; $00B05C
-        dc.w    $9F7E        ; $00B05E
-        dc.w    $6108        ; $00B060
-        dc.w    $33C0        ; $00B062
-        dc.w    $00FF        ; $00B064
-        dc.w    $6558        ; $00B066
-        dc.w    $4E75        ; $00B068
-        dc.w    $0440        ; $00B06A
-        dc.w    $1770        ; $00B06C
-        dc.w    $6A02        ; $00B06E
-        dc.w    $7000        ; $00B070
-        dc.w    $0C40        ; $00B072
-        dc.w    $2AF8        ; $00B074
-        dc.w    $6D04        ; $00B076
-        dc.w    $303C        ; $00B078
-        dc.w    $2AF8        ; $00B07A
-        dc.w    $E648        ; $00B07C
-        dc.w    $3200        ; $00B07E
-        dc.w    $E248        ; $00B080
-        dc.w    $D041        ; $00B082
-        dc.w    $0C40        ; $00B084
-        dc.w    $0800        ; $00B086
-        dc.w    $6F04        ; $00B088
-        dc.w    $303C        ; $00B08A
-        dc.w    $0800        ; $00B08C
-        dc.w    $0640        ; $00B08E
-        dc.w    $0800        ; $00B090
-        dc.w    $4E75        ; $00B092
+; ============================================================================
+; Close Position Flags ($00AFC2-$00AFFC)
+; Translated from dc.w format - see disasm/modules/68k/game/close_position_flags.asm
+; ============================================================================
+        include "modules/68k/game/close_position_flags.asm"
+; ============================================================================
+; Position Separation ($00AFFE-$00B02A)
+; Translated from dc.w format - see disasm/modules/68k/game/position_separation.asm
+; ============================================================================
+        include "modules/68k/game/position_separation.asm"
+
+; ============================================================================
+; Speed Scale Simple ($00B02C-$00B03A)
+; Translated from dc.w format - see disasm/modules/68k/game/speed_scale_simple.asm
+; ============================================================================
+        include "modules/68k/game/speed_scale_simple.asm"
+
+; ============================================================================
+; Speed Scale Conditional ($00B03C-$00B068)
+; Translated from dc.w format - see disasm/modules/68k/game/speed_scale_conditional.asm
+; ============================================================================
+        include "modules/68k/game/speed_scale_conditional.asm"
+
+; ============================================================================
+; Speed Scale Calculation ($00B06A-$00B092)
+; Translated from dc.w format - see disasm/modules/68k/game/speed_scale_calc.asm
+; ============================================================================
+        include "modules/68k/game/speed_scale_calc.asm"
         dc.w    $41F8        ; $00B094
         dc.w    $C813        ; $00B096
         dc.w    $1038        ; $00B098
@@ -1912,33 +1597,11 @@
         dc.w    $000F        ; $00B554
         dc.w    $1280        ; $00B556
         dc.w    $4E75        ; $00B558
-        dc.w    $4A38        ; $00B55A
-        dc.w    $C819        ; $00B55C
-        dc.w    $662E        ; $00B55E
-        dc.w    $43F9        ; $00B560
-        dc.w    $00FF        ; $00B562
-        dc.w    $69E0        ; $00B564
-        dc.w    $203C        ; $00B566
-        dc.w    $0402        ; $00B568
-        dc.w    $7AFC        ; $00B56A
-        dc.w    $3238        ; $00B56C
-        dc.w    $902A        ; $00B56E
-        dc.w    $B278        ; $00B570
-        dc.w    $9F2A        ; $00B572
-        dc.w    $6F06        ; $00B574
-        dc.w    $203C        ; $00B576
-        dc.w    $0403        ; $00B578
-        dc.w    $82FC        ; $00B57A
-        dc.w    $2340        ; $00B57C
-        dc.w    $0004        ; $00B57E
-        dc.w    $7001        ; $00B580
-        dc.w    $0838        ; $00B582
-        dc.w    $0004        ; $00B584
-        dc.w    $C967        ; $00B586
-        dc.w    $6602        ; $00B588
-        dc.w    $7000        ; $00B58A
-        dc.w    $1280        ; $00B58C
-        dc.w    $4E75        ; $00B58E
+; ============================================================================
+; HUD Panel Config ($00B55A-$00B58E)
+; Translated from dc.w format - see disasm/modules/68k/game/hud_panel_config.asm
+; ============================================================================
+        include "modules/68k/game/hud_panel_config.asm"
         dc.w    $4A38        ; $00B590
         dc.w    $C819        ; $00B592
         dc.w    $6702        ; $00B594
@@ -2020,26 +1683,17 @@
         dc.w    $00FF        ; $00B62C
         dc.w    $68B0        ; $00B62E
         dc.w    $4E75        ; $00B630
-        dc.w    $4A38        ; $00B632
-        dc.w    $C30F        ; $00B634
-        dc.w    $670C        ; $00B636
-        dc.w    $3038        ; $00B638
-        dc.w    $907A        ; $00B63A
-        dc.w    $5240        ; $00B63C
-        dc.w    $13C0        ; $00B63E
-        dc.w    $00FF        ; $00B640
-        dc.w    $692B        ; $00B642
-        dc.w    $4E75        ; $00B644
-        dc.w    $4A38        ; $00B646
-        dc.w    $FEB0        ; $00B648
-        dc.w    $670C        ; $00B64A
-        dc.w    $3038        ; $00B64C
-        dc.w    $9F7A        ; $00B64E
-        dc.w    $5240        ; $00B650
-        dc.w    $13C0        ; $00B652
-        dc.w    $00FF        ; $00B654
-        dc.w    $691B        ; $00B656
-        dc.w    $4E75        ; $00B658
+; ============================================================================
+; Lap Value Store 1 ($00B632-$00B644)
+; Translated from dc.w format - see disasm/modules/68k/game/lap_value_store_1.asm
+; ============================================================================
+        include "modules/68k/game/lap_value_store_1.asm"
+
+; ============================================================================
+; Lap Value Store 2 ($00B646-$00B658)
+; Translated from dc.w format - see disasm/modules/68k/game/lap_value_store_2.asm
+; ============================================================================
+        include "modules/68k/game/lap_value_store_2.asm"
         dc.w    $11FC        ; $00B65A
         dc.w    $0001        ; $00B65C
         dc.w    $C802        ; $00B65E
@@ -2970,34 +2624,23 @@
         dc.w    $31C1        ; $00BD98
         dc.w    $C0B2        ; $00BD9A
         dc.w    $4E75        ; $00BD9C
-        dc.w    $584F        ; $00BD9E
-        dc.w    $11FC        ; $00BDA0
-        dc.w    $0001        ; $00BDA2
-        dc.w    $C308        ; $00BDA4
-        dc.w    $4E75        ; $00BDA6
-        dc.w    $4A78        ; $00BDA8
-        dc.w    $A0F0        ; $00BDAA
-        dc.w    $6618        ; $00BDAC
-        dc.w    $0838        ; $00BDAE
-        dc.w    $0001        ; $00BDB0
-        dc.w    $C8AB        ; $00BDB2
-        dc.w    $6710        ; $00BDB4
-        dc.w    $33FC        ; $00BDB6
-        dc.w    $FFFF        ; $00BDB8
-        dc.w    $00FF        ; $00BDBA
-        dc.w    $60C8        ; $00BDBC
-        dc.w    $13FC        ; $00BDBE
-        dc.w    $0009        ; $00BDC0
-        dc.w    $00FF        ; $00BDC2
-        dc.w    $6850        ; $00BDC4
-        dc.w    $4E75        ; $00BDC6
-        dc.w    $4A78        ; $00BDC8
-        dc.w    $A0F0        ; $00BDCA
-        dc.w    $6606        ; $00BDCC
-        dc.w    $31FC        ; $00BDCE
-        dc.w    $0001        ; $00BDD0
-        dc.w    $A0F0        ; $00BDD2
-        dc.w    $4E75        ; $00BDD4
+; ============================================================================
+; Abort With Flag ($00BD9E-$00BDA6)
+; Translated from dc.w format - see disasm/modules/68k/game/abort_with_flag.asm
+; ============================================================================
+        include "modules/68k/game/abort_with_flag.asm"
+
+; ============================================================================
+; HUD Activate Check ($00BDA8-$00BDC6)
+; Translated from dc.w format - see disasm/modules/68k/game/hud_activate_check.asm
+; ============================================================================
+        include "modules/68k/game/hud_activate_check.asm"
+
+; ============================================================================
+; Counter Init Check ($00BDC8-$00BDD4)
+; Translated from dc.w format - see disasm/modules/68k/game/counter_init_check.asm
+; ============================================================================
+        include "modules/68k/game/counter_init_check.asm"
         dc.w    $3238        ; $00BDD6
         dc.w    $A0F0        ; $00BDD8
         dc.w    $6720        ; $00BDDA
@@ -3295,32 +2938,11 @@
         dc.w    $4278        ; $00C022
         dc.w    $A0EC        ; $00C024
         dc.w    $4E75        ; $00C026
-        dc.w    $7000        ; $00C028
-        dc.w    $43F9        ; $00C02A
-        dc.w    $00FF        ; $00C02C
-        dc.w    $6800        ; $00C02E
-        dc.w    $1340        ; $00C030
-        dc.w    $0000        ; $00C032
-        dc.w    $43F9        ; $00C034
-        dc.w    $00FF        ; $00C036
-        dc.w    $6810        ; $00C038
-        dc.w    $1340        ; $00C03A
-        dc.w    $0000        ; $00C03C
-        dc.w    $43F9        ; $00C03E
-        dc.w    $00FF        ; $00C040
-        dc.w    $6820        ; $00C042
-        dc.w    $1340        ; $00C044
-        dc.w    $0000        ; $00C046
-        dc.w    $43F9        ; $00C048
-        dc.w    $00FF        ; $00C04A
-        dc.w    $6900        ; $00C04C
-        dc.w    $7205        ; $00C04E
-        dc.w    $4251        ; $00C050
-        dc.w    $43E9        ; $00C052
-        dc.w    $0014        ; $00C054
-        dc.w    $51C9        ; $00C056
-        dc.w    $FFF8        ; $00C058
-        dc.w    $4E75        ; $00C05A
+; ============================================================================
+; HUD Buffer Clear ($00C028-$00C05A)
+; Translated from dc.w format - see disasm/modules/68k/game/hud_buffer_clear.asm
+; ============================================================================
+        include "modules/68k/game/hud_buffer_clear.asm"
         dc.w    $0402        ; $00C05C
         dc.w    $C030        ; $00C05E
         dc.w    $0402        ; $00C060
