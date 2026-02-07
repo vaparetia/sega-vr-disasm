@@ -1,6 +1,6 @@
 # Virtua Racing Deluxe (32X) - Complete Disassembly & Analysis
 
-**Status: ✅ v4.4.0 - Disassembler Phase 1 Complete**
+**Status: ✅ v4.5.0 - 68K Translation Pass**
 
 A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with comprehensive reverse engineering documentation. The ROM rebuilds to a **byte-identical** binary in all translated regions, with **4MB expansion ROM** containing SH2 parallel processing infrastructure.
 
@@ -8,7 +8,8 @@ A complete, buildable disassembly of Virtua Racing Deluxe for the Sega 32X, with
 
 - **Byte-perfect rebuild** - All translated functions verified identical to original ROM
 - **75 SH2 functions translated** - Proper `.short` opcode assembly across 36 files
-- **16 68K module categories** - boot, display, frame, game, graphics, hardware, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
+- **14 68K game functions translated** - AI, physics, entity management in code_a200 (1,306 bytes)
+- **17 68K module categories** - boot, data, display, frame, game, graphics, hardware-regs, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
 - **4MB expansion ROM** - 1MB SH2 working space with parallel processing infrastructure (not yet activated)
 - **503+ named 68K functions** - Categorized by subsystem with 200+ auto-injected labels
 - **107 named SH2 functions** - 3D engine fully mapped
@@ -143,10 +144,11 @@ You must provide your own legal ROM dump:
 
 1. ~~SH2 function translation (major pass)~~ ✅ Done (75 functions)
 2. ~~Parallel processing infrastructure~~ ✅ Done (expansion ROM ready)
-3. **68K assembly translation** - Converting dc.w to proper assembly (in progress)
-4. **Activate parallel hooks** - Wire up dispatch redirect and func_021 trampoline
-5. **Performance Testing** - Measure FPS improvement from parallel processing
-6. **Synchronization** - Ensure Slave completes before next frame
+3. ~~68K translation pass (code_a200)~~ ✅ Done (14 functions, 1,306 bytes)
+4. **Continue 68K translation** - Remaining sections (code_e200, other game sections)
+5. **Activate parallel hooks** - Wire up dispatch redirect and func_021 trampoline
+6. **Performance Testing** - Measure FPS improvement from parallel processing
+7. **Synchronization** - Ensure Slave completes before next frame
 
 ## Documentation
 
@@ -199,6 +201,20 @@ Converting raw `dc.w` opcodes to readable, maintainable 68000 assembly. Translat
 | [position_trig.asm](disasm/modules/68k/game/position_trig.asm) | $007084-$0074AC | Trig lookup (29 calls/frame), position update, angle normalize |
 | [fast_copy.asm](disasm/modules/68k/memory/fast_copy.asm) | $004836-$00494C | Unrolled memory copy/fill (16-112 bytes) |
 | [sh2_communication.asm](disasm/modules/68k/sh2/sh2_communication.asm) | $00E316-$00E3B2 | **Blocking sync** - root cause of ~20 FPS limit |
+| [physics_lookup_tables.asm](disasm/modules/68k/game/physics_lookup_tables.asm) | $00A200-$00A2F8 | Speed/drag curve lookup tables (248B) |
+| [effect_timer_mgmt.asm](disasm/modules/68k/game/effect_timer_mgmt.asm) | $00A2F8-$00A3A0 | Effect timers, countdown, RAM clear (168B) |
+| [speed_calculation.asm](disasm/modules/68k/game/speed_calculation.asm) | $00A3A2-$00A3E8 | Speed computation from lookup table (70B) |
+| [speed_interpolation.asm](disasm/modules/68k/game/speed_interpolation.asm) | $00A3EA-$00A432 | Speed adjustment toward target, clamped (74B) |
+| [ai_opponent_select.asm](disasm/modules/68k/game/ai_opponent_select.asm) | $00A434-$00A46E | AI targeting activation by game mode (60B) |
+| [physics_integration.asm](disasm/modules/68k/game/physics_integration.asm) | $00A666-$00A6F6 | Heading/velocity via sin/cos integration (144B) |
+| [ai_steering_calc.asm](disasm/modules/68k/game/ai_steering_calc.asm) | $00A7A0-$00A7E0 | Arctangent steering approximation (66B) |
+| [entity_table_load.asm](disasm/modules/68k/game/entity_table_load.asm) | $00A7E2-$00A808 | ROM-to-RAM entity data loading (38B) |
+| [entity_table_load_mode.asm](disasm/modules/68k/game/entity_table_load_mode.asm) | $00A80A-$00A83C | Mode-indexed table loading (50B) |
+| [bulk_table_copy.asm](disasm/modules/68k/game/bulk_table_copy.asm) | $00A83E-$00A866 | Two-block ROM-to-RAM copy (40B) |
+| [obj_state_return.asm](disasm/modules/68k/game/obj_state_return.asm) | $00A8F8-$00A970 | Dual-path position computation (120B) |
+| [effect_countdown.asm](disasm/modules/68k/game/effect_countdown.asm) | $00AC3E-$00ACBE | Timer management + effect trigger (128B) |
+| [race_mode_flag_set.asm](disasm/modules/68k/game/race_mode_flag_set.asm) | $00ACC0-$00ACD2 | Mode bit to flag conversion (20B) |
+| [ai_target_check.asm](disasm/modules/68k/game/ai_target_check.asm) | $00ACD4-$00AD12 | Entity slot validation with chaining (64B) |
 
 **Translation Format:**
 ```asm
@@ -228,7 +244,7 @@ vint_handler:
 | ROM Size | 4 MB (4,194,304 bytes) with 1MB SH2 expansion |
 | Original Size | 3 MB (3,145,728 bytes) |
 | Original Frame Rate | ~20 FPS (architectural limit due to blocking sync) |
-| Current Status | 75 SH2 + 16 68K module categories translated, parallel hooks prepared |
+| Current Status | 75 SH2 + 14 68K game functions + 17 module categories translated, parallel hooks prepared |
 
 ## 4MB Expansion ROM
 
@@ -306,6 +322,14 @@ python3 analyze_pc_profile.py profile.csv
 
 ## Recent Milestones
 
+### v4.5.0 - 68K Translation Pass (2026-02-06)
+- **14 68K game functions translated** in code_a200 section (1,306 bytes)
+- AI logic (opponent select, steering calc, target check)
+- Physics (integration, lookup tables, speed calc/interpolation)
+- Entity management (table load, bulk copy, state return, effect countdown)
+- **All verified byte-identical** to original ROM
+- **Key discoveries**: ASL vs LSL opcode differences, BSR.W vs JSR (d16,PC) encoding
+
 ### v4.4.0 - Disassembler Phase 1 Complete (2026-02-01)
 - **Memory map system** - JSON-based code/data boundary configuration
 - **Branch reachability** - 56 entry points → 3,729 addresses traced
@@ -318,7 +342,7 @@ python3 tools/disasm_to_asm.py build/vr_rebuild.32x 1000 5000 --map tools/vrd_me
 ```
 
 ### v4.3.1 - 68K Translation Progress
-- **16 68K module categories** translated with full annotations
+- **17 68K module categories** translated with full annotations
 - **75 SH2 functions** converted to proper assembly
 - **Cross-validated documentation** - All analysis docs verified
 
