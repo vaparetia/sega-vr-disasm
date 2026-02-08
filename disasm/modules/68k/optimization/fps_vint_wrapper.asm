@@ -84,31 +84,18 @@ vint_epilogue:
         ; Drain async queue first (SH2 rendering must complete)
         bsr.w   sh2_wait_queue_empty
 
-        ; === TEST LADDER STEP 2: Persistence canary test ===
-        ; Check if canary survives across frames (cross-frame RAM test)
-        ; Expected: "42" stable if canary intact, "88" if RAM corrupted
-        cmpi.w  #$A55A,fps_canary       ; Check if canary is intact
-        beq.s   .canary_ok
-        ; Canary corrupted or uninitialized - display 88
-        move.w  #88,fps_value
-        bra.s   .write_canary
-.canary_ok:
-        ; Canary intact - persistence confirmed
-        move.w  #42,fps_value
-.write_canary:
-        move.w  #$A55A,fps_canary       ; Write/refresh canary for next frame
+        ; === FULL FPS LOGIC: Epilogue-only state management ===
+        ; Increment tick counter (counts V-INTs to measure seconds)
+        addq.w  #1,fps_vint_tick
+        cmpi.w  #60,fps_vint_tick       ; 60 V-INTs = 1 second (NTSC)
+        blt.s   .render
 
-        ; === FULL FPS LOGIC (disabled for step 2) ===
-        ; addq.w  #1,fps_vint_tick
-        ; cmpi.w  #60,fps_vint_tick       ; 60 V-INTs = 1 second (NTSC)
-        ; blt.s   .render
-        ;
-        ; ; Sample FPS once per second: delta of $FFFFC964 frame counter
-        ; move.l  FRAME_COUNTER.w,d0      ; Current frame count
-        ; sub.l   fps_last_c964,d0        ; Subtract last sample = frames in last second
-        ; move.w  d0,fps_value            ; Store FPS for display
-        ; move.l  FRAME_COUNTER.w,fps_last_c964  ; Update snapshot for next sample
-        ; clr.w   fps_vint_tick           ; Reset tick counter
+        ; Sample FPS once per second: delta of $FFFFC964 frame counter
+        move.l  FRAME_COUNTER.w,d0      ; Current frame count
+        sub.l   fps_last_c964,d0        ; Subtract last sample = frames in last second
+        move.w  d0,fps_value            ; Store FPS for display
+        move.l  FRAME_COUNTER.w,fps_last_c964  ; Update snapshot for next sample
+        clr.w   fps_vint_tick           ; Reset tick counter
 
 .render:
         ; WORK PATH: Render on frames with work (should be minority during idle)
