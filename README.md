@@ -176,6 +176,12 @@ You must provide your own legal ROM dump:
 | Original Frame Rate | ~20 FPS (blocking sync bottleneck) |
 | Target Frame Rate | 60 FPS |
 
+## Support
+
+If you'd like to support this project, consider becoming a patron:
+
+[patreon.com/virtua_racing_60fps](https://patreon.com/virtua_racing_60fps)
+
 ## Credits
 
 - **Original Game**: SEGA (1994)
