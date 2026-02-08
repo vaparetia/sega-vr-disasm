@@ -461,10 +461,7 @@ vint_handler:                           ; $001684
         addq.l  #1,$FFFFC964.w          ; Increment frame counter (Work RAM)
         ; ASYNC: Disabled entirely (no space for init code in 68K section)
         movem.l (sp)+,d0-d7/a0-a6       ; Restore 14 registers
-        move.w  #$2300,sr               ; Re-enable interrupts
-        ; Phase 1 Step 7: Ensure async command queue is drained before next frame
-        jsr     sh2_wait_queue_empty    ; Wait for all commands to process
-        rte                             ; $16AE - Normal exit (after full handler)
+        jmp     vint_epilogue+$880000   ; Continue in optimization area (SR restore + queue drain + FPS render + RTE)
 
 .no_work:
         rte                             ; $16B0 - Early exit (state was 0)

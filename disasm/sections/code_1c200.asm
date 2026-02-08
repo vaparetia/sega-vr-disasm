@@ -35,6 +35,10 @@
 
 vrd_opt_start:
 
+; --- FPS Counter (MUST be first - address $89C208 hardcoded in V-INT vector) ---
+        include "modules/68k/optimization/fps_vint_wrapper.asm"
+        include "modules/68k/optimization/fps_render.asm"
+
 ; --- Phase 1: Async Command Queue Infrastructure ---
         include "modules/68k/optimization/sh2_send_cmd_async.asm"
         include "modules/68k/optimization/sh2_wait_queue_empty.asm"

@@ -40,6 +40,11 @@ ring_buffer_init:
         clr.l   (a0)+               ; Head = 0
         clr.l   (a0)                ; Tail = 0 (A0 now points to $2203F204)
 
+        ; Initialize FPS counter RAM variables (end of Work RAM)
+        clr.w   $FFFFFE00           ; fps_vint_tick = 0
+        clr.w   $FFFFFE02           ; fps_value = 0
+        clr.l   $FFFFFE04           ; fps_last_c964 = 0
+
         rts                         ; Return to caller
 
 ; ============================================================================

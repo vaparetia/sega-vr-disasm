@@ -44,8 +44,8 @@ test_async_single_cmd:
         move.w  #$0030,d2                   ; Test param3
         move.b  #$27,d3                     ; Command $27
 
-        ; Call async submission function (absolute JSR required)
-        jsr     sh2_send_cmd_async          ; Enqueue command and return
+        ; Call async submission function (PC-relative, same section)
+        bsr.w   sh2_send_cmd_async          ; Enqueue command and return
 
         rts                                 ; Test complete
 
