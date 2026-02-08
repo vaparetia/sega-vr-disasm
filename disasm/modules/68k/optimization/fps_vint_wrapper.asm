@@ -1,38 +1,35 @@
 ; ============================================================================
-; FPS V-INT Wrapper - Accurate Frame Rate Measurement
+; FPS V-INT Wrapper - Epilogue-Only Frame Rate Measurement
 ; Location: MUST be first module in optimization area ($89C208)
 ; ============================================================================
 ;
 ; PURPOSE
 ; -------
 ; Thin wrapper inserted before the original V-INT handler via vector redirect.
-; Runs on EVERY V-INT (even when $C87A = 0), providing accurate time base
-; for FPS measurement.
+; Wrapper does NO state management (avoids proven WRAM corruption issue).
+; All FPS logic happens in vint_epilogue after queue drain.
 ;
 ; HOW IT WORKS
 ; ------------
-; 1. Increments a V-INT tick counter on every call (60 ticks/sec NTSC)
-; 2. Every 60 ticks (1 second), samples the game's frame counter at $C964
-; 3. FPS = (current $C964) - (last sampled $C964)
-; 4. Jumps to original V-INT handler at $00881684
+; 1. Wrapper: Renders FPS on no-work frames, jumps to original V-INT handler
+; 2. Original V-INT handler executes, then jumps to vint_epilogue
+; 3. Epilogue: Drains queue, increments tick counter, samples frame counter
+; 4. Every 60 ticks (1 second), FPS = delta of $FFFFC964 frame counter
+; 5. Epilogue: Renders FPS on work frames, returns via RTE
 ;
-; WHY VECTOR REDIRECT
-; -------------------
-; The original V-INT handler exits early when $C87A = 0 (no work pending).
-; The frame counter at $C964 only increments when work IS pending. To measure
-; FPS accurately, we need a counter that runs on every V-INT regardless.
+; WHY EPILOGUE-ONLY STATE
+; ------------------------
+; Original V-INT handler at $00881684 corrupts high WRAM ranges (including
+; $CA20, $D200, etc). State written in wrapper does not survive to epilogue.
+; Solution: All FPS state writes happen in epilogue (single execution context).
 ;
-; RAM LAYOUT (16 bytes in isolated $D200 range)
+; RAM LAYOUT (8 bytes at $C8F8-$C8FF)
 ; ------------------------------------------------------------
-; $FFFFD200: fps_vint_tick   (word) - V-INT tick counter (0-59)
-; $FFFFD202: fps_value       (word) - Current FPS for display (0-99)
-; $FFFFD204: fps_flip_counter (long) - FS bit transition counter
-; $FFFFD208: fps_flip_last   (long) - Flip counter snapshot from last sample
-; $FFFFD20C: fps_fs_last     (word) - Last FS bit state (0 or 1)
-; $FFFFD20E: fps_sentinel    (word) - DIAGNOSTIC: Same-frame survival test
+; $FFFFC8F8: fps_vint_tick   (word) - V-INT tick counter (0-59)
+; $FFFFC8FA: fps_value       (word) - Current FPS for display (0-99)
+; $FFFFC8FC: fps_last_c964   (long) - Frame counter snapshot from last sample
 ;
-; NOTE: Relocated to $D200 after RAM corruption confirmed in $CA20 range.
-; $D200 is far from all documented game state ($C800-$C9FF active regions).
+; NOTE: Uses existing game frame counter at $FFFFC964 as data source.
 ;
 ; CALLING CONVENTION
 ; ------------------
@@ -45,33 +42,21 @@
 ; Related: fps_render.asm, vint_handler (code_200.asm)
 ; ============================================================================
 
-; --- RAM variable addresses (unified symbol base) ---
-FPS_BASE         equ     $FFFFD200      ; Base address for all FPS variables
-fps_vint_tick    equ     FPS_BASE+0     ; $FFFFD200: V-INT tick counter (word)
-fps_value        equ     FPS_BASE+2     ; $FFFFD202: Current FPS display value (word)
-fps_flip_counter equ     FPS_BASE+4     ; $FFFFD204: Buffer flip counter (long)
-fps_flip_last    equ     FPS_BASE+8     ; $FFFFD208: Last sampled flip count (long)
-fps_fs_last      equ     FPS_BASE+12    ; $FFFFD20C: Last FS bit state (word)
-fps_sentinel     equ     FPS_BASE+14    ; $FFFFD20E: Sentinel canary (word)
+; --- RAM variable addresses (epilogue-only state, 8 bytes) ---
+FPS_BASE         equ     $FFFFC8F8      ; Base address for all FPS variables
+fps_vint_tick    equ     FPS_BASE+0     ; $FFFFC8F8: V-INT tick counter (word)
+fps_value        equ     FPS_BASE+2     ; $FFFFC8FA: Current FPS display value (word)
+fps_last_c964    equ     FPS_BASE+4     ; $FFFFC8FC: Last sampled frame counter (long)
+
+; --- Game frame counter (existing VRD state) ---
+FRAME_COUNTER    equ     $FFFFC964      ; Game's frame counter (increments on work frames)
 
 ; --- Original V-INT handler address ---
-ORIG_VINT       equ     $00881684       ; Original handler (68K CPU address)
+ORIG_VINT        equ     $00881684      ; Original handler (68K CPU address)
 
 fps_vint_wrapper:
-        ; Always increment tick counter (runs every V-INT)
-        addq.w  #1,fps_vint_tick
-
-        ; === DIAGNOSTIC A: Force constant 42 every V-INT ===
-        ; Tests if display path is stable (should show stable "42")
-        move.w  #42,fps_value
-
-        ; === Same-frame survival test: Sentinel canary ===
-        ; Write sentinel immediately after display value.
-        ; vint_epilogue will check if this survives until render time.
-        move.w  #$4242,fps_sentinel
-
-.skip_sample:
-        ; Gate render by work/no-work state
+        ; Wrapper does NO state management - epilogue owns all FPS logic.
+        ; Only renders on no-work path (work path uses epilogue render).
         tst.w   $FFFFC87A.w                    ; Check work pending flag
         bne.s   .skip_no_work_render           ; If work, epilogue will render
 
@@ -93,36 +78,27 @@ vint_epilogue:
         move.w  #$2300,sr               ; Re-enable interrupts (was in code_200)
         movem.l d0-d1/a0-a1,-(sp)      ; Save regs clobbered by queue drain + fps_render
 
-        ; === Dual-stage sentinel test: Isolate corruption point ===
-        ; Stage 1: Check BEFORE queue drain (tests original V-INT handler)
-        cmpi.w  #$4242,fps_sentinel
-        beq.s   .pre_queue_ok
-        ; Corrupted before queue drain - V-INT handler clobbered it
-        move.w  #91,fps_value           ; Display = 91 (pre-drain corruption)
-        bra.w   .render_now             ; Use word branch (longer range)
-.pre_queue_ok:
+        ; Drain async queue first (SH2 rendering must complete)
+        bsr.w   sh2_wait_queue_empty
 
-        ; Stage 2: Drain queue, then check again
-        bsr.w   sh2_wait_queue_empty    ; Drain async command queue
-        cmpi.w  #$4242,fps_sentinel
-        beq.s   .post_queue_ok
-        ; Corrupted during/after queue drain
-        move.w  #92,fps_value           ; Display = 92 (queue-drain corruption)
-        bra.w   .render_now             ; Use word branch (longer range)
-.post_queue_ok:
-        ; Sentinel survived both checks - display = 42 (from wrapper)
+        ; === EPILOGUE-ONLY FPS LOGIC (all state management here) ===
+        ; Increment tick counter (counts V-INTs to measure seconds)
+        addq.w  #1,fps_vint_tick
+        cmpi.w  #60,fps_vint_tick       ; 60 V-INTs = 1 second (NTSC)
+        blt.s   .render
 
-.render_now:
-        ; === OPTION 5 SANITY TEST ===
-        ; Override fps_value with 42 written RIGHT NOW (epilogue-time)
-        ; Tests: Does render path work when value is written at render time?
-        ; Expected: Stable "42" if epilogue-time writes work (bypasses WRAM handoff)
-        move.w  #42,fps_value
+        ; Sample FPS once per second: delta of $FFFFC964 frame counter
+        move.l  FRAME_COUNTER.w,d0      ; Current frame count
+        sub.l   fps_last_c964,d0        ; Subtract last sample = frames in last second
+        move.w  d0,fps_value            ; Store FPS for display
+        move.l  FRAME_COUNTER.w,fps_last_c964  ; Update snapshot for next sample
+        clr.w   fps_vint_tick           ; Reset tick counter
 
+.render:
         ; WORK PATH: Render on frames with work (should be minority during idle)
         bsr.w   fps_render
 
-        movem.l (sp)+,d0-d1/a0-a1      ; Restore pre-interrupt register values
+        movem.l (sp)+,d0-d1/a0-a1       ; Restore pre-interrupt register values
         rte
 
 ; ============================================================================

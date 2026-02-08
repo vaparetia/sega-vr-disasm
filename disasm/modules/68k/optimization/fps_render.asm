@@ -5,7 +5,7 @@
 ;
 ; PURPOSE
 ; -------
-; Renders the current FPS value (from fps_value at $FFFFFE02) to both
+; Renders the current FPS value (from fps_value at $FFFFC8FA) to both
 ; frame buffers using an embedded 4x5 pixel font.
 ;
 ; DISPLAY LAYOUT
@@ -32,11 +32,15 @@
 ;
 ; CALLING CONVENTION
 ; ------------------
-; Parameters: None (reads fps_value from $FFFFC8FA)
+; Parameters: None (reads fps_value via symbol)
 ; Returns: Nothing
 ; Clobbers: Nothing (all registers saved/restored)
 ; Cost: ~800 cycles (~0.6% of 68K frame budget)
 ; ============================================================================
+
+; --- Import FPS state symbols from fps_vint_wrapper ---
+FPS_BASE         equ     $FFFFC8F8      ; Base address for all FPS variables
+fps_value        equ     FPS_BASE+2     ; $FFFFC8FA: Current FPS display value (word)
 
 fps_render:
         movem.l d0-d5/a0-a2,-(sp)
@@ -51,7 +55,7 @@ fps_render:
 
         ; --- Get FPS value, clamp 0-99, split into digits ---
         moveq   #0,d0
-        move.w  $FFFFD202.w,d0          ; Read fps_value from RAM
+        move.w  fps_value,d0            ; Read fps_value from RAM
         cmpi.w  #99,d0
         bls.s   .clamp_ok
         moveq   #99,d0

@@ -40,13 +40,10 @@ ring_buffer_init:
         clr.l   (a0)+               ; Head = 0
         clr.l   (a0)                ; Tail = 0 (A0 now points to $2203F204)
 
-        ; Initialize FPS counter RAM variables (isolated range $D200-$D20F)
-        clr.w   $FFFFD200           ; fps_vint_tick = 0
-        clr.w   $FFFFD202           ; fps_value = 0
-        clr.l   $FFFFD204           ; fps_flip_counter = 0
-        clr.l   $FFFFD208           ; fps_flip_last = 0
-        clr.w   $FFFFD20C           ; fps_fs_last = 0
-        clr.w   $FFFFD20E           ; fps_sentinel = 0
+        ; Initialize FPS counter RAM variables (8 bytes at $C8F8-$C8FF)
+        clr.w   $FFFFC8F8           ; fps_vint_tick = 0
+        clr.w   $FFFFC8FA           ; fps_value = 0
+        clr.l   $FFFFC8FC           ; fps_last_c964 = 0
 
         rts                         ; Return to caller
 
