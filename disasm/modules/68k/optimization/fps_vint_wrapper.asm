@@ -13,9 +13,12 @@
 ; ------------
 ; 1. Wrapper: Renders FPS on no-work frames, jumps to original V-INT handler
 ; 2. Original V-INT handler executes, then jumps to vint_epilogue
-; 3. Epilogue: Drains queue, increments tick counter, samples frame counter
-; 4. Every 60 ticks (1 second), FPS = delta of $FFFFC964 frame counter
+; 3. Epilogue: Drains queue, tracks FS bit transitions (buffer flips)
+; 4. Every 60 ticks (1 second), FPS = delta of flip counter
 ; 5. Epilogue: Renders FPS on work frames, returns via RTE
+;
+; FS BIT TRACKING: Reads $00A15100 bit 0 every V-INT. When bit changes,
+; a buffer flip occurred (new frame presented). Count transitions = actual FPS.
 ;
 ; WHY EPILOGUE-ONLY STATE
 ; ------------------------
@@ -23,14 +26,16 @@
 ; $CA20, $D200, etc). State written in wrapper does not survive to epilogue.
 ; Solution: All FPS state writes happen in epilogue (single execution context).
 ;
-; RAM LAYOUT (10 bytes at $FFFFE600-$FFFFE609)
+; RAM LAYOUT (14 bytes at $FFFFE600-$FFFFE60D)
 ; ------------------------------------------------------------
-; $FFFFE600: fps_vint_tick   (word) - V-INT tick counter (0-59)
-; $FFFFE602: fps_value       (word) - Current FPS for display (0-99)
-; $FFFFE604: fps_last_c964   (long) - Frame counter snapshot from last sample
-; $FFFFE608: fps_canary      (word) - Persistence test canary (0xA55A)
+; $FFFFE600: fps_vint_tick    (word) - V-INT tick counter (0-59)
+; $FFFFE602: fps_value        (word) - Current FPS for display (0-99)
+; $FFFFE604: fps_flip_counter (long) - Total buffer flip count
+; $FFFFE608: fps_flip_last    (long) - Last sampled flip count
+; $FFFFE60C: fps_fs_last      (word) - Last FS bit state (0 or 1)
 ;
-; NOTE: Uses existing game frame counter at $FFFFC964 as data source.
+; NOTE: Measures actual buffer flips (FS bit transitions in $00A15100).
+; NOTE: This is true presented frame rate, not V-INT frequency.
 ; NOTE: Relocated to $FFFFE600 after collision confirmed at $FFFFC8F8.
 ;
 ; CALLING CONVENTION
@@ -44,15 +49,16 @@
 ; Related: fps_render.asm, vint_handler (code_200.asm)
 ; ============================================================================
 
-; --- RAM variable addresses (epilogue-only state, 10 bytes) ---
+; --- RAM variable addresses (epilogue-only state, 16 bytes) ---
 FPS_BASE         equ     $FFFFE600      ; Base address for all FPS variables
 fps_vint_tick    equ     FPS_BASE+0     ; $FFFFE600: V-INT tick counter (word)
 fps_value        equ     FPS_BASE+2     ; $FFFFE602: Current FPS display value (word)
-fps_last_c964    equ     FPS_BASE+4     ; $FFFFE604: Last sampled frame counter (long)
-fps_canary       equ     FPS_BASE+8     ; $FFFFE608: Persistence canary (word)
+fps_flip_counter equ     FPS_BASE+4     ; $FFFFE604: Total buffer flip count (long)
+fps_flip_last    equ     FPS_BASE+8     ; $FFFFE608: Last sampled flip count (long)
+fps_fs_last      equ     FPS_BASE+12    ; $FFFFE60C: Last FS bit state (word)
 
-; --- Game frame counter (existing VRD state) ---
-FRAME_COUNTER    equ     $FFFFC964      ; Game's frame counter (increments on work frames)
+; --- 32X hardware registers ---
+ADAPTER_CTRL     equ     $00A15100      ; Adapter control register (bit 0 = FS buffer select)
 
 ; --- Original V-INT handler address ---
 ORIG_VINT        equ     $00881684      ; Original handler (68K CPU address)
@@ -84,17 +90,28 @@ vint_epilogue:
         ; Drain async queue first (SH2 rendering must complete)
         bsr.w   sh2_wait_queue_empty
 
-        ; === FULL FPS LOGIC: Epilogue-only state management ===
-        ; Increment tick counter (counts V-INTs to measure seconds)
-        addq.w  #1,fps_vint_tick
+        ; === TRACK FS BIT TRANSITIONS (actual buffer flips) ===
+        ; Read current FS bit from adapter control register
+        move.w  ADAPTER_CTRL,d0         ; Read adapter_ctrl register
+        andi.w  #1,d0                   ; Isolate FS bit (bit 0)
+        cmp.w   fps_fs_last,d0          ; Compare to last known state
+        beq.s   .no_flip                ; Same state = no flip
+
+        ; FS bit changed - buffer flip occurred
+        addq.l  #1,fps_flip_counter     ; Increment flip counter
+        move.w  d0,fps_fs_last          ; Update last state
+
+.no_flip:
+        ; === FPS SAMPLING: Once per second ===
+        addq.w  #1,fps_vint_tick        ; Increment tick counter
         cmpi.w  #60,fps_vint_tick       ; 60 V-INTs = 1 second (NTSC)
         blt.s   .render
 
-        ; Sample FPS once per second: delta of $FFFFC964 frame counter
-        move.l  FRAME_COUNTER.w,d0      ; Current frame count
-        sub.l   fps_last_c964,d0        ; Subtract last sample = frames in last second
+        ; Sample FPS: delta of flip counter over 1 second
+        move.l  fps_flip_counter,d0     ; Current flip count
+        sub.l   fps_flip_last,d0        ; Subtract last sample = flips per second
         move.w  d0,fps_value            ; Store FPS for display
-        move.l  FRAME_COUNTER.w,fps_last_c964  ; Update snapshot for next sample
+        move.l  fps_flip_counter,fps_flip_last  ; Update snapshot
         clr.w   fps_vint_tick           ; Reset tick counter
 
 .render:
