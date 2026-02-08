@@ -32,7 +32,7 @@ Restructure the command pipeline to eliminate blocking waits, batch commands, an
 
 **Target: 60 FPS** (from ~20-24 FPS baseline)
 
-See [OPTIMIZATION_PLAN.md](OPTIMIZATION_PLAN.md) for the full strategy.
+See [OPTIMIZATION_PLAN.md](OPTIMIZATION_PLAN.md) for the full strategy and [ROADMAP.md](ROADMAP.md) for the implementation plan (10 phases, 94 tasks).
 
 ## Quick Start
 
@@ -141,7 +141,8 @@ python3 analyze_pc_profile.py profile.csv
 
 | Category | Key Documents |
 |----------|---------------|
-| **Optimization Plan** | [OPTIMIZATION_PLAN.md](OPTIMIZATION_PLAN.md) |
+| **Optimization Plan** | [OPTIMIZATION_PLAN.md](OPTIMIZATION_PLAN.md) (strategy & rationale) |
+| **Implementation Roadmap** | [ROADMAP.md](ROADMAP.md) (10 phases, 94 tasks) |
 | **Bottleneck Analysis** | [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) |
 | **68K Profiling** | [68K_BOTTLENECK_ANALYSIS.md](analysis/profiling/68K_BOTTLENECK_ANALYSIS.md) |
 | **Async Design** | [ASYNC_COMMAND_IMPLEMENTATION_PLAN.md](analysis/optimization/ASYNC_COMMAND_IMPLEMENTATION_PLAN.md) |
