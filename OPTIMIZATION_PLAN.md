@@ -1,684 +1,713 @@
 # Virtua Racing 32X - Optimization Strategy
 
-**Status:** Strategic plan approved
-**Baseline:** 24 FPS (current measured performance)
+**Status:** Revised strategic plan (v5.0 update)
+**Last Updated:** February 7, 2026
+**Baseline:** ~20-24 FPS (measured, scene-dependent)
 **Target:** 60 FPS (+150%)
-**Approach:** Data-driven, systematic, high-impact parallelization
+**Approach:** Data-driven, 68K-bottleneck-first
+
+---
 
 ## Executive Summary
 
-After comprehensive codebase analysis, we've identified three high-impact optimization tracks:
+### Ground Truth: The 68K Is THE Bottleneck
 
-1. **VDP Polling Elimination** → +30-40% FPS (medium risk)
-2. **Slave CPU Activation** → +50-100% FPS (medium risk)
-3. **68000 Sync Optimization** → +10-15% FPS (low risk)
+Profiling (January 2026) conclusively proved that **the 68000 CPU is the performance constraint**, not SH2 processing time. This finding invalidates the original optimization plan's priorities and fundamentally changes the strategy.
 
-**Combined potential:** 24 FPS → 48-72 FPS
+**Evidence:**
+1. 68K runs at **100.1% utilization** (127,987 cycles/frame @ 7.67 MHz) — completely saturated
+2. Eliminating **66.6% of Slave SH2 work** produced **ZERO FPS improvement** — frame rate unchanged
+3. The ~20-24 FPS ceiling is caused by a **blocking command-handshake architecture** that serializes the rendering pipeline through the 68K
 
-**Critical learning:** func_065 FIFO batching is impossible (fall-through design). We've documented this failure and will not pursue it.
+**Implication:** Any optimization that doesn't free 68K cycles will NOT improve FPS, regardless of how much SH2 capacity it frees.
 
-### v4.0 Parallel Processing Update (2026-01-26)
+### Revised Priority Order
 
-**Major Development:** Slave CPU activation infrastructure (v4.0) is **COMPLETE** but **NOT YET ACTIVATED**.
+| Priority | Track | Strategy | Expected Gain | Why |
+|----------|-------|----------|---------------|-----|
+| **1** | **68K Blocking Relief** | Async commands via SH2 interrupt queue | **+46-67% FPS** | Eliminates 68K wait cycles |
+| **2** | **Command Batching** | Reduce 35 submissions/frame to ~3 | **+10-20% FPS** | Fewer sync round-trips |
+| **3** | **Pipeline Overlap** | 68K builds frame N+1 while SH2 renders N | **+15-30% FPS** | Removes frame serialization |
+| **4** | **68K Work Offload** | Move physics/trig to idle Master SH2 | **+5-15% FPS** | Frees 68K compute cycles |
+| **5** | **VDP Polling** | Interrupt-driven VDP access (SH2 side) | **Variable** | Only helps if VDP waits are SH2-bound |
+| **6** | **SH2 Micro-Opts** | func_016 inlining, MAC loops, FIFO batch | **0% FPS** | SH2 is NOT the bottleneck |
 
-**What's Ready:**
-- ✅ Parameter capture trampoline at $0234C8 (func_021)
-- ✅ Shared memory parameter block at $2203E000 (SDRAM)
-- ✅ Master dispatch hook at $300050 (skips work for COMM7=$16)
-- ✅ Slave work dispatcher at $300200 (command routing)
-- ✅ func_021_optimized at $300100 (vertex transform with func_016 inlined)
-- ✅ 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
+**Combined potential:** 24 FPS → 48-60+ FPS (via Tracks 1-4)
 
-**Current Blockers:**
-1. ❌ PicoDrive latest build broken (no profiling/debugging capability)
-2. ❌ Need safe trampolining mechanism to 4th MB expansion ROM (SH2-only)
-3. ⚠️ Timing validation required before live activation (frame sync concerns)
+### Key Lesson: SH2 Optimizations Alone Cannot Improve FPS
 
-**Next Steps:**
-→ See [ROADMAP_v4.1.md](analysis/optimization/ROADMAP_v4.1.md) for detailed activation plan
-
-**Impact on Track 2 (Slave CPU Activation):**
-- Infrastructure complete (Phases 1-3 of original plan done)
-- Activation deferred pending profiling capability and timing validation
-- Expected FPS gain remains +50-100% once activated
+The v4.0 Slave CPU activation infrastructure is **complete and valuable** — but it must be understood as **capacity preparation**, not a direct FPS improvement. The idle Master SH2 (0% utilization with hooks disabled, 36% with hooks enabled) is the ideal location for the Track 1 interrupt queue that WILL free 68K cycles.
 
 ---
 
 ## Current State Analysis
 
-### Baseline Performance
+### CPU Utilization (Measured January 29, 2026)
 
-| Metric | Value | Source |
-|--------|-------|--------|
-| Current FPS | 24 | Measured |
-| Frame budget | 958,333 cycles | 23 MHz / 24 FPS |
-| Master SH2 usage | 36.5% | Previous analysis |
-| Slave SH2 usage | 0.03% | Previous analysis |
-| 68000 sync overhead | 16.5% | Estimated |
+Two profiling configurations have been measured:
 
-### Bottleneck Distribution
+**Baseline (expansion hooks DISABLED):**
 
-| Category | Cycles/Frame | % of Budget | Potential Gain |
-|----------|--------------|-------------|----------------|
-| VDP polling | ~450,000 | 47% | **HIGH** |
-| 68000 sync | ~158,000 | 16.5% | Medium |
-| func_065 | ~42,000 | 4.4% | ~~Abandoned~~ |
-| Slave CPU idle | ~950,000 | 99%+ | **VERY HIGH** |
-| Other | Variable | ~32% | Unknown |
+| CPU | Cycles/Frame | Utilization | Role |
+|-----|-------------|-------------|------|
+| **68000** | **127,987** | **100.1%** | **BOTTLENECK — orchestrates entire pipeline** |
+| Master SH2 | 60 | 0.0% | Completely idle (expansion hooks off) |
+| Slave SH2 | 306,989 | 80.1% | All 3D rendering (but 66.5% wasted in idle loop) |
 
-### Functions Analyzed
+**With expansion hooks ENABLED:**
 
-| Function | Address | Calls | Status | Optimization |
-|----------|---------|-------|--------|--------------|
-| 0x022B58 | ROM | 36× | ⚠️ Partial | TBD (needs decoder) |
-| 0x021B2C | ROM | 19× | ❌ Not analyzed | TBD |
-| 0x0203D8 | ROM | 18× | ✅ Documented | Low priority (~0.3%) |
-| 0x023F2E | ROM | 17× | ✅ Complete | ❌ Untouchable |
+| CPU | Cycles/Frame | Utilization | Useful Work |
+|-----|-------------|-------------|-------------|
+| **68000** | **127,987** | **100.1%** | **BOTTLENECK** |
+| Master SH2 | 139,568 | 36.4% | Vertex transform offload |
+| Slave SH2 | 299,958 | 78.3% | 3D rendering (33.5% useful, 66.5% idle loop) |
 
-**Documentation coverage:** 3/710 functions (0.4%)
+**Key insight:** 68K utilization is identical in both configurations. Changing SH2 work distribution has zero effect on frame rate.
+
+### Frame Time Budget
+
+```
+68K frame budget:   127,833 cycles @ 7.67 MHz = 16.67 ms
+SH2 frame budget:   383,500 cycles @ 23.01 MHz = 16.67 ms
+
+Actual frame time breakdown (measured):
+  68K game logic + sync:   16.69 ms (100.1% — saturated)
+  68K blocking waits:      ~10 ms   (~60% of 68K time!)
+  SH2 rendering:           13.04 ms (78.3% utilization)
+  Frame overhead:           ~2 ms
+
+Effective FPS:  ~24 FPS (1000ms / 42ms total)
+```
+
+### The Blocking Pipeline (Root Cause)
+
+The 68K submits **~35 blocking commands per frame** to the SH2 subsystem:
+
+| Function | Address | Calls/Frame | Blocking Loops | Impact |
+|----------|---------|-------------|----------------|--------|
+| `sh2_cmd_27` | $00E3B4 | 21 | 2 inline loops each | **Dominant — 60% of submissions** |
+| `sh2_graphics_cmd` | $00E22C | 14 | 1 via `sh2_send_cmd_wait` | Moderately expensive |
+| `sh2_send_cmd_wait` | $00E316 | (indirect) | 1 blocking poll | Used by `sh2_graphics_cmd` |
+| `sh2_wait_response` | $00E342 | (indirect) | Polls COMM6 | Final sync per command |
+
+Each command follows a strict `submit → wait → continue` pattern:
+
+```
+68K                              SH2
+ |                                |
+ |-- Write COMM0 (command) -----> |
+ |-- Write COMM4+5 (params) ----> |
+ |                                |
+ |   ┌── BLOCKING WAIT ──┐       |-- Process command
+ |   │  Poll COMM6        │       |
+ |   │  (wastes 68K cycles)│      |
+ |   └────────────────────┘       |
+ |                                |-- Write COMM6 (done)
+ |<-- Read COMM6 (acknowledged) --|
+ |                                |
+ |-- Next command...              |
+```
+
+**~60% of 68K cycles are wasted polling COMM registers.** This is the performance ceiling.
 
 ---
 
-## Optimization Philosophy
+## Completed Work
 
-### Core Principles
+### v4.0 Parallel Processing Infrastructure (January 2026)
 
-1. ✅ **Profile before coding** - Use GDB to get empirical data
-2. ✅ **Understand before optimizing** - Document function purpose first
-3. ✅ **Test incrementally** - One change at a time, verify each step
-4. ✅ **Focus on big wins** - 80/20 rule: 20% effort for 80% gain
-5. ✅ **Document failures** - Learn from what doesn't work
+**Status:** COMPLETE but NOT ACTIVATED
 
-### Risk Assessment Framework
+| Component | Address | Size | Purpose |
+|-----------|---------|------|---------|
+| `handler_frame_sync` | $300028 | 22B | Frame synchronization |
+| `master_dispatch_hook` | $300050 | 44B | Skips COMM7 for cmd $16 |
+| `func_021_optimized` | $300100 | 96B | Vertex transform (func_016 inlined) |
+| `slave_work_wrapper` | $300200 | 76B | Command dispatch |
+| `slave_test_func` | $300280 | 44B | Test harness |
+| `batch_copy_handler` | $300500 | — | Batch copy command handler |
+| `cmd27_queue_drain` | $300600 | — | Queue drain for cmd $27 |
 
-**Low Risk:**
-- Changes to non-timing-critical code
-- Well-understood functions
-- Easy to revert
-- **Example:** 68000 sync optimization
+**Expansion ROM:** 1MB at $300000-$3FFFFF, only ~1KB used (~99.9% free)
 
-**Medium Risk:**
-- Architectural changes (interrupts vs polling)
-- Multi-CPU coordination
-- Hardware timing changes
-- **Example:** VDP interrupt-driven, Slave CPU activation
+**Activation requires:** Patching dispatch at $02046A and trampoline at $0234C8.
 
-**High Risk:**
-- Modifying fall-through functions
-- Cache-sensitive code
-- Initialization sequence changes
-- **Example:** func_065 (abandoned)
+### v5.0 68K Modularization (February 2026)
 
-### Success Criteria
+- **693 68K functions** modularized across 12 sections (79,940 bytes)
+- **571 modules** auto-translated to proper assembly mnemonics (82.5%)
+- **75 SH2 functions** integrated into build system
+- **17 module categories:** boot, data, display, frame, game, graphics, hardware-regs, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
+- All translations verified byte-identical to original ROM
 
-**Must have:**
-- ROM boots successfully
-- Gameplay is playable
-- Graphics render correctly
-- FPS measured improvement
+### 68K Async Attempt (January 2026) — FAILED
 
-**Nice to have:**
-- Equivalent or better visual quality
-- No introduced bugs
-- Maintainable code
+**What happened:** Implemented `sh2_send_cmd_async` and async queue logic in 68K section.
+
+**Why it failed:** Section `$00E200-$010200` has **ZERO bytes free**. Without initialization code, Work RAM contains garbage → ROM freezes on boot.
+
+**Removed in:** Commit `0dd98c4`
+
+**Lesson:** 68K-side async is impossible in the current ROM layout. The solution must live on the SH2 side.
+
+### Delay Loop Elimination Experiment (January 2026) — SUCCEEDED (but no FPS gain)
+
+**What happened:** Reduced Slave SH2 idle delay loop from 64 to 1 iteration.
+
+**Result:** Slave cycles dropped 66.6% (299,958 → 100,157), FPS **unchanged**.
+
+**Value:** Proved the 68K bottleneck hypothesis beyond doubt. Also demonstrated profiler accuracy (±4% variance from predictions).
 
 ---
 
 ## Optimization Tracks
 
-### Track 1: VDP Polling Elimination 🔥 **HIGH PRIORITY**
+### Track 1: 68K Blocking Relief — Async Commands 🔥🔥🔥 CRITICAL
 
-**Goal:** Replace busy-wait polling with interrupt-driven VDP access
+**Goal:** Eliminate ~60% of 68K time spent polling COMM registers
+**Expected gain:** +46-67% FPS (24 → 35-40 FPS)
+**Risk:** Medium (requires careful synchronization)
 
-**Current state:**
-- 4 polling loops waste ~450K cycles/frame (47% of budget!)
-- Locations: 0x243E2, 0x2441E, 0x2443A, 0x24482
-- Waiting for: V-blank, H-blank, FIFO ready, etc.
+#### The Problem
 
-**Expected gain:** +30-40% FPS (24 → 31-34 FPS)
+The 68K spends **~10ms per frame** (60% of its budget) blocked in polling loops waiting for SH2 acknowledgment. Every one of the ~35 graphics commands per frame requires a full round-trip handshake.
 
-**Risk:** Medium (hardware timing changes)
+#### The Solution: SH2 Interrupt Queue (Path B)
 
-**Phases:**
+Since the 68K section has no space for async infrastructure, the completely idle **Master SH2** will manage the command queue instead.
 
-#### Phase 1: Profile (Week 1) ⏱️ 2-3 days
+**Decision Matrix (from SH2_ASYNC_QUEUE_ANALYSIS.md):**
 
-**Tasks:**
-1. Use GDB to identify what each polling loop waits for
-2. Measure actual wait times per loop
-3. Understand VDP state machine
-4. Document current polling pattern
+| Factor | 68K Queue | SH2 Queue | Winner |
+|--------|-----------|-----------|--------|
+| Implementation space | 0 bytes free | 1MB expansion ROM | **SH2** |
+| Queue management CPU | 68K (saturated) | Master SH2 (idle) | **SH2** |
+| Command latency | Direct COMM write | CMDINT → Master → Slave | 68K |
+| Complexity | Simple | Medium | 68K |
+| **Overall Score** | **2.3/5** | **4.0/5** | **SH2** |
 
-**Deliverables:**
-- VDP_POLLING_ANALYSIS.md
-- Empirical wait time measurements
-- Hardware state documentation
+#### Architecture
 
-**Tools:**
-```bash
-python3 gdb_profiler.py vdp_polling  # Create this profile
+```
+68K                    Master SH2              Slave SH2
+ |                     (currently idle)         (3D rendering)
+ |                         |                       |
+ |-- Write cmd to queue -->|                       |
+ |   (SDRAM ring buffer)   |                       |
+ |                         |                       |
+ |-- Fire CMDINT --------->|                       |
+ |   (returns immediately) |                       |
+ |                         |-- Dequeue command      |
+ |-- Continue game logic   |-- Write COMM0/4/6     |
+ |   (no blocking!)        |-- Signal Slave ------->|
+ |                         |                       |-- Process command
+ |                         |<-- COMM6 done --------|
+ |                         |-- Dequeue next...      |
 ```
 
-#### Phase 2: Design (Week 1-2) ⏱️ 2-3 days
+**Key benefit:** 68K writes command to SDRAM and fires CMDINT — **zero polling, immediate return**. The Master SH2 handles all COMM register choreography.
 
-**Tasks:**
-1. Design interrupt handler structure
-2. Map VDP interrupts (V-blank, H-blank)
-3. Create interrupt service routine (ISR)
-4. Plan synchronization with existing code
+#### COMM Register Collision Analysis
 
-**Deliverables:**
-- VDP_INTERRUPT_DESIGN.md
-- ISR pseudocode
-- Risk analysis
+All 17 command submissions per frame reuse COMM0/COMM4/COMM6. Naive async would corrupt parameters mid-transfer. The solution:
 
-**Success criteria:**
-- Clear interrupt architecture
-- No polling in critical path
-- Maintains frame timing
+- **Single-slot pending queue:** Only one command in flight at a time
+- **Master SH2 serializes:** Ensures COMM registers are stable before next submission
+- **15 of 17 call sites are safe** for async conversion
+- **2 call sites** ($010B2C, $010BAE) have secondary blocking on RAM flag `$FFFFC80E` — need special handling
 
-#### Phase 3: Implement (Week 2) ⏱️ 3-5 days
+#### Implementation Phases
 
-**Tasks:**
-1. Write V-blank interrupt handler
-2. Replace first polling loop with interrupt wait
-3. Test on emulator
-4. Incrementally convert remaining loops
+**Phase 1: Master SH2 Queue Infrastructure** (Expansion ROM)
+1. Ring buffer in SDRAM (64 commands × 8 bytes = 512 bytes at $2203F000)
+2. CMDINT handler on Master SH2 (dequeue + COMM register write)
+3. 68K-side `sh2_send_cmd_async` shim (write to buffer + trigger CMDINT)
+4. Frame boundary sync (`sh2_wait_frame_complete`)
 
-**Deliverables:**
-- Patched ROM with interrupt-driven VDP
-- Test results
-- Performance measurements
+**Phase 2: Convert sh2_cmd_27** (21 calls/frame — biggest win)
+1. Replace inline blocking loops with async shim calls
+2. Test with profiler — expect ~40% 68K cycle reduction for these calls
+3. Validate rendering correctness
 
-**Success criteria:**
-- ROM boots and runs
-- FPS improvement measured
-- No visual glitches
+**Phase 3: Convert sh2_graphics_cmd** (14 calls/frame)
+1. Replace `sh2_send_cmd_wait` path with async
+2. Handle the 2 unsafe call sites (secondary RAM flag blocking)
+3. Full-frame async: all 35 commands non-blocking
 
-#### Phase 4: Validate (Week 2-3) ⏱️ 1-2 days
+**Phase 4: Pipeline frame sync**
+1. Move frame completion check to dedicated sync point
+2. Ensure Slave finishes before buffer flip
+3. Measure total FPS gain
 
-**Tasks:**
-1. Stress test (long gameplay sessions)
-2. Compare visual quality
-3. Measure actual FPS gain
-4. Document any issues
+#### Sizing
 
-**Deliverables:**
-- VDP_INTERRUPT_RESULTS.md
-- FPS comparison data
-- Known issues list
+The 68K async shim needs to fit in the cramped `$00E200` section. Minimum footprint:
 
----
+| Component | Location | Size |
+|-----------|----------|------|
+| `sh2_send_cmd_async` shim | $00E200 section | ~20 bytes |
+| Ring buffer | SDRAM $2203F000 | 512 bytes |
+| CMDINT handler | Expansion ROM $300700 | ~128 bytes |
+| Queue drain logic | Expansion ROM $300800 | ~128 bytes |
+| Frame sync | Expansion ROM $300900 | ~64 bytes |
 
-### Track 2: Slave CPU Activation 🔥 **VERY HIGH PRIORITY** (v4.0 INFRASTRUCTURE COMPLETE)
+**Blocker:** The 68K section has 0 bytes free. Options:
+1. Find dead code to reclaim (most promising — analyze all 68K modules for unreachable paths)
+2. Shorten existing code (compress adjacent functions by 20 bytes)
+3. Move the shim to a different 68K section with space
+4. Use a BSR trampoline to a free area elsewhere
 
-**Goal:** Activate idle Slave SH2 and distribute work
-
-**Current state (Updated 2026-01-26):**
-- ✅ **v4.0 Infrastructure COMPLETE** (parameter passing, trampolines, dispatch code)
-- ⏳ **Activation PENDING** (awaiting profiling capability + timing validation)
-- ⏳ Slave CPU still ~99.97% idle (infrastructure ready but not activated)
-- ⏳ Master CPU still does all work (v4.0 shadow path validated, live path pending)
-
-**Expected gain:** +50-100% FPS (24 → 36-48 FPS) - **UNCHANGED**
-
-**Risk:** Medium (multi-CPU synchronization, frame timing)
-
-**Status Update:**
-- Phases 1-3 below are **COMPLETE** (v4.0 implementation)
-- Activation phases now documented in [ROADMAP_v4.1.md](ROADMAP_v4.1.md)
-- **Current Blockers:**
-  1. PicoDrive debugger broken (no profiling)
-  2. Need safe trampolining to 4th MB expansion ROM
-  3. Timing validation required
-
-**Original Phases (Completed in v4.0):**
-
-#### Phase 1: Investigation (Week 1) ⏱️ 3-4 days ✅ **COMPLETE**
-
-**Tasks:**
-1. ✅ Find Slave CPU entry point
-2. ✅ Understand current idle loop
-3. ✅ Analyze Master↔Slave communication (COMM registers)
-4. ✅ Document synchronization primitives
-
-**Deliverables:**
-- ✅ [MASTER_SLAVE_ANALYSIS.md](analysis/architecture/MASTER_SLAVE_ANALYSIS.md)
-- ✅ [68K_COMM_PROTOCOL.md](analysis/68k-reverse-engineering/68K_COMM_PROTOCOL.md)
-- ✅ [68K_PARALLEL_PROCESSING_ARCHITECTURE.md](analysis/68k-reverse-engineering/68K_PARALLEL_PROCESSING_ARCHITECTURE.md)
-
-#### Phase 2: Work Distribution Design (Week 2) ⏱️ 3-5 days ✅ **COMPLETE**
-
-**Tasks:**
-1. ✅ Identify parallelizable work (3D transforms, physics, etc.)
-2. ✅ Design work queue system (parameter block + COMM signaling)
-3. ✅ Define Master/Slave responsibilities
-4. ✅ Plan synchronization points
-
-**Deliverables:**
-- ✅ v4.0 Architecture: Master signals Slave via COMM7=$16
-- ✅ Parameter block at $2203E000 (R14, R7, R8, R5)
-- ✅ Slave dispatch system implemented
-
-**Parallelized work (v4.0):**
-- ✅ func_021 vertex transformations (delegated to Slave)
-- ⏳ Additional functions deferred to v4.1+ optimization phase
-
-#### Phase 3: Implement Work Queue (Week 2-3) ⏱️ 5-7 days ✅ **COMPLETE**
-
-**Tasks:**
-1. ✅ Create parameter passing system in SDRAM
-2. ✅ Implement Master producer (func_021 trampoline), Slave consumer (slave_work_wrapper)
-3. ✅ Test with real vertex transform workload (func_021_optimized)
-4. ✅ Shadow path validated (infrastructure proven)
-
-**Deliverables:**
-- ✅ func_021 trampoline at $0234C8 (captures R14, R7, R8, R5)
-- ✅ Parameter block at $2203E000 (16 bytes in SDRAM)
-- ✅ Slave work wrapper at $300200 (dispatches COMM7=$16 to func_021_optimized)
-- ✅ func_021_optimized at $300100 (vertex transform with func_016 inlined)
-- ✅ ROM builds and boots successfully
-
-**Success criteria:**
-- ✅ Slave dispatch code executes (shadow path validated)
-- ⏳ Live activation pending timing validation
-- ⏳ Performance measurements pending profiling capability
-
-#### Phase 4: Activation & Validation (Now → Week 8) ⏱️ 6-8 weeks ⏳ **IN PROGRESS**
-
-**Status:** Infrastructure complete, activation pending per [ROADMAP_v4.1.md](ROADMAP_v4.1.md)
-
-**Current Blockers:**
-1. ❌ PicoDrive debugger broken (investigating SH2 core issue)
-2. ❌ Need safe trampolining to 4th MB expansion ROM
-3. ⚠️ Timing validation required (Slave must complete within frame budget)
-
-**Activation Plan:** See [ROADMAP_v4.1.md](ROADMAP_v4.1.md) for detailed phases:
-- **Phase 1:** Restore profiling capability (1-2 weeks)
-- **Phase 2:** Safe trampolining to expansion ROM (1-2 weeks)
-- **Phase 3:** Timing validation & synchronization (1-2 weeks)
-- **Phase 4:** Live activation & performance measurement (1-2 weeks)
-- **Phase 5:** Optimization iterations (2-4 weeks)
-
-**Expected Deliverables:**
-- Working profiling setup (PicoDrive fix or alternative)
-- Expansion ROM trampoline infrastructure
-- Timing validation report (Slave execution time vs frame budget)
-- Live v4.0 ROM with parallel processing activated
-- Performance measurements (actual FPS improvement)
-- Load balancing optimization (v4.1+)
+#### References
+- [ASYNC_COMMAND_IMPLEMENTATION_PLAN.md](analysis/optimization/ASYNC_COMMAND_IMPLEMENTATION_PLAN.md)
+- [SH2_ASYNC_QUEUE_ANALYSIS.md](analysis/optimization/SH2_ASYNC_QUEUE_ANALYSIS.md)
+- [COMM_REGISTER_USAGE_ANALYSIS.md](analysis/optimization/COMM_REGISTER_USAGE_ANALYSIS.md)
 
 ---
 
-### Track 3: 68000 Sync Optimization ⬆️ **MEDIUM PRIORITY**
+### Track 2: Command Batching 🔥🔥 HIGH
 
-**Goal:** Reduce 68000 synchronization overhead
+**Goal:** Reduce 35 individual command submissions to ~3 batch operations per frame
+**Expected gain:** +10-20% FPS (stacks with Track 1)
+**Risk:** Low-Medium
 
-**Current state:**
-- 16.5% of frame time spent syncing with 68000
-- COMM register polling
-- Inefficient handshake protocol
+#### The Problem
 
-**Expected gain:** +10-15% FPS (24 → 26-28 FPS)
+Even with async submission, each command still requires COMM register setup and handshake. Reducing the total number of submissions reduces per-command overhead.
 
-**Risk:** Low (incremental improvements)
+#### Batch Copy Command ($26)
 
-**Phases:**
+A specific opportunity: 8 sequential `sh2_send_cmd_wait` calls in the copy routine can be replaced with a single batch command.
 
-#### Phase 1: Profile (Week 1) ⏱️ 1-2 days
+**Design (from BATCH_COPY_COMMAND_DESIGN.md):**
+1. 68K writes command list to SDRAM (8 × 8 bytes = 64 bytes)
+2. 68K sends single batch command $26 with pointer to list
+3. SH2 processes all 8 commands sequentially
+4. Single COMM6 acknowledgment when all complete
 
-**Tasks:**
-1. Map all COMM register accesses
-2. Measure sync overhead
-3. Identify redundant syncs
-4. Document handshake protocol
+**Expected reduction:** 75-87.5% fewer blocking calls for this sequence.
 
-**Deliverables:**
-- 68K_SYNC_ANALYSIS.md
-- COMM usage patterns
-- Optimization opportunities
+**SH2 handler:** `batch_copy_handler` at $300500 (already in expansion ROM layout).
 
-#### Phase 2: Optimize (Week 2) ⏱️ 2-3 days
+#### Broader Batching Opportunities
 
-**Tasks:**
-1. Batch COMM register operations
-2. Eliminate redundant syncs
-3. Use interrupts instead of polling
-4. Optimize handshake timing
+| Batch Group | Commands | Current Calls | Batched Calls | Reduction |
+|-------------|----------|---------------|---------------|-----------|
+| Copy sequence | $22-type | 8 | 1 | 87.5% |
+| cmd_27 burst | $27-type | 21 | 1-3 | 86-95% |
+| Graphics init | Mixed | 6 | 1 | 83% |
+| **Total** | — | **35** | **~3-5** | **~86-91%** |
 
-**Deliverables:**
-- Optimized sync code
-- Test ROM
-- Performance comparison
+#### References
+- [BATCH_COPY_COMMAND_DESIGN.md](analysis/optimization/BATCH_COPY_COMMAND_DESIGN.md)
 
 ---
 
-### Track 4: Top Function Optimization ⬇️ **LOW PRIORITY**
+### Track 3: Pipeline Overlap 🔥🔥 HIGH
 
-**Goal:** Optimize most-called functions (0x022B58, etc.)
+**Goal:** Allow 68K to build frame N+1 commands while SH2 renders frame N
+**Expected gain:** +15-30% FPS (requires Tracks 1-2 first)
+**Risk:** Medium-High (frame coherency concerns)
 
-**Current state:**
-- 0x022B58 called 36×/frame (most in ROM!)
-- Purpose unknown (decoder incomplete)
-- Potential for optimization
+#### The Problem
 
-**Expected gain:** Unknown (~5-10% estimate)
+Currently, the 68K and SH2 operate in **strict lockstep**: the 68K cannot prepare the next frame's data until the SH2 finishes the current frame. This serializes the entire pipeline.
 
-**Risk:** Medium (depends on function purpose)
+#### The Solution: Double-Buffered Command Lists
 
-**Phases:**
+```
+Frame N:     68K prepares → SH2 renders → complete
+Frame N+1:                  68K prepares → SH2 renders → complete
 
-#### Phase 1: Complete Analysis (Week 2) ⏱️ 2-3 days
+With pipelining:
+Frame N:     68K prepares → SH2 renders ────────────→ complete
+Frame N+1:                  68K prepares → SH2 renders → complete
+                            ↑ overlap ↑
+```
 
-**Tasks:**
-1. Fix SH2 decoder for missing opcodes
-2. Fully disassemble 0x022B58
-3. Understand purpose from context
-4. Profile actual runtime behavior
+**Implementation:**
+1. Two command buffers in SDRAM (A and B)
+2. 68K writes to buffer A while SH2 processes buffer B
+3. Swap at frame boundary
+4. Requires careful synchronization to prevent data races
 
-#### Phase 2: Optimize (Week 3+) ⏱️ Variable
-
-**Tasks:**
-- TBD based on analysis results
-- Might include: inlining, loop unrolling, register optimization
-
-**Note:** Only pursue if other tracks complete and FPS still below target.
+**Prerequisite:** Track 1 (async commands) must be working first, since the 68K can't overlap if it's still blocking on each command.
 
 ---
 
-## Implementation Timeline
+### Track 4: 68K Work Offload 🔥 MEDIUM
 
-**NOTE (2026-01-26):** Timeline updated to reflect v4.0 completion and current blockers. See [ROADMAP_v4.1.md](ROADMAP_v4.1.md) for detailed activation plan.
+**Goal:** Move non-rendering 68K computation to the idle Master SH2
+**Expected gain:** +5-15% FPS
+**Risk:** Medium (data coherency between CPUs)
 
-### Completed Work (v4.0 Development)
+#### The Opportunity
 
-**Slave CPU Investigation & Design:**
-- ✅ Set up GDB profiling environment
-- ✅ Find Slave CPU entry point
-- ✅ Document COMM protocol
-- ✅ Design Slave CPU work queue (parameter block + COMM signaling)
-- ✅ Implement work distribution infrastructure
-- ✅ Create func_021 trampoline (parameter capture)
-- ✅ Implement Slave dispatch system
-- ✅ Shadow path validation (infrastructure proven)
+The Master SH2 is either completely idle (0% with hooks off) or lightly loaded (36% with hooks on). Meanwhile the 68K is 100% saturated. Offloading pure computation frees 68K cycles.
 
-**Milestone:** ✅ v4.0 infrastructure complete, ROM builds and boots successfully
+**Candidates for offload:**
+1. **Trigonometric lookups** — 68K math functions that could run on SH2
+2. **Object sorting/culling** — Pre-processing before command submission
+3. **Physics integration** — Position/velocity updates
+4. **Collision detection** — Bounding box tests
 
-### Current Phase: Activation Preparation (Week 1-8)
+**Data flow:** 68K writes inputs to shared SDRAM → signals Master SH2 → Master SH2 computes → writes results back → 68K reads results.
 
-**Week 1-2: Restore Profiling Capability** ⏳ **IN PROGRESS**
-- ⏳ Investigate PicoDrive SH2 core issue
-- ⏳ Research MAME SH2 core documentation
-- ⏳ Evaluate alternative profiling approaches
-- ⏳ Validate profiling setup
+**Constraint:** Cache-through addressing (`0x2203xxxx`) required for all shared data to prevent stale cache reads.
 
-**Week 3-4: Safe Trampolining to 4th MB**
-- ⏳ Design trampoline architecture
-- ⏳ Implement trampoline infrastructure
-- ⏳ Migrate v4.0 code to expansion ROM
-- ⏳ Document expansion ROM usage guidelines
+---
 
-**Week 5-6: Timing Validation & Synchronization**
-- ⏳ Shadow path timing analysis
-- ⏳ Design synchronization protocol
-- ⏳ Implement frame synchronization
-- ⏳ Validate parameter passing integrity
+### Track 5: VDP Polling Elimination ⬇️ MEDIUM-LOW
 
-**Week 7-8: Live Activation & Measurement**
-- ⏳ Shadow path → live path migration
-- ⏳ Performance measurement (FPS)
-- ⏳ Regression testing
-- ⏳ Documentation update
+**Goal:** Replace SH2-side busy-wait VDP polling with interrupt-driven access
+**Expected gain:** Variable (only helps if SH2 becomes the bottleneck after Tracks 1-4)
+**Risk:** Medium (SH2 interrupt hardware bug requires workaround)
 
-**Milestone:** v4.0 live and operational, FPS improvement measured
+#### Context Shift
 
-### Future: Optimization & Additional Tracks (Week 9+)
+The original plan listed this as the #1 priority based on the assumption that SH2 VDP polling (~450K cycles) was the primary bottleneck. **Profiling disproved this.** The VDP polling loops are on the SH2 side, and the SH2 is NOT the constraint — the 68K is.
 
-**VDP Polling Elimination (Track 1):**
-- ⏳ Profile VDP polling loops (requires working profiler)
-- ⏳ Design VDP interrupt architecture
-- ⏳ Implement interrupt-driven VDP
-- ⏳ Measure FPS gain
+**However:** Once Tracks 1-4 free enough 68K cycles, the SH2 may become the bottleneck again. At that point, VDP polling elimination becomes relevant.
 
-**68000 Sync Optimization (Track 3):**
-- ⏳ Profile 68000 sync overhead
-- ⏳ Optimize COMM protocol
-- ⏳ Batch operations, reduce polling
+#### SH2 Interrupt Hardware Bug (Still Applies)
 
-**Load Balancing & Optimization (v4.1+):**
-- ⏳ Profile work distribution
-- ⏳ Balance load between CPUs
-- ⏳ Optimize cache usage
-- ⏳ Parallelize additional functions
+The original SH2 silicon has a documented interrupt bug (see [32x-hardware-manual-supplement-2.md](docs/32x-hardware-manual-supplement-2.md)). Any interrupt-driven approach must implement:
 
-**Milestone:** Combined optimizations → 60 FPS target
+1. **FRT TOCR toggle** in every interrupt handler (corrective action for hardware bug)
+2. **Only use interrupt levels** 14, 12, 10, 8, 6 (other levels reserved/restricted)
+3. **Shared interrupt dispatcher** — all external interrupts route through one handler
+4. **2+ cycle wait** after interrupt clear before RTE
+5. **DMA restrictions** — no VDP access in H-interrupt during DMA
+
+See the original plan's Track 1 section for the complete corrective action code template.
+
+#### VDP Polling Locations (SH2 side)
+
+| SH2 Address | Wait Condition | Frequency |
+|-------------|---------------|-----------|
+| $0243E2 | V-blank | 1/frame |
+| $02441E | H-blank | Variable |
+| $02443A | FIFO ready | Per polygon |
+| $024482 | Frame buffer swap | 1/frame |
+
+#### References
+- [OPTIMIZATION_OPPORTUNITIES.md](analysis/optimization/OPTIMIZATION_OPPORTUNITIES.md) — Original VDP timing analysis
+- [32x-hardware-manual-supplement-2.md](docs/32x-hardware-manual-supplement-2.md) — SH2 interrupt bug errata
+
+---
+
+### Track 6: SH2 Micro-Optimizations ⬇️ LOW
+
+**Goal:** Optimize individual SH2 functions for fewer cycles
+**Expected FPS gain:** 0% (SH2 is not the bottleneck)
+**Value:** Capacity improvement — frees SH2 headroom for additional workload
+
+#### Why Track 6 is Low Priority
+
+Profiling proved that SH2 cycle reduction does NOT improve FPS:
+- Eliminating 66.6% of Slave work (200K cycles) → 0% FPS change
+- The delay loop experiment is definitive proof
+
+**However**, these optimizations create SH2 headroom that enables Tracks 3-4 (more work for SH2 means it must be efficient enough to handle it).
+
+#### Known Opportunities
+
+| Optimization | Target | Cycle Savings | Status |
+|-------------|--------|--------------|--------|
+| func_016 inlining | func_021 call chain | ~10% of vertex transform | ✅ Done in expansion ROM |
+| MAC loop unrolling | Matrix multiply | ~15% of multiply | Designed, not implemented |
+| Frame buffer FIFO batching | Rasterizer | 2.4x pixel write speed | Needs profiling |
+| SDRAM 16-byte alignment | Data structures | Burst read improvement | Needs profiling |
+| Delay loop reduction | Slave idle loop | 66.6% Slave reduction | ✅ Proven (no FPS gain) |
+
+#### Frame Buffer FIFO Detail (Hardware)
+
+The 32X frame buffer has a 4-word write FIFO:
+- Single write: 3 clock cycles/word
+- Burst write (4+ consecutive words): 5 cycles total = **1.25 cycles/word**
+- **Potential speedup: 2.4x** for frame buffer writes
+
+**Action:** Profile whether VRD already uses 4-word burst writes. If not, restructuring the rasterizer to write in 4-word bursts could significantly reduce rendering time.
+
+#### References
+- [OPTIMIZATION_OPPORTUNITIES.md](analysis/optimization/OPTIMIZATION_OPPORTUNITIES.md) — Hardware timing tables
+- [FUNC_016_INLINING_INFEASIBILITY.md](analysis/optimization/FUNC_016_INLINING_INFEASIBILITY.md) — Why inlining at call sites failed
+- [OPTIMIZATION_LESSONS_LEARNED.md](analysis/optimization/OPTIMIZATION_LESSONS_LEARNED.md) — What worked and what didn't
+
+---
+
+## Hardware Hazards and Constraints
+
+### RV Bit — SH2 ROM Access Blocking
+
+**Risk:** When RV=1 (ROM-to-VRAM DMA in progress), **ALL SH2 ROM access stalls** until 68000 clears it.
+
+**Impact on expansion ROM:** Functions at $02300000+ would stall during any 68K ROM→VRAM DMA transfer.
+
+**Mitigation:** If RV=1 occurs during gameplay, critical expansion code must be copied to SDRAM ($06xxxxxx) which is not affected by RV.
+
+**Status:** Not yet profiled. Priority investigation item.
+
+### FM Bit — VDP Access Preemption
+
+**Risk:** Writing FM=1 **immediately preempts** any ongoing 68K VDP access, even mid-transfer. Can cause VRAM/CRAM/VSRAM corruption.
+
+**Mitigation:** Only switch FM during V-Blank when VDP is idle.
+
+### COMM Register Race Conditions
+
+**Risk:** Simultaneous writes from 68K and SH2 to the same COMM register produce undefined values.
+
+**Current usage:**
+- COMM7 ($2000402E): Master→Slave signal — unidirectional (safe)
+- COMM5 ($2000402A): Vertex transform counter — verify write direction
+
+**Rule for async design:** Master SH2 queue must ensure 68K never writes COMM0/4/6 simultaneously with SH2 reads of those registers.
+
+### CMDINT Behavioral Difference
+
+Unlike VINT/HINT/PWMINT, the CMD interrupt is **negated when masked** and **re-asserted when unmasked** if the condition still exists. This affects the Master SH2 queue design:
+- CMDINT can be used as a reliable trigger for queue processing
+- No risk of lost interrupts (level-triggered behavior)
+- Must still clear via CMD Clear register ($2000401A)
+
+---
+
+## Profiling Capabilities
+
+### Available Tools
+
+| Tool | Purpose | Status |
+|------|---------|--------|
+| `profiling_frontend` | Headless libretro frontend (frame-level profiling) | ✅ Working |
+| `picodrive_libretro.so` | Custom PicoDrive core with instrumentation | ✅ Working |
+| `analyze_profile.py` | Frame-level analysis (68K/MSH2/SSH2 cycles) | ✅ Working |
+| `analyze_pc_profile.py` | PC-level hotspot analysis | ✅ Working |
+
+### Quick Start
+
+```bash
+cd tools/libretro-profiling
+
+# Frame-level profiling (1800 frames = 30 seconds)
+./profiling_frontend ../../build/vr_rebuild.32x 1800 --autoplay
+
+# PC-level hotspot profiling
+VRD_PROFILE_PC=1 VRD_PROFILE_PC_LOG=profile.csv \
+./profiling_frontend ../../build/vr_rebuild.32x 2400 --autoplay
+python3 analyze_pc_profile.py profile.csv
+```
+
+### Reference Measurements
+
+| Configuration | 68K | Master SH2 | Slave SH2 | Date |
+|--------------|-----|-----------|-----------|------|
+| Baseline (hooks off) | 127,987 (100.1%) | 60 (0.0%) | 306,989 (80.1%) | 2026-01-29 |
+| With hooks enabled | 127,987 (100.1%) | 139,568 (36.4%) | 299,958 (78.3%) | 2026-01-28 |
+| Delay loop eliminated | 127,987 (100.1%) | 139,567 (36.4%) | 100,157 (26.1%) | 2026-01-28 |
+
+---
+
+## Implementation Roadmap
+
+### Phase 1: Unblock Track 1 — Find 68K Space (Immediate)
+
+**Goal:** Reclaim ~20 bytes in `$00E200` section (or find alternative) for async shim
+
+**Tasks:**
+1. Analyze all 68K modules in the `$00E200-$010200` section for dead code
+2. Identify functions that are never called or have redundant paths
+3. Verify with call graph analysis and profiling
+4. If impossible: design BSR trampoline to a section with space
+
+**Deliverable:** 20+ free bytes for `sh2_send_cmd_async` shim
+
+### Phase 2: Master SH2 Interrupt Queue
+
+**Goal:** Implement CMDINT-driven command queue on Master SH2
+
+**Tasks:**
+1. Design ring buffer layout in SDRAM
+2. Implement CMDINT handler in expansion ROM
+3. Implement queue drain logic
+4. Test with single command type (sh2_cmd_27)
+5. Profile to verify 68K cycle savings
+
+**Deliverable:** Working async command path for cmd_27
+
+### Phase 3: Full Async Conversion
+
+**Goal:** Convert all 35 command submissions to async
+
+**Tasks:**
+1. Convert remaining sh2_graphics_cmd calls
+2. Handle 2 unsafe call sites (secondary RAM flag blocking)
+3. Implement frame boundary sync
+4. Full profiling pass
+
+**Deliverable:** All commands async, 68K blocking reduced by ~60%
+
+### Phase 4: Command Batching
+
+**Goal:** Reduce number of submissions from 35 to ~3-5
+
+**Tasks:**
+1. Implement batch copy command ($26) handler
+2. Group cmd_27 submissions into batches
+3. Group graphics init commands
+4. Profile batch overhead vs individual
+
+**Deliverable:** 86-91% reduction in command submissions
+
+### Phase 5: Activate v4.0 Parallel Processing
+
+**Goal:** Enable Slave CPU vertex transform offload
+
+**Tasks:**
+1. Patch dispatch at $02046A (Master dispatch hook)
+2. Patch trampoline at $0234C8 (func_021 redirect)
+3. Verify Slave completes within frame budget
+4. Profile combined async + parallel configuration
+
+**Deliverable:** Dual-SH2 rendering active alongside async commands
+
+### Phase 6: Measure and Iterate
+
+**Goal:** Reach 60 FPS target
+
+**Tasks:**
+1. Full profiling of combined optimizations
+2. Identify remaining bottleneck (68K? SH2? VDP?)
+3. If SH2-bound: activate Track 5 (VDP polling elimination)
+4. If 68K-bound: activate Track 4 (work offload)
+5. Fine-tune and optimize
 
 ---
 
 ## Success Metrics
 
-### Quantitative Goals (Updated 2026-01-26)
+### Quantitative Goals
 
-| Milestone | Target FPS | Cumulative Gain | Track | Status |
-|-----------|-----------|-----------------|-------|--------|
-| Baseline | 24 | - | - | ✅ Measured |
-| **v4.0 Slave CPU active** | **36-48** | **+50-100%** | **Track 2** | **⏳ Pending activation** |
-| VDP interrupts | 47-67 | +95-180% | Track 1+2 | ⏳ Planned |
-| 68K sync optimized | 52-77 | +115-220% | Track 1+2+3 | ⏳ Planned |
+| Milestone | Expected FPS | Cumulative Gain | Track | Status |
+|-----------|-------------|-----------------|-------|--------|
+| Baseline (current) | 20-24 | — | — | ✅ Measured |
+| Async cmd_27 only | 28-32 | +25-40% | Track 1 (partial) | ⏳ Planned |
+| Full async commands | 35-40 | +46-67% | Track 1 | ⏳ Planned |
+| + Command batching | 38-45 | +58-88% | Track 1+2 | ⏳ Planned |
+| + Pipeline overlap | 45-55 | +88-130% | Track 1+2+3 | ⏳ Planned |
+| + Work offload | 48-60 | +100-150% | Track 1+2+3+4 | ⏳ Planned |
 | **Target** | **60+** | **+150%+** | All | ⏳ Goal |
 
-**Note:** Track 2 (Slave CPU) infrastructure complete but not yet activated. FPS gains are projected based on expected 50-100% improvement from parallel processing. Actual gains to be measured upon activation (see [ROADMAP_v4.1.md](ROADMAP_v4.1.md)).
+### Validation Criteria
 
-### Qualitative Goals
-
-- ✅ ROM boots reliably
-- ✅ Gameplay smooth and responsive
-- ✅ Graphics render correctly
-- ✅ No introduced bugs
-- ✅ Code documented and maintainable
-
-### Minimum Viable Product (MVP)
-
-**Must achieve:**
-- 48 FPS (+100%) via VDP + Slave CPU
-- Stable gameplay
-- No visual regression
-
-**Stretch goals:**
-- 60 FPS (+150%)
-- Consistent frame pacing
-- Further optimization potential identified
+- ROM boots and runs correctly
+- Full race completion (3+ laps) without glitches
+- Graphics render correctly (no corruption)
+- Audio synchronized
+- Physics behavior unchanged
+- FPS improvement measured with profiler (not estimated)
 
 ---
 
-## Risk Mitigation
+## Risk Analysis
 
-### Known Risks (Updated 2026-01-26)
+### Track 1 Risks (Async Commands)
 
-**v4.0 Activation (Current Blockers):**
-- **Risk 1:** PicoDrive debugger broken, no profiling capability
-  - **Mitigation:** Investigate SH2 core issue, evaluate MAME or alternative profiling
-  - **Fallback:** Cycle-accurate logging in ROM code
-- **Risk 2:** Trampolining to 4th MB expansion ROM
-  - **Mitigation:** Design safe calling convention, test thoroughly
-  - **Fallback:** Keep code in main ROM (limits future expansion)
-- **Risk 3:** Slave execution time exceeds frame budget
-  - **Mitigation:** Extensive timing validation before activation
-  - **Fallback:** Deactivate parallel processing, optimize Slave code
+| Risk | Severity | Mitigation |
+|------|----------|------------|
+| COMM register corruption from async writes | High | Single-slot queue, Master SH2 serializes |
+| 68K section has 0 bytes for async shim | High | Dead code reclamation or BSR trampoline |
+| CMDINT timing issues | Medium | CMDINT is level-triggered, reliable |
+| Master SH2 queue overhead exceeds savings | Low | Master is 0% utilized, has massive headroom |
 
-**VDP Interrupts (Track 1):**
-- **Risk:** Timing-sensitive, might break rendering
-- **Mitigation:** Incremental conversion, one loop at a time
-- **Fallback:** Keep polling as backup code path
+### Track 2 Risks (Batching)
 
-**Slave CPU Synchronization (Track 2):**
-- **Risk:** Race conditions, data corruption
-- **Mitigation:** Simple completion flag protocol, extensive testing
-- **Fallback:** Disable Slave work queue, revert to Master-only
+| Risk | Severity | Mitigation |
+|------|----------|------------|
+| Batch order matters for rendering | Medium | Preserve original command ordering |
+| SDRAM bandwidth contention | Low | Batch reads are burst-friendly |
 
-**68000 Sync (Track 3):**
-- **Risk:** Breaking existing communication protocol
-- **Mitigation:** Profile first, change incrementally
-- **Fallback:** Restore original COMM usage
+### Track 3 Risks (Pipeline Overlap)
 
-### Testing Strategy
+| Risk | Severity | Mitigation |
+|------|----------|------------|
+| Frame N+1 reads stale frame N data | High | Double-buffer all shared state |
+| Increased memory usage for double buffers | Medium | SDRAM has headroom |
+| Input latency increase (+1 frame) | Low | Acceptable trade-off for 2x FPS |
 
-**For each change:**
-1. Compile and verify ROM builds
-2. Boot test (does it start?)
-3. Visual test (graphics correct?)
-4. Gameplay test (playable for 5+ minutes?)
-5. FPS measurement (actual improvement?)
-6. Regression test (no new bugs?)
+### General Risks
 
-**Test ROMs:**
-- Keep working baseline ROM
-- Create test ROM per change
-- Compare side-by-side
+| Risk | Severity | Mitigation |
+|------|----------|------------|
+| RV bit blocks expansion ROM access | Medium | Copy critical code to SDRAM if needed |
+| FM bit preemption corrupts VDP state | Medium | Only switch FM during V-Blank |
+| SH2 interrupt hardware bug | Medium | FRT TOCR toggle workaround (documented) |
 
 ---
 
-## Tools Required
+## Abandoned Approaches
 
-### Existing ✅
-- function_inventory.py
-- generate_call_graph.py
-- gdb_profiler.py
-- Gens emulator with GDB
+### 1. SH2-Only Optimization for FPS (Proven Ineffective)
 
-### To Create ⏳
-- VDP profiler (gdb_profiler.py vdp_polling)
-- Slave CPU profiler (gdb_profiler.py slave_cpu)
-- FPS measurement tool
-- Automated ROM testing script
+**Evidence:** 66.6% Slave SH2 reduction → 0% FPS change. The 68K is the constraint.
 
-### Nice to Have
-- Visual diff tool (compare frame buffers)
-- Performance dashboard
-- Continuous testing pipeline
+**Implication:** func_016 inlining, delay loop elimination, MAC loop unrolling — all valuable for headroom but cannot improve FPS alone.
 
----
+### 2. 68K In-Section Async (Space Impossible)
 
-## Documentation Plan
+**Evidence:** Section `$00E200-$010200` has 0 bytes free. Removed in commit `0dd98c4`.
 
-### Per Track
+**Alternative:** SH2 interrupt queue (Path B) — uses expansion ROM with 1MB free.
 
-Each optimization track gets:
-1. **_ANALYSIS.md** - Profiling data and understanding
-2. **_DESIGN.md** - Implementation plan
-3. **_RESULTS.md** - Measurements and outcomes
+### 3. func_065 FIFO Batching (Fall-Through Design)
 
-### Weekly Reports
+**Evidence:** Function uses fall-through control flow (no RTS). Cannot be restructured without breaking all callers.
 
-- Progress update
-- FPS measurements
-- Issues encountered
-- Next week plan
+### 4. func_017-019 Optimization (Tightly Coupled)
 
-### Final Report
+**Evidence:** Shared code paths, cross-function branching, BSR range limits. Cannot be optimized in isolation.
 
-- Complete optimization summary
-- Before/after comparison
-- Lessons learned
-- Future opportunities
+### 5. Code Injection via ROM Patcher (Alignment Limits)
+
+**Evidence:** Reached space/alignment constraints. Replaced by full disassembly/reassembly approach (current v5.0).
 
 ---
 
-## Lessons Applied
+## Investigation Priorities
 
-### From func_065 Failure
+Items requiring empirical measurement before implementation:
 
-1. ✅ **Profile before coding** - Don't guess, measure
-2. ✅ **Understand fall-through patterns** - Check for RTS!
-3. ✅ **Test minimally first** - Start with NULL patches
-4. ✅ **Document failures** - Learn from what doesn't work
-5. ✅ **Know when to stop** - Don't waste time on impossible tasks
-
-### From Documentation Phase
-
-1. ✅ **Systematic > ad-hoc** - Follow a plan
-2. ✅ **Tools enable analysis** - Invest in good tools
-3. ✅ **Call graphs reveal structure** - Use visualization
-4. ✅ **Empirical > theoretical** - Runtime data beats guessing
+1. **RV bit during gameplay** — Does 68K ever set RV=1 during active rendering? If yes, expansion ROM code stalls.
+2. **68K dead code in $00E200 section** — Can we reclaim 20+ bytes for the async shim?
+3. **Frame buffer FIFO burst patterns** — Does VRD already use 4-word bursts? If not, 2.4x rasterizer speedup available.
+4. **SDRAM 16-byte alignment impact** — Do aligned data structures measurably improve burst reads?
+5. **68K PC-level hotspots** — Which specific 68K addresses consume the most cycles? (guides work offload)
 
 ---
 
-## Next Actions (Immediate) - Updated 2026-01-26
+## Key Documents
 
-### Completed (v4.0 Development)
-1. ✅ Create optimization plan (this document)
-2. ✅ Find Slave CPU entry point
-3. ✅ Analyze Master↔Slave communication
-4. ✅ Design and implement parallel processing infrastructure
-5. ✅ Document v4.0 architecture
+### Architecture
+- [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) — Root cause analysis
+- [68K_SH2_COMMUNICATION.md](analysis/68K_SH2_COMMUNICATION.md) — Communication protocol
+- [32X_REGISTERS.md](analysis/architecture/32X_REGISTERS.md) — Register reference with hazards
 
-### Current Priority: v4.0 Activation (See ROADMAP_v4.1.md)
+### Profiling
+- [68K_BOTTLENECK_ANALYSIS.md](analysis/profiling/68K_BOTTLENECK_ANALYSIS.md) — **THE critical finding**
+- [BASELINE_PROFILING_2026-01-29.md](analysis/profiling/BASELINE_PROFILING_2026-01-29.md) — Latest baseline
+- [PERFORMANCE_BREAKTHROUGH_SUMMARY.md](analysis/profiling/PERFORMANCE_BREAKTHROUGH_SUMMARY.md) — Delay loop experiment
 
-**Phase 1: Restore Profiling Capability** ⏳ **IN PROGRESS**
-1. Test PicoDrive builds (system vs latest custom)
-2. Document exact failure mode
-3. Research MAME SH2 core documentation
-4. Evaluate alternative profiling approaches
-5. Choose profiling strategy
+### Optimization Research
+- [ASYNC_COMMAND_IMPLEMENTATION_PLAN.md](analysis/optimization/ASYNC_COMMAND_IMPLEMENTATION_PLAN.md) — Async design
+- [SH2_ASYNC_QUEUE_ANALYSIS.md](analysis/optimization/SH2_ASYNC_QUEUE_ANALYSIS.md) — Path B analysis
+- [COMM_REGISTER_USAGE_ANALYSIS.md](analysis/optimization/COMM_REGISTER_USAGE_ANALYSIS.md) — COMM collision analysis
+- [BATCH_COPY_COMMAND_DESIGN.md](analysis/optimization/BATCH_COPY_COMMAND_DESIGN.md) — Batch command design
+- [OPTIMIZATION_OPPORTUNITIES.md](analysis/optimization/OPTIMIZATION_OPPORTUNITIES.md) — Hardware timing tables
+- [OPTIMIZATION_LESSONS_LEARNED.md](analysis/optimization/OPTIMIZATION_LESSONS_LEARNED.md) — What worked and what didn't
 
-**Phase 2: Safe Trampolining to 4th MB**
-1. Design trampoline architecture
-2. Implement trampoline infrastructure
-3. Migrate v4.0 code to expansion ROM
-4. Test call chain (main ROM → expansion ROM)
-
-**Phase 3: Timing Validation**
-1. Measure Slave execution time (func_021_optimized)
-2. Validate frame budget compliance
-3. Implement synchronization protocol
-4. Test parameter passing integrity
-
-**Phase 4: Live Activation**
-1. Enable live parallel processing
-2. Measure actual FPS improvement
-3. Regression testing
-4. Update documentation
-
-**Deferred Until v4.0 Active:**
-- VDP polling elimination (Track 1) - requires working profiler
-- 68000 sync optimization (Track 3) - lower priority than v4.0
-- Additional function parallelization (v4.1+) - depends on v4.0 results
+### Activation
+- [ROADMAP_v4.1.md](analysis/optimization/ROADMAP_v4.1.md) — v4.0 activation plan
+- [MASTER_SLAVE_ANALYSIS.md](analysis/architecture/MASTER_SLAVE_ANALYSIS.md) — Parallel processing design
 
 ---
 
-## Approval & Commitment (Updated 2026-01-26)
-
-**Original Timeline:** 4 weeks → **REVISED:** 8-12 weeks (v4.0 activation + optimization)
-
-**Phase Breakdown:**
-- **Weeks 1-2:** Restore profiling capability
-- **Weeks 3-4:** Implement safe trampolining to expansion ROM
-- **Weeks 5-6:** Timing validation & synchronization
-- **Weeks 7-8:** v4.0 live activation & measurement
-- **Weeks 9-12:** Optimization iterations (VDP, 68K sync, load balancing)
-
-**Expected outcome:**
-- **v4.0 alone:** 36-48 FPS (+50-100%) - Slave CPU parallel processing
-- **Combined:** 60+ FPS (+150%+) - All tracks optimized
-
-**Risk level:** Medium (v4.0 infrastructure complete, activation risks managed)
-
-**Fallback plan:**
-- Keep v3.0 baseline ROM at all times
-- v4.0 infrastructure can be deactivated if timing validation fails
-- Multiple profiling options if PicoDrive unfixable
-
-**Decision points:**
-- **Week 2 end:** Profiling capability restored (GO/NO-GO on v4.0 activation)
-- **Week 4 end:** Trampolining working (GO/NO-GO on expansion ROM migration)
-- **Week 6 end:** Timing validated (GO/NO-GO on live activation)
-- **Week 8 end:** v4.0 FPS measured (decide on additional tracks)
-- **Week 12 end:** Final optimization assessment
-
-**Current Focus:** v4.0 activation per [ROADMAP_v4.1.md](ROADMAP_v4.1.md)
-
-**This plan reflects v4.0 completion and current activation priorities.** ✅
-
----
-
-**Next step:** Investigate PicoDrive SH2 core issue and restore profiling capability (ROADMAP Phase 1).
+**This plan reflects profiling data from January 2026 confirming the 68K as the primary bottleneck. All priorities restructured around 68K cycle relief.**

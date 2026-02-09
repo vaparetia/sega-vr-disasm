@@ -32,7 +32,7 @@ OUTPUT_ROM_RAW = $(BUILD_DIR)/vr_rebuild_raw.32x
 OUTPUT_ROM_MODULAR = $(BUILD_DIR)/vr_rebuild_modular.32x
 OUTPUT_ROM_MNEMONIC = $(BUILD_DIR)/vr_rebuild_mnemonic.32x
 
-.PHONY: all clean disasm compare tools test modular compare-modular raw compare-raw mnemonic compare-mnemonic
+.PHONY: all clean disasm compare tools test modular compare-modular raw compare-raw mnemonic compare-mnemonic profile-frame profile-pc
 
 # ============================================================================
 # Main targets
@@ -51,7 +51,7 @@ dirs:
 
 # Build the ROM from original sections/
 # Depends on SH2 assembly to ensure generated includes exist
-$(OUTPUT_ROM): $(M68K_SRC) $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC)
+$(OUTPUT_ROM): $(M68K_SRC) $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC) $(SH2_CMD27_DRAIN_INC) $(SH2_SLAVE_WRAPPER_V2_INC) $(SH2_HANDLER_FRAME_SYNC_INC) $(SH2_MASTER_DISPATCH_HOOK_INC) $(SH2_SLAVE_TEST_FUNC_INC) $(SH2_SHADOW_PATH_WRAPPER_INC) $(SH2_CMDINT_HANDLER_INC) $(SH2_QUEUE_PROCESSOR_INC)
 	@echo "==> Assembling 68000 code (from sections/)..."
 	$(ASM) $(ASMFLAGS) -o $@ $<
 	@echo "==> Build complete: $@"
@@ -638,10 +638,56 @@ SH2_BATCH_COPY_SRC = $(SH2_SRC_DIR)/batch_copy_handler.asm
 SH2_BATCH_COPY_BIN = $(BUILD_DIR)/sh2/batch_copy_handler.bin
 SH2_BATCH_COPY_INC = $(SH2_GEN_DIR)/batch_copy_handler.inc
 
+# cmd27 queue drain (async queue processor)
+SH2_CMD27_DRAIN_SRC = $(SH2_EXP_DIR)/cmd27_queue_drain.asm
+SH2_CMD27_DRAIN_BIN = $(BUILD_DIR)/sh2/cmd27_queue_drain.bin
+SH2_CMD27_DRAIN_INC = $(SH2_GEN_DIR)/cmd27_queue_drain.inc
+
+# slave_work_wrapper_v2 (with queue support)
+SH2_SLAVE_WRAPPER_V2_SRC = $(SH2_EXP_DIR)/slave_work_wrapper_v2.asm
+SH2_SLAVE_WRAPPER_V2_BIN = $(BUILD_DIR)/sh2/slave_work_wrapper_v2.bin
+SH2_SLAVE_WRAPPER_V2_INC = $(SH2_GEN_DIR)/slave_work_wrapper_v2.inc
+
+# handler_frame_sync (expansion ROM frame sync handler)
+SH2_HANDLER_FRAME_SYNC_SRC = $(SH2_EXP_DIR)/handler_frame_sync.asm
+SH2_HANDLER_FRAME_SYNC_LDS = $(SH2_EXP_DIR)/handler_frame_sync.lds
+SH2_HANDLER_FRAME_SYNC_BIN = $(BUILD_DIR)/sh2/handler_frame_sync.bin
+SH2_HANDLER_FRAME_SYNC_INC = $(SH2_GEN_DIR)/handler_frame_sync.inc
+
+# master_dispatch_hook (expansion ROM command dispatcher)
+SH2_MASTER_DISPATCH_HOOK_SRC = $(SH2_EXP_DIR)/master_dispatch_hook.asm
+SH2_MASTER_DISPATCH_HOOK_LDS = $(SH2_EXP_DIR)/master_dispatch_hook.lds
+SH2_MASTER_DISPATCH_HOOK_BIN = $(BUILD_DIR)/sh2/master_dispatch_hook.bin
+SH2_MASTER_DISPATCH_HOOK_INC = $(SH2_GEN_DIR)/master_dispatch_hook.inc
+
+# slave_test_func (expansion ROM parameter loader)
+SH2_SLAVE_TEST_FUNC_SRC = $(SH2_EXP_DIR)/slave_test_func.asm
+SH2_SLAVE_TEST_FUNC_LDS = $(SH2_EXP_DIR)/slave_test_func.lds
+SH2_SLAVE_TEST_FUNC_BIN = $(BUILD_DIR)/sh2/slave_test_func.bin
+SH2_SLAVE_TEST_FUNC_INC = $(SH2_GEN_DIR)/slave_test_func.inc
+
+# shadow_path_wrapper (expansion ROM instrumentation wrapper)
+SH2_SHADOW_PATH_WRAPPER_SRC = $(SH2_EXP_DIR)/shadow_path_wrapper.asm
+SH2_SHADOW_PATH_WRAPPER_LDS = $(SH2_EXP_DIR)/shadow_path_wrapper.lds
+SH2_SHADOW_PATH_WRAPPER_BIN = $(BUILD_DIR)/sh2/shadow_path_wrapper.bin
+SH2_SHADOW_PATH_WRAPPER_INC = $(SH2_GEN_DIR)/shadow_path_wrapper.inc
+
+# cmdint_handler (Phase 1 - CMDINT interrupt handler)
+SH2_CMDINT_HANDLER_SRC = $(SH2_EXP_DIR)/cmdint_handler.asm
+SH2_CMDINT_HANDLER_LDS = $(SH2_EXP_DIR)/cmdint_handler.lds
+SH2_CMDINT_HANDLER_BIN = $(BUILD_DIR)/sh2/cmdint_handler.bin
+SH2_CMDINT_HANDLER_INC = $(SH2_GEN_DIR)/cmdint_handler.inc
+
+# queue_processor (Phase 1 - Ring buffer command processor)
+SH2_QUEUE_PROCESSOR_SRC = $(SH2_EXP_DIR)/queue_processor.asm
+SH2_QUEUE_PROCESSOR_LDS = $(SH2_EXP_DIR)/queue_processor.lds
+SH2_QUEUE_PROCESSOR_BIN = $(BUILD_DIR)/sh2/queue_processor.bin
+SH2_QUEUE_PROCESSOR_INC = $(SH2_GEN_DIR)/queue_processor.inc
+
 .PHONY: sh2-assembly sh2-verify
 
 # Build all SH2 assembly sources
-sh2-assembly: dirs $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC040_CASES_INC) $(SH2_FUNC040_UTIL_INC) $(SH2_FUNC041_INC) $(SH2_FUNC042_INC) $(SH2_FUNC043_INC) $(SH2_FUNC044_INC) $(SH2_FUNC045_INC) $(SH2_FUNC046_INC) $(SH2_FUNC047_INC) $(SH2_FUNC048_INC) $(SH2_FUNC049_INC) $(SH2_FUNC050_INC) $(SH2_FUNC051_INC) $(SH2_FUNC052_INC) $(SH2_FUNC053_INC) $(SH2_FUNC054_INC) $(SH2_FUNC055_INC) $(SH2_FUNC067_INC) $(SH2_FUNC068_INC) $(SH2_FUNC069_INC) $(SH2_FUNC070_INC) $(SH2_FUNC071_INC) $(SH2_FUNC072_INC) $(SH2_FUNC073_INC) $(SH2_FUNC074_INC) $(SH2_FUNC075_INC) $(SH2_FUNC076_INC) $(SH2_FUNC077_INC) $(SH2_FUNC078_INC) $(SH2_FUNC079_INC) $(SH2_FUNC080_INC) $(SH2_FUNC081_INC) $(SH2_FUNC082_INC) $(SH2_FUNC083_INC) $(SH2_FUNC084_INC) $(SH2_FUNC085_INC) $(SH2_FUNC086_INC) $(SH2_FUNC087_INC) $(SH2_FUNC088_INC) $(SH2_FUNC089_INC) $(SH2_FUNC090_INC) $(SH2_FUNC091_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC)
+sh2-assembly: dirs $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC040_CASES_INC) $(SH2_FUNC040_UTIL_INC) $(SH2_FUNC041_INC) $(SH2_FUNC042_INC) $(SH2_FUNC043_INC) $(SH2_FUNC044_INC) $(SH2_FUNC045_INC) $(SH2_FUNC046_INC) $(SH2_FUNC047_INC) $(SH2_FUNC048_INC) $(SH2_FUNC049_INC) $(SH2_FUNC050_INC) $(SH2_FUNC051_INC) $(SH2_FUNC052_INC) $(SH2_FUNC053_INC) $(SH2_FUNC054_INC) $(SH2_FUNC055_INC) $(SH2_FUNC067_INC) $(SH2_FUNC068_INC) $(SH2_FUNC069_INC) $(SH2_FUNC070_INC) $(SH2_FUNC071_INC) $(SH2_FUNC072_INC) $(SH2_FUNC073_INC) $(SH2_FUNC074_INC) $(SH2_FUNC075_INC) $(SH2_FUNC076_INC) $(SH2_FUNC077_INC) $(SH2_FUNC078_INC) $(SH2_FUNC079_INC) $(SH2_FUNC080_INC) $(SH2_FUNC081_INC) $(SH2_FUNC082_INC) $(SH2_FUNC083_INC) $(SH2_FUNC084_INC) $(SH2_FUNC085_INC) $(SH2_FUNC086_INC) $(SH2_FUNC087_INC) $(SH2_FUNC088_INC) $(SH2_FUNC089_INC) $(SH2_FUNC090_INC) $(SH2_FUNC091_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC) $(SH2_CMD27_DRAIN_INC) $(SH2_SLAVE_WRAPPER_V2_INC) $(SH2_HANDLER_FRAME_SYNC_INC) $(SH2_MASTER_DISPATCH_HOOK_INC) $(SH2_SLAVE_TEST_FUNC_INC) $(SH2_SHADOW_PATH_WRAPPER_INC) $(SH2_CMDINT_HANDLER_INC) $(SH2_QUEUE_PROCESSOR_INC)
 
 # Build func_000 binary from source (requires linker script for PC-relative addressing)
 $(SH2_FUNC000_BIN): $(SH2_FUNC000_SRC) $(SH2_FUNC000_LDS) | dirs
@@ -2022,6 +2068,148 @@ $(SH2_BATCH_COPY_INC): $(SH2_BATCH_COPY_BIN)
 	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
 	@echo "    Output: $@ ($$(wc -l < $@) lines)"
 
+# Build cmd27_queue_drain binary from source (expansion ROM)
+$(SH2_CMD27_DRAIN_BIN): $(SH2_CMD27_DRAIN_SRC) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: cmd27_queue_drain..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/cmd27_queue_drain.o $<
+	$(SH2_OBJCOPY) -O binary $(BUILD_DIR)/sh2/cmd27_queue_drain.o $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+$(SH2_CMD27_DRAIN_INC): $(SH2_CMD27_DRAIN_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: cmd27_queue_drain.inc..."
+	@echo "; Auto-generated from $(SH2_CMD27_DRAIN_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build slave_work_wrapper_v2 binary from source (expansion ROM)
+$(SH2_SLAVE_WRAPPER_V2_BIN): $(SH2_SLAVE_WRAPPER_V2_SRC) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: slave_work_wrapper_v2..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/slave_work_wrapper_v2.o $<
+	$(SH2_OBJCOPY) -O binary $(BUILD_DIR)/sh2/slave_work_wrapper_v2.o $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+$(SH2_SLAVE_WRAPPER_V2_INC): $(SH2_SLAVE_WRAPPER_V2_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: slave_work_wrapper_v2.inc..."
+	@echo "; Auto-generated from $(SH2_SLAVE_WRAPPER_V2_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build handler_frame_sync binary from source (expansion ROM, with linker script)
+$(SH2_HANDLER_FRAME_SYNC_BIN): $(SH2_HANDLER_FRAME_SYNC_SRC) $(SH2_HANDLER_FRAME_SYNC_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: handler_frame_sync (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/handler_frame_sync.o $<
+	$(SH2_LD) -T $(SH2_HANDLER_FRAME_SYNC_LDS) -o $(BUILD_DIR)/sh2/handler_frame_sync.elf $(BUILD_DIR)/sh2/handler_frame_sync.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/handler_frame_sync.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 22)"
+
+$(SH2_HANDLER_FRAME_SYNC_INC): $(SH2_HANDLER_FRAME_SYNC_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: handler_frame_sync.inc..."
+	@echo "; Auto-generated from $(SH2_HANDLER_FRAME_SYNC_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build master_dispatch_hook binary from source (expansion ROM, with linker script)
+$(SH2_MASTER_DISPATCH_HOOK_BIN): $(SH2_MASTER_DISPATCH_HOOK_SRC) $(SH2_MASTER_DISPATCH_HOOK_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: master_dispatch_hook (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/master_dispatch_hook.o $<
+	$(SH2_LD) -T $(SH2_MASTER_DISPATCH_HOOK_LDS) -o $(BUILD_DIR)/sh2/master_dispatch_hook.elf $(BUILD_DIR)/sh2/master_dispatch_hook.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/master_dispatch_hook.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 44)"
+
+$(SH2_MASTER_DISPATCH_HOOK_INC): $(SH2_MASTER_DISPATCH_HOOK_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: master_dispatch_hook.inc..."
+	@echo "; Auto-generated from $(SH2_MASTER_DISPATCH_HOOK_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build slave_test_func binary from source (expansion ROM, with linker script)
+$(SH2_SLAVE_TEST_FUNC_BIN): $(SH2_SLAVE_TEST_FUNC_SRC) $(SH2_SLAVE_TEST_FUNC_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: slave_test_func (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/slave_test_func.o $<
+	$(SH2_LD) -T $(SH2_SLAVE_TEST_FUNC_LDS) -o $(BUILD_DIR)/sh2/slave_test_func.elf $(BUILD_DIR)/sh2/slave_test_func.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/slave_test_func.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 44)"
+
+$(SH2_SLAVE_TEST_FUNC_INC): $(SH2_SLAVE_TEST_FUNC_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: slave_test_func.inc..."
+	@echo "; Auto-generated from $(SH2_SLAVE_TEST_FUNC_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build shadow_path_wrapper binary from source (expansion ROM, with linker script)
+$(SH2_SHADOW_PATH_WRAPPER_BIN): $(SH2_SHADOW_PATH_WRAPPER_SRC) $(SH2_SHADOW_PATH_WRAPPER_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: shadow_path_wrapper (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/shadow_path_wrapper.o $<
+	$(SH2_LD) -T $(SH2_SHADOW_PATH_WRAPPER_LDS) -o $(BUILD_DIR)/sh2/shadow_path_wrapper.elf $(BUILD_DIR)/sh2/shadow_path_wrapper.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/shadow_path_wrapper.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes, expected 52)"
+
+$(SH2_SHADOW_PATH_WRAPPER_INC): $(SH2_SHADOW_PATH_WRAPPER_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: shadow_path_wrapper.inc..."
+	@echo "; Auto-generated from $(SH2_SHADOW_PATH_WRAPPER_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build cmdint_handler binary from source (Phase 1 - expansion ROM, with linker script)
+$(SH2_CMDINT_HANDLER_BIN): $(SH2_CMDINT_HANDLER_SRC) $(SH2_CMDINT_HANDLER_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: cmdint_handler (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/cmdint_handler.o $<
+	$(SH2_LD) -T $(SH2_CMDINT_HANDLER_LDS) -o $(BUILD_DIR)/sh2/cmdint_handler.elf $(BUILD_DIR)/sh2/cmdint_handler.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/cmdint_handler.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+$(SH2_CMDINT_HANDLER_INC): $(SH2_CMDINT_HANDLER_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: cmdint_handler.inc..."
+	@echo "; Auto-generated from $(SH2_CMDINT_HANDLER_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build queue_processor binary from source (Phase 1 - expansion ROM, with linker script)
+$(SH2_QUEUE_PROCESSOR_BIN): $(SH2_QUEUE_PROCESSOR_SRC) $(SH2_QUEUE_PROCESSOR_LDS) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: queue_processor (with linker script)..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/queue_processor.o $<
+	$(SH2_LD) -T $(SH2_QUEUE_PROCESSOR_LDS) -o $(BUILD_DIR)/sh2/queue_processor.elf $(BUILD_DIR)/sh2/queue_processor.o
+	$(SH2_OBJCOPY) -O binary --only-section=.text $(BUILD_DIR)/sh2/queue_processor.elf $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+$(SH2_QUEUE_PROCESSOR_INC): $(SH2_QUEUE_PROCESSOR_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: queue_processor.inc..."
+	@echo "; Auto-generated from $(SH2_QUEUE_PROCESSOR_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
 # Verify SH2 assembly matches original ROM
 sh2-verify: $(SH2_FUNC000_BIN) $(SH2_FUNC022_BIN) $(SH2_FUNC017_BIN) $(SH2_FUNC018_BIN) $(SH2_FUNC032_BIN) $(SH2_FUNC011_BIN) $(SH2_FUNC012_BIN) $(SH2_FUNC013_BIN) $(SH2_FUNC014_015_BIN) $(SH2_FUNC024_BIN) $(SH2_FUNC025_BIN) $(SH2_FUNC026_BIN) $(SH2_FUNC003_004_BIN) $(SH2_FUNC029_030_031_BIN) $(SH2_FUNC033_BIN) $(SH2_FUNC034_BIN) $(SH2_FUNC036_BIN) $(SH2_FUNC037_038_039_BIN) $(SH2_FUNC005_BIN) $(SH2_FUNC007_BIN) $(SH2_FUNC006_BIN) $(SH2_FUNC008_BIN) $(SH2_FUNC016_BIN) $(SH2_FUNC009_BIN) $(SH2_FUNC010_BIN) $(SH2_FUNC065_BIN) $(SH2_FUNC066_BIN)
 	@echo "==> Verifying SH2 assembly against original ROM..."
@@ -2427,6 +2615,37 @@ sh2-verify: $(SH2_FUNC000_BIN) $(SH2_FUNC022_BIN) $(SH2_FUNC017_BIN) $(SH2_FUNC0
 	@echo "✓✓✓ All SH2 functions verified! ✓✓✓"
 
 # ============================================================================
+# Profiling & Testing
+# ============================================================================
+
+PROFILE_DIR = tools/libretro-profiling
+PROFILE_FRONTEND = $(PROFILE_DIR)/profiling_frontend
+PROFILE_CORE = $(PROFILE_DIR)/picodrive_libretro.so
+PROFILE_FRAMES ?= 2400
+
+# Frame-level CPU profiling (68K/MSH2/SSH2 cycles per frame)
+profile-frame: all
+	@echo "==> Running frame-level profiling ($(PROFILE_FRAMES) frames)..."
+	cd $(PROFILE_DIR) && ./profiling_frontend ../../$(OUTPUT_ROM) $(PROFILE_FRAMES) --autoplay
+	@echo "==> Analyzing frame profile..."
+	$(PYTHON) $(PROFILE_DIR)/analyze_profile.py $(PROFILE_DIR)/frame_profile.csv
+
+# PC-level hotspot profiling (per-address cycle breakdown)
+profile-pc: all
+	@echo "==> Running PC-level profiling ($(PROFILE_FRAMES) frames)..."
+	cd $(PROFILE_DIR) && VRD_PROFILE_PC=1 VRD_PROFILE_PC_LOG=pc_profile.csv \
+		./profiling_frontend ../../$(OUTPUT_ROM) $(PROFILE_FRAMES) --autoplay
+	@echo "==> Analyzing PC profile..."
+	$(PYTHON) $(PROFILE_DIR)/analyze_pc_profile.py $(PROFILE_DIR)/pc_profile.csv
+
+# Quick boot test: run ROM for 300 frames (~5 seconds), verify no crash
+test: all
+	@echo "==> Boot-testing ROM (300 frames)..."
+	@cd $(PROFILE_DIR) && ./profiling_frontend ../../$(OUTPUT_ROM) 300 --autoplay > /dev/null 2>&1 \
+		&& echo "✓ ROM booted successfully (300 frames)" \
+		|| (echo "✗ ROM failed to boot" && exit 1)
+
+# ============================================================================
 # Cleanup
 # ============================================================================
 
@@ -2469,7 +2688,12 @@ help:
 	@echo "  analyze        - Analyze ROM structure"
 	@echo "  find-sections  - Find code sections"
 	@echo ""
-	@echo "Maintenance:
+	@echo "Profiling & Testing:"
+	@echo "  profile-frame  - Frame-level CPU profiling (cycles per frame)"
+	@echo "  profile-pc     - PC-level hotspot profiling (per-address)"
+	@echo "  test           - Quick boot test (300 frames)"
+	@echo ""
+	@echo "Maintenance:"
 	@echo "  clean          - Remove build files"
 	@echo "  clean-all      - Remove all generated files including tools"
 	@echo "  tools          - Build assembler tools"

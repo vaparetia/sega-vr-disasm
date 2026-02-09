@@ -654,6 +654,249 @@ Clears PWM interrupt (command interrupt). If not cleared, interrupt will no long
 
 2. H Count register = 0 and H Count is set to 1 when H Blank does not occur. When HEN = 0, HINT occurs during the next H Blank. HINT occurs during the 2nd H Blank after the H Blank is negated because the H Count register setting (value) is loaded in the internal counter when this H Blank is negated.
 
+### Interrupt Sources and Priority Levels
+
+There are five ways an interrupt can be created on the SH2:
+1. Pressing the MEGA Drive reset button (VRES)
+2. During vertical feedback (V Blank)
+3. During horizontal feedback (H Blank)
+4. Interrupt control register write from MEGA Drive (CMD)
+5. PWM cycle timer
+
+Each interrupt is cleared when written to an interrupt clear register by a different factor. Interrupt continues indefinitely until cleared.
+
+Mask/enable is allowed separately by setting the interrupt mask register V, H, CMD, and PWM bits except for the reset button. These four bits have separate registers for master/slave.
+
+**Interrupt Priority Order (SH2 IRL auto vector):**
+
+(Reset button) > (V Blank) > (H Blank) > (Command interrupt) > (PWM cycle timer)
+
+| Name | Mask Bit | Level | Interrupt Factor |
+|------|----------|-------|------------------|
+| VRES Interrupt | none | 14 | Reset button |
+| V Interrupt | V | 12 | V Blank |
+| H Interrupt | H | 10 | H Blank |
+| Command Interrupt | CMD | 8 | Interrupt control register write from MD |
+| PWM Interrupt | PWM | 6 | PWM cycle timer |
+
+**Note:** HEN (HINT enable bit inside V Blank) in the interrupt mask register is common master/slave.
+
+**Cross-Reference:** See [32x-hardware-manual-supplement-2.md](32x-hardware-manual-supplement-2.md) for the SH2 interrupt hardware bug and required corrective action (FRT TOCR toggle).
+
+---
+
+## 3.3 68000-SH2 Communication
+
+### Communication Architecture
+
+```
+                            INTM
+                    ┌────────────────────┐
+                    │   INTS             │
+                    │                    │
+                    │   8 Word           │        SH2
+    MEGA    ◄──────►│   Communication    │◄──────► Master
+    Drive           │   Port             │
+                    │                    │
+            ○───────┤                    │
+                ○───┤                    │        SH2
+                    │   4 Word FIFO      │◄──────► Slave
+            ○───────┤                    │
+                ○───┤                    │
+                    │   4 Word FIFO      │
+                    └────────────────────┘
+
+    Figure 3.28  68000 and SH2 Communication
+```
+
+### Communication Port
+
+The 32X has an 8 word register that can read and write from both "communication ports" used in 68000 and SH2 communication. After the power is turned on, the boot ROM program, following its completion of the initialization and security, notifies the 68000, and as a result, the SH2 master writes "M_OK" (ASCII code 4 bytes) to the start of the communication port, and the slave writes "S_OK" to the 2nd and 3rd words.
+
+Communication ports from here after are opened in the application. If simultaneously writing the same register from both the 68000 and SH2, or if either the 68000 or SH2 is writing while the other is reading, the value of that register becomes undefined. As a result, dividing the register to be used as SH2 → 68000 and 68000 → SH2 must be avoided.
+
+### CMD Interrupt
+
+When timing by both 68000 and SH2, not only can communication ports be polled together but interrupt can occur from 68000 to SH2. INTM and INTS bits of the interrupt control register correspond to the master side SH2 and the slave side SH2. CMD interrupt occurs if 68000 is set to 1. Interrupt can be cleared if SH2 writes the CMD interrupt clear register. Mask/mask cancel (0/1) can be done by the CMD bit of the interrupt mask register. The CMD interrupt clear register and CMD bit are held separately by the master and slave (addresses are the same). There are no interrupts from SH2 to 68000.
+
+### DMA (DREQ Transfer)
+
+SH2 has a 2 channel DMA built-in to it. When the 32X uses channel 0 from among the two channels, data can be transferred from the MEGA Drive side to the SH2 side. The 32X has a DREQ circuit for issuing transfer requests to channel 0 and a FIFO for continuously transferring data. FIFO can be directly written to by the 68000.
+
+---
+
+## 3.4 32X Block Access by SH2
+
+### Cache-through Access
+
+System and VDP registers must be accessed by cache-through. Although system design also allows access by cache, because there is no guarantee that data of an external device or register which could be re-written by other processors would agree with cache data, cache purge becomes necessary each time. Therefore, cache cannot be used.
+
+### VDP Access Competition
+
+When accessing from the SH2 to the VDP register, frame buffer and color palette, access waits until the FM bit (interrupt mask register bit 15) is 1. After an access series has ended, the FM bit becomes 0 and access authorization changes to 68000. This being the case, SH2 and 68000 wait together until access authorization returns and accesses. When finished, competition can be avoided by returning access authorization to the opponent.
+
+When the FM bit from SH2 is "1", access from 68000 is interrupted by force and the operation that follows is not guaranteed.
+
+### ROM Access Competition
+
+SH2 has priority when 68000 and SH2 access the cartridge ROM at the same time. When this happens, the second CPU to be accessed waits until access of the first CPU is finished.
+
+When the 68000 directly accesses contents of the cartridge ROM by the CPU, SH2 can restore high speeds by accessing after the contents of the ROM cartridge is once loaded to the SDRAM. As a result, SH2 access ROM data sporadically in certain amounts, whereas ROM access by 68000 occurs regularly. When there is a problem in executing 68000 program interrupted by ROM access wait, the RV bit (DREQ control register bit 0) is set to 1. Here, ROM access from SH2 is in a wait status until 68000 RV = 0. The bit from SH2 is read only.
+
+### 32X Buffer Register Access Table
+
+| Object | Use | Z80 | Buffer Register | Description |
+|--------|-----|-----|-----------------|-------------|
+| **SH2 dedicated** | SH2 built-in IO, DMA, main memory | | SDRAM | Read operation internal 16 byte fixed |
+| | 32X standby | | Standby change | Boot time custom component |
+| | Interrupt (mask clear) | | H Count | H interrupt interval |
+| | | | Interrupt mask | Use here without mask by SH2 internal |
+| | | | VRES interrupt clear | Clear interrupt by MEGA Drive reset button |
+| | | | V interrupt clear | |
+| | | | H interrupt clear | |
+| | | | CMD interrupt clear | Clear interrupt from 68000 |
+| | | | PWM interrupt clear | Sampling data write timing |
+| | DMA transfer (receive) | | DREQ control Reg | Set "Capture" (See dedication) |
+| | | | 68 to SH DREQ Source Address | |
+| | | | 68 to SH DREQ Destination Address | |
+| | | | 68 to SH DREQ Length | |
+| | | | FIFO | Transfer request execute to SH2 DMA (read) |
+| **68000 Dedicated** | 32X Use | V | Adapter Control Reg | 32X is mapped by address space |
+| | Cartridge ROM access | V | Bank Set Reg | Mapping differs for the single MD |
+| | DRAM cartridge | | SEGA TV Reg | Refresh signal output to cartridge |
+| | Interrupt Execute | V | Interrupt Control Reg | Interrupt execute in SH2 |
+| | DMA transfer (send) | V | DREQ Control Reg | Set "Capture" |
+| | | | 68 to SH DREQ Source Address | |
+| | | | 68 to SH DREQ Destination Address | |
+| | | | 68 to SH DREQ Length | |
+| | Write by DMA/CPU | | FIFO | Transfer request execute to SH2 DMA (write) |
+| **SH2/68000 Common** | Communication | V | Communication Port | Read/Write is possible from both |
+| | Sound | V | PWM Control | Timer interrupt set for SH2 |
+| | | V | Cycle Register | Sound source sampling cycle |
+| | | V | L ch Pulse Width register | Sampling data write |
+| | | V | R ch Pulse Width register | |
+| | | V | Mono Pulse Width register | |
+| | Graphics | V | Bitmap Mode | Packed pixel / Direct color / Run length |
+| | | V | Frame Buffer Control | Draw / Display Switch, see VDP operate status |
+| | | V | Screen Shift Control | Horizontal scroll of packed pixel mode |
+| | | V | Frame Buffer | Draw memory |
+| | | | Color Palette | Use when indirectly indicating colors on draw memory |
+| | | | Auto Fill Length | Frame buffer data Fill |
+| | | | Auto Fill Start Address | |
+| | | | Auto Fill Data | |
+
+**Note:** V mark means access from Z80 is possible.
+
+---
+
+## 3.5 32X Block Access by 68000
+
+### Blocks that can be directly accessed
+
+After the power is turned on, address space of 68000 is mapped the same as the MEGA Drive unit. If the 32X initial program provided by SEGA is installed following the POWER ON reset vector address, 32X is mapped at the time the execution is transferred to the application program, and is initialized in an access-enabled status.
+
+See Table 4.1 "32X Buffer Register List" in section 4.1 for individual buffer registers.
+
+### Cartridge ROM Access When Using the 32X
+
+ROM cartridge 00 0000h – 40 0000h is mapped unchanged in 68000 address space 00 0000h – 40 0000h when using the MEGA Drive unit. But when using the 32X, mapping is done on and after 88 0000h when execution is handled by application program.
+
+| 68000 Address | Cartridge ROM |
+|---------------|---------------|
+| 88 0000h ~ 8F FFFFh | 00 0000h ~ 07 FFFFh |
+| 90 0000h ~ 9F FFFFh | 00 0000h ~ 0F FFFFh (initial condition) |
+| (4 bank switching) | 10 0000h ~ 1F FFFFh |
+| | 20 0000h ~ 2F FFFFh |
+| | 30 0000h ~ 3F FFFFh |
+
+---
+
+## 3.6 32X Block Access by Z80
+
+### Blocks that can be directly accessed
+
+Z80 is loaded as the MEGA Drive sound CPU. Even when 32X is mapping in the 68000 address space, 68000 memory area can access each 8000h by switching banks similar to when using the Mega Drive unit. See Table 4.1 "32X Buffer Register List" in section 4.1 for individual buffer registers.
+
+### Competition with other CPUs
+
+Access competition to the 32X block of 68000 and SH2 applies to both Z80 and SH2. See section 4.2 for more information.
+
+### Frame Buffer Access
+
+Frame buffer can be written in bytes but data 0 byte write is ignored (Same for write from both 68000 and SH2).
+
+---
+
+## 4.1 Access Timing of each CPU to 32X Block
+
+The timing sequence when the CPU accesses the peripheral is called a bus cycle, and takes a minimum of 4 Clock with 68000 and 2 Clock with SH2*. In addition, wait time is created on the CPU side due to the difference of the peripheral and operating speeds. 1 Wait means that the minimum bus cycle + 1 Clock is necessary in the access. A wait is required for all 32X blocks (as shown below) to access from 68000 and SH2 in response to the process contents and operation status.
+
+**\* Note:** Besides inputting a Wait signal from the outside, SH2 can input Wait by setting the built-in bus state controller, but after implementing boot ROM only external Wait is set.
+
+### 32X Mode and Cartridge ROM
+
+| CPU | Wait States |
+|-----|-------------|
+| SH2 (Read/Write) | 6 wait (min) ~ 15 wait (max) |
+| 68K (Read/Write) | 0 wait (min) ~ 5 wait (max) |
+
+### Frame Buffer
+
+| CPU | Operation | Wait States |
+|-----|-----------|-------------|
+| SH2 | Read | 5 wait (min) ~ 12 wait (max) |
+| SH2 | Write | 1 wait (min) ~ 3 wait (max) |
+| 68K | Read | 2 wait (min) ~ 4 wait (max) |
+| 68K | Write | 0 wait (const) |
+
+Write access to the SH2 frame buffer assumes continuous accessing without an Idle Cycle. When the Idle Cycle is inserted between accesses, the next access time is shortened only by the number entered by the Idle Cycle. (The next access time cannot be shorter than a minimum cycle of 3 clock)
+
+**Frame Buffer Write FIFO:** A 4 word component of FIFO is held for frame buffer writing. Thus, **5 Clock is required if FIFO is FULL** and **3 Clock is required if FIFO is not FULL**.
+
+### Palette
+
+| CPU | Operation | Wait States |
+|-----|-----------|-------------|
+| SH2 | Read/Write | 5 wait (min) ~ 64µsec |
+| 68K | Read | 2 wait (min) ~ 64µsec |
+| 68K | Write | 3 wait (min) ~ 64µsec |
+
+Wait number 64µsec means that a wait of a 1 line component display is required. (If access to the palette competes with the CPU and VDP, a wait of a 1 line component is required on the CPU side.)
+
+### VDP Register
+
+| CPU | Operation | Wait States |
+|-----|-----------|-------------|
+| SH2 | Read/Write | 5 wait (const) |
+| 68K | Read | 2 wait (const) |
+| 68K | Write | 0 wait (const) |
+
+### System Register
+
+| CPU | Operation | Wait States |
+|-----|-----------|-------------|
+| SH2 | Read/Write | 1 wait (const) |
+| 68K | Read/Write | 0 wait (const) |
+
+### Boot ROM
+
+| CPU | Operation | Wait States |
+|-----|-----------|-------------|
+| SH2 | Read | 1 wait (const) |
+
+### SDRAM Access Time
+
+The 32X SDRAM is specialized for the "replace" in the case of the SH2 cache miss, and read transfers in the 8 word burst mode* while write transfers in the 1 word single mode. Access time is fixed at the following values:
+
+| Operation | Timing |
+|-----------|--------|
+| Read | 12 Clock / 8 Word |
+| Write | 2 Clock / 1 Word |
+
+**\* 8-Word burst mode:** A read operation that takes data in batches of 8 word components from the first address specified by the word address. Because 8 word corresponds to a single line cache, there will be conformity when a cache miss occurs and line data is replaced. But when the SDRAM is read using cache-through, even if the data to be read is only a single word, the access operation to the SH2 SDRAM is 8-word-burst-read-fixed, and action time is required by that amount.
+
+---
+
 ### StandBy Changer Register (Access: Word)
 
 **Address:** 2000 4002h
@@ -1067,3 +1310,221 @@ There are five registers within the SYS REG for controlling PWM of the 32X (see 
 ---
 
 *[Document continues but was truncated in the original message]*
+
+## Chapter 5: Miscellaneous
+
+### 1.13. Boot ROM
+
+The Boot ROM is an SH2 execution object that is loaded in 32X as ROM, and is different in content with respect to the master CPU and slave CPU. SH2 itself sleeps until activated by the Mega Drive side initial program. After the Boot ROM is reactivated, security (see 1.14 Security) is executed by the master CPU; and if OK, the Initial program is executed after the initial data (application program) is loaded from the cartridge to SDRAM.
+
+#### Initial Data Load
+
+Address 3C0h to 3EDh (3F0h of the ROM cartridge) is called the user header. The user header contains parameters of the initial data load given by the format shown below:
+
+**MARS User Header ($00 03C0)**
+
+```asm
+MARSInitHeader:
+    dc.b    'MARS CHECK MODE '    ; module name
+    dc.l    $0                     ; version
+
+    dc.l    $0000c000              ; source address
+    dc.l    $0                     ; destination address
+    dc.l    $00004000              ; size
+
+    dc.l    $06000120              ; SH2 (Master) start address
+    dc.l    $06002000              ; SH2 (Slave) start address
+
+    dc.l    $06000000              ; SH2 (Master) vector base address
+    dc.l    $06002000              ; SH2 (Slave) vector base address
+```
+
+The source address is the byte address in which the ROM cartridge load is 0. The destination address is the byte address in which the DRAM load is 0. Size is indicated by number of bytes. Because the boot ROM loads the initial data in long word units, an address error will occur if the address is not set by the long word boundaries. Size must be treated in multiples of four. An address error will also occur if the start address and vector base address are not set within the long word boundaries.
+
+#### Mega Drive and SH2 Synchronization
+
+The Boot ROM flow chart shows the boot process for both Master and Slave SH2. The "comm 0, 4, 8" reference refers to communication ports on the 32X. Immediately before an application starts, SH2 master writes "M_OK" (ASCII code 4 bytes) and SH2 slave writes "S_OK" to the communication port. The Mega Drive side executes the initial program (See 1.14 Security) at this time. To be able to synchronize the Mega Drive and SH2 with the application, these must be cleared when moving the Mega Drive side to the application. The SH2 side waits until it is cleared.
+
+**Boot ROM Flow (Master):**
+
+1. General Purpose Register Initialization
+2. Bus State Controller Initialization
+3. SDRAM Mode
+4. 32X usable
+5. wait
+6. Custom Standby
+7. sleep
+8. Custom Active
+9. Custom Clear
+10. Cache ON
+11. SDRAM Test
+    - If NG: "SDER" → comm0
+    - If OK: SDRAM Clear
+12. Cartridge exists check
+13. Security
+    - If NG: "SQER" → comm0
+    - If OK: Check SUM → comm8
+14. If comm0 = "CD_*": Check SUM → comm8
+15. Initial data load ROM → SDRAM
+16. "M_OK" → comm0
+17. Application Start
+
+**Boot ROM Flow (Slave):**
+
+1. General Purpose Register Initialization
+2. Custom Clear
+3. Cache ON
+4. sleep
+5. Wait for cartridge exists
+6. Wait for comm0 = "CD_*" OR comm0 = "M_OK"
+7. If Y: Check SUM → comm8
+8. Wait for comm0 = "M_OK"
+9. "M_OK" → comm0
+10. Application Start
+
+### 1.14. Security
+
+#### Initial Program
+
+The Initial program performs hardware security and everything required upon resetting in order to equalize all hardware conditions when the Mega Drive and 32X are powered on. In the application program for 32X, the initial program (ICD_MARS.PRG) that replaces the one used by the current Mega Drive must be included. This program is executed immediately after the power is turned on or reset by the Mega Drive side. After activating SH2 from the sleep, the Mega Drive and 32X hardware are initialized and their applications executed.
+
+#### Security
+
+The Initial program must begin from the start of the program (address 3F0h) without change. The Boot ROM built into 32X confirms that the Initial program is provided here. When contents do not match, 32X becomes locked and access cannot be done from the Mega Drive side.
+
+**WARNING:** Be aware that release cannot be done if the initial program has been changed or if the initial program is not entered from the start.
+
+#### Included in the Initial Program
+
+A list of the Mega Drive side sample program is shown below. The initial program (ICD_MARS.PRG) appears in the application structure.
+
+**MAINPROG.ASM Sample:**
+
+```asm
+*******************************************************************************
+* MARS Sample Program
+* Mega Drive Main Routine
+* Copyright SEGA ENTREPRISES, LTD 1994
+*
+* CS Hardware R&D Dept.
+*
+*******************************************************************************
+
+* global define
+    xref    colordata,colorbarcg     ; add.asm
+    xref    cramdma,vramdma,vdpinit  ; vdp.h
+
+* include file
+    .include md.i           ; Mega Drive Map
+    .include mainwk.ass     ; WorkRAM Assign
+    .include m_const.ass    ; Constant or Macro
+
+    .symbols
+    .list on
+
+*
+* Vector / Mega Drive ID / Mars Initial Program
+    .include header.prg     ; Mega Drive & 32X Header
+    .include icd_mars.prg   ; Sega Designation - Initial Program & Security
+*
+
+    bcs     _error()        ; if cs=1 then ID error or Self check error
+
+_init:
+    lea     marsreg,a5
+```
+
+The initial program (icd_mars.prg) provides the necessary initialization sequence including the security check that validates the cartridge and enables the 32X hardware. This is a mandatory component that cannot be modified or omitted.
+
+---
+
+
+### 1.15. Restrictions
+
+#### DMA Restrictions
+
+1. **Master/Slave DMA Conflict**: When performing SH2 auto request DMA, both master interrupt and slave interrupt must be masked. If DMA is performed by both master and slave at the same time, one side of DMA will perform very slow until the other side of DMA is finished.
+
+2. **VDP Access During DMA**: Since starting the interrupt process may take longer while executing auto request, VDP cannot be accessed within H interrupt while DMA is occurring. When PWM is used, data write may not happen in time. As a result, when either master or slave controls PWM, or when VDP is accessed in H interrupt, auto request DMA cannot be used.
+
+3. **Interrupt Priority Timing**: Because the time required for the SH2 interrupt to be received depends on the status of the execution, when a high level interrupt is applied following a low level interrupt, the high level interrupt may be received first regardless of the interrupt sequence. Therefore, care is required regarding H interrupt immediately prior to V interrupt and PWM interrupt.
+
+4. **CPU Write DMA Full Bit**: When performing CPU write DMA, full bit should be checked for every four words written. This is because the response to the SH2 side DMA may be longer than the 68K access cycle, depending on the access status.
+
+5. **Palette Access Timing**: When accessing the palette in the packed pixel and run length modes, access needs to be done before 1μs in which the PEN bit changes "1" to "0". Because VDP ignores this access interval, data can not be ensured for both write and read.
+
+#### Precautions when using 32X SH2 (SH7095)
+
+If the following operations are performed, the operation that follows can not be guaranteed:
+
+1. Do not use the TAS command with the 32X.
+2. Do not use the sleep command in an application.
+3. Do not access the bus state controller (FFFF FFE0h ~ FFFF FFFFh) in an application.
+4. Internal reset should not be done by "watch dog timer" in an application.
+5. Do not access the standby control register (FFFF FE91h) in an application.
+
+In addition, the following conditions exist:
+
+1. Do not manually reset the 32X.
+2. NMI is fixed to "H" in the 32X. (Items that can be used depending on the development tool also exist.)
+3. Serial communication is connected between the master and slave. Because the serial clock is also connected, it can be used in clock synchronization if one side outputs and the other side inputs.
+
+#### DMA Controller Settings
+
+**Transfer from DREQ FIFO to memory (channel 0, external request):**
+
+- DMA Source Address Register 0 (FFFF FF80h) → 2000 4012h fixed
+- DMA Destination Address Register 0 (FFFF FF84h) → optional
+- DMA Transfer Count Register 0 (FFFF FF88h) → same value as DREQ Length Register (2000 4010h)
+- DMA Channel Control Register 0 (FFFF FF8Ch) → 0100 0100 1110 0XXXb (fixed except for X)
+- DMA Request / Response Select Control Register 0 (FFF FE71h) → 00h fixed
+- DMA Operation Register (FFFF FFB0h) → optional
+
+**Transfer from memory to PWM FIFO (channel 1, external request):**
+
+- DMA Source Address Register 1 (FFFF FF90h) → optional
+- DMA Destination Address Register 1 (FFFF FF94h) → 2000 4034h ~ 2000 4038h
+- DMA Transfer Count Register 1 (FFFF FF98h) → optional
+- DMA Channel Control Register 1 (FFFF FF9Ch) → 00XX 0100 1110 0XXXb (fixed except for X) or 00XX 1000 1110 0XXXb (fixed except for X)
+- DMA Request / Response Select Control Register 1 (FFF FE72h) → 00h fixed
+- DMA Operation Register (FFFF FFB0h) → optional
+
+**Transfer from memory to memory (channels 0, 1):**
+
+- DMA Channel Control Register 0/1 (FFFF FF8Ch /FFFF FF9Ch) → XXXX XX10 1110 0XXXB (fixed except for X)
+
+Other registers are optional.
+
+#### Restrictions Concerning SH2 Interrupt
+
+The 32X SH2 has five types of interrupt:
+
+- **Level 14**: VRES interrupt
+- **Level 12**: V interrupt
+- **Level 10**: H interrupt
+- **Level 8**: Command interrupt
+- **Level 6**: PWM interrupt
+
+The following restrictions occur when using two or more of the following interrupts along with interrupts through the SH2 internal peripheral module at the same time:
+
+1. **Interrupt Mask Levels**: There should always be 1 or more interrupt masks. Don't use interrupts of level 15, level 13, level 11, level 9, level 7 and level 1.
+
+2. **FRT Restrictions**: The SH2 internal free-run-time (FRT) cannot be used with programs. Use the following values in the initial settings:
+
+   | Register | Value |
+   |----------|-------|
+   | Timer interrupt enable register (TIER) | 01h |
+   | Output compare register A (OCRA) | 0002h |
+   | Free run timer control/status register (FCTST) | 01h |
+   | Timer control register (TOCR) | E2h |
+
+3. **Shared Interrupt Vectors**: External interrupts and the built-in peripheral module interrupt jump destination vector may be mis-recognized. Except for the Non-Maskable Interrupt (NMI) and user brake, interrupt vectors should be set so that they all call the same process routine. At the beginning of this process routine, individual process routines should be called by deciding and branching the SH2 status register values. When the internal peripheral module is assigned the same level as the external interrupt, check the individual interrupt factor flags by the software and find which interrupt occurred.
+
+4. **Invalid Interrupt Levels**: Return from interrupt without doing anything when interrupt levels 15, 13, 11, 9, 7, and 1 occur.
+
+5. **RTE Timing**: Until the RTE command is executed after the external interrupt has been cleared, two or more cycles should be opened. Clearing external interrupt is done by writing to the clear register. When the RTE command is executed, 2 or more commands should be done afterward.
+
+**IMPORTANT**: These restrictions are in addition to the SH2 interrupt hardware bug documented in [32x-hardware-manual-supplement-2.md](32x-hardware-manual-supplement-2.md). The FRT TOCR toggle workaround must still be applied in all external interrupt handlers.
+
+---
+

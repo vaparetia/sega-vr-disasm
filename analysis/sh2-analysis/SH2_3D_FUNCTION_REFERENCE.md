@@ -2,7 +2,7 @@
 
 **Virtua Racing Deluxe - Complete Function Catalog**
 **Analysis Date**: January 6, 2026
-**Updated**: February 1, 2026 (v4.4.0 - 75 functions translated across 36 assembly files)
+**Last Updated**: February 6, 2026 (v4.4.0 - Documentation paths corrected)
 
 ---
 
@@ -25,7 +25,7 @@ Total Functions: 109
 └── Hardware Functions (VDP/register access): 12
 ```
 
-**Translation Directory**: All 75 translated functions are in `disasm/sh2/3d_engine/` with byte-accurate ROM verification.
+**Translation Directory**: All 75 translated functions are in `disasm/modules/sh2/3d-engine/` with byte-accurate ROM verification.
 
 **Coverage by section:**
 - `code_22200.asm`: 57 functions (main 3D engine core)
@@ -106,7 +106,7 @@ void func_016(Context* r14) {
 **Type**: Coordinator (recursive)
 **Called By**: func_018, func_019, func_020 (self)
 **Call Count**: 3
-**Translation**: `disasm/sh2/3d_engine/func_020_recursive_quad.asm`, `func_020_vertex_helper_short.asm`
+**Translation**: `disasm/modules/sh2/3d-engine/func_020_recursive_quad.asm`, `func_020_vertex_helper_short.asm`
 
 **Purpose**: Recursive polygon subdivision or hierarchical processing
 
@@ -128,7 +128,7 @@ void func_016(Context* r14) {
 **Type**: Coordinator (visibility hub)
 **Called By**: func_020, func_021
 **Calls**: func_024, func_026, func_029, func_032, func_033, func_036
-**Translation**: `disasm/sh2/3d_engine/func_023_frustum_cull.asm`, `func_023_frustum_cull_short.asm`
+**Translation**: `disasm/modules/sh2/3d-engine/func_023_frustum_cull.asm`, `func_023_frustum_cull_short.asm`
 
 **Purpose**: Core visibility testing and rendering dispatch hub - the heart of the 3D engine
 
@@ -433,7 +433,7 @@ func_001
 **Type**: Coordinator
 **Calls**: func_016 (hot), func_020
 **Call Count**: Unknown (entry point)
-**Translation**: `disasm/sh2/3d_engine/func_019_quad_batch_alt.asm`, `func_019_quad_batch_alt_short.asm`
+**Translation**: `disasm/modules/sh2/3d-engine/func_019_quad_batch_alt.asm`, `func_019_quad_batch_alt_short.asm`
 
 **Purpose**: Alternative polygon processing path (similar to func_018)
 
@@ -450,7 +450,7 @@ func_001
 **Type**: Coordinator
 **Called By**: func_023 (visibility hub)
 **Calls**: func_034 (span filler)
-**Translation**: `disasm/sh2/3d_engine/func_033_render_quad.asm`, `func_033_render_quad_short.asm`
+**Translation**: `disasm/modules/sh2/3d-engine/func_033_render_quad.asm`, `func_033_render_quad_short.asm`
 
 **Purpose**: Renders quads by walking their edges, generating scanline data
 
@@ -478,7 +478,7 @@ BT .right_edge_first
 **Size**: 122 bytes
 **Type**: Leaf function
 **Called By**: func_033
-**Translation**: `disasm/sh2/3d_engine/func_034_span_filler.asm`, `func_034_span_filler_short.asm`
+**Translation**: `disasm/modules/sh2/3d-engine/func_034_span_filler.asm`, `func_034_span_filler_short.asm`
 
 **Purpose**: Calculates interpolated edge values for scanline rendering
 
@@ -499,7 +499,7 @@ BT .right_edge_first
 **Size**: 122 bytes
 **Type**: Leaf function with jump table
 **Called By**: Display engine coordinator
-**Translation**: `disasm/sh2/3d_engine/func_040_display_list_short.asm`
+**Translation**: `disasm/modules/sh2/3d-engine/func_040_display_list_short.asm`
 
 **Purpose**: Initialize display list buffers at VDP addresses
 
@@ -786,7 +786,7 @@ func_XXX:
 
 ### Translated Assembly Sources
 
-All 75 translated functions are spread across 36 assembly files in `disasm/sh2/3d_engine/` (some files cover multiple related functions):
+All 75 translated functions are spread across 36 assembly files in `disasm/modules/sh2/3d-engine/` (some files cover multiple related functions):
 
 **Key Translation Files by Pipeline Stage:**
 

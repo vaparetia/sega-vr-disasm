@@ -1,6 +1,6 @@
 # Virtua Racing Deluxe - Complete Memory Map
 
-**Last Updated**: 2026-01-29
+**Last Updated**: 2026-02-05
 **Purpose**: Comprehensive documentation of all memory regions, registers, and address spaces
 **Status**: TRUE PARALLEL PROCESSING OPERATIONAL - Expansion ROM active
 
@@ -86,6 +86,11 @@ When the 32X adapter is enabled, some addresses are remapped:
 - Cannot contain 68K assembly mnemonics
 - Maps to SH2 address space $02300000-$023FFFFF
 
+**⚠️ RV BIT WARNING**: When 68000 sets RV bit = 1 for ROM→VRAM DMA, SH2 access to this ROM region **BLOCKS** until 68000 clears RV back to 0. If VRD uses ROM DMA during gameplay, critical expansion code should be copied to SDRAM ($0600_0000) at boot to avoid stalls.
+- RV bit location: Part of DREQ_CTRL register ($A15104 from 68K side)
+- Impact: All SH2 ROM access (0x0200_0000 - 0x023F_FFFF) waits when RV=1
+- Status: **NEEDS VERIFICATION** - check if VRD sets RV=1 during gameplay
+
 | Address | Size | Function | Purpose |
 |---------|------|----------|---------|
 | $300028 | 22B | `handler_frame_sync` | Frame synchronization |
@@ -153,6 +158,9 @@ Used for sound driver and Z80 program.
 ---
 
 ## 32X Register Map
+
+**For detailed register specifications, behavioral hazards, and critical notes, see:**
+**[32X_REGISTERS.md](32X_REGISTERS.md)** - Complete register reference with FM bit preemption, COMM port race conditions, and interrupt clearing requirements.
 
 ### Base Address: $A15000 (from 68K perspective)
 
@@ -259,7 +267,10 @@ Standard Sega Genesis VDP registers, plus 32X enhancements.
 │ $04000000    │ 256KB    │ Frame Buffer (cached)                 │
 │ $04020000    │ 256KB    │ Overwrite Image (cached)              │
 │              │          │                                       │
-│ $06000000    │ 4MB      │ ROM (cartridge, cache-through)        │
+│ $06000000    │ ?        │ ⚠️ UNDOCUMENTED - PicoDrive only     │
+│              │          │ Not in official hardware manual       │
+│              │          │ Use $02000000 (cached) or             │
+│              │          │ $22000000 (cache-through) instead     │
 │              │          │                                       │
 │ $20004000    │ ~        │ 32X System Registers                  │
 │ $20004020    │ 16B      │   → COMM0-COMM7 registers             │
@@ -281,6 +292,30 @@ Standard Sega Genesis VDP registers, plus 32X enhancements.
 - **Cached access**: Faster, uses cache lines (good for code/data)
 - **Uncached access**: Slower, direct memory access (good for DMA targets)
 - **Cache-through**: Writes update both cache and memory
+
+### SH2 Access Timing (Official - Hardware Manual §4.1)
+
+| Memory Region | Read | Write | Notes |
+|--------------|------|-------|-------|
+| **SDRAM** ($02000000) | 12 clocks | 2 clocks | Burst mode: 12 + 2×(n-1) for n words |
+| **Frame Buffer** ($04000000) | 6 clocks | 3-5 clocks | 3 if FIFO not full, 5 if full |
+| **VDP Registers** ($04004100) | 5 clocks | 5 clocks | |
+| **System Registers** ($20004000) | 1 clock | 1 clock | COMM registers, interrupt control |
+| **Color Palette** ($04004200) | 5 clocks | 5 clocks | |
+
+**SDRAM Burst Mode Optimization**:
+- Initial access: 12 clocks (expensive)
+- Subsequent words in burst: 2 clocks each
+- 8-word burst: 12 + 14 = 26 clocks (vs. 96 for 8 individual reads)
+- **Align data structures for sequential access to exploit burst mode**
+
+**Frame Buffer FIFO** (per 32X Hardware Manual):
+- 4-word write FIFO for frame buffer and overwrite image
+- **Single write**: 3 clock cycles per word
+- **Burst write (4+ consecutive words)**: 5 clock cycles total for first 4 words = 1.25 cycles/word average
+- **Performance gain**: 2.4x speedup when using 4-word bursts
+- **Optimization opportunity**: Write frame buffer data in 4-word (8-byte) bursts
+- **Status**: Need to profile if VRD already uses burst writes
 
 ### SH2 SDRAM Usage ($22000000, 256KB)
 - Primary working memory for SH2 programs

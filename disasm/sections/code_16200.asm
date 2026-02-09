@@ -109,6 +109,12 @@
         dc.w    $222A        ; $0162CA
         dc.w    $F66C        ; $0162CC
         dc.w    $FFFF        ; $0162CE
+; ============================================================================
+; PADDING ($0162D0-$01630F) - Reserved for future expansion
+; ============================================================================
+; NOTE: sh2_cmd_27_enqueue_flush is available in disasm/modules/68k/sh2/
+; but not activated yet. See CLAUDE.md for activation instructions.
+; ============================================================================
         dc.w    $FFFF        ; $0162D0
         dc.w    $FFFF        ; $0162D2
         dc.w    $FFFF        ; $0162D4

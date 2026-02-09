@@ -1,5 +1,6 @@
 # 68K-SH2 Communication
 
+**Last Updated**: February 6, 2026
 **Purpose:** Communication protocol and coordination between 68000 and dual SH2 processors
 **Status:** Reference document with mixed confidence levels
 **Related:** [MASTER_SLAVE_ANALYSIS.md](architecture/MASTER_SLAVE_ANALYSIS.md) for validated v2.3 sync protocol
@@ -18,7 +19,7 @@
         |                   |                   |
 +-------v-------+   +-------v-------+   +-------v-------+
 |    68000      |   | SH2 Master    |   | SH2 Slave     |
-|   (7.67MHz)   |   |   (23MHz)     |   |   (23MHz)     |
+|  (7.67 MHz)   |   |  (23.01 MHz)  |   |  (23.01 MHz)  |
 +-------+-------+   +-------+-------+   +-------+-------+
         |                   |                   |
         v                   v                   v
@@ -71,6 +72,56 @@ The 32X has **8 COMM registers** (COMM0-COMM7) at **2-byte (word) intervals**:
 | $A15106 | DREQ_CTRL | DMA request control |
 
 See [DATA_STRUCTURES.md](architecture/DATA_STRUCTURES.md) for complete memory map.
+
+---
+
+## Boot Synchronization Protocol (✅ Per Official Hardware Manual)
+
+After power-on, the boot ROM coordinates startup between all three processors using COMM registers:
+
+### Official Three-Way Handshake
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    BOOT SYNCHRONIZATION                         │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Master SH2:                                                    │
+│    1. Initialize FRT for interrupt correction                   │
+│    2. Write "M_OK" (0x4D5F4F4B) to COMM0                       │
+│    3. Wait for COMM0 = 0 (68K start signal)                    │
+│    4. Wait for "SLAV" (0x534C4156) in COMM8                    │
+│    5. Configure serial interface                                │
+│    6. Enable interrupts (SR = 0x20)                            │
+│                                                                 │
+│  Slave SH2:                                                     │
+│    1. Initialize FRT for interrupt correction                   │
+│    2. Write "SLAV" (0x534C4156) to COMM8                       │
+│    3. Write "S_OK" (0x535F4F4B) to COMM4                       │
+│    4. Wait for COMM4 = 0 (68K start signal)                    │
+│    5. Enable interrupts (SR = 0x20)                            │
+│                                                                 │
+│  68000:                                                         │
+│    1. Wait for "M_OK" in COMM0 (Master ready)                  │
+│    2. Wait for "S_OK" in COMM4 (Slave ready)                   │
+│    3. Clear COMM0 to 0 (signal Master to start)                │
+│    4. Clear COMM4 to 0 (signal Slave to start)                 │
+│    5. Set initflug = "INIT" (0x494E4954)                       │
+│    6. Continue to main program                                  │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Source:** [32x-hardware-manual.md](../docs/32x-hardware-manual.md) Chapter 5 §1.13 (Boot ROM), Section 3.3, [32x-technical-info-attachment-1.md](../docs/32x-technical-info-attachment-1.md)
+
+### Magic Values
+
+| Value | ASCII | Register | Meaning |
+|-------|-------|----------|---------|
+| 0x4D5F4F4B | "M_OK" | COMM0 | Master SH2 initialized |
+| 0x535F4F4B | "S_OK" | COMM4 | Slave SH2 initialized |
+| 0x534C4156 | "SLAV" | COMM8 | Slave ready for Master coordination |
+| 0x494E4954 | "INIT" | initflug (68K RAM) | Boot complete marker |
 
 ---
 

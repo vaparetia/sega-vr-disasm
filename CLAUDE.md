@@ -2,16 +2,20 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**Last Updated**: February 7, 2026
+
 ## Current Development Status
 
-**Phase:** v4.4.0 - Disassembler Phase 1 Complete
+**Phase:** v5.0.0 - Full 68K Modularization & Translation
 **Approach:** Full ROM rebuild from disassembly (NOT code injection)
 **Build:** `make all` produces complete 4MB ROM (byte-identical to original in translated regions)
 
 ### What's Working
 - 4MB ROM builds successfully with 1MB expansion space ($300000-$3FFFFF)
-- **75 SH2 functions translated** to proper `.short` opcode assembly
-- **16 68K module categories** - boot, display, frame, game, graphics, hardware, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
+- **75 SH2 functions integrated** into build system (78 total .inc files including 3 expansion ROM helpers)
+- **693 68K functions modularized** across 12 sections (79,940 bytes, all 12 code sections fully extracted)
+- **571 modules auto-translated** to proper assembly mnemonics (16,022 instructions, 80% rate)
+- **17 68K module categories** - boot, data, display, frame, game, graphics, hardware-regs, input, main-loop, math, memory, object, sh2, sound, util, vdp, vint
 - **All translations verified** byte-identical to original ROM
 - **Build system integrated** with Makefile rules for all functions
 - **Expansion code ready** at $300000+ (parallel processing infrastructure)
@@ -42,10 +46,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Next Steps
 1. ~~SH2 function translation (major pass)~~ ✅ Done (75 functions)
 2. ~~Parallel processing infrastructure~~ ✅ Done (expansion code ready)
-3. **Activate hooks**: Patch dispatch at $02046A and trampoline at $0234C8
-4. **Performance Testing**: Measure FPS improvement
-5. **Synchronization**: Ensure Slave completes before next frame
-6. **Load Balancing**: Split polygon workload between CPUs
+3. ~~68K modularization pass~~ ✅ Done (693 functions, 79,940 bytes across all 12 sections)
+5. **Activate hooks**: Patch dispatch at $02046A and trampoline at $0234C8
+6. **Performance Testing**: Measure FPS improvement
+7. **Synchronization**: Ensure Slave completes before next frame
+8. **Load Balancing**: Split polygon workload between CPUs
 
 ### Abandoned Approaches
 - **Code injection via `phase11_rom_patcher.py`**: Reached space/alignment limits
@@ -75,8 +80,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### 4. Proper Assembly, Not Binary Injection
 - **Always modify proper assembly code** - don't trust raw binary/hex patches
-- Convert `dc.w` sequences to mnemonics before modifying
+- Convert `dc.w` sequences to mnemonics **when possible** (see exceptions below)
 - Binary injection is error-prone and hard to maintain
+
+**SH2 Translation Exception:** Some SH2 functions must remain as `dc.w` due to assembler padding issues:
+- The `sh-elf-as` assembler adds implicit alignment padding that differs from the original ROM
+- Even 1-byte size mismatches cause section overlap errors in the fixed ROM layout
+- **Keep as `dc.w` when:** Complex coordinators with jump tables, multi-entry case handlers, or when byte-perfect size matching is required
+- **Safe to translate:** Standalone functions without PC-relative data, simple subroutines, functions with flexible space
+- See [SH2_TRANSLATION_INTEGRATION.md](analysis/sh2-analysis/SH2_TRANSLATION_INTEGRATION.md) for detailed guidelines
 
 ### 5. Clean Commits Only
 - **Never leave stale "PATCHED" comments** with old values - either fully revert or fully commit
@@ -136,13 +148,27 @@ picodrive build/vr_rebuild.32x  # Linux (recommended)
 
 ### Reference Material (`/docs`)
 
-**Hardware Manuals:**
+**INDEX:** See [DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md) for complete documentation catalog.
+
+**Hardware Manuals (Markdown):**
 | Document | Contents |
 |----------|----------|
 | [development-guide.md](docs/development-guide.md) | **Start here** - CPU coordination, registers, pitfalls |
 | [32x-hardware-manual.md](docs/32x-hardware-manual.md) | Complete hardware reference, memory maps, VDP modes |
+| [32x-hardware-manual-supplement-2.md](docs/32x-hardware-manual-supplement-2.md) | **SH2 interrupt bug errata** and FRT TOCR corrective action |
 | [32x-technical-info.md](docs/32x-technical-info.md) | 22 documented hardware bugs and workarounds |
+| [32x-technical-info-attachment-1.md](docs/32x-technical-info-attachment-1.md) | VRES/RV bit corrective program samples (68K + SH2) |
 | [sound-driver-v3.md](docs/sound-driver-v3.md) | Sound Driver V3.00 system calls |
+
+**Official SEGA PDFs (NEW):**
+| Document | Contents |
+|----------|----------|
+| [32XUSHardwareManual.pdf](docs/32XUSHardwareManual.pdf) | 32X hardware manual (90 pages) |
+| [GenesisTechnicalOverview.pdf](docs/GenesisTechnicalOverview.pdf) | **Genesis hardware specs** (120 pages) - VDP, memory, DMA |
+| [Genesis_Software_Development_Manual_Version_2.0_1991-07-09.pdf](docs/Genesis_Software_Development_Manual_Version_2.0_1991-07-09.pdf) | **Software dev guide** (26 pages) - ROM headers, I/O, best practices |
+| [SegaGenesisSoftwareManual_1990-02-06.pdf](docs/SegaGenesisSoftwareManual_1990-02-06.pdf) | Comprehensive software manual (159 pages) |
+| [GenesisTechnicalBulletins.pdf](docs/GenesisTechnicalBulletins.pdf) | Official errata and tips (83 pages) |
+| [SNASM68K_Console_and_Z80_Notes.pdf](docs/SNASM68K_Console_and_Z80_Notes.pdf) | **SEGA's official assembler** syntax (4 pages) |
 
 **Development Guides:**
 | Document | Contents |
@@ -159,6 +185,8 @@ picodrive build/vr_rebuild.32x  # Linux (recommended)
 |----------|----------|
 | [ARCHITECTURAL_BOTTLENECK_ANALYSIS.md](analysis/ARCHITECTURAL_BOTTLENECK_ANALYSIS.md) | **Root cause** - Blocking sync model causes ~20 FPS ceiling |
 | [ROM_EXPANSION_4MB_IMPLEMENTATION.md](analysis/architecture/ROM_EXPANSION_4MB_IMPLEMENTATION.md) | **4MB expansion** - 1MB SH2 working space implementation |
+| [SH2_TRANSLATION_INTEGRATION.md](analysis/sh2-analysis/SH2_TRANSLATION_INTEGRATION.md) | **SH2 translation** - Assembler challenges and integration guidelines |
+| [32X_REGISTERS.md](analysis/architecture/32X_REGISTERS.md) | **32X registers** - Complete register reference with behavioral hazards |
 | [68K_FUNCTION_REFERENCE.md](analysis/68K_FUNCTION_REFERENCE.md) | 503+ named 68K functions by category |
 | [68K_SH2_COMMUNICATION.md](analysis/68K_SH2_COMMUNICATION.md) | Communication protocol between processors |
 | [DATA_STRUCTURES.md](analysis/architecture/DATA_STRUCTURES.md) | Memory maps, object tables, structures |
@@ -189,6 +217,19 @@ Historical session logs and phase reports preserved in `_archive/phase_logs/`.
 Convert between file offsets and CPU addresses:
 - **68000**: `cpu_addr = file_offset + 0x00880000`
 - **SH2**: `cpu_addr = file_offset + 0x02000000`
+
+### Technical Notes
+
+**Clock Speeds (Hardware Manual §1.14)**:
+- **68K**: 7.67 MHz exactly
+- **SH2 (NTSC)**: **23.01 MHz** (not 23.00 MHz)
+- **SH2 (PAL)**: 22.8 MHz
+
+**Frame Budgets @ 60 Hz**:
+- 68K: 127,833 cycles/frame (theoretical)
+- SH2: 383,500 cycles/frame (theoretical)
+
+Note: Some profiling documents use "23 MHz" and "383,333 cycles/frame" as approximations (0.04% error). Both values are valid depending on context (theoretical vs measured).
 
 ### 4MB Expansion ROM Architecture
 

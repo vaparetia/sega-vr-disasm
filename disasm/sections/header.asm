@@ -65,8 +65,8 @@
         dc.w    $170A        ; $000072
         dc.w    $0088        ; $000074
         dc.w    $0832        ; $000076
-        dc.w    $0088        ; $000078
-        dc.w    $1684        ; $00007A
+        dc.w    $0089        ; $000078 - FPS V-INT wrapper (high word)
+        dc.w    $C208        ; $00007A - → $0089C208 (optimization area)
         dc.w    $0088        ; $00007C
         dc.w    $0832        ; $00007E
         dc.w    $0088        ; $000080
