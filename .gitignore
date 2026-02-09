@@ -48,7 +48,9 @@ retroarch/
 # Third-party source clones (for analysis only)
 /tmp/
 blastem/
-third_party/
+third_party/*
+!third_party/picodrive
+!third_party/picodrive/**
 
 # PDFs and proprietary documentation
 *.pdf
