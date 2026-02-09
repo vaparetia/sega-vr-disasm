@@ -22,8 +22,3 @@ dd if="Virtua Racing Deluxe (USA).32x" of=disasm/rom_data_remainder.bin bs=1 ski
 make all
 make compare
 ```
-
-## Notes
-
-- If `binutils-sh-elf` or `gcc-sh-elf` are missing in your Ubuntu base, let me know and I will add a fallback toolchain build step.
-- The Quick Start emulator step (`picodrive`) is optional and not included in this image.
