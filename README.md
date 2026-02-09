@@ -47,6 +47,8 @@ make compare
 picodrive build/vr_rebuild.32x
 ```
 
+Docker instructions: see `docs/DOCKER.md`.
+
 ## Project Structure
 
 ```
