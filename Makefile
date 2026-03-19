@@ -4,8 +4,8 @@
 
 # Tools
 ASM = tools/vasmm68k_mot
-SH2_AS = sh-elf-as
-SH2_OBJCOPY = sh-elf-objcopy
+SH2_AS = sh2-elf-as
+SH2_OBJCOPY = sh2-elf-objcopy
 SH2_ASFLAGS = --isa=sh2
 PYTHON = python3
 
@@ -96,7 +96,7 @@ tools/vasmm68k_mot:
 SH2_SRC_DIR = $(DISASM_DIR)/sh2
 SH2_GEN_DIR = $(SH2_SRC_DIR)/generated
 SH2_3D_DIR = $(SH2_SRC_DIR)/3d_engine
-SH2_LD = sh-elf-ld
+SH2_LD = sh2-elf-ld
 
 # SH2 source files (Priority 1: simplest functions first)
 SH2_FUNC000_SRC = $(SH2_3D_DIR)/data_copy.asm
