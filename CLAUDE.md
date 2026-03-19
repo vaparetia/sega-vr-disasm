@@ -2,21 +2,21 @@
 
 Agent briefing for Virtua Racing Deluxe 32X disassembly/reassembly project.
 
-**Last Updated**: March 16, 2026
+**Last Updated**: March 18, 2026
 
-## Agent Team (v3)
+## Agent Team (v4 — VR60)
 
-Two agents. See [agents/README.md](agents/README.md) for details.
+Two agents, redesigned for the VR60 architectural overhaul. See [agents/README.md](agents/README.md) for details.
 
-**Worker** (Sonnet or Opus) does all technical work: research, code, build, test. Spawn directly — no intermediary. Use Opus for hard problems (B-004, B-006, novel COMM work), Sonnet for routine tasks.
+**Worker** (Opus default) does all technical work: 68K→SH2 porting, SDRAM integration, build, test. Opus is the default because ALL VR60 work touches SH2/COMM/expansion. Spawn directly — no intermediary.
 
-**Auditor** (Opus) is a focused safety reviewer. Spawned fresh per concrete COMM/SH2/expansion proposal only. Returns APPROVED or BLOCKED. Not needed for 68K-only, profiling, or doc work.
+**Auditor** (Opus) is a safety reviewer with an expanded VR60 checklist: COMM safety + SDRAM addressing + bus contention + cache-through + double-buffer races + entity field preservation + ROM table translation. Spawned fresh per proposal. APPROVED or BLOCKED.
 
-**You are the task manager.** Pick a task from BACKLOG.md, spawn the Worker, review findings, spawn Auditor if flagged, approve/commit.
+**You are the task manager.** Pick a phase from [VR60_ROADMAP.md](VR60_ROADMAP.md), resolve open questions first, spawn the Worker, review findings, spawn Auditor, approve/commit. Update the roadmap after every session.
 
 **Research-First Principle:** Before implementing any fix, read the relevant docs and build a mental model with citations. If a second attempt fails for related reasons, stop coding and read. Named anti-patterns: address shopping, circular investigation, modern platform assumptions, undocumented guessing — all banned.
 
-**index.md maintenance rule:** After any session where a new pitfall is discovered or a new architectural fact is established, update `analysis/agent-scratch/oracle/index.md` before closing.
+**Roadmap maintenance rule:** After any session, update `VR60_ROADMAP.md` (decisions, risks, lessons) and `analysis/agent-scratch/oracle/index.md` if new facts established.
 
 ## Build & Test
 
@@ -139,6 +139,7 @@ No direct cross-trigger. 68K submits to Master (COMM0) and Slave (COMM2) indepen
 | **Game mode transitions (boot→menu→racing)** | **[analysis/GAME_MODE_TRANSITIONS.md](analysis/GAME_MODE_TRANSITIONS.md)** |
 | **V-INT dispatch table + frame swap mechanism** | **[analysis/VINT_HANDLER_ARCHITECTURE.md](analysis/VINT_HANDLER_ARCHITECTURE.md)** |
 | **Rendering pipeline (end-to-end)** | **[analysis/RENDERING_PIPELINE.md](analysis/RENDERING_PIPELINE.md)** |
+| **Async pipeline architecture (VR60 Phase 2B)** | **[analysis/ASYNC_PIPELINE_ARCHITECTURE.md](analysis/ASYNC_PIPELINE_ARCHITECTURE.md)** |
 
 ### SH2 Architecture
 | Question | File |
@@ -150,6 +151,17 @@ No direct cross-trigger. 68K submits to Master (COMM0) and Slave (COMM2) indepen
 | Master SH2 dispatch + COMM7 design | [analysis/architecture/MASTER_SH2_DISPATCH_ANALYSIS.md](analysis/architecture/MASTER_SH2_DISPATCH_ANALYSIS.md) |
 | SH2 3D pipeline (overview) | [analysis/sh2-analysis/SH2_3D_PIPELINE_ARCHITECTURE.md](analysis/sh2-analysis/SH2_3D_PIPELINE_ARCHITECTURE.md) |
 | SH2 translation guide | [analysis/sh2-analysis/SH2_TRANSLATION_INTEGRATION.md](analysis/sh2-analysis/SH2_TRANSLATION_INTEGRATION.md) |
+
+### Game Logic Subsystems
+| Question | File |
+|----------|------|
+| **Entity/object system (4 tables, 256B records)** | **[analysis/ENTITY_OBJECT_ARCHITECTURE.md](analysis/ENTITY_OBJECT_ARCHITECTURE.md)** |
+| **Physics (9-step pipeline, grip, gears, drift)** | **[analysis/PHYSICS_SYSTEM_ARCHITECTURE.md](analysis/PHYSICS_SYSTEM_ARCHITECTURE.md)** |
+| **AI (15-state machine, collision avoidance)** | **[analysis/AI_SYSTEM_ARCHITECTURE.md](analysis/AI_SYSTEM_ARCHITECTURE.md)** |
+| **Collision (binary search, 4-probe, proximity)** | **[analysis/COLLISION_SYSTEM_ARCHITECTURE.md](analysis/COLLISION_SYSTEM_ARCHITECTURE.md)** |
+| **Sound driver (FM/PSG/Z80, 18 channels)** | **[analysis/SOUND_DRIVER_ARCHITECTURE.md](analysis/SOUND_DRIVER_ARCHITECTURE.md)** |
+| Track data format (segmented spline) | [analysis/TRACK_DATA_FORMAT.md](analysis/TRACK_DATA_FORMAT.md) |
+| Memory management (WRAM layout, copy primitives) | [analysis/MEMORY_MANAGEMENT_ARCHITECTURE.md](analysis/MEMORY_MANAGEMENT_ARCHITECTURE.md) |
 
 ### Hardware & Communication
 | Question | File |
