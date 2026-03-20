@@ -224,6 +224,7 @@ If you'd like to support this project, consider becoming a patron:
 ## Credits
 
 - **Original Game**: SEGA (1994)
+- **Foundation**: [matiaszanolli/sega-vr-disasm](https://github.com/matiaszanolli/sega-vr-disasm) — this project builds directly on Matias Zanolli's original disassembly work. None of this would be possible without it.
 - **Disassembly & Analysis**: Claude Code with human guidance
 - **Tools**: vasm by Volker Barthelmann & Frank Wille
 - **Profiler**: Custom PicoDrive libretro patches

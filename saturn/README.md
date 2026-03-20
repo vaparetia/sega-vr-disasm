@@ -1,5 +1,10 @@
 # VRD Saturn Port
 
+> Built on the shoulders of [matiaszanolli/sega-vr-disasm](https://github.com/matiaszanolli/sega-vr-disasm) —
+> Matias Zanolli's original disassembly of Virtua Racing Deluxe (32X). The track extraction
+> tools, ROM address mappings, and architectural understanding of the game all derive from
+> that work. This port would not exist without it.
+
 A Sega Saturn port of Virtua Racing Deluxe (32X), running on real hardware via a
 Saroo ODE. Geometry, track data, and physics are derived directly from the original
 32X ROM using extraction tools in `tools/`.
