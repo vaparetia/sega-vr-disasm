@@ -1,0 +1,44 @@
+# docker-compose.yml — Saturn port build via ijacquez/yaul toolchain container
+#
+# Usage:
+#   docker compose run --rm build        # build the ISO/BIN
+#   docker compose run --rm clean        # clean build artifacts
+#   docker compose run --rm shell        # interactive shell with toolchain active
+#
+# The container mounts this directory as /work and sources the Yaul environment
+# automatically. Output lands in build/ and vr-saturn.{bin,cue}.
+
+x-yaul-env: &yaul-env
+  YAUL_BUILD_ROOT: /work
+
+x-yaul-base: &yaul-base
+  image: ijacquez/yaul:latest
+  volumes:
+    - .:/work
+  working_dir: /work
+  environment:
+    <<: *yaul-env
+
+services:
+  build:
+    <<: *yaul-base
+    command: >
+      bash -c "source /opt/tool-chains/sh2eb-elf/yaul.env.in &&
+               export YAUL_BUILD_ROOT=/work &&
+               make -j$$(nproc) -f /work/build.mk"
+
+  clean:
+    <<: *yaul-base
+    command: >
+      bash -c "source /opt/tool-chains/sh2eb-elf/yaul.env.in &&
+               export YAUL_BUILD_ROOT=/work &&
+               make -f /work/build.mk clean"
+
+  shell:
+    <<: *yaul-base
+    stdin_open: true
+    tty: true
+    command: >
+      bash -c "source /opt/tool-chains/sh2eb-elf/yaul.env.in &&
+               export YAUL_BUILD_ROOT=/work &&
+               exec bash"

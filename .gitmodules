@@ -1,0 +1,3 @@
+[submodule "saturn/libyaul-docker"]
+	path = saturn/libyaul-docker
+	url = git@github.com:ijacquez/libyaul-docker.git
