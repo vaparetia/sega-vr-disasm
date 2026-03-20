@@ -5,7 +5,6 @@
 #include "hal/scsp.h"
 #include "math/matrix.h"
 #include "render/scene.h"
-#include "game/race.h"
 #include "game/hud.h"
 
 static void _vblank_out_handler(void *work __unused)
@@ -46,6 +45,7 @@ user_init(void)
 int
 main(void)
 {
+        /* hud_init sets up the dbgio text layer we reuse for the debug overlay. */
         hud_init();
         scene_init();
 
@@ -57,8 +57,20 @@ main(void)
                 scene_render();
                 hal_vdp1_end();
 
-                hud_render(race_state(), race_countdown_num(),
-                    race_elapsed_frames(), scene_car_speed(), race_lap());
+                /* Camera debug overlay (free-camera mode).
+                 * Shows world position, heading, and pitch so track geometry
+                 * can be verified as the camera flies around. */
+                dbgio_printf("\033[H\033[2J"
+                    "X:%5d  Z:%5d  Y:%5d\n"
+                    "Yaw:%3d  Pitch:%3d\n"
+                    "UP/DN=fly  LR=turn\n"
+                    "A/B=alt    C/Z=pitch",
+                    scene_cam_x_int(),
+                    scene_cam_z_int(),
+                    scene_cam_y_int(),
+                    scene_cam_yaw(),
+                    scene_cam_pitch());
+                dbgio_flush();
 
                 vdp2_sync();
                 vdp2_sync_wait();

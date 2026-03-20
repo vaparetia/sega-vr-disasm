@@ -2,16 +2,16 @@
  *
  * Renders N_BANDS bands of real track geometry, back-to-front.
  * Each band covers SEGS_PER_BAND waypoints from track_segs[].
+ * N_BANDS × SEGS_PER_BAND = 128 × 8 = 1024 = full track loop.
  *
  * Quad vertex order (A,B,C,D) matches VDP1 clockwise convention:
  *   A=far-outer-left, B=far-outer-right, C=near-outer-right, D=near-outer-left
  * (CW in screen space with y-down = visible from above/front camera).
  *
- * VDP1 polygon budget:
- *   32 bands × 5 quads (grass L/R, curb L/R, road) = 160
- *   16 center-stripe dashes                          =  16
- *   32 bands × 2 trees (one each side)               =  64
- *   Total: 240  (<256 VDP1 limit)
+ * VDP1 polygon budget (trees disabled for full-track mode):
+ *   128 bands × 5 quads (grass L/R, curb L/R, road) = 640
+ *    64 center-stripe dashes                          =  64
+ *   Total: 704  (CMDT_MAX_POLYS raised to 1024 in vdp1.c)
  */
 
 #include "track.h"
@@ -24,7 +24,7 @@
 #define VP_CY          112
 #define FOCAL          200
 
-#define N_BANDS         32   /* bands rendered per frame */
+#define N_BANDS        128   /* bands rendered per frame; 128×8=1024 = full loop */
 #define SEGS_PER_BAND    8   /* track segments per band */
 #define GRASS_HW       160   /* grass half-width from road center (world units) */
 #define CURB_W          10   /* curb width (world units) */
@@ -253,31 +253,8 @@ void track_render(const mat4_t *view, int start_seg)
                                   COL_STRIPE);
                 }
 
-                /* --- Forest trees (Big Forest style) ---
-                 * One tree per side per band, positioned at TREE_SIDE from center.
-                 * Tree quad stands vertically, oriented along the road heading.
-                 * draw_tree handles both winding directions. */
-                {
-                        int si  = ni & (TRACK_N_SEGS - 1);
-                        int h   = track_segs[si].heading;
-                        int32_t cx = track_segs[si].x;
-                        int32_t cz = track_segs[si].z;
-
-                        fp16_t cosh = mat_cos(h);
-                        fp16_t sinh = mat_sin(h);
-
-                        /* Perpendicular offsets to tree row (right_perp = (cos,-sin)) */
-                        int32_t perp_x = fp_toint(fp_mul(fp_int(TREE_SIDE), cosh));
-                        int32_t perp_z = fp_toint(fp_mul(fp_int(TREE_SIDE),-sinh));
-
-                        /* Forward half-width along road direction */
-                        int32_t fwd_x = fp_toint(fp_mul(fp_int(TREE_W), sinh));
-                        int32_t fwd_z = fp_toint(fp_mul(fp_int(TREE_W), cosh));
-
-                        /* Right tree */
-                        draw_tree(view, cx + perp_x, cz + perp_z, fwd_x, fwd_z, tree_col);
-                        /* Left tree */
-                        draw_tree(view, cx - perp_x, cz - perp_z, fwd_x, fwd_z, tree_col);
-                }
+                /* Trees disabled: N_BANDS=128 uses the full polygon budget for
+                 * road geometry.  Re-enable when N_BANDS is reduced. */
+                (void)tree_col;
         }
 }

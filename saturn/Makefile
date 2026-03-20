@@ -18,7 +18,8 @@ DOCKER_IMAGE := ijacquez/yaul:latest
 DOCKER_ENV := source /opt/tool-chains/sh2eb-elf/yaul.env.in && export YAUL_BUILD_ROOT=/work
 
 DOCKER_RUN := docker run \
-	--volume=$(THIS_ROOT):/work \
+	--volume=$(THIS_ROOT):/work:z \
+	--userns=keep-id \
 	--rm \
 	$(DOCKER_IMAGE)
 
@@ -44,7 +45,7 @@ docker-clean:
 
 # Drop into a shell with the full Yaul environment active
 shell:
-	docker run --volume=$(THIS_ROOT):/work --rm -it $(DOCKER_IMAGE) \
+	docker run --volume=$(THIS_ROOT):/work:z --userns=keep-id --rm -it $(DOCKER_IMAGE) \
 		bash -c "$(DOCKER_ENV) && cd /work && exec bash"
 
 # Direct build (for CI or if toolchain is installed locally)

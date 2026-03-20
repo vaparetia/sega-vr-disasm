@@ -5,7 +5,7 @@
 #include <stdint.h>
 
 #define TRACK_N_SEGS  1024  /* segments per lap */
-#define TRACK_STEP     10  /* world units per segment */
+#define TRACK_STEP    200  /* segment length, wu (tracks 1-2; track 0 ≈ 55) */
 #define TRACK_ROAD_HW 110  /* road half-width, world units */
 #define TRACK_COUNT     3  /* number of tracks */
 
@@ -14,7 +14,7 @@ typedef struct {
     int16_t  x;       /* centerline x, world units */
     int16_t  z;       /* centerline z, world units */
     uint16_t heading; /* road heading, 512-step units (0=+Z, 128=+X) */
-    int8_t   h_curv;  /* horizontal curvature (signed, heading delta/seg) */
+    int8_t   h_curv;  /* horizontal curvature (signed, native units/seg) */
     int8_t   v_curv;  /* vertical curvature / banking (signed) */
 } track_seg_t;
 
@@ -24,5 +24,5 @@ extern const track_seg_t track_2[TRACK_N_SEGS];
 
 extern const track_seg_t * const tracks[TRACK_COUNT];
 
-/* Active track — defaults to track_1. Reassign to switch tracks. */
+/* Active track — defaults to track_0 (Big Forest). */
 extern const track_seg_t *track_segs;

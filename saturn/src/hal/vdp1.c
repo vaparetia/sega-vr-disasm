@@ -9,7 +9,7 @@
  *   last    — END */
 
 #define CMDT_PREAMBLE    2    /* slots 0 and 1 */
-#define CMDT_MAX_POLYS   256
+#define CMDT_MAX_POLYS   1024 /* raised from 256: 128 bands × 5 quads + stripes */
 #define CMDT_TOTAL       (CMDT_PREAMBLE + CMDT_MAX_POLYS + 1)  /* +1 for END */
 
 static vdp1_cmdt_list_t *_cmdt_list = NULL;
