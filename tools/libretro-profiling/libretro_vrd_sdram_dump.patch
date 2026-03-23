@@ -1,0 +1,76 @@
+diff --git a/platform/libretro/libretro.c b/platform/libretro/libretro.c
+--- a/platform/libretro/libretro.c
++++ b/platform/libretro/libretro.c
+@@ -13,6 +13,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <stdint.h>
+ 
+ #include "libretro.h"
+ #include "../../pico/pico_int.h"
+@@ -94,6 +95,13 @@ struct Pico32x Pico32x;
+ struct Pico32x Pico32x;
+ SH2 sh2s[2];
+ 
++/* VRD SDRAM dump -- fires once when scene_init_flag ($C802) goes to 1 */
++static int vrd_dump_done  = 0;
++static int vrd_dump_frame = 0;
++#define VRD_DUMP_FORCE_FRAME 2500   /* fallback: dump at this frame regardless */
++#define VRD_WRAM_SCENE_INIT  0xC802 /* set to 1 by scene_init_orch when done */
++#define VRD_SDRAM_SIZE       0x40000
++#define VRD_WRAM_SIZE        0x10000
++
+ #define VOUT_MAX_WIDTH 320
+ #define VOUT_MAX_HEIGHT 240
+ 
+@@ -2441,6 +2449,44 @@ void retro_run(void)
+    retro_input_poll_cb();
+ 
++   vrd_dump_frame++;
++
+    PicoFrame();
+ 
++   /* VRD SDRAM dump -------------------------------------------------------
++    * Trigger: scene_init_flag at 68K WRAM $C802 == 1 (set by scene_init_orch)
++    * Fallback: frame VRD_DUMP_FORCE_FRAME if the flag never fires
++    *
++    * Output files (override via env vars):
++    *   $VRD_SDRAM_DUMP  (default: sdram_dump.bin) -- 256KB SH2 SDRAM
++    *   $VRD_WRAM_DUMP   (default: wram_dump.bin)  -- 64KB 68K WRAM
++    * --------------------------------------------------------------------- */
++   if (!vrd_dump_done && Pico.is_32x && Pico32xMem != NULL) {
++      uint8_t scene_flag = Pico.ram[VRD_WRAM_SCENE_INIT];
++      int force = (vrd_dump_frame >= VRD_DUMP_FORCE_FRAME);
++
++      if (scene_flag == 1 || force) {
++         const char *sdram_path = getenv("VRD_SDRAM_DUMP");
++         const char *wram_path  = getenv("VRD_WRAM_DUMP");
++         if (!sdram_path) sdram_path = "sdram_dump.bin";
++         if (!wram_path)  wram_path  = "wram_dump.bin";
++
++         FILE *fs = fopen(sdram_path, "wb");
++         if (fs) {
++            size_t n = fwrite(Pico32xMem->sdram, 1, VRD_SDRAM_SIZE, fs);
++            fclose(fs);
++            fprintf(stderr, "[VRD dump] SDRAM -> %s (%zu B, frame %d%s)\n",
++                    sdram_path, n, vrd_dump_frame, force ? " FORCED" : "");
++         } else {
++            fprintf(stderr, "[VRD dump] ERROR: cannot open %s\n", sdram_path);
++         }
++
++         FILE *fw = fopen(wram_path, "wb");
++         if (fw) {
++            size_t n = fwrite(Pico.ram, 1, VRD_WRAM_SIZE, fw);
++            fclose(fw);
++            fprintf(stderr, "[VRD dump] WRAM  -> %s (%zu B)\n", wram_path, n);
++         } else {
++            fprintf(stderr, "[VRD dump] ERROR: cannot open %s\n", wram_path);
++         }
++
++         vrd_dump_done = 1;
++      }
++   }
++
+    if (PicoIn.AHW & PAHW_32X)
+       update_screen_32x();
