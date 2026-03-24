@@ -23,14 +23,15 @@ echo ""
 
 cd "$PICODRIVE_DIR"
 
-# Apply patch (skip if already applied)
-if git diff --quiet; then
-    echo "Applying SDRAM dump patch..."
-    git apply "$PATCH_FILE"
-    echo "✓ Patch applied"
-else
-    echo "⚠ Working tree dirty — assuming patch already applied"
+# The dump code is injected directly into platform/libretro/libretro.c
+# (patch file is kept as reference only — no apply step needed)
+if ! grep -q "VRD SDRAM dump" platform/libretro/libretro.c; then
+    echo "ERROR: libretro.c does not contain VRD dump code."
+    echo "Re-run: Edit third_party/picodrive/platform/libretro/libretro.c"
+    echo "        (see libretro_vrd_sdram_dump.patch for what to add)"
+    exit 1
 fi
+echo "✓ Dump code present in libretro.c"
 
 echo ""
 echo "Building PicoDrive libretro core..."

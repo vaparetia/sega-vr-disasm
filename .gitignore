@@ -113,3 +113,6 @@ BLOG_*.md
 
 # Large extracted data files (regenerate from ROM)
 geometry.json
+
+# Decoder output (regenerate with tools/decode_vrd_models.py)
+output/
