@@ -105,10 +105,11 @@ def parse_group_a_slot(data: bytes, rom_off: int) -> dict | None:
     }
 
 
-def parse_polygon_stream(data: bytes, vcount: int) -> list[tuple[int, int, int, int]]:
+def parse_polygon_stream(data: bytes, vcount: int) -> list[tuple[int, int, int, int, int]]:
     """
     Parse the compact polygon stream.
-    Returns list of (v0, v1, v2, v3) quad face tuples.
+    Returns list of (v0, v1, v2, v3, color) tuples where color is the XX byte
+    from the face param word 0xXX02 preceding each quad's vertex refs.
     """
     quads = []
     last_quad = None
@@ -138,15 +139,18 @@ def parse_polygon_stream(data: bytes, vcount: int) -> list[tuple[int, int, int, 
                 vrefs.append(words[i] // 16)
                 i += 1
 
+            # Color is in the face param word: 0xXX02 → XX = high byte
+            color = (w >> 8) & 0xFF
+
             if len(vrefs) == 4:
                 # Standalone quad
-                q = (vrefs[0], vrefs[1], vrefs[2], vrefs[3])
+                q = (vrefs[0], vrefs[1], vrefs[2], vrefs[3], color)
                 quads.append(q)
                 last_quad = q
             elif len(vrefs) == 2 and last_quad is not None:
                 # Strip continuation: share last 2 verts of previous quad
                 v2, v3 = last_quad[2], last_quad[3]
-                q = (v2, v3, vrefs[0], vrefs[1])
+                q = (v2, v3, vrefs[0], vrefs[1], color)
                 quads.append(q)
                 last_quad = q
             # else: ignore (0 refs = just the command word pair)
@@ -664,6 +668,79 @@ def write_group_b_images(slots: list[dict], out_dir: str) -> None:
         print(f'  Wrote {out_path} ({width}×{height})')
 
 
+def write_saturn_header(slots: list[dict], out_dir: str) -> None:
+    """
+    Write Saturn port C source + header for Group A model data.
+
+    Outputs:
+      <out_dir>/vrd_models_data.c  — static vertex/quad arrays + vrd_models[]
+      <out_dir>/vrd_models.h       — vrd_vertex_t, vrd_quad_t, vrd_model_t, extern decl
+    """
+    h_path = os.path.join(out_dir, 'vrd_models.h')
+    c_path = os.path.join(out_dir, 'vrd_models_data.c')
+
+    # ── Header ────────────────────────────────────────────────────────────────
+    with open(h_path, 'w') as f:
+        f.write('/* render/vrd_models.h — VRD Group A car model data (auto-generated). */\n')
+        f.write('#pragma once\n')
+        f.write('#include <stdint.h>\n\n')
+        f.write('/* Raw int16 XYZ vertex. Scale: raw / 8 ≈ world units.\n')
+        f.write(' * (SH2 renderer applies ×2048 to produce view-space coords;\n')
+        f.write(' * entity lateral is perspective-projected, giving raw/8 ≈ wu.) */\n')
+        f.write('typedef struct {\n')
+        f.write('    int16_t x, y, z;\n')
+        f.write('} vrd_vertex_t;\n\n')
+        f.write('/* Quad face: four vertex indices + face-param color byte (XX from 0xXX02). */\n')
+        f.write('typedef struct {\n')
+        f.write('    uint8_t v[4];   /* vertex indices into model verts array */\n')
+        f.write('    uint8_t color;  /* face param color byte */\n')
+        f.write('} vrd_quad_t;\n\n')
+        f.write('typedef struct {\n')
+        f.write('    uint8_t             n_verts;\n')
+        f.write('    uint8_t             n_quads;\n')
+        f.write('    const vrd_vertex_t *verts;\n')
+        f.write('    const vrd_quad_t   *quads;\n')
+        f.write('} vrd_model_t;\n\n')
+        f.write(f'#define VRD_MODEL_COUNT {len(slots)}\n')
+        f.write('extern const vrd_model_t vrd_models[VRD_MODEL_COUNT];\n')
+    print(f'Wrote {h_path}')
+
+    # ── Source ─────────────────────────────────────────────────────────────────
+    with open(c_path, 'w') as f:
+        f.write('/* render/vrd_models_data.c — VRD Group A car model data (auto-generated). */\n')
+        f.write('#include "vrd_models.h"\n\n')
+
+        model_names = []
+        for slot in slots:
+            idx = slot.get('slot_index', 0)
+            verts = slot['vertices']
+            quads = slot['quads']
+            name = f'slot{idx:02d}'
+            model_names.append(name)
+
+            # Vertices (raw int16, NOT scaled)
+            f.write(f'static const vrd_vertex_t {name}_verts[] = {{\n')
+            for x, y, z in verts:
+                f.write(f'    {{{x:6d}, {y:6d}, {z:6d}}},\n')
+            f.write('};\n\n')
+
+            # Quads (v0,v1,v2,v3 + color)
+            f.write(f'static const vrd_quad_t {name}_quads[] = {{\n')
+            for q in quads:
+                v0, v1, v2, v3, color = q
+                f.write(f'    {{{{ {v0:3d}, {v1:3d}, {v2:3d}, {v3:3d} }}, 0x{color:02X}}},\n')
+            f.write('};\n\n')
+
+        # Master array
+        f.write('const vrd_model_t vrd_models[VRD_MODEL_COUNT] = {\n')
+        for slot, name in zip(slots, model_names):
+            nv = slot['vertex_count']
+            nq = len(slot['quads'])
+            f.write(f'    {{ {nv:3d}, {nq:3d}, {name}_verts, {name}_quads }},\n')
+        f.write('};\n')
+    print(f'Wrote {c_path}')
+
+
 def main():
     parser = argparse.ArgumentParser(description='Extract VRD 32X car model geometry')
     parser.add_argument('--rom', default='build/vr_rebuild.32x',
@@ -678,6 +755,8 @@ def main():
                         help='Decode Group B (compressed) slots')
     parser.add_argument('--group-b-images', action='store_true',
                         help='Also write Group B slots as PPM images (4-bit pixel data)')
+    parser.add_argument('--saturn-header', metavar='DIR',
+                        help='Write saturn/src/render/vrd_models_data.c + vrd_models.h to DIR')
     args = parser.parse_args()
 
     print(f'Reading ROM: {args.rom}')
@@ -703,8 +782,8 @@ def main():
               f'{len(slot["quads"])} quads, ROM 0x{slot["rom_offset"]:X}')
         for i, q in enumerate(slot['quads']):
             v = slot['vertices']
-            coords = [v[vi] for vi in q]
-            print(f'    quad[{i}]: verts {list(q)} '
+            coords = [v[vi] for vi in q[:4]]
+            print(f'    quad[{i}]: verts {list(q[:4])} color=0x{q[4]:02X} '
                   f'→ {[(c[0],c[1],c[2]) for c in coords]}')
 
     os.makedirs(args.out, exist_ok=True)
@@ -719,6 +798,10 @@ def main():
         combined_path = os.path.join(args.out, 'all_slots.obj')
         write_combined_obj(slots, combined_path)
         print(f'Wrote combined: {combined_path}')
+
+    if args.saturn_header and slots:
+        os.makedirs(args.saturn_header, exist_ok=True)
+        write_saturn_header(slots, args.saturn_header)
 
     # Decode Group B slots if requested
     if args.group_b:

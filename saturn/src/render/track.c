@@ -16,6 +16,7 @@
 
 #include "track.h"
 #include "track_data.h"
+#include "clip.h"
 #include "../hal/vdp1.h"
 #include "../math/matrix.h"
 #include <yaul.h>
@@ -36,22 +37,29 @@
 #define TREE_W          80              /* half-width along road direction */
 
 /* -------------------------------------------------------------------------
- * Projection: view-space (cx,cy,cz) → screen (sx,sy). Returns 0 if behind.
+ * Projection: view-space (cx,cy,cz) → screen (sx,sy).
+ * z must be > 0 (guaranteed by clip_near before calling).
  * -------------------------------------------------------------------------*/
-static int project(fp16_t cx, fp16_t cy, fp16_t cz,
-                   int16_t *sx, int16_t *sy)
+static void project(fp16_t cx, fp16_t cy, fp16_t cz,
+                    int16_t *sx, int16_t *sy)
 {
         int32_t z = fp_toint(cz);
-        if (z <= 0)
-                return 0;
         *sx = (int16_t)((fp_toint(cx) * FOCAL) / z + VP_CX);
         *sy = (int16_t)((fp_toint(cy) * FOCAL) / z + VP_CY);
-        return 1;
 }
 
 /* -------------------------------------------------------------------------
- * Draw a world-space quad via view transform + perspective project.
- * Vertices A,B,C,D in CW screen order (VDP1 convention).
+ * Submit a clipped view-space polygon (n >= 3 vertices) to VDP1.
+ * Projects each vertex, checks backface cull on first triangle, then
+ * fan-submits as degenerate quads (D=C for triangles).
+ * -------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------
+ * Draw a world-space quad: transform → near-clip → project → submit.
+ *
+ * n=4 (unclipped): one quad, original AB×AD backface cull — same polygon
+ *   budget as before the clipping change.
+ * n=3 (one vertex clipped): one degenerate quad (D=C).
+ * n=5 (one vertex added): one quad + one degenerate quad.
  * -------------------------------------------------------------------------*/
 static void draw_quad(const mat4_t *view,
                       int32_t ax, int32_t ay, int32_t az,
@@ -60,27 +68,43 @@ static void draw_quad(const mat4_t *view,
                       int32_t dx, int32_t dy, int32_t dz,
                       rgb1555_t color)
 {
-        fp16_t tax, tay, taz, tbx, tby, tbz;
-        fp16_t tcx, tcy, tcz, tdx, tdy, tdz;
+        clip_pt_t v[4];
+        mat4_transform(view, fp_int(ax), fp_int(ay), fp_int(az), &v[0].x, &v[0].y, &v[0].z);
+        mat4_transform(view, fp_int(bx), fp_int(by), fp_int(bz), &v[1].x, &v[1].y, &v[1].z);
+        mat4_transform(view, fp_int(cx), fp_int(cy), fp_int(cz), &v[2].x, &v[2].y, &v[2].z);
+        mat4_transform(view, fp_int(dx), fp_int(dy), fp_int(dz), &v[3].x, &v[3].y, &v[3].z);
 
-        mat4_transform(view, fp_int(ax), fp_int(ay), fp_int(az), &tax, &tay, &taz);
-        mat4_transform(view, fp_int(bx), fp_int(by), fp_int(bz), &tbx, &tby, &tbz);
-        mat4_transform(view, fp_int(cx), fp_int(cy), fp_int(cz), &tcx, &tcy, &tcz);
-        mat4_transform(view, fp_int(dx), fp_int(dy), fp_int(dz), &tdx, &tdy, &tdz);
-
-        int16_t sax, say, sbx, sby, scx, scy, sdx, sdy;
-        if (!project(tax, tay, taz, &sax, &say)) return;
-        if (!project(tbx, tby, tbz, &sbx, &sby)) return;
-        if (!project(tcx, tcy, tcz, &scx, &scy)) return;
-        if (!project(tdx, tdy, tdz, &sdx, &sdy)) return;
-
-        /* Backface cull: CW in screen (y-down) = positive 2D cross product. */
-        int32_t ab_x = sbx - sax, ab_y = sby - say;
-        int32_t ad_x = sdx - sax, ad_y = sdy - say;
-        if ((ab_x * ad_y - ab_y * ad_x) <= 0)
+        clip_pt_t c[6];
+        int n = clip_near(v, 4, c);
+        if (n < 3)
                 return;
 
-        hal_vdp1_poly_quad(sax, say, sbx, sby, scx, scy, sdx, sdy, color);
+        int16_t sx[6], sy[6];
+        for (int i = 0; i < n; i++)
+                project(c[i].x, c[i].y, c[i].z, &sx[i], &sy[i]);
+
+        int32_t abx = sx[1] - sx[0], aby = sy[1] - sy[0];
+
+        if (n == 4) {
+                /* Unclipped: restore original AB×AD backface cull + single submit. */
+                int32_t adx = sx[3] - sx[0], ady = sy[3] - sy[0];
+                if ((abx * ady - aby * adx) <= 0)
+                        return;
+                hal_vdp1_poly_quad(sx[0], sy[0], sx[1], sy[1],
+                                   sx[2], sy[2], sx[3], sy[3], color);
+        } else {
+                /* Clipped: backface cull on first triangle, fan-submit. */
+                int32_t acx = sx[2] - sx[0], acy = sy[2] - sy[0];
+                if ((abx * acy - aby * acx) <= 0)
+                        return;
+                /* n=3: triangle as degenerate quad (D=C).
+                 * n=5: quad (0,1,2,3) + triangle (0,3,4) as degenerate quad. */
+                hal_vdp1_poly_quad(sx[0], sy[0], sx[1], sy[1],
+                                   sx[2], sy[2], sx[n > 3 ? 3 : 2], sy[n > 3 ? 3 : 2], color);
+                if (n == 5)
+                        hal_vdp1_poly_quad(sx[0], sy[0], sx[3], sy[3],
+                                           sx[4], sy[4], sx[4], sy[4], color);
+        }
 }
 
 /* -------------------------------------------------------------------------
@@ -98,30 +122,35 @@ static void draw_tree(const mat4_t *view,
         const int32_t ytop = ROAD_Y - TREE_H;
         const int32_t ybot = ROAD_Y;
 
-        fp16_t tax, tay, taz, tbx, tby, tbz;
-        fp16_t tcx, tcy, tcz, tdx, tdy, tdz;
-
         /* A=top-back  B=top-fwd  C=bot-fwd  D=bot-back */
-        mat4_transform(view, fp_int(tx - fwd_x), fp_int(ytop), fp_int(tz - fwd_z), &tax, &tay, &taz);
-        mat4_transform(view, fp_int(tx + fwd_x), fp_int(ytop), fp_int(tz + fwd_z), &tbx, &tby, &tbz);
-        mat4_transform(view, fp_int(tx + fwd_x), fp_int(ybot), fp_int(tz + fwd_z), &tcx, &tcy, &tcz);
-        mat4_transform(view, fp_int(tx - fwd_x), fp_int(ybot), fp_int(tz - fwd_z), &tdx, &tdy, &tdz);
+        clip_pt_t v[4];
+        mat4_transform(view, fp_int(tx - fwd_x), fp_int(ytop), fp_int(tz - fwd_z), &v[0].x, &v[0].y, &v[0].z);
+        mat4_transform(view, fp_int(tx + fwd_x), fp_int(ytop), fp_int(tz + fwd_z), &v[1].x, &v[1].y, &v[1].z);
+        mat4_transform(view, fp_int(tx + fwd_x), fp_int(ybot), fp_int(tz + fwd_z), &v[2].x, &v[2].y, &v[2].z);
+        mat4_transform(view, fp_int(tx - fwd_x), fp_int(ybot), fp_int(tz - fwd_z), &v[3].x, &v[3].y, &v[3].z);
 
-        int16_t sax, say, sbx, sby, scx, scy, sdx, sdy;
-        if (!project(tax, tay, taz, &sax, &say)) return;
-        if (!project(tbx, tby, tbz, &sbx, &sby)) return;
-        if (!project(tcx, tcy, tcz, &scx, &scy)) return;
-        if (!project(tdx, tdy, tdz, &sdx, &sdy)) return;
+        clip_pt_t clipped[6];
+        int n = clip_near(v, 4, clipped);
+        if (n < 3)
+                return;
 
-        /* Draw both CW and CCW windings so the tree is visible from either side. */
-        int32_t ab_x = sbx - sax, ab_y = sby - say;
-        int32_t ad_x = sdx - sax, ad_y = sdy - say;
-        if ((ab_x * ad_y - ab_y * ad_x) > 0) {
-                hal_vdp1_poly_quad(sax, say, sbx, sby, scx, scy, sdx, sdy, color);
-        } else {
-                /* Reverse winding: swap A↔B and C↔D */
-                hal_vdp1_poly_quad(sbx, sby, sax, say, sdx, sdy, scx, scy, color);
-        }
+        int16_t sx[6], sy[6];
+        for (int i = 0; i < n; i++)
+                project(clipped[i].x, clipped[i].y, clipped[i].z, &sx[i], &sy[i]);
+
+        /* Draw both CW and CCW windings so the tree is visible from either side.
+         * n=4 (unclipped): one quad. n=3/5 (clipped): one degenerate quad. */
+        int32_t abx = sx[1] - sx[0], aby = sy[1] - sy[0];
+        int32_t adx = (n == 4) ? sx[3] - sx[0] : sx[2] - sx[0];
+        int32_t ady = (n == 4) ? sy[3] - sy[0] : sy[2] - sy[0];
+        int cw = (abx * ady - aby * adx) > 0;
+        int d = (n == 4) ? 3 : (n > 3 ? 3 : 2);  /* D index (clamped for tris) */
+        if (cw)
+                hal_vdp1_poly_quad(sx[0], sy[0], sx[1], sy[1],
+                                   sx[2], sy[2], sx[d], sy[d], color);
+        else
+                hal_vdp1_poly_quad(sx[1], sy[1], sx[0], sy[0],
+                                   sx[d], sy[d], sx[2], sy[2], color);
 }
 
 /* -------------------------------------------------------------------------

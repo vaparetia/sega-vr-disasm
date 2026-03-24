@@ -29,6 +29,8 @@ SH_SRCS := \
 	src/render/scene.c \
 	src/render/track.c \
 	src/render/track_data.c \
+	src/render/model.c \
+	src/render/vrd_models_data.c \
 	src/render/vrd_palette.c \
 	src/game/car.c \
 	src/game/hud.c \

@@ -15,6 +15,8 @@
 #include "scene.h"
 #include "track.h"
 #include "track_data.h"
+#include "model.h"
+#include "vrd_models.h"
 #include "../math/matrix.h"
 #include <yaul.h>
 
@@ -195,5 +197,13 @@ void scene_render(void)
         build_view(&view, s_cam_x, s_cam_y, s_cam_z,
                    s_cam_yaw, s_cam_pitch);
 
-        track_render(&view, find_nearest_seg());
+        int near_seg = find_nearest_seg();
+        track_render(&view, near_seg);
+
+        /* Step 3 POC: render car model slot 0 at the nearest track segment.
+         * Follows the camera so the model is always visible nearby. */
+        model_render(&view, &vrd_models[0],
+                     (int32_t)track_segs[near_seg].x, ROAD_Y,
+                     (int32_t)track_segs[near_seg].z,
+                     track_segs[near_seg].heading);
 }
