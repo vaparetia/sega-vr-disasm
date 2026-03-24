@@ -400,26 +400,28 @@ Entity projection port deferred to Phase 3+ (saves only 0.1%, requires entity da
 
 ### 6.7 Phase 2B Implementation Steps
 
-| Step | Description | Files | Risk |
-|------|-------------|-------|------|
-| 2B-1 | Modify state4_epilogue: remove sh2_send_cmd ×2 + inline frame swap. Reorder: camera before cmd $3F. | code_2200.asm | Medium — core frame pipeline change |
-| 2B-2 | Expand cmd $3F handler: add geometry + sprite block copy loops (reuse cmd $22 algorithm) | cmd3f_vr60_gameframe.asm | Medium — SH2 block copy code |
-| 2B-3 | Update Makefile expected size for expanded cmd $3F | Makefile | Low |
-| 2B-4 | Build: `make clean && make all` | — | Low |
-| 2B-5 | Autoplay regression: 3600 frames (menus + race) | — | Low |
-| 2B-6 | Profile: verify sh2_send_cmd drops from 10.52% to ~0% | — | Low |
-| 2B-7 | Visual comparison: A/B screenshots at same frame count | — | Low |
+| Step | Description | Files | Risk | Status |
+|------|-------------|-------|------|--------|
+| 2B-1 | Modify state4_epilogue: remove sh2_send_cmd ×2 + inline frame swap. Reorder: camera before cmd $3F. | code_2200.asm | Medium | ✓ DONE |
+| 2B-2 | Expand cmd $3F handler: add geometry + sprite block copy loops (reuse cmd $22 algorithm) | cmd3f_vr60_gameframe.asm | Medium | ✓ DONE (176 bytes) |
+| 2B-3 | Add $(SH2_CMD3F_VR60_INC) to ROM target dependencies in Makefile | Makefile | Low | ✓ DONE |
+| 2B-4 | Build: `make clean && make all` | — | Low | ✓ DONE (Mar 24) |
+| 2B-5 | Autoplay regression: 3600 frames (menus + race) | — | Low | ✓ DONE — no crashes |
+| 2B-6 | Profile: verify sh2_send_cmd drops from 10.52% to ~0% | — | Low | ⏸ BLOCKED — patched picodrive_libretro.so lost, requires rebuild |
+| 2B-7 | Visual comparison: A/B screenshots at same frame count | — | Low | PENDING |
 
 ### 6.8 Phase 2B Acceptance Criteria
 
-- [ ] state4_epilogue has zero sh2_send_cmd calls
-- [ ] cmd $3F handler performs both block copies + entity data copy + canary
-- [ ] V-INT $54 correctly swaps frame buffer (COMM1_LO bit 0 set by cmd $3F)
-- [ ] 3600-frame autoplay passes without crashes
-- [ ] sh2_send_cmd hotspot drops from 10.52% to <1% in PC profiling
+- [x] state4_epilogue has zero sh2_send_cmd calls
+- [x] cmd $3F handler performs both block copies + entity data copy + canary
+- [x] V-INT $54 correctly swaps frame buffer (COMM1_LO bit 0 set by cmd $3F)
+- [x] 3600-frame autoplay passes without crashes
+- [ ] sh2_send_cmd hotspot drops from 10.52% to <1% in PC profiling (BLOCKED: patched picodrive needed)
 - [ ] No visual differences in A/B comparison
 - [ ] Mode transitions (race→results, menu→race) work correctly
-- [ ] Game logic frame rate unchanged (20 FPS)
+- [x] Game logic frame rate unchanged (20 FPS)
+
+**NOTE (Mar 24):** Padding bug found during Phase 2B build: `move.w #$001C,$00FF0008` uses abs.l (8 bytes, not 6) because `$00FF0008` is outside short-address range. Fixed: state4_epilogue = 24 bytes, padding = 102 bytes.
 
 ---
 
