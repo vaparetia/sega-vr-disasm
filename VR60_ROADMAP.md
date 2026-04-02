@@ -427,8 +427,84 @@ Entity projection port deferred to Phase 3+ (saves only 0.1%, requires entity da
 
 ## 7. Phase 3: Physics Port
 
-**Status: NOT STARTED**
+**Status: PRE-FIXES COMPLETE — Physics port NOT STARTED**
 **Prerequisite: Phase 2**
+
+### 7.0 Phase 3 Pre-fixes (completed 2026-04-01)
+
+#### P1: SDRAM Addressing Bug Fix — DONE
+
+**Bug:** All `$2200xxxx` addresses in `cmd3f_vr60_gameframe.asm` literal pool were
+incorrect. `$2200xxxx` = ROM Cartridge (cache-through). `$2600xxxx` = SDRAM (cache-through).
+Every SDRAM write in cmd3f had silently targeted cartridge ROM (discarded).
+
+**Fix:** Changed all four SDRAM literals to `$2600xxxx`:
+- `$2200BC00` → `$2600BC00` (mailbox)
+- `$2200C800` → `$2600C800` (entity source)
+- `$2200F20C` → `$2600F20C` (entity destination)
+- `$2200FC00` → `$2600FC00` (canary)
+
+**Evidence:** 32x-hardware-manual.md §SH2 Memory Map table:
+  `0200 0000h / 2200 0000h = ROM Cartridge`
+  `0600 0000h / 2600 0000h = SDRAM`
+
+#### P2: Controller Relay via COMM6 — DONE
+
+**Design decision — 68K cannot write SDRAM directly:**
+The 68K address space (32x-hardware-manual.md §3.5, Table 3.3) has NO SDRAM
+mapping. SDRAM is at SH2 `$06000000/$26000000` only. The manual states explicitly:
+"MEGA Drive hardware cannot map in SH2 address space." (§2.1). The only memory
+readable by both CPUs is: COMM registers (16 bytes) and Frame Buffer.
+
+**Therefore:** controller bytes must be relayed through COMM registers. COMM6 is
+chosen because it is only used by `sh2_command_sender` (menu/name-entry scenes),
+never during active racing (state 4). Evidence: all callers of `sh2_command_sender`
+are in `menu/` and `hud/` — not the racing state machine.
+
+**Implementation:**
+- `vr60_comm_trigger.asm`: Added controller byte write to COMM6 before trigger.
+  COMM6_HI = `$FFFFC971` (ai_input_flags), COMM6_LO = `$FFFFC973` (ai_direction_flags).
+- `cmd3f_vr60_gameframe.asm`: Added COMM6 read and write to SDRAM globals block
+  at `$2600BF00` (+$00 = p1_flags word = {ai_input_flags, ai_direction_flags}).
+- Added SDRAM globals block literal pool entry at `$2600BF00`.
+- Physics stub comment added after entity copy (Phase 3 implementation placeholder).
+
+**SDRAM globals block strategy (Phase 3+):**
+Other globals (track_speed_factor, gear tables, etc.) are written once during scene
+init. They will be relayed through existing cmd $3F COMM3-5 protocol extended in
+Phase 3, or through additional COMM write sequences during scene init. TBD per
+Phase 3 implementation session.
+
+#### Physics Loop Scaffold — DONE
+Stub comment added in `cmd3f_vr60_gameframe.asm` after entity copy, marking the
+location where the Phase 3 entity physics loop will be implemented.
+
+### 7.0b Phase 3 Scaffold (completed 2026-04-02)
+
+**What was built:**
+- `cmd08_physics_globals_init` (SH2, expansion ROM $301600): handles cmd $08-$0B.
+  Each call writes 8 bytes to $2600BF00 + (COMM0_LO − 8) × 8. Jump table entries
+  $08-$0B (code_20200.asm) all set to $02301600.
+- `physics_globals_send` (68K stub, code_2200): 2-byte RTS stub. Sends 4 batches of
+  globals via COMM3-6 during scene init. Real addresses TBD.
+- `physics_speed_degrade` (SH2, expansion ROM $301700): port of speed_degrade_calc
+  ($00859A, 42B→64B). Pure arithmetic leaf function. R4=entity ptr.
+- `physics_speed_clamp` (SH2, expansion ROM $301800): port of entity_speed_clamp
+  ($009B12, 32B→64B). MULS.W + SHAD arithmetic. R4=entity ptr.
+
+**Key design decision — cmd $08 not cmd $40:**
+The Master SH2 jump table is exactly 64 entries ($00-$3F). File offsets:
+`SDRAM_table_entry = file_offset + $05FE0000`. Cmd $3F (index 63) is the last
+entry ($02087C in code_20200.asm). Cmd $40 would land beyond the table at $020880
+which is actual handler code. Used cmd $08 (free slot) instead.
+
+**Deferred items:**
+- race_scene_init hook: code_4200 has no free bytes (exactly full). Cannot add
+  even 4 bytes for a JSR without overflowing into code_6200. The hook will need
+  either a trampoline (replace existing instruction) or a different hook point.
+- Physics loop wiring into cmd $3F: stub placeholder exists but loop not implemented.
+- Real physics parameter addresses for physics_globals_send batches: TBD from
+  physics function disassembly (see §7.4 RAM Variables table for addresses).
 
 ### 7.1 Goal
 
