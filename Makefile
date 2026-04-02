@@ -41,7 +41,7 @@ dirs:
 
 # Build the ROM from original sections/
 # Depends on SH2 assembly to ensure generated includes exist
-$(OUTPUT_ROM): $(M68K_SRC) $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC001_INC) $(SH2_FUNC002_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC) $(SH2_CMD27_DRAIN_INC) $(SH2_SLAVE_WRAPPER_V2_INC) $(SH2_HANDLER_FRAME_SYNC_INC) $(SH2_MASTER_DISPATCH_HOOK_INC) $(SH2_SLAVE_TEST_FUNC_INC) $(SH2_SHADOW_PATH_WRAPPER_INC) $(SH2_CMDINT_HANDLER_INC) $(SH2_QUEUE_PROCESSOR_INC) $(SH2_GEN_DRAIN_INC) $(SH2_CMD3F_VR60_INC)
+$(OUTPUT_ROM): $(M68K_SRC) $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC001_INC) $(SH2_FUNC002_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC) $(SH2_CMD27_DRAIN_INC) $(SH2_SLAVE_WRAPPER_V2_INC) $(SH2_HANDLER_FRAME_SYNC_INC) $(SH2_MASTER_DISPATCH_HOOK_INC) $(SH2_SLAVE_TEST_FUNC_INC) $(SH2_SHADOW_PATH_WRAPPER_INC) $(SH2_CMDINT_HANDLER_INC) $(SH2_QUEUE_PROCESSOR_INC) $(SH2_GEN_DRAIN_INC) $(SH2_CMD3F_VR60_INC) $(SH2_CMD08_PHYS_INIT_INC) $(SH2_PHYS_DEGRADE_INC) $(SH2_PHYS_CLAMP_INC)
 	@echo "==> Assembling 68000 code (from sections/)..."
 	$(ASM) $(ASMFLAGS) -o $@ $<
 	@echo "==> Build complete: $@"
@@ -564,10 +564,25 @@ SH2_CMD3F_VR60_SRC = $(SH2_EXP_DIR)/cmd3f_vr60_gameframe.asm
 SH2_CMD3F_VR60_BIN = $(BUILD_DIR)/sh2/cmd3f_vr60_gameframe.bin
 SH2_CMD3F_VR60_INC = $(SH2_GEN_DIR)/cmd3f_vr60_gameframe.inc
 
+# cmd08_physics_globals_init (VR60 Phase 3: physics globals relay handler)
+SH2_CMD08_PHYS_INIT_SRC = $(SH2_EXP_DIR)/cmd08_physics_globals_init.asm
+SH2_CMD08_PHYS_INIT_BIN = $(BUILD_DIR)/sh2/cmd08_physics_globals_init.bin
+SH2_CMD08_PHYS_INIT_INC = $(SH2_GEN_DIR)/cmd08_physics_globals_init.inc
+
+# physics_speed_degrade (VR60 Phase 3: SH2 port of speed_degrade_calc)
+SH2_PHYS_DEGRADE_SRC = $(SH2_EXP_DIR)/physics_speed_degrade.asm
+SH2_PHYS_DEGRADE_BIN = $(BUILD_DIR)/sh2/physics_speed_degrade.bin
+SH2_PHYS_DEGRADE_INC = $(SH2_GEN_DIR)/physics_speed_degrade.inc
+
+# physics_speed_clamp (VR60 Phase 3: SH2 port of entity_speed_clamp)
+SH2_PHYS_CLAMP_SRC = $(SH2_EXP_DIR)/physics_speed_clamp.asm
+SH2_PHYS_CLAMP_BIN = $(BUILD_DIR)/sh2/physics_speed_clamp.bin
+SH2_PHYS_CLAMP_INC = $(SH2_GEN_DIR)/physics_speed_clamp.inc
+
 .PHONY: sh2-assembly sh2-verify
 
 # Build all SH2 assembly sources
-sh2-assembly: dirs $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC040_CASES_INC) $(SH2_FUNC040_UTIL_INC) $(SH2_FUNC041_INC) $(SH2_FUNC042_INC) $(SH2_FUNC043_INC) $(SH2_FUNC044_INC) $(SH2_FUNC045_INC) $(SH2_FUNC046_INC) $(SH2_FUNC047_INC) $(SH2_FUNC048_INC) $(SH2_FUNC049_INC) $(SH2_FUNC050_INC) $(SH2_FUNC051_INC) $(SH2_FUNC052_INC) $(SH2_FUNC053_INC) $(SH2_FUNC054_INC) $(SH2_FUNC055_INC) $(SH2_FUNC067_INC) $(SH2_FUNC068_INC) $(SH2_FUNC069_INC) $(SH2_FUNC070_INC) $(SH2_FUNC071_INC) $(SH2_FUNC072_INC) $(SH2_FUNC073_INC) $(SH2_FUNC074_INC) $(SH2_FUNC075_INC) $(SH2_FUNC076_INC) $(SH2_FUNC077_INC) $(SH2_FUNC078_INC) $(SH2_FUNC079_INC) $(SH2_FUNC080_INC) $(SH2_FUNC081_INC) $(SH2_FUNC082_INC) $(SH2_FUNC083_INC) $(SH2_FUNC084_INC) $(SH2_FUNC085_INC) $(SH2_FUNC086_INC) $(SH2_FUNC087_INC) $(SH2_FUNC088_INC) $(SH2_FUNC089_INC) $(SH2_FUNC090_INC) $(SH2_FUNC091_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC001_INC) $(SH2_FUNC002_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC) $(SH2_CMD27_DRAIN_INC) $(SH2_SLAVE_WRAPPER_V2_INC) $(SH2_HANDLER_FRAME_SYNC_INC) $(SH2_MASTER_DISPATCH_HOOK_INC) $(SH2_SLAVE_TEST_FUNC_INC) $(SH2_SHADOW_PATH_WRAPPER_INC) $(SH2_CMDINT_HANDLER_INC) $(SH2_QUEUE_PROCESSOR_INC) $(SH2_COMM7_CHECK_INC) $(SH2_GEN_DRAIN_INC) $(SH2_CMD22_SINGLE_SHOT_INC) $(SH2_CMD25_SINGLE_SHOT_INC) $(SH2_VIS_BITMASK_INC) $(SH2_CMD3F_VR60_INC)
+sh2-assembly: dirs $(SH2_FUNC000_INC) $(SH2_FUNC022_INC) $(SH2_FUNC017_INC) $(SH2_FUNC018_INC) $(SH2_FUNC019_INC) $(SH2_FUNC020_INC) $(SH2_FUNC021_ORIG_INC) $(SH2_FUNC023_INC) $(SH2_FUNC040_INC) $(SH2_FUNC040_CASES_INC) $(SH2_FUNC040_UTIL_INC) $(SH2_FUNC041_INC) $(SH2_FUNC042_INC) $(SH2_FUNC043_INC) $(SH2_FUNC044_INC) $(SH2_FUNC045_INC) $(SH2_FUNC046_INC) $(SH2_FUNC047_INC) $(SH2_FUNC048_INC) $(SH2_FUNC049_INC) $(SH2_FUNC050_INC) $(SH2_FUNC051_INC) $(SH2_FUNC052_INC) $(SH2_FUNC053_INC) $(SH2_FUNC054_INC) $(SH2_FUNC055_INC) $(SH2_FUNC067_INC) $(SH2_FUNC068_INC) $(SH2_FUNC069_INC) $(SH2_FUNC070_INC) $(SH2_FUNC071_INC) $(SH2_FUNC072_INC) $(SH2_FUNC073_INC) $(SH2_FUNC074_INC) $(SH2_FUNC075_INC) $(SH2_FUNC076_INC) $(SH2_FUNC077_INC) $(SH2_FUNC078_INC) $(SH2_FUNC079_INC) $(SH2_FUNC080_INC) $(SH2_FUNC081_INC) $(SH2_FUNC082_INC) $(SH2_FUNC083_INC) $(SH2_FUNC084_INC) $(SH2_FUNC085_INC) $(SH2_FUNC086_INC) $(SH2_FUNC087_INC) $(SH2_FUNC088_INC) $(SH2_FUNC089_INC) $(SH2_FUNC090_INC) $(SH2_FUNC091_INC) $(SH2_FUNC032_INC) $(SH2_FUNC011_INC) $(SH2_FUNC012_INC) $(SH2_FUNC013_INC) $(SH2_FUNC014_015_INC) $(SH2_FUNC024_INC) $(SH2_FUNC025_INC) $(SH2_FUNC026_INC) $(SH2_FUNC001_INC) $(SH2_FUNC002_INC) $(SH2_FUNC003_004_INC) $(SH2_FUNC029_030_031_INC) $(SH2_FUNC033_INC) $(SH2_FUNC034_INC) $(SH2_FUNC036_INC) $(SH2_FUNC037_038_039_INC) $(SH2_FUNC005_INC) $(SH2_FUNC007_INC) $(SH2_FUNC006_INC) $(SH2_FUNC008_INC) $(SH2_FUNC016_INC) $(SH2_FUNC009_INC) $(SH2_FUNC010_INC) $(SH2_FUNC065_INC) $(SH2_FUNC066_INC) $(SH2_FUNC021_OPT_INC) $(SH2_BATCH_COPY_INC) $(SH2_CMD27_DRAIN_INC) $(SH2_SLAVE_WRAPPER_V2_INC) $(SH2_HANDLER_FRAME_SYNC_INC) $(SH2_MASTER_DISPATCH_HOOK_INC) $(SH2_SLAVE_TEST_FUNC_INC) $(SH2_SHADOW_PATH_WRAPPER_INC) $(SH2_CMDINT_HANDLER_INC) $(SH2_QUEUE_PROCESSOR_INC) $(SH2_COMM7_CHECK_INC) $(SH2_GEN_DRAIN_INC) $(SH2_CMD22_SINGLE_SHOT_INC) $(SH2_CMD25_SINGLE_SHOT_INC) $(SH2_VIS_BITMASK_INC) $(SH2_CMD3F_VR60_INC) $(SH2_CMD08_PHYS_INIT_INC) $(SH2_PHYS_DEGRADE_INC) $(SH2_PHYS_CLAMP_INC)
 
 # Build data_copy binary from source (requires linker script for PC-relative addressing)
 $(SH2_FUNC000_BIN): $(SH2_FUNC000_SRC) $(SH2_FUNC000_LDS) | dirs
@@ -2223,6 +2238,57 @@ $(SH2_CMD3F_VR60_INC): $(SH2_CMD3F_VR60_BIN)
 	@mkdir -p $(SH2_GEN_DIR)
 	@echo "==> Generating dc.w include: cmd3f_vr60_gameframe.inc..."
 	@echo "; Auto-generated from $(SH2_CMD3F_VR60_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build cmd08_physics_globals_init binary from source (VR60 Phase 3)
+$(SH2_CMD08_PHYS_INIT_BIN): $(SH2_CMD08_PHYS_INIT_SRC) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: cmd08_physics_globals_init..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/cmd08_physics_globals_init.o $<
+	$(SH2_OBJCOPY) -O binary $(BUILD_DIR)/sh2/cmd08_physics_globals_init.o $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+$(SH2_CMD08_PHYS_INIT_INC): $(SH2_CMD08_PHYS_INIT_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: cmd08_physics_globals_init.inc..."
+	@echo "; Auto-generated from $(SH2_CMD08_PHYS_INIT_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build physics_speed_degrade binary from source (VR60 Phase 3)
+$(SH2_PHYS_DEGRADE_BIN): $(SH2_PHYS_DEGRADE_SRC) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: physics_speed_degrade..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/physics_speed_degrade.o $<
+	$(SH2_OBJCOPY) -O binary $(BUILD_DIR)/sh2/physics_speed_degrade.o $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+$(SH2_PHYS_DEGRADE_INC): $(SH2_PHYS_DEGRADE_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: physics_speed_degrade.inc..."
+	@echo "; Auto-generated from $(SH2_PHYS_DEGRADE_SRC)" > $@
+	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
+	@echo "" >> $@
+	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@
+	@echo "    Output: $@ ($$(wc -l < $@) lines)"
+
+# Build physics_speed_clamp binary from source (VR60 Phase 3)
+$(SH2_PHYS_CLAMP_BIN): $(SH2_PHYS_CLAMP_SRC) | dirs
+	@mkdir -p $(BUILD_DIR)/sh2
+	@echo "==> Assembling SH2: physics_speed_clamp..."
+	$(SH2_AS) $(SH2_ASFLAGS) -o $(BUILD_DIR)/sh2/physics_speed_clamp.o $<
+	$(SH2_OBJCOPY) -O binary $(BUILD_DIR)/sh2/physics_speed_clamp.o $@
+	@echo "    Output: $@ ($$(wc -c < $@) bytes)"
+
+$(SH2_PHYS_CLAMP_INC): $(SH2_PHYS_CLAMP_BIN)
+	@mkdir -p $(SH2_GEN_DIR)
+	@echo "==> Generating dc.w include: physics_speed_clamp.inc..."
+	@echo "; Auto-generated from $(SH2_PHYS_CLAMP_SRC)" > $@
 	@echo "; DO NOT EDIT - regenerate with 'make sh2-assembly'" >> $@
 	@echo "" >> $@
 	@xxd -p $< | fold -w4 | awk '{print "        dc.w    $$" toupper($$1)}' >> $@

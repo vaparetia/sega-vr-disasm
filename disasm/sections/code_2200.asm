@@ -155,8 +155,10 @@ state4_epilogue:
         rts
 
 ; Code = 6 (JMP) + 46 (snapshot) + 38 (avg) + 24 (epilogue) = 114 bytes.
-; Padding = 216 - 114 = 102 bytes.
-        dcb.b   102,$FF
+; physics_globals_send stub (Phase 3 scaffold) = 2 bytes.
+; Padding = 216 - 114 - 2 = 100 bytes.
+        include "modules/68k/sh2/physics_globals_send.asm"
+        dcb.b   100,$FF
         include "modules/68k/game/collision/object_proximity_check_jump_table_dispatch.asm"
         include "modules/68k/game/state/conditional_return_on_disp_flag.asm"
         include "modules/68k/game/collision/proximity_check_with_sine_billboard.asm"

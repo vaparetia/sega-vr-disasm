@@ -723,14 +723,14 @@ vdp_wait_test:                   ; $02050C
         dc.w    $1A0C        ; $02079A
         dc.w    $0600        ; $02079C
         dc.w    $0490        ; $02079E
-        dc.w    $0600        ; $0207A0
-        dc.w    $0490        ; $0207A2
-        dc.w    $0600        ; $0207A4
-        dc.w    $0490        ; $0207A6
-        dc.w    $0600        ; $0207A8
-        dc.w    $0490        ; $0207AA
-        dc.w    $0600        ; $0207AC
-        dc.w    $0490        ; $0207AE
+        dc.w    $0230        ; $0207A0  cmd $08 → expansion ROM $02301600 (VR60 Phase 3 physics globals init)
+        dc.w    $1600        ; $0207A2
+        dc.w    $0230        ; $0207A4  cmd $09 → expansion ROM $02301600
+        dc.w    $1600        ; $0207A6
+        dc.w    $0230        ; $0207A8  cmd $0A → expansion ROM $02301600
+        dc.w    $1600        ; $0207AA
+        dc.w    $0230        ; $0207AC  cmd $0B → expansion ROM $02301600
+        dc.w    $1600        ; $0207AE
         dc.w    $0600        ; $0207B0
         dc.w    $0490        ; $0207B2
         dc.w    $0600        ; $0207B4

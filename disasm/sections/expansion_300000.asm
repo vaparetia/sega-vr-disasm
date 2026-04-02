@@ -31,7 +31,7 @@
 ; FIXED: Moved counters from COMM4/COMM5/COMM6 to dedicated RAM to avoid conflicts
 ;        Original game uses COMM4-COMM6 for command protocol
 ;
-; MEMORY LAYOUT (status as of March 2026):
+; MEMORY LAYOUT (status as of April 2026):
 ;   0x300000-0x300027  Padding (40 bytes)
 ;   0x300028-0x30003F  handler_frame_sync (22 bytes)           — DORMANT (B-006 reverted)
 ;   0x300050-0x30007B  master_dispatch_hook (44 bytes)         — DORMANT (B-006 reverted)
@@ -52,7 +52,12 @@
 ;   0x3011A0-0x3011DF  vis_bitmask_handler (64 bytes)          — DORMANT (S-1c reverted, JT restored)
 ;   0x3011E0-0x30123F  vertex_transform_optimized (96 bytes)  — ACTIVE  (S-6 Phase A, trampoline $0234C8)
 ;   0x301300-0x30148F  coord_transform_batched (388 bytes)   — ACTIVE  (S-6 Phase B, trampolines $02338A-$02349F)
-;   0x301490-0x3FFFFF  Free space (remaining ~1018KB)
+;   0x301500-0x3015BB  cmd3f_vr60_gameframe (188 bytes)       — ACTIVE  (VR60 Phase 2B/3 pre-fix, JT $02087C)
+;   --- VR60 Phase 3 ---
+;   0x301600-0x30163F  cmd08_physics_globals_init (~56 bytes) — ACTIVE  (VR60 Phase 3, JT $08-$0B)
+;   0x301700-0x30173F  physics_speed_degrade (~56 bytes)      — ACTIVE  (VR60 Phase 3, SH2 port)
+;   0x301800-0x30183F  physics_speed_clamp (~48 bytes)        — ACTIVE  (VR60 Phase 3, SH2 port)
+;   0x301840-0x3FFFFF  Free space (remaining ~1017KB)
 ;
 ; Shared Data Structures (cache-through SDRAM, NOT in expansion ROM):
 ;   0x2203E000-0x2203E00F  Parameter block (16 bytes: R14, R7, R8, R5)
@@ -420,7 +425,48 @@ cmd3f_vr60_gameframe:
         include "sh2/generated/cmd3f_vr60_gameframe.inc"
 
 ; ============================================================================
-; REMAINING EXPANSION ROM SPACE (from ~0x301530)
+; CMD08 PHYSICS GLOBALS INIT: 0x301600 — STATUS: ACTIVE (VR60 Phase 3)
+; ============================================================================
+; Master SH2 handler for physics globals relay. Handles cmd $08-$0B.
+; Each call writes 8 bytes to $2600BF00 + (cmd_index - 8) × 8.
+; Called 4 times during race scene init by 68K physics_globals_send.
+;
+; Jump table entries: $0207A0/$A2/$A4/$A6/$A8/$AA/$AC/$AE → $02301600
+;
+; See: disasm/sh2/expansion/cmd08_physics_globals_init.asm for source
+;
+        dcb.b   ($301600 - *), $FF      ; Pad to 0x301600
+cmd08_physics_globals_init:
+        include "sh2/generated/cmd08_physics_globals_init.inc"
+
+; ============================================================================
+; PHYSICS SPEED DEGRADE: 0x301700 — STATUS: ACTIVE (VR60 Phase 3)
+; ============================================================================
+; SH2 port of speed_degrade_calc (68K $00859A, 42 bytes).
+; Entry: R4 = entity base ptr (SDRAM cache-through).
+; Reads entity+4, writes entity+$BC. Pure arithmetic, leaf func.
+;
+; See: disasm/sh2/expansion/physics_speed_degrade.asm for source
+;
+        dcb.b   ($301700 - *), $FF      ; Pad to 0x301700
+physics_speed_degrade:
+        include "sh2/generated/physics_speed_degrade.inc"
+
+; ============================================================================
+; PHYSICS SPEED CLAMP: 0x301800 — STATUS: ACTIVE (VR60 Phase 3)
+; ============================================================================
+; SH2 port of entity_speed_clamp (68K $009B12, 32 bytes).
+; Entry: R4 = entity base ptr (SDRAM cache-through).
+; Reads entity+6, $A8, $A; writes entity+4. Pure arithmetic.
+;
+; See: disasm/sh2/expansion/physics_speed_clamp.asm for source
+;
+        dcb.b   ($301800 - *), $FF      ; Pad to 0x301800
+physics_speed_clamp:
+        include "sh2/generated/physics_speed_clamp.inc"
+
+; ============================================================================
+; REMAINING EXPANSION ROM SPACE (from ~0x301840)
 ; ============================================================================
 ; Pad to $3F0000 (960KB) instead of $400000 (1MB) to avoid PicoDrive
 ; emulator bug triggered by ROM files > ~0x3F1F40 bytes.
