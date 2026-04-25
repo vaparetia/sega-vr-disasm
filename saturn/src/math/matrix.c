@@ -120,8 +120,8 @@ void mat4_rotate_y(mat4_t *out, int a)
         fp16_t c = mat_cos(a);
         mat4_identity(out);
         out->m[0][0] =  c;
-        out->m[0][2] =  s;
-        out->m[2][0] = -s;
+        out->m[0][2] = -s;
+        out->m[2][0] =  s;
         out->m[2][2] =  c;
 }
 
