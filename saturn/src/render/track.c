@@ -207,8 +207,8 @@ static void seg_edges(int idx,
  * -------------------------------------------------------------------------*/
 void track_render(const mat4_t *view, int start_seg)
 {
-        static const rgb1555_t COL_ROAD_A   = RGB1555(1, 13, 13, 13);
-        static const rgb1555_t COL_ROAD_B   = RGB1555(1,  6,  6,  6);
+        static const rgb1555_t COL_ROAD_A   = RGB1555(1, 20, 20, 20);
+        static const rgb1555_t COL_ROAD_B   = RGB1555(1, 16, 16, 16);
         static const rgb1555_t COL_GRASS_A  = RGB1555(1,  4, 18,  4);
         static const rgb1555_t COL_GRASS_B  = RGB1555(1,  2, 12,  2);
         static const rgb1555_t COL_CURB_RED = RGB1555(1, 26,  2,  2);

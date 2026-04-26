@@ -57,19 +57,14 @@ main(void)
                 scene_render();
                 hal_vdp1_end();
 
-                /* Camera debug overlay (free-camera mode).
-                 * Shows world position, heading, and pitch so track geometry
-                 * can be verified as the camera flies around. */
                 dbgio_printf("\033[H\033[2J"
-                    "X:%5d  Z:%5d  Y:%5d\n"
-                    "Yaw:%3d  Pitch:%3d\n"
-                    "UP/DN=fly  LR=turn\n"
-                    "A/B=alt    C/Z=pitch",
+                    "Spd:%3d  Seg:%4d\n"
+                    "X:%5d  Z:%5d\n"
+                    "A=gas  B=brake  LR=steer",
+                    fp_toint(scene_car_speed()),
+                    scene_car_seg(),
                     scene_cam_x_int(),
-                    scene_cam_z_int(),
-                    scene_cam_y_int(),
-                    scene_cam_yaw(),
-                    scene_cam_pitch());
+                    scene_cam_z_int());
                 dbgio_flush();
 
                 vdp2_sync();

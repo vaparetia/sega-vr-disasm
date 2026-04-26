@@ -82,16 +82,18 @@ void car_update(const smpc_peripheral_digital_t *pad)
                         s_speed = 0;
         }
 
-        /* Lateral steering (d-pad left/right). */
-        if (btn & PERIPHERAL_DIGITAL_LEFT) {
-                s_lat -= CAR_LAT_SPEED;
-                if (s_lat < -fp_int(TRACK_ROAD_HW))
-                        s_lat = -fp_int(TRACK_ROAD_HW);
-        }
-        if (btn & PERIPHERAL_DIGITAL_RIGHT) {
-                s_lat += CAR_LAT_SPEED;
-                if (s_lat > fp_int(TRACK_ROAD_HW))
-                        s_lat = fp_int(TRACK_ROAD_HW);
+        /* Lateral steering: only while moving. */
+        if (s_speed > 0) {
+                if (btn & PERIPHERAL_DIGITAL_LEFT) {
+                        s_lat -= CAR_LAT_SPEED;
+                        if (s_lat < -fp_int(TRACK_ROAD_HW))
+                                s_lat = -fp_int(TRACK_ROAD_HW);
+                }
+                if (btn & PERIPHERAL_DIGITAL_RIGHT) {
+                        s_lat += CAR_LAT_SPEED;
+                        if (s_lat > fp_int(TRACK_ROAD_HW))
+                                s_lat = fp_int(TRACK_ROAD_HW);
+                }
         }
 
         /* Advance along track. */

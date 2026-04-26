@@ -77,19 +77,14 @@ void model_render(const mat4_t *view,
                 for (int i = 0; i < n; i++)
                         project(clipped[i].x, clipped[i].y, clipped[i].z, &sx[i], &sy[i]);
 
-                int32_t abx = sx[1] - sx[0], aby = sy[1] - sy[0];
                 rgb1555_t col = face_color(q->color);
 
+                /* Backface cull disabled: winding order in VRD polygon stream is
+                 * CCW in our screen space. Render all faces until winding is resolved. */
                 if (n == 4) {
-                        int32_t adx = sx[3] - sx[0], ady = sy[3] - sy[0];
-                        if ((abx * ady - aby * adx) <= 0)
-                                continue;
                         hal_vdp1_poly_quad(sx[0], sy[0], sx[1], sy[1],
                                            sx[2], sy[2], sx[3], sy[3], col);
                 } else {
-                        int32_t acx = sx[2] - sx[0], acy = sy[2] - sy[0];
-                        if ((abx * acy - aby * acx) <= 0)
-                                continue;
                         hal_vdp1_poly_quad(sx[0], sy[0], sx[1], sy[1],
                                            sx[2], sy[2], sx[n > 3 ? 3 : 2], sy[n > 3 ? 3 : 2], col);
                         if (n == 5)

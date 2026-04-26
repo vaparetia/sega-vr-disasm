@@ -9,9 +9,11 @@
 #pragma once
 #include "../math/matrix.h"
 
-/* Minimum view-space depth. Chosen so that extreme in-frame geometry
- * (±1500 wu lateral at FOCAL=200) projects to < 30000 px (int16 safe). */
-#define NEAR_Z  8
+/* Minimum view-space depth. At z=8, road edges (±160 wu) project to ±4000 px,
+ * which is within int16 range but causes VDP1 rasterisation to fail on the
+ * Saturn hardware. z=100 keeps projections within ±320 px (on-screen or
+ * barely off-screen), which VDP1 handles correctly. */
+#define NEAR_Z  100
 
 typedef struct { fp16_t x, y, z; } clip_pt_t;
 
