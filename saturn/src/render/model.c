@@ -11,6 +11,7 @@
 
 #include "model.h"
 #include "clip.h"
+#include "vrd_palette.h"
 #include "../hal/vdp1.h"
 #include <yaul.h>
 
@@ -29,12 +30,12 @@ static void project(fp16_t cx, fp16_t cy, fp16_t cz,
         *sy = (int16_t)((fp_toint(cy) * FOCAL) / z + VP_CY);
 }
 
-/* Map face-param color byte (0x10–0x20 range in VRD data) to rgb1555.
- * Uses a gray ramp as a placeholder until the real palette is mapped. */
+/* Map face-param color byte to rgb1555 via the extracted VRD palette (palette 0). */
 static rgb1555_t face_color(uint8_t c)
 {
-        uint8_t v = (uint8_t)((c >> 1) & 0x1F);
-        return RGB1555(1, v, v, v);
+        rgb1555_t col;
+        col.raw = g_vrd_palette[0][c & 0x7F];
+        return col;
 }
 
 void model_render(const mat4_t *view,
@@ -79,12 +80,18 @@ void model_render(const mat4_t *view,
 
                 rgb1555_t col = face_color(q->color);
 
-                /* Backface cull disabled: winding order in VRD polygon stream is
-                 * CCW in our screen space. Render all faces until winding is resolved. */
+                int32_t abx = sx[1] - sx[0], aby = sy[1] - sy[0];
                 if (n == 4) {
+                        int32_t adx = sx[3] - sx[0], ady = sy[3] - sy[0];
+                        if ((abx * ady - aby * adx) <= 0)
+                                continue;
                         hal_vdp1_poly_quad(sx[0], sy[0], sx[1], sy[1],
                                            sx[2], sy[2], sx[3], sy[3], col);
                 } else {
+                        /* Clipped: backface cull on first triangle, fan-submit. */
+                        int32_t acx = sx[2] - sx[0], acy = sy[2] - sy[0];
+                        if ((abx * acy - aby * acx) <= 0)
+                                continue;
                         hal_vdp1_poly_quad(sx[0], sy[0], sx[1], sy[1],
                                            sx[2], sy[2], sx[n > 3 ? 3 : 2], sy[n > 3 ? 3 : 2], col);
                         if (n == 5)

@@ -8,10 +8,11 @@
  *   A=far-outer-left, B=far-outer-right, C=near-outer-right, D=near-outer-left
  * (CW in screen space with y-down = visible from above/front camera).
  *
- * VDP1 polygon budget (trees disabled for full-track mode):
- *   128 bands × 5 quads (grass L/R, curb L/R, road) = 640
- *    64 center-stripe dashes                          =  64
- *   Total: 704  (CMDT_MAX_POLYS raised to 1024 in vdp1.c)
+ * VDP1 polygon budget:
+ *    64 bands × 5 quads (grass L/R, curb L/R, road) = 320
+ *    32 center-stripe dashes                         =  32
+ *    32 odd-band tree pairs × 2 trees × ≤2 quads    = ≤128
+ *   Total: ≤480  (CMDT_MAX_POLYS = 1024 in vdp1.c)
  */
 
 #include "track.h"
@@ -25,7 +26,7 @@
 #define VP_CY          112
 #define FOCAL          200
 
-#define N_BANDS        128   /* bands rendered per frame; 128×8=1024 = full loop */
+#define N_BANDS         64   /* bands rendered per frame; 64×8=512 segs = ~5000wu draw distance */
 #define SEGS_PER_BAND    8   /* track segments per band */
 #define GRASS_HW       160   /* grass half-width from road center (world units) */
 #define CURB_W          10   /* curb width (world units) */
@@ -282,8 +283,22 @@ void track_render(const mat4_t *view, int start_seg)
                                   COL_STRIPE);
                 }
 
-                /* Trees disabled: N_BANDS=128 uses the full polygon budget for
-                 * road geometry.  Re-enable when N_BANDS is reduced. */
-                (void)tree_col;
+                /* Trees: every other band, billboard pair flanking the road. */
+                if (i & 1) {
+                        int mid = (ni + SEGS_PER_BAND / 2) & (TRACK_N_SEGS - 1);
+                        int h       = track_segs[mid].heading;
+                        int32_t tx  = track_segs[mid].x;
+                        int32_t tz  = track_segs[mid].z;
+                        fp16_t cosh = mat_cos(h);
+                        fp16_t sinh = mat_sin(h);
+                        /* Forward direction (along road) for tree width. */
+                        int32_t fwd_x = fp_toint(fp_mul(fp_int(TREE_W), sinh));
+                        int32_t fwd_z = fp_toint(fp_mul(fp_int(TREE_W), cosh));
+                        /* Perpendicular (left/right of road) for lateral offset. */
+                        int32_t perp_x = fp_toint(fp_mul(fp_int(TREE_SIDE), cosh));
+                        int32_t perp_z = fp_toint(fp_mul(fp_int(TREE_SIDE), -sinh));
+                        draw_tree(view, tx - perp_x, tz - perp_z, fwd_x, fwd_z, tree_col);
+                        draw_tree(view, tx + perp_x, tz + perp_z, fwd_x, fwd_z, tree_col);
+                }
         }
 }
